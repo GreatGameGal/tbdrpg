@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CUpgrade id="AbsorbMana">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundarmorlevel3.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="ActiveArmor">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-feedback-color.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,ShieldsMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,BabyDragon,ShieldsMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,TeenDragon,ShieldsMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,LegendaryDragon,ShieldsMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,MasterDragon,ShieldsMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,BabyDragon,ShieldRegenRate[0]" Value="0.500000"/>
+        <EffectArray Reference="Unit,BabyDragon,ShieldArmor[0]" Value="1"/>
+        <EffectArray Reference="Unit,AdultDragon,ShieldArmor[0]" Value="1"/>
+        <EffectArray Reference="Unit,AdultDragon,ShieldRegenRate[0]" Value="0.500000"/>
+        <EffectArray Reference="Unit,LegendaryDragon,ShieldArmor[0]" Value="1"/>
+        <EffectArray Reference="Unit,LegendaryDragon,ShieldRegenRate[0]" Value="0.500000"/>
+        <EffectArray Reference="Unit,MasterDragon,ShieldArmor[0]" Value="1"/>
+        <EffectArray Reference="Unit,MasterDragon,ShieldRegenRate[0]" Value="0.500000"/>
+        <EffectArray Reference="Unit,TeenDragon,ShieldArmor[0]" Value="1"/>
+        <EffectArray Reference="Unit,TeenDragon,ShieldRegenRate[0]" Value="0.500000"/>
+        <EffectArray Reference="Unit,BabyIceDragon,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,BabyIceDragon,ShieldsMax" Value="10"/>
+        <EffectArray Reference="Unit,BabyIceDragon,ShieldRegenRate" Value="0.500000"/>
+        <EffectArray Reference="Unit,AdultIceDragon,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,AdultIceDragon,ShieldsMax" Value="10"/>
+        <EffectArray Reference="Unit,AdultIceDragon,ShieldRegenRate" Value="0.500000"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,ShieldsMax" Value="10"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,ShieldRegenRate" Value="0.500000"/>
+        <EffectArray Reference="Unit,MasterIceDragon,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,MasterIceDragon,ShieldsMax" Value="10"/>
+        <EffectArray Reference="Unit,MasterIceDragon,ShieldRegenRate" Value="0.500000"/>
+        <EffectArray Reference="Unit,TeenIceDragon,ShieldArmor" Value="1"/>
+        <EffectArray Reference="Unit,TeenIceDragon,ShieldsMax" Value="10"/>
+        <EffectArray Reference="Unit,TeenIceDragon,ShieldRegenRate" Value="0.500000"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="CriticalCrepitus">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-explode-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="DarkDissulto">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-generatecreep-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="DuelWield">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-contaminate-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="ElevatedAccuracy">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Dragon Songs\btn-ability-protoss-sightofadun.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Weapon,SremagsisTentacles,Range[0]" Value="0.5"/>
+        <EffectArray Reference="Weapon,OblivionClaws,Range[0]" Value="0.15"/>
+        <EffectArray Reference="Weapon,HerosMight,Range[0]" Value="0.6"/>
+        <EffectArray Reference="Weapon,BasicSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,BoneSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,BronzeSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,CarrionNeedles,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,CopperSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,DeadlySpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,DiamondSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,FlimsySpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,ForbiddenSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,GodlySpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,GoldSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,IronSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,LegendarySpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,PlatinumSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,SacredSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,SilverSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,SteelSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,TitaniumSpines,Range" Value="0.5"/>
+        <EffectArray Reference="Weapon,OblivionSpines,Range" Value="1"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="Foresight">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\terrandetectionradius1.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Behavior,AllSeeingEye,Modification[0].Detect[0]" Value="0.6"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="GreedisGood">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="Headshot">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Dragon Songs\btn-ability-zerg-plague-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="MuscleEnhancement">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,Speed[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,BabyDragon,Speed[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,TeenDragon,Speed[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,LegendaryDragon,Speed[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,MasterDragon,Speed[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,AdultIceDragon,Speed" Value="0.101500"/>
+        <EffectArray Reference="Unit,BabyIceDragon,Speed" Value="0.101500"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,Speed" Value="0.101500"/>
+        <EffectArray Reference="Unit,MasterIceDragon,Speed" Value="0.101500"/>
+        <EffectArray Reference="Unit,TeenIceDragon,Speed" Value="0.101500"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="HeartoftheDragon">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\sm_hml_heartbeat_diff.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,LifeMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,BabyDragon,LifeMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,TeenDragon,LifeMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,LegendaryDragon,LifeMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,MasterDragon,LifeMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,TeenIceDragon,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,MasterIceDragon,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,BabyIceDragon,LifeMax" Value="10"/>
+        <EffectArray Reference="Unit,AdultIceDragon,LifeMax" Value="10"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="EagleEyes">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\zergdroneeyesemmisive.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,Sight[0]" Value="0.2"/>
+        <EffectArray Reference="Unit,BabyDragon,Sight[0]" Value="0.2"/>
+        <EffectArray Reference="Unit,TeenDragon,Sight[0]" Value="0.2"/>
+        <EffectArray Reference="Unit,LegendaryDragon,Sight[0]" Value="0.2"/>
+        <EffectArray Reference="Unit,MasterDragon,Sight[0]" Value="0.2"/>
+        <EffectArray Reference="Unit,AdultIceDragon,Sight" Value="0.2"/>
+        <EffectArray Reference="Unit,BabyIceDragon,Sight" Value="0.2"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,Sight" Value="0.2"/>
+        <EffectArray Reference="Unit,MasterIceDragon,Sight" Value="0.2"/>
+        <EffectArray Reference="Unit,TeenIceDragon,Sight" Value="0.2"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="QuickLearner">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Dragon Songs\btn-ability-zerg-domination-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="RealmSwitch">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="Retaliation">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-gravitonbeam-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="SpikedScales">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="SpiritoftheDragon">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-pathogenglands.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,EnergyMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,BabyDragon,EnergyMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,TeenDragon,EnergyMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,LegendaryDragon,EnergyMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,MasterDragon,EnergyMax[0]" Value="10"/>
+        <EffectArray Reference="Unit,BabyDragon,EnergyStart[0]" Value="10"/>
+        <EffectArray Reference="Unit,AdultDragon,EnergyStart[0]" Value="10"/>
+        <EffectArray Reference="Unit,LegendaryDragon,EnergyStart[0]" Value="10"/>
+        <EffectArray Reference="Unit,MasterDragon,EnergyStart[0]" Value="10"/>
+        <EffectArray Reference="Unit,TeenDragon,EnergyStart[0]" Value="10"/>
+        <EffectArray Reference="Unit,BabyIceDragon,EnergyMax" Value="10"/>
+        <EffectArray Reference="Unit,BabyIceDragon,EnergyStart" Value="10"/>
+        <EffectArray Reference="Unit,AdultIceDragon,EnergyMax" Value="10"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,EnergyMax" Value="10"/>
+        <EffectArray Operation="Divide" Reference="Unit,MasterIceDragon,EnergyMax" Value="10"/>
+        <EffectArray Reference="Unit,TeenIceDragon,EnergyMax" Value="10"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="InternalRegeneration">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-enduringcorruption.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,LifeRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,BabyDragon,LifeRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,TeenDragon,LifeRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,LegendaryDragon,LifeRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,MasterDragon,LifeRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,AdultIceDragon,LifeRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,BabyIceDragon,LifeRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,LifeRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,MasterIceDragon,LifeRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,TeenIceDragon,LifeRegenRate" Value="0.101500"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="IronScales">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,LifeArmor[0]" Value="0.5"/>
+        <EffectArray Reference="Unit,BabyDragon,LifeArmor[0]" Value="0.5"/>
+        <EffectArray Reference="Unit,TeenDragon,LifeArmor[0]" Value="0.5"/>
+        <EffectArray Reference="Unit,LegendaryDragon,LifeArmor[0]" Value="0.5"/>
+        <EffectArray Reference="Unit,MasterDragon,LifeArmor[0]" Value="0.5"/>
+        <EffectArray Reference="Unit,AdultIceDragon,LifeArmor" Value="0.5"/>
+        <EffectArray Reference="Unit,BabyIceDragon,LifeArmor" Value="0.5"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,LifeArmor" Value="0.5"/>
+        <EffectArray Reference="Unit,MasterIceDragon,LifeArmor" Value="0.5"/>
+        <EffectArray Reference="Unit,TeenIceDragon,LifeArmor" Value="0.5"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="MetabolicProcessing">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-tips-biosample.dds"/>
+        <Alert value=""/>
+        <EffectArray Reference="Unit,AdultDragon,EnergyRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,BabyDragon,EnergyRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,TeenDragon,EnergyRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,LegendaryDragon,EnergyRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,MasterDragon,EnergyRegenRate[0]" Value="0.101500"/>
+        <EffectArray Reference="Unit,AdultIceDragon,EnergyRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,LegendaryIceDragon,EnergyRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,BabyIceDragon,EnergyRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,MasterIceDragon,EnergyRegenRate" Value="0.101500"/>
+        <EffectArray Reference="Unit,TeenIceDragon,EnergyRegenRate" Value="0.101500"/>
+        <EditorCategories value="UpgradeType:Talents"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="Rage">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-peristalsis.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="PowerOverwhelming">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-terran-psidisruption.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="Stash1" parent="Research">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+    </CUpgrade>
+    <CUpgrade id="Stash12" parent="Research">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <LeaderAlias value="Stash1"/>
+    </CUpgrade>
+    <CUpgrade id="Stash13" parent="Research">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <LeaderAlias value="Stash1"/>
+    </CUpgrade>
+    <CUpgrade id="Stash14" parent="Research">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <LeaderAlias value="Stash1"/>
+    </CUpgrade>
+    <CUpgrade id="Stash15" parent="Research">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <LeaderAlias value="Stash1"/>
+    </CUpgrade>
+    <CUpgrade id="Stash16" parent="Research">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <LeaderAlias value="Stash1"/>
+    </CUpgrade>
+    <CUpgrade id="StickyShot">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-terran-slow.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="VampiricTendencies">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-ability-zerg-corruption-color.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="StrengthoftheDragon">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-tips-crystal.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="MindoftheDragon">
+        <Flags index="TechTreeCheat" value="1"/>
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-pathogenglands.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+    <CUpgrade id="Zeal">
+        <Flags index="UpgradeCheat" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <Alert value=""/>
+        <EditorCategories value="UpgradeType:SpellResearch"/>
+        <AffectedUnitArray value="BabyDragon"/>
+        <AffectedUnitArray value="AdultDragon"/>
+        <AffectedUnitArray value="LegendaryDragon"/>
+        <AffectedUnitArray value="MasterDragon"/>
+        <AffectedUnitArray value="TeenDragon"/>
+        <AffectedUnitArray value="BabyIceDragon"/>
+        <AffectedUnitArray value="AdultIceDragon"/>
+        <AffectedUnitArray value="LegendaryIceDragon"/>
+        <AffectedUnitArray value="MasterIceDragon"/>
+        <AffectedUnitArray value="TeenIceDragon"/>
+        <MaxLevel value="10"/>
+    </CUpgrade>
+</Catalog>

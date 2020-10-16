@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CSound id="BallansTheme" parent="MUSIC">
+        <AssetArray>
+            <File value="Ballan&apos;s Theme.ogg"/>
+            <LoopCount value="-1"/>
+            <Volume value="-10.000000,-10.000000"/>
+            <FacialGroup value=""/>
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="BiodomeTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Biodome Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="DragonDeath">
+        <AssetArray File="Dragon Death.ogg" FacialGroup=""/>
+    </CSound>
+    <CSound id="EndingTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Awakened from Cryosleep - RetromanOMG - Ending Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="GuardiansTheme" parent="MUSIC">
+        <AssetArray File="Gaurdian&apos;s Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="CretonTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Creton Clearwater Revival.mp3" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="IntroTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Enter Dragon - Intro Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="IceDragonsTheme" parent="MUSIC">
+        <AssetArray File="Crystal Palace Rebuild.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="LabBot_Death2" parent="Death">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall9.wav" FacialGroup=""/>
+        <Pitch value="7.000000,7.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="LabBot_Death3" parent="Death">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall9.wav" FacialGroup=""/>
+        <Pitch value="7.000000,7.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="LabBot_Death4" parent="Death">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall9.wav" FacialGroup=""/>
+        <Pitch value="7.000000,7.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="LabBot_Death5" parent="Death">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall9.wav" FacialGroup=""/>
+        <Pitch value="7.000000,7.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="LabBot_Death6" parent="Death">
+        <EditorCategories value="Race:Neutral"/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall0.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall1.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall2.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall3.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall4.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall5.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall6.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall7.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall8.wav" FacialGroup=""/>
+        <AssetArray File="Assets\Sounds\Terran_BuildingExplosionSmall9.wav" FacialGroup=""/>
+        <Pitch value="7.000000,7.000000"/>
+        <Volume value="-8.000000,-8.000000"/>
+    </CSound>
+    <CSound id="LevelUp">
+        <AssetArray File="Level Up Sound.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="InfestationTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Infestation Theme - Dr Meowmix.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="MachinaDePlagamTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Machina De Plagam Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="RelamyGorgeTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Relamy Gorge Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="Terran_ExplosionSmall2" parent="Combat">
+        <EditorCategories value="Race:Terran"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall0.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall1.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall2.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall3.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall4.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall5.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall6.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall7.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall8.wav" Pitch="-3.000000,3.000000"/>
+        <AssetArray File="Assets\Sounds\Terran\SharedEffects\Explosions\Terran_ExplosionSmall9.wav" Pitch="-3.000000,3.000000"/>
+        <DupeDestroyCount value="5"/>
+        <DupeMaximumMethod value="Replace"/>
+        <DupeMuteCount value="5"/>
+        <Volume value="-5.000000,-3.000000"/>
+    </CSound>
+    <CSound id="VAZaubererBDWasteland">
+        <AssetArray File="Level Up Sound.wav" FacialGroup=""/>
+    </CSound>
+    <CSound id="WastelandTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Wasteland Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="SyritalBattleTheme" parent="MUSIC">
+        <AssetArray File="Syrital Loop.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="SremagsisTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Sremagsi&apos;s Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="RelamyTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Relamy&apos;s Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="VerbotenTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Verboten Forest -  Dr Meowmins.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="UndergroundForestTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Underground Forest Theme - Texture.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="ZauberersTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Zauberer&apos;s Theme.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+    <CSound id="RelamyCaveTheme" parent="MUSIC">
+        <AssetArray File="Dragon Songs\Relamy Cave.ogg" LoopCount="-1" FacialGroup="">
+            <SyncPoints value="0"/>
+        </AssetArray>
+        <Select value="Sequential"/>
+    </CSound>
+</Catalog>

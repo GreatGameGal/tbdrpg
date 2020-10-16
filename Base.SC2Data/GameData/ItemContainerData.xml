@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CItemContainer id="ArmorContainer">
+        <Slots Equip="1" Row="0" Column="0">
+            <Classes value="Armor"/>
+            <Classes value="EliteArmor"/>
+        </Slots>
+        <ModelHeight value="50"/>
+        <ModelWidth value="50"/>
+        <Model value="BlankBag"/>
+    </CItemContainer>
+    <CItemContainer id="ExtraBag">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Misc"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="Familiars"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+            <Classes value="Usable"/>
+        </Slots>
+        <Slots Row="0" Column="1"/>
+        <Slots Row="0" Column="2"/>
+        <Slots Row="1" Column="0"/>
+        <Slots Row="1" Column="1"/>
+        <Slots Row="1" Column="2"/>
+        <Slots Row="2" Column="0"/>
+        <Slots Row="2" Column="1"/>
+        <Slots Row="2" Column="2"/>
+    </CItemContainer>
+    <CItemContainer id="ExtraBag2">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Misc"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="Familiars"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+            <Classes value="Usable"/>
+        </Slots>
+        <Slots Row="0" Column="1"/>
+        <Slots Row="0" Column="2"/>
+        <Slots Row="1" Column="0"/>
+        <Slots Row="1" Column="1"/>
+        <Slots Row="1" Column="2"/>
+        <Slots Row="2" Column="0"/>
+        <Slots Row="2" Column="1"/>
+        <Slots Row="2" Column="2"/>
+    </CItemContainer>
+    <CItemContainer id="GeneralBag">
+        <Slots Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Misc"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="Familiars"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+            <Classes value="Usable"/>
+        </Slots>
+        <Slots Row="0" Column="1"/>
+        <Slots Row="0" Column="2"/>
+        <Slots Row="0" Column="3"/>
+        <Slots Row="0" Column="4"/>
+        <Slots Row="1" Column="0"/>
+        <Slots Row="1" Column="1"/>
+        <Slots Row="1" Column="2"/>
+        <Slots Row="1" Column="3"/>
+        <Slots Row="1" Column="4"/>
+        <Slots Row="2" Column="0"/>
+        <Slots Row="2" Column="1"/>
+        <Slots Row="2" Column="2"/>
+        <Slots Row="2" Column="3"/>
+        <Slots Row="2" Column="4"/>
+        <Slots Row="3" Column="0"/>
+        <Slots Row="3" Column="1"/>
+        <Slots Row="3" Column="2"/>
+        <Slots Row="3" Column="3"/>
+        <Slots Row="3" Column="4"/>
+        <Slots Row="4" Column="0"/>
+        <Slots Row="4" Column="1"/>
+        <Slots Row="4" Column="2"/>
+        <Slots Row="4" Column="3"/>
+        <Slots Row="4" Column="4"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Model value="BlankBag"/>
+    </CItemContainer>
+    <CItemContainer id="Stash1">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Requirements="Stash1Purchased" Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Requirements="Stash1Purchased" Row="0" Column="1"/>
+        <Slots Requirements="Stash1Purchased" Row="0" Column="2"/>
+        <Slots Requirements="Stash1Purchased" Row="0" Column="3"/>
+        <Slots Requirements="Stash1Purchased" Row="0" Column="4"/>
+        <Slots Requirements="Stash1Purchased" Row="1" Column="0"/>
+        <Slots Requirements="Stash1Purchased" Row="1" Column="1"/>
+        <Slots Requirements="Stash1Purchased" Row="1" Column="2"/>
+        <Slots Requirements="Stash1Purchased" Row="1" Column="3"/>
+        <Slots Requirements="Stash1Purchased" Row="1" Column="4"/>
+        <Slots Requirements="Stash1Purchased" Row="2" Column="0"/>
+        <Slots Requirements="Stash1Purchased" Row="2" Column="1"/>
+        <Slots Requirements="Stash1Purchased" Row="2" Column="2"/>
+        <Slots Requirements="Stash1Purchased" Row="2" Column="3"/>
+        <Slots Requirements="Stash1Purchased" Row="2" Column="4"/>
+        <Slots Requirements="Stash1Purchased" Row="3" Column="0"/>
+        <Slots Requirements="Stash1Purchased" Row="3" Column="1"/>
+        <Slots Requirements="Stash1Purchased" Row="3" Column="2"/>
+        <Slots Requirements="Stash1Purchased" Row="3" Column="3"/>
+        <Slots Requirements="Stash1Purchased" Row="3" Column="4"/>
+        <Slots Requirements="Stash1Purchased" Row="4" Column="0"/>
+        <Slots Requirements="Stash1Purchased" Row="4" Column="1"/>
+        <Slots Requirements="Stash1Purchased" Row="4" Column="2"/>
+        <Slots Requirements="Stash1Purchased" Row="4" Column="3"/>
+        <Slots Requirements="Stash1Purchased" Row="4" Column="4"/>
+    </CItemContainer>
+    <CItemContainer id="QuestItems">
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Row="0" Column="0">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="0" Column="1">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="0" Column="2">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="0" Column="3">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="0" Column="4">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="1" Column="0">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="1" Column="1">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="1" Column="2">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="1" Column="3">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="1" Column="4">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="2" Column="0">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="2" Column="1">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="2" Column="2">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="2" Column="3">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="2" Column="4">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="3" Column="0">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="3" Column="1">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="3" Column="2">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="3" Column="3">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="3" Column="4">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="4" Column="0">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="4" Column="1">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="4" Column="2">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="4" Column="3">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Slots Row="4" Column="4">
+            <Classes value="QuestItems"/>
+        </Slots>
+        <Model value="BlankBag"/>
+    </CItemContainer>
+    <CItemContainer id="Stash2">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Requirements="Stash2Purchased" Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Requirements="Stash2Purchased" Row="0" Column="1"/>
+        <Slots Requirements="Stash2Purchased" Row="0" Column="2"/>
+        <Slots Requirements="Stash2Purchased" Row="0" Column="3"/>
+        <Slots Requirements="Stash2Purchased" Row="0" Column="4"/>
+        <Slots Requirements="Stash2Purchased" Row="1" Column="0"/>
+        <Slots Requirements="Stash2Purchased" Row="1" Column="1"/>
+        <Slots Requirements="Stash2Purchased" Row="1" Column="2"/>
+        <Slots Requirements="Stash2Purchased" Row="1" Column="3"/>
+        <Slots Requirements="Stash2Purchased" Row="1" Column="4"/>
+        <Slots Requirements="Stash2Purchased" Row="2" Column="0"/>
+        <Slots Requirements="Stash2Purchased" Row="2" Column="1"/>
+        <Slots Requirements="Stash2Purchased" Row="2" Column="2"/>
+        <Slots Requirements="Stash2Purchased" Row="2" Column="3"/>
+        <Slots Requirements="Stash2Purchased" Row="2" Column="4"/>
+        <Slots Requirements="Stash2Purchased" Row="3" Column="0"/>
+        <Slots Requirements="Stash2Purchased" Row="3" Column="1"/>
+        <Slots Requirements="Stash2Purchased" Row="3" Column="2"/>
+        <Slots Requirements="Stash2Purchased" Row="3" Column="3"/>
+        <Slots Requirements="Stash2Purchased" Row="3" Column="4"/>
+        <Slots Requirements="Stash2Purchased" Row="4" Column="0"/>
+        <Slots Requirements="Stash2Purchased" Row="4" Column="1"/>
+        <Slots Requirements="Stash2Purchased" Row="4" Column="2"/>
+        <Slots Requirements="Stash2Purchased" Row="4" Column="3"/>
+        <Slots Requirements="Stash2Purchased" Row="4" Column="4"/>
+    </CItemContainer>
+    <CItemContainer id="Stash3">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Requirements="Stash3Purchased" Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Requirements="Stash3Purchased" Row="0" Column="1"/>
+        <Slots Requirements="Stash3Purchased" Row="0" Column="2"/>
+        <Slots Requirements="Stash3Purchased" Row="0" Column="3"/>
+        <Slots Requirements="Stash3Purchased" Row="0" Column="4"/>
+        <Slots Requirements="Stash3Purchased" Row="1" Column="0"/>
+        <Slots Requirements="Stash3Purchased" Row="1" Column="1"/>
+        <Slots Requirements="Stash3Purchased" Row="1" Column="2"/>
+        <Slots Requirements="Stash3Purchased" Row="1" Column="3"/>
+        <Slots Requirements="Stash3Purchased" Row="1" Column="4"/>
+        <Slots Requirements="Stash3Purchased" Row="2" Column="0"/>
+        <Slots Requirements="Stash3Purchased" Row="2" Column="1"/>
+        <Slots Requirements="Stash3Purchased" Row="2" Column="2"/>
+        <Slots Requirements="Stash3Purchased" Row="2" Column="3"/>
+        <Slots Requirements="Stash3Purchased" Row="2" Column="4"/>
+        <Slots Requirements="Stash3Purchased" Row="3" Column="0"/>
+        <Slots Requirements="Stash3Purchased" Row="3" Column="1"/>
+        <Slots Requirements="Stash3Purchased" Row="3" Column="2"/>
+        <Slots Requirements="Stash3Purchased" Row="3" Column="3"/>
+        <Slots Requirements="Stash3Purchased" Row="3" Column="4"/>
+        <Slots Requirements="Stash3Purchased" Row="4" Column="0"/>
+        <Slots Requirements="Stash3Purchased" Row="4" Column="1"/>
+        <Slots Requirements="Stash3Purchased" Row="4" Column="2"/>
+        <Slots Requirements="Stash3Purchased" Row="4" Column="3"/>
+        <Slots Requirements="Stash3Purchased" Row="4" Column="4"/>
+    </CItemContainer>
+    <CItemContainer id="Stash4">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Requirements="Stash4Purchased" Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Requirements="Stash4Purchased" Row="0" Column="1"/>
+        <Slots Requirements="Stash4Purchased" Row="0" Column="2"/>
+        <Slots Requirements="Stash4Purchased" Row="0" Column="3"/>
+        <Slots Requirements="Stash4Purchased" Row="0" Column="4"/>
+        <Slots Requirements="Stash4Purchased" Row="1" Column="0"/>
+        <Slots Requirements="Stash4Purchased" Row="1" Column="1"/>
+        <Slots Requirements="Stash4Purchased" Row="1" Column="2"/>
+        <Slots Requirements="Stash4Purchased" Row="1" Column="3"/>
+        <Slots Requirements="Stash4Purchased" Row="1" Column="4"/>
+        <Slots Requirements="Stash4Purchased" Row="2" Column="0"/>
+        <Slots Requirements="Stash4Purchased" Row="2" Column="1"/>
+        <Slots Requirements="Stash4Purchased" Row="2" Column="2"/>
+        <Slots Requirements="Stash4Purchased" Row="2" Column="3"/>
+        <Slots Requirements="Stash4Purchased" Row="2" Column="4"/>
+        <Slots Requirements="Stash4Purchased" Row="3" Column="0"/>
+        <Slots Requirements="Stash4Purchased" Row="3" Column="1"/>
+        <Slots Requirements="Stash4Purchased" Row="3" Column="2"/>
+        <Slots Requirements="Stash4Purchased" Row="3" Column="3"/>
+        <Slots Requirements="Stash4Purchased" Row="3" Column="4"/>
+        <Slots Requirements="Stash4Purchased" Row="4" Column="0"/>
+        <Slots Requirements="Stash4Purchased" Row="4" Column="1"/>
+        <Slots Requirements="Stash4Purchased" Row="4" Column="2"/>
+        <Slots Requirements="Stash4Purchased" Row="4" Column="3"/>
+        <Slots Requirements="Stash4Purchased" Row="4" Column="4"/>
+    </CItemContainer>
+    <CItemContainer id="Stash5">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Requirements="Stash5Purchased" Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Requirements="Stash5Purchased" Row="0" Column="1"/>
+        <Slots Requirements="Stash5Purchased" Row="0" Column="2"/>
+        <Slots Requirements="Stash5Purchased" Row="0" Column="3"/>
+        <Slots Requirements="Stash5Purchased" Row="0" Column="4"/>
+        <Slots Requirements="Stash5Purchased" Row="1" Column="0"/>
+        <Slots Requirements="Stash5Purchased" Row="1" Column="1"/>
+        <Slots Requirements="Stash5Purchased" Row="1" Column="2"/>
+        <Slots Requirements="Stash5Purchased" Row="1" Column="3"/>
+        <Slots Requirements="Stash5Purchased" Row="1" Column="4"/>
+        <Slots Requirements="Stash5Purchased" Row="2" Column="0"/>
+        <Slots Requirements="Stash5Purchased" Row="2" Column="1"/>
+        <Slots Requirements="Stash5Purchased" Row="2" Column="2"/>
+        <Slots Requirements="Stash5Purchased" Row="2" Column="3"/>
+        <Slots Requirements="Stash5Purchased" Row="2" Column="4"/>
+        <Slots Requirements="Stash5Purchased" Row="3" Column="0"/>
+        <Slots Requirements="Stash5Purchased" Row="3" Column="1"/>
+        <Slots Requirements="Stash5Purchased" Row="3" Column="2"/>
+        <Slots Requirements="Stash5Purchased" Row="3" Column="3"/>
+        <Slots Requirements="Stash5Purchased" Row="3" Column="4"/>
+        <Slots Requirements="Stash5Purchased" Row="4" Column="0"/>
+        <Slots Requirements="Stash5Purchased" Row="4" Column="1"/>
+        <Slots Requirements="Stash5Purchased" Row="4" Column="2"/>
+        <Slots Requirements="Stash5Purchased" Row="4" Column="3"/>
+        <Slots Requirements="Stash5Purchased" Row="4" Column="4"/>
+    </CItemContainer>
+    <CItemContainer id="Stash6">
+        <Model value="BlankBag"/>
+        <ModelHeight value="150"/>
+        <ModelWidth value="150"/>
+        <Slots Requirements="Stash6Purchased" Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+            <Classes value="EliteArmor"/>
+            <Classes value="EliteWeapon"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Requirements="Stash6Purchased" Row="0" Column="1"/>
+        <Slots Requirements="Stash6Purchased" Row="0" Column="2"/>
+        <Slots Requirements="Stash6Purchased" Row="0" Column="3"/>
+        <Slots Requirements="Stash6Purchased" Row="0" Column="4"/>
+        <Slots Requirements="Stash6Purchased" Row="1" Column="0"/>
+        <Slots Requirements="Stash6Purchased" Row="1" Column="1"/>
+        <Slots Requirements="Stash6Purchased" Row="1" Column="2"/>
+        <Slots Requirements="Stash6Purchased" Row="1" Column="3"/>
+        <Slots Requirements="Stash6Purchased" Row="1" Column="4"/>
+        <Slots Requirements="Stash6Purchased" Row="2" Column="0"/>
+        <Slots Requirements="Stash6Purchased" Row="2" Column="1"/>
+        <Slots Requirements="Stash6Purchased" Row="2" Column="2"/>
+        <Slots Requirements="Stash6Purchased" Row="2" Column="3"/>
+        <Slots Requirements="Stash6Purchased" Row="2" Column="4"/>
+        <Slots Requirements="Stash6Purchased" Row="3" Column="0"/>
+        <Slots Requirements="Stash6Purchased" Row="3" Column="1"/>
+        <Slots Requirements="Stash6Purchased" Row="3" Column="2"/>
+        <Slots Requirements="Stash6Purchased" Row="3" Column="3"/>
+        <Slots Requirements="Stash6Purchased" Row="3" Column="4"/>
+        <Slots Requirements="Stash6Purchased" Row="4" Column="0"/>
+        <Slots Requirements="Stash6Purchased" Row="4" Column="1"/>
+        <Slots Requirements="Stash6Purchased" Row="4" Column="2"/>
+        <Slots Requirements="Stash6Purchased" Row="4" Column="3"/>
+        <Slots Requirements="Stash6Purchased" Row="4" Column="4"/>
+    </CItemContainer>
+    <CItemContainer id="Weapon">
+        <Slots Equip="1" Row="0" Column="0">
+            <Classes value="Weapon"/>
+            <Classes value="EliteWeapon"/>
+        </Slots>
+        <ModelHeight value="50"/>
+        <ModelWidth value="50"/>
+        <Model value="BlankBag"/>
+    </CItemContainer>
+    <CItemContainer id="Orbs">
+        <ModelHeight value="150"/>
+        <ModelWidth value="50"/>
+        <Slots Equip="1" Row="0" Column="0">
+            <Classes value="Orb"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Equip="1" Row="1" Column="0">
+            <Classes value="Orb"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Equip="1" Row="2" Column="0">
+            <Classes value="Orb"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Equip="1" Row="3" Column="0">
+            <Classes value="Orb"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Slots Equip="1" Row="4" Column="0">
+            <Classes value="Orb"/>
+            <Classes value="EliteOrb"/>
+        </Slots>
+        <Model value="BlankBag"/>
+    </CItemContainer>
+    <CItemContainer id="Familiars">
+        <ModelHeight value="50"/>
+        <ModelWidth value="50"/>
+        <Slots Equip="1" Row="0" Column="0">
+            <Classes value="Familiars"/>
+        </Slots>
+        <Model value="BlankBag"/>
+    </CItemContainer>
+</Catalog>

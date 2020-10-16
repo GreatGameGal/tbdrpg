@@ -1,0 +1,1967 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Regions>
+    <region id="1">
+        <name value="Wasteland 1"/>
+        <shape type="rect">
+            <quad value="53.7697,179.0644,74.2246,201.0993"/>
+        </shape>
+    </region>
+    <region id="2">
+        <name value="Wasteland 2"/>
+        <shape type="rect">
+            <quad value="53.1203,201.8183,80.7575,216.269"/>
+        </shape>
+    </region>
+    <region id="3">
+        <name value="Dragon Nest"/>
+        <shape type="rect">
+            <quad value="17.3647,213.9758,19.0424,225.8381"/>
+        </shape>
+        <shape type="rect">
+            <quad value="19.0336,211.7221,24.5981,228.5964"/>
+        </shape>
+        <shape type="rect">
+            <quad value="29.4577,217.2636,35.0388,228.2692"/>
+        </shape>
+        <shape type="rect">
+            <quad value="24.487,213.354,31.1047,226.5725"/>
+        </shape>
+        <shape type="rect">
+            <quad value="35.0236,218.7465,38.483,228.3991"/>
+        </shape>
+    </region>
+    <region id="4">
+        <name value="Wasteland 3"/>
+        <shape type="rect">
+            <quad value="35.9072,197.8054,51.9162,207.2392"/>
+        </shape>
+    </region>
+    <region id="5">
+        <name value="Syrital&apos;s Lair"/>
+        <shape type="circle">
+            <center value="96.5764,221.7646"/>
+            <radius value="10.7485"/>
+        </shape>
+    </region>
+    <region id="6">
+        <name value="Syrital&apos;s Lair Enter"/>
+        <shape type="rect">
+            <quad value="85.339,217.5678,85.9011,224.7163"/>
+        </shape>
+    </region>
+    <region id="8">
+        <name value="Relamy Pass 1"/>
+        <shape type="rect">
+            <quad value="58.9265,166.125,61.4946,169.753"/>
+        </shape>
+    </region>
+    <region id="7">
+        <name value="Relamy Canyon 1"/>
+        <shape type="rect">
+            <quad value="26.2692,124.4873,37.6694,135.9282"/>
+        </shape>
+    </region>
+    <region id="9">
+        <name value="Relamy Canyon 2"/>
+        <shape type="rect">
+            <quad value="67.973,125.64,75.2297,129.7365"/>
+        </shape>
+    </region>
+    <region id="10">
+        <name value="Relamy Canyon 3"/>
+        <shape type="rect">
+            <quad value="75.7817,110.809,91.6843,126.1413"/>
+        </shape>
+    </region>
+    <region id="11">
+        <name value="Relamy Canyon 4"/>
+        <shape type="rect">
+            <quad value="94.5334,132.0971,128.282,138.1901"/>
+        </shape>
+    </region>
+    <region id="12">
+        <name value="Relamy Hills 1"/>
+        <shape type="rect">
+            <quad value="41.8242,114.4833,53.9992,130.5034"/>
+        </shape>
+    </region>
+    <region id="13">
+        <name value="Relamy Hills 2"/>
+        <shape type="rect">
+            <quad value="48.8308,92.4113,61.7165,107.365"/>
+        </shape>
+    </region>
+    <region id="14">
+        <name value="Relamy Hills 3"/>
+        <shape type="rect">
+            <quad value="78.7304,92.1667,89.773,102.6342"/>
+        </shape>
+    </region>
+    <region id="15">
+        <name value="Relamy Hills 4"/>
+        <shape type="rect">
+            <quad value="62.6342,113.1882,68.7873,122.5"/>
+        </shape>
+    </region>
+    <region id="16">
+        <name value="Relamy Hills 5"/>
+        <shape type="rect">
+            <quad value="97.58,103.3881,132.332,110.9448"/>
+        </shape>
+    </region>
+    <region id="17">
+        <name value="Gaurdians Perch"/>
+        <shape type="circle">
+            <center value="117.527,120.605"/>
+            <radius value="10.1186"/>
+        </shape>
+    </region>
+    <region id="18">
+        <name value="Relamy Pass 2"/>
+        <shape type="rect">
+            <quad value="56.918,160.4265,60.5302,163.691"/>
+        </shape>
+    </region>
+    <region id="19">
+        <name value="Relamy Pass 3"/>
+        <shape type="rect">
+            <quad value="53.4614,153.9184,57.386,157.545"/>
+        </shape>
+    </region>
+    <region id="20">
+        <name value="Relamy Pass 4"/>
+        <shape type="rect">
+            <quad value="50.1142,147.3713,53.5988,150.9248"/>
+        </shape>
+    </region>
+    <region id="22">
+        <name value="Syrital Lava 1"/>
+        <shape type="rect">
+            <quad value="100.6347,218.9453,102.811,226.407"/>
+        </shape>
+    </region>
+    <region id="23">
+        <name value="Syrital Lava 2"/>
+        <shape type="rect">
+            <quad value="100.3671,218.042,102.0485,220.98"/>
+        </shape>
+    </region>
+    <region id="24">
+        <name value="Syrital Lava 3"/>
+        <shape type="rect">
+            <quad value="98.9677,215.792,102.0715,218.108"/>
+        </shape>
+    </region>
+    <region id="25">
+        <name value="Syrital Lava 4"/>
+        <shape type="rect">
+            <quad value="98.812,212.9025,101.461,215.987"/>
+        </shape>
+    </region>
+    <region id="21">
+        <name value="Relamy Gorge 1"/>
+        <shape type="rect">
+            <quad value="11.8718,182.2268,29.5607,192.005"/>
+        </shape>
+    </region>
+    <region id="27">
+        <name value="Relamy Gorge 2"/>
+        <shape type="rect">
+            <quad value="15.6257,173.9357,37.567,181.993"/>
+        </shape>
+    </region>
+    <region id="28">
+        <name value="Relamy Gorge 3"/>
+        <shape type="rect">
+            <quad value="19.6342,166.1181,40.4228,173.5732"/>
+        </shape>
+    </region>
+    <region id="29">
+        <name value="Relamy Gorge 4"/>
+        <shape type="rect">
+            <quad value="19.6154,160.9104,45.444,165.5346"/>
+        </shape>
+    </region>
+    <region id="31">
+        <name value="Relamy Pass Enter 1"/>
+        <shape type="rect">
+            <quad value="51.677,172.635,58.7536,173.1235"/>
+        </shape>
+    </region>
+    <region id="32">
+        <name value="Wasteland Enter 1"/>
+        <shape type="rect">
+            <quad value="51.6672,173.732,58.744,174.2204"/>
+        </shape>
+    </region>
+    <region id="33">
+        <name value="Relamy Pass Enter 2"/>
+        <shape type="rect">
+            <quad value="43.4816,140.3732,60.656,141.641"/>
+        </shape>
+    </region>
+    <region id="34">
+        <name value="Relamy Canyon Enter 1"/>
+        <shape type="rect">
+            <quad value="38.9514,130.8315,40.4086,137.3933"/>
+        </shape>
+    </region>
+    <region id="35">
+        <name value="Relamy Hills Enter 1"/>
+        <shape type="rect">
+            <quad value="38.417,118.795,38.98,127.4355"/>
+        </shape>
+    </region>
+    <region id="36">
+        <name value="Wasteland Enter 2"/>
+        <shape type="rect">
+            <quad value="84.4953,217.5263,84.9704,224.6186"/>
+        </shape>
+    </region>
+    <region id="37">
+        <name value="Wasteland Enter 3"/>
+        <shape type="rect">
+            <quad value="82.8183,204.1474,84.2875,211.4382"/>
+        </shape>
+    </region>
+    <region id="38">
+        <name value="Road To Ballan Enter 1"/>
+        <shape type="rect">
+            <quad value="84.414,204.2348,85.6882,211.353"/>
+        </shape>
+    </region>
+    <region id="40">
+        <name value="Relamy Canyon Enter 2"/>
+        <shape type="rect">
+            <quad value="37.471,118.847,38.0986,127.0893"/>
+        </shape>
+    </region>
+    <region id="41">
+        <name value="Wasteland Enter 4"/>
+        <shape type="circle">
+            <center value="36.9338,210.8161"/>
+            <radius value="3.5112"/>
+        </shape>
+    </region>
+    <region id="42">
+        <name value="Wasteland Water"/>
+        <shape type="circle">
+            <center value="66.8222,216.3088"/>
+            <radius value="5.4033"/>
+        </shape>
+    </region>
+    <region id="43">
+        <name value="Relamy Pass Water 1"/>
+        <shape type="rect">
+            <quad value="59.0888,146.999,62.5834,150.485"/>
+        </shape>
+    </region>
+    <region id="26">
+        <name value="Gaurdian&apos;s Perch Spawn 1"/>
+        <shape type="circle">
+            <center value="114.498,121.8022"/>
+            <radius value="1.3461"/>
+        </shape>
+    </region>
+    <region id="45">
+        <name value="Gaurdian&apos;s Perch Spawn 2"/>
+        <shape type="circle">
+            <center value="120.9145,123.553"/>
+            <radius value="1.3461"/>
+        </shape>
+    </region>
+    <region id="46">
+        <name value="Gaurdian&apos;s Perch Spawn 3"/>
+        <shape type="circle">
+            <center value="119.1511,117.1506"/>
+            <radius value="1.3461"/>
+        </shape>
+    </region>
+    <region id="47">
+        <name value="Gaurdian&apos;s Perch Enter"/>
+        <shape type="rect">
+            <quad value="108.287,113.5422,112.287,117.0422"/>
+        </shape>
+    </region>
+    <region id="48">
+        <name value="Gaurdian&apos;s Perch Cinematic"/>
+        <shape type="circle">
+            <center value="118.1218,121.0275"/>
+            <radius value="1.907"/>
+        </shape>
+    </region>
+    <region id="49">
+        <name value="Wasteland 4"/>
+        <shape type="rect">
+            <quad value="40.6306,207.881,52.3366,215.7695"/>
+        </shape>
+    </region>
+    <region id="50">
+        <name value="Wasteland 5"/>
+        <shape type="rect">
+            <quad value="41.7797,188.1362,53.3671,197.7082"/>
+        </shape>
+    </region>
+    <region id="51">
+        <name value="Verboten Forest"/>
+        <shape type="rect">
+            <quad value="141.7512,106.8352,157.495,134.8676"/>
+        </shape>
+    </region>
+    <region id="52">
+        <name value="Verboten Forest 2"/>
+        <shape type="rect">
+            <quad value="190.593,92.7392,205.0114,122.2873"/>
+        </shape>
+    </region>
+    <region id="53">
+        <name value="Verboten Forest 3"/>
+        <shape type="rect">
+            <quad value="205.6145,91.7204,220.5175,108.6567"/>
+        </shape>
+    </region>
+    <region id="54">
+        <name value="Verboten Forest 4"/>
+        <shape type="rect">
+            <quad value="150.057,127.036,166.3117,140.6008"/>
+        </shape>
+    </region>
+    <region id="55">
+        <name value="Verboten Forest 5"/>
+        <shape type="rect">
+            <quad value="166.7485,126.5698,188.3007,141.7441"/>
+        </shape>
+    </region>
+    <region id="56">
+        <name value="Verboten Forest 6"/>
+        <shape type="rect">
+            <quad value="173.635,94.5185,190.0805,125.6025"/>
+        </shape>
+    </region>
+    <region id="57">
+        <name value="Verboten Forest 7"/>
+        <shape type="rect">
+            <quad value="158.366,101.393,172.3312,126.6643"/>
+        </shape>
+    </region>
+    <region id="58">
+        <name value="Verboten Forest Enter"/>
+        <shape type="circle">
+            <center value="134.7006,123.9147"/>
+            <radius value="5.3784"/>
+        </shape>
+        <shape type="diamond">
+            <center value="130.7,126.91"/>
+            <width value="8.7998"/>
+            <height value="3.7998"/>
+        </shape>
+        <shape type="rect">
+            <quad value="127.2,126.745,137.1198,133.1547"/>
+        </shape>
+    </region>
+    <region id="59">
+        <name value="Relamy Canyon Enter 3"/>
+        <shape type="rect">
+            <quad value="123.7331,129.2756,136.9636,130.4145"/>
+        </shape>
+    </region>
+    <region id="60">
+        <name value="Relamy Canyon Water"/>
+        <shape type="circle">
+            <center value="91.8522,133.7514"/>
+            <radius value="2.8073"/>
+        </shape>
+    </region>
+    <region id="61">
+        <name value="Verboten Infestation Entrance"/>
+        <shape type="rect">
+            <quad value="223.0197,116.8835,229.434,119.716"/>
+        </shape>
+    </region>
+    <region id="62">
+        <name value="Verboten Infestation Exit Spawn"/>
+        <shape type="circle">
+            <center value="226.6516,110.725"/>
+            <radius value="3.3303"/>
+        </shape>
+    </region>
+    <region id="63">
+        <name value="Verboten Infestation Exit"/>
+        <shape type="rect">
+            <quad value="223.2512,127.434,228.2048,130.9326"/>
+        </shape>
+    </region>
+    <region id="64">
+        <name value="Verboten Infestation Entrance Spawn"/>
+        <shape type="circle">
+            <center value="225.7067,138.607"/>
+            <radius value="4.6247"/>
+        </shape>
+    </region>
+    <region id="65">
+        <name value="Infestation Region 1"/>
+        <shape type="circle">
+            <center value="202.8161,149.1127"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="66">
+        <name value="Infestation Region 2"/>
+        <shape type="circle">
+            <center value="191.844,166.8312"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="67">
+        <name value="Infestation Region 3"/>
+        <shape type="circle">
+            <center value="206.8593,169.3325"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="68">
+        <name value="Infestation Region 4"/>
+        <shape type="circle">
+            <center value="213.266,194.4895"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="69">
+        <name value="Infestation Region 5"/>
+        <shape type="circle">
+            <center value="201.8452,214.3977"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="70">
+        <name value="Infestation Region 6"/>
+        <shape type="circle">
+            <center value="195.4116,199.5207"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="71">
+        <name value="Infestation Region 7"/>
+        <shape type="circle">
+            <center value="174.2253,172.7272"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="72">
+        <name value="Infestation Region 1 Copy 7"/>
+        <shape type="circle">
+            <center value="175.833,156.9895"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="73">
+        <name value="Infestation Region 1 Copy 8"/>
+        <shape type="circle">
+            <center value="224.7551,219.5815"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="74">
+        <name value="Infestation Region 1 Copy 9"/>
+        <shape type="circle">
+            <center value="230.0251,205.4233"/>
+            <radius value="4.037"/>
+        </shape>
+    </region>
+    <region id="75">
+        <name value="Infestation Camera Bounds"/>
+        <shape type="rect">
+            <quad value="160.6418,126.002,236.375,228.76"/>
+        </shape>
+    </region>
+    <region id="76">
+        <name value="Ballan Enter"/>
+        <shape type="rect">
+            <quad value="115.2082,199.1733,116.6735,208.89"/>
+        </shape>
+    </region>
+    <region id="77">
+        <name value="Areana"/>
+        <color value="255,255,128,64"/>
+        <shape type="circle">
+            <center value="126.6494,172.6811"/>
+            <radius value="18.2504"/>
+        </shape>
+    </region>
+    <region id="78">
+        <name value="Areana Spawn 1"/>
+        <shape type="circle">
+            <center value="128.8547,159.334"/>
+            <radius value="3.454"/>
+        </shape>
+    </region>
+    <region id="79">
+        <name value="Areana Spawn 2"/>
+        <shape type="circle">
+            <center value="124.7346,185.2822"/>
+            <radius value="3.577"/>
+        </shape>
+    </region>
+    <region id="80">
+        <name value="Areana Contestant Area 1"/>
+        <shape type="circle">
+            <center value="143.358,192.8293"/>
+            <radius value="1.2656"/>
+        </shape>
+    </region>
+    <region id="81">
+        <name value="Areana Contestant Area 2"/>
+        <shape type="circle">
+            <center value="145.9072,188.139"/>
+            <radius value="1.2656"/>
+        </shape>
+    </region>
+    <region id="82">
+        <name value="Creton 1"/>
+        <shape type="rect">
+            <quad value="43.4655,34.665,48.0927,39.4631"/>
+        </shape>
+    </region>
+    <region id="83">
+        <name value="Creton 2"/>
+        <shape type="rect">
+            <quad value="73.2463,54.3791,84.9772,64.924"/>
+        </shape>
+    </region>
+    <region id="84">
+        <name value="Creton 31"/>
+        <shape type="rect">
+            <quad value="65.2998,60.8312,72.4306,68.1264"/>
+        </shape>
+    </region>
+    <region id="85">
+        <name value="Creton 32"/>
+        <shape type="rect">
+            <quad value="84.9797,48.6972,94.5788,58.2873"/>
+        </shape>
+    </region>
+    <region id="86">
+        <name value="Creton 33"/>
+        <shape type="rect">
+            <quad value="112.3884,38.7221,124.1193,49.267"/>
+        </shape>
+    </region>
+    <region id="87">
+        <name value="Creton 34"/>
+        <shape type="rect">
+            <quad value="91.2988,34.159,103.0297,44.7038"/>
+        </shape>
+    </region>
+    <region id="88">
+        <name value="Creton 35"/>
+        <shape type="rect">
+            <quad value="66.763,46.5507,78.494,57.0957"/>
+        </shape>
+    </region>
+    <region id="89">
+        <name value="Creton 36"/>
+        <shape type="rect">
+            <quad value="36.7246,34.4743,42.891,40.1914"/>
+        </shape>
+    </region>
+    <region id="90">
+        <name value="Creton 37"/>
+        <shape type="rect">
+            <quad value="28.9506,17.411,40.6816,27.9558"/>
+        </shape>
+    </region>
+    <region id="91">
+        <name value="Creton 38"/>
+        <shape type="rect">
+            <quad value="61.5615,36.164,72.345,42.4226"/>
+        </shape>
+    </region>
+    <region id="92">
+        <name value="Creton 3"/>
+        <shape type="rect">
+            <quad value="81.967,23.5498,91.2797,31.2355"/>
+        </shape>
+    </region>
+    <region id="93">
+        <name value="Creton 4"/>
+        <shape type="rect">
+            <quad value="62.1535,19.7207,73.8845,30.2656"/>
+        </shape>
+    </region>
+    <region id="94">
+        <name value="Creton 5"/>
+        <shape type="rect">
+            <quad value="53.572,15.4523,58.3127,20.6486"/>
+        </shape>
+    </region>
+    <region id="95">
+        <name value="Creton 6"/>
+        <shape type="rect">
+            <quad value="92.1025,11.381,102.687,20.7976"/>
+        </shape>
+    </region>
+    <region id="96">
+        <name value="Creton 7"/>
+        <shape type="rect">
+            <quad value="52.6855,41.733,57.9511,45.911"/>
+        </shape>
+    </region>
+    <region id="97">
+        <name value="Creton 8"/>
+        <shape type="rect">
+            <quad value="60.5366,49.3847,65.8022,53.5627"/>
+        </shape>
+    </region>
+    <region id="99">
+        <name value="Creton 24"/>
+        <shape type="rect">
+            <quad value="93.7265,59.868,98.9921,64.046"/>
+        </shape>
+    </region>
+    <region id="100">
+        <name value="Creton 25"/>
+        <shape type="rect">
+            <quad value="102.5976,54.867,107.8632,59.045"/>
+        </shape>
+    </region>
+    <region id="101">
+        <name value="Creton 26"/>
+        <shape type="rect">
+            <quad value="110.1315,50.834,115.3972,55.012"/>
+        </shape>
+    </region>
+    <region id="102">
+        <name value="Creton 27"/>
+        <shape type="rect">
+            <quad value="81.3112,39.8474,86.577,44.0253"/>
+        </shape>
+    </region>
+    <region id="103">
+        <name value="Creton 28"/>
+        <shape type="rect">
+            <quad value="56.204,45.9033,61.4697,50.0812"/>
+        </shape>
+    </region>
+    <region id="104">
+        <name value="Creton 29"/>
+        <shape type="rect">
+            <quad value="49.7094,38.3132,54.975,42.4912"/>
+        </shape>
+    </region>
+    <region id="105">
+        <name value="Creton 30"/>
+        <shape type="rect">
+            <quad value="49.202,33.9663,54.4675,38.1442"/>
+        </shape>
+    </region>
+    <region id="106">
+        <name value="Creton 9"/>
+        <shape type="rect">
+            <quad value="44.7153,22.886,49.981,27.064"/>
+        </shape>
+    </region>
+    <region id="107">
+        <name value="Creton 10"/>
+        <shape type="rect">
+            <quad value="50.8952,27.8066,56.161,31.9846"/>
+        </shape>
+    </region>
+    <region id="108">
+        <name value="Creton 11"/>
+        <shape type="rect">
+            <quad value="75.8574,31.805,81.123,35.983"/>
+        </shape>
+    </region>
+    <region id="109">
+        <name value="Creton 12"/>
+        <shape type="rect">
+            <quad value="66.0952,11.548,71.3608,15.726"/>
+        </shape>
+    </region>
+    <region id="110">
+        <name value="Creton 13"/>
+        <shape type="rect">
+            <quad value="74.047,11.3674,79.3127,15.5454"/>
+        </shape>
+    </region>
+    <region id="111">
+        <name value="Creton 14"/>
+        <shape type="rect">
+            <quad value="84.6347,11.5593,89.9003,15.7373"/>
+        </shape>
+    </region>
+    <region id="112">
+        <name value="Creton 15"/>
+        <shape type="rect">
+            <quad value="74.707,16.6005,79.9726,20.7785"/>
+        </shape>
+    </region>
+    <region id="113">
+        <name value="Creton 16"/>
+        <shape type="rect">
+            <quad value="58.85,15.3933,64.1157,19.5712"/>
+        </shape>
+    </region>
+    <region id="114">
+        <name value="Creton 17"/>
+        <shape type="rect">
+            <quad value="103.8681,41.9521,109.1337,46.1301"/>
+        </shape>
+    </region>
+    <region id="115">
+        <name value="Creton 18"/>
+        <shape type="rect">
+            <quad value="106.841,36.2702,112.1066,40.4482"/>
+        </shape>
+    </region>
+    <region id="116">
+        <name value="Creton 19"/>
+        <shape type="rect">
+            <quad value="96.4702,54.8647,101.7358,59.0427"/>
+        </shape>
+    </region>
+    <region id="117">
+        <name value="Creton 20"/>
+        <shape type="rect">
+            <quad value="91.541,24.9357,96.8066,29.1137"/>
+        </shape>
+    </region>
+    <region id="118">
+        <name value="Creton 21"/>
+        <shape type="rect">
+            <quad value="76.9716,27.6391,80.7102,31.197"/>
+        </shape>
+    </region>
+    <region id="119">
+        <name value="Creton 22"/>
+        <shape type="rect">
+            <quad value="117.5607,50.6625,121.5554,53.587"/>
+        </shape>
+    </region>
+    <region id="120">
+        <name value="Creton 23"/>
+        <shape type="rect">
+            <quad value="106.1491,32.1364,109.5566,35.5114"/>
+        </shape>
+    </region>
+    <region id="98">
+        <name value="Creton Enter"/>
+        <shape type="rect">
+            <quad value="53.456,71.6091,65.6752,80.749"/>
+        </shape>
+    </region>
+    <region id="121">
+        <name value="Verboten Forest Waypoint"/>
+        <shape type="circle">
+            <center value="153.9321,153.3415"/>
+            <radius value="1.4196"/>
+        </shape>
+    </region>
+    <region id="122">
+        <name value="Creton Waypoint"/>
+        <shape type="circle">
+            <center value="56.3264,85.0874"/>
+            <radius value="1.4196"/>
+        </shape>
+    </region>
+    <region id="123">
+        <name value="Relamy Waypoint"/>
+        <shape type="circle">
+            <center value="64.0424,142.0561"/>
+            <radius value="1.4196"/>
+        </shape>
+    </region>
+    <region id="124">
+        <name value="Wasteland Waypoint"/>
+        <shape type="circle">
+            <center value="47.5256,227.0615"/>
+            <radius value="1.4196"/>
+        </shape>
+    </region>
+    <region id="125">
+        <name value="Ballan Waypoint"/>
+        <shape type="circle">
+            <center value="144.9296,229.523"/>
+            <radius value="1.4196"/>
+        </shape>
+    </region>
+    <region id="44">
+        <name value="Relamy Canyon Enter 4"/>
+        <shape type="rect">
+            <quad value="59.69,130.8837,61.1472,137.4455"/>
+        </shape>
+    </region>
+    <region id="126">
+        <name value="Lava 1"/>
+        <shape type="rect">
+            <quad value="40.6318,131.1096,58.9636,137.2412"/>
+        </shape>
+    </region>
+    <region id="127">
+        <name value="Lava 2"/>
+        <shape type="rect">
+            <quad value="41.9357,137.292,60.2395,137.815"/>
+        </shape>
+    </region>
+    <region id="128">
+        <name value="Lava 3"/>
+        <shape type="rect">
+            <quad value="47.7902,137.448,59.9926,140.3481"/>
+        </shape>
+    </region>
+    <region id="129">
+        <name value="Lava 4"/>
+        <shape type="rect">
+            <quad value="58,140,60,143.5"/>
+        </shape>
+    </region>
+    <region id="130">
+        <name value="Lava 5"/>
+        <shape type="rect">
+            <quad value="55.5,140,58,142.5"/>
+        </shape>
+    </region>
+    <region id="131">
+        <name value="Creton Trench 5"/>
+        <shape type="rect">
+            <quad value="128.3645,53.3461,129.8713,55.0073"/>
+        </shape>
+    </region>
+    <region id="132">
+        <name value="Creton Trench 6"/>
+        <shape type="rect">
+            <quad value="108.254,67.4274,109.3625,68.2473"/>
+        </shape>
+    </region>
+    <region id="133">
+        <name value="Verboten Forest Healing Water"/>
+        <shape type="circle">
+            <center value="145.027,141.2211"/>
+            <radius value="4.8007"/>
+        </shape>
+    </region>
+    <region id="39">
+        <name value="Road To Ballan Enter 2"/>
+        <shape type="rect">
+            <quad value="113.0585,199.2077,114.2312,209.1052"/>
+        </shape>
+    </region>
+    <region id="134">
+        <name value="Creton Trench Enter "/>
+        <shape type="rect">
+            <quad value="109.9287,16.0014,112.2475,30.575"/>
+        </shape>
+    </region>
+    <region id="135">
+        <name value="Creton Enter 2"/>
+        <shape type="rect">
+            <quad value="102.7226,16.3002,109.8366,24.5883"/>
+        </shape>
+    </region>
+    <region id="136">
+        <name value="Creton Trench 1"/>
+        <shape type="rect">
+            <quad value="114.1777,22.4836,121.4848,29.0551"/>
+        </shape>
+    </region>
+    <region id="137">
+        <name value="Creton Trench 2"/>
+        <shape type="rect">
+            <quad value="123.3208,29.3486,129.6394,32.626"/>
+        </shape>
+    </region>
+    <region id="138">
+        <name value="Creton Trench 3"/>
+        <shape type="rect">
+            <quad value="132.4516,36.6882,135.4055,41.7331"/>
+        </shape>
+    </region>
+    <region id="139">
+        <name value="Creton Trench 4"/>
+        <shape type="rect">
+            <quad value="129.89,47.0815,135.5861,52.4912"/>
+        </shape>
+    </region>
+    <region id="140">
+        <name value="Creton Trench 7"/>
+        <shape type="rect">
+            <quad value="121.6564,56.353,128.9853,63.165"/>
+        </shape>
+    </region>
+    <region id="141">
+        <name value="Creton Trench 8"/>
+        <shape type="rect">
+            <quad value="110.2924,61.5866,117.492,68.2304"/>
+        </shape>
+    </region>
+    <region id="143">
+        <name value="Creton Trench 9"/>
+        <shape type="rect">
+            <quad value="100.7617,66.7497,106.4868,74.1638"/>
+        </shape>
+    </region>
+    <region id="144">
+        <name value="Creton Trench 10"/>
+        <shape type="rect">
+            <quad value="92.5007,69.6948,98.604,75.7148"/>
+        </shape>
+    </region>
+    <region id="146">
+        <name value="BD Minerals 1"/>
+        <shape type="circle">
+            <center value="154.6254,49.4133"/>
+            <radius value="3.1105"/>
+        </shape>
+    </region>
+    <region id="147">
+        <name value="BD Minerals 2"/>
+        <shape type="circle">
+            <center value="174.6318,20.4245"/>
+            <radius value="4.219"/>
+        </shape>
+    </region>
+    <region id="148">
+        <name value="BD Minerals 3"/>
+        <shape type="circle">
+            <center value="186.1074,46.4113"/>
+            <radius value="3.1105"/>
+        </shape>
+    </region>
+    <region id="149">
+        <name value="BD Minerals 4"/>
+        <shape type="circle">
+            <center value="209.01,68.6506"/>
+            <radius value="4.1362"/>
+        </shape>
+    </region>
+    <region id="150">
+        <name value="BD Minerals 5"/>
+        <shape type="circle">
+            <center value="238.7043,48.714"/>
+            <radius value="3.1105"/>
+        </shape>
+    </region>
+    <region id="151">
+        <name value="BD Wasteland 1"/>
+        <shape type="circle">
+            <center value="145.6765,70.1274"/>
+            <radius value="3.457"/>
+        </shape>
+    </region>
+    <region id="152">
+        <name value="BD Wasteland 2"/>
+        <shape type="circle">
+            <center value="156.2492,72.0253"/>
+            <radius value="3.4956"/>
+        </shape>
+    </region>
+    <region id="153">
+        <name value="BD Wasteland 3"/>
+        <shape type="circle">
+            <center value="139.862,63.1442"/>
+            <radius value="3.0256"/>
+        </shape>
+    </region>
+    <region id="154">
+        <name value="BD Wasteland 4"/>
+        <shape type="circle">
+            <center value="143.7414,54.408"/>
+            <radius value="2.4987"/>
+        </shape>
+    </region>
+    <region id="155">
+        <name value="BD Wasteland 5"/>
+        <shape type="circle">
+            <center value="152.2155,55.795"/>
+            <radius value="3.1511"/>
+        </shape>
+    </region>
+    <region id="156">
+        <name value="BD Wasteland 6"/>
+        <shape type="circle">
+            <center value="151.857,64.2275"/>
+            <radius value="2.7807"/>
+        </shape>
+    </region>
+    <region id="157">
+        <name value="BD Wasteland 7"/>
+        <shape type="circle">
+            <center value="162.047,64.6005"/>
+            <radius value="2.5166"/>
+        </shape>
+    </region>
+    <region id="142">
+        <name value="BD Relamy 1"/>
+        <shape type="circle">
+            <center value="150.9238,33.949"/>
+            <radius value="5.0327"/>
+        </shape>
+    </region>
+    <region id="145">
+        <name value="BD Relamy 2"/>
+        <shape type="circle">
+            <center value="163.491,39.1174"/>
+            <radius value="6.465"/>
+        </shape>
+    </region>
+    <region id="158">
+        <name value="BD Relamy 3"/>
+        <shape type="circle">
+            <center value="163.1257,24.17"/>
+            <radius value="6.3215"/>
+        </shape>
+    </region>
+    <region id="159">
+        <name value="BD Relamy 4"/>
+        <shape type="circle">
+            <center value="149.6203,20.1977"/>
+            <radius value="6.13"/>
+        </shape>
+    </region>
+    <region id="160">
+        <name value="BD Relamy 5"/>
+        <shape type="circle">
+            <center value="136.7316,21.8242"/>
+            <radius value="4.7026"/>
+        </shape>
+    </region>
+    <region id="161">
+        <name value="BD Relamy 6"/>
+        <shape type="circle">
+            <center value="129.8154,15.6228"/>
+            <radius value="2.8256"/>
+        </shape>
+    </region>
+    <region id="162">
+        <name value="BD Relamy 7"/>
+        <shape type="circle">
+            <center value="143.7004,28.8984"/>
+            <radius value="3.0175"/>
+        </shape>
+    </region>
+    <region id="163">
+        <name value="BD Verboten 1"/>
+        <shape type="circle">
+            <center value="184.0214,18.0078"/>
+            <radius value="4.0466"/>
+        </shape>
+    </region>
+    <region id="164">
+        <name value="BD Verboten 2"/>
+        <shape type="circle">
+            <center value="188.6555,26.4887"/>
+            <radius value="3.852"/>
+        </shape>
+    </region>
+    <region id="165">
+        <name value="BD Verboten 3"/>
+        <shape type="circle">
+            <center value="188.452,36.1384"/>
+            <radius value="4.3696"/>
+        </shape>
+    </region>
+    <region id="166">
+        <name value="BD Verboten 4"/>
+        <shape type="circle">
+            <center value="199.2104,35.8305"/>
+            <radius value="4.8112"/>
+        </shape>
+    </region>
+    <region id="167">
+        <name value="BD Verboten 5"/>
+        <shape type="circle">
+            <center value="197.25,25.9768"/>
+            <radius value="3.1235"/>
+        </shape>
+    </region>
+    <region id="168">
+        <name value="BD Verboten 6"/>
+        <shape type="circle">
+            <center value="193.4501,17.0332"/>
+            <radius value="4.002"/>
+        </shape>
+    </region>
+    <region id="169">
+        <name value="BD Creton 1"/>
+        <shape type="circle">
+            <center value="181.2312,58.3203"/>
+            <radius value="4.1867"/>
+        </shape>
+    </region>
+    <region id="170">
+        <name value="BD Creton 2"/>
+        <shape type="circle">
+            <center value="184.8178,65.119"/>
+            <radius value="2.7004"/>
+        </shape>
+    </region>
+    <region id="171">
+        <name value="BD Creton 3"/>
+        <shape type="circle">
+            <center value="196.6691,57.0988"/>
+            <radius value="3.415"/>
+        </shape>
+    </region>
+    <region id="172">
+        <name value="BD Creton 4"/>
+        <shape type="circle">
+            <center value="189.083,56.3862"/>
+            <radius value="2.8625"/>
+        </shape>
+    </region>
+    <region id="173">
+        <name value="BD Creton 5"/>
+        <shape type="circle">
+            <center value="190.509,62.5312"/>
+            <radius value="2.9956"/>
+        </shape>
+    </region>
+    <region id="174">
+        <name value="BD Creton 6"/>
+        <shape type="circle">
+            <center value="196.693,65.7932"/>
+            <radius value="3.6906"/>
+        </shape>
+    </region>
+    <region id="175">
+        <name value="BD Creton 7"/>
+        <shape type="circle">
+            <center value="203.136,56.8127"/>
+            <radius value="2.7116"/>
+        </shape>
+    </region>
+    <region id="176">
+        <name value="BD Zombie 1"/>
+        <shape type="circle">
+            <center value="224.7136,77.5783"/>
+            <radius value="4.058"/>
+        </shape>
+    </region>
+    <region id="177">
+        <name value="BD Zombie 2"/>
+        <shape type="circle">
+            <center value="235.4506,76.078"/>
+            <radius value="2.0063"/>
+        </shape>
+    </region>
+    <region id="178">
+        <name value="BD Zombie 3"/>
+        <shape type="circle">
+            <center value="230.0493,80.573"/>
+            <radius value="1.3732"/>
+        </shape>
+    </region>
+    <region id="179">
+        <name value="BD Zombie 4"/>
+        <shape type="circle">
+            <center value="236.8635,67.1647"/>
+            <radius value="2.3706"/>
+        </shape>
+    </region>
+    <region id="180">
+        <name value="BD Zombie 5"/>
+        <shape type="circle">
+            <center value="228.5693,70.3967"/>
+            <radius value="3.0441"/>
+        </shape>
+    </region>
+    <region id="181">
+        <name value="BD Zombie 6"/>
+        <shape type="circle">
+            <center value="218.663,72.7395"/>
+            <radius value="2.4721"/>
+        </shape>
+    </region>
+    <region id="182">
+        <name value="BD Zombie 7"/>
+        <shape type="circle">
+            <center value="222.31,67.2255"/>
+            <radius value="3.173"/>
+        </shape>
+    </region>
+    <region id="183">
+        <name value="BD Zombie 8"/>
+        <shape type="circle">
+            <center value="216.0861,63.4335"/>
+            <radius value="2.6135"/>
+        </shape>
+    </region>
+    <region id="184">
+        <name value="BD Zombie 9"/>
+        <shape type="circle">
+            <center value="228.2373,56.5517"/>
+            <radius value="3.7502"/>
+        </shape>
+    </region>
+    <region id="185">
+        <name value="BD Zombie 10"/>
+        <shape type="circle">
+            <center value="239.3972,61.562"/>
+            <radius value="3.4941"/>
+        </shape>
+    </region>
+    <region id="186">
+        <name value="BD Zombie 11"/>
+        <shape type="circle">
+            <center value="240.0373,53.9914"/>
+            <radius value="2.4858"/>
+        </shape>
+    </region>
+    <region id="187">
+        <name value="Teleport to Bio Dome"/>
+        <shape type="circle">
+            <center value="45.6784,14.4733"/>
+            <radius value="1.2194"/>
+        </shape>
+    </region>
+    <region id="188">
+        <name value="Teleport to Creton"/>
+        <shape type="circle">
+            <center value="133.146,67.9826"/>
+            <radius value="1.2194"/>
+        </shape>
+    </region>
+    <region id="189">
+        <name value="Teleport to Bio Dome Spawn"/>
+        <shape type="rect">
+            <quad value="135.2065,65.6477,136.7424,69.689"/>
+        </shape>
+    </region>
+    <region id="190">
+        <name value="Teleport to Creton Spawn"/>
+        <shape type="rect">
+            <quad value="48.6496,13.025,50.368,16.2824"/>
+        </shape>
+    </region>
+    <region id="191">
+        <name value="Island of Woe Enter 1"/>
+        <shape type="circle">
+            <center value="27.1735,99.0146"/>
+            <radius value="1.2421"/>
+        </shape>
+    </region>
+    <region id="192">
+        <name value="Island of Woe Exit 1"/>
+        <shape type="circle">
+            <center value="156.7324,90.5935"/>
+            <radius value="1.4"/>
+        </shape>
+    </region>
+    <region id="193">
+        <name value="Island of Woe Enter 2"/>
+        <shape type="rect">
+            <quad value="151.4785,87.6105,153.3166,91.8818"/>
+        </shape>
+    </region>
+    <region id="194">
+        <name value="Island of Woe Exit 2"/>
+        <shape type="rect">
+            <quad value="23.6472,102.6318,28.1774,105.8178"/>
+        </shape>
+    </region>
+    <region id="195">
+        <name value="Island of Woe Spawn 1"/>
+        <shape type="circle">
+            <center value="125.441,92.2148"/>
+            <radius value="2.0002"/>
+        </shape>
+    </region>
+    <region id="196">
+        <name value="Island of Woe Spawn 2"/>
+        <shape type="circle">
+            <center value="130.5117,94.6391"/>
+            <radius value="2.002"/>
+        </shape>
+    </region>
+    <region id="197">
+        <name value="Island of Woe Spawn 3"/>
+        <shape type="circle">
+            <center value="136.287,94.2036"/>
+            <radius value="1.6313"/>
+        </shape>
+    </region>
+    <region id="198">
+        <name value="Island of Woe Spawn 4"/>
+        <shape type="circle">
+            <center value="142.0805,94.9853"/>
+            <radius value="2.0815"/>
+        </shape>
+    </region>
+    <region id="199">
+        <name value="Island of Woe Spawn 5"/>
+        <shape type="circle">
+            <center value="129.563,85.5234"/>
+            <radius value="1.6391"/>
+        </shape>
+    </region>
+    <region id="200">
+        <name value="Island of Woe Spawn 6"/>
+        <shape type="circle">
+            <center value="135.0798,86.484"/>
+            <radius value="1.8645"/>
+        </shape>
+    </region>
+    <region id="201">
+        <name value="Island of Woe Spawn 7"/>
+        <shape type="circle">
+            <center value="140.6552,85.175"/>
+            <radius value="1.9055"/>
+        </shape>
+    </region>
+    <region id="202">
+        <name value="Island of Woe Spawn 8"/>
+        <shape type="circle">
+            <center value="143.7736,87.611"/>
+            <radius value="1.841"/>
+        </shape>
+    </region>
+    <region id="203">
+        <name value="Z Area 1"/>
+        <shape type="rect">
+            <quad value="226.4663,22.3786,232.408,28.541"/>
+        </shape>
+    </region>
+    <region id="204">
+        <name value="Z Area 2"/>
+        <shape type="rect">
+            <quad value="226.1538,15.927,232.4804,23.036"/>
+        </shape>
+    </region>
+    <region id="205">
+        <name value="Z Area 3"/>
+        <shape type="rect">
+            <quad value="220.0576,28.3073,226.42,33.921"/>
+        </shape>
+    </region>
+    <region id="206">
+        <name value="Z Area 4"/>
+        <shape type="rect">
+            <quad value="226.3493,28.405,232.494,33.998"/>
+        </shape>
+    </region>
+    <region id="207">
+        <name value="Z Area 5"/>
+        <shape type="rect">
+            <quad value="232.0505,16.082,238.0654,23.0803"/>
+        </shape>
+    </region>
+    <region id="208">
+        <name value="Z Area 6"/>
+        <shape type="rect">
+            <quad value="232.3535,22.308,238.211,28.4531"/>
+        </shape>
+    </region>
+    <region id="209">
+        <name value="Z Area 7"/>
+        <shape type="rect">
+            <quad value="220.0236,22.1486,226.2932,28.6376"/>
+        </shape>
+    </region>
+    <region id="210">
+        <name value="Z Area 8"/>
+        <shape type="rect">
+            <quad value="232.441,28.2775,237.9995,34.027"/>
+        </shape>
+    </region>
+    <region id="211">
+        <name value="Sregmagsi Lair Exit"/>
+        <shape type="rect">
+            <quad value="229.3427,178.9621,236.262,180.2866"/>
+        </shape>
+    </region>
+    <region id="212">
+        <name value="Sregmagsi Lair Enter"/>
+        <shape type="rect">
+            <quad value="229.4902,177.6191,236.4094,178.9436"/>
+        </shape>
+    </region>
+    <region id="213">
+        <name value="Z Area 9"/>
+        <shape type="rect">
+            <quad value="219.9807,15.6755,226.2192,22.1767"/>
+        </shape>
+    </region>
+    <region id="214">
+        <name value="Zauberer Area"/>
+        <shape type="rect">
+            <quad value="219.8896,15.3232,238.4897,33.903"/>
+        </shape>
+    </region>
+    <region id="215">
+        <name value="Z Camera Bounds"/>
+        <shape type="rect">
+            <quad value="216.5017,13.2077,241.5468,36.0646"/>
+        </shape>
+    </region>
+    <region id="216">
+        <name value="SQ1 - Felix"/>
+        <shape type="circle">
+            <center value="43.692,145.009"/>
+            <radius value="4.4375"/>
+        </shape>
+    </region>
+    <region id="217">
+        <name value="Dragon Stone Housing"/>
+        <shape type="circle">
+            <center value="95.5244,168.23"/>
+            <radius value="3.9594"/>
+        </shape>
+    </region>
+    <region id="218">
+        <name value="Dragon Stone"/>
+        <shape type="circle">
+            <center value="95.5825,168.7631"/>
+            <radius value="1.0083"/>
+        </shape>
+    </region>
+    <region id="219">
+        <name value="Dragon Stone Take Location"/>
+        <shape type="circle">
+            <center value="94.0744,167.664"/>
+            <radius value="0.8723"/>
+        </shape>
+    </region>
+    <region id="220">
+        <name value="Dragon Stone Zauberer Spawn"/>
+        <shape type="circle">
+            <center value="85.4523,167.4143"/>
+            <radius value="0.8706"/>
+        </shape>
+    </region>
+    <region id="221">
+        <name value="Dragon Stone Zauberer Exit"/>
+        <shape type="circle">
+            <center value="103.0876,160.3215"/>
+            <radius value="1.551"/>
+        </shape>
+    </region>
+    <region id="222">
+        <name value="SQ0 Region 1"/>
+        <shape type="circle">
+            <center value="52.1726,143.91"/>
+            <radius value="6.91"/>
+        </shape>
+    </region>
+    <region id="223">
+        <name value="SQ2 Region 1"/>
+        <shape type="circle">
+            <center value="42.903,90.041"/>
+            <radius value="4.8427"/>
+        </shape>
+    </region>
+    <region id="224">
+        <name value="SQ3 - Petrose"/>
+        <shape type="circle">
+            <center value="36.7517,99.3554"/>
+            <radius value="6.182"/>
+        </shape>
+    </region>
+    <region id="225">
+        <name value="SQ4 - Risdak"/>
+        <shape type="circle">
+            <center value="133.6022,131.1486"/>
+            <radius value="7.2111"/>
+        </shape>
+    </region>
+    <region id="226">
+        <name value="SQ6 - Lanea"/>
+        <shape type="circle">
+            <center value="53.168,20.8393"/>
+            <radius value="7.9692"/>
+        </shape>
+        <shape type="circle">
+            <negative/>
+            <center value="47.67,28.3398"/>
+            <radius value="7.9692"/>
+        </shape>
+    </region>
+    <region id="227">
+        <name value="Machina De Plagam&apos;s Crater"/>
+        <shape type="circle">
+            <center value="78.3515,80.298"/>
+            <radius value="9.978"/>
+        </shape>
+        <shape type="circle">
+            <center value="85.3498,75.2998"/>
+            <radius value="4.989"/>
+        </shape>
+    </region>
+    <region id="228">
+        <name value="Sremagsi&apos;s Lair 1"/>
+        <shape type="circle">
+            <center value="220.1762,175.6152"/>
+            <radius value="7.5378"/>
+        </shape>
+    </region>
+    <region id="229">
+        <name value="Sremagsi&apos;s Lair 2"/>
+        <shape type="circle">
+            <center value="227.5534,166.1"/>
+            <radius value="9.3586"/>
+        </shape>
+    </region>
+    <region id="230">
+        <name value="Sremagsi&apos;s Lair 3"/>
+        <shape type="circle">
+            <center value="232.6435,170.1013"/>
+            <radius value="9.0517"/>
+        </shape>
+        <shape type="rect">
+            <negative/>
+            <quad value="236.675,160.075,242.7248,180.1247"/>
+        </shape>
+    </region>
+    <region id="237">
+        <name value="Island of Woe Spawn 9"/>
+        <shape type="circle">
+            <center value="125.7932,88.048"/>
+            <radius value="1.841"/>
+        </shape>
+    </region>
+    <region id="238">
+        <name value="Island of Woe Spawn 10"/>
+        <shape type="circle">
+            <center value="144.3723,91.5483"/>
+            <radius value="1.841"/>
+        </shape>
+    </region>
+    <region id="241">
+        <name value="Sremagsi Cheat Fix Region"/>
+        <shape type="circle">
+            <center value="225.5888,172.386"/>
+            <radius value="3.16"/>
+        </shape>
+    </region>
+    <region id="233">
+        <name value="Ballan 1"/>
+        <shape type="rect">
+            <quad value="93.6274,199.1098,123.5441,208.4736"/>
+        </shape>
+    </region>
+    <region id="234">
+        <name value="Ballan 2"/>
+        <shape type="rect">
+            <quad value="93.9001,191.7675,99.873,201.0017"/>
+        </shape>
+    </region>
+    <region id="235">
+        <name value="Ballan 3"/>
+        <shape type="rect">
+            <quad value="101.2778,194.5786,107.2507,203.8127"/>
+        </shape>
+    </region>
+    <region id="236">
+        <name value="Ballan 4"/>
+        <shape type="rect">
+            <quad value="123.108,198.6093,153.0246,207.9731"/>
+        </shape>
+    </region>
+    <region id="242">
+        <name value="Ballan 5"/>
+        <shape type="rect">
+            <quad value="124.0314,208.0515,153.9482,217.4152"/>
+        </shape>
+    </region>
+    <region id="243">
+        <name value="Ballan 6"/>
+        <shape type="rect">
+            <quad value="124.456,216.6464,154.3728,226.0102"/>
+        </shape>
+    </region>
+    <region id="244">
+        <name value="Ballan 7"/>
+        <shape type="rect">
+            <quad value="133.1491,219.5012,163.066,228.865"/>
+        </shape>
+    </region>
+    <region id="245">
+        <name value="Ballan 8"/>
+        <shape type="rect">
+            <quad value="144.2836,210.3247,174.2004,219.6884"/>
+        </shape>
+    </region>
+    <region id="246">
+        <name value="Ballan 9"/>
+        <shape type="rect">
+            <quad value="146.004,202.0551,175.9206,211.419"/>
+        </shape>
+    </region>
+    <region id="247">
+        <name value="Ballan 10"/>
+        <shape type="rect">
+            <quad value="146.0908,198.141,176.0075,207.505"/>
+        </shape>
+    </region>
+    <region id="248">
+        <name value="Ballan 11"/>
+        <shape type="rect">
+            <quad value="139.6745,192.0363,169.5913,201.4001"/>
+        </shape>
+    </region>
+    <region id="249">
+        <name value="Ballan 12"/>
+        <shape type="rect">
+            <quad value="141.5102,187.9995,168.0241,196.7624"/>
+        </shape>
+    </region>
+    <region id="250">
+        <name value="Ballan 13"/>
+        <shape type="rect">
+            <quad value="144.306,181.509,161.7497,191.2006"/>
+        </shape>
+    </region>
+    <region id="251">
+        <name value="Ballan 14"/>
+        <shape type="rect">
+            <quad value="153.334,171.9963,160.6687,180.6381"/>
+        </shape>
+    </region>
+    <region id="252">
+        <name value="Lava Gaurd 1"/>
+        <shape type="rect">
+            <quad value="45.1257,143.709,59.523,145.075"/>
+        </shape>
+    </region>
+    <region id="253">
+        <name value="Lava Gaurd 2"/>
+        <shape type="rect">
+            <quad value="58.8554,129.395,60.0244,138.0126"/>
+        </shape>
+    </region>
+    <region id="254">
+        <name value="Lava Gaurd 3"/>
+        <shape type="rect">
+            <quad value="39.465,129.5354,40.634,138.153"/>
+        </shape>
+    </region>
+    <region id="255">
+        <name value="Lava Gaurd 4"/>
+        <shape type="rect">
+            <quad value="45.0942,145.098,59.4914,146.4638"/>
+        </shape>
+    </region>
+    <region id="256">
+        <name value="Lava Gaurd 5"/>
+        <shape type="rect">
+            <quad value="59.9797,128.896,61.1486,137.5136"/>
+        </shape>
+    </region>
+    <region id="257">
+        <name value="Lava Gaurd 6"/>
+        <shape type="rect">
+            <quad value="38.2365,129.3452,39.4055,137.963"/>
+        </shape>
+    </region>
+    <region id="258">
+        <name value="Nest Gaurd 1"/>
+        <shape type="diamond">
+            <center value="33.4868,214.7333"/>
+            <width value="5.2763"/>
+            <height value="1.125"/>
+        </shape>
+    </region>
+    <region id="259">
+        <name value="Nest Gaurd 2"/>
+        <shape type="diamond">
+            <center value="34.2785,213.9172"/>
+            <width value="5.2763"/>
+            <height value="1.125"/>
+        </shape>
+    </region>
+    <region id="260">
+        <name value="Relamy Cave Entrance"/>
+        <shape type="circle">
+            <center value="84.3874,138.6762"/>
+            <radius value="1.7116"/>
+        </shape>
+    </region>
+    <region id="261">
+        <name value="Relamy Cave Exit"/>
+        <shape type="circle">
+            <center value="85.4526,142.5776"/>
+            <radius value="1.8217"/>
+        </shape>
+    </region>
+    <region id="262">
+        <name value="Relamy Cave Map Bounds"/>
+        <shape type="rect">
+            <quad value="86.2934,144.8542,94.3576,155.6296"/>
+        </shape>
+    </region>
+    <region id="263">
+        <name value="Aqstrum Spawn"/>
+        <shape type="circle">
+            <center value="92.4987,159.9511"/>
+            <radius value="2.028"/>
+        </shape>
+    </region>
+    <region id="264">
+        <name value="Relamy Cave"/>
+        <shape type="rect">
+            <quad value="82.4565,142.7712,100.5422,160.891"/>
+        </shape>
+    </region>
+    <region id="231">
+        <name value="Oleum Quest"/>
+        <shape type="circle">
+            <center value="175.444,158.3137"/>
+            <radius value="6.1184"/>
+        </shape>
+    </region>
+    <region id="239">
+        <name value="Illisus Spawn Region"/>
+        <shape type="circle">
+            <center value="173.896,162.516"/>
+            <radius value="12.3325"/>
+        </shape>
+    </region>
+    <region id="240">
+        <name value="Relamy Gorge Enter"/>
+        <shape type="circle">
+            <center value="47.0207,153.5576"/>
+            <radius value="0.9926"/>
+        </shape>
+    </region>
+    <region id="265">
+        <name value="Relamy Gorge 5"/>
+        <shape type="rect">
+            <quad value="20.1994,155.2966,39.6457,160.5964"/>
+        </shape>
+    </region>
+    <region id="266">
+        <name value="Relamy Gorge 6"/>
+        <shape type="rect">
+            <quad value="21.7255,150.4772,37.7514,154.667"/>
+        </shape>
+    </region>
+    <region id="267">
+        <name value="Relamy Gorge 7"/>
+        <shape type="rect">
+            <quad value="27.8256,145.9873,32.6015,149.5803"/>
+        </shape>
+    </region>
+    <region id="268">
+        <name value="Relamy Gorge 0"/>
+        <shape type="rect">
+            <quad value="18.8237,192.769,25.5385,199.6235"/>
+        </shape>
+    </region>
+    <region id="232">
+        <name value="Relamy Gorge Enter Spawn"/>
+        <shape type="rect">
+            <quad value="39.7753,159.0146,41.7031,160.7282"/>
+        </shape>
+    </region>
+    <region id="269">
+        <name value="Relamy Gorge Exit"/>
+        <shape type="circle">
+            <center value="43.0412,157.0893"/>
+            <radius value="1.7385"/>
+        </shape>
+    </region>
+    <region id="270">
+        <name value="Relamy Gorge Exit Spawn"/>
+        <shape type="circle">
+            <center value="51.0612,152.0781"/>
+            <radius value="0.3371"/>
+        </shape>
+    </region>
+    <region id="30">
+        <name value="Underground Forest Entrance"/>
+        <shape type="circle">
+            <center value="31.6013,45.3681"/>
+            <radius value="0.9653"/>
+        </shape>
+    </region>
+    <region id="271">
+        <name value="Underground Forest Exit"/>
+        <shape type="circle">
+            <center value="31.9074,50.4748"/>
+            <radius value="0.8876"/>
+        </shape>
+    </region>
+    <region id="272">
+        <name value="Underground Forest Exit Spawn"/>
+        <shape type="circle">
+            <center value="30.9082,40.9252"/>
+            <radius value="0.6628"/>
+        </shape>
+    </region>
+    <region id="273">
+        <name value="Underground Forest Entrance Spawn"/>
+        <shape type="circle">
+            <center value="32.224,54.7724"/>
+            <radius value="0.6628"/>
+        </shape>
+    </region>
+    <region id="274">
+        <name value="Seryn&apos;s Shadow"/>
+        <shape type="circle">
+            <center value="16.5197,73.527"/>
+            <radius value="4.7846"/>
+        </shape>
+    </region>
+    <region id="275">
+        <name value="Underground Forest 1"/>
+        <shape type="rect">
+            <quad value="12.2023,62.6645,23.7846,74.2365"/>
+        </shape>
+    </region>
+    <region id="276">
+        <name value="Underground Forest 2"/>
+        <shape type="rect">
+            <quad value="16.968,74.9162,23.8054,80.7277"/>
+        </shape>
+    </region>
+    <region id="277">
+        <name value="Underground Forest 3"/>
+        <shape type="rect">
+            <quad value="24.204,77.1347,39.8115,82.3251"/>
+        </shape>
+    </region>
+    <region id="278">
+        <name value="Underground Forest 4"/>
+        <shape type="rect">
+            <quad value="24.5068,70.4953,40.1433,76.489"/>
+        </shape>
+    </region>
+    <region id="279">
+        <name value="Underground Forest 5"/>
+        <shape type="rect">
+            <quad value="24.4685,66.295,34.0415,69.8466"/>
+        </shape>
+    </region>
+    <region id="280">
+        <name value="Underground Forest 6"/>
+        <shape type="rect">
+            <quad value="34.2932,63.9433,44.0144,70.0993"/>
+        </shape>
+    </region>
+    <region id="281">
+        <name value="Underground Forest 7"/>
+        <shape type="rect">
+            <quad value="39.2666,56.7507,45.8923,63.494"/>
+        </shape>
+    </region>
+    <region id="282">
+        <name value="Underground Forest 8"/>
+        <shape type="rect">
+            <quad value="46.16,56.545,53.9758,65.3376"/>
+        </shape>
+    </region>
+    <region id="283">
+        <name value="Secret Zauberer"/>
+        <shape type="circle">
+            <center value="225.7641,43.2001"/>
+            <radius value="1.1218"/>
+        </shape>
+    </region>
+    <region id="284">
+        <name value="Secret Machina De Plagam"/>
+        <shape type="circle">
+            <center value="72.4133,78.472"/>
+            <radius value="1.1218"/>
+        </shape>
+    </region>
+    <region id="285">
+        <name value="Secret Sremagsi"/>
+        <shape type="circle">
+            <center value="233.8244,160.4772"/>
+            <radius value="1.1218"/>
+        </shape>
+    </region>
+    <region id="286">
+        <name value="Secret Guardians"/>
+        <shape type="circle">
+            <center value="133.7888,106.3117"/>
+            <radius value="1.1218"/>
+        </shape>
+    </region>
+    <region id="287">
+        <name value="Secret Syrital"/>
+        <shape type="circle">
+            <center value="103.9313,219.7722"/>
+            <radius value="1.1218"/>
+        </shape>
+    </region>
+    <region id="288">
+        <name value="Potion Shop"/>
+        <shape type="circle">
+            <center value="137.5095,226.4365"/>
+            <radius value="4.0483"/>
+        </shape>
+    </region>
+    <region id="289">
+        <name value="Weapon Shop"/>
+        <shape type="circle">
+            <center value="128.457,222.2045"/>
+            <radius value="3.7302"/>
+        </shape>
+    </region>
+    <region id="290">
+        <name value="Shard Shop"/>
+        <shape type="circle">
+            <center value="151.0502,223.1264"/>
+            <radius value="3.0522"/>
+        </shape>
+    </region>
+    <region id="291">
+        <name value="Armor Shop"/>
+        <shape type="circle">
+            <center value="153.176,218.152"/>
+            <radius value="3.0705"/>
+        </shape>
+    </region>
+    <region id="292">
+        <name value="Infestation Total Area"/>
+        <shape type="rect">
+            <quad value="180.378,160.4138,254.4174,232.0705"/>
+        </shape>
+        <shape type="diamond">
+            <center value="211.4001,148.24"/>
+            <width value="26.174"/>
+            <height value="68.3298"/>
+        </shape>
+        <shape type="rect">
+            <quad value="215.0927,124.1367,253.3076,178.7592"/>
+        </shape>
+        <shape type="rect">
+            <quad value="171.095,148.6401,195.305,188.2597"/>
+        </shape>
+        <shape type="diamond">
+            <center value="179.7597,191.45"/>
+            <width value="31.46"/>
+            <height value="8.45"/>
+        </shape>
+        <shape type="rect">
+            <quad value="166.37,151.6401,177.0698,181.2597"/>
+        </shape>
+        <shape type="rect">
+            <negative/>
+            <quad value="215.39,114.95,233.39,123.95"/>
+        </shape>
+        <shape type="rect">
+            <quad value="158.5297,156.45,169.5297,166.45"/>
+        </shape>
+        <shape type="diamond">
+            <negative/>
+            <center value="207.47,132.45"/>
+            <width value="5.9"/>
+            <height value="22.45"/>
+        </shape>
+    </region>
+    <region id="294">
+        <name value="Boss Fight Warp Out Zone"/>
+        <shape type="circle">
+            <center value="230.932,33.8745"/>
+            <radius value="0.64"/>
+        </shape>
+    </region>
+    <region id="293">
+        <name value="Holding Cell"/>
+        <shape type="circle">
+            <center value="232.861,10.6535"/>
+            <radius value="0.5004"/>
+        </shape>
+    </region>
+</Regions>

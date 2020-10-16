@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CSoundtrack id="BiodomeTheme2">
+        <CueArray>
+            <MasterLayer Sound="BallansTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="CretonTheme">
+        <CueArray>
+            <MasterLayer Sound="CretonTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="BiodomeTheme">
+        <CueArray>
+            <MasterLayer Sound="BiodomeTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="EndingTheme">
+        <CueArray>
+            <MasterLayer Sound="EndingTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="IntroTheme">
+        <CueArray>
+            <MasterLayer Sound="IntroTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="IceDragonTheme">
+        <CueArray>
+            <MasterLayer Sound="IceDragonsTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="RelamyCaveTheme">
+        <CueArray>
+            <MasterLayer Sound="RelamyCaveTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="RelamyGorgeTheme">
+        <CueArray>
+            <MasterLayer Sound="RelamyGorgeTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="VerbotenTheme">
+        <CueArray>
+            <MasterLayer Sound="VerbotenTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="InfestationTheme">
+        <CueArray>
+            <MasterLayer Sound="InfestationTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="WastelandTheme">
+        <CueArray>
+            <MasterLayer Sound="WastelandTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="RelamyTheme">
+        <CueArray>
+            <MasterLayer Sound="RelamyTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="SremagsisTheme">
+        <CueArray>
+            <MasterLayer Sound="SremagsisTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="UndergroundForestTheme">
+        <CueArray>
+            <MasterLayer Sound="UndergroundForestTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+    <CSoundtrack id="ZauberersTheme">
+        <CueArray>
+            <MasterLayer Sound="ZauberersTheme"/>
+            <SlaveLayers>
+                <Sections/>
+            </SlaveLayers>
+        </CueArray>
+    </CSoundtrack>
+</Catalog>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DocInfo>
+    <Icon>
+        <Value>Dragon RPG Icon.jpg</Value>
+    </Icon>
+    <Dependencies>
+        <Value>bnet:Liberty (Mod)/0.0/999,file:Mods/Liberty.SC2Mod</Value>
+        <Value>bnet:Liberty (Campaign)/0.0/999,file:Campaigns/Liberty.SC2Campaign</Value>
+        <Value>bnet:Swarm (Mod)/0.0/999,file:Mods/Swarm.SC2Mod</Value>
+        <Value>bnet:Swarm (Campaign)/0.0/999,file:Campaigns/Swarm.SC2Campaign</Value>
+        <Value>bnet:Swarm Story (Campaign)/0.0/999,file:Campaigns/SwarmStory.SC2Campaign</Value>
+        <Value>bnet:Liberty Story (Campaign)/0.0/999,file:Campaigns/LibertyStory.SC2Campaign</Value>
+    </Dependencies>
+    <Screenshot>
+        <File>
+            <Value>templa10.tga</Value>
+            <Value>teen_d11.tga</Value>
+            <Value>floati11.tga</Value>
+        </File>
+        <CaptionId>
+            <Value>1</Value>
+            <Value>2</Value>
+            <Value>3</Value>
+        </CaptionId>
+        <Flags>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+        </Flags>
+    </Screenshot>
+    <ScreenshotHowToPlay>
+        <File>
+            <Value>Screenshot2012-08-17 01_21_05.jpg</Value>
+            <Value>Screenshot2012-08-17 01_21_27.jpg</Value>
+            <Value>Screenshot2012-08-17 01_21_40.jpg</Value>
+            <Value>Screenshot2012-08-17 01_21_52.jpg</Value>
+            <Value>Screenshot2012-08-17 01_23_50.jpg</Value>
+        </File>
+        <CaptionId>
+            <Value>1</Value>
+            <Value>2</Value>
+            <Value>3</Value>
+            <Value>4</Value>
+            <Value>5</Value>
+        </CaptionId>
+        <Flags>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+            <Value>PublishRetain</Value>
+        </Flags>
+    </ScreenshotHowToPlay>
+    <HowToPlayAdvanced>
+        <ListType>
+            <Value>Plain</Value>
+        </ListType>
+    </HowToPlayAdvanced>
+    <PatchNote>
+        <Version>
+            <Value>1.0</Value>
+            <Value>2.27</Value>
+            <Value>2.28</Value>
+        </Version>
+        <Date>
+            <Value>11/25/2013</Value>
+            <Value>12/17/2013</Value>
+            <Value>12/19/2013</Value>
+        </Date>
+        <Notes>
+            <Value>1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,100,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79</Value>
+            <Value>80,81,82</Value>
+            <Value>83</Value>
+        </Notes>
+    </PatchNote>
+    <Preload>
+        <Value>GameLink:Unit;BabyDragon</Value>
+        <Value>GameLink:Unit;TeenDragon</Value>
+        <Value>GameLink:Unit;AdultDragon</Value>
+        <Value>GameLink:Unit;MasterDragon</Value>
+        <Value>GameLink:Unit;LegendaryDragon</Value>
+        <Value>GameLink:Unit;CretonWarrior</Value>
+        <Value>GameLink:Unit;DemonicSheep</Value>
+        <Value>GameLink:Unit;DemonicSrepti</Value>
+        <Value>GameLink:Unit;EliteCretonWarrior</Value>
+        <Value>GameLink:Unit;Mortuus</Value>
+        <Value>GameLink:Unit;SmallSheep</Value>
+        <Value>GameLink:Unit;Srepti</Value>
+        <Value>GameLink:Unit;Alakdan</Value>
+        <Value>GameLink:Unit;Anguis</Value>
+        <Value>GameLink:Unit;CretonWarMachine</Value>
+        <Value>GameLink:Unit;CretonWarlord</Value>
+        <Value>GameLink:Unit;CretonWatcher</Value>
+        <Value>GameLink:Unit;EliteCretonWatcher</Value>
+        <Value>GameLink:Unit;Gagamba</Value>
+        <Value>GameLink:Unit;Impetus</Value>
+        <Value>GameLink:Unit;Karramarro</Value>
+        <Value>GameLink:Unit;Odvratan</Value>
+        <Value>GameLink:Unit;Pervolo</Value>
+        <Value>GameLink:Unit;Stercore</Value>
+        <Value>GameLink:Unit;Vogel</Value>
+        <Value>GameLink:Unit;Syrital</Value>
+        <Value>GameLink:Unit;Zauberer</Value>
+        <Value>GameLink:Unit;Zauberer2</Value>
+        <Value>GameLink:Unit;Korlic</Value>
+        <Value>GameLink:Unit;MachinaDePlagam</Value>
+        <Value>GameLink:Unit;Madawc</Value>
+        <Value>GameLink:Unit;Sremagsi</Value>
+        <Value>GameLink:Unit;Tolic</Value>
+        <Value>GameLink:Unit;AlphaSrepti</Value>
+        <Value>GameLink:Soundtrack;BiodomeTheme2</Value>
+        <Value>GameLink:Soundtrack;BiodomeTheme</Value>
+        <Value>GameLink:Soundtrack;CretonTheme</Value>
+        <Value>GameLink:Soundtrack;EndingTheme</Value>
+        <Value>GameLink:Soundtrack;InfestationTheme</Value>
+        <Value>GameLink:Soundtrack;IntroTheme</Value>
+        <Value>GameLink:Soundtrack;RelamyTheme</Value>
+        <Value>GameLink:Soundtrack;SremagsisTheme</Value>
+        <Value>GameLink:Soundtrack;VerbotenTheme</Value>
+        <Value>GameLink:Soundtrack;WastelandTheme</Value>
+        <Value>GameLink:Soundtrack;ZauberersTheme</Value>
+        <Value>GameLink:Terrain;Haven</Value>
+        <Value>GameLink:TerrainTex;HavenDirt</Value>
+        <Value>GameLink:TerrainTex;HavenGrass</Value>
+        <Value>GameLink:TerrainTex;HavenGrassDark</Value>
+        <Value>GameLink:TerrainTex;HavenGrassLight</Value>
+        <Value>GameLink:TerrainTex;HavenGrassRocky</Value>
+        <Value>GameLink:TerrainTex;HavenLeaves</Value>
+        <Value>GameLink:TerrainTex;HavenRockSmooth</Value>
+        <Value>GameLink:TerrainTex;HavenRockRough</Value>
+        <Value>GameLink:Sound;BallansTheme</Value>
+        <Value>GameLink:Sound;BiodomeTheme</Value>
+        <Value>GameLink:Sound;CretonTheme</Value>
+        <Value>GameLink:Sound;EndingTheme</Value>
+        <Value>GameLink:Sound;GuardiansTheme</Value>
+        <Value>GameLink:Sound;InfestationTheme</Value>
+        <Value>GameLink:Sound;IntroTheme</Value>
+        <Value>GameLink:Sound;MachinaDePlagamTheme</Value>
+        <Value>GameLink:Sound;RelamyCaveTheme</Value>
+        <Value>GameLink:Sound;RelamyGorgeTheme</Value>
+        <Value>GameLink:Sound;RelamyTheme</Value>
+        <Value>GameLink:Sound;SremagsisTheme</Value>
+        <Value>GameLink:Sound;SyritalBattleTheme</Value>
+        <Value>GameLink:Sound;UndergroundForestTheme</Value>
+        <Value>GameLink:Sound;VerbotenTheme</Value>
+        <Value>GameLink:Sound;WastelandTheme</Value>
+        <Value>GameLink:Sound;ZauberersTheme</Value>
+        <Value>GameLink:Unit;BabyIceDragon</Value>
+        <Value>GameLink:Unit;AdultIceDragon</Value>
+        <Value>GameLink:Unit;LegendaryIceDragon</Value>
+        <Value>GameLink:Unit;MasterIceDragon</Value>
+        <Value>GameLink:Unit;TeenIceDragon</Value>
+        <Value>GameLink:Unit;ShadowSeryn</Value>
+        <Value>GameLink:Unit;Seryn</Value>
+        <Value>Bank;DragonRPGStashBank</Value>
+        <Value>Bank;DragonRPGCurrencyBank</Value>
+        <Value>Bank;DragonRPGRebornBank</Value>
+        <Value>Bank;DQRPGTalentLibraryBank</Value>
+        <Value>Bank;DragonRPGFireBank</Value>
+        <Value>Bank;DragonRPGIceBank</Value>
+    </Preload>
+</DocInfo>

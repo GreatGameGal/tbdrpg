@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CButton id="Attack2">
+        <Icon value="Assets\Textures\btn-command-attack.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-attack.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Attack2"/>
+    </CButton>
+    <CButton id="Attack3">
+        <Icon value="Assets\Textures\btn-command-attack.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-attack.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Attack3"/>
+    </CButton>
+    <CButton id="Attack4">
+        <Icon value="Assets\Textures\btn-command-attack.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-attack.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Attack4"/>
+    </CButton>
+    <CButton id="Attack5">
+        <Icon value="Assets\Textures\btn-command-attack.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-attack.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Attack5"/>
+    </CButton>
+    <CButton id="Attack6">
+        <Icon value="Assets\Textures\btn-command-attack.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-attack.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Attack6"/>
+    </CButton>
+    <CButton id="ModArmor">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+    </CButton>
+    <CButton id="MinerArmor">
+        <Icon value="Dragon Songs\btn-upgrade-terran-marinearmor1.dds"/>
+    </CButton>
+    <CButton id="Move2">
+        <Icon value="Assets\Textures\btn-command-move.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-move.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Move2"/>
+    </CButton>
+    <CButton id="Move3">
+        <Icon value="Assets\Textures\btn-command-move.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-move.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Move3"/>
+    </CButton>
+    <CButton id="Move4">
+        <Icon value="Assets\Textures\btn-command-move.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-move.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Move4"/>
+    </CButton>
+    <CButton id="Move5">
+        <Icon value="Assets\Textures\btn-command-move.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-move.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Move5"/>
+    </CButton>
+    <CButton id="Move6">
+        <Icon value="Assets\Textures\btn-command-move.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-move.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+        <SimpleDisplayText value="SimpleDisplay/Move6"/>
+    </CButton>
+    <CButton id="MoveHoldPosition2">
+        <Icon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MoveHoldPosition3">
+        <Icon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MoveHoldPosition4">
+        <Icon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MoveHoldPosition5">
+        <Icon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MoveHoldPosition6">
+        <Icon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-holdposition.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MovePatrol2">
+        <Icon value="Assets\Textures\btn-command-patrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-patrol.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MovePatrol3">
+        <Icon value="Assets\Textures\btn-command-patrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-patrol.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MovePatrol4">
+        <Icon value="Assets\Textures\btn-command-patrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-patrol.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MovePatrol5">
+        <Icon value="Assets\Textures\btn-command-patrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-patrol.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="MovePatrol6">
+        <Icon value="Assets\Textures\btn-command-patrol.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-patrol.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="OblivionArmor">
+        <Icon value="Assets\Textures\btn-upgrade-terran-vehicleplatinglevel3.dds"/>
+    </CButton>
+    <CButton id="OblivionClaws">
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipweaponslevel3.dds"/>
+    </CButton>
+    <CButton id="OblivionSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level3.dds"/>
+        <HotkeyAlias value="OblivionClaws"/>
+    </CButton>
+    <CButton id="PlagamArmor">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel3.dds"/>
+    </CButton>
+    <CButton id="SremagsisTentacles">
+        <Icon value="Assets\Textures\btn-ability-zerg-neuralparasite.dds"/>
+    </CButton>
+    <CButton id="Agility">
+        <Icon value="Assets\Textures\btn-ability-protoss-charge-color.dds"/>
+    </CButton>
+    <CButton id="BalancedClothArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="Stop2">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="Stop3">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="Stop4">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="Stop5">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="Stop6">
+        <Icon value="Assets\Textures\btn-command-stop.dds"/>
+        <AlertIcon value="Assets\Textures\btn-command-stop.dds"/>
+        <EditorCategories value="Race:Neutral"/>
+        <TintRacially value="1"/>
+        <Universal value="1"/>
+    </CButton>
+    <CButton id="WingClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="FlimsySpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <HotkeyAlias value="BasicSpines"/>
+    </CButton>
+    <CButton id="FlimsyClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <HotkeyAlias value="BasicClaws"/>
+    </CButton>
+    <CButton id="FrozenArmor">
+        <Icon value="Dragon Songs\btn-DOTA-item-shield.dds"/>
+    </CButton>
+    <CButton id="LearnFrozenArmor">
+        <Icon value="Dragon Songs\btn-DOTA-item-shield.dds"/>
+    </CButton>
+    <CButton id="LearnSubZero">
+        <Icon value="Assets\Textures\ui_hots_icon_flashfreeze.dds"/>
+    </CButton>
+    <CButton id="SubZero">
+        <Icon value="Assets\Textures\ui_hots_icon_flashfreeze.dds"/>
+    </CButton>
+    <CButton id="Stash1">
+        <TooltipFlags index="ShowHotkey" value="0"/>
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+    </CButton>
+    <CButton id="PurchaseStash">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+    </CButton>
+    <CButton id="Stash2">
+        <TooltipFlags index="ShowHotkey" value="0"/>
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="Stash1"/>
+    </CButton>
+    <CButton id="Stash3">
+        <TooltipFlags index="ShowHotkey" value="0"/>
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="Stash1"/>
+    </CButton>
+    <CButton id="Stash4">
+        <TooltipFlags index="ShowHotkey" value="0"/>
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="Stash1"/>
+    </CButton>
+    <CButton id="Stash5">
+        <TooltipFlags index="ShowHotkey" value="0"/>
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="Stash1"/>
+    </CButton>
+    <CButton id="Stash6">
+        <TooltipFlags index="ShowHotkey" value="0"/>
+        <TooltipFlags index="ShowLevel" value="0"/>
+        <TooltipFlags index="ShowResources" value="0"/>
+        <TooltipFlags index="ShowSupply" value="0"/>
+        <TooltipFlags index="ShowUsage" value="0"/>
+        <TooltipFlags index="ShowTime" value="0"/>
+        <TooltipFlags index="ShowCooldown" value="0"/>
+        <TooltipFlags index="ShowAutocast" value="0"/>
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="Stash1"/>
+    </CButton>
+    <CButton id="StashUpgrade1">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+    </CButton>
+    <CButton id="PurchaseAscendedArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level2.dds"/>
+    </CButton>
+    <CButton id="PurchaseFacetofRevenge">
+        <Icon value="Assets\Textures\btn-ability-terran-electricfield.dds"/>
+    </CButton>
+    <CButton id="PurchaseCrystalofRebirth">
+        <Icon value="Dragon Songs\btn-ability-protoss-protoncharge-rainbow.dds"/>
+    </CButton>
+    <CButton id="PurchaseJewelofReturn">
+        <Icon value="Dragon Songs\btn-command-patrol-color.dds"/>
+    </CButton>
+    <CButton id="PurchaseRadiantArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+    </CButton>
+    <CButton id="PurchaseDemonicArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+    </CButton>
+    <CButton id="PurchaseUnbreakableArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+    </CButton>
+    <CButton id="PurchaseStoneofProtection">
+        <Icon value="Assets\Textures\btn-ability-protoss-forcefield-color.dds"/>
+        <HotkeyAlias value="PurchaseOcculusofWarning"/>
+    </CButton>
+    <CButton id="PurchaseRingofQuickening">
+        <Icon value="Assets\Textures\btn-ability-protoss-timebomb.dds"/>
+        <HotkeyAlias value="PurchaseOcculusofWarning"/>
+    </CButton>
+    <CButton id="PurchaseShiningArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+    </CButton>
+    <CButton id="AdvancedArmors50100">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hardenedcarapace.dds"/>
+    </CButton>
+    <CButton id="SoftArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-buildingarmor.dds"/>
+        <HotkeyAlias value="BasicArmor"/>
+    </CButton>
+    <CButton id="BoneSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="NextPage">
+        <Icon value="Assets\Textures\ui_research_frame_available_arrow_right.dds"/>
+    </CButton>
+    <CButton id="ForbiddenSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="DiamondSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="DeadlySpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="GodlySpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="PreviousPage">
+        <Icon value="Assets\Textures\ui_research_frame_available_arrow_left.dds"/>
+    </CButton>
+    <CButton id="PurchaseBasicSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseBoneSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseBronzeSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseForbiddenSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseDiamondSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseDeadlySpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseGodlySpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseSacredSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseLegendarySpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseTitaniumSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseSilverSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseIronSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseGoldSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseSteelSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchaseCopperSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="PurchasePlatinumSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groovedspines.dds"/>
+    </CButton>
+    <CButton id="SacredSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="LegendarySpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="Spines150">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level2.dds"/>
+        <HotkeyAlias value="Claws150"/>
+    </CButton>
+    <CButton id="Spines50100">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level3.dds"/>
+        <HotkeyAlias value="Claws150"/>
+    </CButton>
+    <CButton id="StashUpgrade2">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="StashUpgrade1"/>
+    </CButton>
+    <CButton id="StashUpgrade3">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="StashUpgrade1"/>
+    </CButton>
+    <CButton id="StashUpgrade4">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="StashUpgrade1"/>
+    </CButton>
+    <CButton id="StashUpgrade5">
+        <Icon value="Dragon Songs\btn-custom-treasure.dds"/>
+        <HotkeyAlias value="StashUpgrade1"/>
+    </CButton>
+    <CButton id="RebornMenu">
+        <Icon value="Assets\Textures\btn-ability-terran-advancedhealingai.dds"/>
+        <HotkeyAlias value="Talents"/>
+    </CButton>
+    <CButton id="TitaniumSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="SilverSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="IronSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="CopperSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="BronzeSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="GoldSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="SteelSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="LearnBlizzard">
+        <Icon value="Assets\Textures\btn-ability-swarm-kerrigan-crushinggrip.dds"/>
+    </CButton>
+    <CButton id="ChainArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="AscendedArmor">
+        <Icon value="Assets\Textures\btn-upgrade-terran-shipplatinglevel3.dds"/>
+    </CButton>
+    <CButton id="ExtraBag">
+        <Icon value="Assets\Textures\decal_protoss_0037_01.dds"/>
+    </CButton>
+    <CButton id="ExtraBag2">
+        <Icon value="Assets\Textures\decal_protoss_0037_01.dds"/>
+    </CButton>
+    <CButton id="FrostSpike">
+        <Icon value="Frost_Spike.tga"/>
+    </CButton>
+    <CButton id="AbsoluteZero">
+        <Icon value="Dragon Songs\btn-custom-zerg-zerglot.dds"/>
+    </CButton>
+    <CButton id="GrandAttackSpeedPotion">
+        <Icon value="BTNPotionOfOmniscience.dds"/>
+    </CButton>
+    <CButton id="GrandOrbofAnger">
+        <Icon value="Assets\Textures\orbittech.dds"/>
+    </CButton>
+    <CButton id="BasicSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="Blizzard">
+        <Icon value="Assets\Textures\btn-ability-swarm-kerrigan-crushinggrip.dds"/>
+    </CButton>
+    <CButton id="LargeAttackSpeedPotion">
+        <Icon value="BTNPotionOfOmniscience.dds"/>
+    </CButton>
+    <CButton id="LargeHealingOrb">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+    </CButton>
+    <CButton id="GrandHealingOrb">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+    </CButton>
+    <CButton id="NosferatusRelic">
+        <Icon value="Dragon Songs\btn-ability-zerg-disguise-red-color.dds"/>
+    </CButton>
+    <CButton id="LearnFrostSpike">
+        <Icon value="Frost_Spike.tga"/>
+    </CButton>
+    <CButton id="MediumAttackSpeedPotion">
+        <Icon value="BTNPotionOfOmniscience.dds"/>
+    </CButton>
+    <CButton id="16M04N19E01R01">
+        <Icon value="Dragon Songs\btn-upgrade-zerg-groundcarapace-level1-plus.dds"/>
+    </CButton>
+    <CButton id="NovaCreatePersistent">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink-color.dds"/>
+    </CButton>
+    <CButton id="LearnNova">
+        <Icon value="Assets\Textures\btn-ability-protoss-blink.dds"/>
+    </CButton>
+    <CButton id="PurchaseOcculusofWarning">
+        <Icon value="Assets\Textures\btn-ability-protoss-hallucination-color.dds"/>
+    </CButton>
+    <CButton id="RadiantArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="DemonicArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="FluxCapacitor">
+        <Icon value="Assets\Textures\btn-upgrade-terran-corvidreactor.dds"/>
+    </CButton>
+    <CButton id="ILEBCE">
+        <Icon value="Assets\Textures\btn-tips-char.dds"/>
+    </CButton>
+    <CButton id="MediumHealingOrb">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+    </CButton>
+    <CButton id="SmallAttackSpeedPotion">
+        <Icon value="BTNPotionOfOmniscience.dds"/>
+    </CButton>
+    <CButton id="SpecialItems">
+        <Icon value="Dragon Songs\btn-ability-protoss-wormhole-color.dds"/>
+    </CButton>
+    <CButton id="CarrionNeedles">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+    </CButton>
+    <CButton id="PlatinumSpines">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+    </CButton>
+    <CButton id="TownPortal">
+        <Icon value="BTNInnerFire.dds"/>
+    </CButton>
+    <CButton id="UnbreakableArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="SmallOrbofMight">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+    </CButton>
+    <CButton id="SpecialPotions">
+        <Icon value="BTNPotionOfVampirism.dds"/>
+    </CButton>
+    <CButton id="HealthPotions">
+        <Icon value="BTNPotionRed.dds"/>
+    </CButton>
+    <CButton id="EnergyPotions">
+        <Icon value="BTNPotionGreenSmall.dds"/>
+    </CButton>
+    <CButton id="Inferno">
+        <Icon value="Assets\Textures\fireball_7.dds"/>
+    </CButton>
+    <CButton id="ForbiddenClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="DiamondArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="DeadlyClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="Claws150">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+    </CButton>
+    <CButton id="GodlyClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="Claws50100">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
+    </CButton>
+    <CButton id="GrandHealthPotion">
+        <Icon value="BTNPotionRed.dds"/>
+    </CButton>
+    <CButton id="LearnInferno">
+        <Icon value="Assets\Textures\fireball_7.dds"/>
+    </CButton>
+    <CButton id="LargeHealthPotion">
+        <Icon value="BTNPotionRed.dds"/>
+    </CButton>
+    <CButton id="PurchaseDeadlyClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseForbiddenClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseGodlyClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseSacredClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseLegendaryClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="SacredClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="MysticalArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="ForsakenArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseChainArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseDiamondArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseMysticalArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseRingArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseScaleArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchasePlateArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="RingArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="MadawcsElectricArmor">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-shieldslevel1.dds"/>
+    </CButton>
+    <CButton id="KorlicsFrozenBlade">
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel3.dds"/>
+    </CButton>
+    <CButton id="DiamondClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="CopperClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseBronzeClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseDiamondClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseTitaniumClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseSilverClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseGoldClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="SimpleArmors150">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level1.dds"/>
+    </CButton>
+    <CButton id="PurchaseSteelClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseCopperClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchasePlatinumClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="LegendaryClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="ScaleArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PlateArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="SmallHealthPotion">
+        <Icon value="BTNPotionRed.dds"/>
+    </CButton>
+    <CButton id="MediumHealthPotion">
+        <Icon value="BTNPotionRed.dds"/>
+    </CButton>
+    <CButton id="SummonLavaMinions">
+        <Icon value="Assets\Textures\archonsummoningcircle.dds"/>
+    </CButton>
+    <CButton id="Talents">
+        <Icon value="Assets\Textures\btn-research-zerg-regenerativebio-steel.dds"/>
+    </CButton>
+    <CButton id="TolicsFireOrb">
+        <Icon value="Assets\Textures\fireball_7.dds"/>
+    </CButton>
+    <CButton id="TitaniumClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="SilverClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="DevilsFlamethrower">
+        <Icon value="Assets\Textures\btn-upgrade-terran-twin-linkedflamethrower.dds"/>
+    </CButton>
+    <CButton id="GoldClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="SteelClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="SmallHealingOrb">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+    </CButton>
+    <CButton id="QuestItems">
+        <Icon value="Assets\Textures\ui_tip_questionmark.dds"/>
+    </CButton>
+    <CButton id="Orbs">
+        <Icon value="Assets\Textures\decal_terran_0011_01.dds"/>
+    </CButton>
+    <CButton id="Familiars">
+        <Icon value="Assets\Textures\btn-unit-terran-predator.dds"/>
+    </CButton>
+    <CButton id="PurchaseBalancedClothArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseBalancedCottonArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseBalancedLeatherArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="BalancedWoolArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="BalancedLeatherArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseBalancedWoolArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseBoneClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="IronClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseIronClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="SmallOrbofSight">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+    </CButton>
+    <CButton id="MediumOrbofSight">
+        <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
+    </CButton>
+    <CButton id="BronzeClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="SyritalsTalons">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-leve3.dds"/>
+    </CButton>
+    <CButton id="HeavyWoolArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="HeavyLeatherArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="HerosMight">
+        <Icon value="Assets\Textures\btn-ability-terran-armnuke.dds"/>
+    </CButton>
+    <CButton id="LightWoolArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="LightCottonArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="HeavyCottonArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="BalancedCottonArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="HeavyClothArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="BasicClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="BasicArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="GeneralBag">
+        <Icon value="Assets\Textures\decal_protoss_0034_01.dds"/>
+    </CButton>
+    <CButton id="Intelligence">
+        <Icon value="Assets\Textures\btn-ability-protoss-blackhole-color.dds"/>
+    </CButton>
+    <CButton id="LearnFlameEgg">
+        <Icon value="Assets\Textures\btn-ability-zerg-leech.dds"/>
+    </CButton>
+    <CButton id="LearnFireball">
+        <Icon value="Assets\Textures\fireball_1.dds"/>
+    </CButton>
+    <CButton id="Fireball">
+        <Icon value="Assets\Textures\fireball_1.dds"/>
+    </CButton>
+    <CButton id="LearnFireclaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
+    </CButton>
+    <CButton id="LearnFireclaws2">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
+    </CButton>
+    <CButton id="FlameEgg">
+        <Icon value="Assets\Textures\btn-ability-zerg-leech.dds"/>
+    </CButton>
+    <CButton id="LightLeatherArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseBasicClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PurchaseBasicArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="Skills">
+        <Icon value="Assets\Textures\btn-ability-terran-heal-color.dds"/>
+    </CButton>
+    <CButton id="Stats">
+        <Icon value="Assets\Textures\btn-ability-zerg-transfusion-color.dds"/>
+    </CButton>
+    <CButton id="LightClothArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="Strength">
+        <Icon value="Assets\Textures\btn-ability-terran-bombardmentstrike-color.dds"/>
+    </CButton>
+    <CButton id="BoneClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="PlatinumClaws">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+    </CButton>
+    <CButton id="Dexterity1">
+        <Icon value="Assets\Textures\btn-ability-protoss-feedback-color.dds"/>
+    </CButton>
+    <CButton id="ShiningArmor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
+    </CButton>
+    <CButton id="UsePotion">
+        <Icon value="BTNPotionRed.dds"/>
+    </CButton>
+    <CButton id="Vitality">
+        <Icon value="Assets\Textures\icon-health-nobg.dds"/>
+    </CButton>
+    <CButton id="Weapon">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-adrenalglands.dds"/>
+    </CButton>
+    <CButton id="Armor">
+        <Icon value="Assets\Textures\btn-upgrade-zerg-buildingarmor.dds"/>
+    </CButton>
+</Catalog>

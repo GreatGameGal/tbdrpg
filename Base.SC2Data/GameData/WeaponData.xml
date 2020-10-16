@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CWeaponLegacy id="OblivionSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level3.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="20"/>
+        <Period value="2"/>
+        <Effect value="OblivionSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AcidSpit">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="4"/>
+        <Period value="2"/>
+        <Effect value="AcidSpitMissile"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BasicClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="NepaClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="1"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TimeSpike">
+        <EditorCategories value="Race:Critter"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Dragon Songs\btn-weapon-zapgun.dds"/>
+        <DisplayEffect value="SJHyperionLightningStormAB"/>
+        <MinScanRange value="1"/>
+        <Effect value="TimeSpikeDamage"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ToxicSaliva">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-tissueassimilation.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Cost>
+            <Cooldown Link="Weapon/DeadlySpines"/>
+        </Cost>
+        <Period value="1"/>
+        <Effect value="ToxicSalivaLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FlimsySpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="FlimsySpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FlimsyClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BasicSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="BasicSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BoneSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="BoneSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="IronSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="IronSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BronzeSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="BronzeSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ForbiddenSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="ForbiddenSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DiamondSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="DiamondSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DeadlySpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="DeadlySpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GodlySpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="GodlySpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ShadowRifle">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="ShadowRifleDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="0.6"/>
+        <DamagePoint value="0.05"/>
+        <Backswing value="0.75"/>
+        <Effect value="ShadowRifleDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SacredSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="SacredSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="LegendarySpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="LegendarySpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TitaniumSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="TitaniumSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SilverSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="SilverSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GoldSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="GoldSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SteelSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="SteelSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="CarrionNeedlesNPC">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="0.75"/>
+        <Effect value="CarrionNeedlesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BronzeClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="CarcinodeImpaler">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <DisplayEffect value="CarcinodeImalerU"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="4"/>
+        <RangeSlop value="0"/>
+        <Period value="5"/>
+        <DamagePoint value="0.3332"/>
+        <Effect value="CarcinodeImpalerLM"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="CarrionNeedles">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-hotsgroovedspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="03N13S01LaunchMissile2"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="WingClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <DisplayEffect value="23G03S01"/>
+        <DisplayAttackCount value="1"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Marker Link="Weapon/DeadlyClaws"/>
+        <Cost>
+            <Cooldown Link="Weapon/DeadlyClaws"/>
+        </Cost>
+        <Period value="1"/>
+        <Effect value="23G03S01"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DeathBlade">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="GlaiveWurmU1"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <RangeSlop value="2"/>
+        <ArcSlop value="45"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <Period value="1.5"/>
+        <DamagePoint value="0"/>
+        <LegacyOptions index="NoDeceleration" value="1"/>
+        <AllowedMovement value="Slowing"/>
+        <Effect value="GlaiveWurm3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="AncientEnergyBeam">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="PsionicShockwaveDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <Cost>
+            <Cooldown Location="Unit"/>
+        </Cost>
+        <Period value="2"/>
+        <Effect value="CretonEnergyBeam"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DeathRay">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="ShockDDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <Cost>
+            <Cooldown Location="Unit"/>
+        </Cost>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GaussRifle">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-infantryweaponslevel0.dds"/>
+        <DisplayEffect value="GaussRifleDamage"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Period value="0.8608"/>
+        <DamagePoint value="0.05"/>
+        <Backswing value="0.75"/>
+        <Effect value="GaussRifleDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="OblivionBeam">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="PhotonCannonU"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <Cost>
+            <Cooldown Location="Unit"/>
+        </Cost>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="OblivionClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="NosferatusWeapon">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level3.dds"/>
+        <DisplayEffect value="NosferatusAttack"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="12"/>
+        <Marker Link="Weapon/OblivionClaws"/>
+        <Cost>
+            <Cooldown Link="Weapon/OblivionClaws"/>
+        </Cost>
+        <Period value="1"/>
+        <Effect value="NosferatusAttack"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SremagsisTentacles">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Arc value="90"/>
+        <Period value="2"/>
+        <AllowedMovement value="Moving"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="CopperSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="CopperSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PlatinumSpines">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="2"/>
+        <Effect value="PlatinumSpinesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PoisonSpikes">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Dragon Songs\btn-upgrade-zerg-organiccarapace-green.dds"/>
+        <DisplayEffect value="ToxicSaliva"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="10"/>
+        <Period value="1"/>
+        <Effect value="PoisonSpikesLaunchMissile"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ZombieAttack">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <DisplayEffect value="KaiserBladesDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="RazorBlades">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DeadlyClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ForbiddenClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="EliteDualBlades">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="EliteDualBladesDamage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0"/>
+        <Effect value="EliteDualBladesCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GodlyClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DemonHorns">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DemonicHorns">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.75"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DestructionBlast">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="4"/>
+        <Period value="1"/>
+        <DamagePoint value="0.083"/>
+        <Backswing value="1.167"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Slime">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="1"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SacredClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Horns4">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <DisplayEffect value="Horns3"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.75"/>
+        <Effect value="Horns3"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="KorlicsFrozenBlade">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel3.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <Effect value="KorlicsFrozenBladeSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Horns3">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <DisplayEffect value="Horns2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <Effect value="Horns2"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DiamondClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="ElitePhaseBlade">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="ElitePhaseBladeDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.75"/>
+        <DamagePoint value="0.361"/>
+        <Backswing value="1.333"/>
+        <Effect value="ElitePhaseBladeDamage"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="CretonPhaseDisrupters">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="CretonPhaseDisruptors"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="1.45"/>
+        <Effect value="CretonPhaseDisruptors"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="LegendaryClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PlagamRay">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="ThermalLancesMU"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AcquirePrioritization value="ByDistanceFromTarget"/>
+        <Range value="6"/>
+        <RangeSlop value="0"/>
+        <Arc value="90"/>
+        <Period value="2.5"/>
+        <DamagePoint value="0.0832"/>
+        <LegacyOptions index="KeepChanneling" value="1"/>
+        <Effect value="PlagamRaySet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="TitaniumClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SilverClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="IronClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DevilsFlamethrower">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-terran-twin-linkedflamethrower.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="2"/>
+        <Period value="0.1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="GoldClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SteelClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="CopperClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="SyritalsTalons">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-leve3.dds"/>
+        <DisplayEffect value="SyritalsTalonsDamage"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <Effect value="SyritalsTalonsSet"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="HerosMight">
+        <EditorCategories value="Race:Protoss"/>
+        <Icon value="Assets\Textures\btn-ability-terran-armnuke.dds"/>
+        <DisplayEffect value="HerosMightDamage"/>
+        <DisplayAttackCount value="1"/>
+        <TargetFilters value="Visible;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="12"/>
+        <Cost>
+            <Cooldown Location="Unit"/>
+        </Cost>
+        <Period value="0.0002"/>
+        <Effect value="HerosMightDamage"/>
+        <RandomDelayMin value="0"/>
+        <RandomDelayMax value="0"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="BoneClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Tentacles2">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="OnlyFireWhileInAttackOrder" value="0"/>
+        <Options index="OnlyFireAtAttackOrderTarget" value="0"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-airattacks-level0.dds"/>
+        <DisplayEffect value="TenteclesDamage"/>
+        <DisplayAttackCount value="4"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="12"/>
+        <Arc value="90"/>
+        <Period value="2"/>
+        <AllowedMovement value="Moving"/>
+        <Effect value="TenteclesDamage"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PlatinumClaws">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level1.dds"/>
+        <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Toxicity">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Pincers">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.5"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PhaseStorm">
+        <EditorCategories value="Race:Terran"/>
+        <Icon value="Assets\Textures\btn-ability-protoss-psistorm-color.dds"/>
+        <TargetFilters value="Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="6"/>
+        <Period value="10"/>
+        <DamagePoint value="0.083"/>
+        <Backswing value="1.167"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FlamingDualBlades">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="FlamingDualBladesDamage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0"/>
+        <Effect value="FlamingDualBladesCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Horns">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <DisplayEffect value="SheepHorns"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+        <Effect value="SheepHorns"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Horns2">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <DisplayEffect value="Horns"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.75"/>
+        <Effect value="Horns"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="DualBlades">
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="DualBladesDamage"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.25"/>
+        <DamagePoint value="0"/>
+        <Effect value="DualBladesCreatePersistent"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Beak">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-cleave.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="0.5"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Claws2">
+        <EditorCategories value="Race:Zerg"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-anabolicsynthesis.dds"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="FrozenPhaseBlade">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="PhaseBladeDamage2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.75"/>
+        <DamagePoint value="0.361"/>
+        <Backswing value="1.333"/>
+        <Effect value="PhaseBladeDamage2"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="Talons2">
+        <EditorCategories value="Race:Zerg"/>
+        <Icon value="Assets\Textures\btn-upgrade-zerg-missileattacks-level0.dds"/>
+        <DisplayAttackCount value="2"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="3"/>
+        <Period value="1.25"/>
+        <Effect value="Talons3"/>
+        <Options index="Melee" value="1"/>
+    </CWeaponLegacy>
+    <CWeaponLegacy id="PhaseBlade">
+        <EditorCategories value="Race:Protoss"/>
+        <Options index="Melee" value="1"/>
+        <Icon value="Assets\Textures\btn-upgrade-protoss-groundweaponslevel0.dds"/>
+        <DisplayEffect value="PhaseBladeDamage"/>
+        <TargetFilters value="Ground,Visible;Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <Range value="0.1"/>
+        <Period value="1.75"/>
+        <DamagePoint value="0.361"/>
+        <Backswing value="1.333"/>
+        <Effect value="PhaseBladeDamage"/>
+        <DisplayAttackCount value="1"/>
+    </CWeaponLegacy>
+</Catalog>

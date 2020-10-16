@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CTacticalOrder id="Zauberer">
+        <Abil value="attack"/>
+        <AbilCmdIndex value="1"/>
+        <Marker Link="TacticalAI/##id##"/>
+        <TargetFind value="LastAttacker"/>
+    </CTacticalOrder>
+</Catalog>

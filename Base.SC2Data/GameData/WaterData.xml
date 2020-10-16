@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CWater id="HealingWater">
+        <State index="0">
+            <Name value="[Default]"/>
+            <Height value="9.000000"/>
+            <Color value="0.000000,0.403922,1.000000,0.199000"/>
+            <ColorFallOff value="0.100000"/>
+            <Specularity value="100.000000"/>
+            <SpecularScaler value="2.450000"/>
+            <UvRate value="-0.000000,-0.001000,0.000000,0.000000"/>
+            <ReflectionDistortion value="0.012000"/>
+            <RefractionDistortion value="0.020000"/>
+            <MinReflection value="0.300000"/>
+            <ReflectivityPower value="8.000000"/>
+        </State>
+        <BeachShoreline value="MedicHealModel"/>
+        <CliffShoreline value="MedicHealModel"/>
+    </CWater>
+    <CWater id="Korhal">
+        <State index="0">
+            <Name value="[Default]"/>
+            <Height value="9.000000"/>
+            <Color value="0.098039,0.349020,0.498039,0.300000"/>
+            <ColorFallOff value="0.100000"/>
+            <Specularity value="100.000000"/>
+            <SpecularScaler value="2.450000"/>
+            <UvRate value="0.122110,-0.159656,0.000000,0.000000"/>
+            <UvRotate value="0.785398"/>
+            <TextureRoughness value="0.106000"/>
+            <ReflectionDistortion value="0.012000"/>
+            <RefractionDistortion value="0.020000"/>
+            <MinReflection value="0.300000"/>
+            <ReflectivityPower value="8.000000"/>
+        </State>
+    </CWater>
+    <CWater id="SablastanWater">
+        <State index="0">
+            <Name value="[Default]"/>
+            <Height value="8.900000"/>
+            <Color value="0.000000,0.000000,0.000000,1.000000"/>
+            <ColorFallOff value="1.000000"/>
+            <Specularity value="10.500000"/>
+            <SpecularScaler value="0.050000"/>
+            <UvRate value="0.000292,0.000956,0.000000,0.000000"/>
+            <MeshRoughness value="0.459000"/>
+            <TextureRoughness value="1.000000"/>
+            <ReflectionDistortion value="0.069000"/>
+            <RefractionDistortion value="0.002500"/>
+            <MinReflection value="0.333000"/>
+            <ReflectivityPower value="8.000000"/>
+        </State>
+        <BeachShoreline value="BelShirBeachShoreline"/>
+        <CliffShoreline value="BelShirCliffShoreline"/>
+    </CWater>
+</Catalog>

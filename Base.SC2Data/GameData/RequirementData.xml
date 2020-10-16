@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CRequirement id="ExtraBag1Obtained">
+        <NodeArray index="Use" Link="CountBehaviorCivilianEnableWeaponCompleteOnlyAtUnit3810155024"/>
+    </CRequirement>
+    <CRequirement id="ExtraBag2Obtained">
+        <NodeArray index="Use" Link="CountBehaviorCivilianEnableWeaponCompleteOnlyAtUnit3810155024"/>
+    </CRequirement>
+    <CRequirement id="FireBall"/>
+    <CRequirement id="FireClaws">
+        <NodeArray index="Use" Link="AndOr3073517614GTEDivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1Or3570411895GTE3570411895CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10"/>
+    </CRequirement>
+    <CRequirement id="FlameEgg">
+        <NodeArray index="Use" Link="AndOr3570411895GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5GTE3945183668CountAbilFireballCompleteOnlyAtUnitTechTreeCheat1"/>
+    </CRequirement>
+    <CRequirement id="Level15">
+        <NodeArray index="Use" Link="Or598659783GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat15"/>
+    </CRequirement>
+    <CRequirement id="Level20">
+        <NodeArray index="Use" Link="Or2135514892GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat20"/>
+    </CRequirement>
+    <CRequirement id="Level25">
+        <NodeArray index="Use" Link="Or614514919GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat25"/>
+    </CRequirement>
+    <CRequirement id="Level252">
+        <NodeArray index="Use" Link="Or699137076GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat30"/>
+    </CRequirement>
+    <CRequirement id="Level35">
+        <NodeArray index="Use" Link="Or3384277100GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat35"/>
+    </CRequirement>
+    <CRequirement id="Level40">
+        <NodeArray index="Use" Link="Or2657512319GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat40"/>
+    </CRequirement>
+    <CRequirement id="Level45">
+        <NodeArray index="Use" Link="Or6996125GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat45"/>
+    </CRequirement>
+    <CRequirement id="Level50">
+        <NodeArray index="Use" Link="Or1778966570GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat50"/>
+    </CRequirement>
+    <CRequirement id="Level5">
+        <NodeArray index="Use" Link="Or142027770GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5"/>
+    </CRequirement>
+    <CRequirement id="Level10">
+        <NodeArray index="Use" Link="Or3407127069GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10"/>
+    </CRequirement>
+    <CRequirement id="Level60">
+        <NodeArray index="Use" Link="Or3859204156GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat60"/>
+    </CRequirement>
+    <CRequirement id="Level70">
+        <NodeArray index="Use" Link="Or1713616997GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat70"/>
+    </CRequirement>
+    <CRequirement id="Level80">
+        <NodeArray index="Use" Link="Or2161086531GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat80"/>
+    </CRequirement>
+    <CRequirement id="Level90">
+        <NodeArray index="Use" Link="Or3111486206GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat90"/>
+    </CRequirement>
+    <CRequirement id="Level100">
+        <NodeArray index="Use" Link="Or2180655278GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat100"/>
+    </CRequirement>
+    <CRequirement id="NeverAllow">
+        <NodeArray index="Show" Link="Eq01"/>
+    </CRequirement>
+    <CRequirement id="PurchaseStash">
+        <EditorCategories value="TechType:Upgrade"/>
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="Eq2418901561CountUpgradeStash1CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="Stash1Purchased">
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="GT4097759300CountUpgradeStash1CompleteOnly0"/>
+        <NodeArray index="Show" Link="GT4097759300CountUpgradeStash1CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="Stash2Purchased">
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="GT4097759300CountUpgradeStash12CompleteOnly0"/>
+        <NodeArray index="Show" Link="GT4097759300CountUpgradeStash12CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="Stash3Purchased">
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="GT4097759300CountUpgradeStash13CompleteOnly0"/>
+        <NodeArray index="Show" Link="GT4097759300CountUpgradeStash13CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="Stash4Purchased">
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="GT4097759300CountUpgradeStash14CompleteOnly0"/>
+        <NodeArray index="Show" Link="GT4097759300CountUpgradeStash14CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="Stash5Purchased">
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="GT4097759300CountUpgradeStash15CompleteOnly0"/>
+        <NodeArray index="Show" Link="GT4097759300CountUpgradeStash15CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="Stash6Purchased">
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="GT4097759300CountUpgradeStash16CompleteOnly0"/>
+        <NodeArray index="Show" Link="GT4097759300CountUpgradeStash16CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="StashUpgrade1">
+        <EditorCategories value="TechType:Upgrade"/>
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="Eq2385466030CountUpgradeStash12CompleteOnly0"/>
+        <NodeArray index="Show" Link="GTCountUpgradeStash1CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="StashUpgrade2">
+        <EditorCategories value="TechType:Upgrade"/>
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="Eq1470453431CountUpgradeStash13CompleteOnly0"/>
+        <NodeArray index="Show" Link="GTCountUpgradeStash12CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="StashUpgrade3">
+        <EditorCategories value="TechType:Upgrade"/>
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="Eq3313999194CountUpgradeStash14CompleteOnly0"/>
+        <NodeArray index="Show" Link="GTCountUpgradeStash13CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="StashUpgrade4">
+        <EditorCategories value="TechType:Upgrade"/>
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="Eq1166728750CountUpgradeStash15CompleteOnly0"/>
+        <NodeArray index="Show" Link="GTCountUpgradeStash14CompleteOnly0"/>
+    </CRequirement>
+    <CRequirement id="StashUpgrade5">
+        <EditorCategories value="TechType:Upgrade"/>
+        <CanBeSuppressed index="Show" value="1"/>
+        <NodeArray index="Use" Link="Eq3185380169CountUpgradeStash16CompleteOnly0"/>
+        <NodeArray index="Show" Link="GTCountUpgradeStash15CompleteOnly0"/>
+    </CRequirement>
+</Catalog>

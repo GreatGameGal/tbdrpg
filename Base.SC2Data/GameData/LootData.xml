@@ -1,0 +1,1000 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CLootUnit id="16M01R01">
+        <Unit value="PlagamArmor"/>
+    </CLootUnit>
+    <CLootUnit id="14S18C01">
+        <Unit value="NosferatusRelic"/>
+    </CLootUnit>
+    <CLootSet id="Level050S">
+        <ValidatorArray value="KillingPlayerCheck"/>
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="ArmorLevel050"/>
+        <ChildArray Chance="5" Child="WeaponsLevel050"/>
+        <ChildArray Chance="3" Child="OrbsLevel050"/>
+        <ChildArray Chance="82" Child="UsableLevel050"/>
+        <ChildArray Chance="5" Child="WingClaws"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+    </CLootSet>
+    <CLootUnit id="OblivionSpines"/>
+    <CLootUnit id="WingClaws"/>
+    <CLootItem id="ArmorLevel0002">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="1"/>
+        <MinLevel value="1"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel005">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="5"/>
+        <MinLevel value="1"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel010">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="10"/>
+        <MinLevel value="5"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel015">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="15"/>
+        <MinLevel value="7"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel020">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="20"/>
+        <MinLevel value="10"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel025">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="25"/>
+        <MinLevel value="12"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel030">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="30"/>
+        <MinLevel value="15"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel035">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="35"/>
+        <MinLevel value="17"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel040">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="40"/>
+        <MinLevel value="20"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel045">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="45"/>
+        <MinLevel value="22"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel050">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="50"/>
+        <MinLevel value="25"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel060">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="60"/>
+        <MinLevel value="30"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel070">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="70"/>
+        <MinLevel value="35"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel080">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="80"/>
+        <MinLevel value="40"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel090">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="90"/>
+        <MinLevel value="45"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel100">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="100"/>
+        <MinLevel value="50"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel120">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="120"/>
+        <MinLevel value="60"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel200">
+        <ClassArray value="Armor"/>
+        <MaxLevel value="200"/>
+        <MinLevel value="100"/>
+    </CLootItem>
+    <CLootUnit id="FluxCapacitor"/>
+    <CLootSet id="Level055">
+        <ValidatorArray value="KillingPlayerCheck"/>
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="10" Child="ArmorLevel050"/>
+        <ChildArray Chance="10" Child="WeaponsLevel050"/>
+        <ChildArray Chance="6" Child="OrbsLevel050"/>
+        <ChildArray Chance="74" Child="UsableLevel050"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+    </CLootSet>
+    <CLootSet id="Level065">
+        <ValidatorArray value="KillingPlayerCheck"/>
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="8" Child="ArmorLevel060"/>
+        <ChildArray Chance="8" Child="WeaponsLevel060"/>
+        <ChildArray Chance="4" Child="OrbsLevel060"/>
+        <ChildArray Chance="80" Child="UsableLevel050"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+    </CLootSet>
+    <CLootSet id="NosferatusLoot">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="50" Child="14S18C01"/>
+        <ChildArray Chance="30" Child="ArmorLevel200"/>
+        <ChildArray Chance="30" Child="WeaponsLevel200"/>
+        <ChildArray Chance="30" Child="OrbsLevel200"/>
+    </CLootSet>
+    <CLootSet id="Level025S">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Child="ArmorLevel025"/>
+        <ChildArray Child="WeaponsLevel025"/>
+        <ChildArray Child="OrbsLevel025"/>
+        <ChildArray Child="UsableLevel025"/>
+        <ChildArray Chance="0"/>
+        <ChildArray Chance="0"/>
+        <ChildArray Chance="0"/>
+        <ChildArray Chance="0"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level120">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="1" Child="ArmorLevel120"/>
+        <ChildArray Chance="1" Child="WeaponsLevel120"/>
+        <ChildArray Chance="1" Child="OrbsLevel120"/>
+        <ChildArray Child="UsableLevel100"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level200">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Child="ArmorLevel200"/>
+        <ChildArray Child="WeaponsLevel200"/>
+        <ChildArray Child="OrbsLevel200"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="MachinaDePlagamLoot">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="16M01R01"/>
+        <ChildArray Chance="33" Child="ArmorLevel080"/>
+        <ChildArray Chance="33" Child="WeaponsLevel080"/>
+        <ChildArray Chance="33" Child="OrbsLevel080"/>
+    </CLootSet>
+    <CLootSet id="MortussDrop">
+        <MinCount value="1"/>
+        <MaxCount value="4"/>
+        <ChildArray Chance="1" Child="ArmorLevel100"/>
+        <ChildArray Chance="1" Child="WeaponsLevel100"/>
+        <ChildArray Chance="1" Child="OrbsLevel100"/>
+        <ChildArray Chance="1" Child="UsableLevel050"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+    </CLootSet>
+    <CLootUnit id="OblivionArmor"/>
+    <CLootUnit id="OblivionClaws"/>
+    <CLootItem id="OrbsLevel0002">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="1"/>
+        <MinLevel value="1"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel120">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="120"/>
+        <MinLevel value="60"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel200">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="200"/>
+        <MinLevel value="100"/>
+    </CLootItem>
+    <CLootSet id="SremagsisLoot">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="SremagsisTentacles"/>
+        <ChildArray Chance="33" Child="ArmorLevel060"/>
+        <ChildArray Chance="33" Child="WeaponsLevel060"/>
+        <ChildArray Chance="33" Child="OrbsLevel060"/>
+    </CLootSet>
+    <CLootUnit id="SremagsisTentacles"/>
+    <CLootItem id="UsableLevel000">
+        <ClassArray value="Usable"/>
+    </CLootItem>
+    <CLootSet id="TolicsLoot">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="TolicsFireOrb"/>
+        <ChildArray Chance="33" Child="ArmorLevel040"/>
+        <ChildArray Chance="33" Child="WeaponsLevel040"/>
+        <ChildArray Chance="33" Child="OrbsLevel040"/>
+    </CLootSet>
+    <CLootUnit id="TolicsFireOrb"/>
+    <CLootSet id="MadawcsLoot">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="MadawcsElectricArmor"/>
+        <ChildArray Chance="33" Child="ArmorLevel030"/>
+        <ChildArray Chance="33" Child="WeaponsLevel030"/>
+        <ChildArray Chance="33" Child="OrbsLevel030"/>
+    </CLootSet>
+    <CLootUnit id="MadawcsElectricArmor"/>
+    <CLootSet id="Level015">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="27" Child="ArmorLevel015"/>
+        <ChildArray Chance="27" Child="WeaponsLevel015"/>
+        <ChildArray Chance="14" Child="OrbsLevel015"/>
+        <ChildArray Child="UsableLevel010"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray Chance="32"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level020">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="21" Child="ArmorLevel020"/>
+        <ChildArray Chance="21" Child="WeaponsLevel020"/>
+        <ChildArray Chance="11" Child="OrbsLevel020"/>
+        <ChildArray Child="UsableLevel010"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray Chance="47"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level003">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="38" Child="ArmorLevel0002"/>
+        <ChildArray Chance="38" Child="WeaponsLevel0002"/>
+        <ChildArray Chance="19" Child="OrbsLevel0002"/>
+        <ChildArray Chance="5" Child="UsableLevel000"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level005">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="76" Child="ArmorLevel005"/>
+        <ChildArray Chance="76" Child="WeaponsLevel005"/>
+        <ChildArray Chance="38" Child="OrbsLevel005"/>
+        <ChildArray Child="UsableLevel000"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray Chance="10"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level010">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="48" Child="ArmorLevel010"/>
+        <ChildArray Chance="48" Child="WeaponsLevel010"/>
+        <ChildArray Chance="24" Child="OrbsLevel010"/>
+        <ChildArray Child="UsableLevel010"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray Chance="80"/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level025">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="15" Child="ArmorLevel025"/>
+        <ChildArray Chance="15" Child="WeaponsLevel025"/>
+        <ChildArray Chance="8" Child="OrbsLevel025"/>
+        <ChildArray Child="UsableLevel025"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray Chance="63"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level030">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="12" Child="ArmorLevel030"/>
+        <ChildArray Chance="12" Child="WeaponsLevel030"/>
+        <ChildArray Chance="6" Child="OrbsLevel030"/>
+        <ChildArray Child="UsableLevel025"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray Chance="69"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level035">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="9" Child="ArmorLevel035"/>
+        <ChildArray Chance="9" Child="WeaponsLevel035"/>
+        <ChildArray Chance="5" Child="OrbsLevel035"/>
+        <ChildArray Chance="76" Child="UsableLevel025"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level040">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="8" Child="ArmorLevel040"/>
+        <ChildArray Chance="8" Child="WeaponsLevel040"/>
+        <ChildArray Chance="4" Child="OrbsLevel040"/>
+        <ChildArray Chance="80" Child="UsableLevel025"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level045">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="6" Child="ArmorLevel045"/>
+        <ChildArray Chance="6" Child="WeaponsLevel045"/>
+        <ChildArray Chance="3" Child="OrbsLevel045"/>
+        <ChildArray Chance="84" Child="UsableLevel025"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level050">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="ArmorLevel050"/>
+        <ChildArray Chance="5" Child="WeaponsLevel050"/>
+        <ChildArray Chance="3" Child="OrbsLevel050"/>
+        <ChildArray Chance="87" Child="UsableLevel050"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level060">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="4" Child="ArmorLevel060"/>
+        <ChildArray Chance="4" Child="WeaponsLevel060"/>
+        <ChildArray Chance="2" Child="OrbsLevel060"/>
+        <ChildArray Chance="91" Child="UsableLevel050"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level070">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="2" Child="ArmorLevel070"/>
+        <ChildArray Chance="2" Child="WeaponsLevel070"/>
+        <ChildArray Chance="1" Child="OrbsLevel070"/>
+        <ChildArray Chance="94" Child="UsableLevel050"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level080">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="1" Child="ArmorLevel080"/>
+        <ChildArray Chance="1" Child="WeaponsLevel080"/>
+        <ChildArray Chance="1" Child="OrbsLevel080"/>
+        <ChildArray Chance="97" Child="UsableLevel075"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level090">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="1" Child="ArmorLevel090"/>
+        <ChildArray Chance="1" Child="WeaponsLevel090"/>
+        <ChildArray Chance="0" Child="OrbsLevel090"/>
+        <ChildArray Chance="98" Child="UsableLevel075"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="Level100">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="1" Child="ArmorLevel100"/>
+        <ChildArray Chance="1" Child="WeaponsLevel100"/>
+        <ChildArray Chance="1" Child="OrbsLevel100"/>
+        <ChildArray Child="UsableLevel100"/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ChildArray/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootItem id="OrbsLevel000">
+        <ClassArray value="Orb"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel025">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="25"/>
+        <MinLevel value="12"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel020">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="20"/>
+        <MinLevel value="10"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel030">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="30"/>
+        <MinLevel value="15"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel005">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="5"/>
+        <MinLevel value="2"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel010">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="10"/>
+        <MinLevel value="5"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel015">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="15"/>
+        <MinLevel value="7"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel035">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="35"/>
+        <MinLevel value="17"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel040">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="40"/>
+        <MinLevel value="20"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel050">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="50"/>
+        <MinLevel value="25"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel045">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="45"/>
+        <MinLevel value="22"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel060">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="60"/>
+        <MinLevel value="30"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel070">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="70"/>
+        <MinLevel value="35"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel080">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="80"/>
+        <MinLevel value="40"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel090">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="90"/>
+        <MinLevel value="45"/>
+    </CLootItem>
+    <CLootItem id="OrbsLevel100">
+        <ClassArray value="Orb"/>
+        <MaxLevel value="100"/>
+        <MinLevel value="50"/>
+    </CLootItem>
+    <CLootSet id="Level001">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="36" Child="ArmorLevel0002"/>
+        <ChildArray Chance="36" Child="WeaponsLevel0002"/>
+        <ChildArray Chance="28" Child="WeaponsLevel0002"/>
+        <ChildArray Chance="10" Child="UsableLevel000"/>
+        <ValidatorArray value="KillingPlayerCheck"/>
+    </CLootSet>
+    <CLootSet id="KorlicsFrozenBlade2">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="KorlicsFrozenBlade"/>
+        <ChildArray Chance="33" Child="ArmorLevel040"/>
+        <ChildArray Chance="33" Child="WeaponsLevel040"/>
+        <ChildArray Chance="33" Child="OrbsLevel040"/>
+    </CLootSet>
+    <CLootUnit id="SyritalsTalons"/>
+    <CLootSet id="SyritalLoot">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="SyritalsTalons"/>
+        <ChildArray Chance="33" Child="ArmorLevel015"/>
+        <ChildArray Chance="33" Child="WeaponsLevel015"/>
+        <ChildArray Chance="33" Child="OrbsLevel015"/>
+    </CLootSet>
+    <CLootUnit id="KorlicsFrozenBlade"/>
+    <CLootItem id="UsableLevel010">
+        <ClassArray value="Usable"/>
+        <MaxLevel value="10"/>
+    </CLootItem>
+    <CLootItem id="UsableLevel025">
+        <ClassArray value="Usable"/>
+        <MaxLevel value="25"/>
+        <MinLevel value="10"/>
+    </CLootItem>
+    <CLootItem id="UsableLevel050">
+        <ClassArray value="Usable"/>
+        <MaxLevel value="50"/>
+        <MinLevel value="25"/>
+    </CLootItem>
+    <CLootItem id="UsableLevel075">
+        <ClassArray value="Usable"/>
+        <MaxLevel value="75"/>
+        <MinLevel value="50"/>
+    </CLootItem>
+    <CLootItem id="UsableLevel100">
+        <ClassArray value="Usable"/>
+        <MaxLevel value="100"/>
+        <MinLevel value="75"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel000">
+        <ClassArray value="Weapon"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel0002">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="1"/>
+        <MinLevel value="1"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel015">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="15"/>
+        <MinLevel value="7"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel020">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="20"/>
+        <MinLevel value="10"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel025">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="25"/>
+        <MinLevel value="12"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel030">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="30"/>
+        <MinLevel value="15"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel035">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="35"/>
+        <MinLevel value="17"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel040">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="40"/>
+        <MinLevel value="20"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel045">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="45"/>
+        <MinLevel value="22"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel050">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="50"/>
+        <MinLevel value="25"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel060">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="60"/>
+        <MinLevel value="30"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel005">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="5"/>
+        <MinLevel value="2"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel010">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="10"/>
+        <MinLevel value="5"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel070">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="70"/>
+        <MinLevel value="35"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel080">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="80"/>
+        <MinLevel value="40"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel090">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="90"/>
+        <MinLevel value="45"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel100">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="100"/>
+        <MinLevel value="50"/>
+    </CLootItem>
+    <CLootItem id="ArmorLevel000">
+        <ClassArray value="Armor"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel120">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="120"/>
+        <MinLevel value="60"/>
+    </CLootItem>
+    <CLootItem id="WeaponsLevel200">
+        <ClassArray value="Weapon"/>
+        <MaxLevel value="200"/>
+        <MinLevel value="100"/>
+    </CLootItem>
+    <CLootSet id="ZaubererLoot">
+        <MinCount value="1"/>
+        <MaxCount value="10"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+        <ChildArray Child="Level200"/>
+    </CLootSet>
+    <CLootSet id="ZaubererLoot2">
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ChildArray Chance="5" Child="FluxCapacitor"/>
+        <ChildArray Chance="5" Child="OblivionArmor"/>
+        <ChildArray Chance="5" Child="OblivionClaws"/>
+        <ChildArray Chance="5" Child="OblivionSpines"/>
+        <ChildArray Child="Level200"/>
+    </CLootSet>
+</Catalog>

@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel15">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="15"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel10">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel05">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel25">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="25"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel35">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="35"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel30">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="30"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel20">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="20"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel45">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="45"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel50">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="50"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel40">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="40"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel70">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="70"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel80">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="80"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel90">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="90"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel100">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="100"/>
+        <Behavior value="Level3"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel15">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="15"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel10">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel05">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel25">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="25"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel35">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="35"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel30">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="30"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel20">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="20"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel45">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="45"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel50">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="50"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel40">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="40"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel70">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="70"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel80">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="80"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel90">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="90"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel100">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="100"/>
+        <Behavior value="Level"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVital id="CasterEnergy100Percent" parent="CasterLifePercent">
+        <ResultFailed value="Error,Full Enery Required"/>
+        <Compare value="LT"/>
+        <Value value="1"/>
+        <Vital value="Energy"/>
+    </CValidatorUnitCompareVital>
+    <CValidatorCombine id="HasForceLowDeathProtoss2">
+        <Type value="And"/>
+        <CombineArray value="IsProtoss"/>
+        <CombineArray value="HasForceLowDeath"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HasForceLowDeathTerran2">
+        <Type value="And"/>
+        <CombineArray value="IsTerran"/>
+        <CombineArray value="HasForceLowDeath"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="HasForceLowDeathZerg2">
+        <Type value="And"/>
+        <CombineArray value="IsZerg"/>
+        <CombineArray value="HasForceLowDeath"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareField id="IsFlying2">
+        <Compare value="GE"/>
+        <Field value="Height"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareField>
+    <CValidatorUnitCompareBehaviorCount id="IsHallucination2">
+        <Value value="1"/>
+        <Behavior value="Hallucination"/>
+    </CValidatorUnitCompareBehaviorCount>
+    <CValidatorUnitCompareField id="IsNotFlying2">
+        <Compare value="LT"/>
+        <Field value="Height"/>
+        <Value value="1"/>
+    </CValidatorUnitCompareField>
+    <CValidatorCombine id="IsProtossUnit2">
+        <Type value="And"/>
+        <CombineArray value="NotStructure"/>
+        <CombineArray value="IsProtoss"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="IsTerranUnit2">
+        <Type value="And"/>
+        <CombineArray value="NotStructure"/>
+        <CombineArray value="IsTerran"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="IsVortexed2">
+        <CombineArray value="IsVortexdFriendly"/>
+        <CombineArray value="IsVortexdEnemy"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="IsZergUnit2">
+        <Type value="And"/>
+        <CombineArray value="NotStructure"/>
+        <CombineArray value="IsZerg"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel15">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="15"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel10">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel05">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel25">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="25"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel35">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="35"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel30">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="30"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel20">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="20"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel45">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="45"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel50">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="50"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel40">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="40"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel70">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="70"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel80">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="80"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel90">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="90"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel100">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="100"/>
+        <Behavior value="Level5"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorCombine id="Level10">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel10"/>
+        <CombineArray value="TeenDragonLevel10"/>
+        <CombineArray value="AdultDragonLevel10"/>
+        <CombineArray value="MasterDragonLevel10"/>
+        <CombineArray value="LegendaryDragonLevel10"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level100">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel100"/>
+        <CombineArray value="TeenDragonLevel100"/>
+        <CombineArray value="AdultDragonLevel100"/>
+        <CombineArray value="MasterDragonLevel100"/>
+        <CombineArray value="LegendaryDragonLevel100"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level15">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel15"/>
+        <CombineArray value="TeenDragonLevel15"/>
+        <CombineArray value="AdultDragonLevel15"/>
+        <CombineArray value="MasterDragonLevel15"/>
+        <CombineArray value="LegendaryDragonLevel15"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level20">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel20"/>
+        <CombineArray value="TeenDragonLevel20"/>
+        <CombineArray value="AdultDragonLevel20"/>
+        <CombineArray value="MasterDragonLevel20"/>
+        <CombineArray value="LegendaryDragonLevel20"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level25">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel25"/>
+        <CombineArray value="TeenDragonLevel25"/>
+        <CombineArray value="AdultDragonLevel25"/>
+        <CombineArray value="MasterDragonLevel25"/>
+        <CombineArray value="LegendaryDragonLevel25"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level30">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel30"/>
+        <CombineArray value="TeenDragonLevel30"/>
+        <CombineArray value="AdultDragonLevel30"/>
+        <CombineArray value="MasterDragonLevel30"/>
+        <CombineArray value="LegendaryDragonLevel30"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level35">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel35"/>
+        <CombineArray value="TeenDragonLevel35"/>
+        <CombineArray value="AdultDragonLevel35"/>
+        <CombineArray value="MasterDragonLevel35"/>
+        <CombineArray value="LegendaryDragonLevel35"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level40">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel40"/>
+        <CombineArray value="TeenDragonLevel40"/>
+        <CombineArray value="AdultDragonLevel40"/>
+        <CombineArray value="MasterDragonLevel40"/>
+        <CombineArray value="LegendaryDragonLevel40"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level45">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel45"/>
+        <CombineArray value="TeenDragonLevel45"/>
+        <CombineArray value="AdultDragonLevel45"/>
+        <CombineArray value="MasterDragonLevel45"/>
+        <CombineArray value="LegendaryDragonLevel45"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level70">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel70"/>
+        <CombineArray value="TeenDragonLevel70"/>
+        <CombineArray value="AdultDragonLevel70"/>
+        <CombineArray value="MasterDragonLevel70"/>
+        <CombineArray value="LegendaryDragonLevel70"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level50">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel50"/>
+        <CombineArray value="TeenDragonLevel50"/>
+        <CombineArray value="AdultDragonLevel50"/>
+        <CombineArray value="MasterDragonLevel50"/>
+        <CombineArray value="LegendaryDragonLevel50"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level05">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel05"/>
+        <CombineArray value="TeenDragonLevel05"/>
+        <CombineArray value="AdultDragonLevel05"/>
+        <CombineArray value="MasterDragonLevel05"/>
+        <CombineArray value="LegendaryDragonLevel05"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level80">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel80"/>
+        <CombineArray value="TeenDragonLevel80"/>
+        <CombineArray value="AdultDragonLevel80"/>
+        <CombineArray value="MasterDragonLevel80"/>
+        <CombineArray value="LegendaryDragonLevel80"/>
+    </CValidatorCombine>
+    <CValidatorCombine id="Level90">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel90"/>
+        <CombineArray value="TeenDragonLevel90"/>
+        <CombineArray value="AdultDragonLevel90"/>
+        <CombineArray value="MasterDragonLevel90"/>
+        <CombineArray value="LegendaryDragonLevel90"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel05">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel15">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="15"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel25">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="25"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel20">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="20"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel10">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel35">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="35"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel45">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="45"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel40">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="40"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel30">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="30"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel60">
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="60"/>
+        <Behavior value="Level4"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="BabyDragonLevel60">
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="60"/>
+        <Behavior value="Level"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="LegendaryDragonLevel60">
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="60"/>
+        <Behavior value="Level5"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel50">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="50"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel70">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="70"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel80">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="80"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel90">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="90"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="MasterDragonLevel100">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="100"/>
+        <Behavior value="Level4"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitFilters id="NotStructure2">
+        <Filters value="-;Structure"/>
+    </CValidatorUnitFilters>
+    <CValidatorPlayerCompareType id="PickupNeutralCheck">
+        <WhichPlayer Value="Target"/>
+        <Value value="Neutral"/>
+    </CValidatorPlayerCompareType>
+    <CValidatorPlayerCompareType id="KillingPlayerCheck">
+        <WhichPlayer Value="Target"/>
+        <Value value="User"/>
+    </CValidatorPlayerCompareType>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel05">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="5"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel15">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="15"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel25">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="25"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel20">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="20"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel10">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="10"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel35">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="35"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel45">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="45"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel40">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="40"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel30">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="30"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel60">
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="60"/>
+        <Behavior value="Level2"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorCombine id="Level60">
+        <ResultFailed value="Error,Level 60 Required"/>
+        <CombineArray value="BabyDragonLevel60"/>
+        <CombineArray value="TeenDragonLevel60"/>
+        <CombineArray value="AdultDragonLevel60"/>
+        <CombineArray value="MasterDragonLevel60"/>
+        <CombineArray value="LegendaryDragonLevel60"/>
+    </CValidatorCombine>
+    <CValidatorUnitCompareVeterancyLevel id="AdultDragonLevel60">
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="60"/>
+        <Behavior value="Level3"/>
+        <WhichUnit Value="Source"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel50">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="50"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel70">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="70"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel80">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="80"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel90">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="90"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+    <CValidatorUnitCompareVeterancyLevel id="TeenDragonLevel100">
+        <WhichUnit Value="Source"/>
+        <ResultNoUnit value="MustTargetUnit,Level 60 Required"/>
+        <Compare value="GE"/>
+        <Value value="100"/>
+        <Behavior value="Level2"/>
+    </CValidatorUnitCompareVeterancyLevel>
+</Catalog>

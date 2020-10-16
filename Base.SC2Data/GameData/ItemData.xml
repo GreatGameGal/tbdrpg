@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CItem id="ModArmor">
+        <Class value="EliteArmor"/>
+        <Level value="101"/>
+        <EquipBehaviorArray value="Shield1000"/>
+        <EquipBehaviorArray value="ArmorUp25"/>
+        <EquipBehaviorArray value="makeCreep4x4"/>
+        <EquipBehaviorArray value="AscendedArmorEquipped"/>
+        <EquipBehaviorArray value="DemonicArmorEquipped"/>
+        <EquipBehaviorArray value="SightRadius5"/>
+        <EquipBehaviorArray value="4xUnitSpeed"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="OblivionArmor">
+        <Class value="EliteArmor"/>
+        <Level value="100"/>
+        <EquipBehaviorArray value="ArmorUp25"/>
+        <EquipBehaviorArray value="Dodge"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="OblivionClaws">
+        <Class value="EliteWeapon"/>
+        <Level value="100"/>
+        <Requirements value="Level100"/>
+        <EquipWeaponArray Link="OblivionClaws"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="OblivionSpines">
+        <Class value="EliteWeapon"/>
+        <Level value="100"/>
+        <Requirements value="Level100"/>
+        <EquipWeaponArray Link="OblivionSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="PlagamArmor">
+        <Class value="EliteArmor"/>
+        <Level value="70"/>
+        <EquipBehaviorArray value="Shield500"/>
+        <EquipBehaviorArray value="ArmorUp17"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SremagsisTentacles">
+        <Class value="EliteWeapon"/>
+        <Level value="45"/>
+        <Requirements value="Level45"/>
+        <EquipWeaponArray Link="SremagsisTentacles" Turret="Immortal"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BalancedCottonArmor">
+        <Class value="Armor"/>
+        <Level value="10"/>
+        <EquipBehaviorArray value="ArmorUp3"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BalancedWoolArmor">
+        <Class value="Armor"/>
+        <Level value="15"/>
+        <EquipBehaviorArray value="ArmorUp4"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BalancedLeatherArmor">
+        <Class value="Armor"/>
+        <Level value="20"/>
+        <EquipBehaviorArray value="ArmorUp5"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="FlimsySpines">
+        <Class value="Weapon"/>
+        <EquipWeaponArray Link="FlimsySpines"/>
+        <Level value="1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="FlimsyClaws">
+        <Class value="Weapon"/>
+        <EquipWeaponArray Link="FlimsyClaws"/>
+        <Level value="1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SoftArmor">
+        <Class value="Armor"/>
+        <EquipBehaviorArray value="ArmorUp1"/>
+        <Level value="1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BasicSpines">
+        <Class value="Weapon"/>
+        <EquipWeaponArray Link="BasicSpines"/>
+    </CItem>
+    <CItem id="BoneSpines">
+        <Class value="Weapon"/>
+        <Level value="5"/>
+        <Requirements value="Level5"/>
+        <EquipWeaponArray Link="BoneSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BronzeSpines">
+        <Class value="Weapon"/>
+        <Level value="25"/>
+        <Requirements value="Level25"/>
+        <EquipWeaponArray Link="BronzeSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="ForbiddenSpines">
+        <Class value="Weapon"/>
+        <Level value="70"/>
+        <Requirements value="Level70"/>
+        <EquipWeaponArray Link="ForbiddenSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="DiamondSpines">
+        <Class value="Weapon"/>
+        <Level value="50"/>
+        <Requirements value="Level50"/>
+        <EquipWeaponArray Link="DiamondSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="DeadlySpines">
+        <Class value="Weapon"/>
+        <Level value="60"/>
+        <Requirements value="Level60"/>
+        <EquipWeaponArray Link="DeadlySpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="GodlySpines">
+        <Class value="Weapon"/>
+        <Level value="100"/>
+        <Requirements value="Level100"/>
+        <EquipWeaponArray Link="GodlySpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SacredSpines">
+        <Class value="Weapon"/>
+        <Level value="80"/>
+        <Requirements value="Level80"/>
+        <EquipWeaponArray Link="SacredSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="LegendarySpines">
+        <Class value="Weapon"/>
+        <Level value="90"/>
+        <Requirements value="Level90"/>
+        <EquipWeaponArray Link="LegendarySpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="TitaniumSpines">
+        <Class value="Weapon"/>
+        <Level value="40"/>
+        <Requirements value="Level40"/>
+        <EquipWeaponArray Link="TitaniumSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SilverSpines">
+        <Class value="Weapon"/>
+        <Level value="30"/>
+        <Requirements value="Level252"/>
+        <EquipWeaponArray Link="SilverSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="IronSpines">
+        <Class value="Weapon"/>
+        <Level value="10"/>
+        <Requirements value="Level10"/>
+        <EquipWeaponArray Link="IronSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BronzeClaws">
+        <Class value="Weapon"/>
+        <Level value="25"/>
+        <EquipWeaponArray Link="BronzeClaws"/>
+        <Requirements value="Level25"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="ChainArmor">
+        <Class value="Armor"/>
+        <Level value="25"/>
+        <EquipBehaviorArray value="ArmorUp6"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="AscendedArmor">
+        <Class value="Armor"/>
+        <Level value="100"/>
+        <EquipBehaviorArray value="ArmorUp25"/>
+        <EquipBehaviorArray value="AscendedArmorEquipped"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="WingClaws">
+        <Class value="EliteWeapon"/>
+        <EquipWeaponArray Link="WingClaws"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="ForbiddenClaws">
+        <Class value="Weapon"/>
+        <Level value="70"/>
+        <Requirements value="Level70"/>
+        <EquipWeaponArray Link="ForbiddenClaws"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="DiamondArmor">
+        <Class value="Armor"/>
+        <Level value="45"/>
+        <EquipBehaviorArray value="ArmorUp10"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="DeadlyClaws">
+        <Class value="Weapon"/>
+        <Level value="60"/>
+        <Requirements value="Level60"/>
+        <EquipWeaponArray Link="DeadlyClaws"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="GodlyClaws">
+        <Class value="Weapon"/>
+        <Level value="100"/>
+        <Requirements value="Level100"/>
+        <EquipBehaviorArray value="GodlyClawsEquipped"/>
+        <EquipWeaponArray Link="GodlyClaws"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItemEffectInstant id="GrandAttackSpeedPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <Level value="75"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Attack Speed Potions" Location="Unit" TimeUse="300"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItem id="GrandHealingOrb">
+        <Class value="Orb"/>
+        <Level value="100"/>
+        <EquipBehaviorArray value="GrandHealingOrb"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="GoldSpines">
+        <Class value="Weapon"/>
+        <Level value="35"/>
+        <Requirements value="Level35"/>
+        <EquipWeaponArray Link="GoldSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SteelSpines">
+        <Class value="Weapon"/>
+        <Level value="15"/>
+        <Requirements value="Level15"/>
+        <EquipWeaponArray Link="SteelSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItemEffectInstant id="LargeAttackSpeedPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <Level value="50"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Attack Speed Potions" Location="Unit" TimeUse="300"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItemEffectInstant id="LargeHealthPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <Level value="25"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Potions" Location="Unit" TimeUse="10"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItemEffectInstant id="GrandHealthPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <Level value="50"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Potions" Location="Unit" TimeUse="10"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItem id="LargeHealingOrb">
+        <Class value="Orb"/>
+        <Level value="75"/>
+        <EquipBehaviorArray value="LargeHealingOrb"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="MinerArmor">
+        <Class value="EliteArmor"/>
+        <Level value="40"/>
+        <EquipBehaviorArray value="MinerArmor"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItemEffectInstant id="MediumAttackSpeedPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <Level value="25"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Attack Speed Potions" Location="Unit" TimeUse="300"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItem id="NosferatusRelic">
+        <Class value="EliteOrb"/>
+        <Level value="100"/>
+        <EquipBehaviorArray value="NosferatusRelic"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="16M04N19E01R01">
+        <Class value="EliteArmor"/>
+        <Level value="65"/>
+        <EquipBehaviorArray value="16M04N19E01R01"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="RadiantArmor">
+        <Class value="Armor"/>
+        <Level value="80"/>
+        <EquipBehaviorArray value="ArmorUp17"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="DemonicArmor">
+        <Class value="Armor"/>
+        <Level value="90"/>
+        <EquipBehaviorArray value="ArmorUp19"/>
+        <EquipBehaviorArray value="DemonicArmorEquipped"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="FluxCapacitor">
+        <Class value="EliteOrb"/>
+        <Level value="100"/>
+        <EquipBehaviorArray value="TimeWarp1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="ILEBCE">
+        <Class value="Orb"/>
+        <EquipBehaviorArray value="oftheMage"/>
+        <Level value="10"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="MediumHealingOrb">
+        <Class value="Orb"/>
+        <Level value="50"/>
+        <EquipBehaviorArray value="MediumHealingOrb"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItemEffectInstant id="SmallAttackSpeedPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <Level value="10"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Attack Speed Potions" Location="Unit" TimeUse="300"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItem id="CarrionNeedles">
+        <Class value="EliteWeapon"/>
+        <Level value="25"/>
+        <Requirements value="Level25"/>
+        <EquipWeaponArray Link="CarrionNeedles"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="CopperSpines">
+        <Class value="Weapon"/>
+        <Level value="20"/>
+        <Requirements value="Level20"/>
+        <EquipWeaponArray Link="CopperSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="PlatinumSpines">
+        <Class value="Weapon"/>
+        <Level value="45"/>
+        <Requirements value="LearnSJHyperionFighters4"/>
+        <EquipWeaponArray Link="PlatinumSpines"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItemEffectInstant id="TownPortal">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Location="Unit" TimeUse="30"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItem id="UnbreakableArmor">
+        <Class value="Armor"/>
+        <Level value="60"/>
+        <EquipBehaviorArray value="ArmorUp13"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SacredClaws">
+        <Class value="Weapon"/>
+        <Level value="80"/>
+        <Requirements value="Level80"/>
+        <EquipWeaponArray Link="SacredClaws"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="MysticArmor">
+        <Face value="MysticalArmor"/>
+        <Class value="Armor"/>
+        <Level value="50"/>
+        <EquipBehaviorArray value="ArmorUp11"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="RingArmor">
+        <Class value="Armor"/>
+        <Level value="30"/>
+        <EquipBehaviorArray value="ArmorUp7"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="MadawcsElectricArmor">
+        <Class value="EliteArmor"/>
+        <Level value="25"/>
+        <EquipBehaviorArray value="Shield100"/>
+        <EquipBehaviorArray value="ArmorUp5"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="KorlicsFrozenBlade">
+        <Class value="EliteWeapon"/>
+        <Level value="20"/>
+        <Requirements value="Level20"/>
+        <EquipWeaponArray Link="KorlicsFrozenBlade"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="DiamondClaws">
+        <Class value="Weapon"/>
+        <Level value="50"/>
+        <EquipWeaponArray Link="DiamondClaws"/>
+        <Requirements value="Level50"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="MediumOrbofSight">
+        <Class value="Orb"/>
+        <Level value="50"/>
+        <EquipBehaviorArray value="SightRadius2"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="LegendaryClaws">
+        <Class value="Weapon"/>
+        <Level value="90"/>
+        <Requirements value="Level90"/>
+        <EquipWeaponArray Link="LegendaryClaws"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="ScaleArmor">
+        <Class value="Armor"/>
+        <Level value="35"/>
+        <EquipBehaviorArray value="ArmorUp8"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="PlateArmor">
+        <Class value="Armor"/>
+        <Level value="40"/>
+        <EquipBehaviorArray value="ArmorUp9"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SmallHealingOrb">
+        <Class value="Orb"/>
+        <Level value="25"/>
+        <EquipBehaviorArray value="SmallHealingOrb"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItemEffectInstant id="MediumHealthPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <Level value="10"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Potions" Location="Unit" TimeUse="10"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItem id="SmallOrbofSight">
+        <Class value="Orb"/>
+        <Level value="25"/>
+        <EquipBehaviorArray value="SightRadius1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SmallOrbofMight">
+        <Class value="Orb"/>
+        <Level value="25"/>
+        <EquipBehaviorArray value="Attack1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="GrandOrbofAnger">
+        <Class value="Orb"/>
+        <Level value="100"/>
+        <EquipBehaviorArray value="Angry10"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="TolicsFireOrb">
+        <Class value="EliteOrb"/>
+        <Level value="25"/>
+        <EquipBehaviorArray value="TolicsFireOrbEquipped"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="TitaniumClaws">
+        <Class value="Weapon"/>
+        <Level value="40"/>
+        <EquipWeaponArray Link="TitaniumClaws"/>
+        <Requirements value="Level40"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SilverClaws">
+        <Class value="Weapon"/>
+        <Level value="30"/>
+        <EquipWeaponArray Link="SilverClaws"/>
+        <Requirements value="Level252"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="IronClaws">
+        <Class value="Weapon"/>
+        <Level value="10"/>
+        <EquipWeaponArray Link="IronClaws"/>
+        <Requirements value="Level10"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="GoldClaws">
+        <Class value="Weapon"/>
+        <Level value="35"/>
+        <EquipWeaponArray Link="GoldClaws"/>
+        <Requirements value="Level35"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SteelClaws">
+        <Class value="Weapon"/>
+        <Level value="15"/>
+        <EquipWeaponArray Link="SteelClaws"/>
+        <Requirements value="Level15"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="HeavyCottonArmor">
+        <Class value="Armor"/>
+        <Level value="10"/>
+        <EquipBehaviorArray value="ArmorUp4"/>
+        <EquipBehaviorArray value="MovementSpeedDown1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BasicArmor">
+        <Class value="Armor"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="HeavyClothArmor">
+        <Class value="Armor"/>
+        <Level value="5"/>
+        <EquipBehaviorArray value="ArmorUp3"/>
+        <EquipBehaviorArray value="MovementSpeedDown1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BasicClaws">
+        <Class value="Weapon"/>
+        <EquipWeaponArray Link="BasicClaws"/>
+    </CItem>
+    <CItem id="HeavyWoolArmor">
+        <Class value="Armor"/>
+        <Level value="15"/>
+        <EquipBehaviorArray value="ArmorUp5"/>
+        <EquipBehaviorArray value="MovementSpeedDown1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="HerosMight">
+        <Class value="EliteWeapon"/>
+        <EquipWeaponArray Link="HerosMight"/>
+        <Level value="100"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="LightCottonArmor">
+        <Class value="Armor"/>
+        <Level value="10"/>
+        <EquipBehaviorArray value="ArmorUp2"/>
+        <EquipBehaviorArray value="MovementSpeedUp1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="LightClothArmor">
+        <Class value="Armor"/>
+        <Level value="5"/>
+        <EquipBehaviorArray value="ArmorUp1"/>
+        <EquipBehaviorArray value="MovementSpeedUp1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BalancedClothArmor">
+        <Class value="Armor"/>
+        <Level value="5"/>
+        <EquipBehaviorArray value="ArmorUp2"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="LightWoolArmor">
+        <Class value="Armor"/>
+        <Level value="15"/>
+        <EquipBehaviorArray value="ArmorUp3"/>
+        <EquipBehaviorArray value="MovementSpeedUp1"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="CopperClaws">
+        <Class value="Weapon"/>
+        <Level value="20"/>
+        <EquipWeaponArray Link="CopperClaws"/>
+        <Requirements value="Level20"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="BoneClaws">
+        <Class value="Weapon"/>
+        <Level value="5"/>
+        <EquipWeaponArray Link="BoneClaws"/>
+        <Requirements value="Level5"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="SyritalsTalons">
+        <Class value="EliteWeapon"/>
+        <Level value="5"/>
+        <Requirements value="Level5"/>
+        <EquipWeaponArray Link="SyritalsTalons"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="DevilsFlamethrower">
+        <Class value="EliteWeapon"/>
+        <Level value="50"/>
+        <EquipWeaponArray Link="DevilsFlamethrower"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItem id="PlatinumClaws">
+        <Class value="Weapon"/>
+        <Level value="45"/>
+        <EquipWeaponArray Link="PlatinumClaws"/>
+        <Requirements value="Level45"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+    <CItemEffectInstant id="SmallHealthPotion">
+        <Flags index="IncludeInLootItemPool" value="1"/>
+        <Flags index="KillWhenDepleted" value="1"/>
+        <Class value="Usable"/>
+        <EffectCost>
+            <Charge CountMax="4893" CountStart="1" CountUse="1"/>
+            <Cooldown Link="Potions" Location="Unit" TimeUse="10"/>
+        </EffectCost>
+        <TargetFilters value="-;Ally,Neutral,Enemy"/>
+        <Range value="0.1"/>
+    </CItemEffectInstant>
+    <CItem id="ShiningArmor">
+        <Class value="Armor"/>
+        <Level value="70"/>
+        <EquipBehaviorArray value="ArmorUp15"/>
+        <Flags index="IncludeInLootItemPool" value="1"/>
+    </CItem>
+</Catalog>

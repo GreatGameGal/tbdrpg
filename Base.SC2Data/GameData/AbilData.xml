@@ -1,0 +1,1807 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CAbilTrain id="ArmorShop2">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Alert value=""/>
+    </CAbilTrain>
+    <CAbilLearn id="Attributes">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Flags index="HideOnMaxLevel" value="1"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilLearn>
+    <CAbilEffectInstant id="SubZero">
+        <AbilSetId value="SubZero"/>
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="SubZeroSearchAreaLevel1"/>
+        <Effect value="SubZeroSearchAreaLevel2"/>
+        <Effect value="SubZeroSearchAreaLevel22"/>
+        <Effect value="SubZeroSearchAreaLevel222"/>
+        <Effect value="SubZeroSearchAreaLevel2222"/>
+        <Effect value="SubZeroSearchAreaLevel22222"/>
+        <Effect value="SubZeroSearchAreaLevel222222"/>
+        <Effect value="SubZeroSearchAreaLevel2222222"/>
+        <Effect value="SubZeroSearchAreaLevel22222222"/>
+        <Effect value="SubZeroSearchAreaLevel222222222"/>
+        <Effect value="SubZeroSearchAreaLevel2222222222"/>
+        <Effect value="SubZeroSearchAreaLevel22222222222"/>
+        <Effect value="SubZeroSearchAreaLevel222222222222"/>
+        <Effect value="SubZeroSearchAreaLevel2222222222222"/>
+        <Effect value="SubZeroSearchAreaLevel22222222222222"/>
+        <Effect value="SubZeroSearchAreaLevel222222222222222"/>
+        <Effect value="SubZeroSearchAreaLevel2222222222222222"/>
+        <Effect value="SubZeroSearchAreaLevel22222222222222222"/>
+        <Effect value="SubZeroSearchAreaLevel222222222222222222"/>
+        <Effect value="SubZeroSearchAreaLevel2222222222222222222"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.2"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.19"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.18"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.17"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.16"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.15"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.14"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.13"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.12"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.11"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.1"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.09"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.08"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.07"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.06"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.05"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.04"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.03"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.02"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.01"/>
+            <Cooldown TimeStart="1" TimeUse="1"/>
+        </Cost>
+        <RefundArray index="Approach" value="0"/>
+        <RefundArray index="Prep" value="0"/>
+        <RefundArray index="Cast" value="0"/>
+        <Range value="0.5"/>
+        <Range value="1"/>
+        <Range value="1.5"/>
+        <Range value="2"/>
+        <Range value="2.5"/>
+        <Range value="3"/>
+        <Range value="3.5"/>
+        <Range value="4"/>
+        <Range value="4.5"/>
+        <Range value="5"/>
+        <Range value="5.5"/>
+        <Range value="6"/>
+        <Range value="6.5"/>
+        <Range value="7"/>
+        <Range value="7.5"/>
+        <Range value="8"/>
+        <Range value="8.5"/>
+        <Range value="9"/>
+        <Range value="9.5"/>
+        <Range value="10"/>
+        <AutoCastFilters value="-;-"/>
+        <AutoCastRange value="10"/>
+        <UseMarkerArray index="Wait" value="1"/>
+        <UseMarkerArray index="Finish" value="1"/>
+        <PauseableArray index="Approach" value="0"/>
+        <PauseableArray index="Prep" value="0"/>
+        <PauseableArray index="Cast" value="0"/>
+        <PauseableArray index="Channel" value="0"/>
+        <PauseableArray index="Finish" value="0"/>
+        <PreemptableArray index="Approach" value="0"/>
+        <PreemptableArray index="Prep" value="0"/>
+        <PreemptableArray index="Cast" value="0"/>
+        <PreemptableArray index="Channel" value="0"/>
+        <PreemptableArray index="Finish" value="0"/>
+        <ValidatedArray index="Wait" value="1"/>
+        <ValidatedArray index="Finish" value="1"/>
+        <ValidatedArray index="Bail" value="1"/>
+        <ProgressButtonArray index="Approach" value="SubZero"/>
+        <ProgressButtonArray index="Cast" value="SubZero"/>
+        <ProgressButtonArray index="Finish" value="SubZero"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="SubZero"/>
+    </CAbilEffectInstant>
+    <CAbilResearch id="Stash">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Research1" Upgrade="Stash1">
+            <Resource index="Minerals" value="25000"/>
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseStash" Requirements="PurchaseStash"/>
+        </InfoArray>
+        <InfoArray index="Research2" Upgrade="Stash12">
+            <Resource index="Minerals" value="50000"/>
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="StashUpgrade1" Requirements="StashUpgrade1"/>
+        </InfoArray>
+        <InfoArray index="Research3" Upgrade="Stash13">
+            <Resource index="Minerals" value="75000"/>
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="StashUpgrade2" Requirements="StashUpgrade2"/>
+        </InfoArray>
+        <InfoArray index="Research4" Upgrade="Stash14">
+            <Resource index="Minerals" value="100000"/>
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="StashUpgrade3" Requirements="StashUpgrade3"/>
+        </InfoArray>
+        <InfoArray index="Research5" Upgrade="Stash15">
+            <Resource index="Minerals" value="150000"/>
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="StashUpgrade4" Requirements="StashUpgrade4"/>
+        </InfoArray>
+        <InfoArray index="Research6" Upgrade="Stash16">
+            <Resource index="Minerals" value="200000"/>
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="StashUpgrade5" Requirements="StashUpgrade5"/>
+        </InfoArray>
+    </CAbilResearch>
+    <CAbilInventory id="StashInventory">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Range value="5"/>
+        <MaxDropRange value="5"/>
+        <InfoArray Container="Stash1" EmptyFace="Stash1" Requirements="Stash1Purchased"/>
+        <InfoArray Container="Stash2" EmptyFace="Stash2" Requirements="Stash2Purchased"/>
+        <InfoArray Container="Stash3" EmptyFace="Stash3" Requirements="Stash3Purchased"/>
+        <InfoArray>
+            <Alignment value="Left"/>
+            <Container value="Stash4"/>
+            <EmptyFace value="Stash4"/>
+            <Requirements value="Stash4Purchased"/>
+        </InfoArray>
+        <InfoArray>
+            <Alignment value="Left"/>
+            <Container value="Stash5"/>
+            <EmptyFace value="Stash5"/>
+            <Requirements value="Stash5Purchased"/>
+        </InfoArray>
+        <InfoArray>
+            <Alignment value="Left"/>
+            <Container value="Stash6"/>
+            <EmptyFace value="Stash6"/>
+            <Requirements value="Stash6Purchased"/>
+        </InfoArray>
+        <CmdButtonArray index="PawnInstant" State="Restricted" Requirements="NeverAllow"/>
+    </CAbilInventory>
+    <CAbilEffectTarget id="FrostSpike">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="FrostSpikeMissileLevel1"/>
+        <Effect value="FrostSpikeMissileLevel2"/>
+        <Effect value="FrostSpikeMissileLevel3"/>
+        <Effect value="FrostSpikeMissileLevel4"/>
+        <Effect value="FrostSpikeMissileLevel5"/>
+        <Effect value="FrostSpikeMissileLevel6"/>
+        <Effect value="FrostSpikeMissileLevel7"/>
+        <Effect value="FrostSpikeMissileLevel8"/>
+        <Effect value="FrostSpikeMissileLevel9"/>
+        <Effect value="FrostSpikeMissileLevel10"/>
+        <Effect value="FrostSpikeMissileLevel10"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <RefundFraction>
+            <VitalFraction index="Energy" value="-1"/>
+        </RefundFraction>
+        <TargetFilters value="-;Player,Ally,Neutral"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <Range value="7.5"/>
+        <SmartValidatorArray value="NotDead"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <CastIntroTime value="1"/>
+        <CastIntroTime value="0.9"/>
+        <CastIntroTime value="0.8"/>
+        <CastIntroTime value="0.7"/>
+        <CastIntroTime value="0.6"/>
+        <CastIntroTime value="0.5"/>
+        <CastIntroTime value="0.4"/>
+        <CastIntroTime value="0.3"/>
+        <CastIntroTime value="0.2"/>
+        <CastIntroTime value="0.1"/>
+        <UseMarkerArray index="Finish" value="1"/>
+        <ShowProgressArray index="Prep" value="1"/>
+        <AINotifyEffect value="FireballMissile"/>
+        <ProgressButtonArray index="Approach" value="FrostSpike"/>
+        <ProgressButtonArray index="Prep" value="FrostSpike"/>
+        <ProgressButtonArray index="Cast" value="FrostSpike"/>
+        <ProgressButtonArray index="Channel" value="FrostSpike"/>
+        <ProgressButtonArray index="Finish" value="FrostSpike"/>
+        <LevelButtonImage value="Frost_Spike.tga"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FrostSpike"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="Inferno">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect value="Inferno2"/>
+        <Effect value="Inferno3"/>
+        <Effect value="Inferno4"/>
+        <Effect value="Inferno5"/>
+        <Effect value="Inferno6"/>
+        <Effect value="Inferno7"/>
+        <Effect value="Inferno8"/>
+        <Effect value="Inferno9"/>
+        <Effect value="Inferno10"/>
+        <Effect value="Inferno11"/>
+        <Effect value="Inferno12"/>
+        <Effect value="Inferno13"/>
+        <Effect value="Inferno14"/>
+        <Effect value="Inferno15"/>
+        <Effect value="Inferno16"/>
+        <Effect value="Inferno17"/>
+        <Effect value="Inferno18"/>
+        <Effect value="Inferno19"/>
+        <Effect value="Inferno20"/>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <VitalFraction index="Energy" value="1"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Range value="8"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CastIntroTime value="0"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Inferno"/>
+        <TargetFilters value="Ground,Visible;Self,Player,Ally,Neutral,Missile,Dead,Hidden,Invulnerable"/>
+        <ProgressButtonArray index="Approach" value="Inferno"/>
+        <ProgressButtonArray index="Prep" value="Inferno"/>
+        <ProgressButtonArray index="Cast" value="Inferno"/>
+        <ProgressButtonArray index="Channel" value="Inferno"/>
+        <ProgressButtonArray index="Finish" value="Inferno"/>
+        <AbilSetId value="Inferno"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="Blizzard">
+        <AbilSetId value="Inferno"/>
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="BlizzardCreatePersistent"/>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="30"/>
+        </Cost>
+        <TargetFilters value="Visible;Player,Ally,Neutral,Air,Missile,Hidden,Invulnerable"/>
+        <Range value="8"/>
+        <CastIntroTime value="0.2"/>
+        <CursorEffect value="BlizzardSearchArea"/>
+        <ProgressButtonArray index="Approach" value="Blizzard"/>
+        <ProgressButtonArray index="Prep" value="Blizzard"/>
+        <ProgressButtonArray index="Cast" value="Blizzard"/>
+        <ProgressButtonArray index="Channel" value="Blizzard"/>
+        <ProgressButtonArray index="Finish" value="Blizzard"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Blizzard"/>
+    </CAbilEffectTarget>
+    <CAbilLearn id="LearnSkillsFire">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RefundFraction Charge="0" Cooldown="0">
+            <Vital index="Life" value="0"/>
+            <Vital index="Shields" value="0"/>
+            <Vital index="Energy" value="0"/>
+            <Resource index="Minerals" value="0"/>
+            <Resource index="Vespene" value="0"/>
+            <Resource index="Terrazine" value="0"/>
+            <Resource index="Custom" value="0"/>
+        </RefundFraction>
+        <InfoArray index="Learn1" Abil="Fireball">
+            <Button DefaultButtonFace="LearnFireball"/>
+        </InfoArray>
+        <InfoArray index="Learn2" Abil="FireClaws">
+            <Button DefaultButtonFace="LearnFireclaws" Requirements="Level5"/>
+        </InfoArray>
+        <InfoArray index="Learn3" Abil="FlameEgg">
+            <Button DefaultButtonFace="LearnFlameEgg" Requirements="Level10"/>
+        </InfoArray>
+        <InfoArray index="Learn4" Abil="Inferno">
+            <Button DefaultButtonFace="LearnInferno" Requirements="Level20"/>
+        </InfoArray>
+        <InfoArray index="Learn5" Abil="Nova">
+            <Button DefaultButtonFace="LearnNova" Requirements="Level70"/>
+        </InfoArray>
+        <Flags index="HideOnMaxLevel" value="1"/>
+        <Flags index="HideOnPointsSpent" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <PointsPerLevel value="1"/>
+    </CAbilLearn>
+    <CAbilLearn id="LearnSkillsIce">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <RefundFraction Charge="0" Cooldown="0">
+            <Vital index="Life" value="0"/>
+            <Vital index="Shields" value="0"/>
+            <Vital index="Energy" value="0"/>
+            <Resource index="Minerals" value="0"/>
+            <Resource index="Vespene" value="0"/>
+            <Resource index="Terrazine" value="0"/>
+            <Resource index="Custom" value="0"/>
+        </RefundFraction>
+        <InfoArray index="Learn1" Abil="FrostSpike">
+            <Button DefaultButtonFace="LearnFrostSpike"/>
+        </InfoArray>
+        <InfoArray index="Learn2" Abil="Blizzard">
+            <Button DefaultButtonFace="LearnBlizzard" Requirements="Level10"/>
+        </InfoArray>
+        <InfoArray index="Learn3" Abil="SubZero">
+            <Button DefaultButtonFace="LearnSubZero" Requirements="Level25"/>
+        </InfoArray>
+        <InfoArray index="Learn4" Abil="FrozenArmor">
+            <Button DefaultButtonFace="LearnFrozenArmor" Requirements="Level5"/>
+        </InfoArray>
+        <Flags index="HideOnMaxLevel" value="1"/>
+        <Flags index="HideOnPointsSpent" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <PointsPerLevel value="1"/>
+    </CAbilLearn>
+    <CAbilTrain id="RangedWeaponShop">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Train1">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBasicSpines"/>
+            <Unit value="BasicSpines"/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBoneSpines"/>
+            <Unit value="BoneSpines"/>
+        </InfoArray>
+        <InfoArray index="Train3">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseIronSpines"/>
+            <Unit value="IronSpines"/>
+        </InfoArray>
+        <InfoArray index="Train4">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseSteelSpines"/>
+            <Unit value="SteelSpines"/>
+        </InfoArray>
+        <InfoArray index="Train5">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseCopperSpines"/>
+            <Unit value="CopperSpines"/>
+        </InfoArray>
+        <InfoArray index="Train6">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBronzeSpines"/>
+            <Unit value="BronzeSpines"/>
+        </InfoArray>
+        <InfoArray index="Train7">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseSilverSpines"/>
+            <Unit value="SilverSpines"/>
+        </InfoArray>
+        <InfoArray index="Train8">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseGoldSpines"/>
+            <Unit value="GoldSpines"/>
+        </InfoArray>
+        <InfoArray index="Train9">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseTitaniumSpines"/>
+            <Unit value="TitaniumSpines"/>
+        </InfoArray>
+        <InfoArray index="Train10">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchasePlatinumSpines"/>
+            <Unit value="PlatinumSpines"/>
+        </InfoArray>
+        <InfoArray index="Train11">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseDiamondSpines" Requirements="CrossSpectrumDampenersResearched"/>
+            <Unit value="DiamondSpines"/>
+        </InfoArray>
+        <InfoArray index="Train12">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseDeadlySpines"/>
+            <Unit value="DeadlySpines"/>
+        </InfoArray>
+        <InfoArray index="Train13">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseForbiddenSpines"/>
+            <Unit value="ForbiddenSpines"/>
+        </InfoArray>
+        <InfoArray index="Train14">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseSacredSpines"/>
+            <Unit value="SacredSpines"/>
+        </InfoArray>
+        <InfoArray index="Train15">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseLegendarySpines"/>
+            <Unit value="LegendarySpines"/>
+        </InfoArray>
+        <InfoArray index="Train16">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseGodlySpines"/>
+            <Unit value="GodlySpines"/>
+        </InfoArray>
+        <Alert value=""/>
+    </CAbilTrain>
+    <CAbilEffectInstant id="Nova">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Effect value="NovaCreatePersistent"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="300"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="290"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="280"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="270"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="260"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="250"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="240"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="230"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="220"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="210"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="200"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="190"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="180"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="170"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="160"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="150"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="140"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="130"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="120"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="500"/>
+            <Charge HideCount="1"/>
+            <Cooldown TimeUse="110"/>
+        </Cost>
+        <ProgressButtonArray index="Approach" value="NovaCreatePersistent"/>
+        <ProgressButtonArray index="Prep" value="NovaCreatePersistent"/>
+        <ProgressButtonArray index="Cast" value="NovaCreatePersistent"/>
+        <ProgressButtonArray index="Channel" value="NovaCreatePersistent"/>
+        <ProgressButtonArray index="Finish" value="NovaCreatePersistent"/>
+        <LevelButtonImage value="Assets\Textures\btn-ability-protoss-blink.dds"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <EffectRange value="0,500"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="NovaCreatePersistent"/>
+        <AbilSetId value="Nova"/>
+    </CAbilEffectInstant>
+    <CAbilTrain id="ShardShop">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Train1">
+            <Resource index="Custom" value="1000"/>
+            <Display index="Custom" value="1"/>
+            <Button DefaultButtonFace="PurchaseOcculusofWarning"/>
+            <Unit value=""/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Resource index="Custom" value="1000"/>
+            <Button DefaultButtonFace="PurchaseCrystalofRebirth"/>
+            <Unit value=""/>
+        </InfoArray>
+        <InfoArray index="Train3">
+            <Resource index="Custom" value="1000"/>
+            <Button DefaultButtonFace="PurchaseFacetofRevenge"/>
+            <Unit value=""/>
+        </InfoArray>
+        <InfoArray index="Train4">
+            <Resource index="Custom" value="1000"/>
+            <Button DefaultButtonFace="PurchaseJewelofReturn"/>
+            <Unit value=""/>
+        </InfoArray>
+        <InfoArray index="Train5">
+            <Resource index="Custom" value="1000"/>
+            <Button DefaultButtonFace="PurchaseRingofQuickening"/>
+            <Unit value=""/>
+        </InfoArray>
+        <InfoArray index="Train6">
+            <Resource index="Custom" value="1000"/>
+            <Button DefaultButtonFace="PurchaseStoneofProtection"/>
+            <Unit value=""/>
+        </InfoArray>
+        <Alert value=""/>
+    </CAbilTrain>
+    <CAbilEffectInstant id="FrozenArmor">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Effect value="FrozenArmor"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="BestUnit" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.2"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.19"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.18"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.17"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.16"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.15"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.14"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.13"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.12"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.11"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.1"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.09"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.08"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.07"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.06"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.05"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.04"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.03"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.02"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <VitalFraction index="Energy" value="0.01"/>
+            <Cooldown TimeUse="10"/>
+        </Cost>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <Range value="1"/>
+        <AutoCastFilters value="-;-"/>
+        <AutoCastRange value="10"/>
+        <AINotifyEffect value="SubZero"/>
+        <ProgressButtonArray index="Approach" value="FrozenArmor"/>
+        <ProgressButtonArray index="Cast" value="FrozenArmor"/>
+        <ProgressButtonArray index="Finish" value="FrozenArmor"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FrozenArmor"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="Talents">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value=""/>
+        <UseMarkerArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Talents"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilInventory id="DragonInventory">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Range value="5"/>
+        <MaxDropRange value="5"/>
+        <InfoArray Alignment="Left" Container="Weapon" EmptyFace="Weapon">
+            <Classes value="Weapon"/>
+        </InfoArray>
+        <InfoArray Alignment="Left" Container="ArmorContainer" EmptyFace="Armor">
+            <Classes value="Armor"/>
+        </InfoArray>
+        <InfoArray Alignment="Left" Container="Orbs" EmptyFace="Orbs">
+            <Classes value="Orb"/>
+        </InfoArray>
+        <InfoArray Container="GeneralBag" EmptyFace="GeneralBag">
+            <Classes value="Misc"/>
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+        </InfoArray>
+        <InfoArray Container="ExtraBag" EmptyFace="ExtraBag">
+            <Classes value="Misc"/>
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+        </InfoArray>
+        <InfoArray Container="ExtraBag2" EmptyFace="ExtraBag2">
+            <Classes value="Misc"/>
+            <Classes value="Weapon"/>
+            <Classes value="Armor"/>
+            <Classes value="Orb"/>
+        </InfoArray>
+    </CAbilInventory>
+    <CAbilEffectTarget id="FlameEgg">
+        <EditorCategories value="Race:Terran,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FlameEggLevel1Delay"/>
+        <Effect value="FlameEggLevel2Delay"/>
+        <Effect value="FlameEggLevel3Delay"/>
+        <Effect value="FlameEggLevel4Delay"/>
+        <Effect value="FlameEggLevel5Delay"/>
+        <Effect value="FlameEggLevel6Delay"/>
+        <Effect value="FlameEggLevel7Delay"/>
+        <Effect value="FlameEggLevel8Delay"/>
+        <Effect value="FlameEggLevel9Delay"/>
+        <Effect value="FlameEggLevel10Delay"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="100"/>
+            <Cooldown TimeUse="0.6875"/>
+        </Cost>
+        <Range value="7"/>
+        <UninterruptibleArray index="Cast" value="1"/>
+        <UninterruptibleArray index="Channel" value="1"/>
+        <CursorEffect value="FlameEggLevel1"/>
+        <CursorEffect value="FlameEggLevel2"/>
+        <CursorEffect value="FlameEggLevel3"/>
+        <CursorEffect value="FlameEggLevel4"/>
+        <CursorEffect value="FlameEggLevel5"/>
+        <CursorEffect value="FlameEggLevel6"/>
+        <CursorEffect value="FlameEggLevel7"/>
+        <CursorEffect value="FlameEggLevel8"/>
+        <CursorEffect value="FlameEggLevel9"/>
+        <CursorEffect value="FlameEggLevel10Damage"/>
+        <AINotifyEffect value="FlameEggLevel1LaunchMissile"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="FlameEgg"/>
+        <AutoCastFilters value="Visible;Player,Ally,Air"/>
+        <ProgressButtonArray index="Approach" value="FlameEgg"/>
+        <ProgressButtonArray index="Prep" value="FlameEgg"/>
+        <ProgressButtonArray index="Cast" value="FlameEgg"/>
+        <ProgressButtonArray index="Channel" value="FlameEgg"/>
+        <ProgressButtonArray index="Finish" value="FlameEgg"/>
+        <AbilSetId value="FlameEgg"/>
+    </CAbilEffectTarget>
+    <CAbilEffectTarget id="Fireball">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="FireballMissile"/>
+        <Effect value="FireballMissileLevel2"/>
+        <Effect value="FireballMissileLevel3"/>
+        <Effect value="FireballMissileLevel4"/>
+        <Effect value="FireballMissileLevel5"/>
+        <Effect value="FireballMissileLevel6"/>
+        <Effect value="FireballMissileLevel7"/>
+        <Effect value="FireballMissileLevel8"/>
+        <Effect value="FireballMissileLevel9"/>
+        <Effect value="FireballMissileLevel10"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="10"/>
+            <Charge HideCount="1"/>
+        </Cost>
+        <TargetFilters value="-;Player,Ally,Neutral"/>
+        <Range value="5"/>
+        <Range value="5.5"/>
+        <Range value="6"/>
+        <Range value="6.5"/>
+        <Range value="7"/>
+        <Range value="7.5"/>
+        <Range value="8"/>
+        <Range value="8.5"/>
+        <Range value="9"/>
+        <Range value="9.5"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <PrepTime value="0"/>
+        <UseMarkerArray index="Finish" value="1"/>
+        <AINotifyEffect value="FireballMissile"/>
+        <ProgressButtonArray index="Approach" value="Fireball"/>
+        <ProgressButtonArray index="Prep" value="Fireball"/>
+        <ProgressButtonArray index="Cast" value="Fireball"/>
+        <ProgressButtonArray index="Channel" value="Fireball"/>
+        <ProgressButtonArray index="Finish" value="Fireball"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Fireball"/>
+        <LevelButtonImage value="Assets\Textures\fireball_1.dds"/>
+        <CastIntroTime value="2"/>
+        <CastIntroTime value="1.8"/>
+        <CastIntroTime value="1.6"/>
+        <CastIntroTime value="1.4"/>
+        <CastIntroTime value="1.2"/>
+        <CastIntroTime value="1"/>
+        <CastIntroTime value="0.8"/>
+        <CastIntroTime value="0.6"/>
+        <CastIntroTime value="0.4"/>
+        <CastIntroTime value="0.2"/>
+        <ShowProgressArray index="Prep" value="1"/>
+        <RefundFraction>
+            <VitalFraction index="Energy" value="-1"/>
+        </RefundFraction>
+        <SmartValidatorArray value="NotDead"/>
+        <AbilSetId value="Fireball"/>
+    </CAbilEffectTarget>
+    <CAbilPawn id="ItemPawn">
+        <InfoArray index="Pawn1" TargetFilters="Heroic;Neutral,Enemy"/>
+        <Flags index="Smart" value="1"/>
+        <Range value="500"/>
+    </CAbilPawn>
+    <CAbilEffectInstant id="RebornMenu">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value=""/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <UseMarkerArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="RebornMenu"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="UsePotion">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value=""/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+        <Marker Link="Abil/Talents"/>
+        <UseMarkerArray index="Finish" value="1"/>
+        <AINotifyEffect value="Talents"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="UsePotion"/>
+    </CAbilEffectInstant>
+    <CAbilTrain id="MeleeWeaponShop">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Train1">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBasicClaws"/>
+            <Unit value="BasicClaws"/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBoneClaws"/>
+            <Unit value="BoneClaws"/>
+        </InfoArray>
+        <InfoArray index="Train3">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseIronClaws"/>
+            <Unit value="IronClaws"/>
+        </InfoArray>
+        <InfoArray index="Train4">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseSteelClaws"/>
+            <Unit value="SteelClaws"/>
+        </InfoArray>
+        <InfoArray index="Train5">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseCopperClaws"/>
+            <Unit value="CopperClaws"/>
+        </InfoArray>
+        <InfoArray index="Train6">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBronzeClaws"/>
+            <Unit value="BronzeClaws"/>
+        </InfoArray>
+        <InfoArray index="Train7">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseSilverClaws"/>
+            <Unit value="SilverClaws"/>
+        </InfoArray>
+        <InfoArray index="Train8">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseGoldClaws"/>
+            <Unit value="GoldClaws"/>
+        </InfoArray>
+        <InfoArray index="Train9">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseTitaniumClaws"/>
+            <Unit value="TitaniumClaws"/>
+        </InfoArray>
+        <InfoArray index="Train10">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchasePlatinumClaws"/>
+            <Unit value="PlatinumClaws"/>
+        </InfoArray>
+        <InfoArray index="Train11">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseDiamondClaws"/>
+            <Unit value="DiamondClaws"/>
+        </InfoArray>
+        <InfoArray index="Train12">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseDeadlyClaws"/>
+            <Unit value="DeadlyClaws"/>
+        </InfoArray>
+        <InfoArray index="Train13">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseForbiddenClaws"/>
+            <Unit value="ForbiddenClaws"/>
+        </InfoArray>
+        <InfoArray index="Train14">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseSacredClaws"/>
+            <Unit value="SacredClaws"/>
+        </InfoArray>
+        <InfoArray index="Train15">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseLegendaryClaws"/>
+            <Unit value="LegendaryClaws"/>
+        </InfoArray>
+        <InfoArray index="Train16">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseGodlyClaws"/>
+            <Unit value="GodlyClaws"/>
+        </InfoArray>
+        <Alert value=""/>
+    </CAbilTrain>
+    <CAbilEffectTarget id="FireClaws">
+        <EditorCategories value="Race:Zerg,AbilityorEffectType:Units"/>
+        <Effect index="0" value="FireClawsApplyBehavior"/>
+        <Effect value="FireClawsApplyBehavior2"/>
+        <Effect value="FireClawsApplyBehavior3"/>
+        <Effect value="FireClawsApplyBehavior4"/>
+        <Effect value="FireClawsApplyBehavior5"/>
+        <Effect value="FireClawsApplyBehavior6"/>
+        <Effect value="FireClawsApplyBehavior7"/>
+        <Effect value="FireClawsApplyBehavior8"/>
+        <Effect value="FireClawsApplyBehavior9"/>
+        <Effect value="FireClawsApplyBehavior10"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="AutoCastOn" value="1"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <Cost>
+            <Vital index="Energy" value="30"/>
+            <Cooldown TimeUse="2.5"/>
+        </Cost>
+        <TargetFilters value="Visible;Self,Player,Ally,Neutral,Air,Missile,Hidden,Invulnerable"/>
+        <Range value="0.01"/>
+        <RangeSlop value="0"/>
+        <AutoCastFilters value="Visible;Player,Ally,Neutral,Air"/>
+        <AutoCastRange value="3"/>
+        <UseMarkerArray index="Approach" value="0"/>
+        <UseMarkerArray index="Prep" value="0"/>
+        <UseMarkerArray index="Cast" value="0"/>
+        <UseMarkerArray index="Channel" value="0"/>
+        <AINotifyEffect value="FireClawsInitialDamage"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="LearnFireclaws2"/>
+        <ProgressButtonArray index="Approach" value="LearnFireclaws2"/>
+        <ProgressButtonArray index="Cast" value="LearnFireclaws2"/>
+        <ProgressButtonArray index="Finish" value="LearnFireclaws2"/>
+        <AbilSetId value="FireClaws"/>
+    </CAbilEffectTarget>
+    <CAbilInteract id="ShopInteract">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Flags index="AutoCast" value="1"/>
+        <Flags index="ShareControl" value="1"/>
+        <Flags index="Smart" value="1"/>
+        <Range value="20"/>
+        <TargetFilters value="Heroic;Neutral,Enemy"/>
+        <AutoCastFilters value="Heroic;Neutral,Enemy"/>
+        <AutoCastRange value="20"/>
+    </CAbilInteract>
+    <CAbilEffectInstant id="Strength1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Cost>
+            <Charge HideCount="1" Link="" Location="Unit"/>
+        </Cost>
+        <UseMarkerArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Strength" State="Restricted"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="Agility1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Cost>
+            <Charge HideCount="1" Link="" Location="Unit"/>
+        </Cost>
+        <UseMarkerArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Agility" State="Restricted"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="Vitality1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Cost>
+            <Charge HideCount="1" Link="" Location="Unit"/>
+        </Cost>
+        <UseMarkerArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Vitality" State="Restricted"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="Dexterity1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Cost>
+            <Charge HideCount="1" Link="" Location="Unit"/>
+        </Cost>
+        <UseMarkerArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Dexterity1" State="Restricted"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilEffectInstant id="Intelligence1">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Cost>
+            <Charge HideCount="1" Link="" Location="Unit"/>
+        </Cost>
+        <UseMarkerArray index="Finish" value="1"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Intelligence" State="Restricted"/>
+        <Flags index="AllowMovement" value="1"/>
+        <Flags index="Transient" value="1"/>
+    </CAbilEffectInstant>
+    <CAbilTrain id="ArmorShop">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Train1">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBasicArmor"/>
+            <Unit value="BasicArmor"/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBalancedClothArmor"/>
+            <Unit value="BalancedClothArmor"/>
+        </InfoArray>
+        <InfoArray index="Train3">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBalancedCottonArmor"/>
+            <Unit value="BalancedCottonArmor"/>
+        </InfoArray>
+        <InfoArray index="Train4">
+            <Button DefaultButtonFace="PurchaseBalancedWoolArmor"/>
+            <Unit value="BalancedWoolArmor"/>
+        </InfoArray>
+        <InfoArray index="Train5">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseBalancedLeatherArmor"/>
+            <Unit value="BalancedLeatherArmor"/>
+        </InfoArray>
+        <InfoArray index="Train6">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseChainArmor"/>
+            <Unit value="ChainArmor"/>
+        </InfoArray>
+        <InfoArray index="Train7">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseRingArmor"/>
+            <Unit value="RingArmor"/>
+        </InfoArray>
+        <InfoArray index="Train8">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseScaleArmor"/>
+            <Unit value="ScaleArmor"/>
+        </InfoArray>
+        <InfoArray index="Train9">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchasePlateArmor"/>
+            <Unit value="PlateArmor"/>
+        </InfoArray>
+        <InfoArray index="Train10">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseDiamondArmor"/>
+            <Unit value="DiamondArmor"/>
+        </InfoArray>
+        <InfoArray index="Train11">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseMysticalArmor"/>
+            <Unit value="MysticArmor"/>
+        </InfoArray>
+        <InfoArray index="Train12">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="PurchaseUnbreakableArmor"/>
+            <Unit value="UnbreakableArmor"/>
+        </InfoArray>
+        <InfoArray index="Train13">
+            <Button DefaultButtonFace="PurchaseShiningArmor"/>
+            <Unit value="ShiningArmor"/>
+        </InfoArray>
+        <InfoArray index="Train14">
+            <Button DefaultButtonFace="PurchaseRadiantArmor"/>
+            <Unit value="RadiantArmor"/>
+        </InfoArray>
+        <InfoArray index="Train15">
+            <Button DefaultButtonFace="PurchaseDemonicArmor"/>
+            <Unit value="DemonicArmor"/>
+        </InfoArray>
+        <InfoArray index="Train16">
+            <Button DefaultButtonFace="PurchaseAscendedArmor"/>
+            <Unit value="AscendedArmor"/>
+        </InfoArray>
+        <Alert value=""/>
+    </CAbilTrain>
+    <CAbilTrain id="PotionShop">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <InfoArray index="Train1">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="SmallHealthPotion"/>
+            <Unit value="SmallHealthPotion"/>
+        </InfoArray>
+        <InfoArray index="Train2">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="MediumHealthPotion"/>
+            <Unit value="MediumHealthPotion"/>
+        </InfoArray>
+        <InfoArray index="Train3">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="LargeHealthPotion"/>
+            <Unit value="LargeHealthPotion"/>
+        </InfoArray>
+        <InfoArray index="Train4">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="GrandHealthPotion"/>
+            <Unit value="GrandHealthPotion"/>
+        </InfoArray>
+        <InfoArray index="Train5">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="SmallAttackSpeedPotion"/>
+            <Unit value="SmallAttackSpeedPotion"/>
+        </InfoArray>
+        <InfoArray index="Train6">
+            <Display index="Minerals" value="1"/>
+            <Button DefaultButtonFace="TownPortal"/>
+            <Unit value="TownPortal"/>
+        </InfoArray>
+        <InfoArray index="Train17">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train18">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train19">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train20">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train21">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train22">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train23">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train24">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train25">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train26">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train27">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train28">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train29">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <InfoArray index="Train30">
+            <Charge Link="Abil/WeaponShop"/>
+            <Cooldown Link="Abil/WeaponShop"/>
+        </InfoArray>
+        <Alert value=""/>
+    </CAbilTrain>
+    <CAbilEffectTarget id="ZaubererFireball">
+        <EditorCategories value="AbilityorEffectType:Units"/>
+        <Effect index="0" value="ZaubererFireballMissile"/>
+        <Cost>
+            <Display index="Energy" value="1"/>
+            <Vital index="Energy" value="10"/>
+            <Charge Link="Abil/Fireball"/>
+            <Cooldown Link="Abil/Fireball"/>
+        </Cost>
+        <TargetFilters value="-;Player,Ally,Neutral"/>
+        <Range value="100"/>
+        <SmartValidatorArray value="NotDead"/>
+        <PrepTime value="0"/>
+        <CastIntroTime value="0.25"/>
+        <Marker Link="Abil/Fireball"/>
+        <UseMarkerArray index="Finish" value="1"/>
+        <ShowProgressArray index="Prep" value="1"/>
+        <AINotifyEffect value="FireballMissile"/>
+        <ProgressButtonArray index="Approach" value="Fireball"/>
+        <ProgressButtonArray index="Prep" value="Fireball"/>
+        <ProgressButtonArray index="Cast" value="Fireball"/>
+        <ProgressButtonArray index="Channel" value="Fireball"/>
+        <ProgressButtonArray index="Finish" value="Fireball"/>
+        <LevelButtonImage value="Assets\Textures\fireball_1.dds"/>
+        <CmdButtonArray index="Execute" DefaultButtonFace="Fireball"/>
+    </CAbilEffectTarget>
+    <CAbilAttack id="attack2">
+        <TargetMessage value="Abil/TargetMessage/attack2"/>
+        <MinAttackSpeedMultiplier value="0.25"/>
+        <MaxAttackSpeedMultiplier value="128"/>
+    </CAbilAttack>
+    <CAbilAttack id="attack3">
+        <TargetMessage value="Abil/TargetMessage/attack3"/>
+        <MinAttackSpeedMultiplier value="0.25"/>
+        <MaxAttackSpeedMultiplier value="128"/>
+    </CAbilAttack>
+    <CAbilAttack id="attack4">
+        <TargetMessage value="Abil/TargetMessage/attack4"/>
+        <MinAttackSpeedMultiplier value="0.25"/>
+        <MaxAttackSpeedMultiplier value="128"/>
+    </CAbilAttack>
+    <CAbilAttack id="attack5">
+        <TargetMessage value="Abil/TargetMessage/attack5"/>
+        <MinAttackSpeedMultiplier value="0.25"/>
+        <MaxAttackSpeedMultiplier value="128"/>
+    </CAbilAttack>
+    <CAbilAttack id="attack6">
+        <TargetMessage value="Abil/TargetMessage/attack6"/>
+        <MinAttackSpeedMultiplier value="1"/>
+        <MaxAttackSpeedMultiplier value="128"/>
+    </CAbilAttack>
+    <CAbilAttack id="attack7">
+        <TargetMessage value="Abil/TargetMessage/attack7"/>
+        <MinAttackSpeedMultiplier value="0.25"/>
+        <MaxAttackSpeedMultiplier value="128"/>
+    </CAbilAttack>
+    <CAbilMove id="move2">
+        <FleeRange value="5"/>
+        <FleeTime value="5"/>
+        <FollowRangeSlop value="1"/>
+        <FollowAcquireRange value="6"/>
+        <MinPatrolDistance value="1"/>
+    </CAbilMove>
+    <CAbilMove id="move3">
+        <FleeRange value="5"/>
+        <FleeTime value="5"/>
+        <FollowRangeSlop value="1"/>
+        <FollowAcquireRange value="6"/>
+        <MinPatrolDistance value="1"/>
+    </CAbilMove>
+    <CAbilMove id="move4">
+        <FleeRange value="5"/>
+        <FleeTime value="5"/>
+        <FollowRangeSlop value="1"/>
+        <FollowAcquireRange value="6"/>
+        <MinPatrolDistance value="1"/>
+    </CAbilMove>
+    <CAbilMove id="move5">
+        <FleeRange value="5"/>
+        <FleeTime value="5"/>
+        <FollowRangeSlop value="1"/>
+        <FollowAcquireRange value="6"/>
+        <MinPatrolDistance value="1"/>
+    </CAbilMove>
+    <CAbilMove id="move6">
+        <FleeRange value="5"/>
+        <FleeTime value="5"/>
+        <FollowRangeSlop value="1"/>
+        <FollowAcquireRange value="6"/>
+        <MinPatrolDistance value="1"/>
+    </CAbilMove>
+    <CAbilStop id="stop2">
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
+    </CAbilStop>
+    <CAbilStop id="stop3">
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
+    </CAbilStop>
+    <CAbilStop id="stop4">
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
+    </CAbilStop>
+    <CAbilStop id="stop5">
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
+    </CAbilStop>
+    <CAbilStop id="stop6">
+        <CmdButtonArray index="HoldFire" DefaultButtonFace="HoldFireSpecial"/>
+    </CAbilStop>
+</Catalog>

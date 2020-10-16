@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CRequirementConst id="10">
+        <Value value="10"/>
+    </CRequirementConst>
+    <CRequirementConst id="100"/>
+    <CRequirementConst id="15">
+        <Value value="15"/>
+    </CRequirementConst>
+    <CRequirementConst id="20"/>
+    <CRequirementConst id="25">
+        <Value value="25"/>
+    </CRequirementConst>
+    <CRequirementConst id="30">
+        <Value value="30"/>
+    </CRequirementConst>
+    <CRequirementConst id="35">
+        <Value value="35"/>
+    </CRequirementConst>
+    <CRequirementConst id="40">
+        <Value value="40"/>
+    </CRequirementConst>
+    <CRequirementConst id="45">
+        <Value value="45"/>
+    </CRequirementConst>
+    <CRequirementConst id="5"/>
+    <CRequirementConst id="50"/>
+    <CRequirementConst id="60">
+        <Value value="60"/>
+    </CRequirementConst>
+    <CRequirementConst id="70">
+        <Value value="70"/>
+    </CRequirementConst>
+    <CRequirementConst id="80">
+        <Value value="80"/>
+    </CRequirementConst>
+    <CRequirementConst id="90">
+        <Value value="90"/>
+    </CRequirementConst>
+    <CRequirementAnd id="AndOr3073517614GTEDivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1Or3570411895GTE3570411895CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray value="Or3073517614GTEDivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+        <OperandArray value="Or3570411895GTE3570411895CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10"/>
+    </CRequirementAnd>
+    <CRequirementAnd id="AndOr3570411895GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5GTE3945183668CountAbilFireballCompleteOnlyAtUnitTechTreeCheat1">
+        <OperandArray value="Or3570411895GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTE3945183668CountAbilFireballCompleteOnlyAtUnitTechTreeCheat1"/>
+    </CRequirementAnd>
+    <CRequirementCountAbil id="CountAbilFireClawsCompleteOnlyAtUnit">
+        <Count Link="FireClaws" State="CompleteOnlyAtUnit"/>
+        <Flags index="TechTreeCheat" value="0"/>
+    </CRequirementCountAbil>
+    <CRequirementCountAbil id="CountAbilFireballCompleteOnlyAtUnitTechTreeCheat">
+        <Count Link="Fireball" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountAbil>
+    <CRequirementCountBehavior id="CountBehaviorCivilianEnableWeaponCompleteOnlyAtUnit3810155024">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Count Link="CivilianEnableWeapon" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat">
+        <Count Link="Level2" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat">
+        <Count Link="Level3" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat">
+        <Count Link="Level4" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat">
+        <Count Link="Level5" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountBehavior id="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat">
+        <Count Link="Level" State="CompleteOnlyAtUnit"/>
+    </CRequirementCountBehavior>
+    <CRequirementCountUpgrade id="CountUpgradeStash12CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Stash12" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStash13CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Stash13" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStash14CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Stash14" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStash15CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Stash15" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStash16CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Stash16" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementCountUpgrade id="CountUpgradeStash1CompleteOnly">
+        <Flags index="TechTreeCheat" value="0"/>
+        <Tooltip value=""/>
+        <Count Link="Stash1" State="CompleteOnly"/>
+    </CRequirementCountUpgrade>
+    <CRequirementDiv id="DivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray value="5"/>
+    </CRequirementDiv>
+    <CRequirementDiv id="DivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray value="5"/>
+    </CRequirementDiv>
+    <CRequirementDiv id="DivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray value="5"/>
+    </CRequirementDiv>
+    <CRequirementEq id="Eq01">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="0"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementEq>
+    <CRequirementEq id="Eq1166728750CountUpgradeStash15CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash15CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="Eq1470453431CountUpgradeStash13CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash13CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="Eq2385466030CountUpgradeStash12CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash12CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementEq id="Eq2418901561CountUpgradeStash1CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash1CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementDiv id="DivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray value="5"/>
+    </CRequirementDiv>
+    <CRequirementEq id="Eq3185380169CountUpgradeStash16CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash16CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementDiv id="DivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray value="5"/>
+    </CRequirementDiv>
+    <CRequirementEq id="Eq3313999194CountUpgradeStash14CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash14CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementEq>
+    <CRequirementGT id="GT4097759300CountUpgradeStash12CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash12CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GT4097759300CountUpgradeStash13CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash13CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GT4097759300CountUpgradeStash14CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash14CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GT4097759300CountUpgradeStash15CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash15CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GT4097759300CountUpgradeStash16CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash16CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GT4097759300CountUpgradeStash1CompleteOnly0">
+        <OperandArray index="0" value="CountUpgradeStash1CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountUpgradeStash12CompleteOnly0">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountUpgradeStash12CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountUpgradeStash13CompleteOnly0">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountUpgradeStash13CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountUpgradeStash14CompleteOnly0">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountUpgradeStash14CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountUpgradeStash15CompleteOnly0">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountUpgradeStash15CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGT id="GTCountUpgradeStash1CompleteOnly0">
+        <Tooltip value=""/>
+        <OperandArray index="0" value="CountUpgradeStash1CompleteOnly"/>
+        <OperandArray index="1" value="0"/>
+    </CRequirementGT>
+    <CRequirementGTE id="GTE3570411895CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTE3945183668CountAbilFireballCompleteOnlyAtUnitTechTreeCheat1">
+        <OperandArray index="0" value="CountAbilFireballCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat100">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="100"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat15">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="15"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat20">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="20"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat25">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="25"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat30">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="30"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat35">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="35"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat40">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="40"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat45">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="45"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat50">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="50"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat60">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="60"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat70">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="70"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat80">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="80"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat90">
+        <OperandArray index="0" value="CountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="90"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat100">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="100"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat15">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="15"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat20">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="20"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat25">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="25"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat30">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="30"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat35">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="35"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat40">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="40"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat45">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="45"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat50">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="50"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat60">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="60"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat70">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="70"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat80">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="80"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat90">
+        <OperandArray index="0" value="CountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="90"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat100">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="100"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat15">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="15"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat20">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="20"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat25">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="25"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat30">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="30"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat35">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="35"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat40">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="40"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat45">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="45"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat50">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="50"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat60">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="60"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat70">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="70"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat80">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="80"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat90">
+        <OperandArray index="0" value="CountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="90"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat100">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="100"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat15">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="15"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat20">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="20"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat25">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="25"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat30">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="30"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat35">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="35"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat40">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="40"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat45">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="45"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat50">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="50"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat60">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="60"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat70">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="70"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat80">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="80"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat90">
+        <OperandArray index="0" value="CountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="90"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="10"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat100">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="100"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat15">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="15"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat20">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="20"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat25">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="25"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat30">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="30"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat35">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="35"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat40">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="40"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat45">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="45"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="5"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat50">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="50"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat60">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="60"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat70">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="70"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat80">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="80"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat90">
+        <OperandArray index="0" value="CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat"/>
+        <OperandArray index="1" value="90"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTEDivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="DivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray index="1" value="SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTEDivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="DivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray index="1" value="SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTEDivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="DivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray index="1" value="SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTEDivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="DivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray index="1" value="SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+    </CRequirementGTE>
+    <CRequirementGTE id="GTEDivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1">
+        <OperandArray index="0" value="DivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray index="1" value="SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+    </CRequirementGTE>
+    <CRequirementOr id="Or142027770GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or1713616997GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat70GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat70">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat70"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat70"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat70"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat70"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat70"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or1778966570GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat50GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat50">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat50"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat50"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat50"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat50"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat50"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or2135514892GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat20GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat20">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat20"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat20"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat20"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat20"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat20"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or2161086531GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat80GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat80">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat80"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat80"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat80"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat80"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat80"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or2180655278GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat100GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat100">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat100"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat100"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat100"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat100"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat100"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or2657512319GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat40GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat40">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat40"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat40"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat40"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat40"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat40"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or3073517614GTEDivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1GTEDivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1">
+        <OperandArray value="GTEDivCountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+        <OperandArray value="GTEDivCountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+        <OperandArray value="GTEDivCountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+        <OperandArray value="GTEDivCountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+        <OperandArray value="GTEDivCountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5SumCountAbilFireClawsCompleteOnlyAtUnit1"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or3111486206GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat90GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat90">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat90"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat90"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat90"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat90"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat90"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or3384277100GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat35GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat35">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat35"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat35"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat35"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat35"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat35"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or3407127069GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or3570411895GTE3570411895CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10">
+        <OperandArray value="GTE3570411895CountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat10"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat10"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or3570411895GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat5"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat5"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or3859204156GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat60GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat60">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat60"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat60"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat60"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat60"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat60"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or598659783GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat15GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat15">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat15"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat15"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat15"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat15"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat15"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or614514919GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat25GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat25">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat25"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat25"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat25"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat25"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat25"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or699137076GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat30GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat30">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat30"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat30"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat30"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat30"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat30"/>
+    </CRequirementOr>
+    <CRequirementOr id="Or6996125GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat45GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat45">
+        <OperandArray value="GTECountBehaviorLevelCompleteOnlyAtUnitTechTreeCheat45"/>
+        <OperandArray value="GTECountBehaviorLevel2CompleteOnlyAtUnitTechTreeCheat45"/>
+        <OperandArray value="GTECountBehaviorLevel3CompleteOnlyAtUnitTechTreeCheat45"/>
+        <OperandArray value="GTECountBehaviorLevel4CompleteOnlyAtUnitTechTreeCheat45"/>
+        <OperandArray value="GTECountBehaviorLevel5CompleteOnlyAtUnitTechTreeCheat45"/>
+    </CRequirementOr>
+    <CRequirementSum id="SumCountAbilFireClawsCompleteOnlyAtUnit1">
+        <OperandArray value="CountAbilFireClawsCompleteOnlyAtUnit"/>
+        <OperandArray value="1"/>
+    </CRequirementSum>
+</Catalog>

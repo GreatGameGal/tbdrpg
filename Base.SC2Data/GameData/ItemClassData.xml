@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CItemClass id="Armor"/>
+    <CItemClass id="EliteArmor"/>
+    <CItemClass id="Familiars"/>
+    <CItemClass id="Misc"/>
+    <CItemClass id="Orb"/>
+    <CItemClass id="EliteOrb"/>
+    <CItemClass id="QuestItems"/>
+    <CItemClass id="Usable"/>
+    <CItemClass id="Weapon"/>
+    <CItemClass id="EliteWeapon"/>
+</Catalog>

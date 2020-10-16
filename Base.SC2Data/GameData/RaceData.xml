@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CRace id="Prot">
+        <ShowResource index="Custom" value="1"/>
+    </CRace>
+    <CRace id="Terr">
+        <ShowResource index="Custom" value="1"/>
+    </CRace>
+    <CRace id="Zerg">
+        <ShowResource index="Custom" value="1"/>
+    </CRace>
+</Catalog>

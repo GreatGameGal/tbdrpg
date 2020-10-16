@@ -1,0 +1,2743 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Catalog>
+    <CEffectDamage id="25Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0"/>
+        <Amount value="25"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="50Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0"/>
+        <Amount value="50"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="100Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0"/>
+        <Amount value="100"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="AcidSpitMissile">
+        <ValidatorArray index="0" value="RoachLMTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="AcidSpit"/>
+        <AmmoUnit value="AcidSalivaWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="AcidSpit" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="85.7707"/>
+        <Death value="Disintegrate"/>
+        <ArmorReduction value="0.8576"/>
+    </CEffectDamage>
+    <CEffectDamage id="BasicClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.05"/>
+        <Amount value="5"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="CarrionNeedles" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.6"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="60"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="03N13S01LaunchMissile2">
+        <ValidatorArray index="0" value="Level25"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/ParasiteSporeLaunchMissile"/>
+        <ImpactEffect value="CarrionNeedles"/>
+        <AmmoUnit value="ParasiteSporeWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="23G03S01" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.35"/>
+        <Amount value="100"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="NepaClaws" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.0866"/>
+        <Amount value="8.671"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Frozen">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FrozenArmor">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="OblivionSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="2"/>
+        <Amount value="200"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <Kind value="Ranged"/>
+        <PreloadValidatorArray value="Level100"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="OblivionSpinesLaunchMissile">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="OblivionSpines"/>
+        <AmmoUnit value="WeaponSpineOblivion"/>
+        <ValidatorArray index="0" value="Level100"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel1">
+        <EditorCategories value=""/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectDamage id="SubZeroDamage" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.01"/>
+        <Kind value="Spell"/>
+        <Amount value="1"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Self,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel2">
+        <EditorCategories value=""/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel22">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="1.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="2" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel2222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="2.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel22222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="3.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel2222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="4" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel22222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="4.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel2222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="5.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel22222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="6" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="6.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel2222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="7" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel22222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="7.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel222222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="8" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel2222222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="8.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel22222222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="9" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel222222222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="9.5" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="SubZeroSearchAreaLevel2222222222222222222">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/SubZeroSearchAreaLevel2"/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="10" Effect="SubZeroSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="SubZeroSet">
+        <EditorCategories value=""/>
+        <Marker Link="Effect/NovaSearchSet"/>
+        <EffectArray value="SubZeroDamage"/>
+        <EffectArray value="SubZeroApplyBehavior"/>
+    </CEffectSet>
+    <CEffectDamage id="Suicide2">
+        <ImpactLocation Value="SourceUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Suicide3">
+        <ImpactLocation Value="SourceUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Suicide4">
+        <ImpactLocation Value="SourceUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Suicide5">
+        <ImpactLocation Value="SourceUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Suicide6">
+        <ImpactLocation Value="SourceUnit"/>
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="TimeSpikeDamage">
+        <EditorCategories value=""/>
+        <ArmorReduction value="500000"/>
+        <Flags index="Kill" value="1"/>
+        <Amount value="500000"/>
+    </CEffectDamage>
+    <CEffectDamage id="ToxicSaliva" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.502"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="50.205"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="PoisonSpikes" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/ToxicSaliva"/>
+        <ArmorReduction value="0.5493"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="54.9326"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ToxicSalivaLaunchMissile">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="ToxicSaliva"/>
+        <AmmoUnit value="ParasiteSporeWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="FlimsySpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.1"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="10"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlimsySpinesLaunchMissile">
+        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="FlimsySpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="FlimsyClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.1"/>
+        <Amount value="10"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="BoneSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level05"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="BoneSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="BoneSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.15"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="15"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level05"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="BronzeSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level25"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="BronzeSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="ForbiddenSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level70"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="ForbiddenSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="DiamondSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level50"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="DiamondSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="DeadlySpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level60"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="DeadlySpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="GodlySpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level100"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="GodlySpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ShadowRifleDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Terran"/>
+        <ArmorReduction value="0.8452"/>
+        <Kind value="Splash"/>
+        <Amount value="84.52"/>
+        <LeechFraction index="Life" value="1"/>
+        <LeechFraction index="Shields" value="1"/>
+        <LeechFraction index="Energy" value="1"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="SacredSpinesLaunchMissile">
+        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="SacredSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+        <PeriodicValidator value="Level80"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="LegendarySpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level90"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="LegendarySpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ItemTimedLife">
+        <Flags index="Kill" value="1"/>
+        <Flags index="NoKillCredit" value="1"/>
+        <Death value="Remove"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="TitaniumSpinesLaunchMissile">
+        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="TitaniumSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+        <PreloadValidatorArray value="Level40"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="SilverSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level30"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="SilverSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="IronSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level10"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="IronSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="BronzeSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.35"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="35"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level25"/>
+    </CEffectDamage>
+    <CEffectDamage id="ForbiddenSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.8"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="80"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level70"/>
+    </CEffectDamage>
+    <CEffectDamage id="DiamondSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.6"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="60"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level50"/>
+    </CEffectDamage>
+    <CEffectDamage id="DeadlySpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.7"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="70"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level60"/>
+    </CEffectDamage>
+    <CEffectDamage id="GodlySpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="1.5"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="150"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level100"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="GoldSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level35"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="GoldSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="SteelSpinesLaunchMissile">
+        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="SteelSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+        <PreloadValidatorArray value="Level15"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="SacredSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.9"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="90"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level80"/>
+    </CEffectDamage>
+    <CEffectDamage id="LegendarySpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="100"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level90"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="CopperSpinesLaunchMissile">
+        <ValidatorArray index="0" value="Level20"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="CopperSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="TitaniumSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.5"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="50"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level40"/>
+    </CEffectDamage>
+    <CEffectDamage id="SilverSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.4"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="40"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level30"/>
+    </CEffectDamage>
+    <CEffectDamage id="IronSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.2"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="20"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level10"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel8">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.4"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="40"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel9">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.45"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="45"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel6">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.3"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="30"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel7">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.35"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="35"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel4">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.2"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="20"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel5">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.25"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="25"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="10"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel3">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.15"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="15"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel1">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.05"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="5"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="FrostSpikeDamageLevel10">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.5"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="50"/>
+        <Death value="Freeze"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel1">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel1"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel2">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel3">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel3"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel9">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel9"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel10">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel10"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel5">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel5"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel7">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel7"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel8">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel8"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel6">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel6"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FrostSpikeMissileLevel4">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FrostSpikeDamageLevel4"/>
+        <AmmoUnit value="FrostSpike"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="Posioned">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/Burning"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ShieldFactor value="0.1"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Splash"/>
+        <Amount value="1"/>
+        <Death value="Disintegrate"/>
+    </CEffectDamage>
+    <CEffectDamage id="GoldSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.45"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="45"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level35"/>
+    </CEffectDamage>
+    <CEffectDamage id="SteelSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.25"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="25"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level15"/>
+    </CEffectDamage>
+    <CEffectDamage id="CarrionNeedlesNPC" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.06"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="6"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="CarrionNeedlesLaunchMissile">
+        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/ParasiteSporeLaunchMissile"/>
+        <ImpactEffect value="CarrionNeedlesNPC"/>
+        <AmmoUnit value="ParasiteSporeWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="BronzeClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.35"/>
+        <Amount value="35"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level25"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="CarcinodeImalerU" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="100"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="CarcinodeImpalerLM">
+        <ValidatorArray index="0" value="SpineCrawlerLMTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="CarcinodeImalerU"/>
+        <Flags index="Return" value="1"/>
+        <AmmoUnit value="CarcinodeWeapon"/>
+        <ReturnDelay value="0.175"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractShort" IfRangeLTE="3"/>
+        <ReturnMovers Link="SpineCrawlerTentacleRetractLong" IfRangeLTE="7"/>
+        <Movers Link="SpineCrawlerTentacleExtendShort" IfRangeLTE="3"/>
+        <Movers Link="SpineCrawlerTentacleExtendLong" IfRangeLTE="7"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="CriticalCrepitus">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Origin"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="CriticalStrike" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="CriticalCrepitusDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/CriticalStrike"/>
+        <ArmorReduction value="0"/>
+        <Kind value="Splash"/>
+        <KindSplash value="Splash"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="DeathRay" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <ArmorReduction value="9.0534"/>
+        <Kind value="Ranged"/>
+        <Amount value="905.3454"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="GaussRifleDamage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="0.08"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Ranged"/>
+        <Amount value="8"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="OffsetByUnitRadius" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="BasicSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.05"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="5"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="GrandAttackSpeedPotion">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="LargeAttackSpeedPotion">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectCreateHealer id="LargeHealingOrb">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="NotVortexd"/>
+        <DrainVital value="Energy"/>
+        <RechargeVitalRate value="10"/>
+    </CEffectCreateHealer>
+    <CEffectCreateHealer id="GrandHealingOrb">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="NotVortexd"/>
+        <DrainVital value="Energy"/>
+        <RechargeVitalRate value="20"/>
+    </CEffectCreateHealer>
+    <CEffectApplyBehavior id="MediumAttackSpeedPotion">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="SubZeroApplyBehavior">
+        <EditorCategories value=""/>
+        <Chance value="0.05"/>
+        <Behavior value="Cold"/>
+    </CEffectApplyBehavior>
+    <CEffectLaunchMissile id="BasicSpinesLaunchMissile">
+        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="BasicSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="NovaApplyControllerBehavior">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <Behavior value="NovaBehaviorController"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyForce id="NovaApplyForce">
+        <EditorCategories value=""/>
+        <Amount value="1"/>
+    </CEffectApplyForce>
+    <CEffectCreatePersistent id="NovaCreatePersistent">
+        <EditorCategories value=""/>
+        <InitialEffect value="NovaSearchArea"/>
+        <PeriodCount value="14"/>
+        <PeriodicEffectArray value="NovaSearchArea"/>
+        <PeriodicPeriodArray value="0.0625"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="NovaDamage" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="5"/>
+        <Kind value="Spell"/>
+        <Amount value="500"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Self,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="NovaLower">
+        <EditorCategories value=""/>
+        <Height value="-1.75"/>
+        <HeightTime value="0.375"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="NovaRaise">
+        <EditorCategories value=""/>
+        <Height value="1.75"/>
+        <HeightTime value="0.375"/>
+    </CEffectModifyUnit>
+    <CEffectEnumArea id="NovaSearchArea">
+        <EditorCategories value=""/>
+        <ExcludeArray/>
+        <SearchFilters value="-;Self,Player,Ally,Neutral,Structure,Stasis,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" RadiusBonus="0.5" Effect="NovaSearchSet"/>
+    </CEffectEnumArea>
+    <CEffectSet id="NovaSearchSet">
+        <EditorCategories value=""/>
+        <EffectArray value="NovaApplyForce"/>
+        <EffectArray value="NovaApplyControllerBehavior"/>
+    </CEffectSet>
+    <CEffectCreateHealer id="MediumHealingOrb">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="NotVortexd"/>
+        <DrainVital value="Energy"/>
+        <RechargeVitalRate value="5"/>
+    </CEffectCreateHealer>
+    <CEffectDamage id="OblivionBeam" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <ArmorReduction value="5.9733"/>
+        <Kind value="Ranged"/>
+        <Amount value="597.3442"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="OblivionClaws" parent="DU_WEAP">
+        <ValidatorArray value="Level100"/>
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="2"/>
+        <Amount value="200"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="NosferatusAttack" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="2"/>
+        <Amount value="200"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="Burning">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ShieldFactor value="0.1"/>
+        <ArmorReduction value="0.01"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Splash"/>
+        <Amount value="1"/>
+        <Death value="Fire"/>
+    </CEffectDamage>
+    <CEffectDamage id="Burning2">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/Burning"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ShieldFactor value="0.1"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Splash"/>
+        <Amount value="1"/>
+        <Death value="Fire"/>
+    </CEffectDamage>
+    <CEffectDamage id="PsionicShockwaveDamage2" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <AttributeBonus index="Biological" value="10"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="25"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="SmallAttackSpeedPotion">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="SremagsisTentacles">
+        <ValidatorArray value="Level45"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="1.2"/>
+        <Kind value="Ranged"/>
+        <Amount value="120"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="CopperSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.3"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="30"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level20"/>
+    </CEffectDamage>
+    <CEffectDamage id="PlatinumSpines" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BasicSpines"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.55"/>
+        <Kind value="Ranged"/>
+        <KindSplash value="Splash"/>
+        <Amount value="55"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level45"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="PlatinumSpinesLaunchMissile">
+        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
+        <ImpactEffect value="PlatinumSpines"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+        <PreloadValidatorArray value="Level45"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="TownPortal">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <Behavior value=""/>
+    </CEffectApplyBehavior>
+    <CEffectCreatePersistent id="BlizzardCreatePersistent">
+        <ValidatorArray value="HasVision"/>
+        <EditorCategories value=""/>
+        <InitialEffect value="BlizzardSearchArea"/>
+        <PeriodCount value="10"/>
+        <PeriodicEffectArray value="BlizzardSearchArea"/>
+        <PeriodicPeriodArray value="5"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="BlizzardDamage">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Hidden"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="10"/>
+        <Death value="Freeze"/>
+        <ArmorReduction value="0.5"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="BlizzardSearchArea">
+        <EditorCategories value="Race:Zerg"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Missile,Destructible,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="5" Effect="BlizzardDamage"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="PoisonSpikesLaunchMissile">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="PoisonSpikes"/>
+        <AmmoUnit value="NeedleSpinesWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="TimeSpikeVisuals">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="ZaubererFireballDamage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="5"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="500"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="ZaubererFireballMissile">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="ZaubererFireballDamage"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="ZombieAttack" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.93"/>
+        <Amount value="93.0014"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="GlaiveWurm3">
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="GlaiveWurmS12"/>
+        <AmmoUnit value="GlaiveWurmWeapon"/>
+    </CEffectLaunchMissile>
+    <CEffectEnumArea id="GlaiveWurmE12">
+        <EditorCategories value="Race:Zerg"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="GlaiveWurmM22"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="GlaiveWurmE22">
+        <EditorCategories value="Race:Zerg"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Visible;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="3" Effect="GlaiveWurmM32"/>
+        <MaxCount value="1"/>
+    </CEffectEnumArea>
+    <CEffectLaunchMissile id="GlaiveWurmM22">
+        <ValidatorArray value="noMarkers"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="GlaiveWurmS22"/>
+        <AmmoUnit value="GlaiveWurmM2Weapon"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="GlaiveWurmM32">
+        <ValidatorArray value="noMarkers"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactEffect value="DeathBlade3"/>
+        <AmmoUnit value="GlaiveWurmM3Weapon"/>
+    </CEffectLaunchMissile>
+    <CEffectSet id="GlaiveWurmS12">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="DeathBlade"/>
+        <EffectArray value="GlaiveWurmE12"/>
+    </CEffectSet>
+    <CEffectSet id="GlaiveWurmS22">
+        <EditorCategories value="Race:Zerg"/>
+        <EffectArray value="DeathBlade2"/>
+        <EffectArray value="GlaiveWurmE22"/>
+    </CEffectSet>
+    <CEffectDamage id="DeathBlade" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.75"/>
+        <Visibility value="Visible"/>
+        <Amount value="75"/>
+        <KindSplash value="Ranged"/>
+    </CEffectDamage>
+    <CEffectDamage id="DeathBlade2" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.5"/>
+        <Visibility value="Visible"/>
+        <Amount value="50"/>
+        <KindSplash value="Ranged"/>
+    </CEffectDamage>
+    <CEffectDamage id="DeathBlade3" parent="DU_WEAP_MISSILE">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.25"/>
+        <Visibility value="Visible"/>
+        <Amount value="25"/>
+        <KindSplash value="Ranged"/>
+    </CEffectDamage>
+    <CEffectDamage id="10Damage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0"/>
+        <Amount value="10"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="CretonEnergyBeam" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <ArmorReduction value="2.8212"/>
+        <Kind value="Ranged"/>
+        <Amount value="282.135"/>
+        <AreaArray Radius="0.25" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="RazorBlades" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.95"/>
+        <Amount value="95"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="DeadlyClaws" parent="DU_WEAP">
+        <ValidatorArray value="Level60"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.7"/>
+        <Amount value="70"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="ForbiddenClaws" parent="DU_WEAP">
+        <ValidatorArray value="Level70"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.8"/>
+        <Amount value="80"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="EliteDualBladesCreatePersistent">
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="EliteDualBladesDamage"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.28"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="EliteDualBladesDamage" parent="DU_WEAP">
+        <ArmorReduction value="0.4978"/>
+        <Amount value="49.7915"/>
+        <Death value="Eviscerate"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="GodlyClaws" parent="DU_WEAP">
+        <ValidatorArray value="Level100"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="1.5"/>
+        <Amount value="150"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="DemonicHorns" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.9"/>
+        <Amount value="90"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="LargeHealthPotion">
+        <VitalArray index="Life">
+            <Change value="500"/>
+        </VitalArray>
+        <Cost CooldownTimeUse="30"/>
+    </CEffectModifyUnit>
+    <CEffectModifyUnit id="GrandHealthPotion">
+        <VitalArray index="Life">
+            <Change value="1000"/>
+        </VitalArray>
+        <Cost CooldownTimeUse="30"/>
+    </CEffectModifyUnit>
+    <CEffectDamage id="DemonHorns" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="1.25"/>
+        <Amount value="125"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+    </CEffectDamage>
+    <CEffectDamage id="DestructionBlast" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="1.2202"/>
+        <Kind value="Spell"/>
+        <Amount value="122.019"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+    </CEffectDamage>
+    <CEffectDamage id="Slime" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="1.9218"/>
+        <Amount value="192.18"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="SmallHealthPotion">
+        <VitalArray index="Life">
+            <Change value="100"/>
+        </VitalArray>
+    </CEffectModifyUnit>
+    <CEffectDamage id="Inferno">
+        <EditorCategories value=""/>
+        <Amount value="50"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="0.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno11">
+        <EditorCategories value=""/>
+        <Amount value="550"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="5.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno12">
+        <EditorCategories value=""/>
+        <Amount value="600"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="0.6"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno13">
+        <EditorCategories value=""/>
+        <Amount value="650"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="6.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno14">
+        <EditorCategories value=""/>
+        <Amount value="700"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="7"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno15">
+        <EditorCategories value=""/>
+        <Amount value="750"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="7.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno16">
+        <EditorCategories value=""/>
+        <Amount value="800"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="0.8"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno17">
+        <EditorCategories value=""/>
+        <Amount value="850"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="8.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno18">
+        <EditorCategories value=""/>
+        <Amount value="900"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="9"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno19">
+        <EditorCategories value=""/>
+        <Amount value="950"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="9.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno20">
+        <EditorCategories value=""/>
+        <Amount value="1000"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="10"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno2">
+        <EditorCategories value=""/>
+        <Amount value="100"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno3">
+        <EditorCategories value=""/>
+        <Amount value="150"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="1.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno4">
+        <EditorCategories value=""/>
+        <Amount value="200"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="2"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno5">
+        <EditorCategories value=""/>
+        <Amount value="250"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="2.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno6">
+        <EditorCategories value=""/>
+        <Amount value="300"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="3"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno7">
+        <EditorCategories value=""/>
+        <Amount value="350"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="3.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno8">
+        <EditorCategories value=""/>
+        <Amount value="400"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="4"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno9">
+        <EditorCategories value=""/>
+        <Amount value="450"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="4.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Inferno10">
+        <EditorCategories value=""/>
+        <Amount value="500"/>
+        <MaxCount value="1"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ArmorReduction value="5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <SearchFilters value="-;Ally,Neutral"/>
+        <MinCount value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="SacredClaws" parent="DU_WEAP">
+        <ValidatorArray value="Level80"/>
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.9"/>
+        <Amount value="90"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="Horns3" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.3024"/>
+        <Amount value="30.2534"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="KorlicsFrozenBlade" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.35"/>
+        <Amount value="35"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="DiamondClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.6"/>
+        <Amount value="60"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level50"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectSet id="KorlicsFrozenBladeSet">
+        <EditorCategories value=""/>
+        <EffectArray value="SlowApplyEffect"/>
+        <EffectArray value="KorlicsFrozenBlade"/>
+        <MinCount value="2"/>
+        <MaxCount value="2"/>
+        <ValidatorArray value="Level20"/>
+    </CEffectSet>
+    <CEffectDamage id="LegendaryClaws" parent="DU_WEAP">
+        <ValidatorArray value="Level90"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="100"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectModifyUnit id="MediumHealthPotion">
+        <VitalArray index="Life">
+            <Change value="250"/>
+        </VitalArray>
+        <Cost CooldownTimeUse="30"/>
+    </CEffectModifyUnit>
+    <CEffectSet id="PlagamRaySet">
+        <EditorCategories value="Race:Protoss"/>
+        <EffectArray value="PlagamRayForward"/>
+        <EffectArray value="PlagamRayReverse"/>
+        <EffectArray value="ThermalLancesFriendlyCP2"/>
+    </CEffectSet>
+    <CEffectCreatePersistent id="PlagamRay">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <ExpireDelay value="0.25"/>
+        <FinalEffect value="PlagamRayDamage"/>
+    </CEffectCreatePersistent>
+    <CEffectEnumArea id="PlagamRaySearchForward">
+        <EditorCategories value="Race:Protoss"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.15" Effect="PlagamRay"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectEnumArea>
+    <CEffectEnumArea id="PlagamRaySearchReverse">
+        <EditorCategories value="Race:Protoss"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Player,Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="0.15" Effect="ThermalLancesDamageDelay"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectEnumArea>
+    <CEffectCreatePersistent id="PlagamRayForward">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.73"/>
+        <ExpireEffect value="PlagamRayDamage"/>
+        <PeriodCount value="11"/>
+        <PeriodicEffectArray value="PlagamRaySearchForward"/>
+        <PeriodicOffsetArray value="-1.25,0,0"/>
+        <PeriodicOffsetArray value="-1,0,0"/>
+        <PeriodicOffsetArray value="-0.75,0,0"/>
+        <PeriodicOffsetArray value="-0.5,0,0"/>
+        <PeriodicOffsetArray value="-0.25,0,0"/>
+        <PeriodicOffsetArray value="0,0,0"/>
+        <PeriodicOffsetArray value="0.25,0,0"/>
+        <PeriodicOffsetArray value="0.5,0,0"/>
+        <PeriodicOffsetArray value="0.75,0,0"/>
+        <PeriodicOffsetArray value="1,0,0"/>
+        <PeriodicOffsetArray value="1.25,0,0"/>
+        <PeriodicPeriodArray value="0.025"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="ThermalLancesFriendlyCP2">
+        <EditorCategories value="Race:Protoss"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.2"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="ThermalLancesFriendlyDamage2"/>
+        <PeriodicEffectArray value="ThermalLancesFriendlyDamage2"/>
+        <PeriodicPeriodArray value="0.09"/>
+        <PeriodicPeriodArray value="0.09"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="ThermalLancesFriendlyDamage2" parent="ThermalLancesMU">
+        <ValidatorArray value="FriendlyTarget"/>
+    </CEffectDamage>
+    <CEffectDamage id="PlagamRayDamage" parent="DU_WEAP">
+        <ValidatorArray value="ThermalLancesCliffLevel"/>
+        <ValidatorArray value="noMarkers"/>
+        <EditorCategories value="Race:Protoss"/>
+        <Visibility value="Visible"/>
+        <Kind value="Ranged"/>
+        <Amount value="300"/>
+        <Death value="Fire"/>
+        <ArmorReduction value="3"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="PlagamRayReverse">
+        <EditorCategories value="Race:Protoss"/>
+        <Marker>
+            <MatchFlags index="Id" value="1"/>
+        </Marker>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.73"/>
+        <ExpireEffect value="PlagamRayDamage"/>
+        <PeriodCount value="11"/>
+        <PeriodicEffectArray value="PlagamRaySearchReverse"/>
+        <PeriodicOffsetArray value="1.25,0,0"/>
+        <PeriodicOffsetArray value="1,0,0"/>
+        <PeriodicOffsetArray value="0.75,0,0"/>
+        <PeriodicOffsetArray value="0.5,0,0"/>
+        <PeriodicOffsetArray value="0.25,0,0"/>
+        <PeriodicOffsetArray value="0,0,0"/>
+        <PeriodicOffsetArray value="-0.25,0,0"/>
+        <PeriodicOffsetArray value="-0.5,0,0"/>
+        <PeriodicOffsetArray value="-0.75,0,0"/>
+        <PeriodicOffsetArray value="-1,0,0"/>
+        <PeriodicOffsetArray value="-1.25,0,0"/>
+        <PeriodicPeriodArray value="0.025"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="TolicsFireOrbOnFirePersistant">
+        <EditorCategories value=""/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <AINotifyFlags index="HurtEnemy" value="1"/>
+        <WhichLocation Effect="OnFire2" Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <PeriodCount value="5"/>
+        <PeriodicEffectArray value="OnFire2"/>
+        <PeriodicPeriodArray value="1"/>
+        <HeightMap value="Ground"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="VampiricTendencies">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Origin"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="MindoftheDragon">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Origin"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="OnFire2">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ShieldFactor value="0.1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="1"/>
+        <Death value="Fire"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="ElitePhaseBladeDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <ArmorReduction value="1.5087"/>
+        <Amount value="150.8684"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="CretonPhaseDisruptors">
+        <EditorCategories value="Race:Protoss"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="0.4443"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Ranged"/>
+        <Amount value="44.442"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+    </CEffectDamage>
+    <CEffectDamage id="Horns2" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.3715"/>
+        <Amount value="37.1533"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectEnumArea id="Slow">
+        <EditorCategories value="Race:Terran"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="Ground;Self,Player,Ally,Massive,Structure,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <AreaArray Radius="1" Effect="SlowApplyEffect"/>
+    </CEffectEnumArea>
+    <CEffectApplyBehavior id="SlowApplyEffect">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <Behavior value="Slow2"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="StrengthoftheDragon">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="PowerOverwhelming">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Origin"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="Zeal">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Origin"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="TitaniumClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.5"/>
+        <Amount value="50"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level40"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="SilverClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.4"/>
+        <Amount value="40"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level30"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="IronClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.2"/>
+        <Amount value="20"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level10"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="DevilsFlamethrower" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <AINotifyFlags index="HelpFriend" value="1"/>
+        <ShieldBonus value="-0.03"/>
+        <ArmorReduction value="0.015"/>
+        <Kind value="Ranged"/>
+        <Amount value="1000.5"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="GoldClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.45"/>
+        <Amount value="45"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level35"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="SteelClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.25"/>
+        <Amount value="25"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level15"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFire">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ShieldFactor value="0.1"/>
+        <ArmorReduction value="0.1"/>
+        <Flags index="Notification" value="1"/>
+        <Kind value="Melee"/>
+        <Amount value="10"/>
+        <Death value="Fire"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="CopperClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.3"/>
+        <Amount value="30"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level20"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="SyritalsTalonsBehaviors">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="OnFire"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="SyritalsTalonsDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.1"/>
+        <Amount value="10"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FlameEggLevel1">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Amount value="10"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <ArmorReduction value="0.1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FlameEggLevel2">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="20"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.2"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="FlameEggLevel1Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel1LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlameEggLevel3">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="30"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.3"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel2LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel2"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel2Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel2LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="FlameEggLevel1LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel1"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="FireballDamageLevel6">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/FireballDamageLevel5"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="0.3"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="30"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireballDamageLevel7">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/FireballDamageLevel5"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="0.25"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="35"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireballDamageLevel8">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/FireballDamageLevel5"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="0.4"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="40"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireballDamageLevel9">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/FireballDamageLevel5"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="0.45"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="45"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireballDamageLevel10">
+        <EditorCategories value="Race:Terran"/>
+        <Marker Link="Effect/FireballDamageLevel5"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="0.5"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="50"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FireballMissileLevel6">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel6"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FireballMissileLevel7">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel7"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FireballMissileLevel8">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel8"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FireballMissileLevel9">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel9"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FireballMissileLevel10">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel10"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="FlameEggLevel4">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="40"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.4"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel3LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel3"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel3Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel3LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlameEggLevel5">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="50"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.5"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel4LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel4"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel4Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel4LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlameEggLevel6">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="60"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.6"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel5LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel5"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel5Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel5LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlameEggLevel7">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="70"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.7"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel6LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel6"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel6Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel6LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlameEggLevel8">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="80"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.8"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel7LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel7"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel7Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel7LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlameEggLevel9">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="90"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="0.9"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel8LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel8"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel8Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel8LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlameEggLevel10Damage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="100"/>
+        <AreaArray Radius="2" Fraction="1"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Air,Missile,Stasis,Dead,Invulnerable"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="ExtendByUnitRadius" value="1"/>
+        <ArmorReduction value="1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FlameEggLevel9LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel9"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectCreatePersistent id="FlameEggLevel9Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel9LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectCreatePersistent id="FlameEggLevel10Delay">
+        <EditorCategories value="Race:Terran"/>
+        <Flags index="Channeled" value="1"/>
+        <ExpireDelay value="0.3125"/>
+        <FinalEffect value="FlameEggLevel10LaunchMissile"/>
+    </CEffectCreatePersistent>
+    <CEffectLaunchMissile id="FlameEggLevel10LaunchMissile">
+        <ValidatorArray index="0" value="HasVision"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactLocation Value="TargetPoint"/>
+        <ImpactEffect value="FlameEggLevel10Damage"/>
+        <AmmoUnit value="FlameEgg"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="HerosMightDamage" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0"/>
+        <Amount value="1000"/>
+        <AreaArray Radius="5" Fraction="1"/>
+        <AreaArray Radius="0.5" Fraction="0.5"/>
+        <AreaArray Radius="1" Fraction="0.25"/>
+        <ExcludeArray Value="Outer"/>
+        <ExcludeArray Value="Target"/>
+        <SearchFilters value="-;Player,Ally,Neutral,Missile,Stasis,Dead,Hidden,Invulnerable"/>
+        <SearchFlags index="OffsetByUnitRadius" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="BoneClaws" parent="DU_WEAP">
+        <ValidatorArray value="Level05"/>
+        <EditorCategories value="Race:Zerg"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+        <ArmorReduction value="0.15"/>
+        <Amount value="15"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="SyritalsTalonsCreatePersistent">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="SyritalsTalonsDamage"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.3"/>
+    </CEffectCreatePersistent>
+    <CEffectSet id="SyritalsTalonsSet">
+        <EditorCategories value=""/>
+        <EffectArray value="SyritalsTalonsCreatePersistent"/>
+        <EffectArray value="SyritalsTalonsBehaviors"/>
+        <Random value="1"/>
+        <MinCount value="1"/>
+        <MaxCount value="1"/>
+        <ValidatorArray value="Level05"/>
+    </CEffectSet>
+    <CEffectDamage id="TenteclesDamage">
+        <EditorCategories value="Race:Zerg"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <ArmorReduction value="1.4172"/>
+        <Kind value="Ranged"/>
+        <Amount value="141.729"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectDamage id="MasterDragonBlades" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="40"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.4"/>
+    </CEffectDamage>
+    <CEffectDamage id="LegendaryDragonClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="50"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.5"/>
+    </CEffectDamage>
+    <CEffectDamage id="Pincers" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.5573"/>
+        <Amount value="55.7297"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="PhaseStorm" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.7285"/>
+        <Kind value="Spell"/>
+        <Amount value="72.8496"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireClawsInitialDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/BabyDragonClaws"/>
+        <Amount value="10"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="FlamingDualBladesCreatePersistent">
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="FlamingDualBladesDamage"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.28"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="FlamingDualBladesDamage" parent="DU_WEAP">
+        <Amount value="9.1062"/>
+        <Death value="Eviscerate"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.9106"/>
+    </CEffectDamage>
+    <CEffectDamage id="PlatinumClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <ArmorReduction value="0.55"/>
+        <Amount value="55"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level45"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="Toxicity" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.0488"/>
+        <Amount value="4.8728"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="TeenDragonClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="20"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.2"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior2">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel2"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior3">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel3"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior4">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel4"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior5">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel5"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior6">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel6"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior7">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel7"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior8">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel8"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior9">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel9"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior10">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/FireClawsApplyBehavior"/>
+        <Behavior value="OnFireLevel10"/>
+    </CEffectApplyBehavior>
+    <CEffectApplyBehavior id="FireSkin">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="FireballDamage2">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="10"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <ArmorReduction value="0.1"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireballDamageLevel3">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="15"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <ArmorReduction value="0.15"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireballDamageLevel4">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="20"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <ArmorReduction value="0.2"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="FireballDamageLevel5">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="25"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <ArmorReduction value="0.25"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectLaunchMissile id="FireballMissileLevel2">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamage2"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FireballMissileLevel3">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel3"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FireballMissileLevel4">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel4"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectLaunchMissile id="FireballMissileLevel5">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamageLevel5"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="Beak" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.0764"/>
+        <Amount value="7.6525"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="Claws2" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.2602"/>
+        <Amount value="26.0151"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Intelligence1">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="Intelligence"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="BabyDragonClaws" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="10"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.1"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Dexterity1">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="Dexterity"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="Horns" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <ArmorReduction value="0.0983"/>
+        <Amount value="9.8474"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+    </CEffectDamage>
+    <CEffectDamage id="DualBladesDamage" parent="DU_WEAP">
+        <Amount value="12.8786"/>
+        <Death value="Eviscerate"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.129"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="DualBladesCreatePersistent">
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="DualBladesDamage"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.28"/>
+    </CEffectCreatePersistent>
+    <CEffectApplyBehavior id="FireClawsApplyBehavior">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Zerg"/>
+        <Behavior value="OnFireLevel1"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="OnFireDamage1">
+        <EditorCategories value="Race:Zerg"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="1"/>
+        <Death value="Fire"/>
+        <ArmorReduction value="0.1"/>
+        <ShieldFactor value="0.1"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage2">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.0124"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="1.25"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.2"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage3">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.015"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="1.5"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.3"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage4">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.0175"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="1.75"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.4"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage5">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.02"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="2"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.5"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage6">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.0224"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="2.25"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.6"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage7">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.025"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="2.5"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.7"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage8">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.0275"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="2.75"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.8"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage9">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <ArmorReduction value="0.03"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="3"/>
+        <Death value="Fire"/>
+        <ShieldFactor value="0.9"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="OnFireDamage10">
+        <EditorCategories value="Race:Zerg"/>
+        <Marker Link="Effect/OnFireDamage1"/>
+        <ImpactLocation Value="TargetUnit"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="3.5"/>
+        <Death value="Fire"/>
+        <ArmorReduction value="0.035"/>
+        <Kind value="Splash"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="PhaseBladeDamage2" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <Amount value="12.7485"/>
+        <Death value="Eviscerate"/>
+        <ArmorReduction value="0.1274"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Strength1">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="Strength"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="SheepHorns" parent="DU_WEAP">
+        <EditorCategories value=""/>
+        <Amount value="11.11"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.111"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Agility1">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="Agility"/>
+    </CEffectApplyBehavior>
+    <CEffectDamage id="Talons2" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Kind value="Ranged"/>
+        <Amount value="4.0402"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.0402"/>
+    </CEffectDamage>
+    <CEffectCreatePersistent id="Talons3">
+        <EditorCategories value="Race:Zerg"/>
+        <WhichLocation Value="TargetUnit"/>
+        <TimeScaleSource Value="Caster"/>
+        <Flags index="Channeled" value="1"/>
+        <PeriodCount value="2"/>
+        <PeriodicEffectArray value="Talons2"/>
+        <PeriodicPeriodArray value="0"/>
+        <PeriodicPeriodArray value="0.3"/>
+    </CEffectCreatePersistent>
+    <CEffectDamage id="AdultDragonTeeth" parent="DU_WEAP">
+        <EditorCategories value="Race:Zerg"/>
+        <Amount value="30"/>
+        <SearchFlags index="CallForHelp" value="0"/>
+        <ArmorReduction value="0.3"/>
+    </CEffectDamage>
+    <CEffectApplyBehavior id="Vitality1">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Source"/>
+        <Behavior value="Vitality"/>
+    </CEffectApplyBehavior>
+    <CEffectLaunchMissile id="FireballMissile">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value="Race:Terran"/>
+        <ImpactEffect value="FireballDamage"/>
+        <AmmoUnit value="Fireball"/>
+        <Movers Link="YamatoWeapon"/>
+        <DeathType value="Fire"/>
+    </CEffectLaunchMissile>
+    <CEffectDamage id="FireballDamage">
+        <EditorCategories value="Race:Terran"/>
+        <ResponseFlags index="Acquire" value="1"/>
+        <ResponseFlags index="Flee" value="1"/>
+        <Visibility value="Visible"/>
+        <Flags index="Notification" value="1"/>
+        <Amount value="5"/>
+        <Death value="Fire"/>
+        <SearchFlags index="CallForHelp" value="1"/>
+        <SearchFlags index="SameCliff" value="0"/>
+        <ArmorReduction value="0.05"/>
+        <AttributeFactor index="Heroic" value="-0.75"/>
+    </CEffectDamage>
+    <CEffectDamage id="PhaseBladeDamage" parent="DU_WEAP">
+        <EditorCategories value="Race:Protoss"/>
+        <ArmorReduction value="0.5517"/>
+        <Amount value="55.178"/>
+        <Death value="Eviscerate"/>
+    </CEffectDamage>
+    <CEffectCreateHealer id="SmallHealingOrb">
+        <ValidatorArray value="noMarkers"/>
+        <ValidatorArray value="NotWarpingIn"/>
+        <ValidatorArray value="HiddenCompareAB"/>
+        <ValidatorArray value="HiddenCompareBA"/>
+        <ValidatorArray value="NotVortexd"/>
+        <DrainVital value="Energy"/>
+        <RechargeVitalRate value="1"/>
+    </CEffectCreateHealer>
+    <CEffectApplyBehavior id="Rage">
+        <ValidatorArray index="0" removed="1"/>
+        <EditorCategories value=""/>
+        <WhichUnit Value="Origin"/>
+    </CEffectApplyBehavior>
+</Catalog>

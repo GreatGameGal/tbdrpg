@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<Catalog>
+    <CGameUI id="Dflt">
+        <TutorialArray index="0" Description="BS" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="1" Description="BS" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="2" Description="BS" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="3" Description="BS" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="4" Description="BS" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="5" Description="BS" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="6" Description="BS" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="7" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="8" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <TutorialArray index="9" Icon="Assets\Textures\075.dds" Movie="Assets\Textures\briefing_video_thanson01_00_low.ogv"/>
+        <DefaultUIRace value=""/>
+        <ResourceArray index="Minerals" Icon="Dragon Songs\btn-custom-treasure.dds"/>
+        <ResourceArray index="Vespene" Icon="Dragon Songs\btn-custom-gauntlet.dds"/>
+        <ResourceArray index="Custom" Icon="Dragon Songs\btn-custom-artifactpiece1.dds"/>
+    </CGameUI>
+</Catalog>

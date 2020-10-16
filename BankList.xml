@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BankList>
+    <Bank Name="DragonRPGStashBank" Player="1"/>
+    <Bank Name="DragonRPGStashBank" Player="2"/>
+    <Bank Name="DragonRPGStashBank" Player="3"/>
+    <Bank Name="DragonRPGStashBank" Player="4"/>
+    <Bank Name="DragonRPGCurrencyBank" Player="1"/>
+    <Bank Name="DragonRPGCurrencyBank" Player="2"/>
+    <Bank Name="DragonRPGCurrencyBank" Player="3"/>
+    <Bank Name="DragonRPGCurrencyBank" Player="4"/>
+    <Bank Name="DragonRPGRebornBank" Player="1"/>
+    <Bank Name="DragonRPGRebornBank" Player="2"/>
+    <Bank Name="DragonRPGRebornBank" Player="3"/>
+    <Bank Name="DragonRPGRebornBank" Player="4"/>
+    <Bank Name="DQRPGTalentLibraryBank" Player="1"/>
+    <Bank Name="DQRPGTalentLibraryBank" Player="2"/>
+    <Bank Name="DQRPGTalentLibraryBank" Player="3"/>
+    <Bank Name="DQRPGTalentLibraryBank" Player="4"/>
+    <Bank Name="DragonRPGFireBank" Player="1"/>
+    <Bank Name="DragonRPGFireBank" Player="2"/>
+    <Bank Name="DragonRPGFireBank" Player="3"/>
+    <Bank Name="DragonRPGFireBank" Player="4"/>
+    <Bank Name="DragonRPGIceBank" Player="1"/>
+    <Bank Name="DragonRPGIceBank" Player="2"/>
+    <Bank Name="DragonRPGIceBank" Player="3"/>
+    <Bank Name="DragonRPGIceBank" Player="4"/>
+</BankList>
