@@ -2051,6 +2051,7 @@ string[5] gv_locationText;
 string[5] gv_locationString;
 bool[5] gv_epicModeOn;
 int gv_mortuusKillCount;
+int gv_mortuusKillCountStacks;
 bool gv_playersSetUp;
 bank[5] gv_stashBank;
 bank[5] gv_playerBank;
@@ -21456,10 +21457,17 @@ bool gt_Chaos_Func (bool testConds, bool runActions) {
     if (!runActions) {
         return true;
     }
+
+    if(gv_mortuusKillCount == 0){
+    gv_mortuusKillCountStacks = 0;
+    }
+    if(gv_mortuusKillCount <= 255){
+    gv_mortuusKillCountStacks = gv_mortuusKillCount;
+    }
     if ((UnitGetPropertyFixed(libNtve_gf_KillingUnit(), c_unitPropLevel, c_unitPropCurrent) == 100.0)) {
         if ((UnitGetType(EventUnit()) != "Mortuus")) {
             UnitCreate(1, "Mortuus", c_unitCreateIgnorePlacement, 15, UnitGetPosition(EventUnit()), libNtve_gf_RandomAngle());
-            UnitBehaviorAdd(UnitLastCreated(), "ChaosMode", UnitLastCreated(), gv_mortuusKillCount);
+            UnitBehaviorAdd(UnitLastCreated(), "ChaosMode", UnitLastCreated(), gv_mortuusKillCountStacks);
         }
         else {
             TextTagCreate(IntToText(gv_mortuusKillCount), 72, UnitGetPosition(EventUnit()), 1.0, true, false, PlayerGroupAll());
@@ -21470,7 +21478,7 @@ bool gt_Chaos_Func (bool testConds, bool runActions) {
             if ((gv_mortuusKillCount % 256 == 0)) {
                 UnitCreate(1, "Nosferatu", 0, 15, UnitGetPosition(EventUnit()), 270.0);
                 UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4A9BE0A1"));
-                
+                //gv_mortuusKillCount = 0;
             }
         }
     }
