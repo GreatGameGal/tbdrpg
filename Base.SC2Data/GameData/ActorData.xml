@@ -3,6 +3,8 @@
     <CActorAction id="EnemyMagicalDemonicSheepAttack" parent="GenericAttack" effectAttack="PsionicShockwaveDamage">
         <On Terms="Effect.TimeSpikeDamage.Start; At Caster" Send="Create"/>
         <On Terms="Effect.TimeSpikeDamage.Stop; FromEffectTreeDescendant" Send="ActionImpactPhysics"/>
+        <On Terms="UnitCreation.MagicalDemonicSheep" Send="AnimPlay Zap Glow"/>
+        <On Terms="UnitDeath.MagicalDemonicSheep" Send="HostSiteOpsRemove"/>
         <LaunchAssets Model="ArchonAttackLaunch" Sound="Archon_AttackLaunch"/>
         <Beam value="ArchonAttackBeam"/>
         <BeamScope value="Caster"/>
@@ -13,6 +15,7 @@
         <DamageMap index="None" Model="ArchonAttackDamage" Sound="ArchonAttackDamage" ModelReaction="ArchonAttackDamageReaction"/>
         <DamageMap index="Shield" Sound="ArchonAttackDamageShield" ModelReaction="ArchonAttackDamageReactionShield"/>
         <ActionFlags index="ImpactMonitorsTeleports" value="1"/>
+        <Macros value="MonlythForceFieldStatueAura"/>
     </CActorAction>
     <CActorSelection id="FlyerHelperSplat2">
         <Flags index="SuppressSaveLoad" value="0"/>
@@ -101,6 +104,15 @@
     <CActorModel id="ModelPretargetGround2" parent="ModelPretarget">
         <Model value="AOEPreTargetGroundUnitProtoss"/>
     </CActorModel>
+    <!-- $PCG; Converted this, but the model doesn't have any attach points, so it's sorta hard-->
+    <!--         to ValidateUnit this...  -->
+    <CActorModel id="MonlythForceFieldStatueAura">
+        <On Terms="UnitCreation.MagicalDemonicSheep" Send="Create"/>
+        <On Terms="UnitDeath.MagicalDemonicSheep" Send="Destroy"/>
+        <On Terms="UnitCreation.MagicalDemonicSheep" Send="SetTintColor 115,115,115"/>
+        <HostSiteOps Ops="SOpAttachCenterSoft MonlythForceFieldStatueAuraLocalOffset"/>
+        <Scale value="0.100000,2.000000,2.000000"/>
+    </CActorModel>
     <CActorUnit id="OblivionArmor" parent="GenericUnitStandard" unitName="OblivionArmor">
         <Model value="ShapeTreasureChestClosed"/>
         <BuildModel value="ShapeTreasureChestClosed"/>
@@ -169,6 +181,16 @@
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
     </CActorUnit>
+    <CActorDoodad id="SmallSightBlocker">
+        <EditorCategories value="DoodadType:Blocker"/>
+        <On index="0" Terms="ActorCreation" Send="Create SoundEmitter Doodad_PathingandSightBlocker1x1Doodad"/>
+        <Model value="Invisible"/>
+        <DoodadFlags index="FootprintOnly" value="1"/>
+        <EditorFlags index="NoAutoRotate" value="1"/>
+        <EditorModel value="PathingandSightBlocker1x1Doodad"/>
+        <Footprint value="FootprintDoodad1x1BlockLOS"/>
+        <RandomScaleRange value="1.000000,1.000000"/>
+    </CActorDoodad>
     <CActorSound id="SoundEmitter2" parent="SoundContinuous">
         <Terms value="!HasScopeFlag DisableSoundEmitters"/>
         <Flags index="SuppressCreationErrors" value="1"/>

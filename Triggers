@@ -1938,6 +1938,7 @@
             unit gv_zauberersCrystal;
             point gv_zauberersCrystalLocation;
             unit gv_TimeWarpBot;
+            unit gv_MagicalDemonicSheep;
             point gv_TimeWarpBotLocation;
             bool[5] gv_zaubererFirstFormAlreadyDead;
             revealer[6] gv_zauberer1stFormRevealer;
@@ -1947,6 +1948,8 @@
             unit gv_zauberer1stForm;
             unitgroup gv_dragonInBattleWithZauberer2ndForm;
             playergroup gv_playersInBattleWithZauberer2ndForm;
+            playergroup gv_playersWhoHaveDefeatedZauberer;
+            bool gv_zaubererDead;
             int gv_livingDragonsFightingZauberer2ndForm;
             unit gv_zauberer2ndForm;
             timer gv_zaubererTimer;
@@ -2063,6 +2066,7 @@
             bool[5] gv_autosavePrevention;
             int gv_hPCConstant;
             int gv_hRCConstant;
+            string gv_UnitThatKilledDragon;
             void FakeInitGlobals () {
                 int init_i;
                 int init_j;
@@ -3001,6 +3005,7 @@
             trigger gt_CreateRebornDialog;
             trigger gt_ToggleRebornDialogVisibility;
             trigger gt_RebornStats;
+            trigger gt_MakeEndingPlay;
             //--------------------------------------------------------------------------------------------------
             // Custom AI Functions
             //--------------------------------------------------------------------------------------------------
@@ -12571,7 +12576,7 @@
                 TriggerAddEventUnitRangePoint(gt_DisplayArmorShopTextTag, null, PointFromId(1216), 12.0, true);
             }
             //--------------------------------------------------------------------------------------------------
-            // Trigger: Display Weapon Shop Text Tag
+            // Trigger: Display Weapon Shop and Credits Text Tags
             //--------------------------------------------------------------------------------------------------
             bool gt_DisplayWeaponShopTextTag_Func (bool testConds, bool runActions) {
                 // Conditions
@@ -12585,6 +12590,8 @@
                     return true;
                 }
                 TextTagCreate(StringExternal(&quot;Param/Value/869F54FF&quot;), 24, PointFromId(1215), 1.0, true, true, PlayerGroupAll());
+                TextTagSetTime(TextTagLastCreated(), c_textTagTimeDuration, 524288.0);
+                TextTagCreate(StringExternal(&quot;DOCSTR_ViewCredits&quot;), 24, PointFromName(&quot;View Credits&quot;), 1.0, true, true, PlayerGroupAll());
                 TextTagSetTime(TextTagLastCreated(), c_textTagTimeDuration, 524288.0);
                 TriggerEnable(TriggerGetCurrent(), false);
                 return true;
@@ -13352,9 +13359,14 @@
                 int lv_zeal;
                 int lv_n;
                 unit lv_revenge;
+                unit gv_UnitThatKilledDragon;
+                string gv_NameOfUnitThatKilledDragon;
                 point lv_deadpoint;
                 int lv_deathPlayer;
+                
                 // Variable Initialization
+                gv_UnitThatKilledDragon = libNtve_gf_KillingUnit();
+                gv_NameOfUnitThatKilledDragon = TextToString(UnitTypeGetName(UnitGetType(gv_UnitThatKilledDragon)));
                 // Conditions
                 if (testConds) {
                     if (!((gv_playersSetUp == true))) {
@@ -13399,6 +13411,17 @@
                     }
                     libNtve_gf_ShowHideBossBar(false, lv_importantPlayer);
                     SoundPlay(SoundLink(&quot;DragonDeath&quot;, -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
+                    if(gv_NameOfUnitThatKilledDragon == &quot;Magical Demonic Sheep&quot;){
+                        TimerStart(gv_dyingTimer[lv_importantPlayerIndex], 5.0, false, c_timeReal);
+                        TimerWindowCreate(gv_dyingTimer[lv_importantPlayerIndex], StringExternal(&quot;Slipping back...&quot;), true, false);
+                        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal(&quot;Param/Value/CCBC876F&quot;));
+                        gv_dyingTimerWindow[lv_importantPlayerIndex] = TimerWindowLastCreated();
+                        TimerWindowShow(gv_dyingTimerWindow[lv_importantPlayerIndex], PlayerGroupAll(), false);
+                        TimerWindowShow(gv_dyingTimerWindow[lv_importantPlayerIndex], PlayerGroupSingle(lv_importantPlayer), true);
+                        libNtve_gf_WaitForTimer(gv_dyingTimer[lv_importantPlayerIndex], 0.0, false);
+                        TimerWindowDestroy(gv_dyingTimerWindow[lv_importantPlayerIndex]);
+                    }else{
+                    
                     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_importantPlayer) + (StringExternal(&quot;Param/Value/58B61D3F&quot;) + (IntToText((gv_players[lv_importantPlayerIndex].stats.level - 0)) + ((StringExternal(&quot;Param/Value/37C93D65&quot;) + UnitTypeGetName(UnitGetType(EventUnit()))) + (StringExternal(&quot;Param/Value/79A9A1A7&quot;) + UnitTypeGetName(UnitGetType(libNtve_gf_KillingUnit()))))))));
                     if ((gv_ringofQuickening[lv_importantPlayerIndex] == true)) {
                         TimerStart(gv_dyingTimer[lv_importantPlayerIndex], 15.0, false, c_timeReal);
@@ -13418,14 +13441,17 @@
                         libNtve_gf_WaitForTimer(gv_dyingTimer[lv_importantPlayerIndex], 0.0, false);
                         TimerWindowDestroy(gv_dyingTimerWindow[lv_importantPlayerIndex]);
                     }
-                    if ((gv_crystalofRebirth[lv_importantPlayerIndex] == false)) {
-                        PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 20));
-                        UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal(&quot;Param/Value/084751AF&quot;) + (IntToText((gv_gold[lv_importantPlayerIndex] / 20)) + StringExternal(&quot;Param/Value/D0C92283&quot;))));
-                    }
-                    else {
-                        PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 40));
-                        UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal(&quot;Param/Value/0ED69490&quot;) + (IntToText((gv_gold[lv_importantPlayerIndex] / 40)) + StringExternal(&quot;Param/Value/1B6BBEA5&quot;))));
-                    }
+                }
+                   
+                        if ((gv_crystalofRebirth[lv_importantPlayerIndex] == false)) {
+                            PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 20));
+                            UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal(&quot;Param/Value/084751AF&quot;) + (IntToText((gv_gold[lv_importantPlayerIndex] / 20)) + StringExternal(&quot;Param/Value/D0C92283&quot;))));
+                        }
+                        else {
+                            PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 40));
+                            UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal(&quot;Param/Value/0ED69490&quot;) + (IntToText((gv_gold[lv_importantPlayerIndex] / 40)) + StringExternal(&quot;Param/Value/1B6BBEA5&quot;))));
+                            }
+                    
                     if ((gv_jewelofReturn[lv_importantPlayerIndex] == true) &amp;&amp; (UnitGroupHasUnit(gv_unitsthatdidDamagetoSyrital, gv_players[lv_importantPlayerIndex].dragon) == false) &amp;&amp; (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, gv_players[lv_importantPlayerIndex].dragon) == false) &amp;&amp; (UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, gv_players[lv_importantPlayerIndex].dragon) == false) &amp;&amp; (PlayerGroupHasPlayer(gv_playersinBattlewithGuardians, lv_importantPlayer) == false) &amp;&amp; (PlayerGroupHasPlayer(gv_playersInBattleWithZauberer1stForm, lv_importantPlayer) == false) &amp;&amp; (PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, lv_importantPlayer) == false) &amp;&amp; (PlayerGroupHasPlayer(gv_playersInBioDome, lv_importantPlayer) == false) &amp;&amp; (PlayerGroupHasPlayer(gv_playersintheArena, lv_importantPlayer) == false) &amp;&amp; (lv_deathPlayer != 16)) {
                         UnitSetPosition(gv_players[lv_importantPlayerIndex].dragon, lv_deadpoint, false);
                         UnitRevive(gv_players[lv_importantPlayerIndex].dragon);
@@ -13499,6 +13525,8 @@
             }
             //--------------------------------------------------------------------------------------------------
             void gt_ReviveDragonNormal_Init () {
+                unit gv_UnitThatKilledDragon;
+                string gv_NameOfUnitThatKilledDragon;
                 gt_ReviveDragonNormal = TriggerCreate(&quot;gt_ReviveDragonNormal_Func&quot;);
                 TriggerAddEventUnitDied(gt_ReviveDragonNormal, UnitRefFromVariable(&quot;gv_players[0].dragon&quot;));
                 TriggerAddEventUnitDied(gt_ReviveDragonNormal, UnitRefFromVariable(&quot;gv_players[1].dragon&quot;));
@@ -15622,7 +15650,8 @@
                     UnitGroupLoopEnd();
                     TriggerEnable(gt_TeleporttoBioDome, true);
                     TriggerEnable(gt_TeleporttoCreton, true);
-                    UnitRemove(gv_TimeWarpBot);
+                    Wait(15.0, c_timeGame);
+                    UnitRemove(gv_MagicalDemonicSheep);
                 }
                 gv_autosavePrevention[lv_tPI] = false;
                 return true;
@@ -16078,6 +16107,7 @@
                 if (!runActions) {
                     return true;
                 }
+                gv_zaubererDead = true;
                 PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
                 for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
                     lv_pickedPlayerIndex = (PlayerGroupLoopCurrent() - 1);
@@ -16094,6 +16124,7 @@
                 UnitGroupLoopEnd();
                 PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
                 for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+                    PlayerGroupAdd(gv_playersWhoHaveDefeatedZauberer, PlayerGroupLoopCurrent());
                     PlayerModifyPropertyInt(UnitGetOwner(UnitGroupLoopCurrent()), c_playerPropCustom, c_playerPropOperAdd, 30);
                     libNtve_gf_ShowHideBossBar(false, PlayerGroupLoopCurrent());
                     lv_pickedPlayerIndex = (PlayerGroupLoopCurrent() - 1);
@@ -16140,16 +16171,16 @@
                 UnitGroupLoopEnd();
                 //UnitCreate(1, &quot;gv_TimeWarpBot&quot;, 0, 15, gv_TimeWarpBotLocation, 270.0);
                 UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle,StringExternal(&quot;Param/Value/506A51FE&quot;));
-                UnitCreate(1, &quot;TimeWarpBot&quot;, c_unitCreateIgnorePlacement, 15, RegionRandomPoint(RegionFromName(&quot;Boss Fight Warp Out Zone&quot;)), libNtve_gf_RandomAngle());
-                gv_TimeWarpBot = UnitLastCreated();
+                UnitCreate(1, &quot;MagicalDemonicSheep&quot;, c_unitCreateIgnorePlacement, 15, RegionRandomPoint(RegionFromName(&quot;Boss Fight Warp Out Zone&quot;)), 270);
+                gv_MagicalDemonicSheep = UnitLastCreated();
                 libNtve_gf_HideGameUI(true, gv_playersInBattleWithZauberer2ndForm);
-                TimerStart(gv_zaubererTimer, 15.0, false, c_timeReal);
-                TimerWindowCreate(gv_zaubererTimer, StringExternal(&quot;Param/Value/7035D573&quot;), true, false);
-                gv_zaubererTimerWindow = TimerWindowLastCreated();
-                TimerWindowShow(gv_zaubererTimerWindow, PlayerGroupAll(), false);
-                TimerWindowShow(gv_zaubererTimerWindow, gv_playersInBioDome, true);
-                libNtve_gf_WaitForTimer(gv_zaubererTimer, 0.0, false);
-                TimerWindowDestroy(gv_zaubererTimerWindow);
+                //TimerStart(gv_zaubererTimer, 15.0, false, c_timeReal);
+               //TimerWindowCreate(gv_zaubererTimer, StringExternal(&quot;Param/Value/7035D573&quot;), true, false);
+               // gv_zaubererTimerWindow = TimerWindowLastCreated();
+               // TimerWindowShow(gv_zaubererTimerWindow, PlayerGroupAll(), false);
+               // TimerWindowShow(gv_zaubererTimerWindow, gv_playersInBioDome, true);
+               // libNtve_gf_WaitForTimer(gv_zaubererTimer, 0.0, false);
+               // TimerWindowDestroy(gv_zaubererTimerWindow);
                 libNtve_gf_AddPlayerGroupToPlayerGroup(gv_playersInBioDome, gv_playerswatchingendingcinematic);
                 //TriggerExecute(gt_EndingCinematic, true, false);
                 return true;
@@ -16160,7 +16191,7 @@
                 TriggerAddEventUnitDied(gt_Zauberer2ndFormDeath, UnitRefFromVariable(&quot;gv_zauberer2ndForm&quot;));
             }
             //--------------------------------------------------------------------------------------------------
-            // Trigger: Warp Out From Boss Arena
+            // Trigger: Warp Out From Boss Arena(Ignore, look for Magical Demonic Sheep)
             //--------------------------------------------------------------------------------------------------
             bool gt_WarpOutFromBossArena_Func (bool testConds, bool runActions) {
                 // Variable Declarations
@@ -16243,17 +16274,23 @@
             //--------------------------------------------------------------------------------------------------
             bool gt_MachinaDePlagamSethealth_Func (bool testConds, bool runActions) {
                 // Actions
+                 int healthcap;
                 if (!runActions) {
                     return true;
                 }
+                healthcap = PlayerGroupCount(PlayerGroupActive());
+                if (healthcap &gt;3){
+                        healthcap = 3;
+                }
                 gv_machinaDePlagam = UnitFromId(1711);
-                UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
+                UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(healthcap)));
                 UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
                 UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
                 return true;
             }
             //--------------------------------------------------------------------------------------------------
             void gt_MachinaDePlagamSethealth_Init () {
+                int healthcap = 0;
                 gt_MachinaDePlagamSethealth = TriggerCreate(&quot;gt_MachinaDePlagamSethealth_Func&quot;);
                 TriggerAddEventTimeElapsed(gt_MachinaDePlagamSethealth, 5.0, c_timeReal);
             }
@@ -16525,6 +16562,7 @@
             //--------------------------------------------------------------------------------------------------
             bool gt_MachinaDePlagamRespawn_Func (bool testConds, bool runActions) {
                 // Conditions
+                int healthcap;
                 if (testConds) {
                     if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(227), UnitFilter(0, 0, (1 &lt;&lt; c_targetFilterMissile) | (1 &lt;&lt; c_targetFilterItem), (1 &lt;&lt; (c_targetFilterDead - 32)) | (1 &lt;&lt; (c_targetFilterHidden - 32))), 0), c_unitCountAlive) &lt;= 0))) {
                         return false;
@@ -16550,7 +16588,12 @@
                 UnitCreate(1, &quot;MachinaDePlagam&quot;, 0, 15, RegionGetCenter(RegionFromId(227)), 270.0);
                 gv_machinaDePlagam = UnitLastCreated();
                 gv_machinaDePlagamisDead = false;
-                UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
+                 
+                healthcap = PlayerGroupCount(PlayerGroupActive());
+                if (healthcap &gt;3){
+                        healthcap = 3;
+                }
+                UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(healthcap)));
                 UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
                 UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
                 TriggerEnable(TriggerGetCurrent(), false);
@@ -16558,6 +16601,7 @@
             }
             //--------------------------------------------------------------------------------------------------
             void gt_MachinaDePlagamRespawn_Init () {
+                int healthcap = 0;
                 gt_MachinaDePlagamRespawn = TriggerCreate(&quot;gt_MachinaDePlagamRespawn_Func&quot;);
                 TriggerEnable(gt_MachinaDePlagamRespawn, false);
                 TriggerAddEventTimePeriodic(gt_MachinaDePlagamRespawn, 180.0, c_timeGame);
@@ -21406,7 +21450,7 @@
                         if ((gv_mortuusKillCount % 256 == 0)) {
                             UnitCreate(1, &quot;Nosferatu&quot;, 0, 15, UnitGetPosition(EventUnit()), 270.0);
                             UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal(&quot;Param/Value/4A9BE0A1&quot;));
-                            gv_mortuusKillCount = 0;
+                            
                         }
                     }
                 }
@@ -22722,6 +22766,7 @@
                 int lv_tempIntelligence;
                 int lv_tempStrength;
                 int lv_tempVitality;
+                gv_playersWhoHaveDefeatedZauberer = PlayerGroupEmpty();
                 // Variable Initialization
                 // Actions
                 if (!runActions) {
@@ -23288,7 +23333,7 @@
                 libNtve_gf_HideGameUI(false, gv_playerswatchingendingcinematic);
                 PlayerGroupLoopBegin(gv_playerswatchingendingcinematic);
                 for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-                    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, PlayerName(PlayerGroupLoopCurrent()));
+                    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, PlayerName(PlayerGroupLoopCurrent()));
                     SoundtrackStop(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_soundtrackCategoryMusic, true);
                     SoundtrackPlay(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_soundtrackCategoryMusic, &quot;EndingTheme&quot;, c_soundtrackCueAny, 0, false);
                     SoundChannelSetVolume(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_soundCategoryMusic, 100.0, 0.0);
@@ -23436,9 +23481,11 @@
                     CameraApplyInfo(PlayerGroupLoopCurrent(), CameraInfoFromId(2785), 5.0, -1, 10.0, true);
                 }
                 PlayerGroupLoopEnd();
+                //if(UnitTUnitInRegion(RegionFromName(&quot;View Credits&quot;)) != &quot;Null&quot;){
                 UIShowCinematicText(gv_playerswatchingendingcinematic, StringExternal(&quot;And thank you!&quot;), 0.2, 99.0, SoundLink(&quot;30SecondSilence&quot;, -1));
                 Wait(10.0, c_timeGame);
                 TriggerExecute(gt_EndingCinematicSaveExitNormal, true, false);
+                
                 return true;
             }
             //--------------------------------------------------------------------------------------------------
@@ -24223,9 +24270,40 @@
                 TriggerAddEventDialogControl(gt_RebornStats, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
             }
             //--------------------------------------------------------------------------------------------------
+            // Trigger: Region View Creditis Plays Ending
+            //--------------------------------------------------------------------------------------------------
+            bool gt_MakeEndingPlay_Func (bool testConds, bool runActions) {
+                // Variable Declarations
+                // Variable Initialization
+                
+                // Conditions
+                if (!(testConds)) {
+                //UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal(&quot;Got here :/1&quot;));  
+                   return false;
+                }
+                // Actions
+                if (!runActions) {
+                    return true;
+                }
+                 if (gv_zaubererDead) {
+                       //UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) == true &amp;&amp;
+               // UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal(&quot;Got here2 :/&quot;));    
+                TriggerExecute(gt_EndingCinematic, true, false);
+                return true;
+                } else{
+                   // UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal(&quot;Got here3 :/&quot;));  
+                return true;
+                }
+            }
+            //--------------------------------------------------------------------------------------------------
+            void gt_MakeEndingPlay_Init () {
+                gt_MakeEndingPlay = TriggerCreate(&quot;gt_MakeEndingPlay_Func&quot;);
+                TriggerAddEventUnitRegion(gt_MakeEndingPlay, null, RegionFromName(&quot;View Credits&quot;), false);
+            }
+            //--------------------------------------------------------------------------------------------------
             // Trigger Initialization
             //--------------------------------------------------------------------------------------------------
-            void FakeInitTriggers () {
+            void FakeInitTriggers() {
                 gt_CreateQuestDialog_Init();
                 gt_CreateTalkDialog_Init();
                 gt_CreateRewardDialog_Init();
@@ -24667,6 +24745,7 @@
                 gt_CreateRebornDialog_Init();
                 gt_ToggleRebornDialogVisibility_Init();
                 gt_RebornStats_Init();
+                gt_MakeEndingPlay_Init();
             }
             // --------------------------------------
             void gf_SetupPlayer(int p) {
@@ -24905,8 +24984,11 @@
                     lv__Bank = BankValueGetAsInt(gv_players[lv_pi].banks.dragonBank, &quot;DSN&quot;, PlayerHandle(p));
                     BankWait(gv_players[lv_pi].banks.rebornBank);
                     if ((lv__Bank != lv__Manual)) {
-                        UIDisplayMessage(PlayerGroupSingle(p), c_messageAreaSubtitle, StringExternal(&quot;Param/Value/E00252DC&quot;));
-                        GameOver(p, c_gameOverDefeat, true, true);
+                        
+                        UIDisplayMessage(PlayerGroupSingle(p), c_messageAreaSubtitle, StringExternal(&quot;Param/Value/E00252DC&quot;) + IntToText(ModI(FixedToInt(UnitGetPropertyFixed(gv_players[lv_pi].dragon, c_unitPropXP, c_unitPropCurrent)), 1000)));
+                        //GameOver(p, c_gameOverDefeat, true, true);
+                        UIDisplayMessage(PlayerGroupSingle(p), c_messageAreaSubtitle, StringExternal(&quot;Please let offline know!,  Bypassing security check.&quot;));
+                        gv_players[lv_pi].verification.dragon = true;
                     }
                     else {
                         gv_players[lv_pi].verification.dragon = true;

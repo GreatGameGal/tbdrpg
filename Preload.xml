@@ -49,6 +49,7 @@
 <Actor id="BubbasFuelStop"/>
 <Actor id="Bush" Variations="0,1,2,3,4"/>
 <Actor id="CastanarFloodlight" Variations="0,1,2"/>
+<Actor id="CastanarHoloProjector"/>
 <Actor id="CaveEntrance"/>
 <Actor id="CharAshWeather"/>
 <Actor id="CharBlisterEgg"/>
@@ -244,7 +245,6 @@
 <Unit id="MisterScruffers" Variations="0"/>
 <Unit id="Lumenu"/>
 <Unit id="Greed"/>
-<Unit id="MagicalDemonicSheep"/>
 <Unit id="DemonicSheep"/>
 <Unit id="EliteCretonWatcher"/>
 <Unit id="ShadowSeryn"/>
