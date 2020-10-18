@@ -91,6 +91,9 @@
         <AmmoUnit value="WeaponSpineOblivion"/>
         <ValidatorArray index="0" value="Level100"/>
     </CEffectLaunchMissile>
+    <CEffectApplyBehavior id="PlayAuraAnimation">
+        <EditorCategories value=""/>
+    </CEffectApplyBehavior>
     <CEffectEnumArea id="SubZeroSearchAreaLevel1">
         <EditorCategories value=""/>
         <ExcludeArray/>
@@ -2733,7 +2736,7 @@
         <ValidatorArray value="HiddenCompareBA"/>
         <ValidatorArray value="NotVortexd"/>
         <DrainVital value="Energy"/>
-        <RechargeVitalRate value="1"/>
+        <RechargeVitalRate value="2"/>
     </CEffectCreateHealer>
     <CEffectApplyBehavior id="Rage">
         <ValidatorArray index="0" removed="1"/>

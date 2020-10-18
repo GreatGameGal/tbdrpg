@@ -1958,6 +1958,7 @@ region[10] gv_zauberersRegions;
 unit gv_zauberersCrystal;
 point gv_zauberersCrystalLocation;
 unit gv_TimeWarpBot;
+unit gv_MagicalDemonicSheep;
 point gv_TimeWarpBotLocation;
 bool[5] gv_zaubererFirstFormAlreadyDead;
 revealer[6] gv_zauberer1stFormRevealer;
@@ -1967,6 +1968,8 @@ int gv_livingDragonsFightingZauberer1stForm;
 unit gv_zauberer1stForm;
 unitgroup gv_dragonInBattleWithZauberer2ndForm;
 playergroup gv_playersInBattleWithZauberer2ndForm;
+playergroup gv_playersWhoHaveDefeatedZauberer;
+bool gv_zaubererDead;
 int gv_livingDragonsFightingZauberer2ndForm;
 unit gv_zauberer2ndForm;
 timer gv_zaubererTimer;
@@ -2083,6 +2086,7 @@ bool[5] gv_isSavingExiting;
 bool[5] gv_autosavePrevention;
 int gv_hPCConstant;
 int gv_hRCConstant;
+string gv_UnitThatKilledDragon;
 void FakeInitGlobals () {
     int init_i;
     int init_j;
@@ -3021,6 +3025,7 @@ trigger gt_FireReborn;
 trigger gt_CreateRebornDialog;
 trigger gt_ToggleRebornDialogVisibility;
 trigger gt_RebornStats;
+trigger gt_MakeEndingPlay;
 //--------------------------------------------------------------------------------------------------
 // Custom AI Functions
 //--------------------------------------------------------------------------------------------------
@@ -12591,7 +12596,7 @@ void gt_DisplayArmorShopTextTag_Init () {
     TriggerAddEventUnitRangePoint(gt_DisplayArmorShopTextTag, null, PointFromId(1216), 12.0, true);
 }
 //--------------------------------------------------------------------------------------------------
-// Trigger: Display Weapon Shop Text Tag
+// Trigger: Display Weapon Shop and Credits Text Tags
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayWeaponShopTextTag_Func (bool testConds, bool runActions) {
     // Conditions
@@ -12605,6 +12610,8 @@ bool gt_DisplayWeaponShopTextTag_Func (bool testConds, bool runActions) {
         return true;
     }
     TextTagCreate(StringExternal("Param/Value/869F54FF"), 24, PointFromId(1215), 1.0, true, true, PlayerGroupAll());
+    TextTagSetTime(TextTagLastCreated(), c_textTagTimeDuration, 524288.0);
+    TextTagCreate(StringExternal("DOCSTR_ViewCredits"), 24, PointFromName("View Credits"), 1.0, true, true, PlayerGroupAll());
     TextTagSetTime(TextTagLastCreated(), c_textTagTimeDuration, 524288.0);
     TriggerEnable(TriggerGetCurrent(), false);
     return true;
@@ -13372,9 +13379,14 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
     int lv_zeal;
     int lv_n;
     unit lv_revenge;
+    unit gv_UnitThatKilledDragon;
+    string gv_NameOfUnitThatKilledDragon;
     point lv_deadpoint;
     int lv_deathPlayer;
+    
     // Variable Initialization
+    gv_UnitThatKilledDragon = libNtve_gf_KillingUnit();
+    gv_NameOfUnitThatKilledDragon = TextToString(UnitTypeGetName(UnitGetType(gv_UnitThatKilledDragon)));
     // Conditions
     if (testConds) {
         if (!((gv_playersSetUp == true))) {
@@ -13419,6 +13431,17 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
         }
         libNtve_gf_ShowHideBossBar(false, lv_importantPlayer);
         SoundPlay(SoundLink("DragonDeath", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
+        if(gv_NameOfUnitThatKilledDragon == "Magical Demonic Sheep"){
+            TimerStart(gv_dyingTimer[lv_importantPlayerIndex], 5.0, false, c_timeReal);
+            TimerWindowCreate(gv_dyingTimer[lv_importantPlayerIndex], StringExternal("Slipping back..."), true, false);
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CCBC876F"));
+            gv_dyingTimerWindow[lv_importantPlayerIndex] = TimerWindowLastCreated();
+            TimerWindowShow(gv_dyingTimerWindow[lv_importantPlayerIndex], PlayerGroupAll(), false);
+            TimerWindowShow(gv_dyingTimerWindow[lv_importantPlayerIndex], PlayerGroupSingle(lv_importantPlayer), true);
+            libNtve_gf_WaitForTimer(gv_dyingTimer[lv_importantPlayerIndex], 0.0, false);
+            TimerWindowDestroy(gv_dyingTimerWindow[lv_importantPlayerIndex]);
+        }else{
+        
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_importantPlayer) + (StringExternal("Param/Value/58B61D3F") + (IntToText((gv_players[lv_importantPlayerIndex].stats.level - 0)) + ((StringExternal("Param/Value/37C93D65") + UnitTypeGetName(UnitGetType(EventUnit()))) + (StringExternal("Param/Value/79A9A1A7") + UnitTypeGetName(UnitGetType(libNtve_gf_KillingUnit()))))))));
         if ((gv_ringofQuickening[lv_importantPlayerIndex] == true)) {
             TimerStart(gv_dyingTimer[lv_importantPlayerIndex], 15.0, false, c_timeReal);
@@ -13438,14 +13461,17 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
             libNtve_gf_WaitForTimer(gv_dyingTimer[lv_importantPlayerIndex], 0.0, false);
             TimerWindowDestroy(gv_dyingTimerWindow[lv_importantPlayerIndex]);
         }
-        if ((gv_crystalofRebirth[lv_importantPlayerIndex] == false)) {
-            PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 20));
-            UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal("Param/Value/084751AF") + (IntToText((gv_gold[lv_importantPlayerIndex] / 20)) + StringExternal("Param/Value/D0C92283"))));
-        }
-        else {
-            PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 40));
-            UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal("Param/Value/0ED69490") + (IntToText((gv_gold[lv_importantPlayerIndex] / 40)) + StringExternal("Param/Value/1B6BBEA5"))));
-        }
+    }
+       
+            if ((gv_crystalofRebirth[lv_importantPlayerIndex] == false)) {
+                PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 20));
+                UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal("Param/Value/084751AF") + (IntToText((gv_gold[lv_importantPlayerIndex] / 20)) + StringExternal("Param/Value/D0C92283"))));
+            }
+            else {
+                PlayerModifyPropertyInt(lv_importantPlayer, c_playerPropMinerals, c_playerPropOperSubtract, (gv_gold[lv_importantPlayerIndex] / 40));
+                UIDisplayMessage(PlayerGroupSingle(lv_importantPlayer), c_messageAreaSubtitle, (StringExternal("Param/Value/0ED69490") + (IntToText((gv_gold[lv_importantPlayerIndex] / 40)) + StringExternal("Param/Value/1B6BBEA5"))));
+                }
+        
         if ((gv_jewelofReturn[lv_importantPlayerIndex] == true) && (UnitGroupHasUnit(gv_unitsthatdidDamagetoSyrital, gv_players[lv_importantPlayerIndex].dragon) == false) && (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, gv_players[lv_importantPlayerIndex].dragon) == false) && (UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, gv_players[lv_importantPlayerIndex].dragon) == false) && (PlayerGroupHasPlayer(gv_playersinBattlewithGuardians, lv_importantPlayer) == false) && (PlayerGroupHasPlayer(gv_playersInBattleWithZauberer1stForm, lv_importantPlayer) == false) && (PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, lv_importantPlayer) == false) && (PlayerGroupHasPlayer(gv_playersInBioDome, lv_importantPlayer) == false) && (PlayerGroupHasPlayer(gv_playersintheArena, lv_importantPlayer) == false) && (lv_deathPlayer != 16)) {
             UnitSetPosition(gv_players[lv_importantPlayerIndex].dragon, lv_deadpoint, false);
             UnitRevive(gv_players[lv_importantPlayerIndex].dragon);
@@ -13519,6 +13545,8 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
 }
 //--------------------------------------------------------------------------------------------------
 void gt_ReviveDragonNormal_Init () {
+    unit gv_UnitThatKilledDragon;
+    string gv_NameOfUnitThatKilledDragon;
     gt_ReviveDragonNormal = TriggerCreate("gt_ReviveDragonNormal_Func");
     TriggerAddEventUnitDied(gt_ReviveDragonNormal, UnitRefFromVariable("gv_players[0].dragon"));
     TriggerAddEventUnitDied(gt_ReviveDragonNormal, UnitRefFromVariable("gv_players[1].dragon"));
@@ -15642,7 +15670,8 @@ bool gt_DragonDiesinZauberer2_Func (bool testConds, bool runActions) {
         UnitGroupLoopEnd();
         TriggerEnable(gt_TeleporttoBioDome, true);
         TriggerEnable(gt_TeleporttoCreton, true);
-        UnitRemove(gv_TimeWarpBot);
+        Wait(15.0, c_timeGame);
+        UnitRemove(gv_MagicalDemonicSheep);
     }
     gv_autosavePrevention[lv_tPI] = false;
     return true;
@@ -16098,6 +16127,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
     if (!runActions) {
         return true;
     }
+    gv_zaubererDead = true;
     PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         lv_pickedPlayerIndex = (PlayerGroupLoopCurrent() - 1);
@@ -16114,6 +16144,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
     UnitGroupLoopEnd();
     PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
+        PlayerGroupAdd(gv_playersWhoHaveDefeatedZauberer, PlayerGroupLoopCurrent());
         PlayerModifyPropertyInt(UnitGetOwner(UnitGroupLoopCurrent()), c_playerPropCustom, c_playerPropOperAdd, 30);
         libNtve_gf_ShowHideBossBar(false, PlayerGroupLoopCurrent());
         lv_pickedPlayerIndex = (PlayerGroupLoopCurrent() - 1);
@@ -16160,16 +16191,16 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
     UnitGroupLoopEnd();
     //UnitCreate(1, "gv_TimeWarpBot", 0, 15, gv_TimeWarpBotLocation, 270.0);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle,StringExternal("Param/Value/506A51FE"));
-    UnitCreate(1, "TimeWarpBot", c_unitCreateIgnorePlacement, 15, RegionRandomPoint(RegionFromName("Boss Fight Warp Out Zone")), libNtve_gf_RandomAngle());
-    gv_TimeWarpBot = UnitLastCreated();
+    UnitCreate(1, "MagicalDemonicSheep", c_unitCreateIgnorePlacement, 15, RegionRandomPoint(RegionFromName("Boss Fight Warp Out Zone")), 270);
+    gv_MagicalDemonicSheep = UnitLastCreated();
     libNtve_gf_HideGameUI(true, gv_playersInBattleWithZauberer2ndForm);
-    TimerStart(gv_zaubererTimer, 15.0, false, c_timeReal);
-    TimerWindowCreate(gv_zaubererTimer, StringExternal("Param/Value/7035D573"), true, false);
-    gv_zaubererTimerWindow = TimerWindowLastCreated();
-    TimerWindowShow(gv_zaubererTimerWindow, PlayerGroupAll(), false);
-    TimerWindowShow(gv_zaubererTimerWindow, gv_playersInBioDome, true);
-    libNtve_gf_WaitForTimer(gv_zaubererTimer, 0.0, false);
-    TimerWindowDestroy(gv_zaubererTimerWindow);
+    //TimerStart(gv_zaubererTimer, 15.0, false, c_timeReal);
+   //TimerWindowCreate(gv_zaubererTimer, StringExternal("Param/Value/7035D573"), true, false);
+   // gv_zaubererTimerWindow = TimerWindowLastCreated();
+   // TimerWindowShow(gv_zaubererTimerWindow, PlayerGroupAll(), false);
+   // TimerWindowShow(gv_zaubererTimerWindow, gv_playersInBioDome, true);
+   // libNtve_gf_WaitForTimer(gv_zaubererTimer, 0.0, false);
+   // TimerWindowDestroy(gv_zaubererTimerWindow);
     libNtve_gf_AddPlayerGroupToPlayerGroup(gv_playersInBioDome, gv_playerswatchingendingcinematic);
     //TriggerExecute(gt_EndingCinematic, true, false);
     return true;
@@ -16180,7 +16211,7 @@ void gt_Zauberer2ndFormDeath_Init () {
     TriggerAddEventUnitDied(gt_Zauberer2ndFormDeath, UnitRefFromVariable("gv_zauberer2ndForm"));
 }
 //--------------------------------------------------------------------------------------------------
-// Trigger: Warp Out From Boss Arena
+// Trigger: Warp Out From Boss Arena(Ignore, look for Magical Demonic Sheep)
 //--------------------------------------------------------------------------------------------------
 bool gt_WarpOutFromBossArena_Func (bool testConds, bool runActions) {
     // Variable Declarations
@@ -16263,17 +16294,23 @@ void gt_Zauberer2ndFormAI_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamSethealth_Func (bool testConds, bool runActions) {
     // Actions
+     int healthcap;
     if (!runActions) {
         return true;
     }
+    healthcap = PlayerGroupCount(PlayerGroupActive());
+    if (healthcap >3){
+            healthcap = 3;
+    }
     gv_machinaDePlagam = UnitFromId(1711);
-    UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
+    UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(healthcap)));
     UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
     UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
     return true;
 }
 //--------------------------------------------------------------------------------------------------
 void gt_MachinaDePlagamSethealth_Init () {
+    int healthcap = 0;
     gt_MachinaDePlagamSethealth = TriggerCreate("gt_MachinaDePlagamSethealth_Func");
     TriggerAddEventTimeElapsed(gt_MachinaDePlagamSethealth, 5.0, c_timeReal);
 }
@@ -16545,6 +16582,7 @@ void gt_MachinaDePlagamDies_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamRespawn_Func (bool testConds, bool runActions) {
     // Conditions
+    int healthcap;
     if (testConds) {
         if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
             return false;
@@ -16570,7 +16608,12 @@ bool gt_MachinaDePlagamRespawn_Func (bool testConds, bool runActions) {
     UnitCreate(1, "MachinaDePlagam", 0, 15, RegionGetCenter(RegionFromId(227)), 270.0);
     gv_machinaDePlagam = UnitLastCreated();
     gv_machinaDePlagamisDead = false;
-    UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
+     
+    healthcap = PlayerGroupCount(PlayerGroupActive());
+    if (healthcap >3){
+            healthcap = 3;
+    }
+    UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(healthcap)));
     UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
     UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropEnergyMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
     TriggerEnable(TriggerGetCurrent(), false);
@@ -16578,6 +16621,7 @@ bool gt_MachinaDePlagamRespawn_Func (bool testConds, bool runActions) {
 }
 //--------------------------------------------------------------------------------------------------
 void gt_MachinaDePlagamRespawn_Init () {
+    int healthcap = 0;
     gt_MachinaDePlagamRespawn = TriggerCreate("gt_MachinaDePlagamRespawn_Func");
     TriggerEnable(gt_MachinaDePlagamRespawn, false);
     TriggerAddEventTimePeriodic(gt_MachinaDePlagamRespawn, 180.0, c_timeGame);
@@ -21426,7 +21470,7 @@ bool gt_Chaos_Func (bool testConds, bool runActions) {
             if ((gv_mortuusKillCount % 256 == 0)) {
                 UnitCreate(1, "Nosferatu", 0, 15, UnitGetPosition(EventUnit()), 270.0);
                 UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4A9BE0A1"));
-                gv_mortuusKillCount = 0;
+                
             }
         }
     }
@@ -22742,6 +22786,7 @@ bool gt_SetUpPlayers_Func (bool testConds, bool runActions) {
     int lv_tempIntelligence;
     int lv_tempStrength;
     int lv_tempVitality;
+    gv_playersWhoHaveDefeatedZauberer = PlayerGroupEmpty();
     // Variable Initialization
     // Actions
     if (!runActions) {
@@ -23308,7 +23353,7 @@ bool gt_EndingCinematic_Func (bool testConds, bool runActions) {
     libNtve_gf_HideGameUI(false, gv_playerswatchingendingcinematic);
     PlayerGroupLoopBegin(gv_playerswatchingendingcinematic);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, PlayerName(PlayerGroupLoopCurrent()));
+        //UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, PlayerName(PlayerGroupLoopCurrent()));
         SoundtrackStop(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_soundtrackCategoryMusic, true);
         SoundtrackPlay(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_soundtrackCategoryMusic, "EndingTheme", c_soundtrackCueAny, 0, false);
         SoundChannelSetVolume(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_soundCategoryMusic, 100.0, 0.0);
@@ -23456,9 +23501,11 @@ bool gt_EndingCinematic_Func (bool testConds, bool runActions) {
         CameraApplyInfo(PlayerGroupLoopCurrent(), CameraInfoFromId(2785), 5.0, -1, 10.0, true);
     }
     PlayerGroupLoopEnd();
+    //if(UnitTUnitInRegion(RegionFromName("View Credits")) != "Null"){
     UIShowCinematicText(gv_playerswatchingendingcinematic, StringExternal("And thank you!"), 0.2, 99.0, SoundLink("30SecondSilence", -1));
     Wait(10.0, c_timeGame);
     TriggerExecute(gt_EndingCinematicSaveExitNormal, true, false);
+    
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -24243,9 +24290,40 @@ void gt_RebornStats_Init () {
     TriggerAddEventDialogControl(gt_RebornStats, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
 }
 //--------------------------------------------------------------------------------------------------
+// Trigger: Region View Creditis Plays Ending
+//--------------------------------------------------------------------------------------------------
+bool gt_MakeEndingPlay_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    // Variable Initialization
+    
+    // Conditions
+    if (!(testConds)) {
+    //UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Got here :/1"));  
+       return false;
+    }
+    // Actions
+    if (!runActions) {
+        return true;
+    }
+     if (gv_zaubererDead) {
+           //UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) == true &&
+   // UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Got here2 :/"));    
+    TriggerExecute(gt_EndingCinematic, true, false);
+    return true;
+    } else{
+       // UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Got here3 :/"));  
+    return true;
+    }
+}
+//--------------------------------------------------------------------------------------------------
+void gt_MakeEndingPlay_Init () {
+    gt_MakeEndingPlay = TriggerCreate("gt_MakeEndingPlay_Func");
+    TriggerAddEventUnitRegion(gt_MakeEndingPlay, null, RegionFromName("View Credits"), false);
+}
+//--------------------------------------------------------------------------------------------------
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
-void FakeInitTriggers () {
+void FakeInitTriggers() {
     gt_CreateQuestDialog_Init();
     gt_CreateTalkDialog_Init();
     gt_CreateRewardDialog_Init();
@@ -24687,6 +24765,7 @@ void FakeInitTriggers () {
     gt_CreateRebornDialog_Init();
     gt_ToggleRebornDialogVisibility_Init();
     gt_RebornStats_Init();
+    gt_MakeEndingPlay_Init();
 }
 // --------------------------------------
 void gf_SetupPlayer(int p) {
@@ -24925,8 +25004,11 @@ void gf_LoadDragonCheck (int p) {
         lv__Bank = BankValueGetAsInt(gv_players[lv_pi].banks.dragonBank, "DSN", PlayerHandle(p));
         BankWait(gv_players[lv_pi].banks.rebornBank);
         if ((lv__Bank != lv__Manual)) {
-            UIDisplayMessage(PlayerGroupSingle(p), c_messageAreaSubtitle, StringExternal("Param/Value/E00252DC"));
-            GameOver(p, c_gameOverDefeat, true, true);
+            
+            UIDisplayMessage(PlayerGroupSingle(p), c_messageAreaSubtitle, StringExternal("Param/Value/E00252DC") + IntToText(ModI(FixedToInt(UnitGetPropertyFixed(gv_players[lv_pi].dragon, c_unitPropXP, c_unitPropCurrent)), 1000)));
+            //GameOver(p, c_gameOverDefeat, true, true);
+            UIDisplayMessage(PlayerGroupSingle(p), c_messageAreaSubtitle, StringExternal("Please let offline know!,  Bypassing security check."));
+            gv_players[lv_pi].verification.dragon = true;
         }
         else {
             gv_players[lv_pi].verification.dragon = true;

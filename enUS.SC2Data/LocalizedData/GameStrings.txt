@@ -95,7 +95,6 @@ Behavior/Name/ArmorUp6=Armor Up 6
 Behavior/Name/ArmorUp7=Armor Up 7
 Behavior/Name/ArmorUp8=Armor Up 8
 Behavior/Name/ArmorUp9=Armor Up 9
-Behavior/Name/Attack1=Attack +1
 Behavior/Name/Bleeding=Bleeding
 Behavior/Name/BlessingofDeath=Blessing of Death
 Behavior/Name/BroodlingEscort=Broodling Escort
@@ -123,7 +122,6 @@ Behavior/Name/Frozen=Frozen
 Behavior/Name/FrozenArmor=Frozen Armor
 Behavior/Name/GodlyClawsEquipped=Godly Claws Equipped
 Behavior/Name/GrandAttackSpeedPotion=Grand Attack Speed Potion
-Behavior/Name/GrandHealingOrb=Grand Healing Orb
 Behavior/Name/GreedIsGood=Greed Is Good
 Behavior/Name/Headshot=Headshot
 Behavior/Name/HealingWaters=Healing Waters
@@ -131,14 +129,12 @@ Behavior/Name/InLava=In Lava
 Behavior/Name/Intelligence=Intelligence
 Behavior/Name/ItemTimedLife=Timed Life
 Behavior/Name/LargeAttackSpeedPotion=Large Attack Speed Potion
-Behavior/Name/LargeHealingOrb=Large Healing Orb
 Behavior/Name/Level=Level
 Behavior/Name/Level2=Level
 Behavior/Name/Level3=Level
 Behavior/Name/Level4=Level
 Behavior/Name/Level5=Level
 Behavior/Name/MediumAttackSpeedPotion=Medium Attack Speed Potion
-Behavior/Name/MediumHealingOrb=Medium Healing Orb
 Behavior/Name/MindoftheDragon=Mind of the Dragon
 Behavior/Name/MinerArmor=Miner Armor
 Behavior/Name/MovementSpeedDown1=Movement Speed Down 1
@@ -168,6 +164,7 @@ Behavior/Name/Retaliation=Retaliation
 Behavior/Name/Shield100=Shield 100
 Behavior/Name/Shield1000=Shield 1000
 Behavior/Name/Shield500=Shield 500
+Behavior/Name/ShineAura=Shine Aura
 Behavior/Name/SightRadius1=Sight Radius +1
 Behavior/Name/SightRadius2=Sight Radius +2
 Behavior/Name/SightRadius3=Sight Radius +3
@@ -193,7 +190,6 @@ Behavior/Name/WaypointProtection=Waypoint Protection
 Behavior/Name/ZauberersFavor=Zauberer's Favor
 Behavior/Name/Zeal=Zeal
 Behavior/Name/ofHealing=of Healing
-Behavior/Name/oftheMage=of the Mage
 Behavior/Name/oftheMage2=of the Mage
 Behavior/Name/oftheMage3=of the Mage
 Behavior/Name/oftheMage4=of the Mage
@@ -492,7 +488,7 @@ Button/Tooltip/Amp=
 Button/Tooltip/Anguis=
 Button/Tooltip/Armor=The armor you currently have equipped.
 Button/Tooltip/ArmorShop=
-Button/Tooltip/AscendedArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,AscendedArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><c val="FFFFFF"><d ref="Unit,AscendedArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,AscendedArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">This armor was crafted by angelic entities to protect the dragons.</c></n>
+Button/Tooltip/AscendedArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,AscendedArmor)+25"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><c val="FFFFFF"><d ref="Unit,AscendedArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,AscendedArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">This armor was crafted by angelic entities to protect the dragons.</c></n>
 Button/Tooltip/Attack2=Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.
 Button/Tooltip/Attack3=Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.
 Button/Tooltip/Attack4=Orders selected units to move to the target point, fighting nearby enemies along the way. Targeting a unit with the Attack command orders that it be attacked until it is destroyed.
@@ -556,17 +552,17 @@ Button/Tooltip/GodlySpines=<c val="FFFFFF">Spines</c><n/><n/><c val="FFFFFF"><d 
 Button/Tooltip/GoldClaws=<c val="FFFFFF">Claws</c><n/><n/><c val="FFFFFF"><d ref="Effect,GoldClaws,Amount[0]*(1/Weapon,GoldClaws,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><c val="FFFFFF"><d ref="Effect,GoldClaws,Amount[0]"/> <c val="909090">Damage</c></c><n/><c val="FFFFFF"><d ref="1/Weapon,GoldClaws,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <c val="FFFFFF"><d ref="Weapon,GoldClaws,Range[0]"/><n/><c val="90909090">Price:</c> <c val="FFFFFF"><d ref="Unit,GoldClaws,CostResource[Minerals]"/></c><n/><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,GoldClaws,Level"/><n/></s><n/><c val="FFFFFF">Claw attachments that are solid gold. Mr. T would be thrilled.</c><n/>
 Button/Tooltip/GoldSpines=<c val="FFFFFF">Spines</c><n/><n/><c val="FFFFFF"><d ref="Effect,GoldSpines,Amount[0]*(1/Weapon,GoldSpines,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><c val="FFFFFF"><d ref="Effect,GoldSpines,Amount[0]"/> <c val="909090">Damage</c></c><n/><c val="FFFFFF"><d ref="1/Weapon,GoldSpines,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <c val="FFFFFF"><d ref="Weapon,GoldSpines,Range[0]"/><n/><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,GoldSpines,CostResource[Minerals]"/></c><n/><c val="00AAFF"></c><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,GoldSpines,Level"/></s><n/><n/><c val="FFFFFF">Spines forged from gold. You look so fancy.</c><n/>
 Button/Tooltip/GrandAttackSpeedPotion=Increases attack speed by <c val="00FF00">40%</c> for <c val="00FF00">5</c> minutes.<n/><n/>Price: <c val="FFFF00"><d ref="Unit,GrandAttackSpeedPotion,CostResource[Minerals]"/></c>
-Button/Tooltip/GrandHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,GrandHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,GrandHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 20 health every second</c></s><n/><n/><c val="00AAFF">This orb was crafted to allow warriors to take massive amounts of damage in battle. They compared the warriors to an iron tank filled with grain.</c><n/>
+Button/Tooltip/GrandHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,GrandHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,GrandHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 15 health every second</c></s><n/><n/><c val="00AAFF">This orb was crafted to allow warriors to take massive amounts of damage in battle. They compared the warriors to an iron tank filled with grain.</c><n/>
 Button/Tooltip/GrandHealthPotion=Heals <c val="00FF00">1000</c> health<n/><n/>Price: <c val="FFFF00"><d ref="Unit,GrandHealthPotion,CostResource[Minerals]"/></c>
 Button/Tooltip/GrandOrbofAnger=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,GrandOrbofAnger,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,GrandOrbofAnger,Level"/></c><n/><c val="00AAFF">Enemies within 4 meters will attack you</c></s><n/><n/><c val="00AAFF">Anger will fill the enemies of the wearer. Use caution. 4 feet isn't very much, you might need to wear more than one to see the effect.</c><n/>
 Button/Tooltip/Greed=
 Button/Tooltip/HealthPotions=Potions that will increase your health.
-Button/Tooltip/HeavyClothArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,HeavyClothArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,HeavyClothArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,HeavyClothArmor,Level"/><n/><c val="00AAFF">+1 Armor<n/> -1 Speed</s><n/><n/><c val="FFFFFF">This armor is made out of a heavier cloth. It makes the summer pretty much unbearable.</c></n>
-Button/Tooltip/HeavyCottonArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,HeavyCottonArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,HeavyCottonArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,HeavyCottonArmor,Level"/><n/><c val="00AAFF">+1 Armor<n/> -1 Speed</s><n/><n/><c val="FFFFFF">A heavier version of cotton armor. It's like wearing a down comforter into battle.</c></n>
+Button/Tooltip/HeavyClothArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,HeavyClothArmor,Level/5)+1"/><c val="00AAFF"> +1<c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,HeavyClothArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,HeavyClothArmor,Level"/><n/><c val="00AAFF">+1 Armor<n/> -1 Speed</s><n/><n/><c val="FFFFFF">This armor is made out of a heavier cloth. It makes the summer pretty much unbearable.</c></n>
+Button/Tooltip/HeavyCottonArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,HeavyCottonArmor,Level/5)+1"/><c val="00AAFF"> +1<c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,HeavyCottonArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,HeavyCottonArmor,Level"/><n/><c val="00AAFF">+1 Armor<n/> -1 Speed</s><n/><n/><c val="FFFFFF">A heavier version of cotton armor. It's like wearing a down comforter into battle.</c></n>
 Button/Tooltip/HeavyLeatherArmor=Armor: <c val="00FF00">+6</c><n/>Movement Speed: <c val="00FF00">-1</c><n/>Sell Value: <c val="00FF00">100G</c>
-Button/Tooltip/HeavyWoolArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,HeavyWoolArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,HeavyWoolArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,HeavyWoolArmor,Level"/><n/><c val="00AAFF">+1 Armor<n/> -1 Speed</s><n/><n/><c val="FFFFFF">You thought wool was hot and heavy. This brings it to a whole other level of uncomfortable.</c></n>
+Button/Tooltip/HeavyWoolArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,HeavyWoolArmor,Level/5)+1"/><c val="00AAFF"> +1<c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,HeavyWoolArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,HeavyWoolArmor,Level"/><n/><c val="00AAFF">+1 Armor<n/> -1 Speed</s><n/><n/><c val="FFFFFF">You thought wool was hot and heavy. This brings it to a whole other level of uncomfortable.</c></n>
 Button/Tooltip/HerosMight=<c val="5500AA">Special Weapon</c><n/><n/><d ref="Effect,HerosMightDamage,Amount[0]*(1/Weapon,HerosMight,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><d ref="Effect,HerosMightDamage,Amount[0]"/> <c val="909090">Damage</c></c><n/><d ref="1/Weapon,HerosMight,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <d ref="Weapon,HerosMight,Range[0]"/><n/><c val="90909090">Price:</c><d ref="Unit,HerosMight,CostResource[Minerals]"/></c></s><n/><n/><c val="5500AA">Looks like a nuclear bomb. Smells like a nuclear bomb. Probably not safe for the children. This item was created by the creator for the creator to use in the game he created. If you are reading this you can be sure that the person using it is indeed the creator of Dragon RPG.</c>
-Button/Tooltip/ILEBCE=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,ILEBCE,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,ILEBCE,Level"/></c><n/><c val="00AAFF">Restore 1 energy for every 1 damage taken</c></s><n/><n/><c val="00AAFF">This orb was created by mages for mages.</c><n/>
+Button/Tooltip/ILEBCE=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,ILEBCE,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,ILEBCE,Level"/></c><n/><c val="00AAFF">Restore 2 energy for every 1 damage taken</c></s><n/><n/><c val="00AAFF">This orb was created by mages for mages.</c><n/>
 Button/Tooltip/Inferno=Conjures all your energy into one spot, dealing massive damage to the targeted unit.<n/><n/>Damage: <c val="00FF00"><d ref="50+(50*Abil,Inferno,)"/></c><n/>Cooldown <c val="00FF00">30</c> seconds
 Button/Tooltip/InfestedEgg=
 Button/Tooltip/InfestedEgg2=
@@ -577,7 +573,7 @@ Button/Tooltip/KorlicsFrozenBlade=<c val="FF5500">Legendary Claws</c><n/><n/><c 
 Button/Tooltip/LabBot2=Scans and identifies organic matter.
 Button/Tooltip/Lanae=
 Button/Tooltip/LargeAttackSpeedPotion=Increases attack speed by <c val="00FF00">30%</c> for <c val="00FF00">5</c> minutes.<n/><n/>Price: <c val="FFFF00"><d ref="Unit,LargeAttackSpeedPotion,CostResource[Minerals]"/></c>
-Button/Tooltip/LargeHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,LargeHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,LargeHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 10 health every second</c></s><n/><n/><c val="00AAFF">Orbs of this nature are said to be blessed by magic. Seems about right.</c><n/><n/>
+Button/Tooltip/LargeHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,LargeHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,LargeHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 7 health every second</c></s><n/><n/><c val="00AAFF">Orbs of this nature are said to be blessed by magic. Seems about right.</c><n/><n/>
 Button/Tooltip/LargeHealthPotion=Heals <c val="00FF00">500</c> health<n/><n/>Price: <c val="FFFF00"><d ref="Unit,LargeHealthPotion,CostResource[Minerals]"/></c>
 Button/Tooltip/LearnBlizzard=Ice, Frost, and Snow will fall from the sky over a specified area. All enemies inside of this area will take damage every second and will have a percent chance to become frozen.<n/><n/>Mana Cost: 100<n/>Range: 8<n/>Damage: 1DPS<n/>Cast Time: 1 Second<n/>Cooldown: 30 Seconds<n/><n/>Each level will increase your chance of freezing the target by 0.5%.
 Button/Tooltip/LearnFireball=Learn the Fireball ability for your dragon.<n/><n/>Shoots a flaming ball of molten hot fire at an enemy target.<n/><n/>Spell Damage <c val="00FF00">+5</c>.<n/>Range <c val="00FF00">+.5</c>.<n/>
@@ -593,10 +589,10 @@ Button/Tooltip/LegendaryClaws=<c val="FFFFFF">Claws</c><n/><n/><c val="FFFFFF"><
 Button/Tooltip/LegendaryDragon=
 Button/Tooltip/LegendaryIceDragon=
 Button/Tooltip/LegendarySpines=<c val="FFFFFF">Spines</c><n/><n/><c val="FFFFFF"><d ref="Effect,LegendarySpines,Amount[0]*(1/Weapon,LegendarySpines,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><c val="FFFFFF"><d ref="Effect,LegendarySpines,Amount[0]"/> <c val="909090">Damage</c></c><n/><c val="FFFFFF"><d ref="1/Weapon,LegendarySpines,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <c val="FFFFFF"><d ref="Weapon,LegendarySpines,Range[0]"/><n/><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,LegendarySpines,CostResource[Minerals]"/></c><n/><c val="00AAFF"></c><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,LegendarySpines,Level"/></s><n/><n/><c val="FFFFFF">These spines can tell you what the symbols on a map mean.</c><n/></s>
-Button/Tooltip/LightClothArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,LightClothArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,LightClothArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,LightClothArmor,Level"/><n/><c val="00AAFF"> -1 Armor<n/>+1 Speed</s><n/><n/><c val="FFFFFF">A lighter version of cloth armor. Some how makes you faster than if you wore nothing at all. It's kind of like running with a knife; everyone runs faster with a knife.</c></n>
-Button/Tooltip/LightCottonArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,LightCottonArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,LightCottonArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,LightCottonArmor,Level"/><n/><c val="00AAFF"> -1 Armor<n/>+1 Speed</s><n/><n/><c val="FFFFFF">A lighter version of the cotton armor. It's similar to wearing only underwear, but it's seen as socially accetable.</c></n>
+Button/Tooltip/LightClothArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,LightClothArmor,Level/5)+1"/><c val="00AAFF"> -1<c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,LightClothArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,LightClothArmor,Level"/><n/><c val="00AAFF"> -1 Armor<n/>+1 Speed</s><n/><n/><c val="FFFFFF">A lighter version of cloth armor. Some how makes you faster than if you wore nothing at all. It's kind of like running with a knife; everyone runs faster with a knife.</c></n>
+Button/Tooltip/LightCottonArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,LightCottonArmor,Level/5)+1"/><c val="00AAFF"> -1<c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,LightCottonArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,LightCottonArmor,Level"/><n/><c val="00AAFF"> -1 Armor<n/>+1 Speed</s><n/><n/><c val="FFFFFF">A lighter version of the cotton armor. It's similar to wearing only underwear, but it's seen as socially accetable.</c></n>
 Button/Tooltip/LightLeatherArmor=Armor: <c val="00FF00">+4</c><n/>Movement Speed: <c val="00FF00">+1</c><n/>Sell Value: <c val="00FF00">100G</c>
-Button/Tooltip/LightWoolArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,LightWoolArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,LightWoolArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,LightWoolArmor,Level"/><n/><c val="00AAFF"> -1 Armor<n/>+1 Speed</s><n/><n/><c val="FFFFFF">A lighter version of the wool armor. Sexy.</c></n>
+Button/Tooltip/LightWoolArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,LightWoolArmor,Level/5)+1"/><c val="00AAFF"> -1<c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,LightWoolArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,LightWoolArmor,Level"/><n/><c val="00AAFF"> -1 Armor<n/>+1 Speed</s><n/><n/><c val="FFFFFF">A lighter version of the wool armor. Sexy.</c></n>
 Button/Tooltip/MachinaDePlagam=
 Button/Tooltip/Madawc=
 Button/Tooltip/MadawcsElectricArmor=<c val="FF5500">Legendary Armor</c><n/><n/><c val="FFFFFF"><c val="FFFFFF"><d ref="(Item,MadawcsElectricArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><c val="FFFFFF"><d ref="Unit,MadawcsElectricArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,MadawcsElectricArmor,Level"/><n/><c val="00AAFF">+100 Shield</s><n/><n/><c val="FF5500">Armor created by Madawc using ancient Creton technology. This armor is said to create a force field around the user using some primitive electric energy.</c></n>
@@ -606,10 +602,10 @@ Button/Tooltip/Mana=
 Button/Tooltip/MasterDragon=
 Button/Tooltip/MasterIceDragon=
 Button/Tooltip/MediumAttackSpeedPotion=Increases attack speed by <c val="00FF00">20%</c> for <c val="00FF00">5</c> minutes.<n/><n/>Price: <c val="FFFF00"><d ref="Unit,MediumAttackSpeedPotion,CostResource[Minerals]"/></c>
-Button/Tooltip/MediumHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,MediumHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,MediumHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 5 health every second</c></s><n/><n/><c val="00AAFF">Great for keeping people alive while taking damage.</c><n/>
+Button/Tooltip/MediumHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,MediumHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,MediumHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 3 health every second</c></s><n/><n/><c val="00AAFF">Great for keeping people alive while taking damage.</c><n/>
 Button/Tooltip/MediumHealthPotion=Heals <c val="00FF00">250</c> health<n/><n/>Price: <c val="FFFF00"><d ref="Unit,MediumHealthPotion,CostResource[Minerals]"/></c>
 Button/Tooltip/MediumOrbofSight=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,MediumOrbofSight,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,MediumOrbofSight,Level"/></c><n/><c val="00AAFF">Sight radius +2</c></s><n/><n/><c val="00AAFF">This orb will help the wearer see into the darkness. But be careful. The more light, the more shadow.</c><n/>
-Button/Tooltip/MinerArmor=<c val="FFFF00">Rare Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,13R01R01,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,13R01R01,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,13R01R01,Level"/><n/><c val="00AAFF">+5 Detection Range<n/>+5 Sight Radius</s><n/><n/><c val="FFFF00">This armor has lights and radar which is used to help miners see better while inside of caves. You cannot purchase alcohol while wearing this.</c></n>
+Button/Tooltip/MinerArmor=<c val="FFFF00">Rare Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,13R01R01,Level/5)+9"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,13R01R01,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,13R01R01,Level"/><n/><c val="00AAFF">+5 Detection Range<n/>+5 Sight Radius</s><n/><n/><c val="FFFF00">This armor has lights and radar which is used to help miners see better while inside of caves. You cannot purchase alcohol while wearing this.</c></n>
 Button/Tooltip/MisterScruffers=
 Button/Tooltip/ModArmor=<c val="5500FF">Special Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,13D01R01,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,13D01R01,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,13D01R01,Level"/><n/><c val="00AAFF">+1000 Shield<n/>+4 Armor</s><n/><n/><c val="5500FF">Created by the gods, this armor is said to offer its wearer unmeasurable protection against any opposing forces. Given only to those who are deemed worthy.</c></n>
 Button/Tooltip/Move2=Orders selected units to move to the target area or follow the target unit. Moving units will not engage enemies.
@@ -632,20 +628,20 @@ Button/Tooltip/MysticalArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d
 Button/Tooltip/NextPage=View the next page of items.
 Button/Tooltip/NosferatusRelic=<c val="FF0000">Limited Edition Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,14S18C01,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,14S18C01,Level"/></c><n/><c val="00AAFF">1% chance to regenerate 100% of health upon killing an enemy<n/>1% chance to regenerate 100% of energy upon killing an enemy<n/>1% chance to regenerate 100% of shields upon killing an enemy<n/>1% chance to reset all skill cooldowns upon killing an enemy<n/>1% chance to cause an explosion upon killing an enemy</c></s><n/><n/><c val="FF0000">This relic was said to have been worn by the legendary vampire Nosferatu. With this relic in your possession, his legend lives on.</c><n/>
 Button/Tooltip/NovaCreatePersistent=Creates a nova of tramendous power that launches out from your dragon in all directions. This attack will damage, stun, and knockback everything around your dragon.
-Button/Tooltip/OblivionArmor=<c val="FF5500">Legendary Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,OblivionArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,OblivionArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,OblivionArmor,Level"/><n/><c val="00AAFF">10% change to negate damage<n/>+4 Armor</s><n/><n/><c val="FF5500">This armor was said to be crafted in the same forge as the Dragon Stone. While the Dragon Stone was imbued with the powers of good, this armor was imbued with evil energy.</c><n/>
+Button/Tooltip/OblivionArmor=<c val="FF5500">Legendary Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,OblivionArmor,Level/5)+1"/><c val="00AAFF">+4<c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,OblivionArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,OblivionArmor,Level"/><n/><c val="00AAFF">10% change to negate damage<n/>+4 Armor</s><n/><n/><c val="FF5500">This armor was said to be crafted in the same forge as the Dragon Stone. While the Dragon Stone was imbued with the powers of good, this armor was imbued with evil energy.</c><n/>
 Button/Tooltip/OblivionClaws=<c val="FF5500">Legendary Claws</c><n/><n/><c val="FFFFFF"><d ref="Effect,OblivionClaws,Amount[0]*(1/Weapon,OblivionClaws,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><c val="FFFFFF"><d ref="Effect,OblivionClaws,Amount[0]"/> <c val="909090">Damage</c></c><n/><c val="FFFFFF"><d ref="1/Weapon,OblivionClaws,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <c val="FFFFFF"><d ref="Weapon,OblivionClaws,Range[0]"/><n/><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,OblivionClaws,CostResource[Minerals]"/></c><n/><c val="00AAFF"></c><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,OblivionClaws,Level"/></s><n/><n/><c val="FF5500">These claws were said to be crafted in the same forge as the Dragon Stone. While the Dragon Stone was imbued with the powers of good, these claws were imbued with evil energy.</c><n/>
 Button/Tooltip/OblivionSpines=<c val="FF5500">Legendary Spines</c><n/><n/><c val="FFFFFF"><d ref="Effect,OblivionSpines,Amount[0]*(1/Weapon,OblivionSpines,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><c val="FFFFFF"><d ref="Effect,OblivionSpines,Amount[0]"/> <c val="909090">Damage</c></c><n/><c val="FFFFFF"><d ref="1/Weapon,OblivionSpines,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <c val="FFFFFF"><d ref="Weapon,OblivionSpines,Range[0]"/><n/><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,OblivionSpines,CostResource[Minerals]"/></c><n/><c val="00AAFF"></c><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,OblivionSpines,Level"/></s><n/><n/><c val="FF5500">These spines have the ability to vanquish all evil, or become it yourself.</c><n/>
 Button/Tooltip/Oleum=
 Button/Tooltip/OrbShop=
 Button/Tooltip/Orbs=The orbs that your dragon has equipped.
 Button/Tooltip/Petrose=
-Button/Tooltip/PlagamArmor=<c val="FF5500">Legendary Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,16M01R01,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,16M01R01,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,16M01R01,Level"/><n/><c val="00AAFF">+500 Shield</s><n/><n/><c val="FF5500">This armor was created using Creton technology. It will absorb 500 points of damage.</c><n/>
+Button/Tooltip/PlagamArmor=<c val="FF5500">Legendary Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,16M01R01,Level/5)+17"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,16M01R01,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,16M01R01,Level"/><n/><c val="00AAFF">+500 Shield</s><n/><n/><c val="FF5500">This armor was created using Creton technology. It will absorb 500 points of damage.</c><n/>
 Button/Tooltip/PlateArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,PlateArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,PlateArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,PlateArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">Armor with plates to protect you. Who knew fine china could be so strong.</c><n/>
 Button/Tooltip/PlatinumClaws=<c val="FFFFFF">Claws</c><n/><n/><c val="FFFFFF"><d ref="Effect,PlatinumClaws,Amount[0]*(1/Weapon,PlatinumClaws,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><c val="FFFFFF"><d ref="Effect,PlatinumClaws,Amount[0]"/> <c val="909090">Damage</c></c><n/><c val="FFFFFF"><d ref="1/Weapon,PlatinumClaws,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <c val="FFFFFF"><d ref="Weapon,PlatinumClaws,Range[0]"/><n/><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,PlatinumClaws,CostResource[Minerals]"/></c><n/><c val="00AAFF"></c><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,PlatinumClaws,Level"/><n/></s><n/><c val="FFFFFF">Over 1,000,000 sold!</c><n/>
 Button/Tooltip/PlatinumSpines=<c val="FFFFFF">Spines</c><n/><n/><c val="FFFFFF"><d ref="Effect,PlatinumSpines,Amount[0]*(1/Weapon,PlatinumSpines,Period[0])"/><c val="909090"> Damage per Second</c><n/><s val="Header14"><c val="FFFFFF"><d ref="Effect,PlatinumSpines,Amount[0]"/> <c val="909090">Damage</c></c><n/><c val="FFFFFF"><d ref="1/Weapon,PlatinumSpines,Period[0]" precision="2"/><c val="90909090"> Attacks per Second</c><n/><c val="90909090">Range:</c> <c val="FFFFFF"><d ref="Weapon,PlatinumSpines,Range[0]"/><n/><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,PlatinumSpines,CostResource[Minerals]"/></c><n/><c val="00AAFF"></c><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,PlatinumSpines,Level"/></s><n/><n/><c val="FFFFFF">Spines made of platinum.*<n/><n/><n/><n/><n/><s val="Header10">*Spines not actually made of platinum.</c><n/></s>
 Button/Tooltip/PotionShop=
 Button/Tooltip/PreviousPage=View the next page of items.
-Button/Tooltip/PurchaseAscendedArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,AscendedArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><c val="FFFFFF"><d ref="Unit,AscendedArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,AscendedArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">This armor was crafted by angelic entities to protect the dragons.</c></n>
+Button/Tooltip/PurchaseAscendedArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,AscendedArmor,Level/5)+5"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><c val="FFFFFF"><d ref="Unit,AscendedArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><c val="FFFFFF"><d ref="Item,AscendedArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">This armor was crafted by angelic entities to protect the dragons.</c></n>
 Button/Tooltip/PurchaseBalancedClothArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,BalancedClothArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,BalancedClothArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,BalancedClothArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">Armor made out of cloth. How could this be worse then basic armor?</c>
 Button/Tooltip/PurchaseBalancedCottonArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,BalancedCottonArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,BalancedCottonArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,BalancedCottonArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">Armor made out of cotton. It might shrink in the wash.</c>
 Button/Tooltip/PurchaseBalancedLeatherArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF"><d ref="(Item,BalancedLeatherArmor,Level/5)+1"/><c val="909090"> Armor</c><s val="Header14"><n/><c val="909090">Price:</c><d ref="Unit,BalancedLeatherArmor,CostResource[Minerals]"/><n/><c val="909090">Item Level: </c><d ref="Item,BalancedLeatherArmor,Level"/><n/><c val="00AAFF"></s><n/><c val="FFFFFF">Armor made out of leather. Maybe there is a cow level after all.</c>
@@ -717,9 +713,9 @@ Button/Tooltip/SilverSpines=<c val="FFFFFF">Spines</c><n/><n/><c val="FFFFFF"><d
 Button/Tooltip/SimpleArmors150=Armor from level 1 to level 50
 Button/Tooltip/Skills=List of skills that you can learn.
 Button/Tooltip/SmallAttackSpeedPotion=Increases attack speed by <c val="00FF00">10%</c> for <c val="00FF00">5</c> minutes.<n/><n/>Price: <c val="FFFF00"><d ref="Unit,SmallAttackSpeedPotion,CostResource[Minerals]"/></c>
-Button/Tooltip/SmallHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,SmallHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,SmallHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 1 health every second</c></s><n/><n/><c val="00AAFF">This orb is blessed by magic to recover the wearer's health.</c><n/>
+Button/Tooltip/SmallHealingOrb=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,SmallHealingOrb,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,SmallHealingOrb,Level"/></c><n/><c val="00AAFF">Heals 2 health every second</c></s><n/><n/><c val="00AAFF">This orb is blessed by magic to recover the wearer's health.</c><n/>
 Button/Tooltip/SmallHealthPotion=Heals <c val="00FF00">100</c> health<n/><n/>Price: <c val="FFFF00"><d ref="Unit,SmallHealthPotion,CostResource[Minerals]"/></c>
-Button/Tooltip/SmallOrbofMight=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,SmallOrbofMight,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,SmallOrbofMight,Level"/></c><n/><c val="00AAFF">Increases melee damage by 1<n/>Increases ranged damage by 1<n/>Increases spell damage by 1<n/>Increases splash damage by 1</c></s><n/><n/><c val="00AAFF">This orb was created to enhance the power of the wearer.</c><n/>
+Button/Tooltip/SmallOrbofMight=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,SmallOrbofMight,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,SmallOrbofMight,Level"/></c><n/><c val="00AAFF">Increases melee damage by 3<n/>Increases ranged damage by 3<n/>Increases spell damage by 3<n/>Increases splash damage by 3</c></s><n/><n/><c val="00AAFF">This orb was created to enhance the power of the wearer.</c><n/>
 Button/Tooltip/SmallOrbofSight=<c val="00AAFF">Magic Orb</c><n/><s val="Header14"><c val="90909090">Price: </c><c val="FFFFFF"><d ref="Unit,SmallOrbofSight,CostResource[Minerals]"/></c><n/><c val="90909090">Level: </c><c val="FFFFFF"><d ref="Item,SmallOrbofSight,Level"/></c><n/><c val="00AAFF">Sight radius +1</c></s><n/><n/><c val="00AAFF">Seeing is believing.</c><n/>
 Button/Tooltip/SoftArmor=<c val="FFFFFF">Armor</c><n/><n/><c val="FFFFFF">1<c val="909090"> Armor</c><s val="Header14"><n/><c val="90909090">Price:</c><d ref="Unit,SoftArmor,CostResource[Minerals]"/><n/><c val="90909090">Item Level: </c><d ref="Item,SoftArmor,Level"/></s><n/><n/><c val="FFFFFF">Makes you wonder what basic armor was made out of.</c><n/>
 Button/Tooltip/SpecialItems=Special items purchased with Dragon Shards.<n/><n/>Dragon Shards can be obtained by:<n/><n/>1. Getting them as rewards for certain quests<n/>2. Defeating bosses<n/><n/>These special items do not reset when a dragon is rebirthed.
@@ -773,6 +769,7 @@ Creton Shield Armor=Creton Shield Armor
 DOCSTR_0000=Kill count +1
 DOCSTR_0001=Insert Text
 DOCSTR_NewID='s level 
+DOCSTR_ViewCredits=Once Zauberer is dead<n/>Return to view Credits
 DocInfo/Author=Hero
 DocInfo/DescLong=(Recovered and modified by GreatGameGal and Offline)<n/>Discord: https://discord.gg/McJ7s9c<n/><n/>-HotS and WoL required to play<n/><n/>1.0 Items and shops Fixed!<n/><n/>1.1 Fixed:<n/>Frost spells<n/>Town Portals<n/>Gaurdian statues<n/>Plant 1 hp bug<n/>Typos<n/>
 DocInfo/DescShort=WoL,HotS required
@@ -913,10 +910,12 @@ Effect/Name/OblivionSpines=Oblivion Spines
 Effect/Name/OblivionSpinesLaunchMissile=Oblivion Spines
 Effect/Name/PlatinumSpines=Platinum Spines
 Effect/Name/PlatinumSpinesLaunchMissile=Platinum Spines
+Effect/Name/PlayAuraAnimation=Play Aura Animation
 Effect/Name/SacredSpines=Sacred Spines
 Effect/Name/SacredSpinesLaunchMissile=Sacred Spines
 Effect/Name/SilverSpines=Silver Spines
 Effect/Name/SilverSpinesLaunchMissile=Silver Spines
+Effect/Name/SmallHealingOrb=Small Healing Orb
 Effect/Name/SremagsisTentacles=Sremagsi's Tentacles
 Effect/Name/SteelSpines=Steel Spines
 Effect/Name/SteelSpinesLaunchMissile=Steel Spines
@@ -1024,7 +1023,7 @@ Param/Value/13643487=Decline the quest
 Param/Value/137316ED=
 Param/Value/13ABAEAA=NR - Explosion
 Param/Value/13ABBF17=Round two! MUAHAHAHAHAHAHAHAHA!
-Param/Value/13E7657A=||||||||||||||MBB = Might be broken||||||||||||||
+Param/Value/13E7657A=||||||||||||MBB = Might be broken||||||||||||||
 Param/Value/144AD99C=<n/>
 Param/Value/14A626B1=You must be level 100 in order to rebirth your dragon.
 Param/Value/152FA35A=You have earned <c val="00FFFF">
@@ -1251,7 +1250,7 @@ Param/Value/4BFFB9E8=________________________________________________________
 Param/Value/4C18BA7A=
 Param/Value/4C1BFB18=<c val="408080">Quest Reward:</c> 2.,000 EXP, 8,000 Gold
 Param/Value/4C1C5C7E=You may press ESC to exit the video at any time.
-Param/Value/4C304E5E=<c val="FF0000">ERROR: Bank files have been manually edited.</c>
+Param/Value/4C304E5E=<c val="FF0000">ERROR: Bank files have been manually edited.3</c>
 Param/Value/4C468C11=Metabolic Processing
 Param/Value/4C530C19=Error
 Param/Value/4C6B4127=Reset Talents
@@ -1273,7 +1272,7 @@ Param/Value/4EB31843=Defeat Zauberer
 Param/Value/4F348A52=2
 Param/Value/4F3939B7=Creton
 Param/Value/4FF47C38=100 )
-Param/Value/506A51FE=<c val="FF0000">WARNING! </c>TIME WARP MAGIC DETECTED! <c val="FF0000">WARNING! </c>
+Param/Value/506A51FE=<s val="SwarmReticleTerranBonusObjective"><c val="FE312C">A</c><c val="FE2F2A"> </c><c val="FE2E29">D</c><c val="FE2C28">i</c><c val="FE2B26">s</c><c val="FE2925">t</c><c val="FE2824">u</c><c val="FE2622">r</c><c val="FE2521">b</c><c val="FE2320">a</c><c val="FE221E">n</c><c val="FE201D">c</c><c val="FE1F1C">e</c><c val="FE1D1A"> </c><c val="FE1C19">i</c><c val="FE1A18">n</c><c val="FE1916"> </c><c val="FE1715">E</c><c val="FE1614">v</c><c val="FE1512">i</c><c val="FE1311">l</c><c val="FE1110"> </c><c val="FE100E">S</c><c val="FE0F0D">u</c><c val="FE0D0C">m</c><c val="FE0C0A">m</c><c val="FE0A09">o</c><c val="FE0908">n</c><c val="FE0706">s</c><c val="FE0605"> </c><c val="FE0404">H</c><c val="FE0302">i</c><c val="FE0101">m</c></s>
 Param/Value/50714DAC=Small Health Potion Used
 Param/Value/509C3FEA=Accept
 Param/Value/50B63FB2=Only a true hero may wield this weapon.
@@ -1473,7 +1472,7 @@ Param/Value/7BA0B288=<c val="FF0000">Sremagsi</c> has died
 Param/Value/7BD4D7A8=Defeat The Guardians
 Param/Value/7BE07EBD=<c val="0000FF">Respawn Point Set</c>
 Param/Value/7C5C7E95=No Valid Potions Available
-Param/Value/7CC796A6=<c val="FF0000">ERROR: Bank files have been manually edited.</c>
+Param/Value/7CC796A6=<c val="FF0000">ERROR: Bank files have been manually edited. 1</c>
 Param/Value/7CD8C421=Grand Health Potion Used
 Param/Value/7CEBCED8=I appreciate you avenging my team.
 Param/Value/7D0AD6CC=Reborn Points: 
@@ -1508,7 +1507,7 @@ Param/Value/84C9CF79=You may press ESC to exit the video at any time.
 Param/Value/84E73369=<c val="FF0000">--------------------Created--------------------</c><n/><n/>+Hero (Mathew Kelly)<n/><n/><c val="FF0000">--------------------Admins--------------------</c><n/><n/>+Greed<n/>+EternalToss<n/>+MarineEmpire<n/><n/><c val="FF0000">--------------------Moderators--------------------</c><n/><n/>+Alchemy<n/>+Maddawg5450<n/><n/><c val="FF0000">--------------------Donators--------------------</c><n/><n/>+Seryn<n/>+Wingcrafter<n/>+Greed<n/>+Ripper
 Param/Value/85A14F42=Increases sight radius by @.
 Param/Value/85D0040F=<c val="FF0000">Dragon's Nest (Safe Zone)</c><n/><n/>
-Param/Value/85DF1CEC=Attack Speed +2.5%
+Param/Value/85DF1CEC=Attack Speed +1.0%
 Param/Value/86302C1E=
 Param/Value/86363A30=Get to the Biodome
 Param/Value/864BC008=Error
@@ -1651,7 +1650,7 @@ Param/Value/A5AD37C7=100 )
 Param/Value/A5CB9737=:0
 Param/Value/A62D176F=Return to Petrose
 Param/Value/A6FEB956=At levels 25. 50, 75, and 100 you dragon will grow into an even more powerful version of themselves.
-Param/Value/A7264C2D=<c val="FF0000">ERROR: Bank files have been manually edited.</c>
+Param/Value/A7264C2D=<c val="FF0000">ERROR: Bank files have been manually edited.2</c>
 Param/Value/A8723B18=Congratulations on completing Dragon Quest RPG!
 Param/Value/A87E682D=Location
 Param/Value/A912FAE1=________________________________________________________
@@ -1744,7 +1743,7 @@ Param/Value/C253BDD1=Grand Health Potion Used
 Param/Value/C30FACB4=1
 Param/Value/C322E4A6=Large Health Potion Used
 Param/Value/C34473C2=
-Param/Value/C384B428=The land  finally has returned to peace.
+Param/Value/C384B428=The land  has finally  returned to peace.
 Param/Value/C3ABD438=<c val="00FFFF">Waiting for Contestant 2</c>
 Param/Value/C3DEB7CE=Thanks. Take this gold I promised. I hope it helps.
 Param/Value/C4709064=The stone had been lost.
@@ -1757,7 +1756,7 @@ Param/Value/C5D45F44=Overgrowth
 Param/Value/C6131C21=Now that you are level 100 you have unlocked the ability to rebirth your dragon. You can type -Reborn at any time to do this.<n/><n/>This will start you over again as a level 1 dragon.<n/><n/>Things that reset:<n/><n/>-Stats<n/>-Level<n/>-Talents<n/>-Skills<n/>-Boss abilities<n/><n/>Things that save:<n/><n/>-Minerals<n/>-Vespene<n/>-Items<n/><n/>Things you gain:<n/><n/>-Bragging rights<n/>-New buff (Stacks each time you rebirth your dragon)
 Param/Value/C6292D14=
 Param/Value/C6717FEF=Destroy 3rd Crystal of Venadas
-Param/Value/C6C9A251=My Lord and Personal Savior: Mathew Kelley
+Param/Value/C6C9A251=Our Lord and Personal Savior: Hero (Mathew Kelly)
 Param/Value/C7072A64=<c val="FF0000">Relamy Gorge</c><n/>Level 7+
 Param/Value/C71179B0=1
 Param/Value/C7D0B265=<c val="FFFF00">?</c>
@@ -1781,7 +1780,7 @@ Param/Value/CB9B21A6=!
 Param/Value/CBDB183B=5
 Param/Value/CC44A819=You have not unlocked this container yet.
 Param/Value/CC6B9F0E=
-Param/Value/CCBC876F=Slot Deaths: 
+Param/Value/CCBC876F=<s val="SwarmLoadingIntroScreenTitle"> <c val="011BFC">T</c><c val="001AF3">i</c><c val="0019EB">m</c><c val="0018E2">e</c><c val="0017DA"> </c><c val="0016D1">W</c><c val="0015C9">a</c><c val="0014C0">r</c><c val="0014B7">p</c><c val="0013AF">s</c><c val="0012A6"> </c><c val="00119E">a</c><c val="001095">r</c><c val="000F8C">o</c><c val="000E84">u</c><c val="000D7B">n</c><c val="000D72">d</c><c val="000C6A"> </c><c val="000B61">Y</c><c val="000A59">o</c><c val="000950">u</c><c val="000847">.</c><c val="00073F">.</c><c val="000636">.</c></s>
 Param/Value/CD32BD07=Foresight
 Param/Value/CD490724=NR - Energy Regenerated
 Param/Value/CD8DEF38=Only the devil himself may wield this weapon.
@@ -1865,7 +1864,7 @@ Param/Value/DED3B997=If you would like you reset your stat points, you can simpl
 Param/Value/DF29FD45=Reset Quests
 Param/Value/DFF0F56F=100 )
 Param/Value/DFF4F8BA=Your dragon's stats have been reset
-Param/Value/E00252DC=<c val="FF0000">ERROR: Bank files have been manually edited.</c>
+Param/Value/E00252DC=<c val="FF0000">ERROR: Bank files have been manually edited.4</c>
 Param/Value/E057B9BE=2
 Param/Value/E0D6114B=Grand Health Potion Used
 Param/Value/E1AF3427= has slayed 

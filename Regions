@@ -1964,4 +1964,12 @@
             <radius value="0.5004"/>
         </shape>
     </region>
+    <region id="295">
+        <name value="View Credits"/>
+        <color value="255,249,252,143"/>
+        <shape type="circle">
+            <center value="157.439,209.6132"/>
+            <radius value="1.6257"/>
+        </shape>
+    </region>
 </Regions>
