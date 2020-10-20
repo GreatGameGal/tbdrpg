@@ -146,7 +146,7 @@
         <EditorCategories value="AbilityorEffectType:Units"/>
         <MaxStackCount value="100"/>
         <Duration value="-1"/>
-        <Modification MoveSpeedMultiplier="1.015"/>
+        <Modification MoveSpeedMultiplier="1.01"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="MaxMPUp">
         <InfoFlags index="Hidden" value="1"/>

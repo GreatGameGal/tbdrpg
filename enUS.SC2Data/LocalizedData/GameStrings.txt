@@ -1306,7 +1306,7 @@ Param/Value/554C5971=
 Param/Value/556E72C6=Kill Sremagsi
 Param/Value/55A4A235=For each armor point your dragon has, he will take 1% less damage from all attacks. For example, if a dragon has 20 armor, than an attack that would normally do 80 damage will only do 64 damage.
 Param/Value/5625DC8F=<c val="FFFF00">!</c>
-Param/Value/565F98A7=Movement Speed +1.5%
+Param/Value/565F98A7=Movement Speed +1.0%
 Param/Value/569516A0=If you would like you reset your talents, you can simply type:<n/><n/>-reset talents
 Param/Value/56A8C6FF=Ascendant Zauberer
 Param/Value/56AABACD=Grand Health Potion Used
