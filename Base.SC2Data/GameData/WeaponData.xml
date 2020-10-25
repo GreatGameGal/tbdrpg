@@ -579,7 +579,6 @@
         <Options index="Melee" value="1"/>
         <Icon value="Assets\Textures\btn-upgrade-terran-twin-linkedflamethrower.dds"/>
         <TargetFilters value="Ground,Visible;Ally,Missile,Stasis,Dead,Hidden,Invulnerable"/>
-        <Range value="2"/>
         <Period value="0.1"/>
         <DisplayAttackCount value="1"/>
     </CWeaponLegacy>

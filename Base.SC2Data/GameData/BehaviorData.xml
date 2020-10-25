@@ -163,7 +163,7 @@
         <MaxStackCount value="100"/>
         <Duration value="-1"/>
         <Modification>
-            <LifeArmorBonus value="0.5"/>
+            <LifeArmorBonus value="0.25"/>
         </Modification>
     </CBehaviorBuff>
     <CBehaviorBuff id="AttackSpeedUp">
@@ -1889,8 +1889,8 @@
     <CBehaviorBuff id="InLava">
         <InfoIcon value="Assets\Textures\firewall1.dds"/>
         <EditorCategories value="AbilityorEffectType:Units"/>
-        <Modification MoveSpeedMultiplier="0.25">
-            <VitalRegenArray index="Life" value="-500"/>
+        <Modification MoveSpeedMaximum="3" MoveSpeedMultiplier="0.25">
+            <VitalRegenArray index="Life" value="-2000"/>
         </Modification>
         <MaxStackCount value="65535"/>
         <Alignment value="Negative"/>

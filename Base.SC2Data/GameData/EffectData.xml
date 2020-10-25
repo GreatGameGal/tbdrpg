@@ -1796,9 +1796,9 @@
         <EditorCategories value="Race:Zerg"/>
         <AINotifyFlags index="HelpFriend" value="1"/>
         <ShieldBonus value="-0.03"/>
-        <ArmorReduction value="0.015"/>
+        <ArmorReduction value="0"/>
         <Kind value="Ranged"/>
-        <Amount value="1000.5"/>
+        <Amount value="10000.5"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <AttributeFactor index="Heroic" value="-0.75"/>
     </CEffectDamage>

@@ -156,7 +156,7 @@
     <CLootSet id="NosferatusLoot">
         <MinCount value="1"/>
         <MaxCount value="1"/>
-        <ChildArray Chance="50" Child="14S18C01"/>
+        <ChildArray Chance="5" Child="14S18C01"/>
         <ChildArray Chance="30" Child="ArmorLevel200"/>
         <ChildArray Chance="30" Child="WeaponsLevel200"/>
         <ChildArray Chance="30" Child="OrbsLevel200"/>
