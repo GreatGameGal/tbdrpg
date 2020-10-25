@@ -5305,7 +5305,7 @@
                 if (((UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;BabyDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;BabyIceDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;AdultDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;AdultIceDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;LegendaryDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;LegendaryIceDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;MasterDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;MasterIceDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;TeenDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;TeenIceDragon&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == &quot;&quot;) || (UnitGetType(gv_players[lv_lazyPlayerIndex].dragon) == null))) {
                 }
                 else {
-                    UnitBehaviorAdd(gv_players[lv_lazyPlayerIndex].dragon, &quot;DONTEDITBANKFILES&quot;, UnitFromId(2662), 1);
+                   // UnitBehaviorAdd(gv_players[lv_lazyPlayerIndex].dragon, &quot;DONTEDITBANKFILES&quot;, UnitFromId(2662), 1);
                 }
                 gv_players[lv_lazyPlayerIndex].stats.agility = UnitBehaviorCount(gv_players[lv_lazyPlayerIndex].dragon, &quot;Agility&quot;);
                 gv_players[lv_lazyPlayerIndex].stats.dexterity = UnitBehaviorCount(gv_players[lv_lazyPlayerIndex].dragon, &quot;Dexterity&quot;);
@@ -15701,6 +15701,7 @@
                 }
                 TriggerEnable(gt_TeleporttoBioDome, false);
                 TriggerEnable(gt_TeleporttoCreton, false);
+                gv_zaubererDead = false;
                 PlayerGroupLoopBegin(gv_playersInBioDome);
                 for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
                     CameraPan(PlayerGroupLoopCurrent(), RegionGetCenter(RegionFromId(214)), 0.0, -1, 10, false);
@@ -16207,7 +16208,7 @@
                 TriggerAddEventUnitDied(gt_Zauberer2ndFormDeath, UnitRefFromVariable(&quot;gv_zauberer2ndForm&quot;));
             }
             //--------------------------------------------------------------------------------------------------
-            // Trigger: Hero Attacks Magical Demonic Sheep
+            // Trigger: Hero Moves Towards Magical Demonic Sheep
             //--------------------------------------------------------------------------------------------------
             bool gt_heroMovesTowardsMagicalDemonicSheep_Func (bool testConds, bool runActions) {
                 // Variable Declarations
@@ -16252,7 +16253,6 @@
                     if ((gv_livingDragonsFightingZauberer1stForm &lt;= 0)) {
                     gv_livingDragonsFightingZauberer1stForm = 0;
                 }
-            
                 libNtve_gf_ShowHideBossBar(false, lv_tP);
                 gv_zaubererFirstFormAlreadyDead[0] = false;
                 if ((gv_livingDragonsFightingZauberer2ndForm &lt;= 0)) {
@@ -16267,8 +16267,6 @@
                         UnitKill(UnitGroupLoopCurrent());
                     }
                     UnitGroupLoopEnd();
-            
-            
                     TriggerEnable(gt_TeleporttoBioDome, true);
                     TriggerEnable(gt_TeleporttoCreton, true);
                     UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(EventUnit())), c_messageAreaSubtitle, StringExternal(&quot;Param/Value/CCBC876F&quot;));
@@ -16283,7 +16281,6 @@
                  
                 return true;
             }
-            
                 return true;
             }
             //--------------------------------------------------------------------------------------------------
