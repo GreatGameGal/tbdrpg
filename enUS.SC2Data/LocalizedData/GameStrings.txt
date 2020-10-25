@@ -207,7 +207,7 @@ Behavior/Tooltip/Frozen=This unit is frozen.<n/><n/>Movement speed: 0<n/>Attack 
 Behavior/Tooltip/FrozenArmor=This unit is protected by Frozen Armor.<n/><n/>10% less damage will be taken<n/>All melee attackers will have a 5% chance to be frozen.
 Behavior/Tooltip/GrandAttackSpeedPotion=This unit has 40% faster attack speed
 Behavior/Tooltip/HealingWaters=This unit is gaining +5 Life Regeneration for being in the healing waters.
-Behavior/Tooltip/InLava=This unit loses <c val="FF0000">100</c> health a second and moves <c val="FF0000">4</c> times slower.
+Behavior/Tooltip/InLava=This unit loses <c val="FF0000">2000</c> health a second and moves <c val="FF0000">4</c> times slower.
 Behavior/Tooltip/Intelligence=Each Point:<n/><n/>-Increases spell damage by <c val="00FF00">2%</c><n/>-Increases splash damage by <c val="00FF00">1%</c><n/>-Increases max energy by <c val="00FF00">5</c><n/>-Increases energy regeneration by <c val="00FF00">0.25</c><n/>
 Behavior/Tooltip/LargeAttackSpeedPotion=This unit has 30% faster attack speed
 Behavior/Tooltip/LightningBloodLevel1=This Zealot is charging, allowing it to quickly close the distance with its target.
@@ -985,7 +985,7 @@ Param/Value/059953E4=Everything you have ever killed.<n/>All the life that you h
 Param/Value/05FD217C=Return to Felix
 Param/Value/062C0495=Small Health Potion Used
 Param/Value/071F67CE=Alpha Srepti
-Param/Value/074636AE=Ascendant Zauberer
+Param/Value/074636AE=Draconic Zauberer
 Param/Value/084751AF=Your dragon has been revived for 
 Param/Value/0848ECBA=Risdak
 Param/Value/08D78300=Greed is Good
@@ -1195,7 +1195,7 @@ Param/Value/3FDA4756=
 Param/Value/401F8A01=Relamy
 Param/Value/4058E6DB=Alpha Srepti
 Param/Value/4059B14F=<c val="408080">Reward:</c> Basic Armor
-Param/Value/40D5A933=Defense +.5
+Param/Value/40D5A933=Defense +.25
 Param/Value/41120C2F=Reset Stats
 Param/Value/4156CCA3=Start
 Param/Value/42B004B8=The energies from the crystals fizzles out your portal.
@@ -1308,7 +1308,7 @@ Param/Value/55A4A235=For each armor point your dragon has, he will take 1% less 
 Param/Value/5625DC8F=<c val="FFFF00">!</c>
 Param/Value/565F98A7=Movement Speed +1.0%
 Param/Value/569516A0=If you would like you reset your talents, you can simply type:<n/><n/>-reset talents
-Param/Value/56A8C6FF=Ascendant Zauberer
+Param/Value/56A8C6FF=Draconic Zauberer
 Param/Value/56AABACD=Grand Health Potion Used
 Param/Value/56B61472=Large Health Potion Used
 Param/Value/57030FBB=<c val="FFFF00">?</c>
@@ -1362,7 +1362,7 @@ Param/Value/61D2B86E=Destroy Zauberer's Statue
 Param/Value/6263C6BE=________________________________________________________
 Param/Value/627202CB=Return to Risdak
 Param/Value/62B0BB79=The Basics: Healing I
-Param/Value/62B8B3DD=Ascendant Zauberer
+Param/Value/62B8B3DD=Draconic Zauberer
 Param/Value/63058EEE=
 Param/Value/6330997A=Health is Full
 Param/Value/6352165E=For if it were ever to fall into the wrong hands,
@@ -1527,7 +1527,7 @@ Param/Value/8842B603=Reborn
 Param/Value/88FA96CE=A dragon? I thought you guys were all destroyed by Zauberer. Well I am definently glad that you are here. I need you to destroy those Odvratan that keep wondering around this forest.
 Param/Value/890BD894=
 Param/Value/89553942=<c val="408080">Recommended Level:</c> 1+
-Param/Value/8984FD5F=Ascendant Zauberer
+Param/Value/8984FD5F=Draconic  Zauberer
 Param/Value/8996F279=Extinction
 Param/Value/899DC0A4=Created By: Hero (Matt Kelly)
 Param/Value/89D4B089=<c val="408080">Recommended Level:</c> 15+
@@ -1850,7 +1850,7 @@ Param/Value/DBCFC935=6:00
 Param/Value/DBE25CDC=Destroy 4th Crystal of Venadas
 Param/Value/DCC6C75B=Grand Health Potion Used
 Param/Value/DD307554=Small Health Potion Used
-Param/Value/DDDE08EE=<c val="FF0000">YOU NEED TO BE CLOSE TO A SHOP TO SELL AN ITEM.</c>
+Param/Value/DDDE08EE=There is no shop nearby to sell your item  to.
 Param/Value/DDE5287F=!
 Param/Value/DE081D59=<c val="408080">Quest Name:</c> The Basics I<n/><c val="408080">Details:</c> If you want to survive in the world of Celesta you are first going to need to learn how to equip yourself.<n/><c val="408080">Reward:</c> Basic Armor<n/><c val="408080">Recommended Level:</c> 1+
 Param/Value/DE089EDD= / 100 )

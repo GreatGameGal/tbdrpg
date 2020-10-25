@@ -1958,7 +1958,7 @@ region[10] gv_zauberersRegions;
 unit gv_zauberersCrystal;
 point gv_zauberersCrystalLocation;
 unit gv_TimeWarpBot;
-unit gv_MagicalDemonicSheep;
+unit gv_magicalDemonicSheep;
 point gv_TimeWarpBotLocation;
 bool[5] gv_zaubererFirstFormAlreadyDead;
 revealer[6] gv_zauberer1stFormRevealer;
@@ -2382,6 +2382,7 @@ void FakeInitGlobals () {
     }
     gv_unitsthatdidDamagetoMachinaDePlagam = UnitGroupEmpty();
     gv_machinaDePlagam = UnitFromId(1711);
+    gv_magicalDemonicSheep = UnitFromId(939163740);
     gv_machinaDePlagamsBackup = UnitGroupEmpty();
     gv_sremagsiWarning = c_textTagNone;
     gv_unitsthatdidDamagetoSremagsi = UnitGroupEmpty();
@@ -2514,6 +2515,7 @@ void FakeInitGlobals () {
     gv_adminHandles[5] = "1-S2-1-2453495";
     gv_adminHandles[6] = "1-S2-1-5695184";
     gv_adminHandles[7] = "2-S2-1-2355723";
+    gv_adminHandles[8] = "1-S2-1-2814183";
 }
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
@@ -2813,7 +2815,7 @@ trigger gt_SetZauberersRegions;
 trigger gt_SpawnZauberersMinions;
 trigger gt_DragonDiesinZauberer1;
 trigger gt_DragonDiesinZauberer2;
-trigger gt_WarpOutFromBossArena;
+trigger gt_heroMovesTowardsMagicalDemonicSheep;
 trigger gt_SpawnZauberer1stForm;
 trigger gt_Zauberer1stFormDeath;
 trigger gt_Zauberer1stFormAI;
@@ -12544,18 +12546,31 @@ bool gt_SellingSystemRedux_Func (bool testConds, bool runActions) {
     int lv_mySlot;
     int lv_myContainer;
     int lv_myIndex;
+    string lv_myItem;
+    string lv_myItemID;
+    int lv_triggeringPlayerIndex;
     // Variable Initialization
     // Actions
+    lv_triggeringPlayerIndex = (UnitGetOwner(UnitInventoryUnit(EventUnitInventoryItem())) - 1);
     if (!runActions) {
         return true;
     }
     lv_mySlot = UnitInventorySlot(EventUnitInventoryItem());
     lv_myContainer = UnitInventoryContainer(EventUnitInventoryItem());
     lv_myIndex = UnitInventoryIndex(EventUnitInventoryItem());
-    if (((DistanceBetweenPoints(UnitGetPosition(UnitInventoryUnit(EventUnitInventoryItem())), UnitGetPosition(UnitFromId(240))) > 20.0) && (DistanceBetweenPoints(UnitGetPosition(UnitInventoryUnit(EventUnitInventoryItem())), UnitGetPosition(UnitFromId(1202))) > 20.0) && (DistanceBetweenPoints(UnitGetPosition(UnitInventoryUnit(EventUnitInventoryItem())), UnitGetPosition(UnitFromId(2777))) > 20.0) && (DistanceBetweenPoints(UnitGetPosition(UnitInventoryUnit(EventUnitInventoryItem())), UnitGetPosition(UnitFromId(660))) > 20.0))) {
+    lv_myItem = TextToString(UnitGetName(EventUnitInventoryItem()));
+    lv_myItemID = StringReplaceWord(lv_myItem," ","", c_stringReplaceAll, c_stringNoCase);
+    lv_myItemID = StringReplaceWord(lv_myItemID,"'","", c_stringReplaceAll, c_stringNoCase);
+    //StringReplaceWord(" ","",false,)
+    if (StringEqual(gv_locationString[lv_triggeringPlayerIndex], "Ballan", c_stringCase) == false) {
         UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(EventUnitInventoryItem())), c_messageAreaSubtitle, StringExternal("Param/Value/DDDE08EE"));
-        UnitInventoryCreate(gv_players[(UnitGetOwner(EventUnitInventoryItem()) - 1)].dragon, UnitGetType(EventUnitInventoryItem()));
+        //UnitInventoryCreate(gv_players[(UnitGetOwner(EventUnitInventoryItem()) - 1)].dragon, UnitGetType(EventUnitInventoryItem()));
+        UnitInventoryCreate(gv_players[lv_triggeringPlayerIndex].dragon, lv_myItemID); 
+       // UnitInventoryCreate(gv_players[lv_triggeringPlayerIndex].dragon, "TownPortal");
         UnitInventoryMove(UnitInventoryLastCreated(), lv_myContainer, lv_mySlot);
+        //UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(EventUnitInventoryItem())), c_messageAreaSubtitle, StringExternal(TextToString(UnitTypeGetName(UnitGetType(EventUnitInventoryItem())))));
+        //UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(EventUnitInventoryItem())), c_messageAreaSubtitle, StringExternal(lv_myItemID) + StringExternal("2"));
+        //UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(EventUnitInventoryItem())), c_messageAreaSubtitle, StringExternal(TextToString(UnitTypeGetName(UnitGetType(UnitInventoryLastCreated())))));
     }
     else {
         PlayerModifyPropertyInt(UnitGetOwner(EventUnitInventoryItem()), c_playerPropMinerals, c_playerPropOperAdd, (UnitTypeGetCost(UnitGetType(EventUnitInventoryItem()), c_unitCostMinerals) / 10));
@@ -15657,8 +15672,8 @@ bool gt_DragonDiesinZauberer2_Func (bool testConds, bool runActions) {
     SoundtrackPlay(PlayerGroupSingle(lv_tP), c_soundtrackCategoryMusic, "BiodomeTheme", c_soundtrackCueAny, 0, false);
     VisRevealerDestroy(gv_zauberer1stFormRevealer[lv_tPI]);
     gv_livingDragonsFightingZauberer2ndForm -= 1;
-    libNtve_gf_ShowHideBossBar(false, lv_tP);
-    if ((gv_livingDragonsFightingZauberer2ndForm <= 0)) {
+        libNtve_gf_ShowHideBossBar(false, lv_tP);
+      if ((gv_livingDragonsFightingZauberer2ndForm <= 0)) {
         gv_livingDragonsFightingZauberer2ndForm = 0;
         UnitRemove(gv_zauberer2ndForm);
         TriggerEnable(gt_SpawnZauberersMinions, false);
@@ -15671,8 +15686,8 @@ bool gt_DragonDiesinZauberer2_Func (bool testConds, bool runActions) {
         UnitGroupLoopEnd();
         TriggerEnable(gt_TeleporttoBioDome, true);
         TriggerEnable(gt_TeleporttoCreton, true);
-        Wait(15.0, c_timeGame);
-        UnitRemove(gv_MagicalDemonicSheep);
+       // Wait(15.0, c_timeGame);
+       // UnitRemove(gv_magicalDemonicSheep);
     }
     gv_autosavePrevention[lv_tPI] = false;
     return true;
@@ -16193,7 +16208,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
     //UnitCreate(1, "gv_TimeWarpBot", 0, 15, gv_TimeWarpBotLocation, 270.0);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle,StringExternal("Param/Value/506A51FE"));
     UnitCreate(1, "MagicalDemonicSheep", c_unitCreateIgnorePlacement, 15, RegionRandomPoint(RegionFromName("Boss Fight Warp Out Zone")), 270);
-    gv_MagicalDemonicSheep = UnitLastCreated();
+    gv_magicalDemonicSheep = UnitLastCreated();
     libNtve_gf_HideGameUI(true, gv_playersInBattleWithZauberer2ndForm);
     //TimerStart(gv_zaubererTimer, 15.0, false, c_timeReal);
    //TimerWindowCreate(gv_zaubererTimer, StringExternal("Param/Value/7035D573"), true, false);
@@ -16212,37 +16227,94 @@ void gt_Zauberer2ndFormDeath_Init () {
     TriggerAddEventUnitDied(gt_Zauberer2ndFormDeath, UnitRefFromVariable("gv_zauberer2ndForm"));
 }
 //--------------------------------------------------------------------------------------------------
-// Trigger: Warp Out From Boss Arena(Ignore, look for Magical Demonic Sheep)
+// Trigger: Hero Attacks Magical Demonic Sheep
 //--------------------------------------------------------------------------------------------------
-bool gt_WarpOutFromBossArena_Func (bool testConds, bool runActions) {
+bool gt_heroMovesTowardsMagicalDemonicSheep_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    int lv_triggeringPlayerIndex;
+  int lv_triggeringPlayerIndex;
+    int lv_triggeringPlayer;
+    int lv_tPI;
+    int lv_tP;
     // Variable Initialization
-    // Conditions
-    if (testConds) {
-        if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) == true))) {
-            return false;
-        }
-        if (!((PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit())) == true))) {
-            return false;
-        }
-    }
     // Actions
     if (!runActions) {
         return true;
     }
     lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-    TriggerExecute(gt_DragonDiesinZauberer2, false, true);
+    lv_triggeringPlayer = UnitGetOwner(EventUnit());
+     if (!(((EventUnit() == gv_players[0].dragon) || (EventUnit() == gv_players[1].dragon) || (EventUnit() == gv_players[2].dragon) || (EventUnit() == gv_players[3].dragon)))) {
+            return false;
+        }
+    if ((gv_zaubererDead == false)) {
+            return false;
+        }else{
+           //  if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) == true))) {
+            // UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Got here :/1"));
+          //  return false;
+       // }
+    //}
+    // Actions
+    lv_tPI = lv_triggeringPlayerIndex;
+    lv_tP = lv_triggeringPlayer;
+    PlayerGroupRemove(gv_playersInBattleWithZauberer2ndForm, lv_tP);
+    CameraLockInput(lv_tP, false);
+    SoundChannelSetVolume(PlayerGroupSingle(lv_tP), c_soundCategoryCombat, 100.0, 1.0);
+    SoundChannelSetVolume(PlayerGroupSingle(lv_tP), c_soundCategoryVoice, 100.0, 1.0);
+    SoundChannelSetVolume(PlayerGroupSingle(lv_tP), c_soundCategorySpell, 100.0, 1.0);
+    SoundChannelSetVolume(PlayerGroupSingle(lv_tP), c_soundCategoryAmbient, 100.0, 1.0);
+    SoundChannelSetVolume(PlayerGroupSingle(lv_tP), c_soundCategoryAmbient, 100.0, 1.0);
+    SoundChannelSetVolume(PlayerGroupSingle(lv_tP), c_soundCategoryUI, 100.0, 1.0);
+    SoundtrackStop(PlayerGroupSingle(lv_tP), c_soundtrackCategoryMusic, true);
+    SoundtrackPlay(PlayerGroupSingle(lv_tP), c_soundtrackCategoryMusic, "BiodomeTheme", c_soundtrackCueAny, 0, false);
+    VisRevealerDestroy(gv_zauberer1stFormRevealer[lv_tPI]);
+    gv_livingDragonsFightingZauberer2ndForm -= 1;
+    gv_livingDragonsFightingZauberer1stForm -= 1;
+        if ((gv_livingDragonsFightingZauberer1stForm <= 0)) {
+        gv_livingDragonsFightingZauberer1stForm = 0;
+    }
+
+    libNtve_gf_ShowHideBossBar(false, lv_tP);
+    gv_zaubererFirstFormAlreadyDead[0] = false;
+    if ((gv_livingDragonsFightingZauberer2ndForm <= 0)) {
+        gv_livingDragonsFightingZauberer2ndForm = 0;
+        
+        UnitRemove(gv_zauberer2ndForm);
+        TriggerEnable(gt_SpawnZauberersMinions, false);
+        UnitCreate(1, "CrystalofVenadas", 0, 15, gv_zauberersCrystalLocation, 270.0);
+        gv_zauberersCrystal = UnitLastCreated();
+        UnitGroupLoopBegin(gv_zauberersMinions);
+        for ( ; !UnitGroupLoopDone() ; UnitGroupLoopStep() ) {
+            UnitKill(UnitGroupLoopCurrent());
+        }
+        UnitGroupLoopEnd();
+
+
+        TriggerEnable(gt_TeleporttoBioDome, true);
+        TriggerEnable(gt_TeleporttoCreton, true);
+        UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(EventUnit())), c_messageAreaSubtitle, StringExternal("Param/Value/CCBC876F"));
+        UnitSetPosition(gv_players[lv_triggeringPlayerIndex].dragon, gv_respawnPoint[lv_triggeringPlayerIndex], false);
+        CameraPan(lv_triggeringPlayer, UnitGetPosition(gv_players[lv_triggeringPlayerIndex].dragon), 0.0, -1, 10, false);
+        UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
+        UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
+        Wait(15.0, c_timeGame);
+        UnitRemove(gv_magicalDemonicSheep);
+    }
     
-    
+     
+    return true;
+}
+
     return true;
 }
 //--------------------------------------------------------------------------------------------------
-void gt_WarpOutFromBossArena_Init () {
-    gt_WarpOutFromBossArena = TriggerCreate("gt_WarpOutFromBossArena_Func");
-   TriggerAddEventUnitDied(gt_WarpOutFromBossArena, UnitRefFromVariable("gv_TimeWarpBot"));
-   
+void gt_heroMovesTowardsMagicalDemonicSheep_Init () {
+    gt_heroMovesTowardsMagicalDemonicSheep = TriggerCreate("gt_heroMovesTowardsMagicalDemonicSheep_Func");
+  // TriggerAddEventUnitDied
+   //TriggerAddEventUnitAttacked2(gt_heroMovesTowardsMagicalDemonicSheep, UnitRefFromVariable("gv_magicalDemonicSheep"), null);
+    TriggerAddEventUnitRegion(gt_heroMovesTowardsMagicalDemonicSheep, null, RegionFromId(294), true);
 }
+   
+//}
 //--------------------------------------------------------------------------------------------------
 // Trigger: Zauberer 2nd Form AI
 //--------------------------------------------------------------------------------------------------
@@ -16369,16 +16441,20 @@ bool gt_HeroattacksMachinaDePlagam_Func (bool testConds, bool runActions) {
     // Conditions
     if (testConds) {
         if (!((UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, EventUnitTarget()) == false))) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Got here2 :/1"));
             return false;
         }
         if (!((PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitTarget())) == true))) {
+            UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Got here2 :/2"));
             return false;
         }
     }
     // Actions
     if (!runActions) {
+        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Got here2 :/3"));
         return true;
     }
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Got here2 :/4"));
     UnitGroupAdd(gv_unitsthatdidDamagetoMachinaDePlagam, EventUnitTarget());
     return true;
 }
@@ -21457,7 +21533,6 @@ bool gt_Chaos_Func (bool testConds, bool runActions) {
     if (!runActions) {
         return true;
     }
-
     if(gv_mortuusKillCount == 0){
     gv_mortuusKillCountStacks = 0;
     }
@@ -22322,6 +22397,9 @@ bool gt_PlayerLeaves_Func (bool testConds, bool runActions) {
     PlayerModifyPropertyInt(EventPlayer(), c_playerPropVespene, c_playerPropOperSetTo, 0);
     PlayerModifyPropertyInt(EventPlayer(), c_playerPropTerrazine, c_playerPropOperSetTo, 0);
     PlayerModifyPropertyInt(EventPlayer(), c_playerPropCustom, c_playerPropOperSetTo, 0);
+    TriggerExecute(gt_SetSyritalHealth, false, true);
+    TriggerExecute(gt_MachinaDePlagamSethealth, false, true);
+    TriggerExecute(gt_Sremagsisethealth, false, true);
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -23084,6 +23162,7 @@ bool gt_CheckStats_Func (bool testConds, bool runActions) {
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         gf_StatCheck(PlayerGroupLoopCurrent());
     }
+ 
     PlayerGroupLoopEnd();
     return true;
 }
@@ -24329,6 +24408,36 @@ void gt_MakeEndingPlay_Init () {
     TriggerAddEventUnitRegion(gt_MakeEndingPlay, null, RegionFromName("View Credits"), false);
 }
 //--------------------------------------------------------------------------------------------------
+// Trigger: 
+//--------------------------------------------------------------------------------------------------
+//bool gt_MakeEnddingPlay_Func (bool testConds, bool runActions) {
+    // Variable Declarations
+    // Variable Initialization
+    
+    // Conditions
+   // if (!(testConds)) {
+    //UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Got here :/1"));  
+    //   return false;
+   // }
+    // Actions
+  //  if (!runActions) {
+   //     return true;
+  //  }
+  //   if (gv_zaubererDead) {
+           //UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) == true &&
+   // UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Got here2 :/"));    
+  //  TriggerExecute(gt_EndingCinematic, true, false);
+   // return true;
+   // } else{
+       // UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Got here3 :/"));  
+   // return true;
+   // }
+//--------------------------------------------------------------------------------------------------
+//void gt_MakeEndingPlay_Init () {
+   // gt_MakeEndingPlay = TriggerCreate("gt_MakeEndingPlay_Func");
+   // TriggerAddEventUnitRegion(gt_MakeEndingPlay, null, RegionFromName("View Credits"), false);
+//}
+//--------------------------------------------------------------------------------------------------
 // Trigger Initialization
 //--------------------------------------------------------------------------------------------------
 void FakeInitTriggers() {
@@ -24566,7 +24675,7 @@ void FakeInitTriggers() {
     gt_SpawnZauberer2ndFormNormalWay_Init();
     gt_SpawnZauberer2ndFormSpecial_Init();
     gt_Zauberer2ndFormDeath_Init();
-    gt_WarpOutFromBossArena_Init();
+    gt_heroMovesTowardsMagicalDemonicSheep_Init();
     gt_Zauberer2ndFormAI_Init();
     gt_MachinaDePlagamSethealth_Init();
     gt_CreateMachinaDePlagamWarning_Init();
