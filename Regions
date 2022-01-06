@@ -1953,8 +1953,8 @@
     <region id="294">
         <name value="Boss Fight Warp Out Zone"/>
         <shape type="circle">
-            <center value="230.8833,33.1958"/>
-            <radius value="1.64"/>
+            <center value="230.932,33.8745"/>
+            <radius value="0.64"/>
         </shape>
     </region>
     <region id="293">
