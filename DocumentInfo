@@ -30,11 +30,11 @@
     </Screenshot>
     <ScreenshotHowToPlay>
         <File>
-            <Value>Screenshot2012-08-17 01_21_05.jpg</Value>
-            <Value>Screenshot2012-08-17 01_21_27.jpg</Value>
-            <Value>Screenshot2012-08-17 01_21_40.jpg</Value>
-            <Value>Screenshot2012-08-17 01_21_52.jpg</Value>
-            <Value>Screenshot2012-08-17 01_23_50.jpg</Value>
+            <Value>Screenshots\Screenshot2012-08-17 01_21_05.jpg</Value>
+            <Value>Screenshots\Screenshot2012-08-17 01_21_27.jpg</Value>
+            <Value>Screenshots\Screenshot2012-08-17 01_21_40.jpg</Value>
+            <Value>Screenshots\Screenshot2012-08-17 01_21_52.jpg</Value>
+            <Value>Screenshots\Screenshot2012-08-17 01_23_50.jpg</Value>
         </File>
         <CaptionId>
             <Value>1</Value>
