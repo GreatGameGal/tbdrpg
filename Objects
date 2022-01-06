@@ -15139,14 +15139,14 @@
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
-    <ObjectCamera Id="2783" Position="26.2744,100.3195,0" Rotation="0.3842" Scale="1,1,1" Name="Unknown Camera" Color="0,0,0,0" CameraTarget="26.2744,100.3195">
+    <ObjectCamera Id="2783" Position="26.2744,100.3195,0" Rotation="0.3847" Scale="1,1,1" Name="Unknown Camera" Color="0,0,0,0" CameraTarget="26.2744,100.3195">
         <CameraValue Index="FieldOfView" Value="27.7998"/>
         <CameraValue Index="NearClip" Value="0.0998"/>
         <CameraValue Index="FarClip" Value="600"/>
         <CameraValue Index="ShadowClip" Value="75"/>
         <CameraValue Index="Distance" Value="21.111"/>
         <CameraValue Index="Pitch" Value="39.4953"/>
-        <CameraValue Index="Yaw" Value="22.0312"/>
+        <CameraValue Index="Yaw" Value="22.0593"/>
         <CameraValue Index="FocalDepth" Value="8"/>
         <CameraValue Index="FalloffEnd" Value="8"/>
     </ObjectCamera>
@@ -15447,9 +15447,6 @@
     <ObjectUnit Id="2457" Variation="3" Position="174,17.5,0" Scale="1,1,1" UnitType="MineralField"/>
     <ObjectUnit Id="3952" Position="91.5,84.5,0" Rotation="5.3618" Scale="1,1,1" UnitType="PathingBlocker1x1">
         <Flag Index="ForcePlacement" Value="1"/>
-    </ObjectUnit>
-    <ObjectUnit Id="939163740" Position="10.5698,8.4,0" Rotation="2.561" Scale="1,1,1" UnitType="MagicalDemonicSheep">
-        <Flag Index="UnitHidden" Value="1"/>
     </ObjectUnit>
     <ObjectUnit Id="3917" Position="30.8198,209.3398,0" Rotation="0.6665" Scale="1,1,1" UnitType="Mana" Player="14"/>
     <ObjectUnit Id="2511" Position="41.6306,145.7458,0" Rotation="1.329" Scale="1,1,1" UnitType="Felix" Player="14"/>
