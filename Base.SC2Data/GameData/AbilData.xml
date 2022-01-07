@@ -352,7 +352,7 @@
         <ProgressButtonArray index="Cast" value="FrostSpike"/>
         <ProgressButtonArray index="Channel" value="FrostSpike"/>
         <ProgressButtonArray index="Finish" value="FrostSpike"/>
-        <LevelButtonImage value="Frost_Spike.tga"/>
+        <LevelButtonImage value="Images\Frost_Spike.tga"/>
         <CmdButtonArray index="Execute" DefaultButtonFace="FrostSpike"/>
     </CAbilEffectTarget>
     <CAbilEffectTarget id="Inferno">

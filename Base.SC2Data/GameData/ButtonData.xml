@@ -492,7 +492,7 @@
         <Icon value="Assets\Textures\decal_protoss_0037_01.dds"/>
     </CButton>
     <CButton id="FrostSpike">
-        <Icon value="Frost_Spike.tga"/>
+        <Icon value="Images\Frost_Spike.tga"/>
     </CButton>
     <CButton id="AbsoluteZero">
         <Icon value="Dragon Songs\btn-custom-zerg-zerglot.dds"/>
@@ -522,7 +522,7 @@
         <Icon value="Dragon Songs\btn-ability-zerg-disguise-red-color.dds"/>
     </CButton>
     <CButton id="LearnFrostSpike">
-        <Icon value="Frost_Spike.tga"/>
+        <Icon value="Images\Frost_Spike.tga"/>
     </CButton>
     <CButton id="MediumAttackSpeedPotion">
         <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
