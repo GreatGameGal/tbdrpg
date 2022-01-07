@@ -255,74 +255,32 @@ void lib1_InitVariables () {
     for (init_i = 0; init_i <= 100; init_i += 1) {
         for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentTreeButton[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentButtonGlow[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentButtonLabelBackground[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentButtonLabel[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_maxRank[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_tree[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_column[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_row[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentType[init_i][init_j] = lib1_ge_TalentType_Passive;
         }
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_mainTalentDialog[init_i] = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 3; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
-            lib1_gv_subTalentDialog[init_i][init_j] = c_invalidDialogId;
-        }
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_colorScheme[init_i] = "";
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_pointsPerTier[init_i] = lib1_ge_PointsPerTier__5;
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_availablePointsLabel[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_availablePointsDialog[init_i] = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_closeTalentTreeButton[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 10; init_i += 1) {
         for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentBuildString[init_i][init_j] = "";
+        }
+    }
+    for (init_i = 0; init_i <= 16; init_i += 1) {
+        lib1_gv_mainTalentDialog[init_i] = c_invalidDialogId;
+        lib1_gv_colorScheme[init_i] = "";
+        lib1_gv_pointsPerTier[init_i] = lib1_ge_PointsPerTier__5;
+        lib1_gv_availablePointsLabel[init_i] = c_invalidDialogControlId;
+        lib1_gv_availablePointsDialog[init_i] = c_invalidDialogId;
+        lib1_gv_closeTalentTreeButton[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        for (init_j = 0; init_j <= 16; init_j += 1) {
+            lib1_gv_subTalentDialog[init_i][init_j] = c_invalidDialogId;
         }
     }
 }
