@@ -17,7 +17,7 @@
         <Select value="Sequential"/>
     </CSound>
     <CSound id="DragonDeath">
-        <AssetArray File="Dragon Death.ogg" FacialGroup=""/>
+        <AssetArray File="Sound Effects\Dragon Death.ogg" FacialGroup=""/>
     </CSound>
     <CSound id="EndingTheme" parent="MUSIC">
         <AssetArray File="Dragon Songs\Awakened from Cryosleep - RetromanOMG - Ending Theme.ogg" LoopCount="-1" FacialGroup="">
@@ -44,7 +44,7 @@
         <Select value="Sequential"/>
     </CSound>
     <CSound id="IceDragonsTheme" parent="MUSIC">
-        <AssetArray File="Crystal Palace Rebuild.ogg" LoopCount="-1" FacialGroup="">
+        <AssetArray File="Sound Effects\Crystal Palace Rebuild.ogg" LoopCount="-1" FacialGroup="">
             <SyncPoints value="0"/>
         </AssetArray>
         <Select value="Sequential"/>
@@ -125,7 +125,7 @@
         <Volume value="-8.000000,-8.000000"/>
     </CSound>
     <CSound id="LevelUp">
-        <AssetArray File="Level Up Sound.wav" FacialGroup=""/>
+        <AssetArray File="Sound Effects\Level Up Sound.wav" FacialGroup=""/>
     </CSound>
     <CSound id="InfestationTheme" parent="MUSIC">
         <AssetArray File="Dragon Songs\Infestation Theme - Dr Meowmix.ogg" LoopCount="-1" FacialGroup="">
@@ -163,7 +163,7 @@
         <Volume value="-5.000000,-3.000000"/>
     </CSound>
     <CSound id="VAZaubererBDWasteland">
-        <AssetArray File="Level Up Sound.wav" FacialGroup=""/>
+        <AssetArray File="Sound Effects\Level Up Sound.wav" FacialGroup=""/>
     </CSound>
     <CSound id="WastelandTheme" parent="MUSIC">
         <AssetArray File="Dragon Songs\Wasteland Theme.ogg" LoopCount="-1" FacialGroup="">
@@ -172,7 +172,7 @@
         <Select value="Sequential"/>
     </CSound>
     <CSound id="SyritalBattleTheme" parent="MUSIC">
-        <AssetArray File="Syrital Loop.ogg" LoopCount="-1" FacialGroup="">
+        <AssetArray File="Dragon Songs\Syrital Loop.ogg" LoopCount="-1" FacialGroup="">
             <SyncPoints value="0"/>
         </AssetArray>
         <Select value="Sequential"/>

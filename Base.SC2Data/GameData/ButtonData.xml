@@ -492,13 +492,13 @@
         <Icon value="Assets\Textures\decal_protoss_0037_01.dds"/>
     </CButton>
     <CButton id="FrostSpike">
-        <Icon value="Frost_Spike.tga"/>
+        <Icon value="Images\Frost_Spike.tga"/>
     </CButton>
     <CButton id="AbsoluteZero">
         <Icon value="Dragon Songs\btn-custom-zerg-zerglot.dds"/>
     </CButton>
     <CButton id="GrandAttackSpeedPotion">
-        <Icon value="BTNPotionOfOmniscience.dds"/>
+        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="GrandOrbofAnger">
         <Icon value="Assets\Textures\orbittech.dds"/>
@@ -510,7 +510,7 @@
         <Icon value="Assets\Textures\btn-ability-swarm-kerrigan-crushinggrip.dds"/>
     </CButton>
     <CButton id="LargeAttackSpeedPotion">
-        <Icon value="BTNPotionOfOmniscience.dds"/>
+        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="LargeHealingOrb">
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
@@ -522,10 +522,10 @@
         <Icon value="Dragon Songs\btn-ability-zerg-disguise-red-color.dds"/>
     </CButton>
     <CButton id="LearnFrostSpike">
-        <Icon value="Frost_Spike.tga"/>
+        <Icon value="Images\Frost_Spike.tga"/>
     </CButton>
     <CButton id="MediumAttackSpeedPotion">
-        <Icon value="BTNPotionOfOmniscience.dds"/>
+        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="16M04N19E01R01">
         <Icon value="Dragon Songs\btn-upgrade-zerg-groundcarapace-level1-plus.dds"/>
@@ -555,7 +555,7 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
     </CButton>
     <CButton id="SmallAttackSpeedPotion">
-        <Icon value="BTNPotionOfOmniscience.dds"/>
+        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="SpecialItems">
         <Icon value="Dragon Songs\btn-ability-protoss-wormhole-color.dds"/>
@@ -567,7 +567,7 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-seismicspines.dds"/>
     </CButton>
     <CButton id="TownPortal">
-        <Icon value="BTNInnerFire.dds"/>
+        <Icon value="Images\BTNInnerFire.dds"/>
     </CButton>
     <CButton id="UnbreakableArmor">
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
@@ -576,13 +576,13 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
     </CButton>
     <CButton id="SpecialPotions">
-        <Icon value="BTNPotionOfVampirism.dds"/>
+        <Icon value="Images\BTNPotionOfVampirism.dds"/>
     </CButton>
     <CButton id="HealthPotions">
-        <Icon value="BTNPotionRed.dds"/>
+        <Icon value="Images\BTNPotionRed.dds"/>
     </CButton>
     <CButton id="EnergyPotions">
-        <Icon value="BTNPotionGreenSmall.dds"/>
+        <Icon value="Images\BTNPotionGreenSmall.dds"/>
     </CButton>
     <CButton id="Inferno">
         <Icon value="Assets\Textures\fireball_7.dds"/>
@@ -606,13 +606,13 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level2.dds"/>
     </CButton>
     <CButton id="GrandHealthPotion">
-        <Icon value="BTNPotionRed.dds"/>
+        <Icon value="Images\BTNPotionRed.dds"/>
     </CButton>
     <CButton id="LearnInferno">
         <Icon value="Assets\Textures\fireball_7.dds"/>
     </CButton>
     <CButton id="LargeHealthPotion">
-        <Icon value="BTNPotionRed.dds"/>
+        <Icon value="Images\BTNPotionRed.dds"/>
     </CButton>
     <CButton id="PurchaseDeadlyClaws">
         <Icon value="Assets\Textures\btn-upgrade-zerg-meleeattacks-level0.dds"/>
@@ -708,10 +708,10 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
     </CButton>
     <CButton id="SmallHealthPotion">
-        <Icon value="BTNPotionRed.dds"/>
+        <Icon value="Images\BTNPotionRed.dds"/>
     </CButton>
     <CButton id="MediumHealthPotion">
-        <Icon value="BTNPotionRed.dds"/>
+        <Icon value="Images\BTNPotionRed.dds"/>
     </CButton>
     <CButton id="SummonLavaMinions">
         <Icon value="Assets\Textures\archonsummoningcircle.dds"/>
@@ -876,7 +876,7 @@
         <Icon value="Assets\Textures\btn-upgrade-zerg-groundcarapace-level0.dds"/>
     </CButton>
     <CButton id="UsePotion">
-        <Icon value="BTNPotionRed.dds"/>
+        <Icon value="Images\BTNPotionRed.dds"/>
     </CButton>
     <CButton id="Vitality">
         <Icon value="Assets\Textures\icon-health-nobg.dds"/>
