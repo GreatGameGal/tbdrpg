@@ -452,15 +452,11 @@ void lib1_gf_UnlockTalentButton (int lp_player, int lp_tree, int lp_column, int 
     }
 }
 void lib1_gf_UnlockTalentTier (int lp_player, int lp_tree, int lp_tier) {
-    // Variable Declarations
-    int lv_buttonIndex;
-    // Variable Initialization
-    // Implementation
-    IntLoopBegin(1, lib1_gv_ofColumns[lp_player]);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        lib1_gf_UnlockTalentButton(lp_player, lp_tree, IntLoopCurrent(), lp_tier);
+    int i;
+
+    for ( i = 1; i <= lib1_gv_ofColumns[lp_player] ; i += 1 ) {
+        lib1_gf_UnlockTalentButton(lp_player, lp_tree, i, lp_tier);
     }
-    IntLoopEnd();
 }
 void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier) {
     int auto3120DF8A_val;
@@ -599,8 +595,6 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
         lib1_gv_subTalentDialog[3][lp_player] = DialogLastCreated();
         DialogSetPositionRelative(lib1_gv_subTalentDialog[3][lp_player], c_anchorTop, lib1_gv_mainTalentDialog[lp_player], c_anchorTop, 450, 200);
         DialogSetImageVisible(lib1_gv_subTalentDialog[3][lp_player], false);
-    }
-    else {
     }
 }
 void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
@@ -833,19 +827,10 @@ void lib1_gf_GrantTalentPoints (int lp_talentPoints, int lp_player) {
     libNtve_gf_SetDialogItemText(lib1_gv_availablePointsLabel[lp_player], IntToText(lib1_gv_availableTalentPoints[lp_player]), PlayerGroupAll());
 }
 void lib1_gf_DestroyTalentTree (int lp_player) {
-    int autoC59CCD7D_n;
-    int autoC59CCD7D_i;
-    int autoE6ACA13B_n;
-    int autoE6ACA13B_i;
-    int auto3D7D62F0_n;
-    int auto3D7D62F0_i;
-    // Variable Declarations
-    int lv_buttonTree;
-    int lv_buttonColumn;
-    int lv_buttonRow;
-    int lv_buttonIndex;
-    // Variable Initialization
-    // Implementation
+    int i;
+    int j;
+    int k;
+
     lib1_gv_buttonIndex[lp_player] = 0;
     lib1_gv_availableTalentPoints[lp_player] = 0;
     lib1_gv_spentTalentPoints[lp_player] = 0;
@@ -857,28 +842,21 @@ void lib1_gf_DestroyTalentTree (int lp_player) {
     DialogDestroy(lib1_gv_subTalentDialog[2][lp_player]);
     DialogDestroy(lib1_gv_subTalentDialog[3][lp_player]);
     DialogDestroy(lib1_gv_availablePointsDialog[lp_player]);
-    IntLoopBegin(1, 100);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player] = c_invalidDialogControlId;
-        lib1_gv_currentRank[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_maxRank[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_hasPrerequisite[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_isPrerequisite[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_prerequisiteComplete[IntLoopCurrent()][lp_player] = false;
+    for ( i=1; i <= 100; i += 1 ) {
+        lib1_gv_talentTreeButton[i][lp_player] = c_invalidDialogControlId;
+        lib1_gv_currentRank[i][lp_player] = 0;
+        lib1_gv_maxRank[i][lp_player] = 0;
+        lib1_gv_hasPrerequisite[i][lp_player] = 0;
+        lib1_gv_isPrerequisite[i][lp_player] = 0;
+        lib1_gv_prerequisiteComplete[i][lp_player] = false;
     }
-    IntLoopEnd();
-    autoC59CCD7D_n = lib1_gv_ofTrees[lp_player];
-    for (autoC59CCD7D_i = 1; autoC59CCD7D_i <= autoC59CCD7D_n; autoC59CCD7D_i += 1) {
-        lv_buttonTree += 1;
-        lv_buttonRow = 0;
-        autoE6ACA13B_n = lib1_gv_ofRows[lp_player];
-        for (autoE6ACA13B_i = 1; autoE6ACA13B_i <= autoE6ACA13B_n; autoE6ACA13B_i += 1) {
-            lv_buttonRow += 1;
-            lv_buttonColumn = 0;
-            auto3D7D62F0_n = lib1_gv_ofColumns[lp_player];
-            for (auto3D7D62F0_i = 1; auto3D7D62F0_i <= auto3D7D62F0_n; auto3D7D62F0_i += 1) {
-                lv_buttonColumn += 1;
-                lib1_gv_talentTreeButtonIndexTreeColumnRow[lv_buttonTree][lv_buttonColumn][lv_buttonRow][lp_player] = 0;
+    // i is tree.
+    for (i = 0; i < lib1_gv_ofTrees[lp_player]; i += 1) {
+        // j is row.
+        for (j = 0; j < lib1_gv_ofRows[lp_player]; j += 1) {
+            // k is column.
+            for (k = 0; k < lib1_gv_ofColumns[lp_player]; k += 1) {
+                lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][j][lp_player] = 0;
             }
         }
     }
@@ -1186,6 +1164,7 @@ void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
     int auto717EC17A_val;
     // Variable Declarations
     int lv_requiredPoints;
+    int i;
     // Variable Initialization
     // Implementation
     if ((lp_resetto == 101)) {
@@ -1199,14 +1178,13 @@ void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
     lib1_gv_pointsSpentinTree[1][lp_player] = 0;
     lib1_gv_pointsSpentinTree[2][lp_player] = 0;
     lib1_gv_pointsSpentinTree[3][lp_player] = 0;
-    IntLoopBegin(1, lib1_gv_buttonIndex[lp_player]);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((lib1_gv_talentUpgrade[IntLoopCurrent()][lp_player] != null)) {
-            libNtve_gf_SetUpgradeLevelForPlayer(lp_player, lib1_gv_talentUpgrade[IntLoopCurrent()][lp_player], 0);
+    for ( i = 1; i <= lib1_gv_buttonIndex[lp_player] ; i += 1 ) {
+        if ((lib1_gv_talentUpgrade[i][lp_player] != null)) {
+            libNtve_gf_SetUpgradeLevelForPlayer(lp_player, lib1_gv_talentUpgrade[i][lp_player], 0);
         }
-        lib1_gv_currentRank[IntLoopCurrent()][lp_player] = 0;
-        libNtve_gf_SetDialogItemText(lib1_gv_talentButtonLabel[IntLoopCurrent()][lp_player], (IntToText(lib1_gv_currentRank[IntLoopCurrent()][lp_player]) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lib1_gv_maxRank[IntLoopCurrent()][lp_player])), PlayerGroupAll());
-        lib1_gv_prerequisiteComplete[IntLoopCurrent()][lp_player] = false;
+        lib1_gv_currentRank[i][lp_player] = 0;
+        libNtve_gf_SetDialogItemText(lib1_gv_talentButtonLabel[i][lp_player], (IntToText(lib1_gv_currentRank[i][lp_player]) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lib1_gv_maxRank[i][lp_player])), PlayerGroupAll());
+        lib1_gv_prerequisiteComplete[i][lp_player] = false;
         auto70440042_val = lib1_gv_pointsPerTier[lp_player];
         if (auto70440042_val == lib1_ge_PointsPerTier__5) {
             lv_requiredPoints = 5;
@@ -1214,32 +1192,27 @@ void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
         else if (auto70440042_val == lib1_ge_PointsPerTier__10) {
             lv_requiredPoints = 10;
         }
-        else {
-        }
-        lv_requiredPoints = (lv_requiredPoints * (lib1_gv_row[IntLoopCurrent()][lp_player] - 1));
-        auto717EC17A_val = lib1_gv_talentType[IntLoopCurrent()][lp_player];
+        lv_requiredPoints = (lv_requiredPoints * (lib1_gv_row[i][lp_player] - 1));
+        auto717EC17A_val = lib1_gv_talentType[i][lp_player];
         if (auto717EC17A_val == lib1_ge_TalentType_Ability) {
-            lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], IntLoopCurrent(), lv_requiredPoints, lib1_gv_tree[IntLoopCurrent()][lp_player], lib1_gv_abilityLink[IntLoopCurrent()][lp_player], lib1_gv_buttonLink[IntLoopCurrent()][lp_player]);
+            lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[i][lp_player], i, lv_requiredPoints, lib1_gv_tree[i][lp_player], lib1_gv_abilityLink[i][lp_player], lib1_gv_buttonLink[i][lp_player]);
         }
         else if (auto717EC17A_val == lib1_ge_TalentType_Passive) {
-            lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], IntLoopCurrent(), lv_requiredPoints, lib1_gv_tree[IntLoopCurrent()][lp_player], lib1_gv_talentName[IntLoopCurrent()][lp_player], lib1_gv_tooltipDescriptionRaw[IntLoopCurrent()][lp_player], lib1_gv_currentRank[IntLoopCurrent()][lp_player], lib1_gv_multiplier[1][IntLoopCurrent()][lp_player], lib1_gv_multiplier[2][IntLoopCurrent()][lp_player]);
+            lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[i][lp_player], i, lv_requiredPoints, lib1_gv_tree[i][lp_player], lib1_gv_talentName[i][lp_player], lib1_gv_tooltipDescriptionRaw[i][lp_player], lib1_gv_currentRank[i][lp_player], lib1_gv_multiplier[1][i][lp_player], lib1_gv_multiplier[2][i][lp_player]);
+        }
+        if (((lib1_gv_row[i][lp_player] != 1) || (lib1_gv_hasPrerequisite[i][lp_player] != 0))) {
+            DialogControlSetEnabled(lib1_gv_talentTreeButton[i][lp_player], PlayerGroupAll(), false);
+            DialogControlSetVisible(lib1_gv_talentButtonGlow[i][lp_player], PlayerGroupAll(), false);
+            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[i][lp_player], PlayerGroupAll(), false);
+            DialogControlSetVisible(lib1_gv_talentButtonLabel[i][lp_player], PlayerGroupAll(), false);
         }
         else {
-        }
-        if (((lib1_gv_row[IntLoopCurrent()][lp_player] != 1) || (lib1_gv_hasPrerequisite[IntLoopCurrent()][lp_player] != 0))) {
-            DialogControlSetEnabled(lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-            DialogControlSetVisible(lib1_gv_talentButtonGlow[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-            DialogControlSetVisible(lib1_gv_talentButtonLabel[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-        }
-        else {
-            DialogControlSetEnabled(lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
-            DialogControlSetVisible(lib1_gv_talentButtonGlow[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
-            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
-            DialogControlSetVisible(lib1_gv_talentButtonLabel[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
+            DialogControlSetEnabled(lib1_gv_talentTreeButton[i][lp_player], PlayerGroupAll(), true);
+            DialogControlSetVisible(lib1_gv_talentButtonGlow[i][lp_player], PlayerGroupAll(), true);
+            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[i][lp_player], PlayerGroupAll(), true);
+            DialogControlSetVisible(lib1_gv_talentButtonLabel[i][lp_player], PlayerGroupAll(), true);
         }
     }
-    IntLoopEnd();
 }
 void lib1_gf_SetHeros (int lp_player, unit lp_hero) {
     // Implementation
