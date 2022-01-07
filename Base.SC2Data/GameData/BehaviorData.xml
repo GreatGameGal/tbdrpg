@@ -527,7 +527,7 @@
                 <Cooldown Link="AttackSpeedPotion"/>
             </Cost>
         </DamageResponse>
-        <InfoIcon value="BTNPotionOfOmniscience.dds"/>
+        <InfoIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="GreedIsGood">
         <Cost>
@@ -592,7 +592,7 @@
                 <Cooldown Link="AttackSpeedPotion"/>
             </Cost>
         </DamageResponse>
-        <InfoIcon value="BTNPotionOfOmniscience.dds"/>
+        <InfoIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="LargeHealingOrb">
         <InfoFlags index="Hidden" value="1"/>
@@ -635,7 +635,7 @@
                 <Cooldown Link="AttackSpeedPotion"/>
             </Cost>
         </DamageResponse>
-        <InfoIcon value="BTNPotionOfOmniscience.dds"/>
+        <InfoIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
     </CBehaviorBuff>
     <CBehaviorBuff id="NovaBehaviorController">
         <InfoFlags index="Hidden" value="1"/>
@@ -865,7 +865,7 @@
                 </Cost>
             </DeathResponse>
         </Modification>
-        <InfoIcon value="BTNPotionOfOmniscience.dds"/>
+        <InfoIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
         <Cost>
             <Charge Link="AttackSpeedPotion"/>
             <Cooldown Link="AttackSpeedPotion"/>

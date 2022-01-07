@@ -2691,7 +2691,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -2844,7 +2844,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -2924,7 +2924,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -3186,7 +3186,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -3414,7 +3414,7 @@
         <StatusBarFlags index="Cargo" value="0"/>
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
-        <UnitIcon value="BTNInnerFire.dds"/>
+        <UnitIcon value="Images\BTNInnerFire.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -3889,7 +3889,7 @@
         <StatusBarFlags index="Cargo" value="0"/>
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
-        <UnitIcon value="BTNPotionRed.dds"/>
+        <UnitIcon value="Images\BTNPotionRed.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -3909,7 +3909,7 @@
         <StatusBarFlags index="Cargo" value="0"/>
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
-        <UnitIcon value="BTNPotionRed.dds"/>
+        <UnitIcon value="Images\BTNPotionRed.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -4661,7 +4661,7 @@
         <StatusBarFlags index="Cargo" value="0"/>
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
-        <UnitIcon value="BTNPotionRed.dds"/>
+        <UnitIcon value="Images\BTNPotionRed.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -4681,7 +4681,7 @@
         <StatusBarFlags index="Cargo" value="0"/>
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
-        <UnitIcon value="BTNPotionRed.dds"/>
+        <UnitIcon value="Images\BTNPotionRed.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
