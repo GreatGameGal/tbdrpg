@@ -5699,7 +5699,7 @@ bool gt_SQ4PlayerTalkstoRisdak_Func (bool testConds, bool runActions) {
                 if ((UnitLevel(gv_players[(EventPlayer() - 1)].dragon) != 100)) {
                     gf_AddExperience(gv_players[(EventPlayer() - 1)].dragon, 3000.0);
                 }
-                UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(UnitGroupLoopCurrent())), c_messageAreaSubtitle, StringExternal("Param/Value/26171E78"));
+                UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/26171E78"));
                 gv_players[(EventPlayer() - 1)].quests.talking = false;
                 PingDestroy(gv_players[(EventPlayer() - 1)].quests.storyQuests[4].ping);
                 TriggerExecute(gt_SremagsiRespawn, true, false);
