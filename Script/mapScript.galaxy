@@ -255,74 +255,32 @@ void lib1_InitVariables () {
     for (init_i = 0; init_i <= 100; init_i += 1) {
         for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentTreeButton[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentButtonGlow[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentButtonLabelBackground[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentButtonLabel[init_i][init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_maxRank[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_tree[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_column[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_row[init_i][init_j] = 1;
-        }
-    }
-    for (init_i = 0; init_i <= 100; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentType[init_i][init_j] = lib1_ge_TalentType_Passive;
         }
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_mainTalentDialog[init_i] = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 3; init_i += 1) {
-        for (init_j = 0; init_j <= 16; init_j += 1) {
-            lib1_gv_subTalentDialog[init_i][init_j] = c_invalidDialogId;
-        }
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_colorScheme[init_i] = "";
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_pointsPerTier[init_i] = lib1_ge_PointsPerTier__5;
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_availablePointsLabel[init_i] = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_availablePointsDialog[init_i] = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 16; init_i += 1) {
-        lib1_gv_closeTalentTreeButton[init_i] = c_invalidDialogControlId;
     }
     for (init_i = 0; init_i <= 10; init_i += 1) {
         for (init_j = 0; init_j <= 16; init_j += 1) {
             lib1_gv_talentBuildString[init_i][init_j] = "";
+        }
+    }
+    for (init_i = 0; init_i <= 16; init_i += 1) {
+        lib1_gv_mainTalentDialog[init_i] = c_invalidDialogId;
+        lib1_gv_colorScheme[init_i] = "";
+        lib1_gv_pointsPerTier[init_i] = lib1_ge_PointsPerTier__5;
+        lib1_gv_availablePointsLabel[init_i] = c_invalidDialogControlId;
+        lib1_gv_availablePointsDialog[init_i] = c_invalidDialogId;
+        lib1_gv_closeTalentTreeButton[init_i] = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i <= 3; init_i += 1) {
+        for (init_j = 0; init_j <= 16; init_j += 1) {
+            lib1_gv_subTalentDialog[init_i][init_j] = c_invalidDialogId;
         }
     }
 }
@@ -494,15 +452,11 @@ void lib1_gf_UnlockTalentButton (int lp_player, int lp_tree, int lp_column, int 
     }
 }
 void lib1_gf_UnlockTalentTier (int lp_player, int lp_tree, int lp_tier) {
-    // Variable Declarations
-    int lv_buttonIndex;
-    // Variable Initialization
-    // Implementation
-    IntLoopBegin(1, lib1_gv_ofColumns[lp_player]);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        lib1_gf_UnlockTalentButton(lp_player, lp_tree, IntLoopCurrent(), lp_tier);
+    int i;
+
+    for ( i = 1; i <= lib1_gv_ofColumns[lp_player] ; i += 1 ) {
+        lib1_gf_UnlockTalentButton(lp_player, lp_tree, i, lp_tier);
     }
-    IntLoopEnd();
 }
 void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier) {
     int auto3120DF8A_val;
@@ -641,8 +595,6 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
         lib1_gv_subTalentDialog[3][lp_player] = DialogLastCreated();
         DialogSetPositionRelative(lib1_gv_subTalentDialog[3][lp_player], c_anchorTop, lib1_gv_mainTalentDialog[lp_player], c_anchorTop, 450, 200);
         DialogSetImageVisible(lib1_gv_subTalentDialog[3][lp_player], false);
-    }
-    else {
     }
 }
 void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
@@ -875,19 +827,10 @@ void lib1_gf_GrantTalentPoints (int lp_talentPoints, int lp_player) {
     libNtve_gf_SetDialogItemText(lib1_gv_availablePointsLabel[lp_player], IntToText(lib1_gv_availableTalentPoints[lp_player]), PlayerGroupAll());
 }
 void lib1_gf_DestroyTalentTree (int lp_player) {
-    int autoC59CCD7D_n;
-    int autoC59CCD7D_i;
-    int autoE6ACA13B_n;
-    int autoE6ACA13B_i;
-    int auto3D7D62F0_n;
-    int auto3D7D62F0_i;
-    // Variable Declarations
-    int lv_buttonTree;
-    int lv_buttonColumn;
-    int lv_buttonRow;
-    int lv_buttonIndex;
-    // Variable Initialization
-    // Implementation
+    int i;
+    int j;
+    int k;
+
     lib1_gv_buttonIndex[lp_player] = 0;
     lib1_gv_availableTalentPoints[lp_player] = 0;
     lib1_gv_spentTalentPoints[lp_player] = 0;
@@ -899,28 +842,21 @@ void lib1_gf_DestroyTalentTree (int lp_player) {
     DialogDestroy(lib1_gv_subTalentDialog[2][lp_player]);
     DialogDestroy(lib1_gv_subTalentDialog[3][lp_player]);
     DialogDestroy(lib1_gv_availablePointsDialog[lp_player]);
-    IntLoopBegin(1, 100);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player] = c_invalidDialogControlId;
-        lib1_gv_currentRank[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_maxRank[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_hasPrerequisite[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_isPrerequisite[IntLoopCurrent()][lp_player] = 0;
-        lib1_gv_prerequisiteComplete[IntLoopCurrent()][lp_player] = false;
+    for ( i=1; i <= 100; i += 1 ) {
+        lib1_gv_talentTreeButton[i][lp_player] = c_invalidDialogControlId;
+        lib1_gv_currentRank[i][lp_player] = 0;
+        lib1_gv_maxRank[i][lp_player] = 0;
+        lib1_gv_hasPrerequisite[i][lp_player] = 0;
+        lib1_gv_isPrerequisite[i][lp_player] = 0;
+        lib1_gv_prerequisiteComplete[i][lp_player] = false;
     }
-    IntLoopEnd();
-    autoC59CCD7D_n = lib1_gv_ofTrees[lp_player];
-    for (autoC59CCD7D_i = 1; autoC59CCD7D_i <= autoC59CCD7D_n; autoC59CCD7D_i += 1) {
-        lv_buttonTree += 1;
-        lv_buttonRow = 0;
-        autoE6ACA13B_n = lib1_gv_ofRows[lp_player];
-        for (autoE6ACA13B_i = 1; autoE6ACA13B_i <= autoE6ACA13B_n; autoE6ACA13B_i += 1) {
-            lv_buttonRow += 1;
-            lv_buttonColumn = 0;
-            auto3D7D62F0_n = lib1_gv_ofColumns[lp_player];
-            for (auto3D7D62F0_i = 1; auto3D7D62F0_i <= auto3D7D62F0_n; auto3D7D62F0_i += 1) {
-                lv_buttonColumn += 1;
-                lib1_gv_talentTreeButtonIndexTreeColumnRow[lv_buttonTree][lv_buttonColumn][lv_buttonRow][lp_player] = 0;
+    // i is tree.
+    for (i = 0; i < lib1_gv_ofTrees[lp_player]; i += 1) {
+        // j is row.
+        for (j = 0; j < lib1_gv_ofRows[lp_player]; j += 1) {
+            // k is column.
+            for (k = 0; k < lib1_gv_ofColumns[lp_player]; k += 1) {
+                lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][j][lp_player] = 0;
             }
         }
     }
@@ -1228,6 +1164,7 @@ void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
     int auto717EC17A_val;
     // Variable Declarations
     int lv_requiredPoints;
+    int i;
     // Variable Initialization
     // Implementation
     if ((lp_resetto == 101)) {
@@ -1241,14 +1178,13 @@ void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
     lib1_gv_pointsSpentinTree[1][lp_player] = 0;
     lib1_gv_pointsSpentinTree[2][lp_player] = 0;
     lib1_gv_pointsSpentinTree[3][lp_player] = 0;
-    IntLoopBegin(1, lib1_gv_buttonIndex[lp_player]);
-    for ( ; !IntLoopDone() ; IntLoopStep() ) {
-        if ((lib1_gv_talentUpgrade[IntLoopCurrent()][lp_player] != null)) {
-            libNtve_gf_SetUpgradeLevelForPlayer(lp_player, lib1_gv_talentUpgrade[IntLoopCurrent()][lp_player], 0);
+    for ( i = 1; i <= lib1_gv_buttonIndex[lp_player] ; i += 1 ) {
+        if ((lib1_gv_talentUpgrade[i][lp_player] != null)) {
+            libNtve_gf_SetUpgradeLevelForPlayer(lp_player, lib1_gv_talentUpgrade[i][lp_player], 0);
         }
-        lib1_gv_currentRank[IntLoopCurrent()][lp_player] = 0;
-        libNtve_gf_SetDialogItemText(lib1_gv_talentButtonLabel[IntLoopCurrent()][lp_player], (IntToText(lib1_gv_currentRank[IntLoopCurrent()][lp_player]) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lib1_gv_maxRank[IntLoopCurrent()][lp_player])), PlayerGroupAll());
-        lib1_gv_prerequisiteComplete[IntLoopCurrent()][lp_player] = false;
+        lib1_gv_currentRank[i][lp_player] = 0;
+        libNtve_gf_SetDialogItemText(lib1_gv_talentButtonLabel[i][lp_player], (IntToText(lib1_gv_currentRank[i][lp_player]) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lib1_gv_maxRank[i][lp_player])), PlayerGroupAll());
+        lib1_gv_prerequisiteComplete[i][lp_player] = false;
         auto70440042_val = lib1_gv_pointsPerTier[lp_player];
         if (auto70440042_val == lib1_ge_PointsPerTier__5) {
             lv_requiredPoints = 5;
@@ -1256,32 +1192,27 @@ void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
         else if (auto70440042_val == lib1_ge_PointsPerTier__10) {
             lv_requiredPoints = 10;
         }
-        else {
-        }
-        lv_requiredPoints = (lv_requiredPoints * (lib1_gv_row[IntLoopCurrent()][lp_player] - 1));
-        auto717EC17A_val = lib1_gv_talentType[IntLoopCurrent()][lp_player];
+        lv_requiredPoints = (lv_requiredPoints * (lib1_gv_row[i][lp_player] - 1));
+        auto717EC17A_val = lib1_gv_talentType[i][lp_player];
         if (auto717EC17A_val == lib1_ge_TalentType_Ability) {
-            lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], IntLoopCurrent(), lv_requiredPoints, lib1_gv_tree[IntLoopCurrent()][lp_player], lib1_gv_abilityLink[IntLoopCurrent()][lp_player], lib1_gv_buttonLink[IntLoopCurrent()][lp_player]);
+            lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[i][lp_player], i, lv_requiredPoints, lib1_gv_tree[i][lp_player], lib1_gv_abilityLink[i][lp_player], lib1_gv_buttonLink[i][lp_player]);
         }
         else if (auto717EC17A_val == lib1_ge_TalentType_Passive) {
-            lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], IntLoopCurrent(), lv_requiredPoints, lib1_gv_tree[IntLoopCurrent()][lp_player], lib1_gv_talentName[IntLoopCurrent()][lp_player], lib1_gv_tooltipDescriptionRaw[IntLoopCurrent()][lp_player], lib1_gv_currentRank[IntLoopCurrent()][lp_player], lib1_gv_multiplier[1][IntLoopCurrent()][lp_player], lib1_gv_multiplier[2][IntLoopCurrent()][lp_player]);
+            lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[i][lp_player], i, lv_requiredPoints, lib1_gv_tree[i][lp_player], lib1_gv_talentName[i][lp_player], lib1_gv_tooltipDescriptionRaw[i][lp_player], lib1_gv_currentRank[i][lp_player], lib1_gv_multiplier[1][i][lp_player], lib1_gv_multiplier[2][i][lp_player]);
+        }
+        if (((lib1_gv_row[i][lp_player] != 1) || (lib1_gv_hasPrerequisite[i][lp_player] != 0))) {
+            DialogControlSetEnabled(lib1_gv_talentTreeButton[i][lp_player], PlayerGroupAll(), false);
+            DialogControlSetVisible(lib1_gv_talentButtonGlow[i][lp_player], PlayerGroupAll(), false);
+            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[i][lp_player], PlayerGroupAll(), false);
+            DialogControlSetVisible(lib1_gv_talentButtonLabel[i][lp_player], PlayerGroupAll(), false);
         }
         else {
-        }
-        if (((lib1_gv_row[IntLoopCurrent()][lp_player] != 1) || (lib1_gv_hasPrerequisite[IntLoopCurrent()][lp_player] != 0))) {
-            DialogControlSetEnabled(lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-            DialogControlSetVisible(lib1_gv_talentButtonGlow[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-            DialogControlSetVisible(lib1_gv_talentButtonLabel[IntLoopCurrent()][lp_player], PlayerGroupAll(), false);
-        }
-        else {
-            DialogControlSetEnabled(lib1_gv_talentTreeButton[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
-            DialogControlSetVisible(lib1_gv_talentButtonGlow[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
-            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
-            DialogControlSetVisible(lib1_gv_talentButtonLabel[IntLoopCurrent()][lp_player], PlayerGroupAll(), true);
+            DialogControlSetEnabled(lib1_gv_talentTreeButton[i][lp_player], PlayerGroupAll(), true);
+            DialogControlSetVisible(lib1_gv_talentButtonGlow[i][lp_player], PlayerGroupAll(), true);
+            DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[i][lp_player], PlayerGroupAll(), true);
+            DialogControlSetVisible(lib1_gv_talentButtonLabel[i][lp_player], PlayerGroupAll(), true);
         }
     }
-    IntLoopEnd();
 }
 void lib1_gf_SetHeros (int lp_player, unit lp_hero) {
     // Implementation
@@ -1729,15 +1660,15 @@ bool[5] gv_inFightwithSyrital;
 unitgroup gv_unitsthatdidDamagetoSyrital;
 bool gv_respawningSyrital;
 unit gv_syrital;
-region[8] gv_bioDomeWastelandRegions;
-unitgroup[8] gv_bioDomeWastelandUnits;
+region[7] gv_bioDomeWastelandRegions;
+unitgroup[7] gv_bioDomeWastelandUnits;
 region[11] gv_cretonTrenchRegions;
 unitgroup[11] gv_cretonTrenchUnits;
 region[39] gv_cretonRegions;
 unitgroup[39] gv_cretonUnits;
 bool gv_cretonSpawned;
 unitgroup[11] gv_verbotenInfestationUnits;
-region[11] gv_verbotenInfestationsRegions;
+region[10] gv_verbotenInfestationsRegions;
 bool[5] gv_verbotenInfestationSpawned;
 region[8] gv_verbotenForestRegions;
 unitgroup[8] gv_verbotenForestUnits;
@@ -2114,7 +2045,7 @@ void FakeInitGlobals () {
     gv_syritalWarning = c_textTagNone;
     gv_unitsthatdidDamagetoSyrital = UnitGroupEmpty();
     gv_syrital = UnitFromId(158);
-    for (init_i = 0; init_i <= 7; init_i += 1) {
+    for (init_i = 0; init_i < 7; init_i += 1) {
         gv_bioDomeWastelandUnits[init_i] = UnitGroupEmpty();
     }
     for (init_i = 0; init_i <= 10; init_i += 1) {
@@ -5768,7 +5699,7 @@ bool gt_SQ4PlayerTalkstoRisdak_Func (bool testConds, bool runActions) {
                 if ((UnitLevel(gv_players[(EventPlayer() - 1)].dragon) != 100)) {
                     gf_AddExperience(gv_players[(EventPlayer() - 1)].dragon, 3000.0);
                 }
-                UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(UnitGroupLoopCurrent())), c_messageAreaSubtitle, StringExternal("Param/Value/26171E78"));
+                UIDisplayMessage(PlayerGroupSingle(EventPlayer()), c_messageAreaSubtitle, StringExternal("Param/Value/26171E78"));
                 gv_players[(EventPlayer() - 1)].quests.talking = false;
                 PingDestroy(gv_players[(EventPlayer() - 1)].quests.storyQuests[4].ping);
                 TriggerExecute(gt_SremagsiRespawn, true, false);
@@ -5871,7 +5802,7 @@ void gt_SQ5PlayerTalkstoPetrose_Init () {
 bool gt_SQ6PlayerEntersTeleporttoBiodome_Func (bool testConds, bool runActions) {
     // Conditions
     if (testConds) {
-        if (!((UnitGetOwner(EventUnit()) != 15))) {
+        if (UnitGetOwner(EventUnit()) == 15) {
             return false;
         }
         if (!((gv_players[(UnitGetOwner(EventUnit()) - 1)].quests.storyQuests[6].state == 1))) {
@@ -6200,7 +6131,7 @@ bool gt_SQ8Crystal6Destroyed_Func (bool testConds, bool runActions) {
             ObjectiveSetState(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[8].objective, c_objectiveStateCompleted);
             ObjectiveDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[8].objective);
             if ((UnitLevel(gv_players[(PlayerGroupLoopCurrent() - 1)].dragon) != 100)) {
-                gf_AddExperience(gv_players[(EventPlayer() - 1)].dragon, 25000.0);
+                gf_AddExperience(gv_players[(PlayerGroupLoopCurrent() - 1)].dragon, 25000.0);
             }
             UIDisplayMessage(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_messageAreaSubtitle, StringExternal("Param/Value/2725B5FA"));
             PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[8].ping);
@@ -15607,27 +15538,30 @@ void gt_Zauberer1stFormDeath_Init () {
 // Trigger: Zauberer 1st Form AI
 //--------------------------------------------------------------------------------------------------
 bool gt_Zauberer1stFormAI_Func (bool testConds, bool runActions) {
-    int auto5D248BF3_val;
     // Variable Declarations
     int lv_randomSkill;
     unit lv_target;
     // Variable Initialization
+    if (testConds) {
+        if (!UnitIsAlive(gv_zauberer1stForm) || libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer1stForm)) {
+            return false;
+        }
+    }
     // Actions
     if (!runActions) {
         return true;
     }
     lv_randomSkill = RandomInt(0, 2);
     lv_target = UnitGroupRandomUnit(gv_dragonInBattleWithZauberer1stForm, c_unitCountAlive);
-    auto5D248BF3_val = lv_randomSkill;
-    if (auto5D248BF3_val == 0) {
+    if (lv_randomSkill == 0) {
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("ZaubererFireball", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto5D248BF3_val == 1) {
+    else if (lv_randomSkill == 1) {
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingPoint(AbilityCommand("PsiStorm", 0), UnitGetPosition(lv_target)), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto5D248BF3_val == 2) {
+    else if (lv_randomSkill == 2) {
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("HybridCPlasmaBlast", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
@@ -15685,7 +15619,7 @@ bool gt_SpawnZauberer2ndFormNormalWay_Func (bool testConds, bool runActions) {
     PlayerGroupLoopEnd();
     TransmissionSend(gv_playersInBattleWithZauberer2ndForm, TransmissionSourceFromModel("HybridProtossPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/56A8C6FF"), StringExternal("Param/Value/1B366F05"), 5.0, c_transmissionDurationSet, true);
     Wait(3.0, c_timeGame);
-    libNtve_gf_UnitCreateFacingPoint(1, "Zauberer2", 0, 15, RegionGetCenter(RegionFromId(203)), UnitGetPosition(gv_zauberer2ndForm));
+    UnitCreate(1, "Zauberer2", 0, 15, RegionGetCenter(RegionFromId(203)), libNtve_gf_RandomAngle());
     gv_zauberer2ndForm = UnitLastCreated();
     libNtve_gf_PauseUnit(gv_zauberer2ndForm, true);
     PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
@@ -15863,7 +15797,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
     PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         PlayerGroupAdd(gv_playersWhoHaveDefeatedZauberer, PlayerGroupLoopCurrent());
-        PlayerModifyPropertyInt(UnitGetOwner(UnitGroupLoopCurrent()), c_playerPropCustom, c_playerPropOperAdd, 30);
+        PlayerModifyPropertyInt(PlayerGroupLoopCurrent(), c_playerPropCustom, c_playerPropOperAdd, 30);
         libNtve_gf_ShowHideBossBar(false, PlayerGroupLoopCurrent());
         lv_pickedPlayerIndex = (PlayerGroupLoopCurrent() - 1);
         libNtve_gf_PauseUnit(gv_players[lv_pickedPlayerIndex].dragon, true);
@@ -15964,35 +15898,39 @@ void gt_WarpOutFromBossArena_Init () {
 // Trigger: Zauberer 2nd Form AI
 //--------------------------------------------------------------------------------------------------
 bool gt_Zauberer2ndFormAI_Func (bool testConds, bool runActions) {
-    int auto6D220EA7_val;
     // Variable Declarations
     int lv_randomSkill;
     unit lv_target;
     // Variable Initialization
     // Actions
+    if (testConds) {
+        if (!UnitIsAlive(gv_zauberer2ndForm) || libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer2ndForm)) {
+            return false;
+        }
+    }
+
     if (!runActions) {
         return true;
     }
     lv_randomSkill = RandomInt(0, 4);
     lv_target = UnitGroupRandomUnit(gv_dragonInBattleWithZauberer2ndForm, c_unitCountAlive);
-    auto6D220EA7_val = lv_randomSkill;
-    if (auto6D220EA7_val == 0) {
+    if (lv_randomSkill == 0) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("ZaubererFireball", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 1) {
+    else if (lv_randomSkill == 1) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("FireClaws", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 2) {
+    else if (lv_randomSkill == 2) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("Inferno", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 3) {
+    else if (lv_randomSkill == 3) {
         UnitIssueOrder(gv_zauberer2ndForm, Order(AbilityCommand("Nova", 0)), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 4) {
+    else if (lv_randomSkill == 4) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingPoint(AbilityCommand("FlameEgg", 0), UnitGetPosition(lv_target)), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
@@ -16441,7 +16379,7 @@ void gt_MachinaDePlagamBackup_Init () {
 bool gt_UnitattacksSremagsi_Func (bool testConds, bool runActions) {
     // Conditions
     if (testConds) {
-        if (!((!UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit()) && ((UnitGetOwner(EventUnitDamageSourceUnit()) == 1) || (UnitGetOwner(EventUnitDamageSourceUnit()) == 2) || (UnitGetOwner(EventUnitDamageSourceUnit()) == 3) || (UnitGetOwner(EventUnitDamageSourceUnit()) == 4))))) {
+        if (!PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))) {
             return false;
         }
     }
@@ -16449,15 +16387,18 @@ bool gt_UnitattacksSremagsi_Func (bool testConds, bool runActions) {
     if (!runActions) {
         return true;
     }
-    UnitGroupAdd(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit());
-    
-    VisRevealerCreate(15, RegionFromId(228));
-    VisRevealerCreate(15, RegionFromId(229));
-    VisRevealerCreate(15, RegionFromId(230));
-    if ((!libNtve_gf_UnitInRegion(EventUnitTarget(), RegionFromId(228)) && !libNtve_gf_UnitInRegion(EventUnitTarget(), RegionFromId(229)) && !libNtve_gf_UnitInRegion(EventUnitTarget(), RegionFromId(230)))) {
-        UnitSetPosition(EventUnitTarget(), RegionRandomPoint(RegionFromId(241)), false);
+    if (!(RegionContainsPoint(RegionFromName("Sremagsi's Lair 1"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 2"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 3"), UnitGetPosition(EventUnitDamageSourceUnit())))) {
+        UnitSetPosition(EventUnitDamageSourceUnit(), RegionRandomPoint(RegionFromName("Sremagsi Exploit Fix Region")), false);
         //CameraPan(UnitGetOwner(EventUnitTarget()), RegionGetCenter(RegionFromId(241)), 2.0, -1, 10.0, false);
     }
+    if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit())) {
+        return true;
+    }
+    UnitGroupAdd(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit());
+    
+    VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 1"));
+    VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 2"));
+    VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 3"));
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -17752,13 +17693,13 @@ bool gt_SetupBioDomeWastelandRegions_Func (bool testConds, bool runActions) {
     if (!runActions) {
         return true;
     }
-    gv_bioDomeWastelandRegions[0] = RegionFromId(151);
-    gv_bioDomeWastelandRegions[1] = RegionFromId(152);
-    gv_bioDomeWastelandRegions[2] = RegionFromId(153);
-    gv_bioDomeWastelandRegions[3] = RegionFromId(154);
-    gv_bioDomeWastelandRegions[4] = RegionFromId(155);
-    gv_bioDomeWastelandRegions[5] = RegionFromId(156);
-    gv_bioDomeWastelandRegions[6] = RegionFromId(157);
+    gv_bioDomeWastelandRegions[0] = RegionFromName("BD Wasteland 1");
+    gv_bioDomeWastelandRegions[1] = RegionFromName("BD Wasteland 2");
+    gv_bioDomeWastelandRegions[2] = RegionFromName("BD Wasteland 3");
+    gv_bioDomeWastelandRegions[3] = RegionFromName("BD Wasteland 4");
+    gv_bioDomeWastelandRegions[4] = RegionFromName("BD Wasteland 5");
+    gv_bioDomeWastelandRegions[5] = RegionFromName("BD Wasteland 6");
+    gv_bioDomeWastelandRegions[6] = RegionFromName("BD Wasteland 7");
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -17770,20 +17711,18 @@ void gt_SetupBioDomeWastelandRegions_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnEnemiesBioDomeWasteland_Func (bool testConds, bool runActions) {
     // Variable Declarations
-    int lv_unitTypeNum;
     int lv_locationNum;
+    int i;
     int lv_numunitstospawn;
     // Variable Initialization
     // Actions
     if (!runActions) {
         return true;
     }
-    while ((lv_numunitstospawn <= (7 + PlayerGroupCount(gv_playersInBioDome)))) {
-        lv_unitTypeNum = RandomInt(12, 13);
+    for(i = 0; i< (7+PlayerGroupCount(gv_playersInBioDome)); i += 1) {
         lv_locationNum = RandomInt(0, 6);
-        UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_bioDomeWastelandRegions[lv_locationNum]), libNtve_gf_RandomAngle());
+        UnitCreate(1, gv_enemyUnitTypes[RandomInt(12, 13)], 0, 15, RegionRandomPoint(gv_bioDomeWastelandRegions[lv_locationNum]), libNtve_gf_RandomAngle());
         UnitGroupAdd(gv_bioDomeWastelandUnits[lv_locationNum], UnitLastCreated());
-        lv_numunitstospawn += 1;
     }
     return true;
 }
@@ -17797,7 +17736,6 @@ void gt_SpawnEnemiesBioDomeWasteland_Init () {
 bool gt_RespawnBioDomeWasteland_Func (bool testConds, bool runActions) {
     // Variable Declarations
     int lv_randomRegion;
-    int lv_randomUnit;
     // Variable Initialization
     // Conditions
     if (testConds) {
@@ -17810,10 +17748,13 @@ bool gt_RespawnBioDomeWasteland_Func (bool testConds, bool runActions) {
         return true;
     }
     lv_randomRegion = RandomInt(0, 6);
-    lv_randomUnit = RandomInt(12, 13);
     UnitRemove(EventUnit());
-    UnitCreate(1, gv_enemyUnitTypes[lv_randomUnit], 0, 15, RegionRandomPoint(gv_bioDomeWastelandRegions[lv_randomRegion]), libNtve_gf_RandomAngle());
-    UnitGroupAdd(gv_bDWastelandUnits, UnitLastCreated());
+    // This version has them indefinitely respawn.
+    UnitCreate(1, gv_enemyUnitTypes[RandomInt(12, 13)], 0, 15, RegionRandomPoint(gv_bioDomeWastelandRegions[lv_randomRegion]), libNtve_gf_RandomAngle());
+    UnitGroupAdd(gv_bioDomeWastelandUnits[lv_randomRegion], UnitLastCreated());
+    // The following code has a few waves spawn before they fall off, might've been intended.
+    //UnitCreate(1, gv_enemyUnitTypes[RandomInt(12, 13)], 0, 15, RegionRandomPoint(gv_bioDomeWastelandRegions[lv_randomRegion]), libNtve_gf_RandomAngle());
+    //UnitGroupAdd(gv_bDWastelandUnits, UnitLastCreated());
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -18072,7 +18013,8 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer1_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                }
+                lv_locationNum %= 10;
+            }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
      UnitGroupAdd(gv_verbotenInfestationUnits[lv_locationNum], UnitLastCreated());
@@ -18173,7 +18115,8 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer2_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                }
+                lv_locationNum %= 10;
+            }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
      UnitGroupAdd(gv_verbotenInfestationUnits[lv_locationNum], UnitLastCreated());
@@ -18274,7 +18217,8 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer3_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                }
+                lv_locationNum %= 10;
+            }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
      UnitGroupAdd(gv_verbotenInfestationUnits[lv_locationNum], UnitLastCreated());
@@ -18375,7 +18319,8 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer4_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                }
+                lv_locationNum %= 10;
+            }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
      UnitGroupAdd(gv_verbotenInfestationUnits[lv_locationNum], UnitLastCreated());
@@ -20050,14 +19995,14 @@ bool gt_TeleporttoBioDome_Func (bool testConds, bool runActions) {
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].quests.storyQuests[8].state >= 1)) {
         SoundtrackStop(PlayerGroupSingle(UnitGetOwner(EventUnit())), c_soundtrackCategoryMusic, true);
         SoundtrackPlay(PlayerGroupSingle(UnitGetOwner(EventUnit())), c_soundtrackCategoryMusic, "BiodomeTheme", c_soundtrackCueAny, 0, false);
-        CameraPan(UnitGetOwner(EventUnit()), RegionGetCenter(RegionFromId(189)), 0.0, -1, 10, false);
+        CameraPan(UnitGetOwner(EventUnit()), RegionGetCenter(RegionFromName("Teleport to Bio Dome Spawn")), 0.0, -1, 10, false);
         lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-        UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(189)), false);
+        UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromName("Teleport to Bio Dome Spawn")), false);
         gv_locationText[lv_triggeringPlayerIndex] = "Bio Dome";
         libNtve_gf_SetDialogItemText(gv_players[lv_triggeringPlayerIndex].locationDialog.textBox, StringToText(gv_locationText[lv_triggeringPlayerIndex]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
         UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
         UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-        gv_respawnPoint[lv_triggeringPlayerIndex] = RegionGetCenter(RegionFromId(188));
+        gv_respawnPoint[lv_triggeringPlayerIndex] = RegionGetCenter(RegionFromName("Teleport to Creton"));
         PlayerGroupAdd(gv_playersInBioDome, UnitGetOwner(EventUnit()));
         UnitGroupAdd(gv_dragonsInBioDome, gv_players[lv_triggeringPlayerIndex].dragon);
     }
@@ -20076,7 +20021,7 @@ bool gt_TeleporttoBioDome_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_TeleporttoBioDome_Init () {
     gt_TeleporttoBioDome = TriggerCreate("gt_TeleporttoBioDome_Func");
-    TriggerAddEventUnitRegion(gt_TeleporttoBioDome, null, RegionFromId(187), true);
+    TriggerAddEventUnitRegion(gt_TeleporttoBioDome, null, RegionFromName("Teleport to Bio Dome"), true);
 }
 //--------------------------------------------------------------------------------------------------
 // Trigger: Teleport to Creton
@@ -22553,6 +22498,7 @@ bool gt_SetupRegions_Func (bool testConds, bool runActions) {
     TriggerExecute(gt_SetRelamyGorgeRegions, true, false);
     TriggerExecute(gt_SetRelamyHillsRegions, true, false);
     TriggerExecute(gt_SetRelamyPassRegions, true, false);
+    TriggerExecute(gt_SetupBioDomeWastelandRegions, true, false);
     return true;
 }
 //--------------------------------------------------------------------------------------------------
