@@ -16372,7 +16372,7 @@ void gt_MachinaDePlagamBackup_Init () {
 bool gt_UnitattacksSremagsi_Func (bool testConds, bool runActions) {
     // Conditions
     if (testConds) {
-        if (!((!UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit()) && ((UnitGetOwner(EventUnitDamageSourceUnit()) == 1) || (UnitGetOwner(EventUnitDamageSourceUnit()) == 2) || (UnitGetOwner(EventUnitDamageSourceUnit()) == 3) || (UnitGetOwner(EventUnitDamageSourceUnit()) == 4))))) {
+        if (!PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))) {
             return false;
         }
     }
@@ -16380,13 +16380,16 @@ bool gt_UnitattacksSremagsi_Func (bool testConds, bool runActions) {
     if (!runActions) {
         return true;
     }
-    UnitGroupAdd(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit());
+    if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit())) {
+        UnitGroupAdd(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit());
     
-    VisRevealerCreate(15, RegionFromId(228));
-    VisRevealerCreate(15, RegionFromId(229));
-    VisRevealerCreate(15, RegionFromId(230));
-    if ((!libNtve_gf_UnitInRegion(EventUnitTarget(), RegionFromId(228)) && !libNtve_gf_UnitInRegion(EventUnitTarget(), RegionFromId(229)) && !libNtve_gf_UnitInRegion(EventUnitTarget(), RegionFromId(230)))) {
-        UnitSetPosition(EventUnitTarget(), RegionRandomPoint(RegionFromId(241)), false);
+        VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 1"));
+        VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 2"));
+        VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 3"));
+    }
+
+    if (!(RegionContainsPoint(RegionFromName("Sremagsi's Lair 1"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 2"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 3"), UnitGetPosition(EventUnitDamageSourceUnit())))) {
+        UnitSetPosition(EventUnitDamageSourceUnit(), RegionRandomPoint(RegionFromName("Sremagsi Cheat Fix Region")), false);
         //CameraPan(UnitGetOwner(EventUnitTarget()), RegionGetCenter(RegionFromId(241)), 2.0, -1, 10.0, false);
     }
     return true;
