@@ -15797,7 +15797,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
     PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
     for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
         PlayerGroupAdd(gv_playersWhoHaveDefeatedZauberer, PlayerGroupLoopCurrent());
-        PlayerModifyPropertyInt(UnitGetOwner(UnitGroupLoopCurrent()), c_playerPropCustom, c_playerPropOperAdd, 30);
+        PlayerModifyPropertyInt(PlayerGroupLoopCurrent(), c_playerPropCustom, c_playerPropOperAdd, 30);
         libNtve_gf_ShowHideBossBar(false, PlayerGroupLoopCurrent());
         lv_pickedPlayerIndex = (PlayerGroupLoopCurrent() - 1);
         libNtve_gf_PauseUnit(gv_players[lv_pickedPlayerIndex].dragon, true);
