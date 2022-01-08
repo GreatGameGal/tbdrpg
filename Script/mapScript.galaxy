@@ -6131,7 +6131,7 @@ bool gt_SQ8Crystal6Destroyed_Func (bool testConds, bool runActions) {
             ObjectiveSetState(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[8].objective, c_objectiveStateCompleted);
             ObjectiveDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[8].objective);
             if ((UnitLevel(gv_players[(PlayerGroupLoopCurrent() - 1)].dragon) != 100)) {
-                gf_AddExperience(gv_players[(EventPlayer() - 1)].dragon, 25000.0);
+                gf_AddExperience(gv_players[(PlayerGroupLoopCurrent() - 1)].dragon, 25000.0);
             }
             UIDisplayMessage(PlayerGroupSingle(PlayerGroupLoopCurrent()), c_messageAreaSubtitle, StringExternal("Param/Value/2725B5FA"));
             PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[8].ping);
