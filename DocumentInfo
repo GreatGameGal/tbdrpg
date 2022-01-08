@@ -13,7 +13,7 @@
     </Dependencies>
     <Screenshot>
         <File>
-            <Value>Images\ttempla10.tga</Value>
+            <Value>Images\templa10.tga</Value>
             <Value>Images\teen_d11.tga</Value>
             <Value>Images\floati11.tga</Value>
         </File>
@@ -31,7 +31,7 @@
     <ScreenshotHowToPlay>
         <File>
             <Value>Images\Screenshots\Screenshot2012-08-17 01_21_05.jpg</Value>
-            <Value>ImagesScreenshots\Screenshot2012-08-17 01_21_27.jpg</Value>
+            <Value>Images\Screenshots\Screenshot2012-08-17 01_21_27.jpg</Value>
             <Value>Images\Screenshots\Screenshot2012-08-17 01_21_40.jpg</Value>
             <Value>Images\Screenshots\Screenshot2012-08-17 01_21_52.jpg</Value>
             <Value>Images\Screenshots\Screenshot2012-08-17 01_23_50.jpg</Value>
