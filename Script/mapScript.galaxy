@@ -17,7 +17,7 @@ const int adminCount = 9;
 bool statueSpawned = true;
 bool firstTimeInRelamyCave = true;
 string[adminCount] gv_adminHandles;
-unit[5] gv_manaQuest0Armor;
+unit[4] gv_manaQuest0Armor;
 unit gv_robus;
 unit gv_illisus;
 unit gv_shadowSeryn;
@@ -47,8 +47,8 @@ struct dialogObj {
     int decline;
     string textVal;
     // Reborn dialog
-    int[11] pointLabel;
-    int[11] pointButton;
+    int[10] pointLabel;
+    int[10] pointButton;
     // Talent Dialog
     int button;
 };
@@ -156,7 +156,7 @@ struct playerData {
     bool seenIntro;
     dialogObj locationDialog;
 };
-playerData[5] gv_players;
+playerData[4] gv_players;
 //--------------------------------------------------------------------------------------------------
 // Library: Talent Library
 //--------------------------------------------------------------------------------------------------
@@ -197,24 +197,24 @@ int[17] lib1_gv_availablePointsLabel;
 int[17] lib1_gv_availablePointsDialog;
 int[17] lib1_gv_closeTalentTreeButton;
 string[11][17] lib1_gv_talentBuildString;
-unit[5] lib1_gv_heros;
-int[5] lib1_gv_strengthoftheDragonCount;
-int[5] lib1_gv_mindoftheDragonCount;
-int[5] lib1_gv_powerOverwhelmingCount;
-int[5] lib1_gv_rageCount;
-int[5] lib1_gv_vampiricTendenciesCount;
-int[5] lib1_gv_zealCount;
-int[5] lib1_gv_criticalCrepitusCount;
-int[5] lib1_gv_darkDissultoCount;
-int[5] lib1_gv_spikedScalesCount;
-int[5] lib1_gv_retaliationCount;
-int[5] lib1_gv_headshotCount;
-int[5] lib1_gv_stickyShotCount;
-int[5] lib1_gv_dualWieldCount;
-int[5] lib1_gv_greedisGoodCount;
-int[5] lib1_gv_quickLearnerCount;
-int[5] lib1_gv_absorbManaCount;
-int[5] lib1_gv_realmSwitchCount;
+unit[4] lib1_gv_heros;
+int[4] lib1_gv_strengthoftheDragonCount;
+int[4] lib1_gv_mindoftheDragonCount;
+int[4] lib1_gv_powerOverwhelmingCount;
+int[4] lib1_gv_rageCount;
+int[4] lib1_gv_vampiricTendenciesCount;
+int[4] lib1_gv_zealCount;
+int[4] lib1_gv_criticalCrepitusCount;
+int[4] lib1_gv_darkDissultoCount;
+int[4] lib1_gv_spikedScalesCount;
+int[4] lib1_gv_retaliationCount;
+int[4] lib1_gv_headshotCount;
+int[4] lib1_gv_stickyShotCount;
+int[4] lib1_gv_dualWieldCount;
+int[4] lib1_gv_greedisGoodCount;
+int[4] lib1_gv_quickLearnerCount;
+int[4] lib1_gv_absorbManaCount;
+int[4] lib1_gv_realmSwitchCount;
 // Function Declarations
 bool lib1_gf_IsTalentButton (int lp_player, int lp_dialogItem);
 bool lib1_gf_TalentTreeisOpen (int lp_player);
@@ -1456,49 +1456,49 @@ unitgroup gv_contestant2Group;
 bool gv_matchGoingOn;
 int gv_arenaWaitingTextTag;
 playergroup gv_playersintheArena;
-int[5] gv_potionHotkeyTextTag;
+int[4] gv_potionHotkeyTextTag;
 string gv_potionCooldownName;
 string gv_aSPCooldownName;
-int[5] gv_grandOrbofAngerCount;
-bool[5] gv_occulusofWarning;
-bool[5] gv_facetofRevenge;
-bool[5] gv_crystalofRebirth;
-bool[5] gv_jewelofReturn;
-bool[5] gv_stoneofProtection;
-bool[5] gv_ringofQuickening;
-fixed[5][101] gv_stackCounts;
-string[10] gv_stackChargeNames;
+int[4] gv_grandOrbofAngerCount;
+bool[4] gv_occulusofWarning;
+bool[4] gv_facetofRevenge;
+bool[4] gv_crystalofRebirth;
+bool[4] gv_jewelofReturn;
+bool[4] gv_stoneofProtection;
+bool[4] gv_ringofQuickening;
+fixed[4][101] gv_stackCounts;
+string[9] gv_stackChargeNames;
 int gv_invenorySlot;
 int gv_untitledVariable001;
 playergroup gv_playersinUndergroundForest;
 playergroup gv_playersinRelamyGorge;
 playergroup gv_playersinRelamyCave;
-trigger[5] gv_infestationSpawnTrigger;
+trigger[4] gv_infestationSpawnTrigger;
 playergroup gv_playersinInfestation;
-unit[5][7][26] gv_inventory;
-bool[5] gv_evolving;
-bool[5] gv_allSeeingEye;
-bool[5] gv_fireSkin;
-bool[5] gv_dragonDying;
-timer[5] gv_dyingTimer;
-int[5] gv_dyingTimerWindow;
-string[5] gv_attributeText;
+unit[4][7][26] gv_inventory;
+bool[4] gv_evolving;
+bool[4] gv_allSeeingEye;
+bool[4] gv_fireSkin;
+bool[4] gv_dragonDying;
+timer[4] gv_dyingTimer;
+int[4] gv_dyingTimerWindow;
+string[4] gv_attributeText;
 int gv_screenButton;
-bool[5] gv_reapplyingBuffs;
-bool[5] gv_isIdle;
+bool[4] gv_reapplyingBuffs;
+bool[4] gv_isIdle;
 int gv_nosferatusDeathCount;
 unit gv_nosferatu;
 int[50] gv_enemyDeathCounts;
 int[50] gv_unitKills;
 unitgroup gv_zauberersMinions;
-string[11] gv_zauberersMinionsUnitTypes;
+string[10] gv_zauberersMinionsUnitTypes;
 region[10] gv_zauberersRegions;
 unit gv_zauberersCrystal;
 point gv_zauberersCrystalLocation;
 unit gv_TimeWarpBot;
 unit gv_MagicalDemonicSheep;
 point gv_TimeWarpBotLocation;
-bool[5] gv_zaubererFirstFormAlreadyDead;
+bool[4] gv_zaubererFirstFormAlreadyDead;
 revealer[6] gv_zauberer1stFormRevealer;
 unitgroup gv_dragonInBattleWithZauberer1stForm;
 playergroup gv_playersInBattleWithZauberer1stForm;
@@ -1512,18 +1512,18 @@ int gv_livingDragonsFightingZauberer2ndForm;
 unit gv_zauberer2ndForm;
 timer gv_zaubererTimer;
 int gv_zaubererTimerWindow;
-int[5] gv_machinaDePlagamWarning;
+int[4] gv_machinaDePlagamWarning;
 unitgroup gv_unitsthatdidDamagetoMachinaDePlagam;
 bool gv_machinaDePlagamisDead;
-sound[5] gv_machinaDePlagamsTheme;
-bool[5] gv_inFightwithMachinaDePlagam;
+sound[4] gv_machinaDePlagamsTheme;
+bool[4] gv_inFightwithMachinaDePlagam;
 bool gv_respawningMachinaDePlagam;
 unit gv_machinaDePlagam;
 unitgroup gv_machinaDePlagamsBackup;
 int gv_sremagsiWarning;
 bool gv_sremagsiDead;
-sound[5] gv_sremagsisTheme;
-bool[5] gv_inFightWithSremagsi;
+sound[4] gv_sremagsisTheme;
+bool[4] gv_inFightWithSremagsi;
 unitgroup gv_unitsthatdidDamagetoSremagsi;
 bool gv_respawningSremagsi;
 unit gv_sremagsi;
@@ -1535,47 +1535,47 @@ bool gv_guardiansDead;
 unit[9] gv_mineralBlocks;
 unitgroup gv_dragonsInBattleWithGuardians;
 playergroup gv_playersinBattlewithGuardians;
-bool[5] gv_inFightWithGaurdians;
+bool[4] gv_inFightWithGaurdians;
 unit gv_zauberersStatue;
 unitgroup gv_guardians;
 int gv_numGaurdiansDead;
-revealer[5] gv_guardianRevealers;
+revealer[4] gv_guardianRevealers;
 int gv_numPlayersHigherThan25;
 int gv_livingDragonsinGaurdian;
 int gv_syritalWarning;
 bool gv_syritalDead;
-sound[5] gv_syritalsTheme;
-bool[5] gv_inFightwithSyrital;
+sound[4] gv_syritalsTheme;
+bool[4] gv_inFightwithSyrital;
 unitgroup gv_unitsthatdidDamagetoSyrital;
 bool gv_respawningSyrital;
 unit gv_syrital;
 region[7] gv_bioDomeWastelandRegions;
 unitgroup[7] gv_bioDomeWastelandUnits;
-region[11] gv_cretonTrenchRegions;
-unitgroup[11] gv_cretonTrenchUnits;
-region[39] gv_cretonRegions;
-unitgroup[39] gv_cretonUnits;
+region[10] gv_cretonTrenchRegions;
+unitgroup[10] gv_cretonTrenchUnits;
+region[38] gv_cretonRegions;
+unitgroup[38] gv_cretonUnits;
 bool gv_cretonSpawned;
-unitgroup[11] gv_verbotenInfestationUnits;
+unitgroup[10] gv_verbotenInfestationUnits;
 region[10] gv_verbotenInfestationsRegions;
-bool[5] gv_verbotenInfestationSpawned;
-region[8] gv_verbotenForestRegions;
-unitgroup[8] gv_verbotenForestUnits;
-unitgroup[6] gv_wastelandUnitGroups;
+bool[4] gv_verbotenInfestationSpawned;
+region[7] gv_verbotenForestRegions;
+unitgroup[7] gv_verbotenForestUnits;
+unitgroup[5] gv_wastelandUnitGroups;
 region[6] gv_wastelandRegions;
 unitgroup[5] gv_relamyPassUnits;
 region[5] gv_relamyPassRegions;
-unitgroup[9] gv_relamyGorgeUnits;
-region[9] gv_relamyGorgeRegions;
+unitgroup[8] gv_relamyGorgeUnits;
+region[8] gv_relamyGorgeRegions;
 string[4] gv_relamyGorgeUnitTypes;
 unitgroup[5] gv_relamyCanyonUnits;
 region[5] gv_relamyCanyonRegions;
-region[6] gv_relamyHillsRegions;
-unitgroup[6] gv_relamyHillsUnits;
-region[9] gv_undergroundForestRegions;
-unitgroup[9] gv_undergroundForestUnits;
+region[5] gv_relamyHillsRegions;
+unitgroup[5] gv_relamyHillsUnits;
+region[8] gv_undergroundForestRegions;
+unitgroup[8] gv_undergroundForestUnits;
 string[3] gv_undergroundForestUnitTypes;
-bool[5][6] gv_unlockedWaypoints;
+bool[4][6] gv_unlockedWaypoints;
 playergroup gv_playersInBioDome;
 unitgroup gv_dragonsInBioDome;
 unitgroup gv_bDZombieUnits;
@@ -1583,341 +1583,176 @@ unitgroup gv_bDCretonUnits;
 unitgroup gv_bDVerbotenUnits;
 unitgroup gv_bDRelamyUnits;
 unitgroup gv_bDWastelandUnits;
-point[5] gv_respawnPoint;
-region[5] gv_dragonLocation;
-string[5] gv_locationText;
-string[5] gv_locationString;
-bool[5] gv_epicModeOn;
+point[4] gv_respawnPoint;
+region[4] gv_dragonLocation;
+string[4] gv_locationText;
+string[4] gv_locationString;
+bool[4] gv_epicModeOn;
 int gv_mortuusKillCount;
 int gv_mortuusKillCountStacks;
 bool gv_playersSetUp;
-bank[5] gv_stashBank;
-bank[5] gv_playerBank;
+bank[4] gv_stashBank;
+bank[4] gv_playerBank;
 int gv_ofHumanPlayers;
 playergroup gv_humanPlayers;
-string[101] gv_enemyUnitTypes;
-bool[5] gv_unitispatrolling;
-bool[5] gv_unitisattackmoving;
-bool[5] gv_aPFixed;
-int[5] gv_gold;
-int[5] gv_pvPPoints;
-int[5] gv_shards;
-bool[5] gv_accesingBank;
-fixed[5] gv_currentexp;
+string[50] gv_enemyUnitTypes;
+int[4] gv_gold;
+int[4] gv_pvPPoints;
+int[4] gv_shards;
+bool[4] gv_accesingBank;
+fixed[4] gv_currentexp;
 unitgroup gv_dragons;
 int gv_leadboard;
-bool[5] gv_gameBeat;
+bool[4] gv_gameBeat;
 int gv_showTalentsButton;
-bool[5] gv_inCinematic;
-unit[5] gv_stash;
-point[5] gv_stashLocation;
-bool[5] gv_hRCChecked;
-bool[5] gv_hPCChecked;
+bool[4] gv_inCinematic;
+unit[4] gv_stash;
+point[4] gv_stashLocation;
+bool[4] gv_hRCChecked;
+bool[4] gv_hPCChecked;
 int gv_days;
 int gv_hours;
 int gv_minutes;
 playergroup gv_playerswatchingintrocinematic;
 unit gv_introCinematicZauberer;
-bool[5] gv_playerhasseenIntro;
+bool[4] gv_playerhasseenIntro;
 playergroup gv_playerswatchingendingcinematic;
-int[5] gv_infernoCount;
-bool[5] gv_isSavingExiting;
-bool[5] gv_autosavePrevention;
+int[4] gv_infernoCount;
+bool[4] gv_isSavingExiting;
+bool[4] gv_autosavePrevention;
 int gv_hPCConstant;
 int gv_hRCConstant;
 
 void FakeInitGlobals () {
     int init_i;
     int init_j;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
+    for (init_i = 0; init_i < 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.reward = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.recommendedLevel = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.accept = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.decline = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.talkDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.talkDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.talkDialog.accept = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.rewardDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.rewardDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.rewardDialog.accept = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[0].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[1].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[1].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[1].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[2].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[2].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[3].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[3].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[3].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[4].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[4].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[4].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[5].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[5].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[5].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[6].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[6].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[7].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[7].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[7].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[8].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[8].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[9].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[9].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[1].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[1].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[2].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[2].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[3].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[3].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[4].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[4].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[5].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[5].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[1].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[1].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
+        for (init_j = 0; init_j < 2; init_j += 1) {
+            gv_players[init_i].quests.baseQuests[init_j].textTag = c_textTagNone;
+            gv_players[init_i].quests.baseQuests[init_j].objective = c_invalidObjectiveId;
+        }
+        for (init_j = 0; init_j < 6; init_j += 1) {
+            gv_players[init_i].quests.manaQuests[init_j].textTag = c_textTagNone;
+            gv_players[init_i].quests.manaQuests[init_j].objective = c_invalidObjectiveId;
+        }
+        for(init_j = 0; init_j < 10; init_j += 1) {
+            gv_players[init_i].quests.storyQuests[init_j].objective = c_invalidObjectiveId;
+            gv_players[init_i].quests.storyQuests[init_j].ping = c_invalidPingId;
+            gv_players[init_i].quests.storyQuests[init_j].textTag = c_textTagNone;
+            gv_players[init_i].stats.reborn.dialog.pointLabel[init_j] = c_invalidDialogControlId;
+            gv_players[init_i].stats.reborn.dialog.pointButton[init_j] = c_invalidDialogControlId;
+        }
         gv_players[init_i].quests.detsefniQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.detsefniQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.sergeantListerQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.sergeantListerQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.greedQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.greedQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.madelineQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.madelineQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.malinQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.malinQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.ampQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.ampQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.altossQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.altossQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.oleumQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.oleumQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.serynQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.serynQuests[0].objective = c_invalidObjectiveId;
+        gv_potionHotkeyTextTag[init_i] = c_textTagNone;
+        gv_players[init_i].skills.frostSpike = -1;
+        gv_players[init_i].skills.blizzard = -1;
+        gv_players[init_i].skills.fireball = -1;
+        gv_players[init_i].skills.fireClaw = -1;
+        gv_players[init_i].skills.flameEgg = -1;
+        gv_players[init_i].skills.inferno = -1;
+        gv_players[init_i].skills.nova = -1;
+        gv_players[init_i].skills.subzero = -1;
+        gv_players[init_i].skills.frozenArmour = -1;
+        gv_dyingTimer[init_i] = TimerCreate();
+        gv_dyingTimerWindow[init_i] = c_timerWindowNone;
+        gv_players[init_i].stats.attributeDialog.state = c_invalidDialogId;
+        gv_players[init_i].stats.attributeDialog.textBox = c_invalidDialogControlId;
+        gv_machinaDePlagamWarning[init_i] = c_textTagNone;
+        gv_relamyPassUnits[init_i] = UnitGroupEmpty();
+        gv_relamyCanyonUnits[init_i] = UnitGroupEmpty();
+        gv_respawnPoint[init_i] = PointFromId(1);
+        gv_players[init_i].locationDialog.state = c_invalidDialogId;
+        gv_players[init_i].locationDialog.textBox = c_invalidDialogControlId;
+        gv_locationText[init_i] = "Dragon's Nest";
+        gv_locationString[init_i] = "Dragon's Nest";
+        gv_players[init_i].dragon = UnitFromId(632);
+        gv_players[init_i].stats.level = 1;
+        gv_players[init_i].talents.talentDialog.state = c_invalidDialogId;
+        gv_players[init_i].talents.talentDialog.button = c_invalidDialogControlId;
+        gv_stash[init_i] = UnitFromId(631);
+        gv_players[init_i].stats.reborn.dialog.state = c_invalidDialogId;
+        gv_players[init_i].stats.reborn.buttonDialog.state = c_invalidDialogId;
+        gv_players[init_i].stats.reborn.dialog.button = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i < 5; init_i += 1) {
+        gv_wastelandUnitGroups[init_i] = UnitGroupEmpty();
+        gv_relamyHillsUnits[init_i] = UnitGroupEmpty();
+    }
+    for (init_i = 0; init_i < 7; init_i += 1) {
+        gv_bioDomeWastelandUnits[init_i] = UnitGroupEmpty();
+        gv_verbotenForestUnits[init_i] = UnitGroupEmpty();
+
+    }
+    for (init_i = 0; init_i < 8; init_i += 1) {
+        gv_relamyGorgeUnits[init_i] = UnitGroupEmpty();
+        gv_undergroundForestUnits[init_i] = UnitGroupEmpty();
+    }
+    for (init_i = 0; init_i < 9; init_i += 1) {
+        gv_stackChargeNames[init_i] = "";
+    }
+    for (init_i = 0; init_i < 10; init_i += 1) {
+        gv_cretonTrenchUnits[init_i] = UnitGroupEmpty();
+        gv_verbotenInfestationUnits[init_i] = UnitGroupEmpty();
+    }
+    for (init_i = 0; init_i < 38; init_i += 1) {
+        gv_cretonUnits[init_i] = UnitGroupEmpty();
     }
     gv_robus = UnitFromId(4066);
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.malinQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.malinQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.ampQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.ampQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.altossQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.altossQuests[0].objective = c_invalidObjectiveId;
-    }
     gv_illisus = UnitFromId(4393);
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.oleumQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.oleumQuests[0].objective = c_invalidObjectiveId;
-    }
-    gv_shadowSeryn = UnitFromId(632);
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.serynQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.serynQuests[0].objective = c_invalidObjectiveId;
-    }
     gv_contestant1 = UnitFromId(630);
     gv_contestant2 = UnitFromId(632);
     gv_contestant1Group = UnitGroupEmpty();
     gv_contestant2Group = UnitGroupEmpty();
     gv_arenaWaitingTextTag = c_textTagNone;
     gv_playersintheArena = PlayerGroupEmpty();
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_potionHotkeyTextTag[init_i] = c_textTagNone;
-    }
     gv_potionCooldownName = "Potions";
     gv_aSPCooldownName = "Attack Speed Potions";
-    for (init_i = 0; init_i <= 9; init_i += 1) {
-        gv_stackChargeNames[init_i] = "";
-    }
     gv_playersinUndergroundForest = PlayerGroupEmpty();
     gv_playersinRelamyGorge = PlayerGroupEmpty();
     gv_playersinRelamyCave = PlayerGroupEmpty();
     gv_playersinInfestation = PlayerGroupEmpty();
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.frostSpike = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.blizzard = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.fireball = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.fireClaw = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.flameEgg = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.inferno = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.nova = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.subzero = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.frozenArmour = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_dyingTimer[init_i] = TimerCreate();
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_dyingTimerWindow[init_i] = c_timerWindowNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.attributeDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.attributeDialog.textBox = c_invalidDialogControlId;
-    }
     gv_screenButton = c_invalidDialogControlId;
     gv_nosferatu = UnitFromId(632);
     gv_zauberersMinions = UnitGroupEmpty();
     gv_zauberersCrystal = UnitFromId(2501);
     gv_zauberersCrystalLocation = UnitGetPosition(gv_zauberersCrystal);
-    gv_TimeWarpBot = UnitFromId(571981628);
-    gv_TimeWarpBotLocation =  UnitGetPosition(gv_TimeWarpBot);
+    //gv_TimeWarpBot = UnitFromId(571981628);
+    //gv_TimeWarpBotLocation =  UnitGetPosition(gv_TimeWarpBot);
     gv_dragonInBattleWithZauberer1stForm = UnitGroupEmpty();
     gv_playersInBattleWithZauberer1stForm = PlayerGroupEmpty();
     gv_dragonInBattleWithZauberer2ndForm = UnitGroupEmpty();
     gv_playersInBattleWithZauberer2ndForm = PlayerGroupEmpty();
     gv_zaubererTimer = TimerCreate();
     gv_zaubererTimerWindow = c_timerWindowNone;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_machinaDePlagamWarning[init_i] = c_textTagNone;
-    }
     gv_unitsthatdidDamagetoMachinaDePlagam = UnitGroupEmpty();
     gv_machinaDePlagam = UnitFromId(1711);
     gv_machinaDePlagamsBackup = UnitGroupEmpty();
@@ -1934,39 +1769,6 @@ void FakeInitGlobals () {
     gv_syritalWarning = c_textTagNone;
     gv_unitsthatdidDamagetoSyrital = UnitGroupEmpty();
     gv_syrital = UnitFromId(158);
-    for (init_i = 0; init_i < 7; init_i += 1) {
-        gv_bioDomeWastelandUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 10; init_i += 1) {
-        gv_cretonTrenchUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 38; init_i += 1) {
-        gv_cretonUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 10; init_i += 1) {
-        gv_verbotenInfestationUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 7; init_i += 1) {
-        gv_verbotenForestUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 5; init_i += 1) {
-        gv_wastelandUnitGroups[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_relamyPassUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_relamyGorgeUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_relamyCanyonUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 5; init_i += 1) {
-        gv_relamyHillsUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_undergroundForestUnits[init_i] = UnitGroupEmpty();
-    }
     gv_waypointDialog = c_invalidDialogId;
     gv_wastelandDialogButton = c_invalidDialogControlId;
     gv_relamyDialogButton = c_invalidDialogControlId;
@@ -1981,40 +1783,10 @@ void FakeInitGlobals () {
     gv_bDVerbotenUnits = UnitGroupEmpty();
     gv_bDRelamyUnits = UnitGroupEmpty();
     gv_bDWastelandUnits = UnitGroupEmpty();
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_respawnPoint[init_i] = PointFromId(1);
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].locationDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].locationDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_locationText[init_i] = "Dragon's Nest";
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_locationString[init_i] = "Dragon's Nest";
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].dragon = UnitFromId(632);
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.level = 1;
-    }
     gv_humanPlayers = PlayerGroupEmpty();
     gv_dragons = UnitGroupEmpty();
     gv_leadboard = c_boardNone;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].talents.talentDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].talents.talentDialog.button = c_invalidDialogControlId;
-    }
     gv_showTalentsButton = c_invalidDialogControlId;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_stash[init_i] = UnitFromId(631);
-    }
     gv_days = 1;
     gv_hours = 6;
     gv_timeofDayDialog = c_invalidDialogId;
@@ -2024,25 +1796,6 @@ void FakeInitGlobals () {
     gv_playerswatchingendingcinematic = PlayerGroupEmpty();
     gv_hPCConstant = 3954;
     gv_hRCConstant = 7919;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.reborn.dialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.reborn.buttonDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.reborn.dialog.button = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        for (init_j = 0; init_j <= 10; init_j += 1) {
-            gv_players[init_i].stats.reborn.dialog.pointLabel[init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        for (init_j = 0; init_j <= 10; init_j += 1) {
-            gv_players[init_i].stats.reborn.dialog.pointButton[init_j] = c_invalidDialogControlId;
-        }
-    }
     gv_rebornDialogRebornPointLabel = c_invalidDialogControlId;
     gv_adminHandles[0] = "";
     gv_adminHandles[1] = "1-S2-1-4553710";
@@ -2052,6 +1805,7 @@ void FakeInitGlobals () {
     gv_adminHandles[5] = "1-S2-1-2453495";
     gv_adminHandles[6] = "1-S2-1-5695184";
     gv_adminHandles[7] = "2-S2-1-2355723";
+    gv_adminHandles[8] = "1-S2-1-2814183";
 }
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
@@ -3310,46 +3064,38 @@ void gf_SQ9Setup (int lp_player) {
     int lv_pPI;
     // Variable Initialization
     // Implementation
-    PlayerGroupLoopBegin(PlayerGroupSingle(lp_player));
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        lv_pPI = (PlayerGroupLoopCurrent() - 1);
-        if (BankSectionExists(gv_players[(PlayerGroupLoopCurrent() - 1)].banks.dragonBank, "SQ9")) {
-            gv_players[lv_pPI].quests.storyQuests[9].state = BankValueGetAsInt(gv_players[(PlayerGroupLoopCurrent() - 1)].banks.dragonBank, "SQ9", PlayerHandle(PlayerGroupLoopCurrent()));
+        lv_pPI = (lp_player - 1);
+        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ9")) {
+            gv_players[lv_pPI].quests.storyQuests[9].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ9", PlayerHandle(lp_player));
         }
         else {
             gv_players[lv_pPI].quests.storyQuests[9].state = 0;
         }
-        if ((gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].state == 0)) {
-            ObjectiveCreateForPlayers(StringExternal("Param/Value/4EB31843"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(PlayerGroupLoopCurrent()));
-            gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective = ObjectiveLastCreated();
-            PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping);
-            PingCreate(PlayerGroupSingle(PlayerGroupLoopCurrent()), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
-            gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping = PingLastCreated();
-            ObjectiveShow(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        if ((gv_players[lv_pPI].quests.storyQuests[9].state == 0)) {
+            ObjectiveCreateForPlayers(StringExternal("Param/Value/4EB31843"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(lp_player));
+            gv_players[lv_pPI].quests.storyQuests[9].objective = ObjectiveLastCreated();
+            PingDestroy(gv_players[lv_pPI].quests.storyQuests[9].ping);
+            PingCreate(PlayerGroupSingle(lp_player), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
+            gv_players[lv_pPI].quests.storyQuests[9].ping = PingLastCreated();
+            ObjectiveShow(gv_players[lv_pPI].quests.storyQuests[9].objective, PlayerGroupSingle(lp_player), true);
             gv_players[lv_pPI].quests.storyQuests[9].state = 1;
         }
-        else {
-            if ((gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].state == 1)) {
-                ObjectiveCreateForPlayers(StringExternal("Param/Value/223ED8F2"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(PlayerGroupLoopCurrent()));
-                gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective = ObjectiveLastCreated();
-                PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping);
-                PingCreate(PlayerGroupSingle(PlayerGroupLoopCurrent()), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
-                gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping = PingLastCreated();
-                ObjectiveShow(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
-            }
-            else {
-                if ((gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].state == 2)) {
-                    ObjectiveCreateForPlayers(StringExternal("Param/Value/176FF71B"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(PlayerGroupLoopCurrent()));
-                    gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective = ObjectiveLastCreated();
-                    PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping);
-                    PingCreate(PlayerGroupSingle(PlayerGroupLoopCurrent()), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
-                    gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping = PingLastCreated();
-                    ObjectiveShow(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
-                }
-            }
+        else if ((gv_players[lv_pPI].quests.storyQuests[9].state == 1)) {
+            ObjectiveCreateForPlayers(StringExternal("Param/Value/223ED8F2"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(lp_player));
+            gv_players[lv_pPI].quests.storyQuests[9].objective = ObjectiveLastCreated();
+            PingDestroy(gv_players[lv_pPI].quests.storyQuests[9].ping);
+            PingCreate(PlayerGroupSingle(lp_player), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
+            gv_players[lv_pPI].quests.storyQuests[9].ping = PingLastCreated();
+            ObjectiveShow(gv_players[lv_pPI].quests.storyQuests[9].objective, PlayerGroupSingle(lp_player), true);
+        } else if ((gv_players[lv_pPI].quests.storyQuests[9].state == 2)) {
+            ObjectiveCreateForPlayers(StringExternal("Param/Value/176FF71B"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(lp_player));
+            gv_players[lv_pPI].quests.storyQuests[9].objective = ObjectiveLastCreated();
+            PingDestroy(gv_players[lv_pPI].quests.storyQuests[9].ping);
+            PingCreate(PlayerGroupSingle(lp_player), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
+            gv_players[lv_pPI].quests.storyQuests[9].ping = PingLastCreated();
+            ObjectiveShow(gv_players[lv_pPI].quests.storyQuests[9].objective, PlayerGroupSingle(lp_player), true);
         }
-    }
-    PlayerGroupLoopEnd();
+    
 }
 fixed gf_CalculateHealthMissing (unit lp_unit) {
     // Variable Declarations
@@ -5183,101 +4929,57 @@ void gt_TalkDialogClosed_Init () {
 // Trigger: Run Story Quest Setups
 //--------------------------------------------------------------------------------------------------
 bool gt_RunStoryQuestSetups_Func (bool testConds, bool runActions) {
-    playergroup auto39B5CB63_g;
-    int auto39B5CB63_p;
     // Variable Declarations
+    string lv_sqWhat;
     int lv_pPI;
     int lv_forPlayer;
+    int i;
+    int j;
     // Variable Initialization
     lv_forPlayer = 1;
     // Actions
     if (!runActions) {
         return true;
     }
-    auto39B5CB63_g = gv_humanPlayers; 
-    auto39B5CB63_p = 1;
-    for ( ; auto39B5CB63_p <= PlayerGroupCount(auto39B5CB63_g) ; auto39B5CB63_p += BoolToInt(lv_forPlayer == PlayerGroupPlayer(auto39B5CB63_g, auto39B5CB63_p)) ) {
-        lv_forPlayer = PlayerGroupPlayer(auto39B5CB63_g, auto39B5CB63_p);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(lv_forPlayer));
+    for ( i = 1; i <= PlayerGroupCount(gv_humanPlayers) ; i += BoolToInt(lv_forPlayer == PlayerGroupPlayer(gv_humanPlayers, i)) ) {
+        lv_forPlayer = PlayerGroupPlayer(gv_humanPlayers, i);
         lv_pPI = (lv_forPlayer - 1);
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ0") ) {
-            gv_players[lv_pPI].quests.storyQuests[0].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ0", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ1")) {
-            gv_players[lv_pPI].quests.storyQuests[1].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ1", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ2")) {
-            gv_players[lv_pPI].quests.storyQuests[2].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ2", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ3")) {
-            gv_players[lv_pPI].quests.storyQuests[3].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ3", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ4")) {
-            gv_players[lv_pPI].quests.storyQuests[4].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ4", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ5")) {
-            gv_players[lv_pPI].quests.storyQuests[5].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ5", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ6")) {
-            gv_players[lv_pPI].quests.storyQuests[6].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ6", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ7")) {
-            gv_players[lv_pPI].quests.storyQuests[7].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ7", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ8")) {
-            gv_players[lv_pPI].quests.storyQuests[8].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ8", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ9")) {
-            gv_players[lv_pPI].quests.storyQuests[9].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ9", PlayerHandle(lv_forPlayer));
-        }
-        if ((gv_players[lv_pPI].quests.storyQuests[0].state < 2)) {
-            gf_SQ0Setup(lv_forPlayer);
-        }
-        else {
-            if ((gv_players[lv_pPI].quests.storyQuests[1].state < 3)) {
-                gf_SQ1Setup(lv_forPlayer);
-            }
-            else {
-                if ((gv_players[lv_pPI].quests.storyQuests[2].state < 2)) {
-                    gf_SQ2Setup(lv_forPlayer);
-                }
-                else {
-                    if ((gv_players[lv_pPI].quests.storyQuests[3].state < 3)) {
-                        gf_SQ3Setup(lv_forPlayer);
-                    }
-                    else {
-                        if ((gv_players[lv_pPI].quests.storyQuests[4].state < 4)) {
-                            gf_SQ4Setup(lv_forPlayer);
-                        }
-                        else {
-                            if ((gv_players[lv_pPI].quests.storyQuests[5].state < 4)) {
-                                gf_SQ5Setup(lv_forPlayer);
-                            }
-                            else {
-                                if ((gv_players[lv_pPI].quests.storyQuests[6].state < 2)) {
-                                    gf_SQ6Setup(lv_forPlayer);
-                                }
-                                else {
-                                    if ((gv_players[lv_pPI].quests.storyQuests[7].state < 4)) {
-                                        gf_SQ7Setup(lv_forPlayer);
-                                    }
-                                    else {
-                                        if ((gv_players[lv_pPI].quests.storyQuests[8].state < 8)) {
-                                            gf_SQ8Setup(lv_forPlayer);
-                                        }
-                                        else {
-                                            if ((gv_players[lv_pPI].quests.storyQuests[9].state < 3)) {
-                                                gf_SQ9Setup(lv_forPlayer);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        for(j = 0; j < 10; j += 1) {
+            lv_sqWhat = "SQ" + IntToString(j);
+            if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, lv_sqWhat)) {
+                gv_players[lv_pPI].quests.storyQuests[j].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, lv_sqWhat, PlayerHandle(lv_forPlayer));
             }
         }
+    }
+    if ((gv_players[lv_pPI].quests.storyQuests[0].state < 2)) {
+        gf_SQ0Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[1].state < 3)) {
+        gf_SQ1Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[2].state < 2)) {
+        gf_SQ2Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[3].state < 3)) {
+        gf_SQ3Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[4].state < 4)) {
+        gf_SQ4Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[5].state < 4)) {
+        gf_SQ5Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[6].state < 2)) {
+        gf_SQ6Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[7].state < 4)) {
+        gf_SQ7Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[8].state < 8)) {
+        gf_SQ8Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[9].state < 3)) {
+        gf_SQ9Setup(lv_forPlayer);
     }
     return true;
 }
@@ -15327,6 +15029,11 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
         }
     }
     UnitGroupLoopEnd();
+    PlayerGroupLoopBegin(gv_playersInBattleWithZauberer1stForm);
+    for( ; PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+        gv_zaubererFirstFormAlreadyDead[PlayerGroupLoopCurrent() - 1] = true;
+    }
+    PlayerGroupLoopEnd();
     UnitGroupClear(gv_dragonInBattleWithZauberer1stForm);
     PlayerGroupClear(gv_playersInBattleWithZauberer1stForm);
     gv_livingDragonsFightingZauberer1stForm = 0;
@@ -15371,7 +15078,6 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
         Wait(0.1, c_timeReal);
     }
-    gv_zaubererFirstFormAlreadyDead[0] = true;
     Wait(1.0, c_timeReal);
     TriggerExecute(gt_SpawnZauberer2ndFormNormalWay, true, true);
     return true;
@@ -16127,7 +15833,6 @@ void gt_MachinaDePlagamRespawn_Init () {
 // Trigger: Machina De Plagam Backup
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamBackup_Func (bool testConds, bool runActions) {
-    int autoB07D01D8_val;
     // Variable Declarations
     int lv_randomEnemy;
     // Variable Initialization
@@ -16147,59 +15852,53 @@ bool gt_MachinaDePlagamBackup_Func (bool testConds, bool runActions) {
     if ((PlayerGroupCount(gv_humanPlayers) == 1)) {
         lv_randomEnemy = RandomInt(0, 1);
     }
-    else {
-        if ((PlayerGroupCount(gv_humanPlayers) == 2)) {
-            lv_randomEnemy = RandomInt(0, 3);
-        }
-        else {
-            if ((PlayerGroupCount(gv_humanPlayers) == 3)) {
-                lv_randomEnemy = RandomInt(0, 5);
-            }
-            else {
-                if ((PlayerGroupCount(gv_humanPlayers) == 4)) {
-                    lv_randomEnemy = RandomInt(0, 6);
-                }
-            }
-        }
+    else if ((PlayerGroupCount(gv_humanPlayers) == 2)) {
+        lv_randomEnemy = RandomInt(0, 3);
+    } else if ((PlayerGroupCount(gv_humanPlayers) == 3)) {
+        lv_randomEnemy = RandomInt(0, 5);
     }
-    autoB07D01D8_val = lv_randomEnemy;
-    if (autoB07D01D8_val == 0) {
+    else if ((PlayerGroupCount(gv_humanPlayers) == 4)) {
+        lv_randomEnemy = RandomInt(0, 6);
+    }
+            
+    
+    if (lv_randomEnemy == 0) {
         UnitCreate(1, "CretonWarrior", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 1) {
+    else if (lv_randomEnemy == 1) {
         UnitCreate(1, "CretonWatcher", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 2) {
+    else if (lv_randomEnemy == 2) {
         UnitCreate(1, "EliteCretonWarrior", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 3) {
+    else if (lv_randomEnemy == 3) {
         UnitCreate(1, "EliteCretonWatcher", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 4) {
+    else if (lv_randomEnemy == 4) {
         UnitCreate(1, "CretonWarMachine", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 5) {
+    else if (lv_randomEnemy == 5) {
         UnitCreate(1, "CretonWarlord", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 6) {
+    else if (lv_randomEnemy == 6) {
         UnitCreate(1, "Impetus", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
