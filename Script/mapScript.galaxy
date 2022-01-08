@@ -5802,7 +5802,7 @@ void gt_SQ5PlayerTalkstoPetrose_Init () {
 bool gt_SQ6PlayerEntersTeleporttoBiodome_Func (bool testConds, bool runActions) {
     // Conditions
     if (testConds) {
-        if (!((UnitGetOwner(EventUnit()) != 15))) {
+        if (UnitGetOwner(EventUnit()) == 15) {
             return false;
         }
         if (!((gv_players[(UnitGetOwner(EventUnit()) - 1)].quests.storyQuests[6].state == 1))) {
@@ -16380,18 +16380,18 @@ bool gt_UnitattacksSremagsi_Func (bool testConds, bool runActions) {
     if (!runActions) {
         return true;
     }
-    if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit())) {
-        UnitGroupAdd(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit());
-    
-        VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 1"));
-        VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 2"));
-        VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 3"));
-    }
-
     if (!(RegionContainsPoint(RegionFromName("Sremagsi's Lair 1"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 2"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 3"), UnitGetPosition(EventUnitDamageSourceUnit())))) {
-        UnitSetPosition(EventUnitDamageSourceUnit(), RegionRandomPoint(RegionFromName("Sremagsi Cheat Fix Region")), false);
+        UnitSetPosition(EventUnitDamageSourceUnit(), RegionRandomPoint(RegionFromName("Sremagsi Exploit Fix Region")), false);
         //CameraPan(UnitGetOwner(EventUnitTarget()), RegionGetCenter(RegionFromId(241)), 2.0, -1, 10.0, false);
     }
+    if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit())) {
+        return true;
+    }
+    UnitGroupAdd(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit());
+    
+    VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 1"));
+    VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 2"));
+    VisRevealerCreate(15, RegionFromName("Sremagsi's Lair 3"));
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -19988,14 +19988,14 @@ bool gt_TeleporttoBioDome_Func (bool testConds, bool runActions) {
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].quests.storyQuests[8].state >= 1)) {
         SoundtrackStop(PlayerGroupSingle(UnitGetOwner(EventUnit())), c_soundtrackCategoryMusic, true);
         SoundtrackPlay(PlayerGroupSingle(UnitGetOwner(EventUnit())), c_soundtrackCategoryMusic, "BiodomeTheme", c_soundtrackCueAny, 0, false);
-        CameraPan(UnitGetOwner(EventUnit()), RegionGetCenter(RegionFromId(189)), 0.0, -1, 10, false);
+        CameraPan(UnitGetOwner(EventUnit()), RegionGetCenter(RegionFromName("Teleport to Bio Dome Spawn")), 0.0, -1, 10, false);
         lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-        UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(189)), false);
+        UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromName("Teleport to Bio Dome Spawn")), false);
         gv_locationText[lv_triggeringPlayerIndex] = "Bio Dome";
         libNtve_gf_SetDialogItemText(gv_players[lv_triggeringPlayerIndex].locationDialog.textBox, StringToText(gv_locationText[lv_triggeringPlayerIndex]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
         UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
         UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-        gv_respawnPoint[lv_triggeringPlayerIndex] = RegionGetCenter(RegionFromId(188));
+        gv_respawnPoint[lv_triggeringPlayerIndex] = RegionGetCenter(RegionFromName("Teleport to Creton"));
         PlayerGroupAdd(gv_playersInBioDome, UnitGetOwner(EventUnit()));
         UnitGroupAdd(gv_dragonsInBioDome, gv_players[lv_triggeringPlayerIndex].dragon);
     }
@@ -20014,7 +20014,7 @@ bool gt_TeleporttoBioDome_Func (bool testConds, bool runActions) {
 //--------------------------------------------------------------------------------------------------
 void gt_TeleporttoBioDome_Init () {
     gt_TeleporttoBioDome = TriggerCreate("gt_TeleporttoBioDome_Func");
-    TriggerAddEventUnitRegion(gt_TeleporttoBioDome, null, RegionFromId(187), true);
+    TriggerAddEventUnitRegion(gt_TeleporttoBioDome, null, RegionFromName("Teleport to Bio Dome"), true);
 }
 //--------------------------------------------------------------------------------------------------
 // Trigger: Teleport to Creton
