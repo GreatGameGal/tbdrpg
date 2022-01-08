@@ -1668,7 +1668,7 @@ region[39] gv_cretonRegions;
 unitgroup[39] gv_cretonUnits;
 bool gv_cretonSpawned;
 unitgroup[11] gv_verbotenInfestationUnits;
-region[11] gv_verbotenInfestationsRegions;
+region[10] gv_verbotenInfestationsRegions;
 bool[5] gv_verbotenInfestationSpawned;
 region[8] gv_verbotenForestRegions;
 unitgroup[8] gv_verbotenForestUnits;
@@ -18003,7 +18003,7 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer1_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                lv_locationNum %= 11;
+                lv_locationNum %= 10;
             }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
@@ -18105,7 +18105,7 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer2_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                lv_locationNum %= 11;
+                lv_locationNum %= 10;
             }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
@@ -18207,7 +18207,7 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer3_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                lv_locationNum %= 11;
+                lv_locationNum %= 10;
             }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
@@ -18309,7 +18309,7 @@ bool gt_SpawnEnemiesVerbotenInfestationPlayer4_Func (bool testConds, bool runAct
     
             if(maxAreaSpawns != 0) {
                 lv_locationNum += 1;
-                lv_locationNum %= 11;
+                lv_locationNum %= 10;
             }
         }
      UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
