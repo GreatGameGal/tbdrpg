@@ -1281,8 +1281,6 @@ bool lib1_gt_PickTalent_Func (bool testConds, bool runActions) {
             lv_pointsRequired = (10 * (lib1_gv_row[lv_buttonIndex][lv_player] - 1));
             lv_pointsPerTier = 10;
         }
-        else {
-        }
         if ((lib1_gv_currentRank[lv_buttonIndex][lv_player] == lib1_gv_maxRank[lv_buttonIndex][lv_player])) {
             DialogControlSetEnabled(lib1_gv_talentTreeButton[lv_buttonIndex][lv_player], PlayerGroupAll(), false);
             DialogControlSetVisible(lib1_gv_talentButtonGlow[lv_buttonIndex][lv_player], PlayerGroupAll(), false);
@@ -1303,8 +1301,6 @@ bool lib1_gt_PickTalent_Func (bool testConds, bool runActions) {
                 }
                 else if (autoD8089CA4_val == lib1_ge_TalentType_Passive) {
                     lib1_gf_UpdatePassiveButtonTooltip(lv_player, lib1_gv_talentTreeButton[lv_unlockedPrereqTalentIndex][lv_player], lv_unlockedPrereqTalentIndex, lv_unlockedPrereqTalentRequiredPoints, lib1_gv_tree[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_talentName[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_tooltipDescriptionRaw[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_currentRank[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_multiplier[1][lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_multiplier[2][lv_unlockedPrereqTalentIndex][lv_player]);
-                }
-                else {
                 }
             }
         }
@@ -1359,8 +1355,6 @@ bool lib1_gt_PickTalent_Func (bool testConds, bool runActions) {
                 lib1_gf_UnlockTalentTier(lv_player, lib1_gv_tree[lv_buttonIndex][lv_player], 8);
                 SoundPlay(SoundLink("UI_TechConsole_Purchase", -1), PlayerGroupSingle(lv_player), 100.0, 0.0);
             }
-        }
-        else {
         }
         gv_players[(EventPlayer() - 1)].talents.locked = false;
         if ((lib1_gv_currentRank[lv_buttonIndex][lv_player] > lib1_gv_maxRank[lv_buttonIndex][lv_player])) {
@@ -6345,8 +6339,6 @@ bool gt_ManaQuest0TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/731375C0"), StringExternal("Param/Value/E1F95815"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -6554,8 +6546,6 @@ bool gt_ManaQuest1TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/F3FB8101"), StringExternal("Param/Value/FA4DE787"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -6758,8 +6748,6 @@ bool gt_ManaQuest2TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/DB969F41"), StringExternal("Param/Value/AF8ECD40"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -6950,8 +6938,6 @@ bool gt_ManaQuest3TalktoMana_Func (bool testConds, bool runActions) {
     else if (autoAFA0159D_val == 2) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/C943FD11"), StringExternal("Param/Value/E346759C"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-    }
-    else {
     }
     return true;
 }
@@ -7158,8 +7144,6 @@ bool gt_ManaQuest4TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/FCF6A792"), StringExternal("Param/Value/2C96AEC8"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -7352,8 +7336,6 @@ bool gt_ManaQuest5TalktoMana_Func (bool testConds, bool runActions) {
     else if (autoB9CA7EF2_val == 3) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/D4FB44DF"));
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -7545,8 +7527,6 @@ bool gt_BaseQuest0TalktoBase_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/DE5135F3"), StringExternal("Param/Value/D1A86300"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4233)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -7710,8 +7690,6 @@ bool gt_BaseQuest1TalktoBase_Func (bool testConds, bool runActions) {
     else if (auto79278DC8_val == 4) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/9F536067"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4233)), c_animNameDefault, "Dance", c_animFlagPlayForever, c_animTimeDefault);
-    }
-    else {
     }
     return true;
 }
@@ -7902,8 +7880,6 @@ bool gt_DetsefniQuest0TalktoDetsefni_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/22072B2B"), StringExternal("Param/Value/DE876B14"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4922)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -8068,8 +8044,6 @@ bool gt_SergeantListerQuest0TalktoSergeantLister_Func (bool testConds, bool runA
         else if (autoFBB98C7D_val == 2) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/F0A0DDC8"), StringExternal("Param/Value/C3DEB7CE"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4923)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-        }
-        else {
         }
     }
     return true;
@@ -8237,8 +8211,6 @@ bool gt_GreedQuest0TalktoGreed_Func (bool testConds, bool runActions) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/7897B78A"), StringExternal("Param/Value/2B4A19AF"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4924)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
         }
-        else {
-        }
     }
     return true;
 }
@@ -8388,8 +8360,6 @@ bool gt_MadeleineQuest0TalktoMadeleine_Func (bool testConds, bool runActions) {
         else if (autoC2B1B1C3_val == 2) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/AEEC4072"), StringExternal("Param/Value/36BF1515"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4945)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-        }
-        else {
         }
     }
     return true;
@@ -8561,8 +8531,6 @@ bool gt_MalinQuest0TalktoMalin_Func (bool testConds, bool runActions) {
     else if (auto23E309C6_val == 1) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/09B716BE"));
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -8723,8 +8691,6 @@ bool gt_AmpQuest0TalktoAmp_Func (bool testConds, bool runActions) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/73D38BE2"), StringExternal("Param/Value/7540A50F"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(444)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
         }
-        else {
-        }
     }
     return true;
 }
@@ -8884,8 +8850,6 @@ bool gt_AltossQuest0TalktoAltoss_Func (bool testConds, bool runActions) {
         else if (autoCE3B070D_val == 2) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/053D639D"), StringExternal("Param/Value/5B4290DE"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4946)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-        }
-        else {
         }
     }
     return true;
@@ -9085,8 +9049,6 @@ bool gt_OleumQuest0TalktoOleum_Func (bool testConds, bool runActions) {
     else if (auto8D30A0C7_val == 4) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/7CEBCED8"));
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -9281,8 +9243,6 @@ bool gt_SerynQuest0TalktoSeryn_Func (bool testConds, bool runActions) {
     }
     else if (auto542CA1D6_val == 3) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/6D032057"));
-    }
-    else {
     }
     return true;
 }
@@ -13844,8 +13804,6 @@ bool gt_NosferatusLogic_Func (bool testConds, bool runActions) {
         UnitIssueOrder(gv_nosferatu, OrderTargetingPoint(AbilityCommand("HybridBlink", 0), UnitGetPosition(UnitGroupRandomUnit(UnitGroupAlliance(15, c_unitAllianceEnemy, RegionCircle(UnitGetPosition(gv_nosferatu), 15.0), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive))), c_orderQueueReplace);
         UnitIssueOrder(gv_nosferatu, OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(UnitGroupAlliance(15, c_unitAllianceEnemy, RegionCircle(UnitGetPosition(gv_nosferatu), 15.0), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)), c_orderQueueAddToEnd);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -14789,8 +14747,6 @@ bool gt_CountUnitDeaths_Func (bool testConds, bool runActions) {
         gv_unitKills[i] += 1;
         break;
         } 
-        else {
-            }
     }
      //if (auto5FB0BE3D_val == gv_enemyUnitTypes[i]) {
      //   gv_unitKills[i] += 1;
@@ -15274,8 +15230,6 @@ bool gt_SpawnZauberer1stForm_Func (bool testConds, bool runActions) {
         else if (autoAF98452D_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
         }
-        else {
-        }
         lv_spawnPoint += 1;
     }
     PlayerGroupLoopEnd();
@@ -15395,8 +15349,6 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
         else if (auto366A1295_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
         }
-        else {
-        }
         lv_spawnPoint += 1;
     }
     PlayerGroupLoopEnd();
@@ -15507,8 +15459,6 @@ bool gt_SpawnZauberer2ndFormNormalWay_Func (bool testConds, bool runActions) {
         else if (autoE6D0D4FE_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
         }
-        else {
-        }
         lv_spawnPoint += 1;
     }
     PlayerGroupLoopEnd();
@@ -15596,8 +15546,6 @@ bool gt_SpawnZauberer2ndFormSpecial_Func (bool testConds, bool runActions) {
         }
         else if (autoAE86F50E_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
-        }
-        else {
         }
         lv_spawnPoint += 1;
     }
@@ -15711,8 +15659,6 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
         }
         else if (auto157376FC_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
-        }
-        else {
         }
         lv_spawnPoint += 1;
     }
@@ -16258,8 +16204,6 @@ bool gt_MachinaDePlagamBackup_Func (bool testConds, bool runActions) {
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
-    }
-    else {
     }
     return true;
 }
@@ -22443,8 +22387,6 @@ bool gt_SetUpTalentTree_Func (bool testConds, bool runActions) {
         }
         else if (autoB3189529_val == "0002") {
             lib1_gf_CreateTalentTree(PlayerGroupLoopCurrent(), StringExternal("Param/Value/C001C4C0"), lib1_ge_ColorScheme_Blue, 3, "Defensive,General,Offensive", 3, 4, lib1_ge_PointsPerTier__5);
-        }
-        else {
         }
         lib1_gf_CreateTalentButton(PlayerGroupLoopCurrent(), 1, 1, 1, lib1_ge_TalentPrerequisite_None, "HeartoftheDragon", lib1_ge_TalentType_Passive, StringExternal("Param/Value/D7FEAC29"), 10, "Assets\\Textures\\sm_hml_heartbeat_diff.dds", StringExternal("Param/Value/1C4A2F4D"), 10.0, 0.0, null, null);
         lib1_gf_CreateTalentButton(PlayerGroupLoopCurrent(), 1, 2, 1, lib1_ge_TalentPrerequisite_None, "IronScales", lib1_ge_TalentType_Passive, StringExternal("Param/Value/314749A3"), 10, "Assets\\Textures\\btn-upgrade-zerg-groundcarapace-level1.dds", StringExternal("Param/Value/7174AC2B"), 0.5, 0.0, null, null);
