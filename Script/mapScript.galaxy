@@ -15543,7 +15543,7 @@ bool gt_Zauberer1stFormAI_Func (bool testConds, bool runActions) {
     unit lv_target;
     // Variable Initialization
     if (testConds) {
-        if (!UnitIsAlive(gv_zauberer1stForm)) {
+        if (!UnitIsAlive(gv_zauberer1stForm) || libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer1stForm)) {
             return false;
         }
     }
