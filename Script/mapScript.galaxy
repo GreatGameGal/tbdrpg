@@ -15538,27 +15538,30 @@ void gt_Zauberer1stFormDeath_Init () {
 // Trigger: Zauberer 1st Form AI
 //--------------------------------------------------------------------------------------------------
 bool gt_Zauberer1stFormAI_Func (bool testConds, bool runActions) {
-    int auto5D248BF3_val;
     // Variable Declarations
     int lv_randomSkill;
     unit lv_target;
     // Variable Initialization
+    if (testConds) {
+        if (!UnitIsAlive(gv_zauberer1stForm)) {
+            return false;
+        }
+    }
     // Actions
     if (!runActions) {
         return true;
     }
     lv_randomSkill = RandomInt(0, 2);
     lv_target = UnitGroupRandomUnit(gv_dragonInBattleWithZauberer1stForm, c_unitCountAlive);
-    auto5D248BF3_val = lv_randomSkill;
-    if (auto5D248BF3_val == 0) {
+    if (lv_randomSkill == 0) {
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("ZaubererFireball", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto5D248BF3_val == 1) {
+    else if (lv_randomSkill == 1) {
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingPoint(AbilityCommand("PsiStorm", 0), UnitGetPosition(lv_target)), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto5D248BF3_val == 2) {
+    else if (lv_randomSkill == 2) {
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("HybridCPlasmaBlast", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer1stForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
