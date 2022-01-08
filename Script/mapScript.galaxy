@@ -17,7 +17,7 @@ const int adminCount = 9;
 bool statueSpawned = true;
 bool firstTimeInRelamyCave = true;
 string[adminCount] gv_adminHandles;
-unit[5] gv_manaQuest0Armor;
+unit[4] gv_manaQuest0Armor;
 unit gv_robus;
 unit gv_illisus;
 unit gv_shadowSeryn;
@@ -47,8 +47,8 @@ struct dialogObj {
     int decline;
     string textVal;
     // Reborn dialog
-    int[11] pointLabel;
-    int[11] pointButton;
+    int[10] pointLabel;
+    int[10] pointButton;
     // Talent Dialog
     int button;
 };
@@ -156,7 +156,7 @@ struct playerData {
     bool seenIntro;
     dialogObj locationDialog;
 };
-playerData[5] gv_players;
+playerData[4] gv_players;
 //--------------------------------------------------------------------------------------------------
 // Library: Talent Library
 //--------------------------------------------------------------------------------------------------
@@ -197,24 +197,24 @@ int[17] lib1_gv_availablePointsLabel;
 int[17] lib1_gv_availablePointsDialog;
 int[17] lib1_gv_closeTalentTreeButton;
 string[11][17] lib1_gv_talentBuildString;
-unit[5] lib1_gv_heros;
-int[5] lib1_gv_strengthoftheDragonCount;
-int[5] lib1_gv_mindoftheDragonCount;
-int[5] lib1_gv_powerOverwhelmingCount;
-int[5] lib1_gv_rageCount;
-int[5] lib1_gv_vampiricTendenciesCount;
-int[5] lib1_gv_zealCount;
-int[5] lib1_gv_criticalCrepitusCount;
-int[5] lib1_gv_darkDissultoCount;
-int[5] lib1_gv_spikedScalesCount;
-int[5] lib1_gv_retaliationCount;
-int[5] lib1_gv_headshotCount;
-int[5] lib1_gv_stickyShotCount;
-int[5] lib1_gv_dualWieldCount;
-int[5] lib1_gv_greedisGoodCount;
-int[5] lib1_gv_quickLearnerCount;
-int[5] lib1_gv_absorbManaCount;
-int[5] lib1_gv_realmSwitchCount;
+unit[4] lib1_gv_heros;
+int[4] lib1_gv_strengthoftheDragonCount;
+int[4] lib1_gv_mindoftheDragonCount;
+int[4] lib1_gv_powerOverwhelmingCount;
+int[4] lib1_gv_rageCount;
+int[4] lib1_gv_vampiricTendenciesCount;
+int[4] lib1_gv_zealCount;
+int[4] lib1_gv_criticalCrepitusCount;
+int[4] lib1_gv_darkDissultoCount;
+int[4] lib1_gv_spikedScalesCount;
+int[4] lib1_gv_retaliationCount;
+int[4] lib1_gv_headshotCount;
+int[4] lib1_gv_stickyShotCount;
+int[4] lib1_gv_dualWieldCount;
+int[4] lib1_gv_greedisGoodCount;
+int[4] lib1_gv_quickLearnerCount;
+int[4] lib1_gv_absorbManaCount;
+int[4] lib1_gv_realmSwitchCount;
 // Function Declarations
 bool lib1_gf_IsTalentButton (int lp_player, int lp_dialogItem);
 bool lib1_gf_TalentTreeisOpen (int lp_player);
@@ -427,7 +427,6 @@ void lib1_gf_UpdatePassiveButtonTooltip (int lp_player, int lp_button, int lp_bu
     libNtve_gf_SetDialogItemTooltip(lp_button, (lv_tooltipName + lv_tooltipRequirement + lv_tooltipPrerequisite + lv_tooltipDescription), PlayerGroupAll());
 }
 void lib1_gf_UnlockTalentButton (int lp_player, int lp_tree, int lp_column, int lp_row) {
-    int autoC6E66CC3_val;
     // Variable Declarations
     int lv_buttonIndex;
     // Variable Initialization
@@ -440,14 +439,12 @@ void lib1_gf_UnlockTalentButton (int lp_player, int lp_tree, int lp_column, int 
             DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[lv_buttonIndex][lp_player], PlayerGroupAll(), true);
             DialogControlSetVisible(lib1_gv_talentButtonLabel[lv_buttonIndex][lp_player], PlayerGroupAll(), true);
         }
-        autoC6E66CC3_val = lib1_gv_talentType[lv_buttonIndex][lp_player];
-        if (autoC6E66CC3_val == lib1_ge_TalentType_Ability) {
+
+        if (lib1_gv_talentType[lv_buttonIndex][lp_player] == lib1_ge_TalentType_Ability) {
             lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_buttonIndex][lp_player], lv_buttonIndex, 0, lp_tree, lib1_gv_abilityLink[lv_buttonIndex][lp_player], lib1_gv_buttonLink[lv_buttonIndex][lp_player]);
         }
-        else if (autoC6E66CC3_val == lib1_ge_TalentType_Passive) {
+        else if (lib1_gv_talentType[lv_buttonIndex][lp_player] == lib1_ge_TalentType_Passive) {
             lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_buttonIndex][lp_player], lv_buttonIndex, 0, lp_tree, lib1_gv_talentName[lv_buttonIndex][lp_player], lib1_gv_tooltipDescriptionRaw[lv_buttonIndex][lp_player], lib1_gv_currentRank[lv_buttonIndex][lp_player], lib1_gv_multiplier[1][lv_buttonIndex][lp_player], lib1_gv_multiplier[2][lv_buttonIndex][lp_player]);
-        }
-        else {
         }
     }
 }
@@ -459,8 +456,6 @@ void lib1_gf_UnlockTalentTier (int lp_player, int lp_tree, int lp_tier) {
     }
 }
 void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier) {
-    int auto3120DF8A_val;
-    int auto899F399B_val;
     // Variable Declarations
     int lv_mainDialogHeight;
     int lv_mainDialogWidth;
@@ -481,8 +476,7 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
     lib1_gv_ofRows[lp_player] = lp_rows;
     lib1_gv_buttonIndex[lp_player] = 0;
     lib1_gv_pointsPerTier[lp_player] = lp_pointsPerTier;
-    auto3120DF8A_val = lp_colorScheme;
-    if (auto3120DF8A_val == lib1_ge_ColorScheme_Blue) {
+    if (lp_colorScheme == lib1_ge_ColorScheme_Blue) {
         lib1_gv_colorScheme[lp_player] = "Blue";
         lv_mainDialogIMG = "Assets\\Textures\\ui_glue_dropdownmenuframe_protoss.dds";
         lv_titleFrameIMG = "Assets\\Textures\\ui_help_frame_tips_new_protoss.dds";
@@ -490,7 +484,7 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
         lv_buttonNormalIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normalpressed_protoss.dds";
         lv_buttonHoverIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normaloverpressedover_protoss.dds";
     }
-    else if (auto3120DF8A_val == lib1_ge_ColorScheme_Green) {
+    else if (lp_colorScheme == lib1_ge_ColorScheme_Green) {
         lib1_gv_colorScheme[lp_player] = "Green";
         lv_mainDialogIMG = "Assets\\Textures\\ui_glue_dropdownmenuframe_terran.dds";
         lv_titleFrameIMG = "Assets\\Textures\\ui_help_frame_tips_new_terran.dds";
@@ -498,7 +492,7 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
         lv_buttonNormalIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normalpressed.dds";
         lv_buttonHoverIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normaloverpressedover.dds";
     }
-    else if (auto3120DF8A_val == lib1_ge_ColorScheme_Red) {
+    else if (lp_colorScheme == lib1_ge_ColorScheme_Red) {
         lib1_gv_colorScheme[lp_player] = "Red";
         lv_mainDialogIMG = "Assets\\Textures\\ui_glue_dropdownmenuframe_zerg.dds";
         lv_titleFrameIMG = "Assets\\Textures\\ui_help_frame_tips_new_zerg.dds";
@@ -507,8 +501,6 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
         lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_zerg.dds";
         lv_buttonNormalIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normalpressed_zerg.dds";
         lv_buttonHoverIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normaloverpressedover_zerg.dds";
-    }
-    else {
     }
     lv_mainDialogHeight = (335 + (100 * (lp_rows - 1)));
     lv_mainDialogWidth = (450 * lp_trees);
@@ -544,8 +536,7 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
     lib1_gv_talentTreeNames[1][lp_player] = lv_treeName1;
     lib1_gv_talentTreeNames[2][lp_player] = lv_treeName2;
     lib1_gv_talentTreeNames[3][lp_player] = lv_treeName3;
-    auto899F399B_val = lp_trees;
-    if (auto899F399B_val == 1) {
+    if (lp_trees == 1) {
         libNtve_gf_CreateDialogItemImage(lib1_gv_mainTalentDialog[lp_player], 275, 90, c_anchorTop, 0, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
         libNtve_gf_CreateDialogItemLabel(lib1_gv_mainTalentDialog[lp_player], 275, 90, c_anchorTop, 0, 113, lv_treeName1, Color(100,100,100), false, 2.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
@@ -554,7 +545,7 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
         DialogSetPositionRelative(lib1_gv_subTalentDialog[1][lp_player], c_anchorTop, lib1_gv_mainTalentDialog[lp_player], c_anchorTop, 0, 200);
         DialogSetImageVisible(lib1_gv_subTalentDialog[1][lp_player], false);
     }
-    else if (auto899F399B_val == 2) {
+    else if (lp_trees == 2) {
         libNtve_gf_CreateDialogItemImage(lib1_gv_mainTalentDialog[lp_player], 275, 90, c_anchorTop, -225, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
         libNtve_gf_CreateDialogItemLabel(lib1_gv_mainTalentDialog[lp_player], 275, 90, c_anchorTop, -225, 113, lv_treeName1, Color(100,100,100), false, 2.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
@@ -571,7 +562,7 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
         DialogSetPositionRelative(lib1_gv_subTalentDialog[2][lp_player], c_anchorTop, lib1_gv_mainTalentDialog[lp_player], c_anchorTop, 225, 200);
         DialogSetImageVisible(lib1_gv_subTalentDialog[2][lp_player], false);
     }
-    else if (auto899F399B_val == 3) {
+    else if (lp_trees == 3) {
         libNtve_gf_CreateDialogItemImage(lib1_gv_mainTalentDialog[lp_player], 275, 90, c_anchorTop, -450, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
         libNtve_gf_CreateDialogItemLabel(lib1_gv_mainTalentDialog[lp_player], 275, 90, c_anchorTop, -450, 113, lv_treeName1, Color(100,100,100), false, 2.0);
         libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
@@ -598,11 +589,6 @@ void lib1_gf_CreateTalentTree (int lp_player, text lp_title, int lp_colorScheme,
     }
 }
 void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
-    string auto03D269F5_val;
-    int autoD4433183_val;
-    int auto4FDECC6C_val;
-    int auto6D8F3512_val;
-    int auto9A455375_val;
     // Variable Declarations
     string lv_buttonGlowIMG;
     string lv_buttonNormalIMG;
@@ -622,44 +608,38 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
     lib1_gv_row[lib1_gv_buttonIndex[lp_player]][lp_player] = lp_row;
     lib1_gv_talentUpgrade[lib1_gv_buttonIndex[lp_player]][lp_player] = lp_upgradeLink;
     lib1_gv_talentType[lib1_gv_buttonIndex[lp_player]][lp_player] = lp_talentType;
-    auto03D269F5_val = lib1_gv_colorScheme[lp_player];
-    if (auto03D269F5_val == "Blue") {
+    if (lib1_gv_colorScheme[lp_player] == "Blue") {
         lv_buttonGlowIMG = "Assets\\Textures\\ui_research_button_protoss_researched.dds";
         lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_protoss.dds";
         lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_protoss.dds";
         lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_protoss.dds";
     }
-    else if (auto03D269F5_val == "Green") {
+    else if (lib1_gv_colorScheme[lp_player] == "Green") {
         lv_buttonGlowIMG = "Assets\\Textures\\ui_ingame_tipsbutton_glow.dds";
         lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_terran.dds";
         lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_terran.dds";
         lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_terran.dds";
     }
-    else if (auto03D269F5_val == "Red") {
+    else if (lib1_gv_colorScheme[lp_player] == "Red") {
         lv_buttonGlowIMG = "Assets\\Textures\\ui_research_button_zerg_researched.dds";
         lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_zerg.dds";
         lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_zerg.dds";
         lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_zerg.dds";
     }
-    else {
-    }
     if ((lib1_gv_talentTreeButton[lib1_gv_talentTreeButtonIndexTreeColumnRow[lp_tree][lp_column][lp_row][lp_player]][lp_player] != c_invalidDialogControlId)) {
         libNtve_gf_UIErrorMessage(PlayerGroupAll(), StringExternal("Param/Value/lib_1_F0C5D28C"), SoundLink("Alert_TerranBuildError", -1));
     }
-    autoD4433183_val = lib1_gv_ofColumns[lp_player];
-    if (autoD4433183_val == 1) {
+    if (lib1_gv_ofColumns[lp_player] == 1) {
         lv_xOffset = 0;
     }
-    else if (autoD4433183_val == 2) {
+    else if (lib1_gv_ofColumns[lp_player] == 2) {
         lv_xOffset = -50;
     }
-    else if (autoD4433183_val == 3) {
+    else if (lib1_gv_ofColumns[lp_player] == 3) {
         lv_xOffset = -100;
     }
-    else if (autoD4433183_val == 4) {
+    else if (lib1_gv_ofColumns[lp_player] == 4) {
         lv_xOffset = -150;
-    }
-    else {
     }
     lv_xOffset = (lv_xOffset + (100 * (lp_column - 1)));
     lv_yOffset = (25 + (100 * (lp_row - 1)));
@@ -669,8 +649,7 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
     libNtve_gf_SetDialogItemImage(lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], lv_buttonNormalIMG, PlayerGroupAll());
     libNtve_gf_SetDialogItemImageType(lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], c_triggerImageTypeBorder, PlayerGroupAll());
     libNtve_gf_SetDialogItemImage2(lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], lv_buttonHoverIMG, PlayerGroupAll());
-    auto4FDECC6C_val = lp_talentPrerequisite;
-    if (auto4FDECC6C_val == lib1_ge_TalentPrerequisite_Up) {
+    if (lp_talentPrerequisite == lib1_ge_TalentPrerequisite_Up) {
         lib1_gv_hasPrerequisite[lib1_gv_buttonIndex[lp_player]][lp_player] = lib1_gv_talentTreeButtonIndexTreeColumnRow[lp_tree][lp_column][(lp_row - 1)][lp_player];
         lib1_gv_isPrerequisite[lib1_gv_talentTreeButtonIndexTreeColumnRow[lp_tree][lp_column][(lp_row - 1)][lp_player]][lp_player] = lib1_gv_buttonIndex[lp_player];
         lib1_gv_prerequisiteComplete[lib1_gv_buttonIndex[lp_player]][lp_player] = false;
@@ -693,7 +672,7 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
         libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
         DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], c_anchorCenter, 20, -43);
     }
-    else if (auto4FDECC6C_val == lib1_ge_TalentPrerequisite_Left) {
+    else if (lp_talentPrerequisite == lib1_ge_TalentPrerequisite_Left) {
         lib1_gv_hasPrerequisite[lib1_gv_buttonIndex[lp_player]][lp_player] = lib1_gv_talentTreeButtonIndexTreeColumnRow[lp_tree][(lp_column - 1)][lp_row][lp_player];
         lib1_gv_isPrerequisite[lib1_gv_talentTreeButtonIndexTreeColumnRow[lp_tree][(lp_column - 1)][lp_row][lp_player]][lp_player] = lib1_gv_buttonIndex[lp_player];
         lib1_gv_prerequisiteComplete[lib1_gv_buttonIndex[lp_player]][lp_player] = false;
@@ -722,7 +701,7 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
         libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
         DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], c_anchorCenter, -41, 20);
     }
-    else if (auto4FDECC6C_val == lib1_ge_TalentPrerequisite_Right) {
+    else if (lp_talentPrerequisite == lib1_ge_TalentPrerequisite_Right) {
         lib1_gv_hasPrerequisite[lib1_gv_buttonIndex[lp_player]][lp_player] = lib1_gv_talentTreeButtonIndexTreeColumnRow[lp_tree][(lp_column + 1)][lp_row][lp_player];
         lib1_gv_isPrerequisite[lib1_gv_talentTreeButtonIndexTreeColumnRow[lp_tree][(lp_column + 1)][lp_row][lp_player]][lp_player] = lib1_gv_buttonIndex[lp_player];
         lib1_gv_prerequisiteComplete[lib1_gv_buttonIndex[lp_player]][lp_player] = false;
@@ -748,19 +727,13 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
         libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
         DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], c_anchorCenter, 41, 20);
     }
-    else {
-    }
-    auto6D8F3512_val = lib1_gv_pointsPerTier[lp_player];
-    if (auto6D8F3512_val == lib1_ge_PointsPerTier__5) {
+    if (lib1_gv_pointsPerTier[lp_player] == lib1_ge_PointsPerTier__5) {
         lv_requiredPoints = (5 * (lp_row - 1));
     }
-    else if (auto6D8F3512_val == lib1_ge_PointsPerTier__10) {
+    else if (lib1_gv_pointsPerTier[lp_player] == lib1_ge_PointsPerTier__10) {
         lv_requiredPoints = (10 * (lp_row - 1));
     }
-    else {
-    }
-    auto9A455375_val = lp_talentType;
-    if (auto9A455375_val == lib1_ge_TalentType_Ability) {
+    if (lp_talentType == lib1_ge_TalentType_Ability) {
         lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], lib1_gv_buttonIndex[lp_player], lv_requiredPoints, lp_tree, lp_abilityLinkAbility, lp_buttonLinkAbility);
         lv_talentIMGString = CatalogFieldValueGet(c_gameCatalogButton, (lp_buttonLinkAbility), "Icon", lp_player);
         lv_talentIMG = lv_talentIMGString;
@@ -769,7 +742,7 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
         lib1_gv_abilityLink[lib1_gv_buttonIndex[lp_player]][lp_player] = lp_abilityLinkAbility;
         lib1_gv_buttonLink[lib1_gv_buttonIndex[lp_player]][lp_player] = lp_buttonLinkAbility;
     }
-    else if (auto9A455375_val == lib1_ge_TalentType_Passive) {
+    else if (lp_talentType == lib1_ge_TalentType_Passive) {
         lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], lib1_gv_buttonIndex[lp_player], lv_requiredPoints, lp_tree, lp_namePassive, lp_tooltipTextPassive, 0, lp_multiplier1Passive, lp_multiplier2Passive);
         lv_talentIMG = lp_imagePassive;
         lib1_gv_maxRank[lib1_gv_buttonIndex[lp_player]][lp_player] = lp_maxRankPassive;
@@ -777,8 +750,6 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
         lib1_gv_tooltipDescriptionRaw[lib1_gv_buttonIndex[lp_player]][lp_player] = lp_tooltipTextPassive;
         lib1_gv_multiplier[1][lib1_gv_buttonIndex[lp_player]][lp_player] = lp_multiplier1Passive;
         lib1_gv_multiplier[2][lib1_gv_buttonIndex[lp_player]][lp_player] = lp_multiplier2Passive;
-    }
-    else {
     }
     libNtve_gf_CreateDialogItemImage(lib1_gv_subTalentDialog[lp_tree][lp_player], 67, 67, c_anchorCenter, 0, 0, StringToText(""), lv_talentIMG, c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lib1_gv_talentTreeButton[lib1_gv_buttonIndex[lp_player]][lp_player], c_anchorCenter, 0, 0);
@@ -803,10 +774,8 @@ void lib1_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int 
     }
 }
 void lib1_gf_ShowHideTalentTree (int lp_player) {
-    bool auto65715FE0_val;
     // Implementation
-    auto65715FE0_val = DialogIsVisible(lib1_gv_mainTalentDialog[lp_player], lp_player);
-    if (auto65715FE0_val) {
+    if (DialogIsVisible(lib1_gv_mainTalentDialog[lp_player], lp_player)) {
         DialogSetVisible(lib1_gv_mainTalentDialog[lp_player], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(lib1_gv_subTalentDialog[1][lp_player], PlayerGroupSingle(lp_player), false);
         DialogSetVisible(lib1_gv_subTalentDialog[2][lp_player], PlayerGroupSingle(lp_player), false);
@@ -850,11 +819,11 @@ void lib1_gf_DestroyTalentTree (int lp_player) {
         lib1_gv_isPrerequisite[i][lp_player] = 0;
         lib1_gv_prerequisiteComplete[i][lp_player] = false;
     }
-    // i is tree.
+    // Trees.
     for (i = 0; i < lib1_gv_ofTrees[lp_player]; i += 1) {
-        // j is row.
+        // Rows.
         for (j = 0; j < lib1_gv_ofRows[lp_player]; j += 1) {
-            // k is column.
+            // Columns.
             for (k = 0; k < lib1_gv_ofColumns[lp_player]; k += 1) {
                 lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][j][lp_player] = 0;
             }
@@ -862,34 +831,12 @@ void lib1_gf_DestroyTalentTree (int lp_player) {
     }
 }
 void lib1_gf_SaveLoadTalentBuild (int lp_saveLoad, int lp_buildIndex, string lp_bankName, int lp_player) {
-    int auto39B7DD06_val;
-    int auto4B6F81CD_n;
-    int auto4B6F81CD_i;
-    int autoD0201FAF_n;
-    int autoD0201FAF_i;
-    int autoD142A2C6_n;
-    int autoD142A2C6_i;
-    int auto801731C0_n;
-    int auto801731C0_i;
-    int auto056FDEC7_n;
-    int auto056FDEC7_i;
-    int auto2944E9AE_n;
-    int auto2944E9AE_i;
-    int auto883FD3A8_val;
-    int autoEF30D3F4_val;
-    int autoB7C929C5_val;
-    int autoBB553F6A_val;
-    int autoEE828A01_val;
-    int autoAA9AD66B_n;
-    int autoAA9AD66B_i;
-    int auto982C0BD7_n;
-    int auto982C0BD7_i;
+    int i;
+    int j;
+    int k;
     // Variable Declarations
     int lv_playerIndex;
     bank lv_talentBank;
-    int lv_buttonTree;
-    int lv_buttonColumn;
-    int lv_buttonRow;
     int lv_buttonIndex;
     int lv_talentStringIndex;
     int lv_buttonCurrentRank;
@@ -904,20 +851,14 @@ void lib1_gf_SaveLoadTalentBuild (int lp_saveLoad, int lp_buildIndex, string lp_
     lv_talentBank = BankLastCreated();
     lib1_gv_talentBuildString[lp_buildIndex][lp_player] = "";
     lv_playerIndex = (lp_player - 1);
-    auto39B7DD06_val = lp_saveLoad;
-    if (auto39B7DD06_val == lib1_ge_SaveLoad_Save) {
-        auto4B6F81CD_n = lib1_gv_ofTrees[lp_player];
-        for (auto4B6F81CD_i = 1; auto4B6F81CD_i <= auto4B6F81CD_n; auto4B6F81CD_i += 1) {
-            lv_buttonTree += 1;
-            lv_buttonRow = 0;
-            autoD0201FAF_n = lib1_gv_ofRows[lp_player];
-            for (autoD0201FAF_i = 1; autoD0201FAF_i <= autoD0201FAF_n; autoD0201FAF_i += 1) {
-                lv_buttonRow += 1;
-                lv_buttonColumn = 0;
-                autoD142A2C6_n = lib1_gv_ofColumns[lp_player];
-                for (autoD142A2C6_i = 1; autoD142A2C6_i <= autoD142A2C6_n; autoD142A2C6_i += 1) {
-                    lv_buttonColumn += 1;
-                    lv_buttonIndex = lib1_gv_talentTreeButtonIndexTreeColumnRow[lv_buttonTree][lv_buttonColumn][lv_buttonRow][lp_player];
+    if (lp_saveLoad == lib1_ge_SaveLoad_Save) {
+        // Trees
+        for (i = 1; i <= lib1_gv_ofTrees[lp_player]; i += 1) {
+            // Rows
+            for (j = 1; j <= lib1_gv_ofRows[lp_player]; j += 1) {
+                // Columns
+                for (k = 1; k <= lib1_gv_ofColumns[lp_player]; k += 1) {
+                    lv_buttonIndex = lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][j][lp_player];
                     if ((lv_buttonIndex != 0)) {
                         if ((lib1_gv_currentRank[lv_buttonIndex][lp_player] < 10)) {
                             lib1_gv_talentBuildString[lp_buildIndex][lp_player] = StringReplace(lib1_gv_talentBuildString[lp_buildIndex][lp_player], "0", lv_talentStringIndex, (lv_talentStringIndex + 0));
@@ -935,37 +876,29 @@ void lib1_gf_SaveLoadTalentBuild (int lp_saveLoad, int lp_buildIndex, string lp_
         BankValueSetFromInt(lv_talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex), lib1_gv_availableTalentPoints[lp_player]);
         BankSave(lv_talentBank);
     }
-    else if (auto39B7DD06_val == lib1_ge_SaveLoad_Load) {
+    else if (lp_saveLoad == lib1_ge_SaveLoad_Load) {
         lib1_gv_talentBuildString[lp_buildIndex][lp_player] = BankValueGetAsString(lv_talentBank, lp_bankName, IntToString(lp_buildIndex));
         if ((lib1_gv_talentBuildString[lp_buildIndex][lp_player] != "")) {
             lib1_gf_ResetTalentBuild(lp_player, 101);
             lib1_gv_availableTalentPoints[lp_player] = BankValueGetAsInt(lv_talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex));
             libNtve_gf_SetDialogItemText(lib1_gv_availablePointsLabel[lp_player], IntToText(lib1_gv_availableTalentPoints[lp_player]), PlayerGroupAll());
-            auto801731C0_n = lib1_gv_ofTrees[lp_player];
-            for (auto801731C0_i = 1; auto801731C0_i <= auto801731C0_n; auto801731C0_i += 1) {
-                lv_buttonTree += 1;
-                lv_buttonRow = 0;
-                auto056FDEC7_n = lib1_gv_ofRows[lp_player];
-                for (auto056FDEC7_i = 1; auto056FDEC7_i <= auto056FDEC7_n; auto056FDEC7_i += 1) {
-                    lv_buttonRow += 1;
-                    lv_buttonColumn = 0;
-                    auto2944E9AE_n = lib1_gv_ofColumns[lp_player];
-                    for (auto2944E9AE_i = 1; auto2944E9AE_i <= auto2944E9AE_n; auto2944E9AE_i += 1) {
-                        lv_buttonColumn += 1;
-                        lv_buttonIndex = lib1_gv_talentTreeButtonIndexTreeColumnRow[lv_buttonTree][lv_buttonColumn][lv_buttonRow][lp_player];
+            // Trees
+            for (i = 1; i <= lib1_gv_ofTrees[lp_player]; i += 1) {
+                // Rows
+                for (j = 1; j <= lib1_gv_ofRows[lp_player]; j += 1) {
+                    // Columns
+                    for (k = 1; k <= lib1_gv_ofColumns[lp_player]; k += 1) {
+                        lv_buttonIndex = lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][j][lp_player];
                         if ((lv_buttonIndex != 0)) {
                             lv_buttonCurrentRank = StringToInt(StringSub(lib1_gv_talentBuildString[lp_buildIndex][lp_player], lv_talentStringIndex, (lv_talentStringIndex + 1)));
                             lv_talentStringIndex += 2;
-                            auto883FD3A8_val = lib1_gv_pointsPerTier[lp_player];
-                            if (auto883FD3A8_val == lib1_ge_PointsPerTier__5) {
+                            if (lib1_gv_pointsPerTier[lp_player] == lib1_ge_PointsPerTier__5) {
                                 lv_pointsRequired = (5 * (lib1_gv_row[lv_buttonIndex][lp_player] - 1));
                                 lv_pointsPerTier = 5;
                             }
-                            else if (auto883FD3A8_val == lib1_ge_PointsPerTier__10) {
+                            else if (lib1_gv_pointsPerTier[lp_player] == lib1_ge_PointsPerTier__10) {
                                 lv_pointsRequired = (10 * (lib1_gv_row[lv_buttonIndex][lp_player] - 1));
                                 lv_pointsPerTier = 10;
-                            }
-                            else {
                             }
                             if ((lv_buttonCurrentRank >= lib1_gv_maxRank[lv_buttonIndex][lp_player])) {
                                 lv_buttonCurrentRank = lib1_gv_maxRank[lv_buttonIndex][lp_player];
@@ -976,27 +909,21 @@ void lib1_gf_SaveLoadTalentBuild (int lp_saveLoad, int lp_buildIndex, string lp_
                                 DialogControlSetVisible(lib1_gv_talentButtonGlow[lv_buttonIndex][lp_player], PlayerGroupAll(), false);
                                 DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[lv_buttonIndex][lp_player], PlayerGroupAll(), true);
                                 DialogControlSetVisible(lib1_gv_talentButtonLabel[lv_buttonIndex][lp_player], PlayerGroupAll(), true);
-                                autoBB553F6A_val = lib1_gv_talentType[lv_buttonIndex][lp_player];
-                                if (autoBB553F6A_val == lib1_ge_TalentType_Ability) {
+                                if (lib1_gv_talentType[lv_buttonIndex][lp_player] == lib1_ge_TalentType_Ability) {
                                     lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_buttonIndex][lp_player], lv_buttonIndex, 0, lib1_gv_tree[lv_buttonIndex][lp_player], lib1_gv_abilityLink[lv_buttonIndex][lp_player], lib1_gv_buttonLink[lv_buttonIndex][lp_player]);
                                 }
-                                else if (autoBB553F6A_val == lib1_ge_TalentType_Passive) {
+                                else if (lib1_gv_talentType[lv_buttonIndex][lp_player] == lib1_ge_TalentType_Passive) {
                                     lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_buttonIndex][lp_player], lv_buttonIndex, 0, lib1_gv_tree[lv_buttonIndex][lp_player], lib1_gv_talentName[lv_buttonIndex][lp_player], lib1_gv_tooltipDescriptionRaw[lv_buttonIndex][lp_player], lib1_gv_currentRank[lv_buttonIndex][lp_player], lib1_gv_multiplier[1][lv_buttonIndex][lp_player], lib1_gv_multiplier[2][lv_buttonIndex][lp_player]);
-                                }
-                                else {
                                 }
                                 if ((lib1_gv_isPrerequisite[lv_buttonIndex][lp_player] != 0)) {
                                     lv_unlockedPrereqTalentIndex = lib1_gv_isPrerequisite[lv_buttonIndex][lp_player];
                                     lib1_gv_prerequisiteComplete[lv_unlockedPrereqTalentIndex][lp_player] = true;
                                     lv_unlockedPrereqTalentRequiredPoints = (lv_pointsPerTier * (lib1_gv_row[lv_unlockedPrereqTalentIndex][lp_player] - 1));
-                                    autoEE828A01_val = lib1_gv_talentType[lv_unlockedPrereqTalentIndex][lp_player];
-                                    if (autoEE828A01_val == lib1_ge_TalentType_Ability) {
+                                    if (lib1_gv_talentType[lv_unlockedPrereqTalentIndex][lp_player] == lib1_ge_TalentType_Ability) {
                                         lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_unlockedPrereqTalentIndex][lp_player], lv_unlockedPrereqTalentIndex, lv_unlockedPrereqTalentRequiredPoints, lib1_gv_tree[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_abilityLink[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_buttonLink[lv_unlockedPrereqTalentIndex][lp_player]);
                                     }
-                                    else if (autoEE828A01_val == lib1_ge_TalentType_Passive) {
+                                    else if (lib1_gv_talentType[lv_unlockedPrereqTalentIndex][lp_player] == lib1_ge_TalentType_Passive) {
                                         lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_unlockedPrereqTalentIndex][lp_player], lv_unlockedPrereqTalentIndex, lv_unlockedPrereqTalentRequiredPoints, lib1_gv_tree[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_talentName[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_tooltipDescriptionRaw[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_currentRank[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_multiplier[1][lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_multiplier[2][lv_unlockedPrereqTalentIndex][lp_player]);
-                                    }
-                                    else {
                                     }
                                 }
                             }
@@ -1005,20 +932,17 @@ void lib1_gf_SaveLoadTalentBuild (int lp_saveLoad, int lp_buildIndex, string lp_
                                 lib1_gv_pointsSpentinTree[lib1_gv_tree[lv_buttonIndex][lp_player]][lp_player] += lv_buttonCurrentRank;
                                 lib1_gv_spentTalentPoints[lp_player] += lv_buttonCurrentRank;
                                 if ((lv_buttonCurrentRank > 0)) {
-                                    lib1_gf_UnlockTalentButton(lp_player, lv_buttonTree, lv_buttonColumn, lv_buttonRow);
+                                    lib1_gf_UnlockTalentButton(lp_player, i, k, j);
                                     if ((lv_buttonCurrentRank >= 5)) {
                                         if ((lib1_gv_isPrerequisite[lv_buttonIndex][lp_player] != 0)) {
                                             lv_unlockedPrereqTalentIndex = lib1_gv_isPrerequisite[lv_buttonIndex][lp_player];
                                             lib1_gv_prerequisiteComplete[lv_unlockedPrereqTalentIndex][lp_player] = true;
                                             lv_unlockedPrereqTalentRequiredPoints = (lv_pointsPerTier * (lib1_gv_row[lv_unlockedPrereqTalentIndex][lp_player] - 1));
-                                            autoB7C929C5_val = lib1_gv_talentType[lv_unlockedPrereqTalentIndex][lp_player];
-                                            if (autoB7C929C5_val == lib1_ge_TalentType_Ability) {
+                                            if (lib1_gv_talentType[lv_unlockedPrereqTalentIndex][lp_player] == lib1_ge_TalentType_Ability) {
                                                 lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_unlockedPrereqTalentIndex][lp_player], lv_unlockedPrereqTalentIndex, lv_unlockedPrereqTalentRequiredPoints, lib1_gv_tree[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_abilityLink[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_buttonLink[lv_unlockedPrereqTalentIndex][lp_player]);
                                             }
-                                            else if (autoB7C929C5_val == lib1_ge_TalentType_Passive) {
+                                            else if (lib1_gv_talentType[lv_unlockedPrereqTalentIndex][lp_player] == lib1_ge_TalentType_Passive) {
                                                 lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_unlockedPrereqTalentIndex][lp_player], lv_unlockedPrereqTalentIndex, lv_unlockedPrereqTalentRequiredPoints, lib1_gv_tree[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_talentName[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_tooltipDescriptionRaw[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_currentRank[lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_multiplier[1][lv_unlockedPrereqTalentIndex][lp_player], lib1_gv_multiplier[2][lv_unlockedPrereqTalentIndex][lp_player]);
-                                            }
-                                            else {
                                             }
                                         }
                                     }
@@ -1028,14 +952,11 @@ void lib1_gf_SaveLoadTalentBuild (int lp_saveLoad, int lp_buildIndex, string lp_
                                     DialogControlSetVisible(lib1_gv_talentButtonGlow[lv_buttonIndex][lp_player], PlayerGroupAll(), false);
                                     DialogControlSetVisible(lib1_gv_talentButtonLabelBackground[lv_buttonIndex][lp_player], PlayerGroupAll(), false);
                                     DialogControlSetVisible(lib1_gv_talentButtonLabel[lv_buttonIndex][lp_player], PlayerGroupAll(), false);
-                                    autoEF30D3F4_val = lib1_gv_talentType[lv_buttonIndex][lp_player];
-                                    if (autoEF30D3F4_val == lib1_ge_TalentType_Ability) {
+                                    if (lib1_gv_talentType[lv_buttonIndex][lp_player] == lib1_ge_TalentType_Ability) {
                                         lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_buttonIndex][lp_player], lv_buttonIndex, lv_pointsRequired, lib1_gv_tree[lv_buttonIndex][lp_player], lib1_gv_abilityLink[lv_buttonIndex][lp_player], lib1_gv_buttonLink[lv_buttonIndex][lp_player]);
                                     }
-                                    else if (autoEF30D3F4_val == lib1_ge_TalentType_Passive) {
+                                    else if (lib1_gv_talentType[lv_buttonIndex][lp_player] == lib1_ge_TalentType_Passive) {
                                         lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[lv_buttonIndex][lp_player], lv_buttonIndex, lv_pointsRequired, lib1_gv_tree[lv_buttonIndex][lp_player], lib1_gv_talentName[lv_buttonIndex][lp_player], lib1_gv_tooltipDescriptionRaw[lv_buttonIndex][lp_player], lib1_gv_currentRank[lv_buttonIndex][lp_player], lib1_gv_multiplier[1][lv_buttonIndex][lp_player], lib1_gv_multiplier[2][lv_buttonIndex][lp_player]);
-                                    }
-                                    else {
                                     }
                                 }
                             }
@@ -1120,48 +1041,24 @@ void lib1_gf_SaveLoadTalentBuild (int lp_saveLoad, int lp_buildIndex, string lp_
                     }
                 }
             }
-            lv_buttonTree = 0;
-            autoAA9AD66B_n = lib1_gv_ofTrees[lp_player];
-            for (autoAA9AD66B_i = 1; autoAA9AD66B_i <= autoAA9AD66B_n; autoAA9AD66B_i += 1) {
-                lv_buttonTree += 1;
-                if ((lib1_gv_pointsSpentinTree[lv_buttonTree][lp_player] >= (lv_pointsPerTier * 1))) {
-                    lib1_gf_UnlockTalentTier(lp_player, lv_buttonTree, 2);
+            // Trees
+            for (i = 1; i <= lib1_gv_ofTrees[lp_player]; i += 1) {
+                for(j = 1; j<= 7; j += 1) {
+                    if (lib1_gv_pointsSpentinTree[i][lp_player] >= (lv_pointsPerTier * j)) {
+                        lib1_gf_UnlockTalentTier(lp_player, i, j+1); 
+                    }
                 }
-                if ((lib1_gv_pointsSpentinTree[lv_buttonTree][lp_player] >= (lv_pointsPerTier * 2))) {
-                    lib1_gf_UnlockTalentTier(lp_player, lv_buttonTree, 3);
-                }
-                if ((lib1_gv_pointsSpentinTree[lv_buttonTree][lp_player] >= (lv_pointsPerTier * 3))) {
-                    lib1_gf_UnlockTalentTier(lp_player, lv_buttonTree, 4);
-                }
-                if ((lib1_gv_pointsSpentinTree[lv_buttonTree][lp_player] >= (lv_pointsPerTier * 4))) {
-                    lib1_gf_UnlockTalentTier(lp_player, lv_buttonTree, 5);
-                }
-                if ((lib1_gv_pointsSpentinTree[lv_buttonTree][lp_player] >= (lv_pointsPerTier * 5))) {
-                    lib1_gf_UnlockTalentTier(lp_player, lv_buttonTree, 6);
-                }
-                if ((lib1_gv_pointsSpentinTree[lv_buttonTree][lp_player] >= (lv_pointsPerTier * 6))) {
-                    lib1_gf_UnlockTalentTier(lp_player, lv_buttonTree, 7);
-                }
-                if ((lib1_gv_pointsSpentinTree[lv_buttonTree][lp_player] >= (lv_pointsPerTier * 7))) {
-                    lib1_gf_UnlockTalentTier(lp_player, lv_buttonTree, 8);
-                }
-                lv_buttonColumn = 0;
-                auto982C0BD7_n = lib1_gv_ofColumns[lp_player];
-                for (auto982C0BD7_i = 1; auto982C0BD7_i <= auto982C0BD7_n; auto982C0BD7_i += 1) {
-                    lv_buttonColumn += 1;
-                    if (((lib1_gv_hasPrerequisite[lib1_gv_talentTreeButtonIndexTreeColumnRow[lv_buttonTree][lv_buttonColumn][1][lp_player]][lp_player] == 0) || lib1_gv_prerequisiteComplete[lib1_gv_talentTreeButtonIndexTreeColumnRow[lv_buttonTree][lv_buttonColumn][1][lp_player]][lp_player])) {
-                        lib1_gf_UnlockTalentButton(lp_player, lv_buttonTree, lv_buttonColumn, 1);
+                // Columns
+                for (k = 1; k <= lib1_gv_ofColumns[lp_player]; k += 1) {
+                    if (((lib1_gv_hasPrerequisite[lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][1][lp_player]][lp_player] == 0) || lib1_gv_prerequisiteComplete[lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][1][lp_player]][lp_player])) {
+                        lib1_gf_UnlockTalentButton(lp_player, i, k, 1);
                     }
                 }
             }
         }
     }
-    else {
-    }
 }
 void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
-    int auto70440042_val;
-    int auto717EC17A_val;
     // Variable Declarations
     int lv_requiredPoints;
     int i;
@@ -1185,19 +1082,17 @@ void lib1_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
         lib1_gv_currentRank[i][lp_player] = 0;
         libNtve_gf_SetDialogItemText(lib1_gv_talentButtonLabel[i][lp_player], (IntToText(lib1_gv_currentRank[i][lp_player]) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lib1_gv_maxRank[i][lp_player])), PlayerGroupAll());
         lib1_gv_prerequisiteComplete[i][lp_player] = false;
-        auto70440042_val = lib1_gv_pointsPerTier[lp_player];
-        if (auto70440042_val == lib1_ge_PointsPerTier__5) {
+        if (lib1_gv_pointsPerTier[lp_player] == lib1_ge_PointsPerTier__5) {
             lv_requiredPoints = 5;
         }
-        else if (auto70440042_val == lib1_ge_PointsPerTier__10) {
+        else if (lib1_gv_pointsPerTier[lp_player] == lib1_ge_PointsPerTier__10) {
             lv_requiredPoints = 10;
         }
         lv_requiredPoints = (lv_requiredPoints * (lib1_gv_row[i][lp_player] - 1));
-        auto717EC17A_val = lib1_gv_talentType[i][lp_player];
-        if (auto717EC17A_val == lib1_ge_TalentType_Ability) {
+        if (lib1_gv_talentType[i][lp_player] == lib1_ge_TalentType_Ability) {
             lib1_gf_UpdateAbilityButtonTooltip(lp_player, lib1_gv_talentTreeButton[i][lp_player], i, lv_requiredPoints, lib1_gv_tree[i][lp_player], lib1_gv_abilityLink[i][lp_player], lib1_gv_buttonLink[i][lp_player]);
         }
-        else if (auto717EC17A_val == lib1_ge_TalentType_Passive) {
+        else if (lib1_gv_talentType[i][lp_player] == lib1_ge_TalentType_Passive) {
             lib1_gf_UpdatePassiveButtonTooltip(lp_player, lib1_gv_talentTreeButton[i][lp_player], i, lv_requiredPoints, lib1_gv_tree[i][lp_player], lib1_gv_talentName[i][lp_player], lib1_gv_tooltipDescriptionRaw[i][lp_player], lib1_gv_currentRank[i][lp_player], lib1_gv_multiplier[1][i][lp_player], lib1_gv_multiplier[2][i][lp_player]);
         }
         if (((lib1_gv_row[i][lp_player] != 1) || (lib1_gv_hasPrerequisite[i][lp_player] != 0))) {
@@ -1386,8 +1281,6 @@ bool lib1_gt_PickTalent_Func (bool testConds, bool runActions) {
             lv_pointsRequired = (10 * (lib1_gv_row[lv_buttonIndex][lv_player] - 1));
             lv_pointsPerTier = 10;
         }
-        else {
-        }
         if ((lib1_gv_currentRank[lv_buttonIndex][lv_player] == lib1_gv_maxRank[lv_buttonIndex][lv_player])) {
             DialogControlSetEnabled(lib1_gv_talentTreeButton[lv_buttonIndex][lv_player], PlayerGroupAll(), false);
             DialogControlSetVisible(lib1_gv_talentButtonGlow[lv_buttonIndex][lv_player], PlayerGroupAll(), false);
@@ -1408,8 +1301,6 @@ bool lib1_gt_PickTalent_Func (bool testConds, bool runActions) {
                 }
                 else if (autoD8089CA4_val == lib1_ge_TalentType_Passive) {
                     lib1_gf_UpdatePassiveButtonTooltip(lv_player, lib1_gv_talentTreeButton[lv_unlockedPrereqTalentIndex][lv_player], lv_unlockedPrereqTalentIndex, lv_unlockedPrereqTalentRequiredPoints, lib1_gv_tree[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_talentName[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_tooltipDescriptionRaw[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_currentRank[lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_multiplier[1][lv_unlockedPrereqTalentIndex][lv_player], lib1_gv_multiplier[2][lv_unlockedPrereqTalentIndex][lv_player]);
-                }
-                else {
                 }
             }
         }
@@ -1464,8 +1355,6 @@ bool lib1_gt_PickTalent_Func (bool testConds, bool runActions) {
                 lib1_gf_UnlockTalentTier(lv_player, lib1_gv_tree[lv_buttonIndex][lv_player], 8);
                 SoundPlay(SoundLink("UI_TechConsole_Purchase", -1), PlayerGroupSingle(lv_player), 100.0, 0.0);
             }
-        }
-        else {
         }
         gv_players[(EventPlayer() - 1)].talents.locked = false;
         if ((lib1_gv_currentRank[lv_buttonIndex][lv_player] > lib1_gv_maxRank[lv_buttonIndex][lv_player])) {
@@ -1567,49 +1456,49 @@ unitgroup gv_contestant2Group;
 bool gv_matchGoingOn;
 int gv_arenaWaitingTextTag;
 playergroup gv_playersintheArena;
-int[5] gv_potionHotkeyTextTag;
+int[4] gv_potionHotkeyTextTag;
 string gv_potionCooldownName;
 string gv_aSPCooldownName;
-int[5] gv_grandOrbofAngerCount;
-bool[5] gv_occulusofWarning;
-bool[5] gv_facetofRevenge;
-bool[5] gv_crystalofRebirth;
-bool[5] gv_jewelofReturn;
-bool[5] gv_stoneofProtection;
-bool[5] gv_ringofQuickening;
-fixed[5][101] gv_stackCounts;
-string[10] gv_stackChargeNames;
+int[4] gv_grandOrbofAngerCount;
+bool[4] gv_occulusofWarning;
+bool[4] gv_facetofRevenge;
+bool[4] gv_crystalofRebirth;
+bool[4] gv_jewelofReturn;
+bool[4] gv_stoneofProtection;
+bool[4] gv_ringofQuickening;
+fixed[4][101] gv_stackCounts;
+string[9] gv_stackChargeNames;
 int gv_invenorySlot;
 int gv_untitledVariable001;
 playergroup gv_playersinUndergroundForest;
 playergroup gv_playersinRelamyGorge;
 playergroup gv_playersinRelamyCave;
-trigger[5] gv_infestationSpawnTrigger;
+trigger[4] gv_infestationSpawnTrigger;
 playergroup gv_playersinInfestation;
-unit[5][7][26] gv_inventory;
-bool[5] gv_evolving;
-bool[5] gv_allSeeingEye;
-bool[5] gv_fireSkin;
-bool[5] gv_dragonDying;
-timer[5] gv_dyingTimer;
-int[5] gv_dyingTimerWindow;
-string[5] gv_attributeText;
+unit[4][7][26] gv_inventory;
+bool[4] gv_evolving;
+bool[4] gv_allSeeingEye;
+bool[4] gv_fireSkin;
+bool[4] gv_dragonDying;
+timer[4] gv_dyingTimer;
+int[4] gv_dyingTimerWindow;
+string[4] gv_attributeText;
 int gv_screenButton;
-bool[5] gv_reapplyingBuffs;
-bool[5] gv_isIdle;
+bool[4] gv_reapplyingBuffs;
+bool[4] gv_isIdle;
 int gv_nosferatusDeathCount;
 unit gv_nosferatu;
 int[50] gv_enemyDeathCounts;
 int[50] gv_unitKills;
 unitgroup gv_zauberersMinions;
-string[11] gv_zauberersMinionsUnitTypes;
+string[10] gv_zauberersMinionsUnitTypes;
 region[10] gv_zauberersRegions;
 unit gv_zauberersCrystal;
 point gv_zauberersCrystalLocation;
 unit gv_TimeWarpBot;
 unit gv_MagicalDemonicSheep;
 point gv_TimeWarpBotLocation;
-bool[5] gv_zaubererFirstFormAlreadyDead;
+bool[4] gv_zaubererFirstFormAlreadyDead;
 revealer[6] gv_zauberer1stFormRevealer;
 unitgroup gv_dragonInBattleWithZauberer1stForm;
 playergroup gv_playersInBattleWithZauberer1stForm;
@@ -1623,18 +1512,18 @@ int gv_livingDragonsFightingZauberer2ndForm;
 unit gv_zauberer2ndForm;
 timer gv_zaubererTimer;
 int gv_zaubererTimerWindow;
-int[5] gv_machinaDePlagamWarning;
+int[4] gv_machinaDePlagamWarning;
 unitgroup gv_unitsthatdidDamagetoMachinaDePlagam;
 bool gv_machinaDePlagamisDead;
-sound[5] gv_machinaDePlagamsTheme;
-bool[5] gv_inFightwithMachinaDePlagam;
+sound[4] gv_machinaDePlagamsTheme;
+bool[4] gv_inFightwithMachinaDePlagam;
 bool gv_respawningMachinaDePlagam;
 unit gv_machinaDePlagam;
 unitgroup gv_machinaDePlagamsBackup;
 int gv_sremagsiWarning;
 bool gv_sremagsiDead;
-sound[5] gv_sremagsisTheme;
-bool[5] gv_inFightWithSremagsi;
+sound[4] gv_sremagsisTheme;
+bool[4] gv_inFightWithSremagsi;
 unitgroup gv_unitsthatdidDamagetoSremagsi;
 bool gv_respawningSremagsi;
 unit gv_sremagsi;
@@ -1646,47 +1535,47 @@ bool gv_guardiansDead;
 unit[9] gv_mineralBlocks;
 unitgroup gv_dragonsInBattleWithGuardians;
 playergroup gv_playersinBattlewithGuardians;
-bool[5] gv_inFightWithGaurdians;
+bool[4] gv_inFightWithGaurdians;
 unit gv_zauberersStatue;
 unitgroup gv_guardians;
 int gv_numGaurdiansDead;
-revealer[5] gv_guardianRevealers;
+revealer[4] gv_guardianRevealers;
 int gv_numPlayersHigherThan25;
 int gv_livingDragonsinGaurdian;
 int gv_syritalWarning;
 bool gv_syritalDead;
-sound[5] gv_syritalsTheme;
-bool[5] gv_inFightwithSyrital;
+sound[4] gv_syritalsTheme;
+bool[4] gv_inFightwithSyrital;
 unitgroup gv_unitsthatdidDamagetoSyrital;
 bool gv_respawningSyrital;
 unit gv_syrital;
 region[7] gv_bioDomeWastelandRegions;
 unitgroup[7] gv_bioDomeWastelandUnits;
-region[11] gv_cretonTrenchRegions;
-unitgroup[11] gv_cretonTrenchUnits;
-region[39] gv_cretonRegions;
-unitgroup[39] gv_cretonUnits;
+region[10] gv_cretonTrenchRegions;
+unitgroup[10] gv_cretonTrenchUnits;
+region[38] gv_cretonRegions;
+unitgroup[38] gv_cretonUnits;
 bool gv_cretonSpawned;
-unitgroup[11] gv_verbotenInfestationUnits;
+unitgroup[10] gv_verbotenInfestationUnits;
 region[10] gv_verbotenInfestationsRegions;
-bool[5] gv_verbotenInfestationSpawned;
-region[8] gv_verbotenForestRegions;
-unitgroup[8] gv_verbotenForestUnits;
-unitgroup[6] gv_wastelandUnitGroups;
+bool[4] gv_verbotenInfestationSpawned;
+region[7] gv_verbotenForestRegions;
+unitgroup[7] gv_verbotenForestUnits;
+unitgroup[5] gv_wastelandUnitGroups;
 region[6] gv_wastelandRegions;
 unitgroup[5] gv_relamyPassUnits;
 region[5] gv_relamyPassRegions;
-unitgroup[9] gv_relamyGorgeUnits;
-region[9] gv_relamyGorgeRegions;
+unitgroup[8] gv_relamyGorgeUnits;
+region[8] gv_relamyGorgeRegions;
 string[4] gv_relamyGorgeUnitTypes;
 unitgroup[5] gv_relamyCanyonUnits;
 region[5] gv_relamyCanyonRegions;
-region[6] gv_relamyHillsRegions;
-unitgroup[6] gv_relamyHillsUnits;
-region[9] gv_undergroundForestRegions;
-unitgroup[9] gv_undergroundForestUnits;
+region[5] gv_relamyHillsRegions;
+unitgroup[5] gv_relamyHillsUnits;
+region[8] gv_undergroundForestRegions;
+unitgroup[8] gv_undergroundForestUnits;
 string[3] gv_undergroundForestUnitTypes;
-bool[5][6] gv_unlockedWaypoints;
+bool[4][6] gv_unlockedWaypoints;
 playergroup gv_playersInBioDome;
 unitgroup gv_dragonsInBioDome;
 unitgroup gv_bDZombieUnits;
@@ -1694,341 +1583,176 @@ unitgroup gv_bDCretonUnits;
 unitgroup gv_bDVerbotenUnits;
 unitgroup gv_bDRelamyUnits;
 unitgroup gv_bDWastelandUnits;
-point[5] gv_respawnPoint;
-region[5] gv_dragonLocation;
-string[5] gv_locationText;
-string[5] gv_locationString;
-bool[5] gv_epicModeOn;
+point[4] gv_respawnPoint;
+region[4] gv_dragonLocation;
+string[4] gv_locationText;
+string[4] gv_locationString;
+bool[4] gv_epicModeOn;
 int gv_mortuusKillCount;
 int gv_mortuusKillCountStacks;
 bool gv_playersSetUp;
-bank[5] gv_stashBank;
-bank[5] gv_playerBank;
+bank[4] gv_stashBank;
+bank[4] gv_playerBank;
 int gv_ofHumanPlayers;
 playergroup gv_humanPlayers;
-string[101] gv_enemyUnitTypes;
-bool[5] gv_unitispatrolling;
-bool[5] gv_unitisattackmoving;
-bool[5] gv_aPFixed;
-int[5] gv_gold;
-int[5] gv_pvPPoints;
-int[5] gv_shards;
-bool[5] gv_accesingBank;
-fixed[5] gv_currentexp;
+string[50] gv_enemyUnitTypes;
+int[4] gv_gold;
+int[4] gv_pvPPoints;
+int[4] gv_shards;
+bool[4] gv_accesingBank;
+fixed[4] gv_currentexp;
 unitgroup gv_dragons;
 int gv_leadboard;
-bool[5] gv_gameBeat;
+bool[4] gv_gameBeat;
 int gv_showTalentsButton;
-bool[5] gv_inCinematic;
-unit[5] gv_stash;
-point[5] gv_stashLocation;
-bool[5] gv_hRCChecked;
-bool[5] gv_hPCChecked;
+bool[4] gv_inCinematic;
+unit[4] gv_stash;
+point[4] gv_stashLocation;
+bool[4] gv_hRCChecked;
+bool[4] gv_hPCChecked;
 int gv_days;
 int gv_hours;
 int gv_minutes;
 playergroup gv_playerswatchingintrocinematic;
 unit gv_introCinematicZauberer;
-bool[5] gv_playerhasseenIntro;
+bool[4] gv_playerhasseenIntro;
 playergroup gv_playerswatchingendingcinematic;
-int[5] gv_infernoCount;
-bool[5] gv_isSavingExiting;
-bool[5] gv_autosavePrevention;
+int[4] gv_infernoCount;
+bool[4] gv_isSavingExiting;
+bool[4] gv_autosavePrevention;
 int gv_hPCConstant;
 int gv_hRCConstant;
 
 void FakeInitGlobals () {
     int init_i;
     int init_j;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
+    for (init_i = 0; init_i < 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.reward = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.recommendedLevel = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.accept = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.questDialog.decline = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.talkDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.talkDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.talkDialog.accept = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.rewardDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.rewardDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.rewardDialog.accept = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[0].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[1].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[1].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[1].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[2].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[2].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[3].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[3].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[3].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[4].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[4].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[4].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[5].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[5].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[5].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[6].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[6].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[7].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[7].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[7].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[8].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[8].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[9].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.storyQuests[9].ping = c_invalidPingId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[1].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[1].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[2].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[2].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[3].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[3].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[4].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[4].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[5].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.manaQuests[5].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[1].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.baseQuests[1].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
+        for (init_j = 0; init_j < 2; init_j += 1) {
+            gv_players[init_i].quests.baseQuests[init_j].textTag = c_textTagNone;
+            gv_players[init_i].quests.baseQuests[init_j].objective = c_invalidObjectiveId;
+        }
+        for (init_j = 0; init_j < 6; init_j += 1) {
+            gv_players[init_i].quests.manaQuests[init_j].textTag = c_textTagNone;
+            gv_players[init_i].quests.manaQuests[init_j].objective = c_invalidObjectiveId;
+        }
+        for(init_j = 0; init_j < 10; init_j += 1) {
+            gv_players[init_i].quests.storyQuests[init_j].objective = c_invalidObjectiveId;
+            gv_players[init_i].quests.storyQuests[init_j].ping = c_invalidPingId;
+            gv_players[init_i].quests.storyQuests[init_j].textTag = c_textTagNone;
+            gv_players[init_i].stats.reborn.dialog.pointLabel[init_j] = c_invalidDialogControlId;
+            gv_players[init_i].stats.reborn.dialog.pointButton[init_j] = c_invalidDialogControlId;
+        }
         gv_players[init_i].quests.detsefniQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.detsefniQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.sergeantListerQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.sergeantListerQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.greedQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.greedQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.madelineQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
         gv_players[init_i].quests.madelineQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.malinQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.malinQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.ampQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.ampQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.altossQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.altossQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.oleumQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.oleumQuests[0].objective = c_invalidObjectiveId;
+        gv_players[init_i].quests.serynQuests[0].textTag = c_textTagNone;
+        gv_players[init_i].quests.serynQuests[0].objective = c_invalidObjectiveId;
+        gv_potionHotkeyTextTag[init_i] = c_textTagNone;
+        gv_players[init_i].skills.frostSpike = -1;
+        gv_players[init_i].skills.blizzard = -1;
+        gv_players[init_i].skills.fireball = -1;
+        gv_players[init_i].skills.fireClaw = -1;
+        gv_players[init_i].skills.flameEgg = -1;
+        gv_players[init_i].skills.inferno = -1;
+        gv_players[init_i].skills.nova = -1;
+        gv_players[init_i].skills.subzero = -1;
+        gv_players[init_i].skills.frozenArmour = -1;
+        gv_dyingTimer[init_i] = TimerCreate();
+        gv_dyingTimerWindow[init_i] = c_timerWindowNone;
+        gv_players[init_i].stats.attributeDialog.state = c_invalidDialogId;
+        gv_players[init_i].stats.attributeDialog.textBox = c_invalidDialogControlId;
+        gv_machinaDePlagamWarning[init_i] = c_textTagNone;
+        gv_relamyPassUnits[init_i] = UnitGroupEmpty();
+        gv_relamyCanyonUnits[init_i] = UnitGroupEmpty();
+        gv_respawnPoint[init_i] = PointFromId(1);
+        gv_players[init_i].locationDialog.state = c_invalidDialogId;
+        gv_players[init_i].locationDialog.textBox = c_invalidDialogControlId;
+        gv_locationText[init_i] = "Dragon's Nest";
+        gv_locationString[init_i] = "Dragon's Nest";
+        gv_players[init_i].dragon = UnitFromId(632);
+        gv_players[init_i].stats.level = 1;
+        gv_players[init_i].talents.talentDialog.state = c_invalidDialogId;
+        gv_players[init_i].talents.talentDialog.button = c_invalidDialogControlId;
+        gv_stash[init_i] = UnitFromId(631);
+        gv_players[init_i].stats.reborn.dialog.state = c_invalidDialogId;
+        gv_players[init_i].stats.reborn.buttonDialog.state = c_invalidDialogId;
+        gv_players[init_i].stats.reborn.dialog.button = c_invalidDialogControlId;
+    }
+    for (init_i = 0; init_i < 5; init_i += 1) {
+        gv_wastelandUnitGroups[init_i] = UnitGroupEmpty();
+        gv_relamyHillsUnits[init_i] = UnitGroupEmpty();
+    }
+    for (init_i = 0; init_i < 7; init_i += 1) {
+        gv_bioDomeWastelandUnits[init_i] = UnitGroupEmpty();
+        gv_verbotenForestUnits[init_i] = UnitGroupEmpty();
+
+    }
+    for (init_i = 0; init_i < 8; init_i += 1) {
+        gv_relamyGorgeUnits[init_i] = UnitGroupEmpty();
+        gv_undergroundForestUnits[init_i] = UnitGroupEmpty();
+    }
+    for (init_i = 0; init_i < 9; init_i += 1) {
+        gv_stackChargeNames[init_i] = "";
+    }
+    for (init_i = 0; init_i < 10; init_i += 1) {
+        gv_cretonTrenchUnits[init_i] = UnitGroupEmpty();
+        gv_verbotenInfestationUnits[init_i] = UnitGroupEmpty();
+    }
+    for (init_i = 0; init_i < 38; init_i += 1) {
+        gv_cretonUnits[init_i] = UnitGroupEmpty();
     }
     gv_robus = UnitFromId(4066);
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.malinQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.malinQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.ampQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.ampQuests[0].objective = c_invalidObjectiveId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.altossQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.altossQuests[0].objective = c_invalidObjectiveId;
-    }
     gv_illisus = UnitFromId(4393);
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.oleumQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.oleumQuests[0].objective = c_invalidObjectiveId;
-    }
-    gv_shadowSeryn = UnitFromId(632);
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.serynQuests[0].textTag = c_textTagNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].quests.serynQuests[0].objective = c_invalidObjectiveId;
-    }
     gv_contestant1 = UnitFromId(630);
     gv_contestant2 = UnitFromId(632);
     gv_contestant1Group = UnitGroupEmpty();
     gv_contestant2Group = UnitGroupEmpty();
     gv_arenaWaitingTextTag = c_textTagNone;
     gv_playersintheArena = PlayerGroupEmpty();
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_potionHotkeyTextTag[init_i] = c_textTagNone;
-    }
     gv_potionCooldownName = "Potions";
     gv_aSPCooldownName = "Attack Speed Potions";
-    for (init_i = 0; init_i <= 9; init_i += 1) {
-        gv_stackChargeNames[init_i] = "";
-    }
     gv_playersinUndergroundForest = PlayerGroupEmpty();
     gv_playersinRelamyGorge = PlayerGroupEmpty();
     gv_playersinRelamyCave = PlayerGroupEmpty();
     gv_playersinInfestation = PlayerGroupEmpty();
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.frostSpike = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.blizzard = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.fireball = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.fireClaw = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.flameEgg = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.inferno = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.nova = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.subzero = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].skills.frozenArmour = -1;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_dyingTimer[init_i] = TimerCreate();
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_dyingTimerWindow[init_i] = c_timerWindowNone;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.attributeDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.attributeDialog.textBox = c_invalidDialogControlId;
-    }
     gv_screenButton = c_invalidDialogControlId;
     gv_nosferatu = UnitFromId(632);
     gv_zauberersMinions = UnitGroupEmpty();
     gv_zauberersCrystal = UnitFromId(2501);
     gv_zauberersCrystalLocation = UnitGetPosition(gv_zauberersCrystal);
-    gv_TimeWarpBot = UnitFromId(571981628);
-    gv_TimeWarpBotLocation =  UnitGetPosition(gv_TimeWarpBot);
+    //gv_TimeWarpBot = UnitFromId(571981628);
+    //gv_TimeWarpBotLocation =  UnitGetPosition(gv_TimeWarpBot);
     gv_dragonInBattleWithZauberer1stForm = UnitGroupEmpty();
     gv_playersInBattleWithZauberer1stForm = PlayerGroupEmpty();
     gv_dragonInBattleWithZauberer2ndForm = UnitGroupEmpty();
     gv_playersInBattleWithZauberer2ndForm = PlayerGroupEmpty();
     gv_zaubererTimer = TimerCreate();
     gv_zaubererTimerWindow = c_timerWindowNone;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_machinaDePlagamWarning[init_i] = c_textTagNone;
-    }
     gv_unitsthatdidDamagetoMachinaDePlagam = UnitGroupEmpty();
     gv_machinaDePlagam = UnitFromId(1711);
     gv_machinaDePlagamsBackup = UnitGroupEmpty();
@@ -2045,39 +1769,6 @@ void FakeInitGlobals () {
     gv_syritalWarning = c_textTagNone;
     gv_unitsthatdidDamagetoSyrital = UnitGroupEmpty();
     gv_syrital = UnitFromId(158);
-    for (init_i = 0; init_i < 7; init_i += 1) {
-        gv_bioDomeWastelandUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 10; init_i += 1) {
-        gv_cretonTrenchUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 38; init_i += 1) {
-        gv_cretonUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 10; init_i += 1) {
-        gv_verbotenInfestationUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 7; init_i += 1) {
-        gv_verbotenForestUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 5; init_i += 1) {
-        gv_wastelandUnitGroups[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_relamyPassUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_relamyGorgeUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_relamyCanyonUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 5; init_i += 1) {
-        gv_relamyHillsUnits[init_i] = UnitGroupEmpty();
-    }
-    for (init_i = 0; init_i <= 8; init_i += 1) {
-        gv_undergroundForestUnits[init_i] = UnitGroupEmpty();
-    }
     gv_waypointDialog = c_invalidDialogId;
     gv_wastelandDialogButton = c_invalidDialogControlId;
     gv_relamyDialogButton = c_invalidDialogControlId;
@@ -2092,40 +1783,10 @@ void FakeInitGlobals () {
     gv_bDVerbotenUnits = UnitGroupEmpty();
     gv_bDRelamyUnits = UnitGroupEmpty();
     gv_bDWastelandUnits = UnitGroupEmpty();
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_respawnPoint[init_i] = PointFromId(1);
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].locationDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].locationDialog.textBox = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_locationText[init_i] = "Dragon's Nest";
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_locationString[init_i] = "Dragon's Nest";
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].dragon = UnitFromId(632);
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.level = 1;
-    }
     gv_humanPlayers = PlayerGroupEmpty();
     gv_dragons = UnitGroupEmpty();
     gv_leadboard = c_boardNone;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].talents.talentDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].talents.talentDialog.button = c_invalidDialogControlId;
-    }
     gv_showTalentsButton = c_invalidDialogControlId;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_stash[init_i] = UnitFromId(631);
-    }
     gv_days = 1;
     gv_hours = 6;
     gv_timeofDayDialog = c_invalidDialogId;
@@ -2135,25 +1796,6 @@ void FakeInitGlobals () {
     gv_playerswatchingendingcinematic = PlayerGroupEmpty();
     gv_hPCConstant = 3954;
     gv_hRCConstant = 7919;
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.reborn.dialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.reborn.buttonDialog.state = c_invalidDialogId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        gv_players[init_i].stats.reborn.dialog.button = c_invalidDialogControlId;
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        for (init_j = 0; init_j <= 10; init_j += 1) {
-            gv_players[init_i].stats.reborn.dialog.pointLabel[init_j] = c_invalidDialogControlId;
-        }
-    }
-    for (init_i = 0; init_i <= 4; init_i += 1) {
-        for (init_j = 0; init_j <= 10; init_j += 1) {
-            gv_players[init_i].stats.reborn.dialog.pointButton[init_j] = c_invalidDialogControlId;
-        }
-    }
     gv_rebornDialogRebornPointLabel = c_invalidDialogControlId;
     gv_adminHandles[0] = "";
     gv_adminHandles[1] = "1-S2-1-4553710";
@@ -2163,6 +1805,7 @@ void FakeInitGlobals () {
     gv_adminHandles[5] = "1-S2-1-2453495";
     gv_adminHandles[6] = "1-S2-1-5695184";
     gv_adminHandles[7] = "2-S2-1-2355723";
+    gv_adminHandles[8] = "1-S2-1-2814183";
 }
 //--------------------------------------------------------------------------------------------------
 // Global Function Declarations
@@ -3421,46 +3064,38 @@ void gf_SQ9Setup (int lp_player) {
     int lv_pPI;
     // Variable Initialization
     // Implementation
-    PlayerGroupLoopBegin(PlayerGroupSingle(lp_player));
-    for ( ; !PlayerGroupLoopDone() ; PlayerGroupLoopStep() ) {
-        lv_pPI = (PlayerGroupLoopCurrent() - 1);
-        if (BankSectionExists(gv_players[(PlayerGroupLoopCurrent() - 1)].banks.dragonBank, "SQ9")) {
-            gv_players[lv_pPI].quests.storyQuests[9].state = BankValueGetAsInt(gv_players[(PlayerGroupLoopCurrent() - 1)].banks.dragonBank, "SQ9", PlayerHandle(PlayerGroupLoopCurrent()));
+        lv_pPI = (lp_player - 1);
+        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ9")) {
+            gv_players[lv_pPI].quests.storyQuests[9].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ9", PlayerHandle(lp_player));
         }
         else {
             gv_players[lv_pPI].quests.storyQuests[9].state = 0;
         }
-        if ((gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].state == 0)) {
-            ObjectiveCreateForPlayers(StringExternal("Param/Value/4EB31843"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(PlayerGroupLoopCurrent()));
-            gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective = ObjectiveLastCreated();
-            PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping);
-            PingCreate(PlayerGroupSingle(PlayerGroupLoopCurrent()), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
-            gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping = PingLastCreated();
-            ObjectiveShow(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
+        if ((gv_players[lv_pPI].quests.storyQuests[9].state == 0)) {
+            ObjectiveCreateForPlayers(StringExternal("Param/Value/4EB31843"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(lp_player));
+            gv_players[lv_pPI].quests.storyQuests[9].objective = ObjectiveLastCreated();
+            PingDestroy(gv_players[lv_pPI].quests.storyQuests[9].ping);
+            PingCreate(PlayerGroupSingle(lp_player), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
+            gv_players[lv_pPI].quests.storyQuests[9].ping = PingLastCreated();
+            ObjectiveShow(gv_players[lv_pPI].quests.storyQuests[9].objective, PlayerGroupSingle(lp_player), true);
             gv_players[lv_pPI].quests.storyQuests[9].state = 1;
         }
-        else {
-            if ((gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].state == 1)) {
-                ObjectiveCreateForPlayers(StringExternal("Param/Value/223ED8F2"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(PlayerGroupLoopCurrent()));
-                gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective = ObjectiveLastCreated();
-                PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping);
-                PingCreate(PlayerGroupSingle(PlayerGroupLoopCurrent()), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
-                gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping = PingLastCreated();
-                ObjectiveShow(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
-            }
-            else {
-                if ((gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].state == 2)) {
-                    ObjectiveCreateForPlayers(StringExternal("Param/Value/176FF71B"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(PlayerGroupLoopCurrent()));
-                    gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective = ObjectiveLastCreated();
-                    PingDestroy(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping);
-                    PingCreate(PlayerGroupSingle(PlayerGroupLoopCurrent()), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
-                    gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].ping = PingLastCreated();
-                    ObjectiveShow(gv_players[(PlayerGroupLoopCurrent() - 1)].quests.storyQuests[9].objective, PlayerGroupSingle(PlayerGroupLoopCurrent()), true);
-                }
-            }
+        else if ((gv_players[lv_pPI].quests.storyQuests[9].state == 1)) {
+            ObjectiveCreateForPlayers(StringExternal("Param/Value/223ED8F2"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(lp_player));
+            gv_players[lv_pPI].quests.storyQuests[9].objective = ObjectiveLastCreated();
+            PingDestroy(gv_players[lv_pPI].quests.storyQuests[9].ping);
+            PingCreate(PlayerGroupSingle(lp_player), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
+            gv_players[lv_pPI].quests.storyQuests[9].ping = PingLastCreated();
+            ObjectiveShow(gv_players[lv_pPI].quests.storyQuests[9].objective, PlayerGroupSingle(lp_player), true);
+        } else if ((gv_players[lv_pPI].quests.storyQuests[9].state == 2)) {
+            ObjectiveCreateForPlayers(StringExternal("Param/Value/176FF71B"), StringToText(""), c_objectiveStateActive, true, PlayerGroupSingle(lp_player));
+            gv_players[lv_pPI].quests.storyQuests[9].objective = ObjectiveLastCreated();
+            PingDestroy(gv_players[lv_pPI].quests.storyQuests[9].ping);
+            PingCreate(PlayerGroupSingle(lp_player), "PingBoss", RegionGetCenter(RegionFromId(214)), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 524287.0);
+            gv_players[lv_pPI].quests.storyQuests[9].ping = PingLastCreated();
+            ObjectiveShow(gv_players[lv_pPI].quests.storyQuests[9].objective, PlayerGroupSingle(lp_player), true);
         }
-    }
-    PlayerGroupLoopEnd();
+    
 }
 fixed gf_CalculateHealthMissing (unit lp_unit) {
     // Variable Declarations
@@ -5294,101 +4929,57 @@ void gt_TalkDialogClosed_Init () {
 // Trigger: Run Story Quest Setups
 //--------------------------------------------------------------------------------------------------
 bool gt_RunStoryQuestSetups_Func (bool testConds, bool runActions) {
-    playergroup auto39B5CB63_g;
-    int auto39B5CB63_p;
     // Variable Declarations
+    string lv_sqWhat;
     int lv_pPI;
     int lv_forPlayer;
+    int i;
+    int j;
     // Variable Initialization
     lv_forPlayer = 1;
     // Actions
     if (!runActions) {
         return true;
     }
-    auto39B5CB63_g = gv_humanPlayers; 
-    auto39B5CB63_p = 1;
-    for ( ; auto39B5CB63_p <= PlayerGroupCount(auto39B5CB63_g) ; auto39B5CB63_p += BoolToInt(lv_forPlayer == PlayerGroupPlayer(auto39B5CB63_g, auto39B5CB63_p)) ) {
-        lv_forPlayer = PlayerGroupPlayer(auto39B5CB63_g, auto39B5CB63_p);
-        UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(lv_forPlayer));
+    for ( i = 1; i <= PlayerGroupCount(gv_humanPlayers) ; i += BoolToInt(lv_forPlayer == PlayerGroupPlayer(gv_humanPlayers, i)) ) {
+        lv_forPlayer = PlayerGroupPlayer(gv_humanPlayers, i);
         lv_pPI = (lv_forPlayer - 1);
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ0") ) {
-            gv_players[lv_pPI].quests.storyQuests[0].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ0", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ1")) {
-            gv_players[lv_pPI].quests.storyQuests[1].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ1", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ2")) {
-            gv_players[lv_pPI].quests.storyQuests[2].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ2", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ3")) {
-            gv_players[lv_pPI].quests.storyQuests[3].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ3", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ4")) {
-            gv_players[lv_pPI].quests.storyQuests[4].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ4", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ5")) {
-            gv_players[lv_pPI].quests.storyQuests[5].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ5", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ6")) {
-            gv_players[lv_pPI].quests.storyQuests[6].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ6", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ7")) {
-            gv_players[lv_pPI].quests.storyQuests[7].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ7", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ8")) {
-            gv_players[lv_pPI].quests.storyQuests[8].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ8", PlayerHandle(lv_forPlayer));
-        }
-        if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, "SQ9")) {
-            gv_players[lv_pPI].quests.storyQuests[9].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, "SQ9", PlayerHandle(lv_forPlayer));
-        }
-        if ((gv_players[lv_pPI].quests.storyQuests[0].state < 2)) {
-            gf_SQ0Setup(lv_forPlayer);
-        }
-        else {
-            if ((gv_players[lv_pPI].quests.storyQuests[1].state < 3)) {
-                gf_SQ1Setup(lv_forPlayer);
-            }
-            else {
-                if ((gv_players[lv_pPI].quests.storyQuests[2].state < 2)) {
-                    gf_SQ2Setup(lv_forPlayer);
-                }
-                else {
-                    if ((gv_players[lv_pPI].quests.storyQuests[3].state < 3)) {
-                        gf_SQ3Setup(lv_forPlayer);
-                    }
-                    else {
-                        if ((gv_players[lv_pPI].quests.storyQuests[4].state < 4)) {
-                            gf_SQ4Setup(lv_forPlayer);
-                        }
-                        else {
-                            if ((gv_players[lv_pPI].quests.storyQuests[5].state < 4)) {
-                                gf_SQ5Setup(lv_forPlayer);
-                            }
-                            else {
-                                if ((gv_players[lv_pPI].quests.storyQuests[6].state < 2)) {
-                                    gf_SQ6Setup(lv_forPlayer);
-                                }
-                                else {
-                                    if ((gv_players[lv_pPI].quests.storyQuests[7].state < 4)) {
-                                        gf_SQ7Setup(lv_forPlayer);
-                                    }
-                                    else {
-                                        if ((gv_players[lv_pPI].quests.storyQuests[8].state < 8)) {
-                                            gf_SQ8Setup(lv_forPlayer);
-                                        }
-                                        else {
-                                            if ((gv_players[lv_pPI].quests.storyQuests[9].state < 3)) {
-                                                gf_SQ9Setup(lv_forPlayer);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+        for(j = 0; j < 10; j += 1) {
+            lv_sqWhat = "SQ" + IntToString(j);
+            if (BankSectionExists(gv_players[lv_pPI].banks.dragonBank, lv_sqWhat)) {
+                gv_players[lv_pPI].quests.storyQuests[j].state = BankValueGetAsInt(gv_players[lv_pPI].banks.dragonBank, lv_sqWhat, PlayerHandle(lv_forPlayer));
             }
         }
+    }
+    if ((gv_players[lv_pPI].quests.storyQuests[0].state < 2)) {
+        gf_SQ0Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[1].state < 3)) {
+        gf_SQ1Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[2].state < 2)) {
+        gf_SQ2Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[3].state < 3)) {
+        gf_SQ3Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[4].state < 4)) {
+        gf_SQ4Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[5].state < 4)) {
+        gf_SQ5Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[6].state < 2)) {
+        gf_SQ6Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[7].state < 4)) {
+        gf_SQ7Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[8].state < 8)) {
+        gf_SQ8Setup(lv_forPlayer);
+    }
+    else if ((gv_players[lv_pPI].quests.storyQuests[9].state < 3)) {
+        gf_SQ9Setup(lv_forPlayer);
     }
     return true;
 }
@@ -6450,8 +6041,6 @@ bool gt_ManaQuest0TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/731375C0"), StringExternal("Param/Value/E1F95815"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -6659,8 +6248,6 @@ bool gt_ManaQuest1TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/F3FB8101"), StringExternal("Param/Value/FA4DE787"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -6863,8 +6450,6 @@ bool gt_ManaQuest2TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/DB969F41"), StringExternal("Param/Value/AF8ECD40"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -7055,8 +6640,6 @@ bool gt_ManaQuest3TalktoMana_Func (bool testConds, bool runActions) {
     else if (autoAFA0159D_val == 2) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/C943FD11"), StringExternal("Param/Value/E346759C"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-    }
-    else {
     }
     return true;
 }
@@ -7263,8 +6846,6 @@ bool gt_ManaQuest4TalktoMana_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/FCF6A792"), StringExternal("Param/Value/2C96AEC8"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(3917)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -7457,8 +7038,6 @@ bool gt_ManaQuest5TalktoMana_Func (bool testConds, bool runActions) {
     else if (autoB9CA7EF2_val == 3) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/D4FB44DF"));
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -7650,8 +7229,6 @@ bool gt_BaseQuest0TalktoBase_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/DE5135F3"), StringExternal("Param/Value/D1A86300"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4233)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -7815,8 +7392,6 @@ bool gt_BaseQuest1TalktoBase_Func (bool testConds, bool runActions) {
     else if (auto79278DC8_val == 4) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/9F536067"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4233)), c_animNameDefault, "Dance", c_animFlagPlayForever, c_animTimeDefault);
-    }
-    else {
     }
     return true;
 }
@@ -8007,8 +7582,6 @@ bool gt_DetsefniQuest0TalktoDetsefni_Func (bool testConds, bool runActions) {
         gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/22072B2B"), StringExternal("Param/Value/DE876B14"));
         libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4922)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -8173,8 +7746,6 @@ bool gt_SergeantListerQuest0TalktoSergeantLister_Func (bool testConds, bool runA
         else if (autoFBB98C7D_val == 2) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/F0A0DDC8"), StringExternal("Param/Value/C3DEB7CE"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4923)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-        }
-        else {
         }
     }
     return true;
@@ -8342,8 +7913,6 @@ bool gt_GreedQuest0TalktoGreed_Func (bool testConds, bool runActions) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/7897B78A"), StringExternal("Param/Value/2B4A19AF"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4924)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
         }
-        else {
-        }
     }
     return true;
 }
@@ -8493,8 +8062,6 @@ bool gt_MadeleineQuest0TalktoMadeleine_Func (bool testConds, bool runActions) {
         else if (autoC2B1B1C3_val == 2) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/AEEC4072"), StringExternal("Param/Value/36BF1515"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4945)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-        }
-        else {
         }
     }
     return true;
@@ -8666,8 +8233,6 @@ bool gt_MalinQuest0TalktoMalin_Func (bool testConds, bool runActions) {
     else if (auto23E309C6_val == 1) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/09B716BE"));
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -8828,8 +8393,6 @@ bool gt_AmpQuest0TalktoAmp_Func (bool testConds, bool runActions) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/73D38BE2"), StringExternal("Param/Value/7540A50F"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(444)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
         }
-        else {
-        }
     }
     return true;
 }
@@ -8989,8 +8552,6 @@ bool gt_AltossQuest0TalktoAltoss_Func (bool testConds, bool runActions) {
         else if (autoCE3B070D_val == 2) {
             gf_OpenRewardDialog(EventPlayer(), StringExternal("Param/Value/053D639D"), StringExternal("Param/Value/5B4290DE"));
             libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(UnitFromId(4946)), c_animNameDefault, "Jump", 0, c_animTimeDefault);
-        }
-        else {
         }
     }
     return true;
@@ -9190,8 +8751,6 @@ bool gt_OleumQuest0TalktoOleum_Func (bool testConds, bool runActions) {
     else if (auto8D30A0C7_val == 4) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/7CEBCED8"));
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -9386,8 +8945,6 @@ bool gt_SerynQuest0TalktoSeryn_Func (bool testConds, bool runActions) {
     }
     else if (auto542CA1D6_val == 3) {
         gf_OpenTalkDialog(EventPlayer(), UnitTypeGetName(UnitGetType(EventUnit())), StringExternal("Param/Value/6D032057"));
-    }
-    else {
     }
     return true;
 }
@@ -13949,8 +13506,6 @@ bool gt_NosferatusLogic_Func (bool testConds, bool runActions) {
         UnitIssueOrder(gv_nosferatu, OrderTargetingPoint(AbilityCommand("HybridBlink", 0), UnitGetPosition(UnitGroupRandomUnit(UnitGroupAlliance(15, c_unitAllianceEnemy, RegionCircle(UnitGetPosition(gv_nosferatu), 15.0), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive))), c_orderQueueReplace);
         UnitIssueOrder(gv_nosferatu, OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(UnitGroupAlliance(15, c_unitAllianceEnemy, RegionCircle(UnitGetPosition(gv_nosferatu), 15.0), UnitFilter(0, 0, (1 << c_targetFilterAlly) | (1 << c_targetFilterNeutral) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)), c_orderQueueAddToEnd);
     }
-    else {
-    }
     return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -14894,8 +14449,6 @@ bool gt_CountUnitDeaths_Func (bool testConds, bool runActions) {
         gv_unitKills[i] += 1;
         break;
         } 
-        else {
-            }
     }
      //if (auto5FB0BE3D_val == gv_enemyUnitTypes[i]) {
      //   gv_unitKills[i] += 1;
@@ -15379,8 +14932,6 @@ bool gt_SpawnZauberer1stForm_Func (bool testConds, bool runActions) {
         else if (autoAF98452D_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
         }
-        else {
-        }
         lv_spawnPoint += 1;
     }
     PlayerGroupLoopEnd();
@@ -15478,6 +15029,11 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
         }
     }
     UnitGroupLoopEnd();
+    PlayerGroupLoopBegin(gv_playersInBattleWithZauberer1stForm);
+    for( ; PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+        gv_zaubererFirstFormAlreadyDead[PlayerGroupLoopCurrent() - 1] = true;
+    }
+    PlayerGroupLoopEnd();
     UnitGroupClear(gv_dragonInBattleWithZauberer1stForm);
     PlayerGroupClear(gv_playersInBattleWithZauberer1stForm);
     gv_livingDragonsFightingZauberer1stForm = 0;
@@ -15499,8 +15055,6 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
         }
         else if (auto366A1295_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
-        }
-        else {
         }
         lv_spawnPoint += 1;
     }
@@ -15524,7 +15078,6 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
         Wait(0.1, c_timeReal);
     }
-    gv_zaubererFirstFormAlreadyDead[0] = true;
     Wait(1.0, c_timeReal);
     TriggerExecute(gt_SpawnZauberer2ndFormNormalWay, true, true);
     return true;
@@ -15611,8 +15164,6 @@ bool gt_SpawnZauberer2ndFormNormalWay_Func (bool testConds, bool runActions) {
         }
         else if (autoE6D0D4FE_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
-        }
-        else {
         }
         lv_spawnPoint += 1;
     }
@@ -15701,8 +15252,6 @@ bool gt_SpawnZauberer2ndFormSpecial_Func (bool testConds, bool runActions) {
         }
         else if (autoAE86F50E_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
-        }
-        else {
         }
         lv_spawnPoint += 1;
     }
@@ -15816,8 +15365,6 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
         }
         else if (auto157376FC_val == 3) {
             UnitSetPosition(gv_players[lv_pickedPlayerIndex].dragon, RegionGetCenter(RegionFromId(213)), false);
-        }
-        else {
         }
         lv_spawnPoint += 1;
     }
@@ -16286,7 +15833,6 @@ void gt_MachinaDePlagamRespawn_Init () {
 // Trigger: Machina De Plagam Backup
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamBackup_Func (bool testConds, bool runActions) {
-    int autoB07D01D8_val;
     // Variable Declarations
     int lv_randomEnemy;
     // Variable Initialization
@@ -16306,65 +15852,57 @@ bool gt_MachinaDePlagamBackup_Func (bool testConds, bool runActions) {
     if ((PlayerGroupCount(gv_humanPlayers) == 1)) {
         lv_randomEnemy = RandomInt(0, 1);
     }
-    else {
-        if ((PlayerGroupCount(gv_humanPlayers) == 2)) {
-            lv_randomEnemy = RandomInt(0, 3);
-        }
-        else {
-            if ((PlayerGroupCount(gv_humanPlayers) == 3)) {
-                lv_randomEnemy = RandomInt(0, 5);
-            }
-            else {
-                if ((PlayerGroupCount(gv_humanPlayers) == 4)) {
-                    lv_randomEnemy = RandomInt(0, 6);
-                }
-            }
-        }
+    else if ((PlayerGroupCount(gv_humanPlayers) == 2)) {
+        lv_randomEnemy = RandomInt(0, 3);
+    } else if ((PlayerGroupCount(gv_humanPlayers) == 3)) {
+        lv_randomEnemy = RandomInt(0, 5);
     }
-    autoB07D01D8_val = lv_randomEnemy;
-    if (autoB07D01D8_val == 0) {
+    else if ((PlayerGroupCount(gv_humanPlayers) == 4)) {
+        lv_randomEnemy = RandomInt(0, 6);
+    }
+            
+    
+    if (lv_randomEnemy == 0) {
         UnitCreate(1, "CretonWarrior", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 1) {
+    else if (lv_randomEnemy == 1) {
         UnitCreate(1, "CretonWatcher", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 2) {
+    else if (lv_randomEnemy == 2) {
         UnitCreate(1, "EliteCretonWarrior", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 3) {
+    else if (lv_randomEnemy == 3) {
         UnitCreate(1, "EliteCretonWatcher", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 4) {
+    else if (lv_randomEnemy == 4) {
         UnitCreate(1, "CretonWarMachine", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 5) {
+    else if (lv_randomEnemy == 5) {
         UnitCreate(1, "CretonWarlord", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
     }
-    else if (autoB07D01D8_val == 6) {
+    else if (lv_randomEnemy == 6) {
         UnitCreate(1, "Impetus", 0, 15, RegionRandomPoint(RegionFromId(227)), libNtve_gf_RandomAngle());
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_machinaDePlagamsBackup, UnitLastCreated());
         UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_unitsthatdidDamagetoMachinaDePlagam, c_unitCountAlive)), c_orderQueueReplace);
-    }
-    else {
     }
     return true;
 }
@@ -22548,8 +22086,6 @@ bool gt_SetUpTalentTree_Func (bool testConds, bool runActions) {
         }
         else if (autoB3189529_val == "0002") {
             lib1_gf_CreateTalentTree(PlayerGroupLoopCurrent(), StringExternal("Param/Value/C001C4C0"), lib1_ge_ColorScheme_Blue, 3, "Defensive,General,Offensive", 3, 4, lib1_ge_PointsPerTier__5);
-        }
-        else {
         }
         lib1_gf_CreateTalentButton(PlayerGroupLoopCurrent(), 1, 1, 1, lib1_ge_TalentPrerequisite_None, "HeartoftheDragon", lib1_ge_TalentType_Passive, StringExternal("Param/Value/D7FEAC29"), 10, "Assets\\Textures\\sm_hml_heartbeat_diff.dds", StringExternal("Param/Value/1C4A2F4D"), 10.0, 0.0, null, null);
         lib1_gf_CreateTalentButton(PlayerGroupLoopCurrent(), 1, 2, 1, lib1_ge_TalentPrerequisite_None, "IronScales", lib1_ge_TalentType_Passive, StringExternal("Param/Value/314749A3"), 10, "Assets\\Textures\\btn-upgrade-zerg-groundcarapace-level1.dds", StringExternal("Param/Value/7174AC2B"), 0.5, 0.0, null, null);
