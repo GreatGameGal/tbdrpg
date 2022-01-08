@@ -15616,7 +15616,7 @@ bool gt_SpawnZauberer2ndFormNormalWay_Func (bool testConds, bool runActions) {
     PlayerGroupLoopEnd();
     TransmissionSend(gv_playersInBattleWithZauberer2ndForm, TransmissionSourceFromModel("HybridProtossPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/56A8C6FF"), StringExternal("Param/Value/1B366F05"), 5.0, c_transmissionDurationSet, true);
     Wait(3.0, c_timeGame);
-    libNtve_gf_UnitCreateFacingPoint(1, "Zauberer2", 0, 15, RegionGetCenter(RegionFromId(203)), UnitGetPosition(gv_zauberer2ndForm));
+    UnitCreate(1, "Zauberer2", 0, 15, RegionGetCenter(RegionFromId(203)), libNtve_gf_RandomAngle());
     gv_zauberer2ndForm = UnitLastCreated();
     libNtve_gf_PauseUnit(gv_zauberer2ndForm, true);
     PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm);
