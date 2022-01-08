@@ -15898,35 +15898,39 @@ void gt_WarpOutFromBossArena_Init () {
 // Trigger: Zauberer 2nd Form AI
 //--------------------------------------------------------------------------------------------------
 bool gt_Zauberer2ndFormAI_Func (bool testConds, bool runActions) {
-    int auto6D220EA7_val;
     // Variable Declarations
     int lv_randomSkill;
     unit lv_target;
     // Variable Initialization
     // Actions
+    if (testConds) {
+        if (!UnitIsAlive(gv_zauberer2ndForm) || libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer2ndForm)) {
+            return false;
+        }
+    }
+
     if (!runActions) {
         return true;
     }
     lv_randomSkill = RandomInt(0, 4);
     lv_target = UnitGroupRandomUnit(gv_dragonInBattleWithZauberer2ndForm, c_unitCountAlive);
-    auto6D220EA7_val = lv_randomSkill;
-    if (auto6D220EA7_val == 0) {
+    if (lv_randomSkill == 0) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("ZaubererFireball", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 1) {
+    else if (lv_randomSkill == 1) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("FireClaws", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 2) {
+    else if (lv_randomSkill == 2) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("Inferno", 0), lv_target), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 3) {
+    else if (lv_randomSkill == 3) {
         UnitIssueOrder(gv_zauberer2ndForm, Order(AbilityCommand("Nova", 0)), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
-    else if (auto6D220EA7_val == 4) {
+    else if (lv_randomSkill == 4) {
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingPoint(AbilityCommand("FlameEgg", 0), UnitGetPosition(lv_target)), c_orderQueueReplace);
         UnitIssueOrder(gv_zauberer2ndForm, OrderTargetingUnit(AbilityCommand("attack", 0), lv_target), c_orderQueueAddToEnd);
     }
