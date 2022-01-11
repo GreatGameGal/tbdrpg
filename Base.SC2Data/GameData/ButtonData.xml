@@ -498,7 +498,7 @@
         <Icon value="Dragon Songs\btn-custom-zerg-zerglot.dds"/>
     </CButton>
     <CButton id="GrandAttackSpeedPotion">
-        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <Icon value="Images\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="GrandOrbofAnger">
         <Icon value="Assets\Textures\orbittech.dds"/>
@@ -510,7 +510,7 @@
         <Icon value="Assets\Textures\btn-ability-swarm-kerrigan-crushinggrip.dds"/>
     </CButton>
     <CButton id="LargeAttackSpeedPotion">
-        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <Icon value="Images\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="LargeHealingOrb">
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
@@ -525,7 +525,7 @@
         <Icon value="Images\Frost_Spike.tga"/>
     </CButton>
     <CButton id="MediumAttackSpeedPotion">
-        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <Icon value="Images\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="16M04N19E01R01">
         <Icon value="Dragon Songs\btn-upgrade-zerg-groundcarapace-level1-plus.dds"/>
@@ -555,7 +555,7 @@
         <Icon value="Assets\Textures\btn-upgrade-terran-mobiusreactor.dds"/>
     </CButton>
     <CButton id="SmallAttackSpeedPotion">
-        <Icon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <Icon value="Images\BTNPotionOfOmniscience.dds"/>
     </CButton>
     <CButton id="SpecialItems">
         <Icon value="Dragon Songs\btn-ability-protoss-wormhole-color.dds"/>

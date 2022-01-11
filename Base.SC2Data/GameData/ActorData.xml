@@ -2691,7 +2691,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Images\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -2844,7 +2844,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Images\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -2924,7 +2924,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Images\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
@@ -3186,7 +3186,7 @@
         <StatusBarFlags index="Progress" value="0"/>
         <StatusBarFlags index="Duration" value="0"/>
         <StatusBarFlags index="Magazine" value="0"/>
-        <UnitIcon value="Imagse\BTNPotionOfOmniscience.dds"/>
+        <UnitIcon value="Images\BTNPotionOfOmniscience.dds"/>
         <Wireframe>
             <Image value="Assets\Textures\btn-tips-battlereport.dds"/>
         </Wireframe>
