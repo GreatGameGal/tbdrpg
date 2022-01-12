@@ -820,11 +820,11 @@ void lib1_gf_DestroyTalentTree (int lp_player) {
         lib1_gv_prerequisiteComplete[i][lp_player] = false;
     }
     // Trees.
-    for (i = 0; i < lib1_gv_ofTrees[lp_player]; i += 1) {
+    for (i = 1; i <= lib1_gv_ofTrees[lp_player]; i += 1) {
         // Rows.
-        for (j = 0; j < lib1_gv_ofRows[lp_player]; j += 1) {
+        for (j = 1; j <= lib1_gv_ofRows[lp_player]; j += 1) {
             // Columns.
-            for (k = 0; k < lib1_gv_ofColumns[lp_player]; k += 1) {
+            for (k = 1; k <= lib1_gv_ofColumns[lp_player]; k += 1) {
                 lib1_gv_talentTreeButtonIndexTreeColumnRow[i][k][j][lp_player] = 0;
             }
         }
