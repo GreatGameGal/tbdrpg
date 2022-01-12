@@ -3771,13 +3771,7 @@ void gf_RandomlySpawnAllies (fixed lp_percentChance, int lp_ammountof, string lp
     }
 }
 bool gf_RandomChance (fixed lp_percentChance) {
-    // Implementation
-    if ((RandomFixed(0.0, 100.0) < lp_percentChance)) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return RandomFixed(0.0, 100.0) < lp_percentChance;
 }
 trigger auto_gf_NosferatusRelic_Trigger = null;
 int auto_gf_NosferatusRelic_lp_player;
