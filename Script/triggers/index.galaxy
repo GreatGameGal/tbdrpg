@@ -1,0 +1,2 @@
+include "Script/triggers/lib_talent/index"
+include "Script/triggers/reborn"

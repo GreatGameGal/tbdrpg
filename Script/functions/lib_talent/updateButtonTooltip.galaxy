@@ -1,0 +1,126 @@
+void lib_talent_gf_UpdateButtonTooltip (int lp_player, int lp_talentIndex) {
+  text lv_spacer;
+  text lv_tooltip;
+  text lv_pointsText;
+  text lv_tooltipDescription;
+  
+  text lv_tooltipCost;
+  text lv_tooltipCostMinerals;
+  text lv_tooltipCostGas;
+  text lv_tooltipCostLife;
+  text lv_tooltipCostEnergy;
+  text lv_tooltipCostCooldown;
+  string lv_buttonLink;
+  string lv_abilityLink;
+  int lv_type;
+  int lv_prerequisiteIndex;
+  int lv_playerIndex;
+  int lv_tierRequiredPoints;
+  int lv_prerequisiteRequiredPoints;
+  int lv_tree;
+  int lv_rankMultiplier;
+  bool lv_hasCost;
+  
+  lv_playerIndex = lp_player - 1;
+  
+  lv_prerequisiteIndex = gv_players[lv_playerIndex].talent.talents[lp_talentIndex].prerequisiteIs;
+  lv_prerequisiteRequiredPoints = gv_players[lv_playerIndex].talent.talents[lp_talentIndex].prerequisiteRequiredRank;
+  lv_tree = gv_players[lv_playerIndex].talent.talents[lp_talentIndex].tree;
+  lv_buttonLink = gv_players[lv_playerIndex].talent.talents[lp_talentIndex].buttonLink;
+  lv_abilityLink = gv_players[lv_playerIndex].talent.talents[lp_talentIndex].abilityLink;
+  lv_type = gv_players[lv_playerIndex].talent.talents[lp_talentIndex].type;
+  
+  lv_tooltip = StringExternal("Param/Value/lib_1_09FBC8F4");
+  if (lv_type == lib_talent_ge_TalentType_Passive) {
+    lv_tooltip = lv_tooltip + gv_players[lv_playerIndex].talent.talents[lp_talentIndex].name;
+  }
+  else if (lv_type == lib_talent_ge_TalentType_Ability) {
+    lv_tooltip = lv_tooltip + StringExternal("Button/Name/" + lv_buttonLink); 
+  }
+  lv_tooltip = lv_tooltip + StringExternal("Param/Value/lib_1_A533532A");
+  
+  lv_spacer = StringExternal("Param/Value/lib_1_3D5D601C");
+  if (!gv_players[lv_playerIndex].talent.talents[lp_talentIndex].prerequisitesComplete) {
+    lv_tierRequiredPoints = gv_players[lv_playerIndex].talent.pointsPerTier * gv_players[lv_playerIndex].talent.talents[lp_talentIndex].row;
+    if (lv_tierRequiredPoints < gv_players[lv_playerIndex].talent.pointsInTree[lv_tree]) {
+      if (lv_tierRequiredPoints == 1) {
+        lv_pointsText = StringExternal("Param/Value/lib_1_02BBAD52");
+      }
+      else {
+        lv_pointsText = StringExternal("Param/Value/lib_1_E5D41D76");
+      }
+      lv_tooltip = 
+        lv_tooltip +
+        StringExternal("Param/Value/lib_1_31AEA4D1") +
+        IntToText(lv_tierRequiredPoints) +
+        StringExternal("Param/Value/lib_1_0F2A744B") +
+        lv_pointsText +
+        StringExternal("Param/Value/lib_1_C566D5F1") +
+        gv_players[lv_playerIndex].talent.talentTreeNames[lv_tree] +
+        StringExternal("Param/Value/lib_1_DBF60C3F") +
+        lv_spacer;
+    }
+    if (lv_prerequisiteIndex != -1 && gv_players[lv_playerIndex].talent.talents[lv_prerequisiteIndex].rank < lv_prerequisiteRequiredPoints) {
+      if (lv_prerequisiteRequiredPoints == 1) {
+        lv_pointsText = StringExternal("Param/Value/lib_1_02BBAD52");
+      }
+      else {
+        lv_pointsText = StringExternal("Param/Value/lib_1_E5D41D76");
+      }
+      lv_tooltip =
+        lv_tooltip + 
+        StringExternal("Param/Value/lib_1_95225FD9") + 
+        IntToText(lv_prerequisiteRequiredPoints) + 
+        StringExternal("Param/Value/lib_1_0F2A744B") + 
+        lv_pointsText + 
+        StringExternal("Param/Value/lib_1_C566D5F1") + 
+        gv_players[lv_playerIndex].talent.talents[lv_prerequisiteIndex].name + 
+        StringExternal("Param/Value/lib_1_3680DFC1") +
+        lv_spacer;
+    }
+    lv_tooltip = lv_tooltip + lv_spacer;
+  }
+  if (lv_type == lib_talent_ge_TalentType_Passive) {
+    if (gv_players[lv_playerIndex].talent.talents[lp_talentIndex].rank > 0) {
+      lv_rankMultiplier = gv_players[lv_playerIndex].talent.talents[lp_talentIndex].rank;
+    }
+    else {
+      lv_rankMultiplier = 1;
+    }
+    lv_tooltipDescription = TextReplaceWord(gv_players[lv_playerIndex].talent.talents[lp_talentIndex].tooltipDescription, StringExternal("Param/Value/lib_1_6D51BF3D"), FixedToText((gv_players[lv_playerIndex].talent.talents[lp_talentIndex].multiplier[0] * IntToFixed(lv_rankMultiplier)), 1), c_stringReplaceAll, c_stringNoCase);
+    lv_tooltipDescription = TextReplaceWord(lv_tooltipDescription, StringExternal("Param/Value/lib_1_2F659930"), FixedToText((gv_players[lv_playerIndex].talent.talents[lp_talentIndex].multiplier[1] * IntToFixed(lv_rankMultiplier)), 1), c_stringReplaceAll, c_stringNoCase);
+    lv_tooltipDescription = (StringExternal("Param/Value/lib_1_3AE2BD72") + lv_tooltipDescription + StringExternal("Param/Value/lib_1_1ECE9A68"));
+  } else if (lv_type == lib_talent_ge_TalentType_Ability) {
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Resource[Vespene]", lp_player)) > 0)) {
+      lv_tooltipCostGas = (StringExternal("Param/Value/lib_1_6E372436") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Resource[Vespene]", lp_player)) + StringExternal("Param/Value/lib_1_2F05AF2C"));
+      lv_hasCost = true;
+    }
+  
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Life]", lp_player)) > 0)) {
+      lv_tooltipCostLife = (StringExternal("Param/Value/lib_1_64005C61") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Life]", lp_player)) + StringExternal("Param/Value/lib_1_96EE75DB"));
+      lv_hasCost = true;
+    }
+  
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Energy]", lp_player)) > 0)) {
+      lv_tooltipCostEnergy = (StringExternal("Param/Value/lib_1_36A22419") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Energy]", lp_player)) + StringExternal("Param/Value/lib_1_BDAA03F9"));
+      lv_hasCost = true;
+    }
+  
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Cooldown.TimeUse", lp_player)) > 0)) {
+      lv_tooltipCostCooldown = (StringExternal("Param/Value/lib_1_28B4F42A") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Cooldown.TimeUse", lp_player)) + StringExternal("Param/Value/lib_1_DB16B10F"));
+      lv_hasCost = true;
+    }
+  
+    if (lv_hasCost) {
+      lv_tooltipCost = (StringExternal("Param/Value/lib_1_9F0F1568") + lv_tooltipCostMinerals + lv_tooltipCostGas + lv_tooltipCostLife + lv_tooltipCostEnergy + lv_tooltipCostCooldown + StringExternal("Param/Value/lib_1_9C21FB6F"));
+    }
+    else {
+      lv_tooltipCost = StringToText("");
+    }
+    lv_tooltipDescription = (StringExternal("Param/Value/lib_1_04F5E258") + lv_tooltipCost + StringExternal("Button/Tooltip/" + lv_buttonLink) + StringExternal("Param/Value/lib_1_3E98BEAA"));
+  }
+
+
+  lv_tooltip = lv_tooltip + lv_tooltipDescription;
+  libNtve_gf_SetDialogItemTooltip(gv_players[lv_playerIndex].talent.talents[lp_talentIndex].button, lv_tooltip, PlayerGroupAll());
+}

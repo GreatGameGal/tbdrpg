@@ -1,0 +1,174 @@
+bool gt_Reborn_Func (bool testConds, bool runActions) {
+  string tmp_loop;
+  int lv_i;
+
+  int lv_player;
+  int lv_playerIndex;
+  unit lv_tempDragon;
+  
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (!runActions) {
+    return true;
+  }
+
+  if ((gv_gameBeat[lv_playerIndex] != true)) {
+    UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/5DD4D756"));
+  }
+
+  if ((UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) != 100.0)) {
+    UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/5DBA9E25"));
+  }
+
+  if (gf_IsAdmin(lv_player) || UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) == 100.0){
+    TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
+    TriggerEnable(gt_SaveStackCountsPeriodically, false);
+    gv_evolving[lv_playerIndex] = true;
+    gv_players[lv_playerIndex].stats.reborn.count = (gv_players[lv_playerIndex].stats.reborn.count + 1);
+    UnitGroupRemove(gv_unitsthatdidDamagetoSyrital, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_unitsthatdidDamagetoSremagsi, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_unitsthatdidDamagetoMachinaDePlagam, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_dragonsInBioDome, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_dragonsInBattleWithGuardians, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_dragonInBattleWithZauberer2ndForm, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_dragonInBattleWithZauberer1stForm, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_contestant2Group, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_contestant1Group, gv_players[lv_playerIndex].dragon);
+    UnitGroupRemove(gv_contestant1Group, gv_players[lv_playerIndex].dragon);
+    UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/FE4D7D27"));
+    gf_FillInventory(lv_player);
+    gf_SaveStackCounts(lv_player);
+    UnitRemove(gv_players[lv_playerIndex].dragon);
+    if (gv_players[lv_playerIndex].type == 0) {
+      UnitCreate(1, "BabyDragon", 0, lv_player, PointFromId(1), libNtve_gf_RandomAngle());
+    } else if (gv_players[lv_playerIndex].type == 0) {
+      UnitCreate(1, "BabyIceDragon", 0, lv_player, PointFromId(1), libNtve_gf_RandomAngle());
+    }
+    gv_players[lv_playerIndex].dragon = UnitLastCreated();
+    CameraPan(lv_player, RegionGetCenter(RegionFromId(3)), 2.0, -1, 10.0, false);
+    gv_players[lv_playerIndex].stats.reborn.points += 10;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gf_ApplyRebornStats(lv_player);
+    gf_PutInventoryinInventory(lv_player);
+    gf_LoadStackCounts(lv_player);
+    UnitSelect(gv_players[lv_playerIndex].dragon, lv_player, true);
+    BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lv_player), gv_players[lv_playerIndex].dragon);
+    lib_talent_gf_ResetTalentBuild(lv_player, 1);
+    if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
+      lib_talent_gf_SaveTalentBuild(1, "Fire Dragon", lv_player);
+    }
+    if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
+      lib_talent_gf_SaveTalentBuild(1, "Ice Dragon", lv_player);
+    }
+    gv_players[lv_playerIndex].stats.level = 0;
+    gv_players[lv_playerIndex].stats.strength = 0;
+    gv_players[lv_playerIndex].stats.vitality = 0;
+    gv_players[lv_playerIndex].stats.dexterity = 0;
+    gv_players[lv_playerIndex].stats.intelligence = 0;
+    gv_players[lv_playerIndex].stats.agility = 0;
+    gv_players[lv_playerIndex].stats.attributePoints = 5.0;
+    gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
+    gv_players[lv_playerIndex].skills.fireSkin = false;
+    gv_players[lv_playerIndex].skills.allSeeingEye = false;
+    gv_players[lv_playerIndex].skills.subzero = 0;
+    gv_players[lv_playerIndex].skills.nova = 0;
+    gv_players[lv_playerIndex].skills.inferno = 0;
+    gv_players[lv_playerIndex].skills.frostSpike = 0;
+    gv_players[lv_playerIndex].skills.flameEgg = 0;
+    gv_players[lv_playerIndex].skills.fireClaw = 0;
+    gv_players[lv_playerIndex].skills.fireball = 0;
+    gv_players[lv_playerIndex].skills.blizzard = 0;
+    gf_SaveSkills(lv_player);
+    gf_ResetTalentBuildandVariables(lv_player);
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.agility);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "De", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.dexterity);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Int", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.intelligence);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.strength);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.vitality);
+    BankValueSetFromFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+    BankValueSetFromFlag(gv_players[lv_playerIndex].banks.dragonBank, "FS", PlayerHandle(lv_player), gv_players[lv_playerIndex].skills.fireSkin);
+    BankValueSetFromFlag(gv_players[lv_playerIndex].banks.dragonBank, "ASE", PlayerHandle(lv_player), gv_players[lv_playerIndex].skills.allSeeingEye);
+    gv_gameBeat[lv_playerIndex] = false;
+    BankValueSetFromFlag(gv_players[lv_playerIndex].banks.dragonBank, "GB", PlayerHandle(lv_player), gv_gameBeat[lv_playerIndex]);
+    ObjectiveDestroyAll(gv_players[lv_playerIndex].playerGroupSingle);
+    for (lv_i = 0; lv_i < 10; lv_i += 1) {
+      tmp_loop = IntToString(lv_i);
+      // Base (NPC) quests
+      if (lv_i < 2) {
+        BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Base" + tmp_loop + "-0");
+        gv_players[lv_playerIndex].quests.baseQuests[lv_i].state = 0;
+        gv_players[lv_playerIndex].quests.baseQuests[lv_i].kills = 0;
+        gv_players[lv_playerIndex].quests.baseQuests[lv_i].progress = 0;
+      }
+
+      // Waypoints
+      if (lv_i < 5) {
+        gv_unlockedWaypoints[lv_playerIndex][lv_i] = false;
+        BankValueSetFromFlag(gv_players[lv_playerIndex].banks.dragonBank, "WP" + tmp_loop, PlayerHandle(lv_player), gv_unlockedWaypoints[lv_playerIndex][lv_i]);
+      }
+
+      if (lv_i < 6) {
+        // Mana Quests
+        BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Mana" + tmp_loop + "-0");
+        gv_players[lv_playerIndex].quests.manaQuests[lv_i].state = 0;
+        gv_players[lv_playerIndex].quests.manaQuests[lv_i].kills = 0;
+        gv_players[lv_playerIndex].quests.manaQuests[lv_i].progress = 0;
+      }
+
+      // Main Questline
+      PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[lv_i].ping);
+      gv_players[lv_playerIndex].quests.storyQuests[lv_i].state = 0;
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ" + tmp_loop);
+    }
+    gf_SQ0Setup(lv_player);
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Malin0-0");
+    gv_players[lv_playerIndex].quests.malinQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.malinQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.malinQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Oleum0-0");
+    gv_players[lv_playerIndex].quests.oleumQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.oleumQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.oleumQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Seryn0-0");
+    gv_players[lv_playerIndex].quests.serynQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.serynQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.serynQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Altoss0-0");
+    gv_players[lv_playerIndex].quests.altossQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.altossQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.altossQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Madeleine0-0");
+    gv_players[lv_playerIndex].quests.madelineQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.madelineQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.madelineQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-SergeantLister0-0");
+    gv_players[lv_playerIndex].quests.sergeantListerQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.sergeantListerQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.sergeantListerQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Detsefni0-0");
+    gv_players[lv_playerIndex].quests.detsefniQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.detsefniQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.detsefniQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Greed0-0");
+    gv_players[lv_playerIndex].quests.greedQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.greedQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.greedQuests[0].progress = 0;
+    BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "SQ-Amp0-0");
+    gv_players[lv_playerIndex].quests.ampQuests[0].state = 0;
+    gv_players[lv_playerIndex].quests.ampQuests[0].kills = 0;
+    gv_players[lv_playerIndex].quests.ampQuests[0].progress = 0;
+
+    gv_respawnPoint[lv_playerIndex] = PointFromId(1);
+    gv_players[lv_playerIndex].stats.level = 1;
+    gv_evolving[lv_playerIndex] = false;
+    gf_StatCheck(lv_player);
+  }
+  return true;
+}
+
+void gt_Reborn_Init () {
+  gt_Reborn = TriggerCreate("gt_Reborn_Func");
+  TriggerAddEventChatMessage(gt_Reborn, c_playerAny, "-Reborn", true);
+}

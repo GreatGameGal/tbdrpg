@@ -1,0 +1,5 @@
+include "Script/functions/lib_talent/saveTalentBuild"
+include "Script/functions/lib_talent/loadTalentBuild"
+include "Script/functions/lib_talent/unlockTalentButton"
+include "Script/functions/lib_talent/createTalentButton"
+include "Script/functions/lib_talent/getTalentButtonIndex"

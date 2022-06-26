@@ -1,0 +1,51 @@
+// DON'T USE THIS FOR NOW! IT CRASHES THE GAME, WHY? I DON'T KNOW
+void lib_talent_gf_UnlockTalentButton (int lp_player, int lp_tree, int lp_column, int lp_row) {
+  int lv_playerIndex;
+  int lv_talentIndex;
+
+  lv_playerIndex = lp_player - 1;
+
+  lv_talentIndex = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row);
+  if (
+    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button == c_invalidDialogControlId ||
+    !gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisitesComplete
+  ) {
+    return;
+  }
+  
+  DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabelBackground, PlayerGroupAll(), true);
+  DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, PlayerGroupAll(), true);
+  
+  if (gv_players[lv_playerIndex].talent.talents[lv_talentIndex].type == lib_talent_ge_TalentType_Ability) {
+    lib_talent_gf_UpdateAbilityButtonTooltip(
+      lp_player,
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, 
+      lv_talentIndex, 
+      0, 
+      lp_tree, 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].abilityLink, 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLink
+    );
+  }
+  else if (gv_players[lv_playerIndex].talent.talents[lv_talentIndex].type == lib_talent_ge_TalentType_Passive) {
+    lib_talent_gf_UpdatePassiveButtonTooltip(
+      lp_player, 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, 
+      lv_talentIndex, 
+      0, 
+      lp_tree, 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].name, 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tooltipDescription, 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank, 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[0], 
+      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[1]
+    );
+  }
+  
+  if (gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank >= gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank) {
+    return;
+  }
+
+  DialogControlSetEnabled(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, PlayerGroupAll(), true);
+  DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonGlow, PlayerGroupAll(), true);
+}
