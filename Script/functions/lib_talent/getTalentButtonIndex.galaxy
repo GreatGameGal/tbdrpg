@@ -1,0 +1,13 @@
+int lib_talent_gf_GetTalentButtonIndex (int lp_player, int lp_dialogItem) {
+  int lv_i;
+  int lv_playerIndex;
+
+  lv_playerIndex = lp_player - 1;
+
+  for (lv_i = 0; lv_i < lib_talent_gv_TALENTCOUNT; lv_i += 1 ) {
+    if (lp_dialogItem == gv_players[lv_playerIndex].talent.talents[lv_i].button) {
+      return lv_i;
+    }
+  }
+  return -1;
+}

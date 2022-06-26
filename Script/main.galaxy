@@ -1,3 +1,11 @@
+include "TriggerLibs/NativeLib"
+include "TriggerLibs/AI"
+include "TriggerLibs/Computer"
+
+// Project code.
+include "Script/globals/index"
+include "Script/functions/index"
+include "Script/triggers/index"
 include "Script/mapScript"
 
 void main () {

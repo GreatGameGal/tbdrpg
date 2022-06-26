@@ -1,0 +1,199 @@
+bool lib_talent_gt_PickTalent_Func (bool testConds, bool runActions) {  
+  int lv_unlockedToTier;
+  int lv_playerIndex;
+  int lv_player;
+  int lv_talentIndex;
+  int lv_unlockedPrereqTalentIndex;
+  int lv_unlockedPrereqTalentRequiredPoints;
+  int lv_pointsRequired;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+  lv_talentIndex = lib_talent_gf_GetTalentButtonIndex(lv_player, EventDialogControl());
+
+  if (testConds) {
+    if (
+      lv_talentIndex == -1 ||
+      gv_players[lv_playerIndex].talent.availablePoints < 1 ||
+      gv_players[lv_playerIndex].talent.adding
+    ) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+
+  gv_players[lv_playerIndex].talent.adding = true;
+  while (gv_players[lv_playerIndex].talent.locked) {
+    Wait(1.0, c_timeGame);
+  }
+  gv_players[lv_playerIndex].talent.locked = true;
+
+  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank += 1;
+  gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree] += 1;
+  gv_players[lv_playerIndex].talent.availablePoints -= 1;
+  gv_players[lv_playerIndex].talent.spentPoints += 1;
+  if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade != null)) {
+    TechTreeUpgradeAddLevel(lv_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade, 1);
+    if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StrengthoftheDragon")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StrengthoftheDragon", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.strengthOfTheDragon += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "MindoftheDragon")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "MindoftheDragon", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.mindOfTheDragon += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "PowerOverwhelming")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "PowerOverwhelming", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.powerOverwhelming += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Rage")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Rage", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.rage += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "VampiricTendencies")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "VampiricTendencies", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.vampiricTendencies += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Zeal")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Zeal", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.zeal += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "CriticalCrepitus")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "CriticalCrepitus", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.criticalCrepitus += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DarkDissulto")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DarkDissulto", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.darkDissulto += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "SpikedScales")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "SpikedScales", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.spikedScales += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Retaliation")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Retaliation", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.retaliation += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Headshot")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Headshot", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.headshot += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StickyShot")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StickyShot", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.stickyShot += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DuelWield")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DualWield", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.dualWield += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "GreedisGood")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "GreedIsGood", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.greedIsGood += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "QuickLearner")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "QuickLearner", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.quickLearner += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "AbsorbMana")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "AbsorbMana", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.absorbMana += 1;
+    }
+    else if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "RealmSwitch")) {
+      UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "RealmSwitch", gv_players[lv_playerIndex].dragon, 1);
+      gv_players[lv_playerIndex].talent.realmSwitch += 1;
+    }
+
+  }
+  if (gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank == gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank) {
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, (IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank) + StringExternal("Param/Value/lib_1_BC8BEA49") + IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank)), PlayerGroupAll());
+    DialogControlSetEnabled(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, PlayerGroupAll(), false);
+    DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonGlow, PlayerGroupAll(), false);
+  } 
+  else {
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, (IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank) + StringExternal("Param/Value/lib_1_75883A25") + IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank)), PlayerGroupAll());
+  }
+  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.availablePointsLabel, IntToText(gv_players[lv_playerIndex].talent.availablePoints), PlayerGroupAll());
+  
+  lv_pointsRequired = gv_players[lv_playerIndex].talent.pointsPerTier * gv_players[lv_playerIndex].talent.talents[lv_talentIndex].row;
+  
+  lv_unlockedPrereqTalentIndex = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteOf;
+  if (
+    lv_unlockedPrereqTalentIndex != -1 &&
+    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank == gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].prerequisiteRequiredRank
+  ) {
+    lv_unlockedPrereqTalentRequiredPoints = gv_players[lv_playerIndex].talent.pointsPerTier * gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].row;
+    if (gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].tree] >= lv_unlockedPrereqTalentRequiredPoints) {
+      gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].prerequisitesComplete = true;
+      lv_unlockedPrereqTalentRequiredPoints = 0;
+      SoundPlay(SoundLink("UI_TechConsole_Purchase", -1), gv_players[lv_playerIndex].playerGroupSingle, 100.0, 0.0);
+      lib_talent_gf_UnlockTalentButton(
+        lv_player, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].tree, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].column, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].row
+      );
+    }
+    if (gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].type == lib_talent_ge_TalentType_Ability) {
+      lib_talent_gf_UpdateAbilityButtonTooltip(
+        lv_player, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].button, 
+        lv_unlockedPrereqTalentIndex, 
+        lv_unlockedPrereqTalentRequiredPoints, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].tree, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].abilityLink, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].buttonLink
+      );
+    }
+    else if (gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].type == lib_talent_ge_TalentType_Passive) {
+      lib_talent_gf_UpdatePassiveButtonTooltip(
+        lv_player, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].button, 
+        lv_unlockedPrereqTalentIndex, 
+        lv_unlockedPrereqTalentRequiredPoints, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].tree, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].name, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].tooltipDescription, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].rank, 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].multiplier[0], 
+        gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].multiplier[1]
+      );
+    }
+  }
+  if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank > gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank)) {
+    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank;
+    gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree] -= 1;
+    gv_players[lv_playerIndex].talent.availablePoints += 1;
+    gv_players[lv_playerIndex].talent.spentPoints -= 1;
+  }
+  if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].type == lib_talent_ge_TalentType_Passive)) {
+    lib_talent_gf_UpdatePassiveButtonTooltip(lv_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, lv_talentIndex, 0, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].name, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tooltipDescription, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[0], gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[1]);
+  }
+
+  if (gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree] % gv_players[lv_playerIndex].talent.pointsPerTier == 0) {
+    lv_unlockedToTier = gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree] / gv_players[lv_playerIndex].talent.pointsPerTier;
+    if (lib_talent_gv_ROWS > lv_unlockedToTier) {
+      lib_talent_gf_UnlockTalentTier(lv_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree, lv_unlockedToTier);
+      SoundPlay(SoundLink("UI_TechConsole_Purchase", -1), gv_players[lv_playerIndex].playerGroupSingle, 100.0, 0.0);
+    }
+  }
+
+  gv_players[lv_playerIndex].talent.locked = false;
+  if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank > gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank)) {
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, (IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank) + StringExternal("Param/Value/lib_1_180A9D53") + IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank)), PlayerGroupAll());
+    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank;
+    gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree] -= 1;
+    gv_players[lv_playerIndex].talent.availablePoints += 1;
+    gv_players[lv_playerIndex].talent.spentPoints -= 1;
+  }
+  Wait(0.1, c_timeReal);
+  gv_players[lv_playerIndex].talent.adding = false;
+  return true;
+}
+
+void lib_talent_gt_PickTalent_Init () {
+  lib_talent_gt_PickTalent = TriggerCreate("lib_talent_gt_PickTalent_Func");
+  TriggerAddEventDialogControl(lib_talent_gt_PickTalent, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+}

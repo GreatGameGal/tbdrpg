@@ -1,0 +1,203 @@
+struct arenaData {
+  int wins;
+  int losses;
+};
+struct dialogObj {
+  // Standard dialogs
+  int state;
+  int textBox;
+  int reward;
+  int recommendedLevel;
+  int accept;
+  int decline;
+  string textVal;
+  // Reborn dialog
+  int[10] pointLabel;
+  int[10] pointButton;
+  // Talent Dialog
+  int button;
+};
+struct rebornData {
+  int count;
+  int maxHP;
+  int maxMP;
+  int defense;
+  int movementSpeed;
+  int attackSpeed;
+  int dodge;
+  int miss;
+  int goldDrop;
+  int itemDrop;
+  int regen;
+  int points;
+  dialogObj dialog;
+  dialogObj buttonDialog;
+};
+struct questObj {
+  int state;
+  int objective;
+  int kills;
+  int progress;
+  int textTag;
+  int ping;
+};
+struct questData {
+  bool talking;
+  dialogObj questDialog;
+  dialogObj talkDialog;
+  dialogObj rewardDialog;
+  
+  questObj[10] storyQuests;
+  questObj[6] manaQuests;
+  questObj[2] baseQuests;
+  questObj[1] detsefniQuests;
+  questObj[1] sergeantListerQuests;
+  questObj[1] greedQuests;
+  questObj[1] madelineQuests;
+  questObj[1] malinQuests;
+  questObj[1] ampQuests;
+  questObj[1] altossQuests;
+  questObj[1] oleumQuests;
+  questObj[1] serynQuests;
+};
+struct statData {
+  int level;
+  int agility;
+  int dexterity;
+  int intelligence;
+  int strength;
+  int vitality;
+  fixed attributePoints;
+  arenaData arena;
+  rebornData reborn;
+  dialogObj attributeDialog;
+};
+struct skillData {
+  int frostSpike;
+  int blizzard;
+  int subzero;
+  int frozenArmour;
+  int fireball;
+  int fireClaw;
+  int flameEgg;
+  int inferno;
+  int nova;
+
+  bool fireSkin;
+  bool allSeeingEye;
+  bool warningOcculus;
+  bool revengeFacet;
+  bool rebirthCrystal;
+  bool returnJewel;
+  bool protectionStone;
+  bool quickeningRing;
+};
+
+struct talentObj {
+  // UI Data
+  int button;
+  int buttonGlow;
+  int buttonLabel;
+  int buttonLabelBackground;
+  text tooltipDescription;
+  
+  // Form Data
+  fixed[2] multiplier;
+  bool isUsed;
+  text name;
+  int maxRank;
+  int prerequisiteIs;
+  int prerequisiteOf;
+  int prerequisiteRequiredRank;
+  int type;
+  int tree;
+  int column;
+  int row;
+  string upgrade;
+  string abilityLink;
+  string buttonLink;
+
+  // User Data
+  int rank;
+  bool prerequisitesComplete;
+};
+struct talentData {
+  bool locked;
+  bool adding;
+  
+  talentObj[lib_talent_gv_TALENTCOUNT] talents;
+  // Talent Tree UI data.
+  int mainTalentDialog;
+  int availablePointsLabel;
+  int availablePointsDialog;
+  int closeTalentTreeButton;
+  int[3] subTalentDialog;
+  dialogObj talentDialog;
+
+  // Talent Tree form data.
+  text[3] talentTreeNames;
+  int pointsPerTier;
+  string colorScheme;
+
+  // Data on user expended points.
+  int[3] pointsInTree;
+  int spentPoints;
+  int availablePoints;
+
+  // I'll figure out where to put this
+  string[10] buildStrings;
+
+  // Certain talent counts, I guess?
+  int strengthOfTheDragon;
+  int mindOfTheDragon;
+  int powerOverwhelming;
+  int rage;
+  int vampiricTendencies;
+  int zeal;
+  int criticalCrepitus;
+  int darkDissulto;
+  int spikedScales;
+  int retaliation;
+  int headshot;
+  int stickyShot;
+  int dualWield;
+  int greedIsGood;
+  int quickLearner;
+  int absorbMana;
+  int realmSwitch;
+
+
+};
+struct bankData {
+  bank stashBank;
+  bank rebornBank;
+  bank currencyBank;
+  bank talentBank;
+  bank dragonBank;
+  bool accessing;
+};
+struct verificationData {
+  bool hrc;
+  bool hpc;
+  bool dragon;
+};
+struct stashData {
+  unit sashUnit;
+  point location;
+};
+struct playerData {
+  questData quests;
+  statData stats;
+  skillData skills;
+  bankData banks;
+  stashData stash;
+  talentData talent;
+  verificationData verification;
+  unit dragon;
+  int type;
+  bool inCinematic;
+  bool beatGame;
+  bool seenIntro;
+  dialogObj locationDialog;
+  playergroup playerGroupSingle;
+};

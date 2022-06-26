@@ -1,0 +1,33 @@
+const int adminCount = 9;
+
+const fixed gv_MAXEXPERIENCE = 500000.0;
+// TODO: If we care about security we can make the modifier numbers not a constant but instead derived from each player's handle somehow.
+const int gv_HPCMod = 3954;
+const int gv_HRCMod = 7919;
+const int gv_DSNMod = 2386;
+
+const int ge_Type_FireDragon = 0;
+const int ge_Type_IceDragon = 1;
+
+
+// Library Consts.
+const int lib_talent_ge_ColorScheme_Blue = 0;
+const int lib_talent_ge_ColorScheme_Green = 1;
+const int lib_talent_ge_ColorScheme_Red = 2;
+const int lib_talent_ge_TalentPrerequisite_None = 0;
+const int lib_talent_ge_TalentPrerequisite_Left = 1;
+const int lib_talent_ge_TalentPrerequisite_Up = 2;
+const int lib_talent_ge_TalentPrerequisite_Right = 3;
+const int lib_talent_ge_TalentType_Passive = 0;
+const int lib_talent_ge_TalentType_Ability = 1;
+const int lib_talent_ge_SaveLoad_Save = 0;
+const int lib_talent_ge_SaveLoad_Load = 1;
+
+const int lib_talent_gv_POINTSPERTIER = 5;
+const int lib_talent_gv_POINTSPERPREREQUISITE = 5;
+
+const int lib_talent_gv_TREES = 3;
+const int lib_talent_gv_COLUMNS = 3;
+const int lib_talent_gv_ROWS = 4;
+
+const int lib_talent_gv_TALENTCOUNT = lib_talent_gv_TREES * lib_talent_gv_COLUMNS * lib_talent_gv_ROWS;
