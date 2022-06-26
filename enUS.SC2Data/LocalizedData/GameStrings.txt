@@ -866,6 +866,7 @@ DocInfo/PatchNote080=1. Fixed stash not saving bug
 DocInfo/PatchNote081=2. Reduced lag
 DocInfo/PatchNote082=3. Stash will no longer move
 DocInfo/PatchNote083=1. Fixed bug where stash couldn't drop items or upgrade
+DocInfo/PatchNote084=1. Major changes to improve performance and development workflow.
 DocInfo/PatchNote100=36. Reborn Movement speed, gold drop, and item drop rate now properly saved/loaded
 DocInfo/Screenshot01=Fight countless types of enemies.
 DocInfo/Screenshot02=Duke it out inside The Arena.
@@ -1899,7 +1900,6 @@ Param/Value/FE6219AA=<c val="FFFF00">?</c>
 Param/Value/FF85D4A6=You gain @ health for every 10 melee damage you do.
 Param/Value/FFDAB444=Kill 10 Creton Warriors<n/>
 Param/Value/FFE6E959=<c val="FFFF00">!</c>
-Param/Value/lib_1_TALENT_LOAD_RESET=<c val="FF0000">INVALID TALENT BUILD IN BANK: RESETTING TALENT BUILD.</c>
 Param/Value/lib_1_02BBAD52=point
 Param/Value/lib_1_04F5E258=<s val="StandardTooltip">
 Param/Value/lib_1_09FBC8F4=<s val="StandardTooltipHeader">
@@ -1955,6 +1955,7 @@ Param/Value/lib_1_DBF60C3F=.</c></s>
 Param/Value/lib_1_E3F15863=points
 Param/Value/lib_1_E5D41D76=points
 Param/Value/lib_1_F0C5D28C=There's already a talent button in that position.
+Param/Value/lib_1_TALENT_LOAD_RESET=<c val="FF0000">INVALID TALENT BUILD IN BANK: RESETTING TALENT BUILD.</c>
 RequirementNode/Tooltip/CountBehaviorCivilianEnableWeaponCompleteOnlyAtUnit3810155024=Extra Bag Unlocked
 RequirementNode/Tooltip/Eq1166728750CountUpgradeStash15CompleteOnly0=Already purchased Stash Upgrade 4
 RequirementNode/Tooltip/Eq1470453431CountUpgradeStash13CompleteOnly0=Already purchased Stash Upgrade 2
