@@ -1,0 +1,21 @@
+bool gt_GetHandle_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (!runActions) {
+    return true;
+  }
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(1) + (StringExternal("Param/Value/86DAF636") + StringToText(PlayerHandle(1)))));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(2) + (StringExternal("Param/Value/120F225F") + StringToText(PlayerHandle(2)))));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(3) + (StringExternal("Param/Value/209E9C9C") + StringToText(PlayerHandle(3)))));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(4) + (StringExternal("Param/Value/E2AE18A4") + StringToText(PlayerHandle(4)))));
+  return true;
+}
+
+void gt_GetHandle_Init () {
+  gt_GetHandle = TriggerCreate("gt_GetHandle_Func");
+  TriggerAddEventChatMessage(gt_GetHandle, c_playerAny, "-Handle", true);
+}

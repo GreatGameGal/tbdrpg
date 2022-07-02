@@ -1,0 +1,22 @@
+bool gt_RevealMap_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  VisRevealerCreate(lv_player, RegionEntireMap());
+  return true;
+}
+
+void gt_RevealMap_Init () {
+  gt_RevealMap = TriggerCreate("gt_RevealMap_Func");
+  TriggerAddEventChatMessage(gt_RevealMap, c_playerAny, "-Reveal Map", true);
+}

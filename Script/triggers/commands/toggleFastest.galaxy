@@ -1,0 +1,22 @@
+bool gt_Fastest_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  GameSetSpeedValue(c_gameSpeedFaster);
+  return true;
+}
+
+void gt_Fastest_Init () {
+  gt_Fastest = TriggerCreate("gt_Fastest_Func");
+  TriggerAddEventChatMessage(gt_Fastest, c_playerAny, "-Fastest", true);
+}

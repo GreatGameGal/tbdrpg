@@ -1,0 +1,24 @@
+bool gt_SpawnMassEnemyUnit_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  libNtve_gf_UnitCreateFacingPoint(50, (StringSub(EventChatMessage(false), 10, StringLength(EventChatMessage(false)))), c_unitCreateIgnorePlacement, 15, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetPosition(gv_players[lv_playerIndex].dragon));
+  return true;
+}
+
+void gt_SpawnMassEnemyUnit_Init () {
+  gt_SpawnMassEnemyUnit = TriggerCreate("gt_SpawnMassEnemyUnit_Func");
+  TriggerAddEventChatMessage(gt_SpawnMassEnemyUnit, c_playerAny, "-MESpawn", false);
+}

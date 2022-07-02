@@ -1,0 +1,13 @@
+bool gt__50ShadesofGray_Func (bool testConds, bool runActions) {
+
+  if (!runActions) {
+    return true;
+  }
+  UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/3C95F15D"));
+  return true;
+}
+
+void gt__50ShadesofGray_Init () {
+  gt__50ShadesofGray = TriggerCreate("gt__50ShadesofGray_Func");
+  TriggerAddEventChatMessage(gt__50ShadesofGray, c_playerAny, "50 Shades", true);
+}

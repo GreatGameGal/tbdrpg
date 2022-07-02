@@ -1,0 +1,22 @@
+bool gt_GetMoney_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  PlayerModifyPropertyInt(lv_player, c_playerPropMinerals, c_playerPropOperAdd, 1000000);
+  return true;
+}
+
+void gt_GetMoney_Init () {
+  gt_GetMoney = TriggerCreate("gt_GetMoney_Func");
+  TriggerAddEventChatMessage(gt_GetMoney, c_playerAny, "-Minerals", true);
+}

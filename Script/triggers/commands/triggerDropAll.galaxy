@@ -1,0 +1,22 @@
+bool gt_DropAll_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+  if (!runActions) {
+    return true;
+  }
+  UnitGroupLoopBegin(UnitInventoryGroup(gv_players[lv_playerIndex].dragon));
+  for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
+    UnitCreate(1, UnitGetType(UnitGroupLoopCurrent()), 0, lv_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), libNtve_gf_RandomAngle());
+    UnitInventoryRemove(UnitGroupLoopCurrent());
+  }
+  UnitGroupLoopEnd();
+  return true;
+}
+
+void gt_DropAll_Init () {
+  gt_DropAll = TriggerCreate("gt_DropAll_Func");
+  TriggerAddEventChatMessage(gt_DropAll, c_playerAny, "-Drop All", true);
+}

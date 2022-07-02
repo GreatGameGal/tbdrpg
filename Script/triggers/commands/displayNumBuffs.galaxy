@@ -1,0 +1,18 @@
+bool gt_NumBuffs_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (!runActions) {
+    return true;
+  }
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, IntToText(UnitBehaviorCountAll(gv_players[lv_playerIndex].dragon)));
+  return true;
+}
+
+void gt_NumBuffs_Init () {
+  gt_NumBuffs = TriggerCreate("gt_NumBuffs_Func");
+  TriggerAddEventChatMessage(gt_NumBuffs, c_playerAny, "-Num Buffs", false);
+}

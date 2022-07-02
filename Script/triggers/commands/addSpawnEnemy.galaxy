@@ -1,0 +1,30 @@
+bool gt_SpawnEnemyUnit_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  libNtve_gf_UnitCreateFacingPoint(1, (StringSub(EventChatMessage(false), 9, StringLength(EventChatMessage(false)))), 0, 15, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetPosition(gv_players[lv_playerIndex].dragon));
+  if ((UnitGetType(UnitLastCreated()) == "Nosferatu")) {
+    gv_nosferatu = UnitLastCreated();
+    MinimapPing(PlayerGroupAll(), UnitGetPosition(gv_nosferatu), 10.0, Color(25.10, 0.00, 0.00));
+    TriggerEnable(gt_NosferatusLogic, true);
+  }
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/392CAE58") + StringToText(StringSub(EventChatMessage(false), 8, StringLength(EventChatMessage(false))))));
+  return true;
+}
+
+void gt_SpawnEnemyUnit_Init () {
+  gt_SpawnEnemyUnit = TriggerCreate("gt_SpawnEnemyUnit_Func");
+  TriggerAddEventChatMessage(gt_SpawnEnemyUnit, c_playerAny, "-ESpawn", false);
+}

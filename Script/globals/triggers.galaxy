@@ -423,7 +423,7 @@ trigger gt_EnterDragonsNest;
 trigger gt_LeaveDragonsNest;
 trigger gt_CheckStats;
 trigger gt_ResetStats;
-trigger gt_BasicClaws;
+trigger gt_BasicWeapons;
 trigger gt_DragonIntroCinematic;
 trigger gt_DragonIntroCinematicReturntoNormal;
 trigger gt_PlayIntroTheme;

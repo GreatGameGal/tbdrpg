@@ -1,0 +1,25 @@
+bool gt_NumberofUnitDeaths_Func (bool testConds, bool runActions) {
+  int slot;
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+  if (!runActions) {
+    return true;
+  }
+   // slot = RegionFromId(241);
+  //for(slot = 0; slot <=11; slot +=1){
+   // UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaAll, (StringExternal("Param/Value/CCBC876F") + StringToText(" slot: ") + IntToText(slot) +StringToText(" is ") + IntToText(gv_unitKills[slot])));
+   // }
+  //UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/CCBC876F") + IntToText(gv_unitKills[1])));
+   //UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/506A51FE") + IntToText(gv_unitKills[3])));
+   //UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal(slot));
+  return true;
+}
+
+void gt_NumberofUnitDeaths_Init () {
+  int slot = 0;
+  gt_NumberofUnitDeaths = TriggerCreate("gt_NumberofUnitDeaths_Func");
+  TriggerAddEventChatMessage(gt_NumberofUnitDeaths, c_playerAny, "-kills", true);
+}

@@ -1,0 +1,25 @@
+bool gt_DebugTeleZauberer_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  PlayerGroupAdd(gv_playersInBioDome, lv_player);
+  UnitSetPosition(gv_players[lv_playerIndex].dragon, UnitGetPosition(UnitFromId(2501)), false);
+  return true;
+}
+
+void gt_DebugTeleZauberer_Init () {
+  gt_DebugTeleZauberer = TriggerCreate("gt_DebugTeleZauberer_Func");
+  TriggerAddEventChatMessage(gt_DebugTeleZauberer, c_playerAny, "-Zauberer", true);
+}

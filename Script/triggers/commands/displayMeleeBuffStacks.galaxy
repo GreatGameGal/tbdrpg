@@ -1,0 +1,27 @@
+bool gt_MeleeBuffStacks_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/C2477670") + IntToText(UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "StrengthoftheDragon"))));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/98095420") + IntToText(UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "Zeal"))));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/EBE16544") + IntToText(UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "VampiricTendencies"))));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/711767EF") + IntToText(UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "CriticalCrepitus"))));
+  return true;
+}
+
+void gt_MeleeBuffStacks_Init () {
+  gt_MeleeBuffStacks = TriggerCreate("gt_MeleeBuffStacks_Func");
+  TriggerAddEventChatMessage(gt_MeleeBuffStacks, c_playerAny, "-Melee Buff Stacks", false);
+}

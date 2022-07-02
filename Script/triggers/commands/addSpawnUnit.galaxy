@@ -1,0 +1,25 @@
+bool gt_SpawnUnit_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  libNtve_gf_UnitCreateFacingPoint(1, (StringSub(EventChatMessage(false), 8, StringLength(EventChatMessage(false)))), 0, lv_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetPosition(gv_players[lv_playerIndex].dragon));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/FAA40E97") + StringToText(StringSub(EventChatMessage(false), 8, StringLength(EventChatMessage(false))))));
+  return true;
+}
+
+void gt_SpawnUnit_Init () {
+  gt_SpawnUnit = TriggerCreate("gt_SpawnUnit_Func");
+  TriggerAddEventChatMessage(gt_SpawnUnit, c_playerAny, "-Spawn", false);
+}
