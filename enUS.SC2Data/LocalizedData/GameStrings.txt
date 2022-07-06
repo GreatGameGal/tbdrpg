@@ -1353,7 +1353,7 @@ Param/Value/684E7509='s dragon is now level
 Param/Value/68A2CF78=Decline
 Param/Value/68F72793=Potion Cooldown Active
 Param/Value/6979B884=MISS
-Param/Value/699B9328=Kill a sheep
+Param/Value/699B9328=Kill a Sheep
 Param/Value/69C20D42=The dragon stone was watched after by the Mages of Venadas.
 Param/Value/69F3DB8A=If you donate money to Hero you could be an NPC too.
 Param/Value/6A25F76F=Large Health Potion Used
@@ -1853,7 +1853,7 @@ Param/Value/F3D40B26=<c val="FF0000">C</c><c val="FF1000">R</c><c val="FF2100">I
 Param/Value/F3FB8101=The Basics: Killing I
 Param/Value/F48BA064='s level 
 Param/Value/F4A2B359=Actual VT - 
-Param/Value/F4BCC69C=Kill an alpha srepti
+Param/Value/F4BCC69C=Kill an Alpha Srepti
 Param/Value/F53F5A37=When you are struck by a ranged attack or a spell, you will have a @% chance to cast a nova.
 Param/Value/F5929901=Lanae
 Param/Value/F5B34512=?

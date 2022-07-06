@@ -1,3 +1,4 @@
+// DON'T USE THIS FOR NOW! IT CRASHES THE GAME, WHY? I DON'T KNOW
 void lib_talent_gf_UpdateButtonTooltip (int lp_player, int lp_talentIndex) {
   text lv_spacer;
   text lv_tooltip;

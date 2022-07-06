@@ -1,4 +1,3 @@
-// DON'T USE THIS FOR NOW! IT CRASHES THE GAME, WHY? I DON'T KNOW
 void lib_talent_gf_UnlockTalentButton (int lp_player, int lp_tree, int lp_column, int lp_row) {
   int lv_playerIndex;
   int lv_talentIndex;
