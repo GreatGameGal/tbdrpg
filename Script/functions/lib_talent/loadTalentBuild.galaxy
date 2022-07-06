@@ -38,89 +38,86 @@ void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, int l
     lv_row = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].row;
     lv_column = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].column;
     lv_talentStringIndex = lv_talentIndex * 2 + 1;
-    lv_prerequisiteIndex = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs;
     // Uses the min function to ensure it isn't greater than the max rank.
     lv_talentCurrentRank = MinI(
       StringToInt(StringSub(gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex], lv_talentStringIndex, lv_talentStringIndex + 1)),
       gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank
     );
     gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank = lv_talentCurrentRank;
-    gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree] += lv_talentCurrentRank;
+    gv_players[lv_playerIndex].talent.pointsInTree[lv_tree] += lv_talentCurrentRank;
     gv_players[lv_playerIndex].talent.spentPoints += lv_talentCurrentRank;
 
-    if (lv_talentCurrentRank > 0) { 
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade != null)) {
-        libNtve_gf_SetUpgradeLevelForPlayer(lp_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade, lv_talentCurrentRank);
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StrengthoftheDragon")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StrengthoftheDragon", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.strengthOfTheDragon += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "MindoftheDragon")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "MindoftheDragon", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.mindOfTheDragon += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "PowerOverwhelming")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "PowerOverwhelming", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.powerOverwhelming += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Rage")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Rage", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.rage += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "VampiricTendencies")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "VampiricTendencies", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.vampiricTendencies += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "CriticalCrepitus")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "CriticalCrepitus", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.criticalCrepitus += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Zeal")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Zeal", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.zeal += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DarkDissulto")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DarkDissulto", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.darkDissulto += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "SpikedScales")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "SpikedScales", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.spikedScales += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Retaliation")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Retaliation", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.retaliation += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Headshot")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Headshot", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.headshot += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StickyShot")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StickyShot", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.stickyShot += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DuelWield")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DualWield", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.dualWield += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "GreedisGood")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "GreedIsGood", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.greedIsGood += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "QuickLearner")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "QuickLearner", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.quickLearner += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "AbsorbMana")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "AbsorbMana", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.absorbMana += lv_talentCurrentRank;
-        }
-        if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "RealmSwitch")) {
-          UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "RealmSwitch", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-          gv_players[lv_playerIndex].talent.realmSwitch += lv_talentCurrentRank;
-        }
+    if (lv_talentCurrentRank > 0 && gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade != null) { 
+      libNtve_gf_SetUpgradeLevelForPlayer(lp_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade, lv_talentCurrentRank);
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StrengthoftheDragon")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StrengthoftheDragon", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.strengthOfTheDragon += lv_talentCurrentRank;
       }
-    }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "MindoftheDragon")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "MindoftheDragon", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.mindOfTheDragon += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "PowerOverwhelming")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "PowerOverwhelming", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.powerOverwhelming += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Rage")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Rage", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.rage += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "VampiricTendencies")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "VampiricTendencies", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.vampiricTendencies += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "CriticalCrepitus")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "CriticalCrepitus", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.criticalCrepitus += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Zeal")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Zeal", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.zeal += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DarkDissulto")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DarkDissulto", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.darkDissulto += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "SpikedScales")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "SpikedScales", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.spikedScales += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Retaliation")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Retaliation", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.retaliation += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Headshot")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Headshot", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.headshot += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StickyShot")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StickyShot", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.stickyShot += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DuelWield")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DualWield", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.dualWield += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "GreedisGood")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "GreedIsGood", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.greedIsGood += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "QuickLearner")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "QuickLearner", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.quickLearner += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "AbsorbMana")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "AbsorbMana", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.absorbMana += lv_talentCurrentRank;
+      }
+      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "RealmSwitch")) {
+        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "RealmSwitch", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
+        gv_players[lv_playerIndex].talent.realmSwitch += lv_talentCurrentRank;
+      }
+    } 
   }
   
   // Shut up this function should be so rarely called that this shouldn't be a problem.
@@ -132,7 +129,8 @@ void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, int l
     lv_tree = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree;
     lv_row = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].row;
     lv_column = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].column;
-    lv_tierPointsRequired = gv_players[lv_playerIndex].talent.pointsPerTier * gv_players[lv_playerIndex].talent.talents[lv_talentIndex].row;
+    lv_tierPointsRequired = gv_players[lv_playerIndex].talent.pointsPerTier * lv_row;
+    lv_prerequisiteIndex = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs;
     
     // Disable the buttons first, enabling them if necessary.
     DialogControlSetEnabled(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, PlayerGroupAll(), false);

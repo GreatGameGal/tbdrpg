@@ -122,7 +122,8 @@ bool lib_talent_gt_PickTalent_Func (bool testConds, bool runActions) {
   lv_unlockedPrereqTalentIndex = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteOf;
   if (
     lv_unlockedPrereqTalentIndex != -1 &&
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank == gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].prerequisiteRequiredRank
+    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank >= gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].prerequisiteRequiredRank &&
+    !gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].prerequisitesComplete
   ) {
     lv_unlockedPrereqTalentRequiredPoints = gv_players[lv_playerIndex].talent.pointsPerTier * gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].row;
     if (gv_players[lv_playerIndex].talent.pointsInTree[gv_players[lv_playerIndex].talent.talents[lv_unlockedPrereqTalentIndex].tree] >= lv_unlockedPrereqTalentRequiredPoints) {
