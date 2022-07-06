@@ -40,9 +40,9 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     gf_FillInventory(lv_player);
     gf_SaveStackCounts(lv_player);
     UnitRemove(gv_players[lv_playerIndex].dragon);
-    if (gv_players[lv_playerIndex].type == 0) {
+    if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
       UnitCreate(1, "BabyDragon", 0, lv_player, PointFromId(1), libNtve_gf_RandomAngle());
-    } else if (gv_players[lv_playerIndex].type == 0) {
+    } else if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
       UnitCreate(1, "BabyIceDragon", 0, lv_player, PointFromId(1), libNtve_gf_RandomAngle());
     }
     gv_players[lv_playerIndex].dragon = UnitLastCreated();
