@@ -682,6 +682,20 @@ void FakeInitGlobals () {
   gv_adminHandles[6] = "1-S2-1-5695184";
   gv_adminHandles[7] = "2-S2-1-2355723";
   gv_adminHandles[8] = "1-S2-1-2814183";
+
+  // Fire Dragons
+  gv_DragonUnitNames[0][0] = "BabyDragon";
+  gv_DragonUnitNames[0][1] = "TeenDragon";
+  gv_DragonUnitNames[0][2] = "AdultDragon";
+  gv_DragonUnitNames[0][3] = "MasterDragon";
+  gv_DragonUnitNames[0][3] = "MasterDragon";
+  gv_DragonUnitNames[0][4] = "LegendaryDragon";
+  // Ice Dragons
+  gv_DragonUnitNames[1][0] = "BabyIceDragon";
+  gv_DragonUnitNames[1][1] = "TeenIceDragon";
+  gv_DragonUnitNames[1][2] = "AdultIceDragon";
+  gv_DragonUnitNames[1][3] = "MasterIceDragon";
+  gv_DragonUnitNames[1][4] = "LegendaryIceDragon";
 }
 //--------------------------------------------------------------------------------------------------
 // Global Functions
@@ -1502,326 +1516,6 @@ void gf_PutInventoryinInventory (int lp_player) {
     }
   }
 }
-void gf_EvolvetoTeen (int lp_player) {
-
-  unit lv_tempDragon;
-  int lv_tempAgility;
-  int lv_tempDexterity;
-  int lv_tempIntelligence;
-  int lv_tempStrength;
-  int lv_tempVitality;
-  int lv_tempReborn;
-  int lv_playerIndex;
-  int lv_n;
-
-  lv_playerIndex = lp_player - 1;
-
-  gv_evolving[lv_playerIndex] = true;
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
-  TriggerEnable(gt_SaveStackCountsPeriodically, false);
-  lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
-  lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
-  lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
-  lv_tempDexterity = gv_players[lv_playerIndex].stats.dexterity;
-  lv_tempAgility = gv_players[lv_playerIndex].stats.agility;
-  lv_tempReborn = gv_players[lv_playerIndex].stats.reborn.count;
-  lv_tempDragon = gv_players[lv_playerIndex].dragon;
-  gf_FillInventory(lp_player);
-  gf_SaveStackCounts(lp_player);
-  UIDisplayMessage(PlayerGroupSingle(lp_player), c_messageAreaSubtitle, StringExternal("Param/Value/F24E8F1E"));
-  if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
-    UnitCreate(1, "TeenDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  else if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
-    UnitCreate(1, "TeenIceDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  gv_players[lv_playerIndex].dragon = UnitLastCreated();
-  gf_PutInventoryinInventory(lp_player);
-  UnitRemove(lv_tempDragon);
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  gf_LoadStackCounts(lp_player);
-  gf_LoadSkills(lp_player);
-  while ((lv_tempVitality > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, 1);
-    lv_tempVitality = (lv_tempVitality - 1);
-  }
-  while ((lv_tempStrength > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, 1);
-    lv_tempStrength = (lv_tempStrength - 1);
-  }
-  while ((lv_tempIntelligence > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, 1);
-    lv_tempIntelligence = (lv_tempIntelligence - 1);
-  }
-  while ((lv_tempDexterity > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, 1);
-    lv_tempDexterity = (lv_tempDexterity - 1);
-  }
-  while ((lv_tempAgility > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, 1);
-    lv_tempAgility = (lv_tempAgility - 1);
-  }
-  while ((lv_tempReborn > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
-    lv_tempReborn = (lv_tempReborn - 1);
-  }
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  if (gv_players[lv_playerIndex].skills.fireSkin) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "FireSkin", lv_playerIndex, 1);
-  }
-  if (gv_players[lv_playerIndex].skills.allSeeingEye) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AllSeeingEye", lv_playerIndex, 1);
-  }
-  gv_players[lv_playerIndex].stats.attributePoints = 5.0;
-  gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
-  gf_ReapplyBuffs(lp_player);
-  lib_talent_gf_GrantTalentPoints(1, lp_player);
-  Wait(5.0, c_timeGame);
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, true);
-  TriggerEnable(gt_SaveStackCountsPeriodically, true);
-  gv_evolving[lv_playerIndex] = false;
-}
-void gf_EvolvetoAdult (int lp_player) {
-
-  unit lv_tempDragon;
-  int lv_tempAgility;
-  int lv_tempDexterity;
-  int lv_tempIntelligence;
-  int lv_tempStrength;
-  int lv_tempVitality;
-  int lv_tempReborn;
-  int lv_playerIndex;
-  int lv_n;
-
-  lv_playerIndex = lp_player - 1;
-
-  gv_evolving[lv_playerIndex] = true;
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
-  TriggerEnable(gt_SaveStackCountsPeriodically, false);
-  lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
-  lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
-  lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
-  lv_tempDexterity = gv_players[lv_playerIndex].stats.dexterity;
-  lv_tempAgility = gv_players[lv_playerIndex].stats.agility;
-  lv_tempReborn = gv_players[lv_playerIndex].stats.reborn.count;
-  lv_tempDragon = gv_players[lv_playerIndex].dragon;
-  gf_FillInventory(lp_player);
-  gf_SaveStackCounts(lp_player);
-  if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
-    UnitCreate(1, "AdultDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  else if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
-    UnitCreate(1, "AdultIceDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  gv_players[lv_playerIndex].dragon = UnitLastCreated();
-  gf_PutInventoryinInventory(lp_player);
-  UnitRemove(lv_tempDragon);
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  gf_LoadStackCounts(lp_player);
-  gf_LoadSkills(lp_player);
-  while ((lv_tempVitality > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, 1);
-    lv_tempVitality = (lv_tempVitality - 1);
-  }
-  while ((lv_tempStrength > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, 1);
-    lv_tempStrength = (lv_tempStrength - 1);
-  }
-  while ((lv_tempIntelligence > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, 1);
-    lv_tempIntelligence = (lv_tempIntelligence - 1);
-  }
-  while ((lv_tempDexterity > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, 1);
-    lv_tempDexterity = (lv_tempDexterity - 1);
-  }
-  while ((lv_tempAgility > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, 1);
-    lv_tempAgility = (lv_tempAgility - 1);
-  }
-  while ((lv_tempReborn > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
-    lv_tempReborn = (lv_tempReborn - 1);
-  }
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  if (gv_players[lv_playerIndex].skills.fireSkin) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "FireSkin", lv_playerIndex, 1);
-  }
-  if (gv_players[lv_playerIndex].skills.allSeeingEye) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AllSeeingEye", lv_playerIndex, 1);
-  }
-  gv_players[lv_playerIndex].stats.attributePoints += 5.0;
-  gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
-  gf_ReapplyBuffs(lp_player);
-  lib_talent_gf_GrantTalentPoints(1, lp_player);
-  Wait(5.0, c_timeGame);
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, true);
-  TriggerEnable(gt_SaveStackCountsPeriodically, true);
-  gv_evolving[lv_playerIndex] = false;
-}
-void gf_EvolvetoMaster (int lp_player) {
-  unit lv_tempDragon;
-  int lv_tempAgility;
-  int lv_tempDexterity;
-  int lv_tempIntelligence;
-  int lv_tempStrength;
-  int lv_tempVitality;
-  int lv_tempReborn;
-  int lv_playerIndex;
-  int lv_n;
-
-  lv_playerIndex = lp_player - 1;
-
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
-  TriggerEnable(gt_SaveStackCountsPeriodically, false);
-  lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
-  lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
-  lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
-  lv_tempDexterity = gv_players[lv_playerIndex].stats.dexterity;
-  lv_tempAgility = gv_players[lv_playerIndex].stats.agility;
-  lv_tempReborn = gv_players[lv_playerIndex].stats.reborn.count;
-  gv_evolving[lv_playerIndex] = true;
-  lv_tempDragon = gv_players[lv_playerIndex].dragon;
-  gf_FillInventory(lp_player);
-  gf_SaveStackCounts(lp_player);
-  if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
-    UnitCreate(1, "MasterDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  else if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
-    UnitCreate(1, "MasterIceDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  gv_players[lv_playerIndex].dragon = UnitLastCreated();
-  gf_PutInventoryinInventory(lp_player);
-  UnitRemove(lv_tempDragon);
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  gf_LoadStackCounts(lp_player);
-  gf_LoadSkills(lp_player);
-  while ((lv_tempVitality > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, 1);
-    lv_tempVitality = (lv_tempVitality - 1);
-  }
-  while ((lv_tempStrength > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, 1);
-    lv_tempStrength = (lv_tempStrength - 1);
-  }
-  while ((lv_tempIntelligence > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, 1);
-    lv_tempIntelligence = (lv_tempIntelligence - 1);
-  }
-  while ((lv_tempDexterity > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, 1);
-    lv_tempDexterity = (lv_tempDexterity - 1);
-  }
-  while ((lv_tempAgility > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, 1);
-    lv_tempAgility = (lv_tempAgility - 1);
-  }
-  while ((lv_tempReborn > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
-    lv_tempReborn = (lv_tempReborn - 1);
-  }
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  if (gv_players[lv_playerIndex].skills.fireSkin) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "FireSkin", lv_playerIndex, 1);
-  }
-  if (gv_players[lv_playerIndex].skills.allSeeingEye) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AllSeeingEye", lv_playerIndex, 1);
-  }
-  gv_players[lv_playerIndex].stats.attributePoints += 5.0;
-  gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
-  gf_ReapplyBuffs(lp_player);
-  lib_talent_gf_GrantTalentPoints(1, lp_player);
-  Wait(5.0, c_timeGame);
-  gv_evolving[lv_playerIndex] = false;
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, true);
-  TriggerEnable(gt_SaveStackCountsPeriodically, true);
-}
-void gf_EvolvetoLegendary (int lp_player) {
-
-  unit lv_tempDragon;
-  int lv_tempAgility;
-  int lv_tempDexterity;
-  int lv_tempIntelligence;
-  int lv_tempStrength;
-  int lv_tempVitality;
-  int lv_tempReborn;
-  int lv_playerIndex;
-  int lv_n;
-
-  lv_playerIndex = lp_player - 1;
-
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
-  TriggerEnable(gt_SaveStackCountsPeriodically, false);
-  lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
-  lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
-  lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
-  lv_tempDexterity = gv_players[lv_playerIndex].stats.dexterity;
-  lv_tempAgility = gv_players[lv_playerIndex].stats.agility;
-  lv_tempReborn = gv_players[lv_playerIndex].stats.reborn.count;
-  gv_evolving[lv_playerIndex] = true;
-  lv_tempDragon = gv_players[lv_playerIndex].dragon;
-  gf_FillInventory(lp_player);
-  gf_SaveStackCounts(lp_player);
-  if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
-    UnitCreate(1, "LegendaryDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  else if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
-    UnitCreate(1, "LegendaryIceDragon", c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  }
-  gv_players[lv_playerIndex].dragon = UnitLastCreated();
-  gf_PutInventoryinInventory(lp_player);
-  UnitRemove(lv_tempDragon);
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  gf_LoadStackCounts(lp_player);
-  gf_LoadSkills(lp_player);
-  while ((lv_tempVitality > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, 1);
-    lv_tempVitality = (lv_tempVitality - 1);
-  }
-  while ((lv_tempStrength > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, 1);
-    lv_tempStrength = (lv_tempStrength - 1);
-  }
-  while ((lv_tempIntelligence > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, 1);
-    lv_tempIntelligence = (lv_tempIntelligence - 1);
-  }
-  while ((lv_tempDexterity > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, 1);
-    lv_tempDexterity = (lv_tempDexterity - 1);
-  }
-  while ((lv_tempAgility > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, 1);
-    lv_tempAgility = (lv_tempAgility - 1);
-  }
-  while ((lv_tempReborn > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
-    lv_tempReborn = (lv_tempReborn - 1);
-  }
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  if (gv_players[lv_playerIndex].skills.fireSkin) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "FireSkin", lv_playerIndex, 1);
-  }
-  if (gv_players[lv_playerIndex].skills.allSeeingEye) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AllSeeingEye", lv_playerIndex, 1);
-  }
-  gv_players[lv_playerIndex].stats.attributePoints += 5.0;
-  gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
-  gf_ReapplyBuffs(lp_player);
-  lib_talent_gf_GrantTalentPoints(1, lp_player);
-  Wait(5.0, c_timeGame);
-  gv_evolving[lv_playerIndex] = false;
-  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, true);
-  TriggerEnable(gt_SaveStackCountsPeriodically, true);
-}
 void gf_ReapplyBuffs (int lp_player) {
 
   int lv_strengthoftheDragon;
@@ -1902,15 +1596,15 @@ bool auto_gf_LevelUp_TriggerFunc (bool testConds, bool runActions) {
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lp_player) + (StringExternal("Param/Value/684E7509") + IntToText(gv_players[lv_playerIndex].stats.level))));
     libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(gv_players[lv_playerIndex].dragon), c_animNameDefault, "Dance", c_animFlagNonLooping, c_animTimeDefault);
     BoardItemSetText(gv_leadboard, 2, 2, FixedToText(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent), 0));
-    gv_players[lv_playerIndex].stats.attributePoints = (gv_players[lv_playerIndex].stats.attributePoints + 5.0);
+    gv_players[lv_playerIndex].stats.attributePoints +=  5;
     gf_ShowStats(gv_players[lv_playerIndex].dragon);
-    gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
     while (gv_players[lv_playerIndex].banks.accessing) {
       Wait(1.0, c_timeGame);
     }
     gv_players[lv_playerIndex].banks.accessing = true;
-    BankValueSetFromFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
     gv_players[lv_playerIndex].banks.accessing = false;
   }
   UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifePercent, 100.0);
@@ -2714,10 +2408,11 @@ void gf_StatCheck (int lp_player) {
   int lv_playerIndex;
 
   lv_playerIndex = lp_player - 1;
-
-  if (((UnitGetType(gv_players[lv_playerIndex].dragon) == "BabyDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "BabyIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "AdultDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "AdultIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "LegendaryDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "LegendaryIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "MasterDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "MasterIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "TeenDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "TeenIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "") || (UnitGetType(gv_players[lv_playerIndex].dragon) == null))) {
+  if (lp_player > 4) {
+    return;
   }
-  else {
+
+  if (!((UnitGetType(gv_players[lv_playerIndex].dragon) == "BabyDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "BabyIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "AdultDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "AdultIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "LegendaryDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "LegendaryIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "MasterDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "MasterIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "TeenDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "TeenIceDragon") || (UnitGetType(gv_players[lv_playerIndex].dragon) == "") || (UnitGetType(gv_players[lv_playerIndex].dragon) == null))) {
     UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DONTEDITBANKFILES", UnitFromId(2662), 1);
   }
   gv_players[lv_playerIndex].stats.agility = UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "Agility");
@@ -2725,11 +2420,30 @@ void gf_StatCheck (int lp_player) {
   gv_players[lv_playerIndex].stats.intelligence = UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "Intelligence");
   gv_players[lv_playerIndex].stats.strength = UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "Strength");
   gv_players[lv_playerIndex].stats.vitality = UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "Vitality");
-  if (((gv_players[lv_playerIndex].stats.agility > 100) || (gv_players[lv_playerIndex].stats.dexterity > 500) || (gv_players[lv_playerIndex].stats.strength > 500) || (gv_players[lv_playerIndex].stats.vitality > 500) || (gv_players[lv_playerIndex].stats.intelligence > 500) || ((gv_players[lv_playerIndex].stats.strength + (gv_players[lv_playerIndex].stats.dexterity + (gv_players[lv_playerIndex].stats.intelligence + (gv_players[lv_playerIndex].stats.vitality + (gv_players[lv_playerIndex].stats.agility + FixedToInt(gv_players[lv_playerIndex].stats.attributePoints)))))) > 500))) {
-    gv_players[lv_playerIndex].stats.attributePoints = (UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) * 5.0);
-    gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
+  if (
+      gv_players[lv_playerIndex].stats.agility > 100 ||
+      gv_players[lv_playerIndex].stats.dexterity > 500 ||
+      gv_players[lv_playerIndex].stats.strength > 500 ||
+      gv_players[lv_playerIndex].stats.vitality > 500 ||
+      gv_players[lv_playerIndex].stats.intelligence > 500 || 
+      (
+        gv_players[lv_playerIndex].stats.strength +
+        gv_players[lv_playerIndex].stats.dexterity +
+        gv_players[lv_playerIndex].stats.intelligence +
+        gv_players[lv_playerIndex].stats.vitality + 
+        gv_players[lv_playerIndex].stats.agility +
+        gv_players[lv_playerIndex].stats.attributePoints 
+        > 
+        gv_MaxLevel * 5 + 
+        gv_MaxLevel / gv_LevelsPerEvolution * 5
+      )
+    ) {
+    gv_players[lv_playerIndex].stats.attributePoints = 
+      UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) * 5 +
+      UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) / gv_LevelsPerEvolution * 5;
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
-    BankValueSetFromFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.attributePoints);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.attributePoints);
     UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, gv_players[lv_playerIndex].stats.agility);
     gv_players[lv_playerIndex].stats.agility = 0;
     BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.agility);
@@ -10773,7 +10487,7 @@ bool gt_CheckPlayerisnoteveolved_Func (bool testConds, bool runActions) {
 
   int lv_player;
   int lv_playerIndex;
-
+  int lv_dragonEvolution;
 
   if (testConds) {
     if (!gv_playersSetUp) {
@@ -10787,17 +10501,10 @@ bool gt_CheckPlayerisnoteveolved_Func (bool testConds, bool runActions) {
   for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
     lv_player = PlayerGroupLoopCurrent();
     lv_playerIndex = lv_player - 1;
-    if ((UnitLevel(gv_players[lv_playerIndex].dragon) == 25) && (UnitGetType(gv_players[lv_playerIndex].dragon) == "BabyDragon")) {
-      gf_EvolvetoTeen(lv_player);
-    }
-    if ((UnitLevel(gv_players[lv_playerIndex].dragon) == 50) && (UnitGetType(gv_players[lv_playerIndex].dragon) == "TeenDragon")) {
-      gf_EvolvetoAdult(lv_player);
-    }
-    if ((UnitLevel(gv_players[lv_playerIndex].dragon) == 75) && (UnitGetType(gv_players[lv_playerIndex].dragon) == "AdultDragon")) {
-      gf_EvolvetoMaster(lv_player);
-    }
-    if ((UnitLevel(gv_players[lv_playerIndex].dragon) == 100) && (UnitGetType(gv_players[lv_playerIndex].dragon) == "MasterDragon")) {
-      gf_EvolvetoLegendary(lv_player);
+    lv_dragonEvolution = gf_GetEvolution(lv_player);
+    if (UnitLevel(gv_players[lv_playerIndex].dragon) == (lv_dragonEvolution + 1) * gv_LevelsPerEvolution && lv_dragonEvolution != gv_DragonEvolutionCounts - 1) {
+      // Evolve to the next evolution of the type.
+      gf_EvolveTo(lv_player, gv_DragonUnitNames[gv_players[lv_playerIndex].type][lv_dragonEvolution+1]);
     }
   }
   PlayerGroupLoopEnd();
@@ -11217,9 +10924,15 @@ void gt_Level0Check_Init () {
 // Trigger: Level Up
 //--------------------------------------------------------------------------------------------------
 bool gt_LevelUp_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+  int lv_dragonEvolution;
+
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
 
   if (testConds) {
-    if (gv_evolving[(UnitGetOwner(EventUnit()) - 1)]) {
+    if (gv_evolving[lv_playerIndex]) {
       return false;
     }
   }
@@ -11227,26 +10940,16 @@ bool gt_LevelUp_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
+
   gf_LevelUp(UnitGetOwner(EventUnit()));
+  lv_dragonEvolution = gf_GetEvolution(lv_player);
+  if (UnitLevel(EventUnit()) == (lv_dragonEvolution + 1) * gv_LevelsPerEvolution && lv_dragonEvolution != gv_DragonEvolutionCounts - 1) {
+    // Evolve to the next evolution of the type.
+    gf_EvolveTo(lv_player, gv_DragonUnitNames[gv_players[lv_playerIndex].type][lv_dragonEvolution+1]);
+  }
+
   gf_StatCheck(UnitGetOwner(EventUnit()));
-  if ((UnitLevel(EventUnit()) == 25) && ((UnitGetType(EventUnit()) == "BabyDragon") || (UnitGetType(EventUnit()) == "BabyIceDragon"))) {
-    gf_EvolvetoTeen(UnitGetOwner(EventUnit()));
-  }
-  else {
-    if ((UnitLevel(EventUnit()) == 50) && ((UnitGetType(EventUnit()) == "TeenDragon") || (UnitGetType(EventUnit()) == "TeenIceDragon"))) {
-      gf_EvolvetoAdult(UnitGetOwner(EventUnit()));
-    }
-    else {
-      if ((UnitLevel(EventUnit()) == 75) && ((UnitGetType(EventUnit()) == "AdultDragon") || (UnitGetType(EventUnit()) == "AdultIceDragon"))) {
-        gf_EvolvetoMaster(UnitGetOwner(EventUnit()));
-      }
-      else {
-        if ((UnitLevel(EventUnit()) == 100) && ((UnitGetType(EventUnit()) == "MasterDragon") || (UnitGetType(EventUnit()) == "MasterIceDragon"))) {
-          gf_EvolvetoLegendary(UnitGetOwner(EventUnit()));
-        }
-      }
-    }
-  }
+  
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -11258,27 +10961,21 @@ void gt_LevelUp_Init () {
 // Trigger: Evolution Check
 //--------------------------------------------------------------------------------------------------
 bool gt_EvolutionCheck_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+  int lv_dragonEvolution;
+
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
 
   if (!runActions) {
     return true;
   }
-  if ((UnitLevel(EventUnit()) == 25) && ((UnitGetType(EventUnit()) == "BabyDragon") || (UnitGetType(EventUnit()) == "BabyIceDragon"))) {
-    gf_EvolvetoTeen(UnitGetOwner(EventUnit()));
-  }
-  else {
-    if ((UnitLevel(EventUnit()) == 50) && ((UnitGetType(EventUnit()) == "TeenDragon") || (UnitGetType(EventUnit()) == "TeenIceDragon"))) {
-      gf_EvolvetoAdult(UnitGetOwner(EventUnit()));
-    }
-    else {
-      if ((UnitLevel(EventUnit()) == 75) && ((UnitGetType(EventUnit()) == "AdultDragon") || (UnitGetType(EventUnit()) == "AdultIceDragon"))) {
-        gf_EvolvetoMaster(UnitGetOwner(EventUnit()));
-      }
-      else {
-        if ((UnitLevel(EventUnit()) == 100) && ((UnitGetType(EventUnit()) == "MasterDragon") || (UnitGetType(EventUnit()) == "MasterIceDragon"))) {
-          gf_EvolvetoLegendary(UnitGetOwner(EventUnit()));
-        }
-      }
-    }
+
+  lv_dragonEvolution = gf_GetEvolution(lv_player);
+  if (UnitLevel(EventUnit()) == (lv_dragonEvolution + 1) * gv_LevelsPerEvolution && lv_dragonEvolution != gv_DragonEvolutionCounts - 1) {
+    // Evolve to the next evolution of the type.
+    gf_EvolveTo(lv_player, gv_DragonUnitNames[gv_players[lv_playerIndex].type][lv_dragonEvolution+1]);
   }
   return true;
 }
@@ -11301,15 +10998,15 @@ bool gt_Agility1_Func (bool testConds, bool runActions) {
   }
   lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
   lv_triggeringPlayer = UnitGetOwner(EventUnit());
-  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0.0)) {
+  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
-    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1.0);
-    BankValueSetFromFixed(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = FixedToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints, 0);
+    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
+    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddAgility", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility + 1);
-    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0.0)) {
+    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
       gf_HideStats(EventUnit());
     }
   }
@@ -11346,20 +11043,23 @@ bool gt_Dexterity1_Func (bool testConds, bool runActions) {
   }
   lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
   lv_triggeringPlayer = UnitGetOwner(EventUnit());
-  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0.0)) {
+  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
-    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1.0);
-    BankValueSetFromFixed(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = FixedToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints, 0);
+    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
+    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddDexterity", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity + 1);
-    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0.0)) {
+    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
       gf_HideStats(EventUnit());
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_triggeringPlayer), c_messageAreaError, StringExternal("Param/Value/925025D3"));
+  }
+  if ((gv_players[lv_triggeringPlayerIndex].stats.dexterity == 500)) {
+    UnitAbilityShow(EventUnit(), "Dexterity1", false);
   }
   while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
@@ -11388,20 +11088,23 @@ bool gt_Intelligence1_Func (bool testConds, bool runActions) {
   }
   lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
   lv_triggeringPlayer = UnitGetOwner(EventUnit());
-  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0.0)) {
+  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
-    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1.0);
-    BankValueSetFromFixed(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = FixedToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints, 0);
+    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
+    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddIntelligence", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence + 1);
-    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0.0)) {
+    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
       gf_HideStats(EventUnit());
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(1), c_messageAreaError, StringExternal("Param/Value/6DCD7D69"));
+  }
+  if ((gv_players[lv_triggeringPlayerIndex].stats.intelligence == 500)) {
+    UnitAbilityShow(EventUnit(), "Intelligence1", false);
   }
   while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
@@ -11430,20 +11133,23 @@ bool gt_Strength1_Func (bool testConds, bool runActions) {
   }
   lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
   lv_triggeringPlayer = UnitGetOwner(EventUnit());
-  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0.0)) {
+  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
-    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1.0);
-    BankValueSetFromFixed(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = FixedToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints, 0);
+    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
+    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddStrength", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength + 1);
-    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0.0)) {
+    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
       gf_HideStats(EventUnit());
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_triggeringPlayer), c_messageAreaError, StringExternal("Param/Value/E289DC4A"));
+  }
+  if ((gv_players[lv_triggeringPlayerIndex].stats.strength == 500)) {
+    UnitAbilityShow(EventUnit(), "Strength1", false);
   }
   while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
@@ -11473,20 +11179,23 @@ bool gt_Vitality1_Func (bool testConds, bool runActions) {
   }
   lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
   lv_triggeringPlayer = UnitGetOwner(EventUnit());
-  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0.0)) {
+  if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
-    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1.0);
-    BankValueSetFromFixed(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = FixedToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints, 0);
+    gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
+    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddVitality", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality + 1);
-    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0.0)) {
+    if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
       gf_HideStats(EventUnit());
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_triggeringPlayer), c_messageAreaError, StringExternal("Param/Value/5188E700"));
+  }
+  if ((gv_players[lv_triggeringPlayerIndex].stats.vitality == 500)) {
+    UnitAbilityShow(EventUnit(), "Vitality1", false);
   }
   while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
@@ -20965,7 +20674,11 @@ void gf_SetupPlayer(int lp_player) {
     gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
     gv_players[lv_playerIndex].stats.reborn.count = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Reborn Count", PlayerHandle(lp_player));
     lv_tempReborn = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Reborn Count", PlayerHandle(lp_player));
-    gv_players[lv_playerIndex].stats.attributePoints = BankValueGetAsFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player));
+    gv_players[lv_playerIndex].stats.attributePoints = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player));
+    // TODO: Remove this after a few updates
+    if (gv_players[lv_playerIndex].stats.attributePoints == 0) {
+      gv_players[lv_playerIndex].stats.attributePoints = FixedToInt(BankValueGetAsFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player)));
+    }
     lv_tempVitality = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lp_player));
     lv_tempStrength = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lp_player));
     lv_tempIntelligence = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Int", PlayerHandle(lp_player));
@@ -21027,7 +20740,7 @@ void gf_SetupPlayer(int lp_player) {
       UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
       lv_tempReborn = (lv_tempReborn - 1);
     }
-    if ((gv_players[lv_playerIndex].stats.attributePoints == 0.0)) {
+    if ((gv_players[lv_playerIndex].stats.attributePoints == 0)) {
       UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Agility1", false);
       UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Dexterity1", false);
       UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Intelligence1", false);
@@ -21035,7 +20748,7 @@ void gf_SetupPlayer(int lp_player) {
       UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Vitality1", false);
     }
     else {
-      gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
+      gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
       libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
     }
     UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifePercent, 100.0);
@@ -21066,8 +20779,8 @@ void gf_SetupPlayer(int lp_player) {
     BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.strength);
     gv_players[lv_playerIndex].stats.vitality = 0;
     BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.vitality);
-    gv_players[lv_playerIndex].stats.attributePoints = 5.0;
-    BankValueSetFromFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.attributePoints);
+    gv_players[lv_playerIndex].stats.attributePoints = 5;
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.attributePoints);
     // DSN
     gv_players[lv_playerIndex].verification.dragon = true;
     UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "BasicClaws");

@@ -1,3 +1,6 @@
+void gf_EvolveTo (int lp_player, string lp_unitName);
+int gf_GetEvolution (int lp_player);
+
 void gf_AddExperience (unit lp_hero, fixed lp_experienceAmmount);
 void gf_OpenQuestDialog (int lp_questingPlayer, text lp_questText, text lp_questName, text lp_reward, text lp_recommendedLevel);
 void gf_CloseQuestDialog (int lp_questingPlayer);

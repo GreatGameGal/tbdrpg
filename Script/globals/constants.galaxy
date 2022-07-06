@@ -1,14 +1,24 @@
 const int adminCount = 9;
 
+const int gv_MaxLevel = 100;
 const fixed gv_MAXEXPERIENCE = 500000.0;
 // TODO: If we care about security we can make the modifier numbers not a constant but instead derived from each player's handle somehow.
 const int gv_HPCMod = 3954;
 const int gv_HRCMod = 7919;
 const int gv_DSNMod = 2386;
 
+const int gv_DragonTypeCounts = 2;
 const int ge_Type_FireDragon = 0;
 const int ge_Type_IceDragon = 1;
 
+const int gv_DragonEvolutionCounts = 5;
+const int ge_Evolution_Baby = 0;
+const int ge_Evolution_Teen = 1;
+const int ge_Evolution_Adult = 2;
+const int ge_Evolution_Master = 3;
+const int ge_Evolution_Legendary = 4;
+
+const int gv_LevelsPerEvolution = 25;
 
 // Library Consts.
 const int lib_talent_ge_ColorScheme_Blue = 0;

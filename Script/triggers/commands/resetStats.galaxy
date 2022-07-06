@@ -14,10 +14,12 @@ bool gt_ResetStats_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  gv_players[lv_playerIndex].stats.attributePoints = (UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) * 5.0);
-  gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
+  gv_players[lv_playerIndex].stats.attributePoints = 
+    UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) * 5 +
+    UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) / gv_LevelsPerEvolution * 5;
+  gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
   libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
-  BankValueSetFromFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
   UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lv_player, gv_players[lv_playerIndex].stats.agility);
   gv_players[lv_playerIndex].stats.agility = 0;
   BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.agility);

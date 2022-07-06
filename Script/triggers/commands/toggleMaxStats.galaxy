@@ -26,7 +26,7 @@ bool gt_MaxStats_Func (bool testConds, bool runActions) {
   gv_players[lv_playerIndex].stats.dexterity = 500;
   gv_players[lv_playerIndex].stats.strength = 500;
   gv_players[lv_playerIndex].stats.vitality = 500;
-  gv_players[lv_playerIndex].stats.attributePoints = 0.0;
+  gv_players[lv_playerIndex].stats.attributePoints = 0;
   lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
   lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
   lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
