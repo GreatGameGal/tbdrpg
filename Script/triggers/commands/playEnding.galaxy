@@ -1,0 +1,23 @@
+bool gt_ViewEnding_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  PlayerGroupAdd(gv_playerswatchingendingcinematic, lv_player);
+  TriggerExecute(gt_EndingCinematic, true, false);
+  return true;
+}
+
+void gt_ViewEnding_Init () {
+  gt_ViewEnding = TriggerCreate("gt_ViewEnding_Func");
+  TriggerAddEventChatMessage(gt_ViewEnding, c_playerAny, "-Ending", true);
+}

@@ -1,0 +1,58 @@
+void gf_EvolveTo (int lp_player, string lp_unitName) {
+  // unit lv_tempDragon;
+  // int lv_tempAgility;
+  // int lv_tempDexterity;
+  // int lv_tempIntelligence;
+  // int lv_tempStrength;
+  // int lv_tempVitality;
+  // int lv_tempReborn;
+  int lv_playerIndex;
+
+  lv_playerIndex = lp_player - 1;
+
+  gv_evolving[lv_playerIndex] = true;
+  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
+  TriggerEnable(gt_SaveStackCountsPeriodically, false);
+  // lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
+  // lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
+  // lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
+  // lv_tempDexterity = gv_players[lv_playerIndex].stats.dexterity;
+  // lv_tempAgility = gv_players[lv_playerIndex].stats.agility;
+  // lv_tempReborn = gv_players[lv_playerIndex].stats.reborn.count;
+  // lv_tempDragon = gv_players[lv_playerIndex].dragon;
+  gf_FillInventory(lp_player);
+  gf_SaveStackCounts(lp_player);
+  UnitCreate(1, lp_unitName, c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
+  UnitRemove(gv_players[lv_playerIndex].dragon);
+  gv_players[lv_playerIndex].dragon = UnitLastCreated();
+  gf_PutInventoryinInventory(lp_player);
+  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
+  gf_LoadStackCounts(lp_player);
+  gf_LoadSkills(lp_player);
+  
+  // Add stats.
+  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, gv_players[lv_playerIndex].stats.vitality);
+  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, gv_players[lv_playerIndex].stats.strength);
+  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, gv_players[lv_playerIndex].stats.intelligence);
+  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, gv_players[lv_playerIndex].stats.dexterity);
+  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, gv_players[lv_playerIndex].stats.agility);
+  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingOfDrache", lp_player, gv_players[lv_playerIndex].stats.reborn.count);
+
+  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
+  if (gv_players[lv_playerIndex].skills.fireSkin) {
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "FireSkin", lv_playerIndex, 1);
+  }
+  if (gv_players[lv_playerIndex].skills.allSeeingEye) {
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AllSeeingEye", lv_playerIndex, 1);
+  }
+  gv_players[lv_playerIndex].stats.attributePoints += 5;
+  gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
+  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
+  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
+  gf_ReapplyBuffs(lp_player);
+  lib_talent_gf_GrantTalentPoints(1, lp_player);
+  Wait(5.0, c_timeGame);
+  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, true);
+  TriggerEnable(gt_SaveStackCountsPeriodically, true);
+  gv_evolving[lv_playerIndex] = false;
+}

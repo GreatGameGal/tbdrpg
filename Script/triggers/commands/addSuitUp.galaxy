@@ -1,0 +1,30 @@
+bool gt_SuitUp_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "ModArmor");
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "GodlyClaws");
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
+  return true;
+}
+
+void gt_SuitUp_Init () {
+  gt_SuitUp = TriggerCreate("gt_SuitUp_Func");
+  TriggerAddEventChatMessage(gt_SuitUp, c_playerAny, "-Suit Up", true);
+}

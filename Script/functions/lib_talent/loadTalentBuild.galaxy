@@ -27,7 +27,7 @@ void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, int l
     lib_talent_gf_ResetTalentBuild(lp_player, UnitLevel(gv_players[lv_playerIndex].dragon));
     return;
   }
-  lib_talent_gf_ResetTalentBuild(lp_player, 101);
+  lib_talent_gf_ResetTalentBuild(lp_player, 1);
   gv_players[lv_playerIndex].talent.availablePoints = BankValueGetAsInt(lv_talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex));
   libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.availablePointsLabel, IntToText(gv_players[lv_playerIndex].talent.availablePoints), PlayerGroupAll());
   for (lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {

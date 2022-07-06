@@ -1,4 +1,7 @@
-include "Script/functions/customAi"
-include "Script/functions/questAi"
-include "Script/functions/cinematicAi"
 include "Script/functions/lib_talent/index"
+
+include "Script/functions/customAi"
+include "Script/functions/cinematicAi"
+include "Script/functions/evolveTo"
+include "Script/functions/getEvolution"
+include "Script/functions/questAi"

@@ -1,0 +1,24 @@
+bool gt_WingClaws_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player) && PlayerHandle(lv_player) != "" && PlayerName(lv_player) != StringToText("Wingcrafter")) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "WingClaws");
+  return true;
+}
+
+void gt_WingClaws_Init () {
+  gt_WingClaws = TriggerCreate("gt_WingClaws_Func");
+  TriggerAddEventChatMessage(gt_WingClaws, c_playerAny, "-Wing Claws", true);
+}

@@ -1,0 +1,19 @@
+bool gt_VTCount_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (!runActions) {
+    return true;
+  }
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F4A2B359") + IntToText(UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "VampiricTendencies"))));
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F6C42C62") + IntToText(gv_players[lv_playerIndex].talent.vampiricTendencies)));
+  return true;
+}
+
+void gt_VTCount_Init () {
+  gt_VTCount = TriggerCreate("gt_VTCount_Func");
+  TriggerAddEventChatMessage(gt_VTCount, c_playerAny, "-VT", true);
+}

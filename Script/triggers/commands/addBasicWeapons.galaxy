@@ -1,0 +1,18 @@
+bool gt_BasicWeapons_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+  if (!runActions) {
+    return true;
+  }
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "BasicClaws");
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "BasicSpines");
+  return true;
+}
+
+void gt_BasicWeapons_Init () {
+  gt_BasicWeapons = TriggerCreate("gt_BasicWeapons_Func");
+  TriggerAddEventChatMessage(gt_BasicWeapons, c_playerAny, "-Weapon", true);
+}

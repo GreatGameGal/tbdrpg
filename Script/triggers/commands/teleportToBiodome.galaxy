@@ -1,0 +1,24 @@
+bool gt_TeleportBioDome_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  UnitSetPosition(gv_players[lv_playerIndex].dragon, RegionGetCenter(RegionFromId(187)), false);
+  return true;
+}
+
+void gt_TeleportBioDome_Init () {
+  gt_TeleportBioDome = TriggerCreate("gt_TeleportBioDome_Func");
+  TriggerAddEventChatMessage(gt_TeleportBioDome, c_playerAny, "-Bio Dome", true);
+}

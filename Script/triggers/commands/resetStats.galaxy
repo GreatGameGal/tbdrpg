@@ -1,0 +1,50 @@
+bool gt_ResetStats_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!UnitIsAlive(gv_players[lv_playerIndex].dragon)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  gv_players[lv_playerIndex].stats.attributePoints = 
+    UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) * 5 +
+    UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) / gv_LevelsPerEvolution * 5;
+  gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
+  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lv_player, gv_players[lv_playerIndex].stats.agility);
+  gv_players[lv_playerIndex].stats.agility = 0;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.agility);
+  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lv_player, gv_players[lv_playerIndex].stats.dexterity);
+  gv_players[lv_playerIndex].stats.dexterity = 0;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "De", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.dexterity);
+  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lv_player, gv_players[lv_playerIndex].stats.intelligence);
+  gv_players[lv_playerIndex].stats.intelligence = 0;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Int", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.intelligence);
+  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lv_player, gv_players[lv_playerIndex].stats.strength);
+  gv_players[lv_playerIndex].stats.strength = 0;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.strength);
+  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lv_player, gv_players[lv_playerIndex].stats.vitality);
+  gv_players[lv_playerIndex].stats.vitality = 0;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.vitality);
+  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Agility1", true);
+  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Dexterity1", true);
+  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Intelligence1", true);
+  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Strength1", true);
+  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Vitality1", true);
+  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/DFF4F8BA"));
+  return true;
+}
+
+void gt_ResetStats_Init () {
+  gt_ResetStats = TriggerCreate("gt_ResetStats_Func");
+  TriggerAddEventChatMessage(gt_ResetStats, c_playerAny, "-Reset Stats", true);
+}

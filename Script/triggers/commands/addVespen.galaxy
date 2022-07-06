@@ -1,0 +1,22 @@
+bool gt_GetMoney2_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  PlayerModifyPropertyInt(lv_player, c_playerPropVespene, c_playerPropOperAdd, 1000);
+  return true;
+}
+
+void gt_GetMoney2_Init () {
+  gt_GetMoney2 = TriggerCreate("gt_GetMoney2_Func");
+  TriggerAddEventChatMessage(gt_GetMoney2, c_playerAny, "-Vespene", true);
+}

@@ -1,0 +1,24 @@
+bool gt_DevilsFlamethrower_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+
+  lv_player = EventPlayer();
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player) && !(PlayerHandle(lv_player) != "1-S2-1-2755172")) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "DevilsFlamethrower");
+  return true;
+}
+
+void gt_DevilsFlamethrower_Init () {
+  gt_DevilsFlamethrower = TriggerCreate("gt_DevilsFlamethrower_Func");
+  TriggerAddEventChatMessage(gt_DevilsFlamethrower, c_playerAny, "-Devil's Flamethrower", true);
+}

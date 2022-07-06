@@ -67,7 +67,7 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     gv_players[lv_playerIndex].stats.dexterity = 0;
     gv_players[lv_playerIndex].stats.intelligence = 0;
     gv_players[lv_playerIndex].stats.agility = 0;
-    gv_players[lv_playerIndex].stats.attributePoints = 5.0;
+    gv_players[lv_playerIndex].stats.attributePoints = 5;
     gv_attributeText[lv_playerIndex] = FixedToString(gv_players[lv_playerIndex].stats.attributePoints, 0);
     gv_players[lv_playerIndex].skills.fireSkin = false;
     gv_players[lv_playerIndex].skills.allSeeingEye = false;

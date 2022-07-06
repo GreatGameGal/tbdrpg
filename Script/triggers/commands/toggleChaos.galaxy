@@ -1,0 +1,23 @@
+bool gt_ChaosHack_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  TriggerEnable(gt_Chaos, true);
+  TriggerExecute(gt_ChaosUnitTypes, false, false);
+  return true;
+}
+
+void gt_ChaosHack_Init () {
+  gt_ChaosHack = TriggerCreate("gt_ChaosHack_Func");
+  TriggerAddEventChatMessage(gt_ChaosHack, c_playerAny, "-Chaos Mode", true);
+}

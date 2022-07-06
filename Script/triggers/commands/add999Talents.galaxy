@@ -1,0 +1,22 @@
+bool gt__999Talents_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  lib_talent_gf_GrantTalentPoints(999, lv_player);
+  return true;
+}
+
+void gt__999Talents_Init () {
+  gt__999Talents = TriggerCreate("gt__999Talents_Func");
+  TriggerAddEventChatMessage(gt__999Talents, c_playerAny, "-999 Talents", false);
+}

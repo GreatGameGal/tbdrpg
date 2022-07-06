@@ -1,0 +1,22 @@
+bool gt_GetMoney3_Func (bool testConds, bool runActions) {
+  int lv_player;
+
+  lv_player = EventPlayer();
+
+  if (testConds) {
+    if (!gf_IsAdmin(lv_player)) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  PlayerModifyPropertyInt(lv_player, c_playerPropCustom, c_playerPropOperAdd, 1000);
+  return true;
+}
+
+void gt_GetMoney3_Init () {
+  gt_GetMoney3 = TriggerCreate("gt_GetMoney3_Func");
+  TriggerAddEventChatMessage(gt_GetMoney3, c_playerAny, "-Shards", true);
+}
