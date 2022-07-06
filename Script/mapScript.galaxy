@@ -524,6 +524,7 @@ void FakeInitGlobals () {
     gv_players[init_i].stats.reborn.dialog.state = c_invalidDialogId;
     gv_players[init_i].stats.reborn.buttonDialog.state = c_invalidDialogId;
     gv_players[init_i].stats.reborn.dialog.button = c_invalidDialogControlId;
+    gv_players[init_i].stats.addingAttribute = false;
   }
   for (init_i = 0; init_i < 5; init_i += 1) {
     gv_wastelandUnitGroups[init_i] = UnitGroupEmpty();
