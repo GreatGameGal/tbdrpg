@@ -654,11 +654,11 @@ void gf_AddExperience (unit lp_hero, fixed lp_experienceAmmount) {
     UnitSetPropertyFixed(lp_hero, c_unitPropXP, gv_MAXEXPERIENCE);
   }
 }
-void gf_OpenQuestDialog (int lp_questingPlayer, text lp_questText, text lp_questName, text lp_reward, text lp_recommendedLevel) {
+void gf_OpenQuestDialog (int lp_player, text lp_questText, text lp_questName, text lp_reward, text lp_recommendedLevel) {
 
   int lv_playerIndex;
 
-  lv_playerIndex = (lp_questingPlayer - 1);
+  lv_playerIndex = (lp_player - 1);
 
   gv_players[lv_playerIndex].quests.talking = true;
   libNtve_gf_PauseUnit(gv_players[lv_playerIndex].dragon, true);
@@ -674,11 +674,10 @@ void gf_OpenQuestDialog (int lp_questingPlayer, text lp_questText, text lp_quest
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.questDialog.accept, gv_players[lv_playerIndex].playerGroupSingle, true);
   DialogSetVisible(gv_players[lv_playerIndex].quests.questDialog.state, gv_players[lv_playerIndex].playerGroupSingle, true);
 }
-void gf_CloseQuestDialog (int lp_questingPlayer) {
-
+void gf_CloseQuestDialog (int lp_player) {
   int lv_playerIndex;
 
-  lv_playerIndex = (lp_questingPlayer - 1);
+  lv_playerIndex = (lp_player - 1);
 
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.questDialog.textBox, gv_players[lv_playerIndex].playerGroupSingle, false);
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.questDialog.decline, gv_players[lv_playerIndex].playerGroupSingle, false);
@@ -687,14 +686,13 @@ void gf_CloseQuestDialog (int lp_questingPlayer) {
   libNtve_gf_PauseUnit(gv_players[lv_playerIndex].dragon, false);
   libNtve_gf_MakeUnitInvulnerable(gv_players[lv_playerIndex].dragon, false);
   gv_players[lv_playerIndex].quests.talking = false;
-  UnitClearSelection(lp_questingPlayer);
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_questingPlayer, true);
+  UnitClearSelection(lp_player);
+  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
 }
-void gf_OpenTalkDialog (int lp_questingPlayer, text lp_nPCName, text lp_dialog) {
-
+void gf_OpenTalkDialog (int lp_player, text lp_nPCName, text lp_dialog) {
   int lv_playerIndex;
 
-  lv_playerIndex = (lp_questingPlayer - 1);
+  lv_playerIndex = (lp_player - 1);
 
   gv_players[lv_playerIndex].quests.talking = true;
   libNtve_gf_PauseUnit(gv_players[lv_playerIndex].dragon, true);
@@ -705,11 +703,10 @@ void gf_OpenTalkDialog (int lp_questingPlayer, text lp_nPCName, text lp_dialog) 
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.talkDialog.accept, gv_players[lv_playerIndex].playerGroupSingle, true);
   DialogSetVisible(gv_players[lv_playerIndex].quests.talkDialog.state, gv_players[lv_playerIndex].playerGroupSingle, true);
 }
-void gf_CloseTalkDialog (int lp_questingPlayer) {
-
+void gf_CloseTalkDialog (int lp_player) {
   int lv_playerIndex;
 
-  lv_playerIndex = (lp_questingPlayer - 1);
+  lv_playerIndex = (lp_player - 1);
 
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.talkDialog.accept, gv_players[lv_playerIndex].playerGroupSingle, false);
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.talkDialog.textBox, gv_players[lv_playerIndex].playerGroupSingle, false);
@@ -717,14 +714,14 @@ void gf_CloseTalkDialog (int lp_questingPlayer) {
   libNtve_gf_PauseUnit(gv_players[lv_playerIndex].dragon, false);
   libNtve_gf_MakeUnitInvulnerable(gv_players[lv_playerIndex].dragon, false);
   gv_players[lv_playerIndex].quests.talking = false;
-  UnitClearSelection(lp_questingPlayer);
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_questingPlayer, true);
+  UnitClearSelection(lp_player);
+  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
 }
-void gf_OpenRewardDialog (int lp_questingPlayer, text lp_questName, text lp_dialog) {
+void gf_OpenRewardDialog (int lp_player, text lp_questName, text lp_dialog) {
 
   int lv_playerIndex;
 
-  lv_playerIndex = (lp_questingPlayer - 1);
+  lv_playerIndex = (lp_player - 1);
 
   gv_players[lv_playerIndex].quests.talking = true;
   libNtve_gf_PauseUnit(gv_players[lv_playerIndex].dragon, true);
@@ -735,11 +732,11 @@ void gf_OpenRewardDialog (int lp_questingPlayer, text lp_questName, text lp_dial
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.rewardDialog.textBox, gv_players[lv_playerIndex].playerGroupSingle, true);
   DialogSetVisible(gv_players[lv_playerIndex].quests.rewardDialog.state, gv_players[lv_playerIndex].playerGroupSingle, true);
 }
-void gf_CloseRewardDialog (int lp_questingPlayer) {
+void gf_CloseRewardDialog (int lp_player) {
 
   int lv_playerIndex;
 
-  lv_playerIndex = (lp_questingPlayer - 1);
+  lv_playerIndex = (lp_player - 1);
 
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.rewardDialog.accept, gv_players[lv_playerIndex].playerGroupSingle, false);
   DialogControlSetVisible(gv_players[lv_playerIndex].quests.rewardDialog.textBox, gv_players[lv_playerIndex].playerGroupSingle, false);
@@ -747,8 +744,8 @@ void gf_CloseRewardDialog (int lp_questingPlayer) {
   libNtve_gf_PauseUnit(gv_players[lv_playerIndex].dragon, false);
   libNtve_gf_MakeUnitInvulnerable(gv_players[lv_playerIndex].dragon, false);
   gv_players[lv_playerIndex].quests.talking = false;
-  UnitClearSelection(lp_questingPlayer);
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_questingPlayer, true);
+  UnitClearSelection(lp_player);
+  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
 }
 void gf_SQ0Setup (int lp_player) {
   int lv_playerIndex;
@@ -2600,9 +2597,8 @@ bool gt_CreateTalkDialog_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  PlayerGroupLoopBegin(gv_humanPlayers);
-  for ( ; !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
-    lv_playerIndex = lv_playerIndex;
+  for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+    lv_playerIndex = PlayerGroupLoopCurrent() - 1;
     DialogCreate(500, 600, c_anchorCenter, 0, 0, true);
     gv_players[lv_playerIndex].quests.talkDialog.state = DialogLastCreated();
     DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), false);
@@ -2632,9 +2628,8 @@ bool gt_CreateRewardDialog_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  PlayerGroupLoopBegin(gv_humanPlayers);
-  for ( ; !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
-    lv_playerIndex = lv_playerIndex;
+  for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+    lv_playerIndex = PlayerGroupLoopCurrent() - 1;
     DialogCreate(500, 600, c_anchorCenter, 0, 0, true);
     gv_players[lv_playerIndex].quests.rewardDialog.state = DialogLastCreated();
     DialogSetVisible(DialogLastCreated(), PlayerGroupAll(), false);
@@ -4940,9 +4935,6 @@ bool gt_ManaQuest5KillAlphaSrepti_Func (bool testConds, bool runActions) {
     if (UnitGetOwner(libNtve_gf_KillingUnit()) == 16) {
       return false;
     }
-    if (!PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(libNtve_gf_KillingUnit()))) {
-      return false;
-    }
     if (UnitGetType(EventUnit()) != "AlphaSrepti") {
       return false;
     }
@@ -4954,7 +4946,7 @@ bool gt_ManaQuest5KillAlphaSrepti_Func (bool testConds, bool runActions) {
   UnitGroupLoopBegin(UnitGroupAlliance(UnitGetOwner(libNtve_gf_KillingUnit()), c_unitAllianceAlly, RegionCircle(UnitGetPosition(EventUnit()), 10.0), UnitFilter(0, 0, (1 << c_targetFilterNeutral) | (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
   for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
     lv_playerIndex = (UnitGetOwner(UnitGroupLoopCurrent()) - 1);
-    if (lv_playerIndex > 4 && gv_players[lv_playerIndex].quests.manaQuests[5].progress == 1) {
+    if (lv_playerIndex < 4 && gv_players[lv_playerIndex].quests.manaQuests[5].progress == 1) {
       gv_players[lv_playerIndex].quests.manaQuests[5].progress = 2;
       ObjectiveSetState(gv_players[lv_playerIndex].quests.manaQuests[5].objective, c_objectiveStateCompleted);
       TextTagSetText(gv_players[lv_playerIndex].quests.manaQuests[5].textTag, StringExternal("Param/Value/F19542C7"));
@@ -12934,7 +12926,7 @@ bool gt_SpawnZauberer1stForm_Func (bool testConds, bool runActions) {
   UnitGroupLoopEnd();
 
   for (PlayerGroupLoopBegin(gv_playersInBattleWithZauberer1stForm); !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
-    lv_playerIndex = lv_playerIndex;
+    lv_playerIndex = PlayerGroupLoopCurrent() - 1;
     gv_players[lv_playerIndex].inCinematic = false;
     CameraLockInput(PlayerGroupLoopCurrent(), false);
   }
@@ -16741,7 +16733,7 @@ bool gt_BDZombieUnitSpawn_Func (bool testConds, bool runActions) {
   TriggerEnable(gt_TeleporttoCreton, false);
   for (PlayerGroupLoopBegin(gv_playersInBioDome); !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
     lv_player = PlayerGroupLoopCurrent();
-    lv_playerIndex = lv_playerIndex;
+    lv_playerIndex = lv_player - 1;
     gv_players[lv_playerIndex].inCinematic = true;
     UnitSetPosition(gv_players[lv_playerIndex].dragon, UnitGetPosition(EventUnit()), false);
     CameraPan(lv_player, UnitGetPosition(EventUnit()), 0.0, -1, 10, false);

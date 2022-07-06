@@ -4,7 +4,7 @@ int gf_GetEvolution (int lp_player);
 void gf_AddExperience (unit lp_hero, fixed lp_experienceAmmount);
 void gf_OpenQuestDialog (int lp_questingPlayer, text lp_questText, text lp_questName, text lp_reward, text lp_recommendedLevel);
 void gf_CloseQuestDialog (int lp_questingPlayer);
-void gf_OpenTalkDialog (int lp_questingPlayer, text lp_nPCName, text lp_dialog);
+void gf_OpenTalkDialog (int lp_player, text lp_nPCName, text lp_dialog);
 void gf_CloseTalkDialog (int lp_questingPlayer);
 void gf_OpenRewardDialog (int lp_questingPlayer, text lp_questName, text lp_dialog);
 void gf_CloseRewardDialog (int lp_questingPlayer);
