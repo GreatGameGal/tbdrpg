@@ -10988,21 +10988,28 @@ void gt_EvolutionCheck_Init () {
 // Trigger: Agility+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Agility1_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
 
-  int lv_triggeringPlayerIndex;
-  int lv_triggeringPlayer;
-
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
+  
+  if (testConds) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+      return false;
+    }
+  }
 
   if (!runActions) {
     return true;
   }
-  lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-  lv_triggeringPlayer = UnitGetOwner(EventUnit());
+
+  gv_players[lv_playerIndex].stats.addingAttribute = true;
   if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
-    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddAgility", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility + 1);
@@ -11011,17 +11018,18 @@ bool gt_Agility1_Func (bool testConds, bool runActions) {
     }
   }
   else {
-    UIDisplayMessage(PlayerGroupSingle(lv_triggeringPlayer), c_messageAreaError, StringExternal("Param/Value/EAFC558B"));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/EAFC558B"));
   }
-  if ((gv_players[lv_triggeringPlayerIndex].stats.agility == 100)) {
+  if ((gv_players[lv_playerIndex].stats.agility == 100)) {
     UnitAbilityShow(EventUnit(), "Agility1", false);
   }
-  while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
+  while (gv_players[lv_playerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
   }
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = true;
-  BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "Ag", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.agility);
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].banks.accessing = true;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.agility);
+  gv_players[lv_playerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].stats.addingAttribute = false;
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -11034,20 +11042,28 @@ void gt_Agility1_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_Dexterity1_Func (bool testConds, bool runActions) {
 
-  int lv_triggeringPlayerIndex;
-  int lv_triggeringPlayer;
+  int lv_player;
+  int lv_playerIndex;
 
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
+  
+  if (testConds) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+      return false;
+    }
+  }
 
   if (!runActions) {
     return true;
   }
-  lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-  lv_triggeringPlayer = UnitGetOwner(EventUnit());
+
+  gv_players[lv_playerIndex].stats.addingAttribute = true;
   if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
-    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddDexterity", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity + 1);
@@ -11056,17 +11072,18 @@ bool gt_Dexterity1_Func (bool testConds, bool runActions) {
     }
   }
   else {
-    UIDisplayMessage(PlayerGroupSingle(lv_triggeringPlayer), c_messageAreaError, StringExternal("Param/Value/925025D3"));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/925025D3"));
   }
-  if ((gv_players[lv_triggeringPlayerIndex].stats.dexterity == 500)) {
+  if ((gv_players[lv_playerIndex].stats.dexterity == 500)) {
     UnitAbilityShow(EventUnit(), "Dexterity1", false);
   }
-  while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
+  while (gv_players[lv_playerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
   }
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = true;
-  BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "De", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.dexterity);
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].banks.accessing = true;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "De", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.dexterity);
+  gv_players[lv_playerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].stats.addingAttribute = false;
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -11078,21 +11095,28 @@ void gt_Dexterity1_Init () {
 // Trigger: Intelligence+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Intelligence1_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
 
-  int lv_triggeringPlayerIndex;
-  int lv_triggeringPlayer;
-
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
+  
+  if (testConds) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+      return false;
+    }
+  }
 
   if (!runActions) {
     return true;
   }
-  lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-  lv_triggeringPlayer = UnitGetOwner(EventUnit());
+
+  gv_players[lv_playerIndex].stats.addingAttribute = true;
   if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
-    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddIntelligence", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence + 1);
@@ -11103,15 +11127,16 @@ bool gt_Intelligence1_Func (bool testConds, bool runActions) {
   else {
     UIDisplayMessage(PlayerGroupSingle(1), c_messageAreaError, StringExternal("Param/Value/6DCD7D69"));
   }
-  if ((gv_players[lv_triggeringPlayerIndex].stats.intelligence == 500)) {
+  if ((gv_players[lv_playerIndex].stats.intelligence == 500)) {
     UnitAbilityShow(EventUnit(), "Intelligence1", false);
   }
-  while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
+  while (gv_players[lv_playerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
   }
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = true;
-  BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "Int", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.intelligence);
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].banks.accessing = true;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Int", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.intelligence);
+  gv_players[lv_playerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].stats.addingAttribute = false;
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -11123,21 +11148,28 @@ void gt_Intelligence1_Init () {
 // Trigger: Strength+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Strength1_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
 
-  int lv_triggeringPlayerIndex;
-  int lv_triggeringPlayer;
-
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
+  
+  if (testConds) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+      return false;
+    }
+  }
 
   if (!runActions) {
     return true;
   }
-  lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-  lv_triggeringPlayer = UnitGetOwner(EventUnit());
+
+  gv_players[lv_playerIndex].stats.addingAttribute = true;
   if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
-    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddStrength", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength + 1);
@@ -11146,18 +11178,19 @@ bool gt_Strength1_Func (bool testConds, bool runActions) {
     }
   }
   else {
-    UIDisplayMessage(PlayerGroupSingle(lv_triggeringPlayer), c_messageAreaError, StringExternal("Param/Value/E289DC4A"));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/E289DC4A"));
   }
-  if ((gv_players[lv_triggeringPlayerIndex].stats.strength == 500)) {
+  if ((gv_players[lv_playerIndex].stats.strength == 500)) {
     UnitAbilityShow(EventUnit(), "Strength1", false);
   }
-  while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
+  while (gv_players[lv_playerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
   }
    
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = true;
-  BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "Str", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.strength);
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].banks.accessing = true;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.strength);
+  gv_players[lv_playerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].stats.addingAttribute = false;
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -11169,21 +11202,28 @@ void gt_Strength1_Init () {
 // Trigger: Vitality+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Vitality1_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
 
-  int lv_triggeringPlayerIndex;
-  int lv_triggeringPlayer;
-
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
+  
+  if (testConds) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+      return false;
+    }
+  }
 
   if (!runActions) {
     return true;
   }
-  lv_triggeringPlayerIndex = (UnitGetOwner(EventUnit()) - 1);
-  lv_triggeringPlayer = UnitGetOwner(EventUnit());
+
+  gv_players[lv_playerIndex].stats.addingAttribute = true;
   if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints > 0)) {
     SoundPlay(SoundLink("UI_ChallengeCountdown", -1), PlayerGroupSingle(UnitGetOwner(EventUnit())), 100.0, 0.0);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints = gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints - 1;
-    BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "AP", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
-    gv_attributeText[lv_triggeringPlayerIndex] = IntToString(gv_players[lv_triggeringPlayerIndex].stats.attributePoints);
+    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributeDialog.textBox, StringToText(gv_attributeText[(UnitGetOwner(EventUnit()) - 1)]), PlayerGroupSingle(UnitGetOwner(EventUnit())));
     UnitBehaviorAddPlayer(EventUnit(), "AddVitality", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality + 1);
@@ -11192,17 +11232,18 @@ bool gt_Vitality1_Func (bool testConds, bool runActions) {
     }
   }
   else {
-    UIDisplayMessage(PlayerGroupSingle(lv_triggeringPlayer), c_messageAreaError, StringExternal("Param/Value/5188E700"));
+    UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/5188E700"));
   }
-  if ((gv_players[lv_triggeringPlayerIndex].stats.vitality == 500)) {
+  if ((gv_players[lv_playerIndex].stats.vitality == 500)) {
     UnitAbilityShow(EventUnit(), "Vitality1", false);
   }
-  while (gv_players[lv_triggeringPlayerIndex].banks.accessing) {
+  while (gv_players[lv_playerIndex].banks.accessing) {
     Wait(1.0, c_timeGame);
   }
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = true;
-  BankValueSetFromInt(gv_players[lv_triggeringPlayerIndex].banks.dragonBank, "Vi", PlayerHandle(lv_triggeringPlayer), gv_players[lv_triggeringPlayerIndex].stats.vitality);
-  gv_players[lv_triggeringPlayerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].banks.accessing = true;
+  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.vitality);
+  gv_players[lv_playerIndex].banks.accessing = false;
+  gv_players[lv_playerIndex].stats.addingAttribute = false;
   return true;
 }
 //--------------------------------------------------------------------------------------------------

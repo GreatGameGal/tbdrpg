@@ -68,6 +68,7 @@ struct statData {
   int strength;
   int vitality;
   int attributePoints;
+  bool addingAttribute;
   arenaData arena;
   rebornData reborn;
   dialogObj attributeDialog;
