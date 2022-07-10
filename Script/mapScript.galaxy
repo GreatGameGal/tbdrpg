@@ -2691,54 +2691,51 @@ bool gt_RunStoryQuestSetups_Func (bool testConds, bool runActions) {
 
   string lv_sqWhat;
   int lv_playerIndex;
-  int lv_forPlayer;
-  int i;
-  int j;
-
-  lv_forPlayer = 1;
-
+  int lv_player;
+  int lv_i;
+  
   if (!runActions) {
     return true;
   }
-  for ( i = 1; i <= PlayerGroupCount(gv_humanPlayers); i += BoolToInt(lv_forPlayer == PlayerGroupPlayer(gv_humanPlayers, i)) ) {
-    lv_forPlayer = PlayerGroupPlayer(gv_humanPlayers, i);
-    lv_playerIndex = (lv_forPlayer - 1);
-    for(j = 0; j < 10; j += 1) {
-      lv_sqWhat = "SQ" + IntToString(j);
+  for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+    lv_player = PlayerGroupLoopCurrent();
+    lv_playerIndex = (lv_player - 1);
+    for(lv_i = 0; lv_i < 10; lv_i += 1) {
+      lv_sqWhat = "SQ" + IntToString(lv_i);
       if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, lv_sqWhat)) {
-        gv_players[lv_playerIndex].quests.storyQuests[j].state = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, lv_sqWhat, PlayerHandle(lv_forPlayer));
+        gv_players[lv_playerIndex].quests.storyQuests[lv_i].state = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, lv_sqWhat, PlayerHandle(lv_player));
       }
     }
-  }
-  if ((gv_players[lv_playerIndex].quests.storyQuests[0].state < 2)) {
-    gf_SQ0Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[1].state < 3)) {
-    gf_SQ1Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[2].state < 2)) {
-    gf_SQ2Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[3].state < 3)) {
-    gf_SQ3Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[4].state < 4)) {
-    gf_SQ4Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[5].state < 4)) {
-    gf_SQ5Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[6].state < 2)) {
-    gf_SQ6Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[7].state < 4)) {
-    gf_SQ7Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[8].state < 8)) {
-    gf_SQ8Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[9].state < 3)) {
-    gf_SQ9Setup(lv_forPlayer);
+    if ((gv_players[lv_playerIndex].quests.storyQuests[0].state < 2)) {
+      gf_SQ0Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[1].state < 3)) {
+      gf_SQ1Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[2].state < 2)) {
+      gf_SQ2Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[3].state < 3)) {
+      gf_SQ3Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[4].state < 4)) {
+      gf_SQ4Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[5].state < 4)) {
+      gf_SQ5Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[6].state < 2)) {
+      gf_SQ6Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[7].state < 4)) {
+      gf_SQ7Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[8].state < 8)) {
+      gf_SQ8Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[9].state < 3)) {
+      gf_SQ9Setup(lv_player);
+    }
   }
   return true;
 }
