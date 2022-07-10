@@ -1354,7 +1354,6 @@ void gf_RemoveWeapons (unit lp_hero) {
   UnitWeaponAdd(lp_hero, ((UnitGetType(lv_weapon))), null);
 }
 void gf_SaveSkills (int lp_player) {
-
   int lv_playerIndex;
 
   lv_playerIndex = lp_player - 1;
@@ -1362,40 +1361,58 @@ void gf_SaveSkills (int lp_player) {
   if ((PlayerStatus(lp_player) == c_playerStatusActive)) {
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Fireball", true)) {
       gv_players[lv_playerIndex].skills.fireball = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Fireball");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireball);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFB")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDFB");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FireClaws", true)) {
       gv_players[lv_playerIndex].skills.fireClaw = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FireClaws");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFC", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireClaw);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFC")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDFC");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FlameEgg", true)) {
       gv_players[lv_playerIndex].skills.flameEgg = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FlameEgg");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFE", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.flameEgg);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFE")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDFE");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Inferno", true)) {
       gv_players[lv_playerIndex].skills.inferno = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Inferno");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDI", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.inferno);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDI")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDI");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Nova", true)) {
       gv_players[lv_playerIndex].skills.nova = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Nova");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDN", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.nova);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDN")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDN");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrostSpike", true)) {
       gv_players[lv_playerIndex].skills.frostSpike = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrostSpike");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFS", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frostSpike);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFS")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDFS");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Blizzard", true)) {
       gv_players[lv_playerIndex].skills.blizzard = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Blizzard");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.blizzard);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDB")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDB");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "SubZero", true)) {
       gv_players[lv_playerIndex].skills.subzero = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "SubZero");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.subzero);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrozenArmor", true)) {
       gv_players[lv_playerIndex].skills.frozenArmour = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrozenArmor");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFA", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frozenArmour);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFA")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDFA");
     }
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireball);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFC", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireClaw);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFE", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.flameEgg);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDI", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.inferno);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDN", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.nova);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFS", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frostSpike);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.blizzard);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.subzero);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFA", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frozenArmour);
   }
 }
 void gf_FillInventory (int lp_player) {
@@ -1961,143 +1978,110 @@ void gf_LoadSkills (int lp_player) {
 bool auto_gf_LoadSkills_TriggerFunc (bool testConds, bool runActions) {
   int lv_player = auto_gf_LoadSkills_lp_player;
   int lv_playerIndex;
-  int lv_i;
+  unit lv_playerDragon;
+  int lv_tmpLevel;
 
   lv_playerIndex = lv_player - 1;
+  lv_playerDragon = gv_players[lv_playerIndex].dragon;
 
+  
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFB")) {
     gv_players[lv_playerIndex].skills.fireball = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFB", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.fireball >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Fireball", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.fireball; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 0)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.fireball >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "Fireball", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Fireball") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Fireball") + 1; lv_i <= gv_players[lv_playerIndex].skills.fireball; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 0)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 0, gv_players[lv_playerIndex].skills.fireball + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFC")) {
     gv_players[lv_playerIndex].skills.fireClaw = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFC", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.fireClaw >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FireClaws", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.fireClaw; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 1)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.fireClaw >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FireClaws", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FireClaws") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FireClaws") + 1; lv_i <= gv_players[lv_playerIndex].skills.fireClaw; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 1)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 1, gv_players[lv_playerIndex].skills.fireClaw + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFE")) {
     gv_players[lv_playerIndex].skills.flameEgg = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFE", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.flameEgg >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FlameEgg", true)) {
-        for (lv_i = 0;lv_i <= gv_players[lv_playerIndex].skills.flameEgg; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 2)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.flameEgg >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FlameEgg", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FlameEgg") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FlameEgg") + 1; lv_i <= gv_players[lv_playerIndex].skills.flameEgg; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 2)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 2, gv_players[lv_playerIndex].skills.flameEgg + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDI")) {
     gv_players[lv_playerIndex].skills.inferno = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDI", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.inferno >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Inferno", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.inferno; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 3)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.inferno >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "Inferno", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Inferno") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Inferno") + 1; lv_i <= gv_players[lv_playerIndex].skills.inferno; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 3)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 3, gv_players[lv_playerIndex].skills.inferno + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDN")) {
     gv_players[lv_playerIndex].skills.nova = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDN", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.nova >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Nova", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.nova; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 4)), c_orderQueueAddToEnd);
+      if (gv_players[lv_playerIndex].skills.nova >= 0) {
+        if (UnitAbilityCheck(lv_playerDragon, "Nova", true)) {
+          lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Nova") + 1;
+        } else {
+          lv_tmpLevel = 0;
         }
+        UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 4, gv_players[lv_playerIndex].skills.nova + 1 - lv_tmpLevel);
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Nova") + 1;lv_i <= gv_players[lv_playerIndex].skills.nova; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 4)), c_orderQueueAddToEnd);
-        }
-      }
-    }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFS")) {
     gv_players[lv_playerIndex].skills.frostSpike = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFS", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.frostSpike >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrostSpike", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.frostSpike; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 0)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.frostSpike >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FrostSpike", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FrostSpike") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrostSpike") + 1; lv_i <= gv_players[lv_playerIndex].skills.frostSpike; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 0)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 0, gv_players[lv_playerIndex].skills.frostSpike + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDB")) {
     gv_players[lv_playerIndex].skills.blizzard = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDB", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.blizzard >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Blizzard", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.blizzard; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 1)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.blizzard >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "Blizzard", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Blizzard") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Blizzard") + 1; lv_i <= gv_players[lv_playerIndex].skills.blizzard; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 1)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 1, gv_players[lv_playerIndex].skills.blizzard + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ")) {
     gv_players[lv_playerIndex].skills.subzero = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.subzero >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "SubZero", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.subzero; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 2)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.subzero >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "SubZerp", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "SubZerp") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "SubZero") + 1; lv_i <= gv_players[lv_playerIndex].skills.subzero; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 2)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 2, gv_players[lv_playerIndex].skills.subzero + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFA")) {
     gv_players[lv_playerIndex].skills.frozenArmour = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFA", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.frozenArmour >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrozenArmor", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.frozenArmour; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 3)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.frozenArmour >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FrozenArmor", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FrozenArmor") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrozenArmor") + 1; lv_i <= gv_players[lv_playerIndex].skills.frozenArmour; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 3)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 3, gv_players[lv_playerIndex].skills.frozenArmour + 1 - lv_tmpLevel);
     }
   }
   return true;
