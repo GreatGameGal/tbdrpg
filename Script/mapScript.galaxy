@@ -2065,8 +2065,8 @@ bool auto_gf_LoadSkills_TriggerFunc (bool testConds, bool runActions) {
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ")) {
     gv_players[lv_playerIndex].skills.subzero = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ", PlayerHandle(lv_player));
     if (gv_players[lv_playerIndex].skills.subzero >= 0) {
-      if (UnitAbilityCheck(lv_playerDragon, "SubZerp", true)) {
-        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "SubZerp") + 1;
+      if (UnitAbilityCheck(lv_playerDragon, "SubZero", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "SubZero") + 1;
       } else {
         lv_tmpLevel = 0;
       }
