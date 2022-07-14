@@ -27,7 +27,7 @@ bool gt_LevelUp_Func (bool testConds, bool runActions) {
     libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(gv_players[lv_playerIndex].dragon), c_animNameDefault, "Dance", c_animFlagNonLooping, c_animTimeDefault);
     BoardItemSetText(gv_leadboard, 2, 2, FixedToText(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent), 0));
     gv_players[lv_playerIndex].stats.attributePoints +=  5;
-    gf_ShowStats(gv_players[lv_playerIndex].dragon);
+    gf_ShowStats(lv_player);
     gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
     while (gv_players[lv_playerIndex].banks.accessing) {

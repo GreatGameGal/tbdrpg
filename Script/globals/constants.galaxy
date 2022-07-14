@@ -20,6 +20,12 @@ const int ge_Evolution_Legendary = 4;
 
 const int gv_LevelsPerEvolution = 25;
 
+const int gv_MaxAgility = 100;
+const int gv_MaxDexterity = 500;
+const int gv_MaxIntelligence = 500;
+const int gv_MaxStrength = 500;
+const int gv_MaxVitality = 500;
+
 // Library Consts.
 const int lib_talent_ge_ColorScheme_Blue = 0;
 const int lib_talent_ge_ColorScheme_Green = 1;

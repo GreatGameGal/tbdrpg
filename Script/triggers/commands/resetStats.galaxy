@@ -35,11 +35,7 @@ bool gt_ResetStats_Func (bool testConds, bool runActions) {
   UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lv_player, gv_players[lv_playerIndex].stats.vitality);
   gv_players[lv_playerIndex].stats.vitality = 0;
   BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.vitality);
-  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Agility1", true);
-  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Dexterity1", true);
-  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Intelligence1", true);
-  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Strength1", true);
-  UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Vitality1", true);
+  gf_ShowStats(lv_player);
   UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/DFF4F8BA"));
   return true;
 }

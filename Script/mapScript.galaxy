@@ -1528,25 +1528,6 @@ void gf_ReapplyBuffs (int lp_player) {
   gf_ApplyRebornStats(lp_player);
   gv_reapplyingBuffs[lv_playerIndex] = false;
 }
-trigger auto_gf_HideStats_Trigger = null;
-unit auto_gf_HideStats_lp_hero;
-void gf_HideStats (unit lp_hero) {
-  auto_gf_HideStats_lp_hero = lp_hero;
-  if (auto_gf_HideStats_Trigger == null) {
-    auto_gf_HideStats_Trigger = TriggerCreate("auto_gf_HideStats_TriggerFunc");
-  }
-  TriggerExecute(auto_gf_HideStats_Trigger, false, false);
-}
-bool auto_gf_HideStats_TriggerFunc (bool testConds, bool runActions) {
-  unit lp_hero = auto_gf_HideStats_lp_hero;
-
-  UnitAbilityShow(lp_hero, "Strength1", false);
-  UnitAbilityShow(lp_hero, "Vitality1", false);
-  UnitAbilityShow(lp_hero, "Intelligence1", false);
-  UnitAbilityShow(lp_hero, "Dexterity1", false);
-  UnitAbilityShow(lp_hero, "Agility1", false);
-  return true;
-}
 void gf_RandomEffectonAttack (fixed lp_percentChance, int lp_ammountof, string lp_debuff, unit lp_recievingUnit, unit lp_sendingUnit) {
 
   if (gf_RandomChance(lp_percentChance)) {
@@ -2324,11 +2305,7 @@ void gf_StatCheck (int lp_player) {
     UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, gv_players[lv_playerIndex].stats.vitality);
     gv_players[lv_playerIndex].stats.vitality = 0;
     BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.vitality);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Agility1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Dexterity1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Intelligence1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Strength1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Vitality1", true);
+    gf_ShowStats(lp_player);
     UIDisplayMessage(PlayerGroupSingle(lp_player), c_messageAreaError, StringExternal("Param/Value/21DD33BF"));
   }
 }
@@ -10834,13 +10811,13 @@ bool gt_Agility1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddAgility", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/EAFC558B"));
   }
-  if ((gv_players[lv_playerIndex].stats.agility == 100)) {
+  if (gv_players[lv_playerIndex].stats.agility == gv_MaxAgility) {
     UnitAbilityShow(EventUnit(), "Agility1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -10861,7 +10838,6 @@ void gt_Agility1_Init () {
 // Trigger: Dexterity+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Dexterity1_Func (bool testConds, bool runActions) {
-
   int lv_player;
   int lv_playerIndex;
 
@@ -10888,13 +10864,13 @@ bool gt_Dexterity1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddDexterity", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/925025D3"));
   }
-  if ((gv_players[lv_playerIndex].stats.dexterity == 500)) {
+  if (gv_players[lv_playerIndex].stats.dexterity == gv_MaxDexterity) {
     UnitAbilityShow(EventUnit(), "Dexterity1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -10941,13 +10917,13 @@ bool gt_Intelligence1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddIntelligence", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(1), c_messageAreaError, StringExternal("Param/Value/6DCD7D69"));
   }
-  if ((gv_players[lv_playerIndex].stats.intelligence == 500)) {
+  if (gv_players[lv_playerIndex].stats.intelligence == gv_MaxIntelligence) {
     UnitAbilityShow(EventUnit(), "Intelligence1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -10994,13 +10970,13 @@ bool gt_Strength1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddStrength", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/E289DC4A"));
   }
-  if ((gv_players[lv_playerIndex].stats.strength == 500)) {
+  if (gv_players[lv_playerIndex].stats.strength == gv_MaxStrength) {
     UnitAbilityShow(EventUnit(), "Strength1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -11048,13 +11024,13 @@ bool gt_Vitality1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddVitality", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/5188E700"));
   }
-  if ((gv_players[lv_playerIndex].stats.vitality == 500)) {
+  if (gv_players[lv_playerIndex].stats.vitality == gv_MaxVitality) {
     UnitAbilityShow(EventUnit(), "Vitality1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -20601,17 +20577,9 @@ void gf_SetupPlayer(int lp_player) {
       UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
       lv_tempReborn = (lv_tempReborn - 1);
     }
-    if ((gv_players[lv_playerIndex].stats.attributePoints == 0)) {
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Agility1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Dexterity1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Intelligence1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Strength1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Vitality1", false);
-    }
-    else {
-      gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
-      libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
-    }
+    gf_ShowStats(lp_player);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
     UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifePercent, 100.0);
     UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyPercent, 100.0);
     UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropShieldsPercent, 100.0);
