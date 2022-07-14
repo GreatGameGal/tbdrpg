@@ -19,12 +19,12 @@ void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, int l
 
   gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] = BankValueGetAsString(lv_talentBank, lp_bankName, IntToString(lp_buildIndex));
   if (gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] == null) {
-    lib_talent_gf_ResetTalentBuild(lp_player, UnitLevel(gv_players[lv_playerIndex].dragon));
+    lib_talent_gf_ResetTalentBuild(lp_player, UnitLevel(gv_players[lv_playerIndex].dragon) + + UnitLevel(gv_players[lv_playerIndex].dragon) / gv_LevelsPerEvolution);
     return;
   }
   if (StringLength(gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex]) != lib_talent_gv_TALENTCOUNT * 2) {
     UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/lib_1_TALENT_LOAD_RESET"));
-    lib_talent_gf_ResetTalentBuild(lp_player, UnitLevel(gv_players[lv_playerIndex].dragon));
+    lib_talent_gf_ResetTalentBuild(lp_player, UnitLevel(gv_players[lv_playerIndex].dragon) + UnitLevel(gv_players[lv_playerIndex].dragon) / gv_LevelsPerEvolution);
     return;
   }
   lib_talent_gf_ResetTalentBuild(lp_player, 1);
