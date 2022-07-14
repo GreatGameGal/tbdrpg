@@ -20,6 +20,8 @@ const int ge_Evolution_Legendary = 4;
 
 const int gv_LevelsPerEvolution = 25;
 
+const int gv_RebornSkillCap = 100;
+
 const int gv_MaxAgility = 100;
 const int gv_MaxDexterity = 500;
 const int gv_MaxIntelligence = 500;
