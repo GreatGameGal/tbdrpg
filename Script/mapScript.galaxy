@@ -10792,7 +10792,7 @@ bool gt_Agility1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.agility >= gv_MaxAgility) {
       return false;
     }
   }
@@ -10845,7 +10845,7 @@ bool gt_Dexterity1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.dexterity >= gv_MaxDexterity) {
       return false;
     }
   }
@@ -10898,7 +10898,7 @@ bool gt_Intelligence1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.intelligence >= gv_MaxIntelligence) {
       return false;
     }
   }
@@ -10951,7 +10951,7 @@ bool gt_Strength1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.strength >= gv_MaxStrength) {
       return false;
     }
   }
@@ -11005,7 +11005,7 @@ bool gt_Vitality1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.vitality >= gv_MaxVitality) {
       return false;
     }
   }
