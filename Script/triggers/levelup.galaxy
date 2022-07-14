@@ -1,0 +1,34 @@
+bool gt_LevelUp_Func (bool testConds, bool runActions) {
+  int lv_player;
+  int lv_playerIndex;
+  int lv_dragonEvolution;
+
+  lv_player = UnitGetOwner(EventUnit());
+  lv_playerIndex = lv_player - 1;
+
+  if (testConds) {
+    if (gv_evolving[lv_playerIndex]) {
+      return false;
+    }
+  }
+
+  if (!runActions) {
+    return true;
+  }
+
+  gf_LevelUp(UnitGetOwner(EventUnit()));
+  lv_dragonEvolution = gf_GetEvolution(lv_player);
+  if (UnitLevel(EventUnit()) == (lv_dragonEvolution + 1) * gv_LevelsPerEvolution && lv_dragonEvolution != gv_DragonEvolutionCounts - 1) {
+    // Evolve to the next evolution of the type.
+    gf_EvolveTo(lv_player, gv_DragonUnitNames[gv_players[lv_playerIndex].type][lv_dragonEvolution+1]);
+  }
+
+  gf_StatCheck(UnitGetOwner(EventUnit()));
+  
+  return true;
+}
+
+void gt_LevelUp_Init () {
+  gt_LevelUp = TriggerCreate("gt_LevelUp_Func");
+  TriggerAddEventUnitGainLevel(gt_LevelUp, null);
+}
