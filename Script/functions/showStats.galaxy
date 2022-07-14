@@ -1,0 +1,7 @@
+void gf_ShowStats (unit lp_hero) {
+  UnitAbilityShow(lp_hero, "Strength1", true);
+  UnitAbilityShow(lp_hero, "Vitality1", true);
+  UnitAbilityShow(lp_hero, "Intelligence1", true);
+  UnitAbilityShow(lp_hero, "Dexterity1", true);
+  UnitAbilityShow(lp_hero, "Agility1", true);
+}

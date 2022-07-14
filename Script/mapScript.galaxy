@@ -1570,25 +1570,6 @@ bool auto_gf_LevelUp_TriggerFunc (bool testConds, bool runActions) {
   UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyPercent, 100.0);
   return true;
 }
-trigger auto_gf_ShowStats_Trigger = null;
-unit auto_gf_ShowStats_lp_hero;
-void gf_ShowStats (unit lp_hero) {
-  auto_gf_ShowStats_lp_hero = lp_hero;
-  if (auto_gf_ShowStats_Trigger == null) {
-    auto_gf_ShowStats_Trigger = TriggerCreate("auto_gf_ShowStats_TriggerFunc");
-  }
-  TriggerExecute(auto_gf_ShowStats_Trigger, false, false);
-}
-bool auto_gf_ShowStats_TriggerFunc (bool testConds, bool runActions) {
-  unit lp_hero = auto_gf_ShowStats_lp_hero;
-
-  UnitAbilityShow(lp_hero, "Strength1", true);
-  UnitAbilityShow(lp_hero, "Vitality1", true);
-  UnitAbilityShow(lp_hero, "Intelligence1", true);
-  UnitAbilityShow(lp_hero, "Dexterity1", true);
-  UnitAbilityShow(lp_hero, "Agility1", true);
-  return true;
-}
 trigger auto_gf_HideStats_Trigger = null;
 unit auto_gf_HideStats_lp_hero;
 void gf_HideStats (unit lp_hero) {
