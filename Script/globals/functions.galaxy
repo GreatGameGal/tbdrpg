@@ -29,7 +29,6 @@ void gf_EvolvetoAdult (int lp_player);
 void gf_EvolvetoMaster (int lp_player);
 void gf_EvolvetoLegendary (int lp_player);
 void gf_ReapplyBuffs (int lp_player);
-void gf_LevelUp (int lp_player);
 void gf_ShowStats (unit lp_hero);
 void gf_HideStats (unit lp_hero);
 void gf_RandomEffectonAttack (fixed lp_percentChance, int lp_ammountof, string lp_debuff, unit lp_recievingUnit, unit lp_sendingUnit);

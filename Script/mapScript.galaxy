@@ -1528,48 +1528,6 @@ void gf_ReapplyBuffs (int lp_player) {
   gf_ApplyRebornStats(lp_player);
   gv_reapplyingBuffs[lv_playerIndex] = false;
 }
-trigger auto_gf_LevelUp_Trigger = null;
-int auto_gf_LevelUp_lp_player;
-void gf_LevelUp (int lp_player) {
-  auto_gf_LevelUp_lp_player = lp_player;
-  if (auto_gf_LevelUp_Trigger == null) {
-    auto_gf_LevelUp_Trigger = TriggerCreate("auto_gf_LevelUp_TriggerFunc");
-  }
-  TriggerExecute(auto_gf_LevelUp_Trigger, false, false);
-}
-bool auto_gf_LevelUp_TriggerFunc (bool testConds, bool runActions) {
-  int lp_player = auto_gf_LevelUp_lp_player;
-
-  int lv_playerIndex;
-  int lv_player;
-
-
-  lv_player = lp_player;
-  lv_playerIndex = lv_player - 1;
-  gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
-  if ((!gv_evolving[lv_playerIndex]) && (gv_playersSetUp)) {
-    lib_talent_gf_GrantTalentPoints(1, lv_player);
-    ActorCreate(ActorScopeFromUnit(gv_players[lv_playerIndex].dragon), "LevelUpEffect", null, null, null);
-    SoundPlayOnUnit(SoundLink("LevelUp", -1), gv_players[lv_playerIndex].playerGroupSingle, gv_players[lv_playerIndex].dragon, 0.0, 100.0, 0.0);
-    gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lp_player) + (StringExternal("Param/Value/684E7509") + IntToText(gv_players[lv_playerIndex].stats.level))));
-    libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(gv_players[lv_playerIndex].dragon), c_animNameDefault, "Dance", c_animFlagNonLooping, c_animTimeDefault);
-    BoardItemSetText(gv_leadboard, 2, 2, FixedToText(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent), 0));
-    gv_players[lv_playerIndex].stats.attributePoints +=  5;
-    gf_ShowStats(gv_players[lv_playerIndex].dragon);
-    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
-    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
-    while (gv_players[lv_playerIndex].banks.accessing) {
-      Wait(1.0, c_timeGame);
-    }
-    gv_players[lv_playerIndex].banks.accessing = true;
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
-    gv_players[lv_playerIndex].banks.accessing = false;
-  }
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifePercent, 100.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyPercent, 100.0);
-  return true;
-}
 trigger auto_gf_HideStats_Trigger = null;
 unit auto_gf_HideStats_lp_hero;
 void gf_HideStats (unit lp_hero) {
