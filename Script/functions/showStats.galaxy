@@ -1,0 +1,37 @@
+void gf_ShowStats (int lp_player) {
+  int lv_playerIndex;
+  unit lv_hero;
+
+  lv_playerIndex = lp_player - 1;
+  lv_hero = gv_players[lv_playerIndex].dragon;
+  
+  if (gv_players[lv_playerIndex].stats.attributePoints != 0) {
+    if (gv_players[lv_playerIndex].stats.agility < gv_MaxAgility) {
+      UnitAbilityShow(lv_hero, "Agility1", true);
+    } else {
+      UnitAbilityShow(lv_hero, "Agility1", false);
+    }
+    if (gv_players[lv_playerIndex].stats.dexterity < gv_MaxDexterity) {
+      UnitAbilityShow(lv_hero, "Dexterity1", true);
+    } else {
+      UnitAbilityShow(lv_hero, "Dexterity1", false);
+    }
+    if (gv_players[lv_playerIndex].stats.intelligence < gv_MaxIntelligence) {
+      UnitAbilityShow(lv_hero, "Intelligence1", true);
+    } else {
+      UnitAbilityShow(lv_hero, "Intelligence1", false);
+    }
+    if (gv_players[lv_playerIndex].stats.strength < gv_MaxStrength) {
+      UnitAbilityShow(lv_hero, "Strength1", true);
+    } else {
+      UnitAbilityShow(lv_hero, "Strength1", false);
+    }
+    if (gv_players[lv_playerIndex].stats.vitality < gv_MaxVitality) {
+      UnitAbilityShow(lv_hero, "Vitality1", true);
+    } else {
+      UnitAbilityShow(lv_hero, "Vitality1", false);
+    }
+  } else {
+    gf_HideStats(lp_player);
+  }
+}

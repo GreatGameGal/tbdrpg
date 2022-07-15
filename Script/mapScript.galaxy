@@ -1354,7 +1354,6 @@ void gf_RemoveWeapons (unit lp_hero) {
   UnitWeaponAdd(lp_hero, ((UnitGetType(lv_weapon))), null);
 }
 void gf_SaveSkills (int lp_player) {
-
   int lv_playerIndex;
 
   lv_playerIndex = lp_player - 1;
@@ -1362,40 +1361,58 @@ void gf_SaveSkills (int lp_player) {
   if ((PlayerStatus(lp_player) == c_playerStatusActive)) {
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Fireball", true)) {
       gv_players[lv_playerIndex].skills.fireball = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Fireball");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireball);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFB")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDFB");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FireClaws", true)) {
       gv_players[lv_playerIndex].skills.fireClaw = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FireClaws");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFC", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireClaw);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFC")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDFC");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FlameEgg", true)) {
       gv_players[lv_playerIndex].skills.flameEgg = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FlameEgg");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFE", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.flameEgg);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFE")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDFE");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Inferno", true)) {
       gv_players[lv_playerIndex].skills.inferno = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Inferno");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDI", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.inferno);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDI")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDI");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Nova", true)) {
       gv_players[lv_playerIndex].skills.nova = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Nova");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDN", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.nova);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDN")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "FDN");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrostSpike", true)) {
       gv_players[lv_playerIndex].skills.frostSpike = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrostSpike");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFS", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frostSpike);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFS")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDFS");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Blizzard", true)) {
       gv_players[lv_playerIndex].skills.blizzard = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Blizzard");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.blizzard);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDB")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDB");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "SubZero", true)) {
       gv_players[lv_playerIndex].skills.subzero = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "SubZero");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.subzero);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ");
     }
     if (UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrozenArmor", true)) {
       gv_players[lv_playerIndex].skills.frozenArmour = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrozenArmor");
+      BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFA", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frozenArmour);
+    } else if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFA")) {
+      BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "IDFA");
     }
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireball);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFC", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.fireClaw);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFE", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.flameEgg);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDI", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.inferno);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "FDN", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.nova);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFS", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frostSpike);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDB", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.blizzard);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.subzero);
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFA", PlayerHandle(lp_player), gv_players[lv_playerIndex].skills.frozenArmour);
   }
 }
 void gf_FillInventory (int lp_player) {
@@ -1510,86 +1527,6 @@ void gf_ReapplyBuffs (int lp_player) {
   UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "RealmSwitch", lp_player, gv_players[lv_playerIndex].talent.realmSwitch);
   gf_ApplyRebornStats(lp_player);
   gv_reapplyingBuffs[lv_playerIndex] = false;
-}
-trigger auto_gf_LevelUp_Trigger = null;
-int auto_gf_LevelUp_lp_player;
-void gf_LevelUp (int lp_player) {
-  auto_gf_LevelUp_lp_player = lp_player;
-  if (auto_gf_LevelUp_Trigger == null) {
-    auto_gf_LevelUp_Trigger = TriggerCreate("auto_gf_LevelUp_TriggerFunc");
-  }
-  TriggerExecute(auto_gf_LevelUp_Trigger, false, false);
-}
-bool auto_gf_LevelUp_TriggerFunc (bool testConds, bool runActions) {
-  int lp_player = auto_gf_LevelUp_lp_player;
-
-  int lv_playerIndex;
-  int lv_player;
-
-
-  lv_player = lp_player;
-  lv_playerIndex = lv_player - 1;
-  gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
-  if ((!gv_evolving[lv_playerIndex]) && (gv_playersSetUp)) {
-    lib_talent_gf_GrantTalentPoints(1, lv_player);
-    ActorCreate(ActorScopeFromUnit(gv_players[lv_playerIndex].dragon), "LevelUpEffect", null, null, null);
-    SoundPlayOnUnit(SoundLink("LevelUp", -1), gv_players[lv_playerIndex].playerGroupSingle, gv_players[lv_playerIndex].dragon, 0.0, 100.0, 0.0);
-    gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lp_player) + (StringExternal("Param/Value/684E7509") + IntToText(gv_players[lv_playerIndex].stats.level))));
-    libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(gv_players[lv_playerIndex].dragon), c_animNameDefault, "Dance", c_animFlagNonLooping, c_animTimeDefault);
-    BoardItemSetText(gv_leadboard, 2, 2, FixedToText(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent), 0));
-    gv_players[lv_playerIndex].stats.attributePoints +=  5;
-    gf_ShowStats(gv_players[lv_playerIndex].dragon);
-    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
-    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
-    while (gv_players[lv_playerIndex].banks.accessing) {
-      Wait(1.0, c_timeGame);
-    }
-    gv_players[lv_playerIndex].banks.accessing = true;
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
-    gv_players[lv_playerIndex].banks.accessing = false;
-  }
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifePercent, 100.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyPercent, 100.0);
-  return true;
-}
-trigger auto_gf_ShowStats_Trigger = null;
-unit auto_gf_ShowStats_lp_hero;
-void gf_ShowStats (unit lp_hero) {
-  auto_gf_ShowStats_lp_hero = lp_hero;
-  if (auto_gf_ShowStats_Trigger == null) {
-    auto_gf_ShowStats_Trigger = TriggerCreate("auto_gf_ShowStats_TriggerFunc");
-  }
-  TriggerExecute(auto_gf_ShowStats_Trigger, false, false);
-}
-bool auto_gf_ShowStats_TriggerFunc (bool testConds, bool runActions) {
-  unit lp_hero = auto_gf_ShowStats_lp_hero;
-
-  UnitAbilityShow(lp_hero, "Strength1", true);
-  UnitAbilityShow(lp_hero, "Vitality1", true);
-  UnitAbilityShow(lp_hero, "Intelligence1", true);
-  UnitAbilityShow(lp_hero, "Dexterity1", true);
-  UnitAbilityShow(lp_hero, "Agility1", true);
-  return true;
-}
-trigger auto_gf_HideStats_Trigger = null;
-unit auto_gf_HideStats_lp_hero;
-void gf_HideStats (unit lp_hero) {
-  auto_gf_HideStats_lp_hero = lp_hero;
-  if (auto_gf_HideStats_Trigger == null) {
-    auto_gf_HideStats_Trigger = TriggerCreate("auto_gf_HideStats_TriggerFunc");
-  }
-  TriggerExecute(auto_gf_HideStats_Trigger, false, false);
-}
-bool auto_gf_HideStats_TriggerFunc (bool testConds, bool runActions) {
-  unit lp_hero = auto_gf_HideStats_lp_hero;
-
-  UnitAbilityShow(lp_hero, "Strength1", false);
-  UnitAbilityShow(lp_hero, "Vitality1", false);
-  UnitAbilityShow(lp_hero, "Intelligence1", false);
-  UnitAbilityShow(lp_hero, "Dexterity1", false);
-  UnitAbilityShow(lp_hero, "Agility1", false);
-  return true;
 }
 void gf_RandomEffectonAttack (fixed lp_percentChance, int lp_ammountof, string lp_debuff, unit lp_recievingUnit, unit lp_sendingUnit) {
 
@@ -1961,143 +1898,110 @@ void gf_LoadSkills (int lp_player) {
 bool auto_gf_LoadSkills_TriggerFunc (bool testConds, bool runActions) {
   int lv_player = auto_gf_LoadSkills_lp_player;
   int lv_playerIndex;
-  int lv_i;
+  unit lv_playerDragon;
+  int lv_tmpLevel;
 
   lv_playerIndex = lv_player - 1;
+  lv_playerDragon = gv_players[lv_playerIndex].dragon;
 
+  
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFB")) {
     gv_players[lv_playerIndex].skills.fireball = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFB", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.fireball >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Fireball", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.fireball; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 0)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.fireball >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "Fireball", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Fireball") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Fireball") + 1; lv_i <= gv_players[lv_playerIndex].skills.fireball; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 0)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 0, gv_players[lv_playerIndex].skills.fireball + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFC")) {
     gv_players[lv_playerIndex].skills.fireClaw = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFC", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.fireClaw >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FireClaws", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.fireClaw; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 1)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.fireClaw >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FireClaws", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FireClaws") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FireClaws") + 1; lv_i <= gv_players[lv_playerIndex].skills.fireClaw; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 1)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 1, gv_players[lv_playerIndex].skills.fireClaw + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDFE")) {
     gv_players[lv_playerIndex].skills.flameEgg = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDFE", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.flameEgg >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FlameEgg", true)) {
-        for (lv_i = 0;lv_i <= gv_players[lv_playerIndex].skills.flameEgg; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 2)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.flameEgg >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FlameEgg", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FlameEgg") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FlameEgg") + 1; lv_i <= gv_players[lv_playerIndex].skills.flameEgg; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 2)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 2, gv_players[lv_playerIndex].skills.flameEgg + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDI")) {
     gv_players[lv_playerIndex].skills.inferno = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDI", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.inferno >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Inferno", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.inferno; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 3)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.inferno >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "Inferno", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Inferno") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Inferno") + 1; lv_i <= gv_players[lv_playerIndex].skills.inferno; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 3)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 3, gv_players[lv_playerIndex].skills.inferno + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "FDN")) {
     gv_players[lv_playerIndex].skills.nova = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "FDN", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.nova >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Nova", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.nova; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 4)), c_orderQueueAddToEnd);
+      if (gv_players[lv_playerIndex].skills.nova >= 0) {
+        if (UnitAbilityCheck(lv_playerDragon, "Nova", true)) {
+          lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Nova") + 1;
+        } else {
+          lv_tmpLevel = 0;
         }
+        UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsFire", 4, gv_players[lv_playerIndex].skills.nova + 1 - lv_tmpLevel);
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Nova") + 1;lv_i <= gv_players[lv_playerIndex].skills.nova; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsFire", 4)), c_orderQueueAddToEnd);
-        }
-      }
-    }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFS")) {
     gv_players[lv_playerIndex].skills.frostSpike = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFS", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.frostSpike >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrostSpike", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.frostSpike; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 0)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.frostSpike >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FrostSpike", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FrostSpike") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrostSpike") + 1; lv_i <= gv_players[lv_playerIndex].skills.frostSpike; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 0)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 0, gv_players[lv_playerIndex].skills.frostSpike + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDB")) {
     gv_players[lv_playerIndex].skills.blizzard = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDB", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.blizzard >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "Blizzard", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.blizzard; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 1)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.blizzard >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "Blizzard", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "Blizzard") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "Blizzard") + 1; lv_i <= gv_players[lv_playerIndex].skills.blizzard; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 1)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 1, gv_players[lv_playerIndex].skills.blizzard + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ")) {
     gv_players[lv_playerIndex].skills.subzero = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDSZ", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.subzero >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "SubZero", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.subzero; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 2)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.subzero >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "SubZero", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "SubZero") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "SubZero") + 1; lv_i <= gv_players[lv_playerIndex].skills.subzero; lv_i += 1) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 2)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 2, gv_players[lv_playerIndex].skills.subzero + 1 - lv_tmpLevel);
     }
   }
   if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, "IDFA")) {
     gv_players[lv_playerIndex].skills.frozenArmour = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "IDFA", PlayerHandle(lv_player));
-    if ((gv_players[lv_playerIndex].skills.frozenArmour >= 0)) {
-      if (!UnitAbilityCheck(gv_players[lv_playerIndex].dragon, "FrozenArmor", true)) {
-        for (lv_i = 0; lv_i <= gv_players[lv_playerIndex].skills.frozenArmour; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 3)), c_orderQueueAddToEnd);
-        }
+    if (gv_players[lv_playerIndex].skills.frozenArmour >= 0) {
+      if (UnitAbilityCheck(lv_playerDragon, "FrozenArmor", true)) {
+        lv_tmpLevel = UnitAbilityGetLevel(lv_playerDragon, "FrozenArmor") + 1;
+      } else {
+        lv_tmpLevel = 0;
       }
-      else {
-        for (lv_i = UnitAbilityGetLevel(gv_players[lv_playerIndex].dragon, "FrozenArmor") + 1; lv_i <= gv_players[lv_playerIndex].skills.frozenArmour; lv_i += 1 ) {
-          UnitIssueOrder(gv_players[lv_playerIndex].dragon, Order(AbilityCommand("LearnSkillsIce", 3)), c_orderQueueAddToEnd);
-        }
-      }
+      UnitLearnAbilAddLevel(lv_playerDragon, "LearnSkillsIce", 3, gv_players[lv_playerIndex].skills.frozenArmour + 1 - lv_tmpLevel);
     }
   }
   return true;
@@ -2401,11 +2305,7 @@ void gf_StatCheck (int lp_player) {
     UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, gv_players[lv_playerIndex].stats.vitality);
     gv_players[lv_playerIndex].stats.vitality = 0;
     BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lp_player), gv_players[lv_playerIndex].stats.vitality);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Agility1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Dexterity1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Intelligence1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Strength1", true);
-    UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Vitality1", true);
+    gf_ShowStats(lp_player);
     UIDisplayMessage(PlayerGroupSingle(lp_player), c_messageAreaError, StringExternal("Param/Value/21DD33BF"));
   }
 }
@@ -2707,54 +2607,51 @@ bool gt_RunStoryQuestSetups_Func (bool testConds, bool runActions) {
 
   string lv_sqWhat;
   int lv_playerIndex;
-  int lv_forPlayer;
-  int i;
-  int j;
-
-  lv_forPlayer = 1;
-
+  int lv_player;
+  int lv_i;
+  
   if (!runActions) {
     return true;
   }
-  for ( i = 1; i <= PlayerGroupCount(gv_humanPlayers); i += BoolToInt(lv_forPlayer == PlayerGroupPlayer(gv_humanPlayers, i)) ) {
-    lv_forPlayer = PlayerGroupPlayer(gv_humanPlayers, i);
-    lv_playerIndex = (lv_forPlayer - 1);
-    for(j = 0; j < 10; j += 1) {
-      lv_sqWhat = "SQ" + IntToString(j);
+  for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+    lv_player = PlayerGroupLoopCurrent();
+    lv_playerIndex = (lv_player - 1);
+    for(lv_i = 0; lv_i < 10; lv_i += 1) {
+      lv_sqWhat = "SQ" + IntToString(lv_i);
       if (BankSectionExists(gv_players[lv_playerIndex].banks.dragonBank, lv_sqWhat)) {
-        gv_players[lv_playerIndex].quests.storyQuests[j].state = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, lv_sqWhat, PlayerHandle(lv_forPlayer));
+        gv_players[lv_playerIndex].quests.storyQuests[lv_i].state = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, lv_sqWhat, PlayerHandle(lv_player));
       }
     }
-  }
-  if ((gv_players[lv_playerIndex].quests.storyQuests[0].state < 2)) {
-    gf_SQ0Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[1].state < 3)) {
-    gf_SQ1Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[2].state < 2)) {
-    gf_SQ2Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[3].state < 3)) {
-    gf_SQ3Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[4].state < 4)) {
-    gf_SQ4Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[5].state < 4)) {
-    gf_SQ5Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[6].state < 2)) {
-    gf_SQ6Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[7].state < 4)) {
-    gf_SQ7Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[8].state < 8)) {
-    gf_SQ8Setup(lv_forPlayer);
-  }
-  else if ((gv_players[lv_playerIndex].quests.storyQuests[9].state < 3)) {
-    gf_SQ9Setup(lv_forPlayer);
+    if ((gv_players[lv_playerIndex].quests.storyQuests[0].state < 2)) {
+      gf_SQ0Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[1].state < 3)) {
+      gf_SQ1Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[2].state < 2)) {
+      gf_SQ2Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[3].state < 3)) {
+      gf_SQ3Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[4].state < 4)) {
+      gf_SQ4Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[5].state < 4)) {
+      gf_SQ5Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[6].state < 2)) {
+      gf_SQ6Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[7].state < 4)) {
+      gf_SQ7Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[8].state < 8)) {
+      gf_SQ8Setup(lv_player);
+    }
+    else if ((gv_players[lv_playerIndex].quests.storyQuests[9].state < 3)) {
+      gf_SQ9Setup(lv_player);
+    }
   }
   return true;
 }
@@ -10858,43 +10755,6 @@ void gt_Level0Check_Init () {
   TriggerAddEventUnitGainExperience(gt_Level0Check, null);
 }
 //--------------------------------------------------------------------------------------------------
-// Trigger: Level Up
-//--------------------------------------------------------------------------------------------------
-bool gt_LevelUp_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-  int lv_dragonEvolution;
-
-  lv_player = UnitGetOwner(EventUnit());
-  lv_playerIndex = lv_player - 1;
-
-  if (testConds) {
-    if (gv_evolving[lv_playerIndex]) {
-      return false;
-    }
-  }
-
-  if (!runActions) {
-    return true;
-  }
-
-  gf_LevelUp(UnitGetOwner(EventUnit()));
-  lv_dragonEvolution = gf_GetEvolution(lv_player);
-  if (UnitLevel(EventUnit()) == (lv_dragonEvolution + 1) * gv_LevelsPerEvolution && lv_dragonEvolution != gv_DragonEvolutionCounts - 1) {
-    // Evolve to the next evolution of the type.
-    gf_EvolveTo(lv_player, gv_DragonUnitNames[gv_players[lv_playerIndex].type][lv_dragonEvolution+1]);
-  }
-
-  gf_StatCheck(UnitGetOwner(EventUnit()));
-  
-  return true;
-}
-//--------------------------------------------------------------------------------------------------
-void gt_LevelUp_Init () {
-  gt_LevelUp = TriggerCreate("gt_LevelUp_Func");
-  TriggerAddEventUnitGainLevel(gt_LevelUp, null);
-}
-//--------------------------------------------------------------------------------------------------
 // Trigger: Evolution Check
 //--------------------------------------------------------------------------------------------------
 bool gt_EvolutionCheck_Func (bool testConds, bool runActions) {
@@ -10932,7 +10792,7 @@ bool gt_Agility1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.agility >= gv_MaxAgility) {
       return false;
     }
   }
@@ -10951,13 +10811,13 @@ bool gt_Agility1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddAgility", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.agility + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/EAFC558B"));
   }
-  if ((gv_players[lv_playerIndex].stats.agility == 100)) {
+  if (gv_players[lv_playerIndex].stats.agility == gv_MaxAgility) {
     UnitAbilityShow(EventUnit(), "Agility1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -10978,7 +10838,6 @@ void gt_Agility1_Init () {
 // Trigger: Dexterity+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Dexterity1_Func (bool testConds, bool runActions) {
-
   int lv_player;
   int lv_playerIndex;
 
@@ -10986,7 +10845,7 @@ bool gt_Dexterity1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.dexterity >= gv_MaxDexterity) {
       return false;
     }
   }
@@ -11005,13 +10864,13 @@ bool gt_Dexterity1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddDexterity", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.dexterity + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/925025D3"));
   }
-  if ((gv_players[lv_playerIndex].stats.dexterity == 500)) {
+  if (gv_players[lv_playerIndex].stats.dexterity == gv_MaxDexterity) {
     UnitAbilityShow(EventUnit(), "Dexterity1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -11039,7 +10898,7 @@ bool gt_Intelligence1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.intelligence >= gv_MaxIntelligence) {
       return false;
     }
   }
@@ -11058,13 +10917,13 @@ bool gt_Intelligence1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddIntelligence", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.intelligence + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(1), c_messageAreaError, StringExternal("Param/Value/6DCD7D69"));
   }
-  if ((gv_players[lv_playerIndex].stats.intelligence == 500)) {
+  if (gv_players[lv_playerIndex].stats.intelligence == gv_MaxIntelligence) {
     UnitAbilityShow(EventUnit(), "Intelligence1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -11092,7 +10951,7 @@ bool gt_Strength1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.strength >= gv_MaxStrength) {
       return false;
     }
   }
@@ -11111,13 +10970,13 @@ bool gt_Strength1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddStrength", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.strength + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/E289DC4A"));
   }
-  if ((gv_players[lv_playerIndex].stats.strength == 500)) {
+  if (gv_players[lv_playerIndex].stats.strength == gv_MaxStrength) {
     UnitAbilityShow(EventUnit(), "Strength1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -11146,7 +11005,7 @@ bool gt_Vitality1_Func (bool testConds, bool runActions) {
   lv_playerIndex = lv_player - 1;
   
   if (testConds) {
-    if (gv_players[lv_playerIndex].stats.addingAttribute == true) {
+    if (gv_players[lv_playerIndex].stats.addingAttribute || gv_players[lv_playerIndex].stats.vitality >= gv_MaxVitality) {
       return false;
     }
   }
@@ -11165,13 +11024,13 @@ bool gt_Vitality1_Func (bool testConds, bool runActions) {
     UnitBehaviorAddPlayer(EventUnit(), "AddVitality", UnitGetOwner(EventUnit()), 1);
     gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality = (gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.vitality + 1);
     if ((gv_players[(UnitGetOwner(EventUnit()) - 1)].stats.attributePoints == 0)) {
-      gf_HideStats(EventUnit());
+      gf_HideStats(lv_player);
     }
   }
   else {
     UIDisplayMessage(PlayerGroupSingle(lv_player), c_messageAreaError, StringExternal("Param/Value/5188E700"));
   }
-  if ((gv_players[lv_playerIndex].stats.vitality == 500)) {
+  if (gv_players[lv_playerIndex].stats.vitality == gv_MaxVitality) {
     UnitAbilityShow(EventUnit(), "Vitality1", false);
   }
   while (gv_players[lv_playerIndex].banks.accessing) {
@@ -20047,87 +19906,71 @@ bool gt_RebornStats_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  if ((gv_players[lv_playerIndex].stats.reborn.points > 0)) {
-    if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[0])) {
-      gv_players[lv_playerIndex].stats.reborn.points -= 1;
-      libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-      gv_players[lv_playerIndex].stats.reborn.maxHP += 1;
-      libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[0], (StringExternal("Param/Value/04B4A828") + (IntToText(gv_players[lv_playerIndex].stats.reborn.maxHP) + StringExternal("Param/Value/AF8C6C06"))), gv_players[lv_playerIndex].playerGroupSingle);
-    }
-    else {
-      if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[1])) {
-        gv_players[lv_playerIndex].stats.reborn.points -= 1;
-        libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-        gv_players[lv_playerIndex].stats.reborn.maxMP += 1;
-        libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[1], (StringExternal("Param/Value/96A7A695") + (IntToText(gv_players[lv_playerIndex].stats.reborn.maxMP) + StringExternal("Param/Value/DE089EDD"))), gv_players[lv_playerIndex].playerGroupSingle);
-      }
-      else {
-        if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[2])) {
-          gv_players[lv_playerIndex].stats.reborn.points -= 1;
-          libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-          gv_players[lv_playerIndex].stats.reborn.defense += 1;
-          libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[2], (StringExternal("Param/Value/C824D379") + (IntToText(gv_players[lv_playerIndex].stats.reborn.defense) + StringExternal("Param/Value/F00A522E"))), gv_players[lv_playerIndex].playerGroupSingle);
-        }
-        else {
-          if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[3])) {
-            gv_players[lv_playerIndex].stats.reborn.points -= 1;
-            libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-            gv_players[lv_playerIndex].stats.reborn.movementSpeed += 1;
-            libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[3], (StringExternal("Param/Value/04CC0597") + (IntToText(gv_players[lv_playerIndex].stats.reborn.movementSpeed) + StringExternal("Param/Value/D55AF90E"))), gv_players[lv_playerIndex].playerGroupSingle);
-          }
-          else {
-            if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[4])) {
-              gv_players[lv_playerIndex].stats.reborn.points -= 1;
-              libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-              gv_players[lv_playerIndex].stats.reborn.attackSpeed += 1;
-              libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[4], (StringExternal("Param/Value/298476B7") + (IntToText(gv_players[lv_playerIndex].stats.reborn.attackSpeed) + StringExternal("Param/Value/75DB64C6"))), gv_players[lv_playerIndex].playerGroupSingle);
-            }
-            else {
-              if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[5])) {
-                gv_players[lv_playerIndex].stats.reborn.points -= 1;
-                libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-                gv_players[lv_playerIndex].stats.reborn.dodge += 1;
-                libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[5], (StringExternal("Param/Value/DAA59A61") + (IntToText(gv_players[lv_playerIndex].stats.reborn.dodge) + StringExternal("Param/Value/1DA52D0B"))), gv_players[lv_playerIndex].playerGroupSingle);
-              }
-              else {
-                if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[6])) {
-                  gv_players[lv_playerIndex].stats.reborn.points -= 1;
-                  libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-                  gv_players[lv_playerIndex].stats.reborn.miss += 1;
-                  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[6], (StringExternal("Param/Value/42E6E47A") + (IntToText(gv_players[lv_playerIndex].stats.reborn.miss) + StringExternal("Param/Value/D70A2D38"))), gv_players[lv_playerIndex].playerGroupSingle);
-                }
-                else {
-                  if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[7])) {
-                    gv_players[lv_playerIndex].stats.reborn.points -= 1;
-                    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-                    gv_players[lv_playerIndex].stats.reborn.goldDrop += 1;
-                    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[7], (StringExternal("Param/Value/1CE95B32") + (IntToText(gv_players[lv_playerIndex].stats.reborn.goldDrop) + StringExternal("Param/Value/1A84F8DC"))), gv_players[lv_playerIndex].playerGroupSingle);
-                  }
-                  else {
-                    if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[8])) {
-                      gv_players[lv_playerIndex].stats.reborn.points -= 1;
-                      libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-                      gv_players[lv_playerIndex].stats.reborn.itemDrop += 1;
-                      libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[8], (StringExternal("Param/Value/8B65544B") + (IntToText(gv_players[lv_playerIndex].stats.reborn.itemDrop) + StringExternal("Param/Value/54C69C21"))), gv_players[lv_playerIndex].playerGroupSingle);
-                    }
-                    else {
-                      if ((EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[9])) {
-                        gv_players[lv_playerIndex].stats.reborn.points -= 1;
-                        libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
-                        gv_players[lv_playerIndex].stats.reborn.regen += 1;
-                        libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[9], (StringExternal("Param/Value/6C18F48D") + (IntToText(gv_players[lv_playerIndex].stats.reborn.regen) + StringExternal("Param/Value/D00FC4C3"))), gv_players[lv_playerIndex].playerGroupSingle);
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    gf_ApplyRebornStats(lv_player);
+  if (gv_players[lv_playerIndex].stats.reborn.points <= 0) {
+    return true;
   }
+  
+  if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[0] && gv_players[lv_playerIndex].stats.reborn.maxHP < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.maxHP += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[0], (StringExternal("Param/Value/04B4A828") + (IntToText(gv_players[lv_playerIndex].stats.reborn.maxHP) + StringExternal("Param/Value/AF8C6C06"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[1] && gv_players[lv_playerIndex].stats.reborn.maxMP < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.maxMP += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[1], (StringExternal("Param/Value/96A7A695") + (IntToText(gv_players[lv_playerIndex].stats.reborn.maxMP) + StringExternal("Param/Value/DE089EDD"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[2] && gv_players[lv_playerIndex].stats.reborn.defense < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.defense += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[2], (StringExternal("Param/Value/C824D379") + (IntToText(gv_players[lv_playerIndex].stats.reborn.defense) + StringExternal("Param/Value/F00A522E"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[3] && gv_players[lv_playerIndex].stats.reborn.movementSpeed < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.movementSpeed += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[3], (StringExternal("Param/Value/04CC0597") + (IntToText(gv_players[lv_playerIndex].stats.reborn.movementSpeed) + StringExternal("Param/Value/D55AF90E"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[4] && gv_players[lv_playerIndex].stats.reborn.attackSpeed < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.attackSpeed += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[4], (StringExternal("Param/Value/298476B7") + (IntToText(gv_players[lv_playerIndex].stats.reborn.attackSpeed) + StringExternal("Param/Value/75DB64C6"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[5] && gv_players[lv_playerIndex].stats.reborn.dodge < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.dodge += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[5], (StringExternal("Param/Value/DAA59A61") + (IntToText(gv_players[lv_playerIndex].stats.reborn.dodge) + StringExternal("Param/Value/1DA52D0B"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[6] && gv_players[lv_playerIndex].stats.reborn.miss < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.miss += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[6], (StringExternal("Param/Value/42E6E47A") + (IntToText(gv_players[lv_playerIndex].stats.reborn.miss) + StringExternal("Param/Value/D70A2D38"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[7] && gv_players[lv_playerIndex].stats.reborn.goldDrop < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.goldDrop += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[7], (StringExternal("Param/Value/1CE95B32") + (IntToText(gv_players[lv_playerIndex].stats.reborn.goldDrop) + StringExternal("Param/Value/1A84F8DC"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[8] && gv_players[lv_playerIndex].stats.reborn.itemDrop < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.itemDrop += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[8], (StringExternal("Param/Value/8B65544B") + (IntToText(gv_players[lv_playerIndex].stats.reborn.itemDrop) + StringExternal("Param/Value/54C69C21"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  else if (EventDialogControl() == gv_players[lv_playerIndex].stats.reborn.dialog.pointButton[9] && gv_players[lv_playerIndex].stats.reborn.regen < gv_RebornSkillCap) {
+    gv_players[lv_playerIndex].stats.reborn.points -= 1;
+    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(gv_players[lv_playerIndex].stats.reborn.points)), gv_players[lv_playerIndex].playerGroupSingle);
+    gv_players[lv_playerIndex].stats.reborn.regen += 1;
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.reborn.dialog.pointLabel[9], (StringExternal("Param/Value/6C18F48D") + (IntToText(gv_players[lv_playerIndex].stats.reborn.regen) + StringExternal("Param/Value/D00FC4C3"))), gv_players[lv_playerIndex].playerGroupSingle);
+  }
+  gf_ApplyRebornStats(lv_player);
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -20718,17 +20561,9 @@ void gf_SetupPlayer(int lp_player) {
       UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
       lv_tempReborn = (lv_tempReborn - 1);
     }
-    if ((gv_players[lv_playerIndex].stats.attributePoints == 0)) {
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Agility1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Dexterity1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Intelligence1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Strength1", false);
-      UnitAbilityShow(gv_players[lv_playerIndex].dragon, "Vitality1", false);
-    }
-    else {
-      gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
-      libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
-    }
+    gf_ShowStats(lp_player);
+    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
+    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
     UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifePercent, 100.0);
     UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyPercent, 100.0);
     UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropShieldsPercent, 100.0);

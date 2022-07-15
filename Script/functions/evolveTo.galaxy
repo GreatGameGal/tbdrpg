@@ -1,11 +1,4 @@
 void gf_EvolveTo (int lp_player, string lp_unitName) {
-  // unit lv_tempDragon;
-  // int lv_tempAgility;
-  // int lv_tempDexterity;
-  // int lv_tempIntelligence;
-  // int lv_tempStrength;
-  // int lv_tempVitality;
-  // int lv_tempReborn;
   int lv_playerIndex;
 
   lv_playerIndex = lp_player - 1;
@@ -13,13 +6,7 @@ void gf_EvolveTo (int lp_player, string lp_unitName) {
   gv_evolving[lv_playerIndex] = true;
   TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
   TriggerEnable(gt_SaveStackCountsPeriodically, false);
-  // lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
-  // lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
-  // lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
-  // lv_tempDexterity = gv_players[lv_playerIndex].stats.dexterity;
-  // lv_tempAgility = gv_players[lv_playerIndex].stats.agility;
-  // lv_tempReborn = gv_players[lv_playerIndex].stats.reborn.count;
-  // lv_tempDragon = gv_players[lv_playerIndex].dragon;
+
   gf_FillInventory(lp_player);
   gf_SaveStackCounts(lp_player);
   UnitCreate(1, lp_unitName, c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
@@ -48,6 +35,7 @@ void gf_EvolveTo (int lp_player, string lp_unitName) {
   gv_players[lv_playerIndex].stats.attributePoints += 5;
   gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
   libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
+  gf_ShowStats(lp_player);
   UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
   gf_ReapplyBuffs(lp_player);
   lib_talent_gf_GrantTalentPoints(1, lp_player);
