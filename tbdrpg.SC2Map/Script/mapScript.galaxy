@@ -10765,6 +10765,11 @@ bool gt_EvolutionCheck_Func (bool testConds, bool runActions) {
   lv_player = UnitGetOwner(EventUnit());
   lv_playerIndex = lv_player - 1;
 
+  if (testConds) {
+    if (!PlayerGroupHasPlayer(gv_humanPlayers, lv_player)) {
+      return false;
+    }
+  }
   if (!runActions) {
     return true;
   }
