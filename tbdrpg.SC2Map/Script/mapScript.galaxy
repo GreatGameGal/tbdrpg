@@ -20453,12 +20453,6 @@ void FakeInitTriggers() {
 }
 // --------------------------------------
 void gf_SetupPlayer(int lp_player) {
-  int lv_tempAgility;
-  int lv_tempDexterity;
-  int lv_tempIntelligence;
-  int lv_tempStrength;
-  int lv_tempVitality;
-  int lv_tempReborn;
   int lv_type;
   int lv_playerIndex = lp_player-1;
   if ((GameAttributePlayerValue("1", lp_player) == "0001")) {
@@ -20494,17 +20488,17 @@ void gf_SetupPlayer(int lp_player) {
     gv_players[lv_playerIndex].dragon = BankLastRestoredUnit();
     gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
     gv_players[lv_playerIndex].stats.reborn.count = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Reborn Count", PlayerHandle(lp_player));
-    lv_tempReborn = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Reborn Count", PlayerHandle(lp_player));
     gv_players[lv_playerIndex].stats.attributePoints = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player));
+    gv_players[lv_playerIndex].stats.vitality = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lp_player));
+    gv_players[lv_playerIndex].stats.strength = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lp_player));
+    gv_players[lv_playerIndex].stats.intelligence = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Int", PlayerHandle(lp_player));
+    gv_players[lv_playerIndex].stats.dexterity = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "De", PlayerHandle(lp_player));
+    gv_players[lv_playerIndex].stats.agility = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lp_player));
+
     // TODO: Remove this after a few updates
     if (gv_players[lv_playerIndex].stats.attributePoints == 0) {
       gv_players[lv_playerIndex].stats.attributePoints = FixedToInt(BankValueGetAsFixed(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lp_player)));
     }
-    lv_tempVitality = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lp_player));
-    lv_tempStrength = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lp_player));
-    lv_tempIntelligence = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Int", PlayerHandle(lp_player));
-    lv_tempDexterity = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "De", PlayerHandle(lp_player));
-    lv_tempAgility = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lp_player));
     gv_players[lv_playerIndex].skills.fireSkin = BankValueGetAsFlag(gv_players[lv_playerIndex].banks.dragonBank, "FS", PlayerHandle(lp_player));
     gv_players[lv_playerIndex].skills.allSeeingEye = BankValueGetAsFlag(gv_players[lv_playerIndex].banks.dragonBank, "ASE", PlayerHandle(lp_player));
     gv_gameBeat[lv_playerIndex] = BankValueGetAsFlag(gv_players[lv_playerIndex].banks.dragonBank, "GB", PlayerHandle(lp_player));
@@ -20532,35 +20526,13 @@ void gf_SetupPlayer(int lp_player) {
     if (gv_players[lv_playerIndex].skills.allSeeingEye) {
       UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AllSeeingEye", lp_player, 1);
     }
-    while ((lv_tempVitality > 0)) {
-      UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, 1);
-      gv_players[lv_playerIndex].stats.vitality = (gv_players[lv_playerIndex].stats.vitality + 1);
-      lv_tempVitality = (lv_tempVitality - 1);
-    }
-    while ((lv_tempStrength > 0)) {
-      UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, 1);
-      gv_players[lv_playerIndex].stats.strength = (gv_players[lv_playerIndex].stats.strength + 1);
-      lv_tempStrength = (lv_tempStrength - 1);
-    }
-    while ((lv_tempIntelligence > 0)) {
-      UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, 1);
-      gv_players[lv_playerIndex].stats.intelligence = (gv_players[lv_playerIndex].stats.intelligence + 1);
-      lv_tempIntelligence = (lv_tempIntelligence - 1);
-    }
-    while ((lv_tempDexterity > 0)) {
-      UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, 1);
-      gv_players[lv_playerIndex].stats.dexterity = (gv_players[lv_playerIndex].stats.dexterity + 1);
-      lv_tempDexterity = (lv_tempDexterity - 1);
-    }
-    while ((lv_tempAgility > 0)) {
-      UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, 1);
-      gv_players[lv_playerIndex].stats.agility = (gv_players[lv_playerIndex].stats.agility + 1);
-      lv_tempAgility = (lv_tempAgility - 1);
-    }
-    while ((lv_tempReborn > 0)) {
-      UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, 1);
-      lv_tempReborn = (lv_tempReborn - 1);
-    }
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, gv_players[lv_playerIndex].stats.vitality);
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, gv_players[lv_playerIndex].stats.strength);
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, gv_players[lv_playerIndex].stats.intelligence);
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, gv_players[lv_playerIndex].stats.dexterity);
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, gv_players[lv_playerIndex].stats.agility);
+    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingofDrache", lp_player, gv_players[lv_playerIndex].stats.reborn.count);
+    
     gf_ShowStats(lp_player);
     gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
     libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
