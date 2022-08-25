@@ -20660,17 +20660,6 @@ void gf_OcculusPingPlayer(int lp_player) {
   }
   UnitGroupLoopEnd();
 }
-// ----------------------------------------------------------------
-bool gf_IsAdmin(int lp_player) {
-  int i;
-  string lv_playerHandle = PlayerHandle(lp_player);
-  for (i = 0; i < adminCount; i += 1) {
-    if (lv_playerHandle == gv_adminHandles[i]) {
-      return true;
-    }
-  }
-  return false;
-}
 // --------------------------------------------------------------
 void initMapScript () {
   FakeInitLibs();
