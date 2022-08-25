@@ -1,0 +1,24 @@
+void gf_LoadDragonCheck (int lp_player) {
+
+  int lv__Bank;
+  int lv__Manual;
+  int lv_playerIndex;
+
+  lv_playerIndex = lp_player - 1;
+
+  if (!gv_players[lv_playerIndex].verification.dragon) {
+    lv__Manual = gv_DSNMod + UnitLevel(gv_players[lv_playerIndex].dragon) + ModI(FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropXP, c_unitPropCurrent)), 1000);
+    lv__Bank = BankValueGetAsInt(gv_players[lv_playerIndex].banks.dragonBank, "DSN", PlayerHandle(lp_player));
+    BankWait(gv_players[lv_playerIndex].banks.rebornBank);
+    if ((lv__Bank != lv__Manual)) {
+      
+      UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/E00252DC") + IntToText(ModI(FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropXP, c_unitPropCurrent)), 1000)));
+      //GameOver(p, c_gameOverDefeat, true, true);
+      UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Please let offline know!,  Bypassing security check."));
+      gv_players[lv_playerIndex].verification.dragon = true;
+    }
+    else {
+      gv_players[lv_playerIndex].verification.dragon = true;
+    }
+  }
+}
