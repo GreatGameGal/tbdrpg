@@ -20458,13 +20458,7 @@ void FakeInitTriggers() {
 }
 // --------------------------------------
 void gf_SetupPlayer(int lp_player) {
-  int lv_type;
   int lv_playerIndex = lp_player-1;
-  if ((GameAttributePlayerValue("1", lp_player) == "0001")) {
-    lv_type = 0;
-  } else if (GameAttributePlayerValue("1", lp_player) == "0002") {
-    lv_type = 1;
-  }
   // Load banks
   BankLoad("DragonRPGStashBank", lp_player);
   gv_players[lv_playerIndex].banks.stashBank = BankLastCreated();
@@ -20477,9 +20471,9 @@ void gf_SetupPlayer(int lp_player) {
   BankWait(gv_players[lv_playerIndex].banks.rebornBank);
   CameraPan(lp_player, PointFromId(1), 0.0, -1, 0, false);
   gv_ofHumanPlayers = (gv_ofHumanPlayers + 1);
-  if (lv_type == ge_Type_FireDragon) {
+  if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
     BankLoad("DragonRPGFireBank", lp_player);
-  } else if (lv_type == ge_Type_IceDragon) {
+  } else if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
     BankLoad("DragonRPGIceBank", lp_player);
   }
   gv_players[lv_playerIndex].banks.dragonBank = BankLastCreated();
@@ -20550,11 +20544,7 @@ void gf_SetupPlayer(int lp_player) {
     BankSectionRemove(gv_players[lv_playerIndex].banks.dragonBank, "Vespene");
     TechTreeRequirementsEnable(lp_player, true);
   } else {
-    if (lv_type == ge_Type_FireDragon) {
-      UnitCreate(1, "BabyDragon", 0, lp_player, PointFromId(1), 270.0);
-    } else if (lv_type == ge_Type_IceDragon) {
-      UnitCreate(1, "BabyIceDragon", 0, lp_player, PointFromId(1), 270.0);
-    }
+    UnitCreate(1, gv_DragonUnitNames[gv_players[lv_playerIndex].type][0], 0, lp_player, PointFromId(1), 270.0);
     UnitSelect(UnitLastCreated(), lp_player, true);
     gv_players[lv_playerIndex].dragon = UnitLastCreated();
     BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
