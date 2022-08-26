@@ -1,3 +1,13 @@
+struct dragonType {
+  string[5] unitNames;
+  string talentBuildName;
+  string bankName;
+  string introTheme;
+  fixed introThemeDuration;
+  int talentBuildColor;
+  text talentBuildTitle;
+};
+
 struct arenaData {
   int wins;
   int losses;
@@ -93,7 +103,6 @@ struct skillData {
   bool protectionStone;
   bool quickeningRing;
 };
-
 struct talentObj {
   // UI Data
   int button;

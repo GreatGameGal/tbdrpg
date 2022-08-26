@@ -40,11 +40,7 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     gf_FillInventory(lv_player);
     gf_SaveStackCounts(lv_player);
     UnitRemove(gv_players[lv_playerIndex].dragon);
-    if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
-      UnitCreate(1, "BabyDragon", 0, lv_player, PointFromId(1), libNtve_gf_RandomAngle());
-    } else if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
-      UnitCreate(1, "BabyIceDragon", 0, lv_player, PointFromId(1), libNtve_gf_RandomAngle());
-    }
+    UnitCreate(1, gv_DragonTypes[gv_players[lv_playerIndex].type].unitNames[0], 0, lv_player, PointFromId(1), 270.0);
     gv_players[lv_playerIndex].dragon = UnitLastCreated();
     CameraPan(lv_player, RegionGetCenter(RegionFromId(3)), 2.0, -1, 10.0, false);
     gv_players[lv_playerIndex].stats.reborn.points += 10;
@@ -55,12 +51,7 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     UnitSelect(gv_players[lv_playerIndex].dragon, lv_player, true);
     BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lv_player), gv_players[lv_playerIndex].dragon);
     lib_talent_gf_ResetTalentBuild(lv_player, 1);
-    if (gv_players[lv_playerIndex].type == ge_Type_FireDragon) {
-      lib_talent_gf_SaveTalentBuild(1, "Fire Dragon", lv_player);
-    }
-    if (gv_players[lv_playerIndex].type == ge_Type_IceDragon) {
-      lib_talent_gf_SaveTalentBuild(1, "Ice Dragon", lv_player);
-    }
+    lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[gv_players[lv_playerIndex].type].talentBuildName, lv_player);
     gv_players[lv_playerIndex].stats.level = 0;
     gv_players[lv_playerIndex].stats.strength = 0;
     gv_players[lv_playerIndex].stats.vitality = 0;

@@ -43,7 +43,7 @@ bool gt_LevelUp_Func (bool testConds, bool runActions) {
   lv_dragonEvolution = gf_GetEvolution(lv_player);
   if (UnitLevel(EventUnit()) == (lv_dragonEvolution + 1) * gv_LevelsPerEvolution && lv_dragonEvolution != gv_DragonEvolutionCounts - 1) {
     // Evolve to the next evolution of the type.
-    gf_EvolveTo(lv_player, gv_DragonUnitNames[gv_players[lv_playerIndex].type][lv_dragonEvolution+1]);
+    gf_EvolveTo(lv_player, gv_DragonTypes[gv_players[lv_playerIndex].type].unitNames[lv_dragonEvolution+1]);
   }
 
   gf_StatCheck(UnitGetOwner(EventUnit()));
