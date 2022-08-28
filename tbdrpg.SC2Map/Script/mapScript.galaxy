@@ -18868,12 +18868,6 @@ void gt_TimeofDayTick_Init () {
 // Trigger: Set Up Players
 //--------------------------------------------------------------------------------------------------
 bool gt_SetUpPlayers_Func (bool testConds, bool runActions) {
-
-  int lv_tempAgility;
-  int lv_tempDexterity;
-  int lv_tempIntelligence;
-  int lv_tempStrength;
-  int lv_tempVitality;
   gv_playersWhoHaveDefeatedZauberer = PlayerGroupEmpty();
 
 
