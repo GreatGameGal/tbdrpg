@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="us-ascii"?>
 <Catalog>
-    <CSoundtrack id="BiodomeTheme2">
+    <CSoundtrack id="BallansTheme">
         <CueArray>
             <MasterLayer Sound="BallansTheme"/>
             <SlaveLayers>
