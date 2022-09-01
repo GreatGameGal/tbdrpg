@@ -20,7 +20,7 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     TriggerEnable(gt_SaveStackCountsPeriodically, false);
     lr_player.state.evolving = true;
     lr_player.stats.reborn.count = (lr_player.stats.reborn.count + 1);
-    UnitGroupRemove(gv_unitsthatdidDamagetoSyrital, lr_player.dragon);
+    UnitGroupRemove(gv_unitsThatDidDamageToSyrital, lr_player.dragon);
     UnitGroupRemove(gv_unitsthatdidDamagetoSremagsi, lr_player.dragon);
     UnitGroupRemove(gv_unitsthatdidDamagetoMachinaDePlagam, lr_player.dragon);
     UnitGroupRemove(gv_dragonsInBioDome, lr_player.dragon);

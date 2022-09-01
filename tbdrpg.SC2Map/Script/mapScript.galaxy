@@ -571,7 +571,7 @@ void FakeInitGlobals () {
   gv_zauberersStatue = UnitFromId(628);
   gv_guardians = UnitGroupEmpty();
   gv_syritalWarning = c_textTagNone;
-  gv_unitsthatdidDamagetoSyrital = UnitGroupEmpty();
+  gv_unitsThatDidDamageToSyrital = UnitGroupEmpty();
   gv_syrital = UnitFromId(158);
   gv_waypointDialog = c_invalidDialogId;
   gv_wastelandDialogButton = c_invalidDialogControlId;
@@ -9839,7 +9839,7 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
     UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/084751AF") + (IntToText((lr_player.currency.gold / 40)) + StringExternal("Param/Value/1B6BBEA5"))));
   }
 
-  if (lr_player.skills.returnJewel && !UnitGroupHasUnit(gv_unitsthatdidDamagetoSyrital, lr_player.dragon) && !UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, lr_player.dragon) && !UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, lr_player.dragon) && !PlayerGroupHasPlayer(gv_playersinBattlewithGuardians, lr_player.player) && !PlayerGroupHasPlayer(gv_playersInBattleWithZauberer1stForm, lr_player.player) && !PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, lr_player.player) && !PlayerGroupHasPlayer(gv_playersInBioDome, lr_player.player) && !PlayerGroupHasPlayer(gv_playersintheArena, lr_player.player) && (lv_killingPlayer != 16)) {
+  if (lr_player.skills.returnJewel && !UnitGroupHasUnit(gv_unitsThatDidDamageToSyrital, lr_player.dragon) && !UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, lr_player.dragon) && !UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, lr_player.dragon) && !PlayerGroupHasPlayer(gv_playersinBattlewithGuardians, lr_player.player) && !PlayerGroupHasPlayer(gv_playersInBattleWithZauberer1stForm, lr_player.player) && !PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, lr_player.player) && !PlayerGroupHasPlayer(gv_playersInBioDome, lr_player.player) && !PlayerGroupHasPlayer(gv_playersintheArena, lr_player.player) && (lv_killingPlayer != 16)) {
     UnitSetPosition(lr_player.dragon, lv_deadpoint, false);
     UnitRevive(lr_player.dragon);
     libNtve_gf_ChangeUnitDamage(lr_player.dragon, libNtve_ge_UnitDamageTakenDealt_Damage_Take, libNtve_ge_UnitDamageChangeOption_No);
@@ -13542,9 +13542,8 @@ void gt_GuardianRespawn_Init () {
 // Trigger: Unit attacks Syrital
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitattacksSyrital_Func (bool testConds, bool runActions) {
-
   if (testConds) {
-    if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSyrital, EventUnitDamageSourceUnit()) || UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
+    if (UnitGroupHasUnit(gv_unitsThatDidDamageToSyrital, EventUnitDamageSourceUnit()) || UnitGetOwner(EventUnitDamageSourceUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))) {
       return false;
     }
   }
@@ -13552,7 +13551,7 @@ bool gt_UnitattacksSyrital_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  UnitGroupAdd(gv_unitsthatdidDamagetoSyrital, EventUnitDamageSourceUnit());
+  UnitGroupAdd(gv_unitsThatDidDamageToSyrital, EventUnitDamageSourceUnit());
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -13754,8 +13753,8 @@ bool gt_SyritalDies_Func (bool testConds, bool runActions) {
   UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/D94B490A"));
   gv_syritalDead = true;
   TriggerEnable(gt_SyritalRespawn, true);
-  for (UnitGroupLoopBegin(gv_unitsthatdidDamagetoSyrital); !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
-    lr_player = gv_players[UnitGetOwner(UnitGroupLoopCurrent())];
+  for (UnitGroupLoopBegin(gv_unitsThatDidDamageToSyrital); !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
+    lr_player = gv_players[UnitGetOwner(UnitGroupLoopCurrent()) - 1];
     gf_AddExperience(UnitGroupLoopCurrent(), 500.0);
     PlayerModifyPropertyInt(lr_player.player, c_playerPropCustom, c_playerPropOperAdd, 1);
     if ((lr_player.quests.storyQuests[1].state == 1)) {

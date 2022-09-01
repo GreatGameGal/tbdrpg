@@ -100,7 +100,7 @@ int gv_numPlayersHigherThan25;
 int gv_livingDragonsinGaurdian;
 int gv_syritalWarning;
 bool gv_syritalDead;
-unitgroup gv_unitsthatdidDamagetoSyrital;
+unitgroup gv_unitsThatDidDamageToSyrital;
 bool gv_respawningSyrital;
 unit gv_syrital;
 region[7] gv_bioDomeWastelandRegions;
