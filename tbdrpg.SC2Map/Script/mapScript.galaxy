@@ -9788,9 +9788,13 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  libNtve_gf_ShowHideBossBar(false, lr_player.player);
-  libNtve_gf_ShowHideBossBar(false, (lr_player.player + 4));
-  libNtve_gf_ShowHideBossBar(false, (lr_player.player + 8));
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 0);
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 4);
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 8);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 0, null, false);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 4, null, false);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 8, null, false);
+
   lv_killingPlayer = libNtve_gf_KillingPlayer();
   lv_deadpoint = UnitGetPosition(EventUnit());
   lr_player.currency.gold = PlayerGetPropertyInt(lr_player.player, c_playerPropMinerals);
@@ -9802,7 +9806,6 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
     UnitAbilityEnable(lv_revenge, "Nova", true);
     UnitIssueOrder(lv_revenge, Order(AbilityCommand("Nova", 0)), c_orderQueueReplace);
   }
-  libNtve_gf_ShowHideBossBar(false, lr_player.player);
   SoundPlay(SoundLink("DragonDeath", -1), lr_player.playerGroupSingle, 100.0, 0.0);
   if(lv_TypeOfUnitThatKilledDragon == "MagicalDemonicSheep") {
     TimerStart(lr_player.dyingTimer.time, 5.0, false, c_timeReal);
@@ -9919,9 +9922,13 @@ bool gt_ReviveDragonPvP_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  libNtve_gf_ShowHideBossBar(false, lr_player.player);
-  libNtve_gf_ShowHideBossBar(false, (lr_player.player + 4));
-  libNtve_gf_ShowHideBossBar(false, (lr_player.player + 8));
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 0);
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 4);
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 8);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 0, null, false);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 4, null, false);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 8, null, false);
+
   SoundPlay(SoundLink("DragonDeath", -1), lr_player.playerGroupSingle, 100.0, 0.0);
   UnitSetPosition(lr_player.dragon, PointFromId(2508), false);
   UnitRevive(lr_player.dragon);
@@ -11860,6 +11867,7 @@ bool gt_DragonDiesinZauberer1_Func (bool testConds, bool runActions) {
   VisRevealerDestroy(lr_player.zauberer1stFormRevealer);
   gv_livingDragonsFightingZauberer1stForm -= 1;
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
   if ((gv_livingDragonsFightingZauberer1stForm <= 0)) {
     gv_livingDragonsFightingZauberer1stForm = 0;
     UnitRemove(gv_zauberer1stForm);
@@ -11913,6 +11921,7 @@ bool gt_DragonDiesinZauberer2_Func (bool testConds, bool runActions) {
   VisRevealerDestroy(lr_player.zauberer1stFormRevealer);
   gv_livingDragonsFightingZauberer2ndForm -= 1;
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
   if ((gv_livingDragonsFightingZauberer2ndForm <= 0)) {
     gv_livingDragonsFightingZauberer2ndForm = 0;
     UnitRemove(gv_zauberer2ndForm);
@@ -12089,6 +12098,7 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
 
      // lr_player.state.preventSave = true;
     libNtve_gf_ShowHideBossBar(false, lr_player.player);
+    libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
     libNtve_gf_PauseUnit(lr_player.dragon, true);
     if (lv_spawnPoint == 0) {
       UnitSetPosition(lr_player.dragon, RegionGetCenter(RegionFromId(205)), false);
@@ -12384,6 +12394,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
     PlayerGroupAdd(gv_playersWhoHaveDefeatedZauberer, lr_player.player);
     PlayerModifyPropertyInt(lr_player.player, c_playerPropCustom, c_playerPropOperAdd, 30);
     libNtve_gf_ShowHideBossBar(false, lr_player.player);
+    libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
     libNtve_gf_PauseUnit(lr_player.dragon, true);
     if ((UnitLevel(lr_player.dragon) != 100)) {
       gf_AddExperience(lr_player.dragon, 23000.0);
@@ -12692,6 +12703,7 @@ bool gt_MachinaDePlagamLeave_Func (bool testConds, bool runActions) {
   SoundChannelSetVolume(lr_player.playerGroupSingle, c_soundCategoryUI, 100.0, 1.0);
   SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, false);
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
   lr_player.locationString = "Creton Trench";
   lr_player.locationText = StringToText(lr_player.locationString);
   return true;
@@ -12735,6 +12747,7 @@ bool gt_MachinaDePlagamDragonDies_Func (bool testConds, bool runActions) {
   SoundChannelSetVolume(lr_player.playerGroupSingle, c_soundCategoryUI, 100.0, 1.0);
   SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, false);
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
   UnitGroupRemove(gv_unitsthatdidDamagetoMachinaDePlagam, EventUnit());
   return true;
 }
@@ -13038,6 +13051,8 @@ bool gt_SremagsiLairExit_Func (bool testConds, bool runActions) {
   SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, true);
   SoundtrackPlay(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, "InfestationTheme", c_soundtrackCueAny, 0, false);
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
+
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -13066,6 +13081,7 @@ bool gt_SremagsiDragonDies_Func (bool testConds, bool runActions) {
   lr_player.state.fightWithSremagsi = false;
   SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, true);
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -13481,9 +13497,12 @@ bool gt_NoDragonsinGaurdian_Func (bool testConds, bool runActions) {
   SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryAmbient, 100.0, 1.0);
   SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryAmbient, 100.0, 1.0);
   SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryUI, 100.0, 1.0);
-  libNtve_gf_ShowHideBossBar(false, (lr_player.player + 0));
-  libNtve_gf_ShowHideBossBar(false, (lr_player.player + 4));
-  libNtve_gf_ShowHideBossBar(false, (lr_player.player + 8));
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 0);
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 4);
+  libNtve_gf_ShowHideBossBar(false, lr_player.player + 8);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 0, null, false);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 4, null, false);
+  libNtve_gf_SetBossBarBoss(lr_player.player + 8, null, false);
   VisRevealerDestroy(lr_player.guardianRevealer);
   gv_livingDragonsinGaurdian -= 1;
   if (gv_livingDragonsinGaurdian <= 0) {
@@ -13680,6 +13699,7 @@ bool gt_SyritalLeave_Func (bool testConds, bool runActions) {
   SoundChannelSetVolume(lr_player.playerGroupSingle, c_soundCategoryUI, 100.0, 1.0);
   SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, false);
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -13722,6 +13742,7 @@ bool gt_SyritalDragonDies_Func (bool testConds, bool runActions) {
   SoundChannelSetVolume(lr_player.playerGroupSingle, c_soundCategoryUI, 100.0, 1.0);
   SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, false);
   libNtve_gf_ShowHideBossBar(false, lr_player.player);
+  libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
   return true;
 }
 //--------------------------------------------------------------------------------------------------
