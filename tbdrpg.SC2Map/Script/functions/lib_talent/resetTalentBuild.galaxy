@@ -1,46 +1,46 @@
-void lib_talent_gf_ResetTalentBuild (int lp_player, int lp_resetto) {
+void lib_talent_gf_ResetTalentBuild (playerData_r lr_player, int lp_resetto) {
   int lv_requiredPoints;
   int lv_i;
-  int lv_playerIndex;
+  talentData_r lr_talent;
 
-  lv_playerIndex = lp_player - 1;
 
-  gv_players[lv_playerIndex].talent.availablePoints = lp_resetto;
+  lr_player.talent.availablePoints = lp_resetto;
   
-  gv_players[lv_playerIndex].talent.spentPoints = 0;
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.availablePointsLabel, IntToText(gv_players[lv_playerIndex].talent.availablePoints), PlayerGroupAll());
-  gv_players[lv_playerIndex].talent.pointsInTree[0] = 0;
-  gv_players[lv_playerIndex].talent.pointsInTree[1] = 0;
-  gv_players[lv_playerIndex].talent.pointsInTree[2] = 0;
+  lr_player.talent.spentPoints = 0;
+  libNtve_gf_SetDialogItemText(lr_player.talent.availablePointsLabel, IntToText(lr_player.talent.availablePoints), PlayerGroupAll());
+  lr_player.talent.pointsInTree[0] = 0;
+  lr_player.talent.pointsInTree[1] = 0;
+  lr_player.talent.pointsInTree[2] = 0;
   for (lv_i = 0; lv_i < lib_talent_gv_TALENTCOUNT; lv_i += 1 ) {
-    if (!gv_players[lv_playerIndex].talent.talents[lv_i].isUsed) {
+    lr_talent = lr_player.talent.talents[lv_i];
+    if (!lr_talent.isUsed) {
       continue;
     }
-    if ((gv_players[lv_playerIndex].talent.talents[lv_i].upgrade != null)) {
-      libNtve_gf_SetUpgradeLevelForPlayer(lp_player, gv_players[lv_playerIndex].talent.talents[lv_i].upgrade, 0);
+    if (lr_talent.upgrade != null) {
+      libNtve_gf_SetUpgradeLevelForPlayer(lr_player.player, lr_talent.upgrade, 0);
     }
-    gv_players[lv_playerIndex].talent.talents[lv_i].rank = 0;
-    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.talents[lv_i].buttonLabel, (IntToText(gv_players[lv_playerIndex].talent.talents[lv_i].rank) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(gv_players[lv_playerIndex].talent.talents[lv_i].maxRank)), PlayerGroupAll());
-    gv_players[lv_playerIndex].talent.talents[lv_i].prerequisitesComplete = false;
+    lr_talent.rank = 0;
+    libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.rank) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lr_talent.maxRank)), PlayerGroupAll());
+    lr_talent.prerequisitesComplete = false;
 
-    lv_requiredPoints = gv_players[lv_playerIndex].talent.pointsPerTier * (gv_players[lv_playerIndex].talent.talents[lv_i].row);
-    if (gv_players[lv_playerIndex].talent.talents[lv_i].type == lib_talent_ge_TalentType_Ability) {
-      lib_talent_gf_UpdateAbilityButtonTooltip(lp_player, gv_players[lv_playerIndex].talent.talents[lv_i].button, lv_i, lv_requiredPoints, gv_players[lv_playerIndex].talent.talents[lv_i].tree, gv_players[lv_playerIndex].talent.talents[lv_i].abilityLink, gv_players[lv_playerIndex].talent.talents[lv_i].buttonLink);
+    lv_requiredPoints = lr_player.talent.pointsPerTier * (lr_talent.row);
+    if (lr_talent.type == lib_talent_ge_TalentType_Ability) {
+      lib_talent_gf_UpdateAbilityButtonTooltip(lr_player, lr_talent.button, lv_i, lv_requiredPoints, lr_talent.tree, lr_talent.abilityLink, lr_talent.buttonLink);
     }
-    else if (gv_players[lv_playerIndex].talent.talents[lv_i].type == lib_talent_ge_TalentType_Passive) {
-      lib_talent_gf_UpdatePassiveButtonTooltip(lp_player, gv_players[lv_playerIndex].talent.talents[lv_i].button, lv_i, lv_requiredPoints, gv_players[lv_playerIndex].talent.talents[lv_i].tree, gv_players[lv_playerIndex].talent.talents[lv_i].name, gv_players[lv_playerIndex].talent.talents[lv_i].tooltipDescription, gv_players[lv_playerIndex].talent.talents[lv_i].rank, gv_players[lv_playerIndex].talent.talents[lv_i].multiplier[0], gv_players[lv_playerIndex].talent.talents[lv_i].multiplier[1]);
+    else if (lr_talent.type == lib_talent_ge_TalentType_Passive) {
+      lib_talent_gf_UpdatePassiveButtonTooltip(lr_player, lr_talent.button, lv_i, lv_requiredPoints, lr_talent.tree, lr_talent.name, lr_talent.tooltipDescription, lr_talent.rank, lr_talent.multiplier[0], lr_talent.multiplier[1]);
     }
-    if (gv_players[lv_playerIndex].talent.talents[lv_i].prerequisiteIs == -1) {
-      DialogControlSetEnabled(gv_players[lv_playerIndex].talent.talents[lv_i].button, PlayerGroupAll(), true);
-      DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_i].buttonGlow, PlayerGroupAll(), true);
-      DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_i].buttonLabelBackground, PlayerGroupAll(), true);
-      DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_i].buttonLabel, PlayerGroupAll(), true);
+    if (lr_talent.prerequisiteIs == -1) {
+      DialogControlSetEnabled(lr_talent.button, PlayerGroupAll(), true);
+      DialogControlSetVisible(lr_talent.buttonGlow, PlayerGroupAll(), true);
+      DialogControlSetVisible(lr_talent.buttonLabelBackground, PlayerGroupAll(), true);
+      DialogControlSetVisible(lr_talent.buttonLabel, PlayerGroupAll(), true);
     }
     else {
-      DialogControlSetEnabled(gv_players[lv_playerIndex].talent.talents[lv_i].button, PlayerGroupAll(), false);
-      DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_i].buttonGlow, PlayerGroupAll(), false);
-      DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_i].buttonLabelBackground, PlayerGroupAll(), false);
-      DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_i].buttonLabel, PlayerGroupAll(), false);
+      DialogControlSetEnabled(lr_talent.button, PlayerGroupAll(), false);
+      DialogControlSetVisible(lr_talent.buttonGlow, PlayerGroupAll(), false);
+      DialogControlSetVisible(lr_talent.buttonLabelBackground, PlayerGroupAll(), false);
+      DialogControlSetVisible(lr_talent.buttonLabel, PlayerGroupAll(), false);
     }
   }
 }

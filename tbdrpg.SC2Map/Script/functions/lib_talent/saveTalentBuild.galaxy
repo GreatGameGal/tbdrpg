@@ -1,27 +1,27 @@
-void lib_talent_gf_SaveTalentBuild (int lp_buildIndex, string lp_bankName, int lp_player) {
+void lib_talent_gf_SaveTalentBuild (int lp_buildIndex, string lp_bankName, playerData_r lr_player) {
   bank lv_talentBank;
   int lv_talentIndex;
   int lv_talentStringIndex;
-  int lv_playerIndex;
+  talentData_r lr_talent;
 
-  lv_playerIndex = lp_player - 1;
   lv_talentStringIndex = 1;
 
-  BankLoad("DQRPGTalentLibraryBank", lp_player);
+  BankLoad("DQRPGTalentLibraryBank", lr_player.player);
   lv_talentBank = BankLastCreated();
-  gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] = "";
+  lr_player.talent.buildStrings[lp_buildIndex] = "";
 
   for(lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
     lv_talentStringIndex = lv_talentIndex * 2 + 1;
-    if (gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank < 10) {
-      gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] = StringReplace(gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex], "0", lv_talentStringIndex, lv_talentStringIndex);
-      gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] = StringReplace(gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex], IntToString(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank), (lv_talentStringIndex + 1), (lv_talentStringIndex + 1));
+    lr_talent = lr_player.talent.talents[lv_talentIndex];
+    if (lr_talent.rank < 10) {
+      lr_player.talent.buildStrings[lp_buildIndex] = StringReplace(lr_player.talent.buildStrings[lp_buildIndex], "0", lv_talentStringIndex, lv_talentStringIndex);
+      lr_player.talent.buildStrings[lp_buildIndex] = StringReplace(lr_player.talent.buildStrings[lp_buildIndex], IntToString(lr_talent.rank), (lv_talentStringIndex + 1), (lv_talentStringIndex + 1));
     }
     else {
-      gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] = StringReplace(gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex], IntToString(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank), lv_talentStringIndex, (lv_talentStringIndex + 1));
+      lr_player.talent.buildStrings[lp_buildIndex] = StringReplace(lr_player.talent.buildStrings[lp_buildIndex], IntToString(lr_talent.rank), lv_talentStringIndex, (lv_talentStringIndex + 1));
     }
   }
-  BankValueSetFromString(lv_talentBank, lp_bankName, IntToString(lp_buildIndex), gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex]);
-  BankValueSetFromInt(lv_talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex), gv_players[lv_playerIndex].talent.availablePoints);
+  BankValueSetFromString(lv_talentBank, lp_bankName, IntToString(lp_buildIndex), lr_player.talent.buildStrings[lp_buildIndex]);
+  BankValueSetFromInt(lv_talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex), lr_player.talent.availablePoints);
   BankSave(lv_talentBank);
 }

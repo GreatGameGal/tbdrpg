@@ -1,12 +1,8 @@
 bool gt_Invincibility_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }
@@ -14,15 +10,15 @@ bool gt_Invincibility_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifeRegen, 50000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropShieldsRegen, 50000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyRegen, 50000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifeMax, 500000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropShieldsMax, 500000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyMax, 500000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropShields, 500000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLife, 500000.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergy, 500000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropLifeRegen, 50000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropShieldsRegen, 50000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropEnergyRegen, 50000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropLifeMax, 500000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropShieldsMax, 500000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropEnergyMax, 500000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropShields, 500000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropLife, 500000.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropEnergy, 500000.0);
   return true;
 }
 

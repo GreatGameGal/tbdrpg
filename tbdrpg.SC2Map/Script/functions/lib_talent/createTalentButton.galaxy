@@ -1,4 +1,4 @@
-void lib_talent_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
+void lib_talent_gf_CreateTalentButton (playerData_r lr_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
   string lv_buttonGlowIMG;
   string lv_buttonNormalIMG;
   string lv_buttonHoverIMG;
@@ -8,183 +8,183 @@ void lib_talent_gf_CreateTalentButton (int lp_player, int lp_tree, int lp_column
   string lv_talentIMG;
   string lv_talentIMGString;
   int lv_requiredPoints;
-  int lv_playerIndex;
   int lv_talentIndex;
+  talentData_r lr_talent;
   
   lv_talentIMGString = "";
-  lv_playerIndex = lp_player - 1;
 
   lv_talentIndex = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row);
+  lr_talent = lr_player.talent.talents[lv_talentIndex];
     
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].isUsed = true;
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree = lp_tree;
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].column = lp_column;
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].row = lp_row;
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade = lp_upgradeLink;
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].type = lp_talentType;
+  lr_talent.isUsed = true;
+  lr_talent.tree = lp_tree;
+  lr_talent.column = lp_column;
+  lr_talent.row = lp_row;
+  lr_talent.upgrade = lp_upgradeLink;
+  lr_talent.type = lp_talentType;
   // TODO: Make this something passed in here.
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteRequiredRank = lib_talent_gv_POINTSPERPREREQUISITE;
-  if (gv_players[lv_playerIndex].talent.colorScheme == "Blue") {
+  lr_talent.prerequisiteRequiredRank = lib_talent_gv_POINTSPERPREREQUISITE;
+  if (lr_player.talent.colorScheme == "Blue") {
     lv_buttonGlowIMG = "Assets\\Textures\\ui_research_button_protoss_researched.dds";
     lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_protoss.dds";
     lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_protoss.dds";
     lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_protoss.dds";
   }
-  else if (gv_players[lv_playerIndex].talent.colorScheme == "Green") {
+  else if (lr_player.talent.colorScheme == "Green") {
     lv_buttonGlowIMG = "Assets\\Textures\\ui_ingame_tipsbutton_glow.dds";
     lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_terran.dds";
     lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_terran.dds";
     lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_terran.dds";
   }
-  else if (gv_players[lv_playerIndex].talent.colorScheme == "Red") {
+  else if (lr_player.talent.colorScheme == "Red") {
     lv_buttonGlowIMG = "Assets\\Textures\\ui_research_button_zerg_researched.dds";
     lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_zerg.dds";
     lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_zerg.dds";
     lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_zerg.dds";
   }
-  if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button != c_invalidDialogControlId)) {
+  if ((lr_talent.button != c_invalidDialogControlId)) {
     libNtve_gf_UIErrorMessage(PlayerGroupAll(), StringExternal("Param/Value/lib_1_F0C5D28C"), SoundLink("Alert_TerranBuildError", -1));
   }
   lv_xOffset = (-50 * (lib_talent_gv_COLUMNS - 1)) + (100 * lp_column);
   lv_yOffset = 25 + (100 * lp_row);
-  libNtve_gf_CreateDialogItemButton(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 75, 75, c_anchorTop, lv_xOffset, lv_yOffset, StringToText(""), StringToText(""), "");
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button = DialogControlLastCreated();
-  libNtve_gf_SetDialogItemImage(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, lv_buttonNormalIMG, PlayerGroupAll());
-  libNtve_gf_SetDialogItemImageType(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_triggerImageTypeBorder, PlayerGroupAll());
-  libNtve_gf_SetDialogItemImage2(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, lv_buttonHoverIMG, PlayerGroupAll());
+  libNtve_gf_CreateDialogItemButton(lr_player.talent.subTalentDialog[lp_tree], 75, 75, c_anchorTop, lv_xOffset, lv_yOffset, StringToText(""), StringToText(""), "");
+  lr_talent.button = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemImage(lr_talent.button, lv_buttonNormalIMG, PlayerGroupAll());
+  libNtve_gf_SetDialogItemImageType(lr_talent.button, c_triggerImageTypeBorder, PlayerGroupAll());
+  libNtve_gf_SetDialogItemImage2(lr_talent.button, lv_buttonHoverIMG, PlayerGroupAll());
   if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_None) {
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisitesComplete = true;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs = -1;
+    lr_talent.prerequisitesComplete = true;
+    lr_talent.prerequisiteIs = -1;
   }
   else if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_Up) {
     if (lp_row > 0) {
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row - 1);
-      gv_players[lv_playerIndex].talent.talents[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs].prerequisiteOf = lv_talentIndex;
+      lr_talent.prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row - 1);
+      lr_player.talent.talents[lr_talent.prerequisiteIs].prerequisiteOf = lv_talentIndex;
     } else {
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs = -1;
+      lr_talent.prerequisiteIs = -1;
     }
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisitesComplete = false;
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    lr_talent.prerequisitesComplete = false;
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -20, -55);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -20, -55);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -20, -43);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -20, -43);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 0, -55);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 0, -55);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 0, -43);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 0, -43);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 20, -55);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 20, -55);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 20, -43);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 20, -43);
   }
   else if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_Left) {
     if (lp_column > 0) {
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column - 1, lp_row);
-      gv_players[lv_playerIndex].talent.talents[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs].prerequisiteOf = lv_talentIndex;
+      lr_talent.prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column - 1, lp_row);
+      lr_player.talent.talents[lr_talent.prerequisiteIs].prerequisiteOf = lv_talentIndex;
     } else {
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs = -1;
+      lr_talent.prerequisiteIs = -1;
     }
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisitesComplete = false;
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    lr_talent.prerequisitesComplete = false;
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 180, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -54, -20);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -54, -20);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 270, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -41, -20);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -41, -20);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 180, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -54, 0);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -54, 0);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 270, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -41, 0);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -41, 0);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 180, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -54, 20);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -54, 20);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 270, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, -41, 20);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, -41, 20);
   }
   else if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_Right) {
     if (lp_column > 0) {
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column - 1, lp_row);
-      gv_players[lv_playerIndex].talent.talents[gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs].prerequisiteOf = lv_talentIndex;
+      lr_talent.prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column - 1, lp_row);
+      lr_player.talent.talents[lr_talent.prerequisiteIs].prerequisiteOf = lv_talentIndex;
     } else {
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs = -1;
+      lr_talent.prerequisiteIs = -1;
     }
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisitesComplete = false;
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    lr_talent.prerequisitesComplete = false;
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 54, -20);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 54, -20);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 90, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 41, -20);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 41, -20);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 54, 0);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 54, 0);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 90, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 41, 0);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 41, 0);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 54, 20);
-    libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 54, 20);
+    libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
     libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 90, PlayerGroupAll());
     libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, PlayerGroupAll());
-    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 41, 20);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 41, 20);
   }
-  lv_requiredPoints = gv_players[lv_playerIndex].talent.pointsPerTier * lp_row;
+  lv_requiredPoints = lr_player.talent.pointsPerTier * lp_row;
 
   if (lp_talentType == lib_talent_ge_TalentType_Ability) {
-    lib_talent_gf_UpdateAbilityButtonTooltip(lp_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, lv_talentIndex, lv_requiredPoints, lp_tree, lp_abilityLinkAbility, lp_buttonLinkAbility);
-    lv_talentIMGString = CatalogFieldValueGet(c_gameCatalogButton, (lp_buttonLinkAbility), "Icon", lp_player);
+    lib_talent_gf_UpdateAbilityButtonTooltip(lr_player, lr_talent.button, lv_talentIndex, lv_requiredPoints, lp_tree, lp_abilityLinkAbility, lp_buttonLinkAbility);
+    lv_talentIMGString = CatalogFieldValueGet(c_gameCatalogButton, (lp_buttonLinkAbility), "Icon", lr_player.player);
     lv_talentIMG = lv_talentIMGString;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank = 1;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].name = StringExternal(("Button/Name/" + (lp_buttonLinkAbility)));
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].abilityLink = lp_abilityLinkAbility;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLink = lp_buttonLinkAbility;
+    lr_talent.maxRank = 1;
+    lr_talent.name = StringExternal(("Button/Name/" + (lp_buttonLinkAbility)));
+    lr_talent.abilityLink = lp_abilityLinkAbility;
+    lr_talent.buttonLink = lp_buttonLinkAbility;
   }
   else if (lp_talentType == lib_talent_ge_TalentType_Passive) {
-    lib_talent_gf_UpdatePassiveButtonTooltip(lp_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, lv_talentIndex, lv_requiredPoints, lp_tree, lp_namePassive, lp_tooltipTextPassive, 0, lp_multiplier1Passive, lp_multiplier2Passive);
+    lib_talent_gf_UpdatePassiveButtonTooltip(lr_player, lr_talent.button, lv_talentIndex, lv_requiredPoints, lp_tree, lp_namePassive, lp_tooltipTextPassive, 0, lp_multiplier1Passive, lp_multiplier2Passive);
     lv_talentIMG = lp_imagePassive;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank = lp_maxRankPassive;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].name = lp_namePassive;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tooltipDescription = lp_tooltipTextPassive;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[0] = lp_multiplier1Passive;
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[1] = lp_multiplier2Passive;
+    lr_talent.maxRank = lp_maxRankPassive;
+    lr_talent.name = lp_namePassive;
+    lr_talent.tooltipDescription = lp_tooltipTextPassive;
+    lr_talent.multiplier[0] = lp_multiplier1Passive;
+    lr_talent.multiplier[1] = lp_multiplier2Passive;
   }
-  libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 67, 67, c_anchorCenter, 0, 0, StringToText(""), lv_talentIMG, c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
-  DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 0, 0);
-  libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 130, 130, c_anchorCenter, 0, 0, StringToText(""), lv_buttonGlowIMG, c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonGlow = DialogControlLastCreated();
-  DialogControlSetPositionRelative(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonGlow, PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 0, -2);
-  libNtve_gf_SetDialogItemRenderPriority(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonGlow, 500, PlayerGroupAll());
-  libNtve_gf_CreateDialogItemImage(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 60, 35, c_anchorCenter, 0, 0, StringToText(""), lv_buttonLabelIMG, c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabelBackground = DialogControlLastCreated();
-  libNtve_gf_SetDialogItemRenderPriority(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabelBackground, 520, PlayerGroupAll());
-  DialogControlSetPositionRelative(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabelBackground, PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, c_anchorCenter, 25, 32);
-  libNtve_gf_CreateDialogItemLabel(gv_players[lv_playerIndex].talent.subTalentDialog[lp_tree], 55, 20, c_anchorCenter, 0, 0, (StringExternal("Param/Value/lib_1_6FE57CC2") + StringExternal("Param/Value/lib_1_D30A5C78") + IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank)), Color(100,100,100), false, 2.0);
-  gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel = DialogControlLastCreated();
-  libNtve_gf_SetDialogItemRenderPriority(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, 521, PlayerGroupAll());
-  libNtve_gf_SetDialogItemStyle(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, "IdleButtonCharge", PlayerGroupAll());
-  DialogControlSetPositionRelative(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, PlayerGroupAll(), c_anchorCenter, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabelBackground, c_anchorCenter, 0, 0);
+  libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 67, 67, c_anchorCenter, 0, 0, StringToText(""), lv_talentIMG, c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+  DialogControlSetPositionRelative(DialogControlLastCreated(), PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 0, 0);
+  libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 130, 130, c_anchorCenter, 0, 0, StringToText(""), lv_buttonGlowIMG, c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+  lr_talent.buttonGlow = DialogControlLastCreated();
+  DialogControlSetPositionRelative(lr_talent.buttonGlow, PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 0, -2);
+  libNtve_gf_SetDialogItemRenderPriority(lr_talent.buttonGlow, 500, PlayerGroupAll());
+  libNtve_gf_CreateDialogItemImage(lr_player.talent.subTalentDialog[lp_tree], 60, 35, c_anchorCenter, 0, 0, StringToText(""), lv_buttonLabelIMG, c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
+  lr_talent.buttonLabelBackground = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemRenderPriority(lr_talent.buttonLabelBackground, 520, PlayerGroupAll());
+  DialogControlSetPositionRelative(lr_talent.buttonLabelBackground, PlayerGroupAll(), c_anchorCenter, lr_talent.button, c_anchorCenter, 25, 32);
+  libNtve_gf_CreateDialogItemLabel(lr_player.talent.subTalentDialog[lp_tree], 55, 20, c_anchorCenter, 0, 0, (StringExternal("Param/Value/lib_1_6FE57CC2") + StringExternal("Param/Value/lib_1_D30A5C78") + IntToText(lr_talent.maxRank)), Color(100,100,100), false, 2.0);
+  lr_talent.buttonLabel = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemRenderPriority(lr_talent.buttonLabel, 521, PlayerGroupAll());
+  libNtve_gf_SetDialogItemStyle(lr_talent.buttonLabel, "IdleButtonCharge", PlayerGroupAll());
+  DialogControlSetPositionRelative(lr_talent.buttonLabel, PlayerGroupAll(), c_anchorCenter, lr_talent.buttonLabelBackground, c_anchorCenter, 0, 0);
   if (lp_row != 0 || lp_talentPrerequisite != lib_talent_ge_TalentPrerequisite_None) {
-    DialogControlSetEnabled(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, PlayerGroupAll(), false);
-    DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonGlow, PlayerGroupAll(), false);
-    DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabelBackground, PlayerGroupAll(), false);
-    DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, PlayerGroupAll(), false);
+    DialogControlSetEnabled(lr_talent.button, PlayerGroupAll(), false);
+    DialogControlSetVisible(lr_talent.buttonGlow, PlayerGroupAll(), false);
+    DialogControlSetVisible(lr_talent.buttonLabelBackground, PlayerGroupAll(), false);
+    DialogControlSetVisible(lr_talent.buttonLabel, PlayerGroupAll(), false);
   }
 }

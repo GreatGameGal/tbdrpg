@@ -1,12 +1,8 @@
 bool gt_ResetStats_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!UnitIsAlive(gv_players[lv_playerIndex].dragon)) {
+    if (!UnitIsAlive(lr_player.dragon)) {
       return false;
     }
   }
@@ -14,29 +10,29 @@ bool gt_ResetStats_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  gv_players[lv_playerIndex].stats.attributePoints = 
-    UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) * 5 +
-    UnitGetPropertyInt(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) / gv_LevelsPerEvolution * 5;
-  gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
-  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
-  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lv_player, gv_players[lv_playerIndex].stats.agility);
-  gv_players[lv_playerIndex].stats.agility = 0;
-  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Ag", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.agility);
-  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lv_player, gv_players[lv_playerIndex].stats.dexterity);
-  gv_players[lv_playerIndex].stats.dexterity = 0;
-  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "De", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.dexterity);
-  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lv_player, gv_players[lv_playerIndex].stats.intelligence);
-  gv_players[lv_playerIndex].stats.intelligence = 0;
-  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Int", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.intelligence);
-  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lv_player, gv_players[lv_playerIndex].stats.strength);
-  gv_players[lv_playerIndex].stats.strength = 0;
-  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Str", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.strength);
-  UnitBehaviorRemovePlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lv_player, gv_players[lv_playerIndex].stats.vitality);
-  gv_players[lv_playerIndex].stats.vitality = 0;
-  BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "Vi", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.vitality);
-  gf_ShowStats(lv_player);
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/DFF4F8BA"));
+  lr_player.stats.attributePoints = 
+    UnitGetPropertyInt(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent) * 5 +
+    UnitGetPropertyInt(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent) / gv_LevelsPerEvolution * 5;
+  lr_player.stats.attributeText = IntToText(lr_player.stats.attributePoints);
+  libNtve_gf_SetDialogItemText(lr_player.stats.attributeDialog.textBox, lr_player.stats.attributeText, lr_player.playerGroupSingle);
+  BankValueSetFromInt(lr_player.banks.dragonBank, "AP", lr_player.hand, lr_player.stats.attributePoints);
+  UnitBehaviorRemovePlayer(lr_player.dragon, "AddAgility", lr_player.player, lr_player.stats.agility);
+  lr_player.stats.agility = 0;
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Ag", lr_player.hand, lr_player.stats.agility);
+  UnitBehaviorRemovePlayer(lr_player.dragon, "AddDexterity", lr_player.player, lr_player.stats.dexterity);
+  lr_player.stats.dexterity = 0;
+  BankValueSetFromInt(lr_player.banks.dragonBank, "De", lr_player.hand, lr_player.stats.dexterity);
+  UnitBehaviorRemovePlayer(lr_player.dragon, "AddIntelligence", lr_player.player, lr_player.stats.intelligence);
+  lr_player.stats.intelligence = 0;
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Int", lr_player.hand, lr_player.stats.intelligence);
+  UnitBehaviorRemovePlayer(lr_player.dragon, "AddStrength", lr_player.player, lr_player.stats.strength);
+  lr_player.stats.strength = 0;
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Str", lr_player.hand, lr_player.stats.strength);
+  UnitBehaviorRemovePlayer(lr_player.dragon, "AddVitality", lr_player.player, lr_player.stats.vitality);
+  lr_player.stats.vitality = 0;
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Vi", lr_player.hand, lr_player.stats.vitality);
+  gf_ShowStats(lr_player);
+  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/DFF4F8BA"));
   return true;
 }
 

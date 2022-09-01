@@ -1021,7 +1021,6 @@ Param/Value/10B63590=<c val="408080">Quest Reward:</c> 1,000 EXP, 10,000 Gold
 Param/Value/10D8A151=New Tip: Reset Stats
 Param/Value/10F95778=<c val="FF0000">Banks have been edited by Dragon RPG HR Team</c>
 Param/Value/110CADCD=Destroy 3rd Crystal of Venadas
-Param/Value/120F225F='s handle is 
 Param/Value/12E3CCA2=The Shadow's darkness snuffs out your portal.
 Param/Value/1300303A=Zeal
 Param/Value/13643487=Decline the quest
@@ -1071,7 +1070,6 @@ Param/Value/1E675D13=Felix
 Param/Value/1F3BFF86=Close
 Param/Value/1F45E83A=Potion Cooldown Active
 Param/Value/1F7CF99A=The Evil emanating from Sremagsi Lair prevents you from opening a portal.
-Param/Value/209E9C9C='s handle is 
 Param/Value/20CF433A=After you win a PvP match, you will be rewarded with vespene. This is used to win special prizes and rank you among your dragon companions.
 Param/Value/21386B3C=+
 Param/Value/21416A9C= / 
@@ -1204,7 +1202,6 @@ Param/Value/4647C1FD=Medium Health Potion Used
 Param/Value/46C69D04=REBORN UNLOCKED
 Param/Value/47238D0C=You will gain @% more gold from enemy kills.
 Param/Value/486C1EB8=5
-Param/Value/4872BA9E=Attribute Points
 Param/Value/487305A4=<c val="FFFF00">!</c>
 Param/Value/48B1F90D=<c val="408080">Quest Reward:</c> 25 EXP
 Param/Value/4906195F=DODGED
@@ -1235,7 +1232,6 @@ Param/Value/4CF0811B=Recommended Level:
 Param/Value/4D4A430E=Return to Felix
 Param/Value/4D7B649C=Use the waypoint to teleport to The Wasteland.
 Param/Value/4D82AEB8=Grand Health Potion Used
-Param/Value/4DA1CDE4=Feel free to exit at any time.
 Param/Value/4DBA1D44=Stash
 Param/Value/4DD46BB6=<c val="FFFF00">!</c>
 Param/Value/4DDEC3F1=Teleport to Ballan
@@ -1255,7 +1251,6 @@ Param/Value/513D3FB6=Ballan
 Param/Value/515280CE= Vs 
 Param/Value/517FDC8E=Kill Illisus
 Param/Value/5188E700=<c val="FF0000">You do not have enough Attribute Points.</c>
-Param/Value/51EFD861=Attribute Points
 Param/Value/52CCADF4=Petrose
 Param/Value/52E05A55=You gain @ energy for every 10 melee damage you do.
 Param/Value/52EA9DC9=You have not unlocked this container yet.
@@ -1310,7 +1305,6 @@ Param/Value/5DD4D756=You must beat the game in order to rebirth your dragon.
 Param/Value/5DE1E23C=Large Health Potion Used
 Param/Value/5DEC9FB0=<c val="408080">Quest Reward:</c> 2000 EXP, Miner Armor
 Param/Value/5E035CF9=A wild <c val="FF0000">Alpha Srepti</c> has appeared
-Param/Value/5E3610F6=You may press ESC to exit the video at any time.
 Param/Value/5E3A1B4B=The only hope lay with the few remaining dragons.
 Param/Value/5E52AED5=?
 Param/Value/5EE0564A=Kill Sremagsi
@@ -1456,7 +1450,6 @@ Param/Value/82067E73=<c val="408080">Recommended Level:</c> 3+
 Param/Value/8234D839=10,000 have fallen. Nosferatu has risen.
 Param/Value/826CFAF2=Lanae
 Param/Value/836C72B8=!
-Param/Value/84C9CF79=You may press ESC to exit the video at any time.
 Param/Value/84E73369=<c val="FF0000">--------------------Created--------------------</c><n/><n/>+Hero (Mathew Kelly)<n/><n/><c val="FF0000">--------------------Admins--------------------</c><n/><n/>+Greed<n/>+EternalToss<n/>+MarineEmpire<n/><n/><c val="FF0000">--------------------Moderators--------------------</c><n/><n/>+Alchemy<n/>+Maddawg5450<n/><n/><c val="FF0000">--------------------Donators--------------------</c><n/><n/>+Seryn<n/>+Wingcrafter<n/>+Greed<n/>+Ripper
 Param/Value/85A14F42=Increases sight radius by @.
 Param/Value/85D0040F=<c val="FF0000">Dragon's Nest (Safe Zone)</c><n/><n/>
@@ -1549,7 +1542,6 @@ Param/Value/9DDB595D=<c val="FF0000">Syrital</c>
 Param/Value/9E26A307=Like I was saying earlier, the waypoints serve two functions. The first one was the respawn mechanism. The second is a portal through the very fabric of space. When you have found and activated two portals, then you can teleport between them. The first thing that I want you to do, is find the other one of these portals that is located in Ballan, the city to the East of here. Once you are there activate the portal, and teleport back here.
 Param/Value/9E82069B=<c val="0000FF">Respawn Point Set</c>
 Param/Value/9E8D5C69=<c val="FF0000">Relamy Canyon</c><n/>Level 10+
-Param/Value/9EA6C311=Attribute Points
 Param/Value/9F4902CB=Music Credits
 Param/Value/9F536067=Go have some fun.
 Param/Value/9F56823C=EAT THEIR SOULS!
@@ -1574,7 +1566,6 @@ Param/Value/A43FC730= has slayed
 Param/Value/A462C35B=Increases detection radius of "All Seeing Eye" by @.
 Param/Value/A464F39D=( 
 Param/Value/A494C013= life remaining.
-Param/Value/A4C19533=You may press ESC to exit the video at any time.
 Param/Value/A4E28FF5=Kill 30 Karramarros
 Param/Value/A4EF394E=Zauberer
 Param/Value/A575EF6C=( 
@@ -1784,10 +1775,8 @@ Param/Value/E1B1A405=Muscle Enhancement
 Param/Value/E1F8BA32=Madawc has been killed.
 Param/Value/E1F95815=See there you go, much better. For each piece of armor that you have on, you will take 1% less damage from enemy attacks. So if you have 25 armor and normally take 100 damage, you will only take 75 damage. This can really come in handy when facing tougher opponents. As promised you can keep the armor, I don't need it anyway. Talk to me again when you are ready to do your next quest.
 Param/Value/E213BE40=<c val="FFFF00">?</c>
-Param/Value/E2363CFF=Reviving
 Param/Value/E253F21A=Activate Ballan Waypoint
 Param/Value/E289DC4A=<c val="FF0000">You do not have enough Attribute Points.</c>
-Param/Value/E2AE18A4='s handle is 
 Param/Value/E2CCFAE5=When you are struck by an attack, you will have a @% chance to become invisible for 2 seconds.
 Param/Value/E2E4F016=Gold Drop +0.1%(MBB)
 Param/Value/E3059D1E=@% chance that ranged attacks will do double damage.
@@ -1831,7 +1820,6 @@ Param/Value/ED00BDE2=Nice! Now you can enter the Verboten Forest and kill Sremag
 Param/Value/ED6D1F51=Medium Health Potion Used
 Param/Value/EF0BD040=+
 Param/Value/EF1ACC9A=Alright, now that you are equipped with some armor, we can move onto killing enemies. Zauberer has plenty of enemies around Celesta and you will have to be able to take them down in order to level up and become more powerful. The first thing I want you to do is kill one of these Small Sheep.
-Param/Value/EF723C2C=Feel free to exit at any time.
 Param/Value/EFCF1DB3=Purchesed Facet of Revenge
 Param/Value/F00A522E= / 100 )
 Param/Value/F02CB623=Small Health Potion Used
@@ -1847,7 +1835,6 @@ Param/Value/F1D75D0F=!
 Param/Value/F24E8F1E=<c val="0000FF">Y</c><c val="0005F9">o</c><c val="000CF2">u</c><c val="0013EB">r</c><c val="0019E5"> </c><c val="0020DE">B</c><c val="0027D7">a</c><c val="002DD1">b</c><c val="0034CA">y</c><c val="003BC3"> </c><c val="0042BC">D</c><c val="0048B6">r</c><c val="004FAF">a</c><c val="0056A8">g</c><c val="005CA2">o</c><c val="00639B">n</c><c val="006A94"> </c><c val="00718D">i</c><c val="007787">s</c><c val="007E80"> </c><c val="008579">n</c><c val="008B73">o</c><c val="00926C">w</c><c val="009965"> </c><c val="00A05E">a</c><c val="00A658"> </c><c val="00AD51">T</c><c val="00B44A">e</c><c val="00BA44">e</c><c val="00C13D">n</c><c val="00C836"> </c><c val="00CF2F">D</c><c val="00D529">r</c><c val="00DC22">a</c><c val="00E31B">g</c><c val="00E915">o</c><c val="00F00E">n</c><c val="00F707">.</c>
 Param/Value/F26350EA=+
 Param/Value/F2677025=<c val="0000FF">Respawn Point Set</c>
-Param/Value/F2688FE5=Do not exit or your data will be lost!
 Param/Value/F2B500F3=EAT THEIR SOULS!
 Param/Value/F3003B53=<c val="FFFF00">?</c>
 Param/Value/F3203442=<c val="408080">Quest Reward:</c> 1,500 EXP, 7,500 Gold

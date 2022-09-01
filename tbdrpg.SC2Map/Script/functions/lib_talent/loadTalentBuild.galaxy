@@ -1,4 +1,4 @@
-void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, int lp_player) {
+void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, playerData_r lr_player) {
   int lv_tree;
   int lv_row;
   int lv_column;
@@ -6,158 +6,159 @@ void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, int l
   bank lv_talentBank;
   int lv_talentIndex;
   int lv_talentStringIndex;
-  int lv_playerIndex;
   int lv_talentCurrentRank;
   int lv_tierPointsRequired;
   int lv_prerequisiteIndex;
+  talentData_r lr_talent;
 
-  lv_playerIndex = lp_player - 1;
 
-  BankLoad("DQRPGTalentLibraryBank", lp_player);
+  BankLoad("DQRPGTalentLibraryBank", lr_player.player);
   lv_talentBank = BankLastCreated();
-  gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] = "";
+  lr_player.talent.buildStrings[lp_buildIndex] = "";
 
-  gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] = BankValueGetAsString(lv_talentBank, lp_bankName, IntToString(lp_buildIndex));
-  if (gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex] == null) {
-    lib_talent_gf_ResetTalentBuild(lp_player, UnitLevel(gv_players[lv_playerIndex].dragon) + UnitLevel(gv_players[lv_playerIndex].dragon) / gv_LevelsPerEvolution);
+  lr_player.talent.buildStrings[lp_buildIndex] = BankValueGetAsString(lv_talentBank, lp_bankName, IntToString(lp_buildIndex));
+  if (lr_player.talent.buildStrings[lp_buildIndex] == null) {
+    lib_talent_gf_ResetTalentBuild(lr_player, UnitLevel(lr_player.dragon) + UnitLevel(lr_player.dragon) / gv_LevelsPerEvolution);
     return;
   }
-  if (StringLength(gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex]) != lib_talent_gv_TALENTCOUNT * 2) {
-    UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/lib_1_TALENT_LOAD_RESET"));
-    lib_talent_gf_ResetTalentBuild(lp_player, UnitLevel(gv_players[lv_playerIndex].dragon) + UnitLevel(gv_players[lv_playerIndex].dragon) / gv_LevelsPerEvolution);
+  if (StringLength(lr_player.talent.buildStrings[lp_buildIndex]) != lib_talent_gv_TALENTCOUNT * 2) {
+    UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/lib_1_TALENT_LOAD_RESET"));
+    lib_talent_gf_ResetTalentBuild(lr_player, UnitLevel(lr_player.dragon) + UnitLevel(lr_player.dragon) / gv_LevelsPerEvolution);
     return;
   }
-  lib_talent_gf_ResetTalentBuild(lp_player, 1);
-  gv_players[lv_playerIndex].talent.availablePoints = BankValueGetAsInt(lv_talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex));
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.availablePointsLabel, IntToText(gv_players[lv_playerIndex].talent.availablePoints), PlayerGroupAll());
+  lib_talent_gf_ResetTalentBuild(lr_player, 1);
+  lr_player.talent.availablePoints = BankValueGetAsInt(lv_talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex));
+  libNtve_gf_SetDialogItemText(lr_player.talent.availablePointsLabel, IntToText(lr_player.talent.availablePoints), PlayerGroupAll());
   for (lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
-    if (!gv_players[lv_playerIndex].talent.talents[lv_talentIndex].isUsed) {
+    lr_talent = lr_player.talent.talents[lv_talentIndex];
+    if (!lr_talent.isUsed) {
       continue;
     }
-    lv_tree = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree;
-    lv_row = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].row;
-    lv_column = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].column;
+    lv_tree = lr_talent.tree;
+    lv_row = lr_talent.row;
+    lv_column = lr_talent.column;
     lv_talentStringIndex = lv_talentIndex * 2 + 1;
     // Uses the min function to ensure it isn't greater than the max rank.
     lv_talentCurrentRank = MinI(
-      StringToInt(StringSub(gv_players[lv_playerIndex].talent.buildStrings[lp_buildIndex], lv_talentStringIndex, lv_talentStringIndex + 1)),
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank
+      StringToInt(StringSub(lr_player.talent.buildStrings[lp_buildIndex], lv_talentStringIndex, lv_talentStringIndex + 1)),
+      lr_talent.maxRank
     );
-    gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank = lv_talentCurrentRank;
-    gv_players[lv_playerIndex].talent.pointsInTree[lv_tree] += lv_talentCurrentRank;
-    gv_players[lv_playerIndex].talent.spentPoints += lv_talentCurrentRank;
+    lr_talent.rank = lv_talentCurrentRank;
+    lr_player.talent.pointsInTree[lv_tree] += lv_talentCurrentRank;
+    lr_player.talent.spentPoints += lv_talentCurrentRank;
 
-    if (lv_talentCurrentRank > 0 && gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade != null) { 
-      libNtve_gf_SetUpgradeLevelForPlayer(lp_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade, lv_talentCurrentRank);
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StrengthoftheDragon")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StrengthoftheDragon", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.strengthOfTheDragon += lv_talentCurrentRank;
+    if (lv_talentCurrentRank > 0 && lr_talent.upgrade != null) { 
+      libNtve_gf_SetUpgradeLevelForPlayer(lr_player.player, lr_talent.upgrade, lv_talentCurrentRank);
+      if ((lr_talent.upgrade == "StrengthoftheDragon")) {
+        UnitBehaviorAdd(lr_player.dragon, "StrengthoftheDragon", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.strengthOfTheDragon += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "MindoftheDragon")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "MindoftheDragon", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.mindOfTheDragon += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "MindoftheDragon")) {
+        UnitBehaviorAdd(lr_player.dragon, "MindoftheDragon", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.mindOfTheDragon += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "PowerOverwhelming")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "PowerOverwhelming", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.powerOverwhelming += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "PowerOverwhelming")) {
+        UnitBehaviorAdd(lr_player.dragon, "PowerOverwhelming", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.powerOverwhelming += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Rage")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Rage", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.rage += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "Rage")) {
+        UnitBehaviorAdd(lr_player.dragon, "Rage", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.rage += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "VampiricTendencies")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "VampiricTendencies", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.vampiricTendencies += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "VampiricTendencies")) {
+        UnitBehaviorAdd(lr_player.dragon, "VampiricTendencies", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.vampiricTendencies += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "CriticalCrepitus")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "CriticalCrepitus", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.criticalCrepitus += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "CriticalCrepitus")) {
+        UnitBehaviorAdd(lr_player.dragon, "CriticalCrepitus", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.criticalCrepitus += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Zeal")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Zeal", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.zeal += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "Zeal")) {
+        UnitBehaviorAdd(lr_player.dragon, "Zeal", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.zeal += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DarkDissulto")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DarkDissulto", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.darkDissulto += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "DarkDissulto")) {
+        UnitBehaviorAdd(lr_player.dragon, "DarkDissulto", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.darkDissulto += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "SpikedScales")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "SpikedScales", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.spikedScales += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "SpikedScales")) {
+        UnitBehaviorAdd(lr_player.dragon, "SpikedScales", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.spikedScales += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Retaliation")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Retaliation", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.retaliation += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "Retaliation")) {
+        UnitBehaviorAdd(lr_player.dragon, "Retaliation", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.retaliation += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "Headshot")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "Headshot", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.headshot += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "Headshot")) {
+        UnitBehaviorAdd(lr_player.dragon, "Headshot", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.headshot += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "StickyShot")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "StickyShot", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.stickyShot += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "StickyShot")) {
+        UnitBehaviorAdd(lr_player.dragon, "StickyShot", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.stickyShot += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "DuelWield")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "DualWield", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.dualWield += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "DuelWield")) {
+        UnitBehaviorAdd(lr_player.dragon, "DualWield", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.dualWield += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "GreedisGood")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "GreedIsGood", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.greedIsGood += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "GreedisGood")) {
+        UnitBehaviorAdd(lr_player.dragon, "GreedIsGood", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.greedIsGood += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "QuickLearner")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "QuickLearner", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.quickLearner += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "QuickLearner")) {
+        UnitBehaviorAdd(lr_player.dragon, "QuickLearner", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.quickLearner += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "AbsorbMana")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "AbsorbMana", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.absorbMana += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "AbsorbMana")) {
+        UnitBehaviorAdd(lr_player.dragon, "AbsorbMana", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.absorbMana += lv_talentCurrentRank;
       }
-      if ((gv_players[lv_playerIndex].talent.talents[lv_talentIndex].upgrade == "RealmSwitch")) {
-        UnitBehaviorAdd(gv_players[lv_playerIndex].dragon, "RealmSwitch", gv_players[lv_playerIndex].dragon, lv_talentCurrentRank);
-        gv_players[lv_playerIndex].talent.realmSwitch += lv_talentCurrentRank;
+      if ((lr_talent.upgrade == "RealmSwitch")) {
+        UnitBehaviorAdd(lr_player.dragon, "RealmSwitch", lr_player.dragon, lv_talentCurrentRank);
+        lr_player.talent.realmSwitch += lv_talentCurrentRank;
       }
     } 
   }
   
   // Shut up this function should be so rarely called that this shouldn't be a problem.
   for (lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
-    if (!gv_players[lv_playerIndex].talent.talents[lv_talentIndex].isUsed) {
+    lr_talent = lr_player.talent.talents[lv_talentIndex];
+    if (!lr_talent.isUsed) {
       continue;
     }
     
-    lv_tree = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree;
-    lv_row = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].row;
-    lv_column = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].column;
-    lv_tierPointsRequired = gv_players[lv_playerIndex].talent.pointsPerTier * lv_row;
-    lv_prerequisiteIndex = gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs;
+    lv_tree = lr_talent.tree;
+    lv_row = lr_talent.row;
+    lv_column = lr_talent.column;
+    lv_tierPointsRequired = lr_player.talent.pointsPerTier * lv_row;
+    lv_prerequisiteIndex = lr_talent.prerequisiteIs;
     
     // Disable the buttons first, enabling them if necessary.
-    DialogControlSetEnabled(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, PlayerGroupAll(), false);
-    DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonGlow, PlayerGroupAll(), false);
-    DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, PlayerGroupAll(), false);
-    DialogControlSetVisible(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabelBackground, PlayerGroupAll(), false);
+    DialogControlSetEnabled(lr_talent.button, PlayerGroupAll(), false);
+    DialogControlSetVisible(lr_talent.buttonGlow, PlayerGroupAll(), false);
+    DialogControlSetVisible(lr_talent.buttonLabel, PlayerGroupAll(), false);
+    DialogControlSetVisible(lr_talent.buttonLabelBackground, PlayerGroupAll(), false);
     
     if (
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteIs == -1 ||
+      lr_talent.prerequisiteIs == -1 ||
       (
-        gv_players[lv_playerIndex].talent.talents[lv_prerequisiteIndex].rank >= gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisiteRequiredRank &&
-        gv_players[lv_playerIndex].talent.pointsInTree[lv_tree] > lv_tierPointsRequired
+        lr_player.talent.talents[lv_prerequisiteIndex].rank >= lr_talent.prerequisiteRequiredRank &&
+        lr_player.talent.pointsInTree[lv_tree] > lv_tierPointsRequired
       ) ||
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank > 0
+      lr_talent.rank > 0
     ) {
-      gv_players[lv_playerIndex].talent.talents[lv_talentIndex].prerequisitesComplete = true;
+      lr_talent.prerequisitesComplete = true;
       // Internal logic in this function will handle if and how it should be unlocked.
-      lib_talent_gf_UnlockTalentButton(lp_player, lv_tree, lv_column, lv_row);
+      lib_talent_gf_UnlockTalentButton(lr_player, lv_tree, lv_column, lv_row);
     } else {
-      if (gv_players[lv_playerIndex].talent.talents[lv_talentIndex].type == lib_talent_ge_TalentType_Ability) {
-        lib_talent_gf_UpdateAbilityButtonTooltip(lp_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, lv_talentIndex, lv_tierPointsRequired, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].abilityLink, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLink);
+      if (lr_talent.type == lib_talent_ge_TalentType_Ability) {
+        lib_talent_gf_UpdateAbilityButtonTooltip(lr_player, lr_talent.button, lv_talentIndex, lv_tierPointsRequired, lr_talent.tree, lr_talent.abilityLink, lr_talent.buttonLink);
       }
-      else if (gv_players[lv_playerIndex].talent.talents[lv_talentIndex].type == lib_talent_ge_TalentType_Passive) {
-        lib_talent_gf_UpdatePassiveButtonTooltip(lp_player, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].button, lv_talentIndex, lv_tierPointsRequired, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tree, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].name, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].tooltipDescription, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank, gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[0], gv_players[lv_playerIndex].talent.talents[lv_talentIndex].multiplier[1]);
+      else if (lr_talent.type == lib_talent_ge_TalentType_Passive) {
+        lib_talent_gf_UpdatePassiveButtonTooltip(lr_player, lr_talent.button, lv_talentIndex, lv_tierPointsRequired, lr_talent.tree, lr_talent.name, lr_talent.tooltipDescription, lr_talent.rank, lr_talent.multiplier[0], lr_talent.multiplier[1]);
       }
     }
-    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].buttonLabel, (IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].rank) + StringExternal("Param/Value/lib_1_D81739DA") + IntToText(gv_players[lv_playerIndex].talent.talents[lv_talentIndex].maxRank)), PlayerGroupAll());
+    libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.rank) + StringExternal("Param/Value/lib_1_D81739DA") + IntToText(lr_talent.maxRank)), PlayerGroupAll());
     
   }
   

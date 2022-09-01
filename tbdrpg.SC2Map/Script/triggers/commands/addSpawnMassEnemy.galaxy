@@ -1,12 +1,8 @@
 bool gt_SpawnMassEnemyUnit_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }
@@ -14,7 +10,7 @@ bool gt_SpawnMassEnemyUnit_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  libNtve_gf_UnitCreateFacingPoint(50, (StringSub(EventChatMessage(false), 10, StringLength(EventChatMessage(false)))), c_unitCreateIgnorePlacement, 15, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetPosition(gv_players[lv_playerIndex].dragon));
+  libNtve_gf_UnitCreateFacingPoint(50, (StringSub(EventChatMessage(false), 10, StringLength(EventChatMessage(false)))), c_unitCreateIgnorePlacement, 15, UnitGetPosition(lr_player.dragon), UnitGetPosition(lr_player.dragon));
   return true;
 }
 

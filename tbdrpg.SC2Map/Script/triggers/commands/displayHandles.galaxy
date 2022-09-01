@@ -1,17 +1,13 @@
 bool gt_GetHandle_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  int lv_i;
 
   if (!runActions) {
     return true;
   }
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(1) + (StringExternal("Param/Value/86DAF636") + StringToText(PlayerHandle(1)))));
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(2) + (StringExternal("Param/Value/120F225F") + StringToText(PlayerHandle(2)))));
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(3) + (StringExternal("Param/Value/209E9C9C") + StringToText(PlayerHandle(3)))));
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (PlayerName(4) + (StringExternal("Param/Value/E2AE18A4") + StringToText(PlayerHandle(4)))));
+  for(lv_i = 1; lv_i < 5; lv_i += 1) {
+    UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, PlayerName(lv_i) + StringExternal("Param/Value/86DAF636") + StringToText(gv_players[lv_i - 1].hand));
+  }
   return true;
 }
 

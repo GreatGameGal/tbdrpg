@@ -1,12 +1,8 @@
 bool gt_LevelDebug_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }
@@ -14,8 +10,8 @@ bool gt_LevelDebug_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  if (!gv_evolving[lv_playerIndex]) {
-    UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, (UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent) + 1.0));
+  if (!lr_player.state.evolving) {
+    UnitSetPropertyFixed(lr_player.dragon, c_unitPropLevel, (UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent) + 1.0));
   }
   return true;
 }

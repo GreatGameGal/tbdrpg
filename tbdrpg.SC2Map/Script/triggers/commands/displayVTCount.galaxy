@@ -1,15 +1,11 @@
 bool gt_VTCount_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
   }
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F4A2B359") + IntToText(UnitBehaviorCount(gv_players[lv_playerIndex].dragon, "VampiricTendencies"))));
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F6C42C62") + IntToText(gv_players[lv_playerIndex].talent.vampiricTendencies)));
+  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F4A2B359") + IntToText(UnitBehaviorCount(lr_player.dragon, "VampiricTendencies"))));
+  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F6C42C62") + IntToText(lr_player.talent.vampiricTendencies)));
   return true;
 }
 

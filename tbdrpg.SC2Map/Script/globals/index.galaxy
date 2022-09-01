@@ -1,5 +1,6 @@
 include "Script/globals/constants"
 include "Script/globals/structs"
+include "Script/globals/types"
 include "Script/globals/variables" // Structs need to be loaded before other vars in case the other vars include a struct.
 include "Script/globals/functions"
 include "Script/globals/triggers"

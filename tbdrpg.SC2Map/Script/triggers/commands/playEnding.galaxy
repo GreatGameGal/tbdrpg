@@ -1,10 +1,8 @@
 bool gt_ViewEnding_Func (bool testConds, bool runActions) {
-  int lv_player;
-
-  lv_player = EventPlayer();
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }
@@ -12,7 +10,7 @@ bool gt_ViewEnding_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  PlayerGroupAdd(gv_playerswatchingendingcinematic, lv_player);
+  PlayerGroupAdd(gv_playerswatchingendingcinematic, lr_player.player);
   TriggerExecute(gt_EndingCinematic, true, false);
   return true;
 }

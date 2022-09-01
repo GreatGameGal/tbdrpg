@@ -1,26 +1,16 @@
 bool gt_ResetQuest_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  int lv_i;
 
   if (!runActions) {
     return true;
   }
-  ObjectiveDestroyAll(gv_players[lv_playerIndex].playerGroupSingle);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[0].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[1].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[2].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[3].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[4].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[5].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[6].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[7].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[8].ping);
-  PingDestroy(gv_players[lv_playerIndex].quests.storyQuests[9].ping);
-  gf_SQ0Setup(lv_player);
-  UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/57E33316"));
+  ObjectiveDestroyAll(lr_player.playerGroupSingle);
+  for(lv_i = 0; lv_i < 10; lv_i += 1) {
+    PingDestroy(lr_player.quests.storyQuests[lv_i].ping);
+  }
+  gf_SQ0Setup(lr_player);
+  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/57E33316"));
   return true;
 }
 

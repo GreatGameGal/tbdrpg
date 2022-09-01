@@ -12,7 +12,12 @@ struct arenaData {
   int wins;
   int losses;
 };
-struct dialogObj {
+struct currencyData {
+  int gold;
+  int pvpPoints;
+  int shards;
+};
+struct dialogData {
   // Standard dialogs
   int state;
   int textBox;
@@ -27,6 +32,10 @@ struct dialogObj {
   // Talent Dialog
   int button;
 };
+struct dyingTimerData {
+  timer time;
+  int window;
+};
 struct rebornData {
   int count;
   int maxHP;
@@ -40,10 +49,10 @@ struct rebornData {
   int itemDrop;
   int regen;
   int points;
-  dialogObj dialog;
-  dialogObj buttonDialog;
+  dialogData dialog;
+  dialogData buttonDialog;
 };
-struct questObj {
+struct questData {
   int state;
   int objective;
   int kills;
@@ -51,37 +60,26 @@ struct questObj {
   int textTag;
   int ping;
 };
-struct questData {
+struct questsData {
   bool talking;
-  dialogObj questDialog;
-  dialogObj talkDialog;
-  dialogObj rewardDialog;
+  dialogData questDialog;
+  dialogData talkDialog;
+  dialogData rewardDialog;
   
-  questObj[10] storyQuests;
-  questObj[6] manaQuests;
-  questObj[2] baseQuests;
-  questObj[1] detsefniQuests;
-  questObj[1] sergeantListerQuests;
-  questObj[1] greedQuests;
-  questObj[1] madelineQuests;
-  questObj[1] malinQuests;
-  questObj[1] ampQuests;
-  questObj[1] altossQuests;
-  questObj[1] oleumQuests;
-  questObj[1] serynQuests;
-};
-struct statData {
-  int level;
-  int agility;
-  int dexterity;
-  int intelligence;
-  int strength;
-  int vitality;
-  int attributePoints;
-  bool addingAttribute;
-  arenaData arena;
-  rebornData reborn;
-  dialogObj attributeDialog;
+  questData[10] storyQuests;
+  questData[6] manaQuests;
+  questData[2] baseQuests;
+  questData[1] detsefniQuests;
+  questData[1] sergeantListerQuests;
+  questData[1] greedQuests;
+  questData[1] madelineQuests;
+  questData[1] malinQuests;
+  questData[1] ampQuests;
+  questData[1] altossQuests;
+  questData[1] oleumQuests;
+  questData[1] serynQuests;
+
+  unit manaQuest0Armour;
 };
 struct skillData {
   int frostSpike;
@@ -93,7 +91,7 @@ struct skillData {
   int flameEgg;
   int inferno;
   int nova;
-
+  
   bool fireSkin;
   bool allSeeingEye;
   bool warningOcculus;
@@ -103,7 +101,37 @@ struct skillData {
   bool protectionStone;
   bool quickeningRing;
 };
-struct talentObj {
+struct stateData {
+  bool beatGame;
+  bool dying;
+  bool evolving;
+  bool fightWithPlagam;
+  bool fightWithSremagsi;
+  bool fightWithSyrital;
+  bool fightWithGuardians;
+  bool inCinematic;
+  bool infestationSpawned;
+  bool isIdle;
+  bool isSavingExiting;
+  bool preventSave;
+  bool reapplyingBuffs;
+  bool seenIntro;
+};
+struct statsData {
+  int level;
+  int agility;
+  int dexterity;
+  int intelligence;
+  int strength;
+  int vitality;
+  int attributePoints;
+  bool addingAttribute;
+  text attributeText;
+  arenaData arena;
+  rebornData reborn;
+  dialogData attributeDialog;
+};
+struct talentData {
   // UI Data
   int button;
   int buttonGlow;
@@ -131,18 +159,18 @@ struct talentObj {
   int rank;
   bool prerequisitesComplete;
 };
-struct talentData {
+struct talentsData {
   bool locked;
   bool adding;
   
-  talentObj[lib_talent_gv_TALENTCOUNT] talents;
+  talentData[lib_talent_gv_TALENTCOUNT] talents;
   // Talent Tree UI data.
   int mainTalentDialog;
   int availablePointsLabel;
   int availablePointsDialog;
   int closeTalentTreeButton;
   int[3] subTalentDialog;
-  dialogObj talentDialog;
+  dialogData talentDialog;
 
   // Talent Tree form data.
   text[3] talentTreeNames;
@@ -192,22 +220,36 @@ struct verificationData {
   bool dragon;
 };
 struct stashData {
-  unit sashUnit;
+  unit stashUnit;
   point location;
 };
 struct playerData {
-  questData quests;
-  statData stats;
-  skillData skills;
   bankData banks;
+  currencyData currency;
+  dialogData locationDialog;
+  dyingTimerData dyingTimer;
+  questsData quests;
+  skillData skills;
   stashData stash;
-  talentData talent;
+  stateData state;
+  statsData stats;
+  talentsData talent;
   verificationData verification;
-  unit dragon;
+  bool[5] waypointUnlocked;
+  int player;
   int type;
-  bool inCinematic;
-  bool beatGame;
-  bool seenIntro;
-  dialogObj locationDialog;
+  fixed[gv_StackableTypeCount] stackableCount;
   playergroup playerGroupSingle;
+  point respawnPoint;
+  revealer guardianRevealer;
+  revealer zauberer1stFormRevealer;
+  sound syritalTheme;
+  sound plagamTheme;
+  sound sremagsiTheme;
+  string hand;
+  string locationString;
+  text locationText;
+  trigger infestationSpawnTrigger;
+  unit dragon;
+  unit[6][25] inventory;
 };

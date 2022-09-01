@@ -1,10 +1,8 @@
 bool gt_ChaosHack_Func (bool testConds, bool runActions) {
-  int lv_player;
-
-  lv_player = EventPlayer();
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }

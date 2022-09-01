@@ -28,6 +28,8 @@ const int gv_MaxIntelligence = 500;
 const int gv_MaxStrength = 500;
 const int gv_MaxVitality = 500;
 
+const int gv_StackableTypeCount = 9;
+
 // Library Consts.
 const int lib_talent_ge_ColorScheme_Blue = 0;
 const int lib_talent_ge_ColorScheme_Green = 1;

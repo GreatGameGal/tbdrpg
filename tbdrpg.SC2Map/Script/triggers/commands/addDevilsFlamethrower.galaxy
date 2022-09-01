@@ -1,12 +1,8 @@
 bool gt_DevilsFlamethrower_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player) && !(PlayerHandle(lv_player) != "1-S2-1-2755172")) {
+    if (!gf_IsAdmin(lr_player.hand) && lr_player.hand != "1-S2-1-2755172") {
       return false;
     }
   }
@@ -14,7 +10,7 @@ bool gt_DevilsFlamethrower_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "DevilsFlamethrower");
+  UnitInventoryCreate(lr_player.dragon, "DevilsFlamethrower");
   return true;
 }
 

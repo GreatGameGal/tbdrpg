@@ -1,13 +1,7 @@
-void gf_HideStats (int lp_player) {
-  int lv_playerIndex;
-  unit lv_hero;
-
-  lv_playerIndex = lp_player - 1;
-  lv_hero = gv_players[lv_playerIndex].dragon;
-
-  UnitAbilityShow(lv_hero, "Strength1", false);
-  UnitAbilityShow(lv_hero, "Vitality1", false);
-  UnitAbilityShow(lv_hero, "Intelligence1", false);
-  UnitAbilityShow(lv_hero, "Dexterity1", false);
-  UnitAbilityShow(lv_hero, "Agility1", false);
+void gf_HideStats (playerData_r lr_player) {
+  UnitAbilityShow(lr_player.dragon, "Strength1", false);
+  UnitAbilityShow(lr_player.dragon, "Vitality1", false);
+  UnitAbilityShow(lr_player.dragon, "Intelligence1", false);
+  UnitAbilityShow(lr_player.dragon, "Dexterity1", false);
+  UnitAbilityShow(lr_player.dragon, "Agility1", false);
 }

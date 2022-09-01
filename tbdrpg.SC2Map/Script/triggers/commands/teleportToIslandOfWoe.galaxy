@@ -1,12 +1,8 @@
 bool gt_IslandofWoecheat_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }
@@ -14,7 +10,7 @@ bool gt_IslandofWoecheat_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  UnitSetPosition(gv_players[lv_playerIndex].dragon, RegionGetCenter(RegionFromId(193)), false);
+  UnitSetPosition(lr_player.dragon, RegionGetCenter(RegionFromId(193)), false);
   return true;
 }
 

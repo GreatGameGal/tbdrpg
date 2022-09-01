@@ -1,19 +1,8 @@
 bool gt_MaxStats_Func (bool testConds, bool runActions) {
-
-  int lv_tempAgility;
-  int lv_tempDexterity;
-  int lv_tempIntelligence;
-  int lv_tempStrength;
-  int lv_tempVitality;
-  int lv_tempReborn;
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
   
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }
@@ -21,37 +10,22 @@ bool gt_MaxStats_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  gv_players[lv_playerIndex].stats.agility = 100;
-  gv_players[lv_playerIndex].stats.intelligence = 500;
-  gv_players[lv_playerIndex].stats.dexterity = 500;
-  gv_players[lv_playerIndex].stats.strength = 500;
-  gv_players[lv_playerIndex].stats.vitality = 500;
-  gv_players[lv_playerIndex].stats.attributePoints = 0;
-  lv_tempVitality = gv_players[lv_playerIndex].stats.vitality;
-  lv_tempStrength = gv_players[lv_playerIndex].stats.strength;
-  lv_tempIntelligence = gv_players[lv_playerIndex].stats.intelligence;
-  lv_tempDexterity = gv_players[lv_playerIndex].stats.dexterity;
-  lv_tempAgility = gv_players[lv_playerIndex].stats.agility;
-  while ((lv_tempVitality > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lv_player, 1);
-    lv_tempVitality = (lv_tempVitality - 1);
-  }
-  while ((lv_tempStrength > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lv_player, 1);
-    lv_tempStrength = (lv_tempStrength - 1);
-  }
-  while ((lv_tempIntelligence > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lv_player, 1);
-    lv_tempIntelligence = (lv_tempIntelligence - 1);
-  }
-  while ((lv_tempDexterity > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lv_player, 1);
-    lv_tempDexterity = (lv_tempDexterity - 1);
-  }
-  while ((lv_tempAgility > 0)) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lv_player, 1);
-    lv_tempAgility = (lv_tempAgility - 1);
-  }
+  lr_player.stats.addingAttribute = true;
+
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddAgility", lr_player.player, gv_MaxAgility);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddDexterity", lr_player.player, gv_MaxDexterity - lr_player.stats.dexterity);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddIntelligence", lr_player.player, gv_MaxIntelligence - lr_player.stats.intelligence);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddStrength", lr_player.player, gv_MaxStrength - lr_player.stats.strength);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddVitality", lr_player.player, gv_MaxVitality - lr_player.stats.vitality);
+  lr_player.stats.agility = 100;
+  lr_player.stats.dexterity = 500;
+  lr_player.stats.intelligence = 500;
+  lr_player.stats.strength = 500;
+  lr_player.stats.vitality = 500;
+  lr_player.stats.attributePoints = 0;
+
+  lr_player.stats.addingAttribute = false;
+
   return true;
 }
 

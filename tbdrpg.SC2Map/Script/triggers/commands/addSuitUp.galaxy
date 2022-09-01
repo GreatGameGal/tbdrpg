@@ -1,12 +1,9 @@
 bool gt_SuitUp_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
-
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  int lv_i;
 
   if (testConds) {
-    if (!gf_IsAdmin(lv_player)) {
+    if (!gf_IsAdmin(lr_player.hand)) {
       return false;
     }
   }
@@ -14,13 +11,11 @@ bool gt_SuitUp_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "ModArmor");
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "GodlyClaws");
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
-  UnitInventoryCreate(gv_players[lv_playerIndex].dragon, "FluxCapacitor");
+  UnitInventoryCreate(lr_player.dragon, "ModArmor");
+  UnitInventoryCreate(lr_player.dragon, "GodlyClaws");
+  for(lv_i = 0; lv_i < 5; lv_i += 1) {
+    UnitInventoryCreate(lr_player.dragon, "FluxCapacitor");
+  }
   return true;
 }
 

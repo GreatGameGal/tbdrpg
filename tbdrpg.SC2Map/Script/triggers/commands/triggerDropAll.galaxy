@@ -1,15 +1,12 @@
 bool gt_DropAll_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  lv_player = EventPlayer();
-  lv_playerIndex = lv_player - 1;
   if (!runActions) {
     return true;
   }
-  UnitGroupLoopBegin(UnitInventoryGroup(gv_players[lv_playerIndex].dragon));
+  UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon));
   for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
-    UnitCreate(1, UnitGetType(UnitGroupLoopCurrent()), 0, lv_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), libNtve_gf_RandomAngle());
+    UnitCreate(1, UnitGetType(UnitGroupLoopCurrent()), 0, lr_player.player, UnitGetPosition(lr_player.dragon), libNtve_gf_RandomAngle());
     UnitInventoryRemove(UnitGroupLoopCurrent());
   }
   UnitGroupLoopEnd();

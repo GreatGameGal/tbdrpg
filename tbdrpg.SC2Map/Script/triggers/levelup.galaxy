@@ -1,13 +1,11 @@
 bool gt_LevelUp_Func (bool testConds, bool runActions) {
-  int lv_player;
-  int lv_playerIndex;
+  playerData_r lr_player;
   int lv_dragonEvolution;
 
-  lv_player = UnitGetOwner(EventUnit());
-  lv_playerIndex = lv_player - 1;
+  lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
   if (testConds) {
-    if (gv_evolving[lv_playerIndex]) {
+    if (lr_player.state.evolving || !gv_playersSetUp) {
       return false;
     }
   }
@@ -16,37 +14,35 @@ bool gt_LevelUp_Func (bool testConds, bool runActions) {
     return true;
   }
 
-  gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
+  lr_player.stats.level = FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent));
 
-  if ((!gv_evolving[lv_playerIndex]) && (gv_playersSetUp)) {
-    lib_talent_gf_GrantTalentPoints(1, lv_player);
-    ActorCreate(ActorScopeFromUnit(gv_players[lv_playerIndex].dragon), "LevelUpEffect", null, null, null);
-    SoundPlayOnUnit(SoundLink("LevelUp", -1), gv_players[lv_playerIndex].playerGroupSingle, gv_players[lv_playerIndex].dragon, 0.0, 100.0, 0.0);
-    gv_players[lv_playerIndex].stats.level = FixedToInt(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent));
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lv_player) + (StringExternal("Param/Value/684E7509") + IntToText(gv_players[lv_playerIndex].stats.level))));
-    libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(gv_players[lv_playerIndex].dragon), c_animNameDefault, "Dance", c_animFlagNonLooping, c_animTimeDefault);
-    BoardItemSetText(gv_leadboard, 2, 2, FixedToText(UnitGetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLevel, c_unitPropCurrent), 0));
-    gv_players[lv_playerIndex].stats.attributePoints +=  5;
-    gf_ShowStats(lv_player);
-    gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
-    libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), gv_players[lv_playerIndex].playerGroupSingle);
-    while (gv_players[lv_playerIndex].banks.accessing) {
-      Wait(1.0, c_timeGame);
-    }
-    gv_players[lv_playerIndex].banks.accessing = true;
-    BankValueSetFromInt(gv_players[lv_playerIndex].banks.dragonBank, "AP", PlayerHandle(lv_player), gv_players[lv_playerIndex].stats.attributePoints);
-    gv_players[lv_playerIndex].banks.accessing = false;
+  lib_talent_gf_GrantTalentPoints(1, lr_player);
+  ActorCreate(ActorScopeFromUnit(lr_player.dragon), "LevelUpEffect", null, null, null);
+  SoundPlayOnUnit(SoundLink("LevelUp", -1), lr_player.playerGroupSingle, lr_player.dragon, 0.0, 100.0, 0.0);
+  lr_player.stats.level = FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent));
+  UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(lr_player.player) + (StringExternal("Param/Value/684E7509") + IntToText(lr_player.stats.level))));
+  libNtve_gf_PlayAnimation(libNtve_gf_MainActorofUnit(lr_player.dragon), c_animNameDefault, "Dance", c_animFlagNonLooping, c_animTimeDefault);
+  BoardItemSetText(gv_leadboard, 2, 2, FixedToText(UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent), 0));
+  lr_player.stats.attributePoints +=  5;
+  gf_ShowStats(lr_player);
+  lr_player.stats.attributeText = IntToText(lr_player.stats.attributePoints);
+  libNtve_gf_SetDialogItemText(lr_player.stats.attributeDialog.textBox, lr_player.stats.attributeText, lr_player.playerGroupSingle);
+  while (lr_player.banks.accessing) {
+    Wait(1.0, c_timeGame);
   }
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropLifePercent, 100.0);
-  UnitSetPropertyFixed(gv_players[lv_playerIndex].dragon, c_unitPropEnergyPercent, 100.0);
+  lr_player.banks.accessing = true;
+  BankValueSetFromInt(lr_player.banks.dragonBank, "AP", lr_player.hand, lr_player.stats.attributePoints);
+  lr_player.banks.accessing = false;
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropLifePercent, 100.0);
+  UnitSetPropertyFixed(lr_player.dragon, c_unitPropEnergyPercent, 100.0);
 
-  lv_dragonEvolution = gf_GetEvolution(lv_player);
+  lv_dragonEvolution = gf_GetEvolution(lr_player);
   if (UnitLevel(EventUnit()) == (lv_dragonEvolution + 1) * gv_LevelsPerEvolution && lv_dragonEvolution != gv_DragonEvolutionCounts - 1) {
     // Evolve to the next evolution of the type.
-    gf_EvolveTo(lv_player, gv_DragonTypes[gv_players[lv_playerIndex].type].unitNames[lv_dragonEvolution+1]);
+    gf_EvolveTo(lr_player, gv_DragonTypes[lr_player.type].unitNames[lv_dragonEvolution+1]);
   }
 
-  gf_StatCheck(UnitGetOwner(EventUnit()));
+  gf_StatCheck(lr_player);
   
   return true;
 }

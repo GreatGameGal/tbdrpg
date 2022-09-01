@@ -1,0 +1,52 @@
+void gf_AllGuardiansDead () {
+  playerData_r lr_player;
+  int lv_i;
+  
+  UnitGroupLoopBegin(gv_dragonsInBattleWithGuardians);
+  for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
+    if ((UnitLevel(UnitGroupLoopCurrent()) != 100)) {
+      gf_AddExperience(UnitGroupLoopCurrent(), 1500.0);
+    }
+  }
+  UnitGroupLoopEnd();
+  UnitGroupLoopBegin(gv_dragonsInBattleWithGuardians);
+  for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
+    lr_player = gv_players[UnitGetOwner(UnitGroupLoopCurrent()) - 1];
+    PlayerModifyPropertyInt(lr_player.player, c_playerPropCustom, c_playerPropOperAdd, 5);
+    if (lr_player.quests.storyQuests[4].state == 2) {
+      lr_player.quests.storyQuests[4].state = 3;
+      ObjectiveSetDescription(lr_player.quests.storyQuests[4].objective, StringExternal("Param/Value/A3560FB6"));
+      ObjectiveSetName(lr_player.quests.storyQuests[4].objective, StringExternal("Param/Value/7ED2B133"));
+      SoundPlay(SoundLink("Alert_UniObjectiveUpdate", -1), lr_player.playerGroupSingle, 100.0, 0.0);
+      BankValueSetFromInt(lr_player.banks.dragonBank, "SQ4", lr_player.hand, lr_player.quests.storyQuests[4].state);
+      TextTagCreate(StringExternal("Param/Value/EB4B3E34"), 72, UnitGetPosition(UnitFromId(1976)), 6.0, true, true, lr_player.playerGroupSingle);
+      lr_player.quests.storyQuests[4].textTag = TextTagLastCreated();
+      TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
+      TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(100.00, 100.00, 100.00));
+      TextTagAttachToUnit(TextTagLastCreated(), UnitFromId(1976), 5.0);
+      TextTagSetTime(TextTagLastCreated(), c_textTagTimeDuration, 524287.0);
+      PingDestroy(lr_player.quests.storyQuests[4].ping);
+      PingCreate(lr_player.playerGroupSingle, "PingObjective", RegionGetCenter(RegionFromId(225)), ColorWithAlpha(0.00, 100.00, 0.00, 0.00), 524287.0);
+      lr_player.quests.storyQuests[4].ping = PingLastCreated();
+      PingSetScale(PingLastCreated(), 0.5);
+    }
+    VisRevealerDestroy(lr_player.guardianRevealer);
+    lr_player.state.fightWithGuardians = false;
+  }
+  SoundStop(gv_guardiansTheme, true);
+  SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryCombat, 100.0, 1.0);
+  SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryVoice, 100.0, 1.0);
+  SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategorySpell, 100.0, 1.0);
+  SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryAmbient, 100.0, 1.0);
+  SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryAmbient, 100.0, 1.0);
+  SoundChannelSetVolume(gv_playersinBattlewithGuardians, c_soundCategoryUI, 100.0, 1.0);
+  SoundtrackPlay(gv_playersinBattlewithGuardians, c_soundtrackCategoryMusic, "RelamyCaveTheme", c_soundtrackCueAny, 0, false);
+  UnitGroupClear(gv_dragonsInBattleWithGuardians);
+  PlayerGroupClear(gv_playersinBattlewithGuardians);
+  UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/5FC4FC56"));
+  gv_guardiansDead = true;
+  for (lv_i = 0; lv_i < 8; lv_i += 1) {
+    UnitRemove(gv_mineralBlocks[lv_i]);
+  }
+  TriggerEnable(gt_GuardianRespawn, true);
+}

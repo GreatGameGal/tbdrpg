@@ -1,12 +1,10 @@
 bool gt_ResetTalentBuild_Func (bool testConds, bool runActions) {
-  int lv_player;
-
-  lv_player = EventPlayer();
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
   }
-  gf_ResetTalentBuildandVariables(lv_player);
+  gf_ResetTalentBuildandVariables(lr_player);
   return true;
 }
 

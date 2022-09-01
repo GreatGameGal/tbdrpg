@@ -1,46 +1,43 @@
-void gf_EvolveTo (int lp_player, string lp_unitName) {
-  int lv_playerIndex;
-
-  lv_playerIndex = lp_player - 1;
-
-  gv_evolving[lv_playerIndex] = true;
+void gf_EvolveTo (playerData_r lr_player, string lp_unitName) {
+  lr_player.state.evolving = true;
   TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
   TriggerEnable(gt_SaveStackCountsPeriodically, false);
 
-  gf_FillInventory(lp_player);
-  gf_SaveStackCounts(lp_player);
-  UnitCreate(1, lp_unitName, c_unitCreateIgnorePlacement, lp_player, UnitGetPosition(gv_players[lv_playerIndex].dragon), UnitGetFacing(gv_players[lv_playerIndex].dragon));
-  UnitRemove(gv_players[lv_playerIndex].dragon);
-  gv_players[lv_playerIndex].dragon = UnitLastCreated();
-  gf_PutInventoryinInventory(lp_player);
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  gf_LoadStackCounts(lp_player);
-  gf_LoadSkills(lp_player);
+  gf_FillInventory(lr_player);
+  gf_SaveStackCounts(lr_player);
+  UnitCreate(1, lp_unitName, c_unitCreateIgnorePlacement, lr_player.player, UnitGetPosition(lr_player.dragon), UnitGetFacing(lr_player.dragon));
+  UnitRemove(lr_player.dragon);
+  lr_player.dragon = UnitLastCreated();
+  UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
+  gf_PutInventoryinInventory(lr_player);
+  BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
+  gf_LoadStackCounts(lr_player);
+  gf_LoadSkills(lr_player);
   
   // Add stats.
-  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddVitality", lp_player, gv_players[lv_playerIndex].stats.vitality);
-  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddStrength", lp_player, gv_players[lv_playerIndex].stats.strength);
-  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddIntelligence", lp_player, gv_players[lv_playerIndex].stats.intelligence);
-  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddDexterity", lp_player, gv_players[lv_playerIndex].stats.dexterity);
-  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AddAgility", lp_player, gv_players[lv_playerIndex].stats.agility);
-  UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "BlessingOfDrache", lp_player, gv_players[lv_playerIndex].stats.reborn.count);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddAgility", lr_player.player, lr_player.stats.agility);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddDexterity", lr_player.player, lr_player.stats.dexterity);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddIntelligence", lr_player.player, lr_player.stats.intelligence);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddStrength", lr_player.player, lr_player.stats.strength);
+  UnitBehaviorAddPlayer(lr_player.dragon, "AddVitality", lr_player.player, lr_player.stats.vitality);
+  UnitBehaviorAddPlayer(lr_player.dragon, "BlessingOfDrache", lr_player.player, lr_player.stats.reborn.count);
 
-  BankValueSetFromUnit(gv_players[lv_playerIndex].banks.dragonBank, "Dragon", PlayerHandle(lp_player), gv_players[lv_playerIndex].dragon);
-  if (gv_players[lv_playerIndex].skills.fireSkin) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "FireSkin", lv_playerIndex, 1);
+  BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
+  if (lr_player.skills.fireSkin) {
+    UnitBehaviorAddPlayer(lr_player.dragon, "FireSkin", lr_player.player, 1);
   }
-  if (gv_players[lv_playerIndex].skills.allSeeingEye) {
-    UnitBehaviorAddPlayer(gv_players[lv_playerIndex].dragon, "AllSeeingEye", lv_playerIndex, 1);
+  if (lr_player.skills.allSeeingEye) {
+    UnitBehaviorAddPlayer(lr_player.dragon, "AllSeeingEye", lr_player.player, 1);
   }
-  gv_players[lv_playerIndex].stats.attributePoints += 5;
-  gv_attributeText[lv_playerIndex] = IntToString(gv_players[lv_playerIndex].stats.attributePoints);
-  libNtve_gf_SetDialogItemText(gv_players[lv_playerIndex].stats.attributeDialog.textBox, StringToText(gv_attributeText[lv_playerIndex]), PlayerGroupSingle(lp_player));
-  gf_ShowStats(lp_player);
-  UnitSelect(gv_players[lv_playerIndex].dragon, lp_player, true);
-  gf_ReapplyBuffs(lp_player);
-  lib_talent_gf_GrantTalentPoints(1, lp_player);
+  lr_player.stats.attributePoints += 5;
+  lr_player.stats.attributeText = IntToText(lr_player.stats.attributePoints);
+  libNtve_gf_SetDialogItemText(lr_player.stats.attributeDialog.textBox, lr_player.stats.attributeText, lr_player.playerGroupSingle);
+  gf_ShowStats(lr_player);
+  UnitSelect(lr_player.dragon, lr_player.player, true);
+  gf_ReapplyBuffs(lr_player);
+  lib_talent_gf_GrantTalentPoints(1, lr_player);
   Wait(5.0, c_timeGame);
   TriggerEnable(gt_SaveStackCountsOnInventoryEdit, true);
   TriggerEnable(gt_SaveStackCountsPeriodically, true);
-  gv_evolving[lv_playerIndex] = false;
+  lr_player.state.evolving = false;
 }

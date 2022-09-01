@@ -1,10 +1,9 @@
-int gf_GetEvolution (int lp_player) {
+int gf_GetEvolution (playerData_r lr_player) {
   int lv_i;
-  int lv_playerIndex = lp_player - 1;
-  string lv_dragonUnitName = UnitGetType(gv_players[lv_playerIndex].dragon);
+  string lv_dragonUnitName = UnitGetType(lr_player.dragon);
 
   for (lv_i = 0; lv_i < gv_DragonEvolutionCounts; lv_i += 1) {
-    if (lv_dragonUnitName == gv_DragonTypes[gv_players[lv_playerIndex].type].unitNames[lv_i]) {
+    if (lv_dragonUnitName == gv_DragonTypes[lr_player.type].unitNames[lv_i]) {
       return lv_i;
     }
   }
