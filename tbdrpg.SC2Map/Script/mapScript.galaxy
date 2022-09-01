@@ -4426,7 +4426,7 @@ bool gt_ManaQuest5RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (!EventDialogControl() != gv_players[0].quests.rewardDialog.accept) {
+    if (!EventDialogControl() != lr_player.quests.rewardDialog.accept) {
       return false;
     }
     if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
@@ -4939,7 +4939,7 @@ bool gt_DetsefniQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
-    if (EventDialogControl() != gv_players[0].quests.rewardDialog.accept) {
+    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
       return false;
     }
     if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4922)), 3.0))) {
