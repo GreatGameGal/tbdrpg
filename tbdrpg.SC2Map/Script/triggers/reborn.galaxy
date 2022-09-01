@@ -36,6 +36,7 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     UnitRemove(lr_player.dragon);
     UnitCreate(1, gv_DragonTypes[lr_player.type].unitNames[0], 0, lr_player.player, PointFromId(1), 270.0);
     lr_player.dragon = UnitLastCreated();
+    UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
     CameraPan(lr_player.player, RegionGetCenter(RegionFromId(3)), 2.0, -1, 10.0, false);
     lr_player.stats.reborn.points += 10;
     libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(lr_player.stats.reborn.points)), lr_player.playerGroupSingle);
