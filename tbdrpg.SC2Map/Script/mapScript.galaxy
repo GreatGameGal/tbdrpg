@@ -15660,8 +15660,7 @@ bool gt_BDCretonUnitSpawn_Func (bool testConds, bool runActions) {
 
   Wait(2.0, c_timeGame);
   TransmissionSend(gv_playersInBioDome, TransmissionSourceFromModel("TassadarPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/8011068F"), StringExternal("Param/Value/86CE4109"), 4.0, c_transmissionDurationSet, true);
-  PlayerGroupLoopBegin(gv_playersInBioDome);
-  for (; !PlayerGroupLoopDone(); PlayerGroupLoopEnd()) {
+  for (PlayerGroupLoopBegin(gv_playersInBioDome); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     libNtve_gf_UnitCreateFacingPoint(1, "Impetus", 0, 15, RegionRandomPoint(RegionFromId(169)), UnitGetPosition(EventUnit()));
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
     UnitGroupAdd(gv_bDCretonUnits, UnitLastCreated());
