@@ -12768,6 +12768,7 @@ bool gt_MachinaDePlagamDies_Func (bool testConds, bool runActions) {
       SoundChannelSetVolume(lr_player.playerGroupSingle, c_soundCategoryUI, 100.0, 1.0);
       lr_player.state.fightWithPlagam = false;
       libNtve_gf_ShowHideBossBar(false, lr_player.player);
+      libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
     }
   }
   PlayerGroupLoopEnd();
@@ -13096,6 +13097,7 @@ bool gt_SremagsiDies_Func (bool testConds, bool runActions) {
       SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, true);
       SoundtrackPlay(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, "InfestationTheme", c_soundtrackCueAny, 0, false);
       libNtve_gf_ShowHideBossBar(false, lr_player.player);
+      libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
       lr_player.state.fightWithSremagsi = false;
     }
   }
@@ -13382,6 +13384,7 @@ bool gt_KorlicDies_Func (bool testConds, bool runActions) {
   }
   for (UnitGroupLoopBegin(gv_dragonsInBattleWithGuardians); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
     libNtve_gf_ShowHideBossBar(false, (UnitGetOwner(UnitGroupLoopCurrent()) + 4));
+    libNtve_gf_SetBossBarBoss(UnitGetOwner(UnitGroupLoopCurrent()) + 4, null, false);
   }
   UnitGroupLoopEnd();
   UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/D0262864"));
@@ -13405,7 +13408,8 @@ bool gt_TolicDies_Func (bool testConds, bool runActions) {
     return true;
   }
   for (UnitGroupLoopBegin(gv_dragonsInBattleWithGuardians); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
-    libNtve_gf_ShowHideBossBar(false, (UnitGetOwner(UnitGroupLoopCurrent()) + 0));
+    libNtve_gf_ShowHideBossBar(false, UnitGetOwner(UnitGroupLoopCurrent()) + 0);
+    libNtve_gf_SetBossBarBoss(UnitGetOwner(UnitGroupLoopCurrent()) + 0, null, false);
   }
   UnitGroupLoopEnd();
   UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/75DA4E32"));
@@ -13429,7 +13433,9 @@ bool gt_MadawcDies_Func (bool testConds, bool runActions) {
     return true;
   }
   for (UnitGroupLoopBegin(gv_dragonsInBattleWithGuardians); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
-    libNtve_gf_ShowHideBossBar(false, (UnitGetOwner(UnitGroupLoopCurrent()) + 8));
+    libNtve_gf_ShowHideBossBar(false, UnitGetOwner(UnitGroupLoopCurrent()) + 8);
+    libNtve_gf_SetBossBarBoss(UnitGetOwner(UnitGroupLoopCurrent()) + 8, null, false);
+
   }
   UnitGroupLoopEnd();
   UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/E1F8BA32"));
@@ -13746,6 +13752,7 @@ bool gt_SyritalDies_Func (bool testConds, bool runActions) {
       SoundChannelSetVolume(lr_player.playerGroupSingle, c_soundCategoryUI, 100.0, 1.0);
       lr_player.state.fightWithSyrital = false;
       libNtve_gf_ShowHideBossBar(false, lr_player.player);
+      libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
     }
   }
   PlayerGroupLoopEnd();
