@@ -13339,14 +13339,14 @@ bool gt_GuardianSpawn_Func (bool testConds, bool runActions) {
     libNtve_gf_SetBossBarBoss(lr_player.player , gv_tolic, true);
     libNtve_gf_SetBossBarRace(lr_player.player , libNtve_ge_BossBarRace_Protoss, true);
     libNtve_gf_MoveBossBar(lr_player.player , c_anchorTop, 0, 125);
-    libNtve_gf_DisplayBossBar(lr_player.player, "Assets\\Textures\\darktemplarportrait_static.dds", StringExternal("Param/Value/AD8A41AB"), 100, lr_player.playerGroupSingle);
-    libNtve_gf_SetBossBarBoss(lr_player.player, gv_korlic, true);
-    libNtve_gf_SetBossBarRace(lr_player.player, libNtve_ge_BossBarRace_Protoss, true);
-    libNtve_gf_MoveBossBar(lr_player.player, c_anchorTop, -500, 125);
-    libNtve_gf_DisplayBossBar(lr_player.player, "Assets\\Textures\\hightemplarportrait_static.dds", StringExternal("Param/Value/931C43C1"), 100, lr_player.playerGroupSingle);
-    libNtve_gf_SetBossBarBoss(lr_player.player, gv_madawc, true);
-    libNtve_gf_SetBossBarRace(lr_player.player, libNtve_ge_BossBarRace_Protoss, true);
-    libNtve_gf_MoveBossBar(lr_player.player, c_anchorTop, 500, 125);
+    libNtve_gf_DisplayBossBar(lr_player.player+4, "Assets\\Textures\\darktemplarportrait_static.dds", StringExternal("Param/Value/AD8A41AB"), 100, lr_player.playerGroupSingle);
+    libNtve_gf_SetBossBarBoss(lr_player.player+4, gv_korlic, true);
+    libNtve_gf_SetBossBarRace(lr_player.player+4, libNtve_ge_BossBarRace_Protoss, true);
+    libNtve_gf_MoveBossBar(lr_player.player+4, c_anchorTop, -500, 125);
+    libNtve_gf_DisplayBossBar(lr_player.player+8, "Assets\\Textures\\hightemplarportrait_static.dds", StringExternal("Param/Value/931C43C1"), 100, lr_player.playerGroupSingle);
+    libNtve_gf_SetBossBarBoss(lr_player.player+8, gv_madawc, true);
+    libNtve_gf_SetBossBarRace(lr_player.player+8, libNtve_ge_BossBarRace_Protoss, true);
+    libNtve_gf_MoveBossBar(lr_player.player+8, c_anchorTop, 500, 125);
   }
   PlayerGroupLoopEnd();
 
