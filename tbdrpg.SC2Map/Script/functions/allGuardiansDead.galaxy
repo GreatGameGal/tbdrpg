@@ -19,7 +19,7 @@ void gf_AllGuardiansDead () {
       ObjectiveSetName(lr_player.quests.storyQuests[4].objective, StringExternal("Param/Value/7ED2B133"));
       SoundPlay(SoundLink("Alert_UniObjectiveUpdate", -1), lr_player.playerGroupSingle, 100.0, 0.0);
       BankValueSetFromInt(lr_player.banks.dragonBank, "SQ4", lr_player.hand, lr_player.quests.storyQuests[4].state);
-      TextTagCreate(StringExternal("Param/Value/EB4B3E34"), 72, UnitGetPosition(UnitFromId(1976)), 6.0, true, true, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(1976)), 6.0, true, true, lr_player.playerGroupSingle);
       lr_player.quests.storyQuests[4].textTag = TextTagLastCreated();
       TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
       TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(100.00, 100.00, 100.00));

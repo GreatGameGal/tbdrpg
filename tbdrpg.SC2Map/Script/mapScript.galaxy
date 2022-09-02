@@ -842,7 +842,7 @@ void gf_SQ3Setup (playerData_r lr_player) {
     lr_player.quests.storyQuests[3].ping = PingLastCreated();
     PingSetScale(PingLastCreated(), 0.5);
     lr_player.quests.storyQuests[3].objective = ObjectiveLastCreated();
-    TextTagCreate(StringExternal("Param/Value/F5B34512"), 72, UnitGetPosition(UnitFromId(1597)), 6.0, true, true, lr_player.playerGroupSingle);
+    TextTagCreate(StringExternal("Param/Value/433538AD"), 72, UnitGetPosition(UnitFromId(1597)), 6.0, true, true, lr_player.playerGroupSingle);
     lr_player.quests.storyQuests[3].textTag = TextTagLastCreated();
     TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
     TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(100.00, 100.00, 100.00));
@@ -879,7 +879,7 @@ void gf_SQ4Setup (playerData_r lr_player) {
     lr_player.quests.storyQuests[4].ping = PingLastCreated();
     PingSetScale(PingLastCreated(), 0.5);
     lr_player.quests.storyQuests[4].objective = ObjectiveLastCreated();
-    TextTagCreate(StringExternal("Param/Value/87A071E6"), 72, UnitGetPosition(UnitFromId(1976)), 6.0, true, true, lr_player.playerGroupSingle);
+    TextTagCreate(StringExternal("Param/Value/433538AD"), 72, UnitGetPosition(UnitFromId(1976)), 6.0, true, true, lr_player.playerGroupSingle);
     lr_player.quests.storyQuests[4].textTag = TextTagLastCreated();
     TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
     TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(100.00, 100.00, 100.00));
@@ -905,7 +905,7 @@ void gf_SQ4Setup (playerData_r lr_player) {
         lr_player.quests.storyQuests[4].ping = PingLastCreated();
         PingSetScale(PingLastCreated(), 0.5);
         lr_player.quests.storyQuests[4].objective = ObjectiveLastCreated();
-        TextTagCreate(StringExternal("Param/Value/1A10F0CF"), 72, UnitGetPosition(UnitFromId(1976)), 6.0, true, true, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(1976)), 6.0, true, true, lr_player.playerGroupSingle);
         lr_player.quests.storyQuests[4].textTag = TextTagLastCreated();
         TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
         TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(0.00, 0.00, 0.00));
@@ -953,7 +953,7 @@ void gf_SQ5Setup (playerData_r lr_player) {
         lr_player.quests.storyQuests[5].ping = PingLastCreated();
         PingSetScale(PingLastCreated(), 0.5);
         lr_player.quests.storyQuests[5].objective = ObjectiveLastCreated();
-        TextTagCreate(StringExternal("Param/Value/AC39DF53"), 72, UnitGetPosition(UnitFromId(1597)), 6.0, true, true, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(1597)), 6.0, true, true, lr_player.playerGroupSingle);
         lr_player.quests.storyQuests[5].textTag = TextTagLastCreated();
         TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
         TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(0.00, 0.00, 0.00));
@@ -998,7 +998,7 @@ void gf_SQ7Setup (playerData_r lr_player) {
     lr_player.quests.storyQuests[7].ping = PingLastCreated();
     lr_player.quests.storyQuests[7].objective = ObjectiveLastCreated();
     ObjectiveShow(lr_player.quests.storyQuests[7].objective, lr_player.playerGroupSingle, true);
-    TextTagCreate(StringExternal("Param/Value/DDE5287F"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
+    TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
     lr_player.quests.storyQuests[7].textTag = TextTagLastCreated();
     TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
     TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(0.00, 0.00, 0.00));
@@ -1015,7 +1015,7 @@ void gf_SQ7Setup (playerData_r lr_player) {
       PingSetScale(PingLastCreated(), 0.5);
       lr_player.quests.storyQuests[7].objective = ObjectiveLastCreated();
       ObjectiveShow(lr_player.quests.storyQuests[7].objective, lr_player.playerGroupSingle, true);
-      TextTagCreate(StringExternal("Param/Value/5E52AED5"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/433538AD"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
       lr_player.quests.storyQuests[7].textTag = TextTagLastCreated();
       TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
       TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(0.00, 0.00, 0.00));
@@ -1041,7 +1041,7 @@ void gf_SQ7Setup (playerData_r lr_player) {
           PingSetScale(PingLastCreated(), 0.5);
           lr_player.quests.storyQuests[7].objective = ObjectiveLastCreated();
           ObjectiveShow(lr_player.quests.storyQuests[7].objective, lr_player.playerGroupSingle, true);
-          TextTagCreate(StringExternal("Param/Value/F69E26DF"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
+          TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
           lr_player.quests.storyQuests[7].textTag = TextTagLastCreated();
           TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
           TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(0.00, 0.00, 0.00));
@@ -3093,7 +3093,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Mana0-0")) {
       lr_player.quests.manaQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Mana0-0", lr_player.hand);
       if ((lr_player.quests.manaQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/2F009883"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.manaQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.manaQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
@@ -3101,7 +3101,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
         if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Mana1-0")) {
           lr_player.quests.manaQuests[1].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Mana1-0", lr_player.hand);
           if ((lr_player.quests.manaQuests[1].progress == 0)) {
-            TextTagCreate(StringExternal("Param/Value/DE485F61"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+            TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
             lr_player.quests.manaQuests[1].textTag = TextTagLastCreated();
             TextTagSetTime(lr_player.quests.manaQuests[1].textTag, c_textTagTimeDuration, 524287.0);
           }
@@ -3109,7 +3109,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
             if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Mana2-0")) {
               lr_player.quests.manaQuests[2].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Mana2-0", lr_player.hand);
               if ((lr_player.quests.manaQuests[2].progress == 0)) {
-                TextTagCreate(StringExternal("Param/Value/D715BDE5"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+                TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
                 lr_player.quests.manaQuests[2].textTag = TextTagLastCreated();
                 TextTagSetTime(lr_player.quests.manaQuests[2].textTag, c_textTagTimeDuration, 524287.0);
               }
@@ -3117,7 +3117,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
                 if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Mana3-0")) {
                   lr_player.quests.manaQuests[3].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Mana3-0", lr_player.hand);
                   if ((lr_player.quests.manaQuests[3].progress == 0)) {
-                    TextTagCreate(StringExternal("Param/Value/3B996203"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+                    TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
                     lr_player.quests.manaQuests[3].textTag = TextTagLastCreated();
                     TextTagSetTime(lr_player.quests.manaQuests[3].textTag, c_textTagTimeDuration, 524287.0);
                   }
@@ -3125,7 +3125,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
                     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Mana4-0")) {
                       lr_player.quests.manaQuests[4].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Mana4-0", lr_player.hand);
                       if ((lr_player.quests.manaQuests[4].progress == 0)) {
-                        TextTagCreate(StringExternal("Param/Value/788F4111"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+                        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
                         lr_player.quests.manaQuests[4].textTag = TextTagLastCreated();
                         TextTagSetTime(lr_player.quests.manaQuests[4].textTag, c_textTagTimeDuration, 524287.0);
                       }
@@ -3133,14 +3133,14 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
                         if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Mana5-0")) {
                           lr_player.quests.manaQuests[5].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Mana5-0", lr_player.hand);
                           if ((lr_player.quests.manaQuests[5].progress == 0)) {
-                            TextTagCreate(StringExternal("Param/Value/0169568B"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+                            TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
                             lr_player.quests.manaQuests[5].textTag = TextTagLastCreated();
                             TextTagSetTime(lr_player.quests.manaQuests[5].textTag, c_textTagTimeDuration, 524287.0);
                           }
                         }
                         else {
                           lr_player.quests.manaQuests[5].progress = 0;
-                          TextTagCreate(StringExternal("Param/Value/FC0B8386"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+                          TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
                           lr_player.quests.manaQuests[5].textTag = TextTagLastCreated();
                           TextTagSetTime(lr_player.quests.manaQuests[5].textTag, c_textTagTimeDuration, 524287.0);
                         }
@@ -3148,7 +3148,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
                     }
                     else {
                       lr_player.quests.manaQuests[4].progress = 0;
-                      TextTagCreate(StringExternal("Param/Value/D0E0AB0B"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+                      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
                       lr_player.quests.manaQuests[4].textTag = TextTagLastCreated();
                       TextTagSetTime(lr_player.quests.manaQuests[4].textTag, c_textTagTimeDuration, 524287.0);
                     }
@@ -3156,7 +3156,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
                 }
                 else {
                   lr_player.quests.manaQuests[3].progress = 0;
-                  TextTagCreate(StringExternal("Param/Value/81A56668"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+                  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
                   lr_player.quests.manaQuests[3].textTag = TextTagLastCreated();
                   TextTagSetTime(lr_player.quests.manaQuests[3].textTag, c_textTagTimeDuration, 524287.0);
                 }
@@ -3164,7 +3164,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
             }
             else {
               lr_player.quests.manaQuests[2].progress = 0;
-              TextTagCreate(StringExternal("Param/Value/81AF9223"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+              TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
               lr_player.quests.manaQuests[2].textTag = TextTagLastCreated();
               TextTagSetTime(lr_player.quests.manaQuests[2].textTag, c_textTagTimeDuration, 524287.0);
             }
@@ -3172,7 +3172,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
         }
         else {
           lr_player.quests.manaQuests[1].progress = 0;
-          TextTagCreate(StringExternal("Param/Value/59C640A8"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+          TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
           lr_player.quests.manaQuests[1].progress = TextTagLastCreated();
           TextTagSetTime(lr_player.quests.manaQuests[1].textTag, c_textTagTimeDuration, 524287.0);
         }
@@ -3180,21 +3180,21 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
     }
     else {
       lr_player.quests.manaQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/D3156BC0"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.manaQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.manaQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Malin0-0")) {
       lr_player.quests.malinQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Malin0-0", lr_player.hand);
       if ((lr_player.quests.malinQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/08DE1272"), 72, UnitGetPosition(UnitFromId(2516)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(2516)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.malinQuests[0].progress = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.malinQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.malinQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/7DE06E8C"), 72, UnitGetPosition(UnitFromId(2516)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(2516)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.malinQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.malinQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
@@ -3209,14 +3209,14 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
         if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Base1-0")) {
           lr_player.quests.baseQuests[1].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Base1-0", lr_player.hand);
           if ((lr_player.quests.baseQuests[1].progress == 0)) {
-            TextTagCreate(StringExternal("Param/Value/F6A8D66B"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
+            TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
             lr_player.quests.baseQuests[1].textTag = TextTagLastCreated();
             TextTagSetTime(lr_player.quests.baseQuests[1].textTag, c_textTagTimeDuration, 524287.0);
           }
         }
         else {
           lr_player.quests.baseQuests[1].progress = 0;
-          TextTagCreate(StringExternal("Param/Value/C9B57383"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
+          TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
           lr_player.quests.baseQuests[1].textTag = TextTagLastCreated();
           TextTagSetTime(lr_player.quests.baseQuests[1].textTag, c_textTagTimeDuration, 524287.0);
         }
@@ -3224,119 +3224,119 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
     }
     else {
       lr_player.quests.baseQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/75E6820C"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.baseQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.baseQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Oleum0-0")) {
       lr_player.quests.oleumQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Oleum0-0", lr_player.hand);
       if ((lr_player.quests.oleumQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/8DFA2561"), 72, UnitGetPosition(UnitFromId(4381)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4381)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.oleumQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.oleumQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.oleumQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/BEF311D1"), 72, UnitGetPosition(UnitFromId(4381)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4381)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.oleumQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.oleumQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Seryn0-0")) {
       lr_player.quests.serynQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Seryn0-0", lr_player.hand);
       if ((lr_player.quests.serynQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/60C15502"), 72, UnitGetPosition(UnitFromId(2671)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(2671)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.serynQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.serynQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.serynQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/F977CC2E"), 72, UnitGetPosition(UnitFromId(2671)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(2671)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.serynQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.serynQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Detsefni0-0")) {
       lr_player.quests.detsefniQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Detsefni0-0", lr_player.hand);
       if ((lr_player.quests.detsefniQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/7EE2688E"), 72, UnitGetPosition(UnitFromId(4922)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4922)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.detsefniQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.detsefniQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.detsefniQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/756E3A5A"), 72, UnitGetPosition(UnitFromId(4922)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4922)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.detsefniQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.detsefniQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-SergeantLister0-0")) {
       lr_player.quests.sergeantListerQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-SergeantLister0-0", lr_player.hand);
       if ((lr_player.quests.sergeantListerQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/03D95F58"), 72, UnitGetPosition(UnitFromId(4923)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4923)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.sergeantListerQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.sergeantListerQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.sergeantListerQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/97B825DC"), 72, UnitGetPosition(UnitFromId(4923)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4923)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.sergeantListerQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.sergeantListerQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Greed0-0")) {
       lr_player.quests.greedQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Greed0-0", lr_player.hand);
       if ((lr_player.quests.greedQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/D473002B"), 72, UnitGetPosition(UnitFromId(4924)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4924)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.greedQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.greedQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.greedQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/FFE6E959"), 72, UnitGetPosition(UnitFromId(4924)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4924)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.greedQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.greedQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Madeleine0-0")) {
       lr_player.quests.madelineQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Madeleine0-0", lr_player.hand);
       if ((lr_player.quests.madelineQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/5625DC8F"), 72, UnitGetPosition(UnitFromId(4945)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4945)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.madelineQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.madelineQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.madelineQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/4DD46BB6"), 72, UnitGetPosition(UnitFromId(4945)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4945)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.madelineQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.madelineQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Altoss0-0")) {
       lr_player.quests.altossQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Altoss0-0", lr_player.hand);
       if ((lr_player.quests.altossQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/5707150A"), 72, UnitGetPosition(UnitFromId(4946)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4946)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.altossQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.altossQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.altossQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/72459D54"), 72, UnitGetPosition(UnitFromId(4946)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4946)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.altossQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.altossQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
     if (BankSectionExists(lr_player.banks.dragonBank, "SQ-Amp0-0")) {
       lr_player.quests.ampQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Amp0-0", lr_player.hand);
       if ((lr_player.quests.ampQuests[0].progress == 0)) {
-        TextTagCreate(StringExternal("Param/Value/64903B57"), 72, UnitGetPosition(UnitFromId(444)), 4.0, true, false, lr_player.playerGroupSingle);
+        TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(444)), 4.0, true, false, lr_player.playerGroupSingle);
         lr_player.quests.ampQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.ampQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
     else {
       lr_player.quests.ampQuests[0].progress = 0;
-      TextTagCreate(StringExternal("Param/Value/9FAC43FA"), 72, UnitGetPosition(UnitFromId(444)), 4.0, true, false, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(444)), 4.0, true, false, lr_player.playerGroupSingle);
       lr_player.quests.ampQuests[0].textTag = TextTagLastCreated();
       TextTagSetTime(lr_player.quests.ampQuests[0].textTag, c_textTagTimeDuration, 524287.0);
     }
@@ -3480,7 +3480,7 @@ bool gt_ManaQuest0EquipArmorP1_Func (bool testConds, bool runActions) {
     lr_player.quests.manaQuests[0].progress = 2;
     ObjectiveSetState(lr_player.quests.manaQuests[0].objective, c_objectiveStateCompleted);
     lr_player.quests.manaQuest0Armour = null;
-    TextTagSetText(lr_player.quests.manaQuests[0].textTag, StringExternal("Param/Value/E213BE40"));
+    TextTagSetText(lr_player.quests.manaQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
   }
   return true;
 }
@@ -3534,7 +3534,7 @@ bool gt_ManaQuest0RewardAccept_Func (bool testConds, bool runActions) {
   lr_player.quests.manaQuests[0].objective = c_invalidObjectiveId;
   gf_CloseRewardDialog(lr_player);
   TextTagDestroy(lr_player.quests.manaQuests[0].textTag);
-  TextTagCreate(StringExternal("Param/Value/0B6F6B5B"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
   lr_player.quests.manaQuests[1].textTag = TextTagLastCreated();
   TextTagSetTime(lr_player.quests.manaQuests[1].textTag, c_textTagTimeDuration, 524287.0);
   return true;
@@ -3663,7 +3663,7 @@ bool gt_ManaQuest1KillSheep_Func (bool testConds, bool runActions) {
     if ((lr_player.quests.manaQuests[1].progress == 1)) {
       lr_player.quests.manaQuests[1].progress = 2;
       ObjectiveSetState(lr_player.quests.manaQuests[1].objective, c_objectiveStateCompleted);
-      TextTagSetText(lr_player.quests.manaQuests[1].textTag, StringExternal("Param/Value/F3003B53"));
+      TextTagSetText(lr_player.quests.manaQuests[1].textTag, StringExternal("Param/Value/1B0CFA23"));
     }
   }
   UnitGroupLoopEnd();
@@ -3718,7 +3718,7 @@ bool gt_ManaQuest1RewardAccept_Func (bool testConds, bool runActions) {
   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/48B1F90D"));
   gf_AddExperience(lr_player.dragon, 25);
   TextTagDestroy(lr_player.quests.manaQuests[1].textTag);
-  TextTagCreate(StringExternal("Param/Value/37757B36"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
   lr_player.quests.manaQuests[2].textTag = TextTagLastCreated();
   TextTagSetTime(lr_player.quests.manaQuests[2].textTag, c_textTagTimeDuration, 524287.0);
   return true;
@@ -3851,7 +3851,7 @@ bool gt_ManaQuest2EnterWastelandWater_Func (bool testConds, bool runActions) {
 
   lr_player.quests.manaQuests[2].progress = 2;
   ObjectiveSetState(lr_player.quests.manaQuests[2].objective, c_objectiveStateCompleted);
-  TextTagSetText(lr_player.quests.manaQuests[2].textTag, StringExternal("Param/Value/4A7BBDF9"));
+  TextTagSetText(lr_player.quests.manaQuests[2].textTag, StringExternal("Param/Value/1B0CFA23"));
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -3903,7 +3903,7 @@ bool gt_ManaQuest2RewardAccept_Func (bool testConds, bool runActions) {
   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/E760FE26"));
   gf_AddExperience(lr_player.dragon, 25);
   TextTagDestroy(lr_player.quests.manaQuests[2].textTag);
-  TextTagCreate(StringExternal("Param/Value/49BA605A"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
   lr_player.quests.manaQuests[3].textTag = TextTagLastCreated();
   TextTagSetTime(lr_player.quests.manaQuests[3].textTag, c_textTagTimeDuration, 524287.0);
   return true;
@@ -4035,7 +4035,7 @@ bool gt_ManaQuest3KillSrepti_Func (bool testConds, bool runActions) {
       if ((lr_player.quests.manaQuests[3].kills == 10)) {
         lr_player.quests.manaQuests[3].progress = 2;
         ObjectiveSetState(lr_player.quests.manaQuests[3].objective, c_objectiveStateCompleted);
-        TextTagSetText(lr_player.quests.manaQuests[3].textTag, StringExternal("Param/Value/57030FBB"));
+        TextTagSetText(lr_player.quests.manaQuests[3].textTag, StringExternal("Param/Value/1B0CFA23"));
       }
     }
   }
@@ -4091,7 +4091,7 @@ bool gt_ManaQuest3RewardAccept_Func (bool testConds, bool runActions) {
   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/598F5F66"));
   gf_AddExperience(lr_player.dragon, 150);
   TextTagDestroy(lr_player.quests.manaQuests[3].textTag);
-  TextTagCreate(StringExternal("Param/Value/6C209170"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
   lr_player.quests.manaQuests[4].textTag = TextTagLastCreated();
   TextTagSetTime(lr_player.quests.manaQuests[4].textTag, c_textTagTimeDuration, 524287.0);
   return true;
@@ -4242,7 +4242,7 @@ bool gt_ManaQuest4RewardAccept_Func (bool testConds, bool runActions) {
   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/15E97A53"));
   gf_AddExperience(lr_player.dragon, 100);
   TextTagDestroy(lr_player.quests.manaQuests[4].textTag);
-  TextTagCreate(StringExternal("Param/Value/487305A4"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
   lr_player.quests.manaQuests[5].textTag = TextTagLastCreated();
   TextTagSetTime(lr_player.quests.manaQuests[5].textTag, c_textTagTimeDuration, 524287.0);
   return true;
@@ -4275,7 +4275,7 @@ bool gt_ManaQuest4PurchasePotion_Func (bool testConds, bool runActions) {
   }
   lr_player.quests.manaQuests[4].progress = 2;
   ObjectiveSetState(lr_player.quests.manaQuests[4].objective, c_objectiveStateCompleted);
-  TextTagSetText(lr_player.quests.manaQuests[4].textTag, StringExternal("Param/Value/B2FAD667"));
+  TextTagSetText(lr_player.quests.manaQuests[4].textTag, StringExternal("Param/Value/1B0CFA23"));
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -4408,7 +4408,7 @@ bool gt_ManaQuest5KillAlphaSrepti_Func (bool testConds, bool runActions) {
     if (lr_player.quests.manaQuests[5].progress == 1) {
       lr_player.quests.manaQuests[5].progress = 2;
       ObjectiveSetState(lr_player.quests.manaQuests[5].objective, c_objectiveStateCompleted);
-      TextTagSetText(lr_player.quests.manaQuests[5].textTag, StringExternal("Param/Value/F19542C7"));
+      TextTagSetText(lr_player.quests.manaQuests[5].textTag, StringExternal("Param/Value/1B0CFA23"));
     }
   }
   UnitGroupLoopEnd();
@@ -4576,7 +4576,7 @@ bool gt_BaseQuest0SetRespawnPointatWasteland_Func (bool testConds, bool runActio
   }
   lr_player.quests.baseQuests[0].progress = 2;
   ObjectiveSetState(lr_player.quests.baseQuests[0].objective, c_objectiveStateCompleted);
-  TextTagSetText(lr_player.quests.baseQuests[0].textTag, StringExternal("Param/Value/EB78C493"));
+  TextTagSetText(lr_player.quests.baseQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -4613,7 +4613,7 @@ bool gt_BaseQuest0RewardAccept_Func (bool testConds, bool runActions) {
   gf_AddExperience(lr_player.dragon, 25);
   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/8D20327C"));
   TextTagDestroy(lr_player.quests.baseQuests[0].textTag);
-  TextTagCreate(StringExternal("Param/Value/B2162E35"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
   lr_player.quests.baseQuests[1].textTag = TextTagLastCreated();
   TextTagSetTime(lr_player.quests.baseQuests[1].textTag, c_textTagTimeDuration, 524287.0);
   return true;
@@ -4765,7 +4765,7 @@ bool gt_BaseQuest2UseBallanWaypointtoWasteland_Func (bool testConds, bool runAct
     gf_WaypointTeleport(lr_player, RegionFromId(124));
     lr_player.quests.baseQuests[1].progress = 3;
     ObjectiveSetState(lr_player.quests.baseQuests[1].objective, c_objectiveStateCompleted);
-    TextTagSetText(lr_player.quests.baseQuests[1].textTag, StringExternal("Param/Value/D05FC8E4"));
+    TextTagSetText(lr_player.quests.baseQuests[1].textTag, StringExternal("Param/Value/1B0CFA23"));
   }
   return true;
 }
@@ -4920,7 +4920,7 @@ bool gt_DetsefniQuest0Kill25Sreptis_Func (bool testConds, bool runActions) {
       if ((lr_player.quests.detsefniQuests[0].kills == 25)) {
         lr_player.quests.detsefniQuests[0].progress = 2;
         ObjectiveSetState(lr_player.quests.detsefniQuests[0].objective, c_objectiveStateCompleted);
-        TextTagSetText(lr_player.quests.detsefniQuests[0].textTag, StringExternal("Param/Value/C7D0B265"));
+        TextTagSetText(lr_player.quests.detsefniQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
       }
     }
   }
@@ -5076,7 +5076,7 @@ bool gt_SergeantListerQuest0Kill10CretonWarriors_Func (bool testConds, bool runA
       if ((lr_player.quests.sergeantListerQuests[0].kills == 10)) {
         lr_player.quests.sergeantListerQuests[0].progress = 2;
         ObjectiveSetState(lr_player.quests.sergeantListerQuests[0].objective, c_objectiveStateCompleted);
-        TextTagSetText(lr_player.quests.sergeantListerQuests[0].textTag, StringExternal("Param/Value/D2C09EC1"));
+        TextTagSetText(lr_player.quests.sergeantListerQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
       }
     }
   }
@@ -5376,7 +5376,7 @@ bool gt_MadeleineQuest0Kill30Karramarros_Func (bool testConds, bool runActions) 
       if ((lr_player.quests.madelineQuests[0].kills == 30)) {
         lr_player.quests.madelineQuests[0].progress = 2;
         ObjectiveSetState(lr_player.quests.madelineQuests[0].objective, c_objectiveStateCompleted);
-        TextTagSetText(lr_player.quests.madelineQuests[0].textTag, StringExternal("Param/Value/AF200266"));
+        TextTagSetText(lr_player.quests.madelineQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
       }
     }
   }
@@ -5533,7 +5533,7 @@ bool gt_MalinQuest0KillRobus_Func (bool testConds, bool runActions) {
     if ((lr_player.quests.malinQuests[0].progress == 1)) {
       lr_player.quests.malinQuests[0].progress = 2;
       ObjectiveSetState(lr_player.quests.malinQuests[0].objective, c_objectiveStateCompleted);
-      TextTagSetText(lr_player.quests.malinQuests[0].textTag, StringExternal("Param/Value/2BF560CD"));
+      TextTagSetText(lr_player.quests.malinQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
     }
   }
   UnitGroupLoopEnd();
@@ -5683,7 +5683,7 @@ bool gt_AmpQuest0KillanEliteCretonWarrior_Func (bool testConds, bool runActions)
     if ((lr_player.quests.ampQuests[0].progress == 1)) {
       lr_player.quests.ampQuests[0].progress = 2;
       ObjectiveSetState(lr_player.quests.ampQuests[0].objective, c_objectiveStateCompleted);
-      TextTagSetText(lr_player.quests.ampQuests[0].textTag, StringExternal("Param/Value/2C21F4B5"));
+      TextTagSetText(lr_player.quests.ampQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
     }
   }
   UnitGroupLoopEnd();
@@ -5836,7 +5836,7 @@ bool gt_AltossQuest0Kill15Odvratans_Func (bool testConds, bool runActions) {
       if ((lr_player.quests.altossQuests[0].kills == 15)) {
         lr_player.quests.altossQuests[0].progress = 2;
         ObjectiveSetState(lr_player.quests.altossQuests[0].objective, c_objectiveStateCompleted);
-        TextTagSetText(lr_player.quests.altossQuests[0].textTag, StringExternal("Param/Value/733E3133"));
+        TextTagSetText(lr_player.quests.altossQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
       }
     }
   }
@@ -6057,7 +6057,7 @@ bool gt_OleumQuest0KillIllisus_Func (bool testConds, bool runActions) {
     if ((lr_player.quests.oleumQuests[0].progress == 2)) {
       lr_player.quests.oleumQuests[0].progress = 3;
       ObjectiveSetState(lr_player.quests.oleumQuests[0].objective, c_objectiveStateCompleted);
-      TextTagSetText(lr_player.quests.oleumQuests[0].textTag, StringExternal("Param/Value/9D2545A5"));
+      TextTagSetText(lr_player.quests.oleumQuests[0].textTag, StringExternal("Param/Value/1B0CFA23"));
     }
   }
   UnitGroupLoopEnd();
@@ -6616,8 +6616,8 @@ bool gt_HeroEntersArena1_Func (bool testConds, bool runActions) {
       Wait(1.0, c_timeReal);
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00012", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant1)), 100.0, 0.0);
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00012", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant2)), 100.0, 0.0);
-      UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant1)), c_messageAreaSubtitle, StringExternal("Param/Value/E44FA671"));
-      UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant2)), c_messageAreaSubtitle, StringExternal("Param/Value/4156CCA3"));
+      UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant1)), c_messageAreaSubtitle, StringExternal("Param/Value/10A1BB94"));
+      UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant2)), c_messageAreaSubtitle, StringExternal("Param/Value/10A1BB94"));
       libNtve_gf_SetAlliance(UnitGetOwner(gv_contestant1), UnitGetOwner(gv_contestant2), libNtve_ge_AllianceSetting_Enemy);
       libNtve_gf_PauseUnit(gv_contestant1, false);
       libNtve_gf_PauseUnit(gv_contestant2, false);
@@ -6710,7 +6710,7 @@ bool gt_HeroEntersArena2_Func (bool testConds, bool runActions) {
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00012", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant1)), 100.0, 0.0);
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00012", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant2)), 100.0, 0.0);
       UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant1)), c_messageAreaSubtitle, StringExternal("Param/Value/10A1BB94"));
-      UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant2)), c_messageAreaSubtitle, StringExternal("Param/Value/1A107626"));
+      UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant2)), c_messageAreaSubtitle, StringExternal("Param/Value/10A1BB94"));
       libNtve_gf_SetAlliance(UnitGetOwner(gv_contestant1), UnitGetOwner(gv_contestant2), libNtve_ge_AllianceSetting_Enemy);
       libNtve_gf_PauseUnit(gv_contestant1, false);
       libNtve_gf_PauseUnit(gv_contestant2, false);
@@ -6769,7 +6769,7 @@ bool gt_Contestant1Dies_Func (bool testConds, bool runActions) {
   UnitIssueOrder(gv_contestant2, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
   CameraPan(UnitGetOwner(gv_contestant2), PointFromId(844), 0.0, -1, 10, false);
   PlayerModifyPropertyInt(UnitGetOwner(gv_contestant2), c_playerPropVespene, c_playerPropOperAdd, FixedToInt(lv_winningAmmount));
-  UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant2)), c_messageAreaSubtitle, (StringExternal("Param/Value/F7D113B0") + (FixedToText(lv_winningAmmount, 0) + StringExternal("Param/Value/AE0C2D5D"))));
+  UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant2)), c_messageAreaSubtitle, (StringExternal("Param/Value/152FA35A") + (FixedToText(lv_winningAmmount, 0) + StringExternal("Param/Value/AE0C2D5D"))));
   PlayerGroupClear(gv_playersintheArena);
   UnitGroupRemove(gv_contestant2Group, gv_contestant2);
   gv_contestant2 = null;
@@ -6813,7 +6813,7 @@ bool gt_Contestant2Dies_Func (bool testConds, bool runActions) {
   UnitIssueOrder(gv_contestant1, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
   CameraPan(UnitGetOwner(gv_contestant1), PointFromId(844), 0.0, -1, 10, false);
   PlayerModifyPropertyInt(UnitGetOwner(gv_contestant1), c_playerPropVespene, c_playerPropOperAdd, FixedToInt(lv_winningAmmount));
-  UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant1)), c_messageAreaSubtitle, (StringExternal("Param/Value/D7C69713") + (FixedToText(lv_winningAmmount, 0) + StringExternal("Param/Value/B81843D9"))));
+  UIDisplayMessage(PlayerGroupSingle(UnitGetOwner(gv_contestant1)), c_messageAreaSubtitle, (StringExternal("Param/Value/152FA35A") + (FixedToText(lv_winningAmmount, 0) + StringExternal("Param/Value/B81843D9"))));
   PlayerGroupClear(gv_playersintheArena);
   UnitGroupRemove(gv_contestant1Group, gv_contestant1);
   gv_contestant1 = null;
@@ -12804,7 +12804,7 @@ bool gt_MachinaDePlagamDies_Func (bool testConds, bool runActions) {
       ObjectiveSetName(lr_player.quests.storyQuests[7].objective, StringExternal("Param/Value/BDB7145A"));
       SoundPlay(SoundLink("Alert_UniObjectiveUpdate", -1), lr_player.playerGroupSingle, 100.0, 0.0);
       BankValueSetFromInt(lr_player.banks.dragonBank, "SQ7", lr_player.hand, lr_player.quests.storyQuests[7].state);
-      TextTagCreate(StringExternal("Param/Value/836C72B8"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(2595)), 6.0, true, true, lr_player.playerGroupSingle);
       lr_player.quests.storyQuests[7].textTag = TextTagLastCreated();
       TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
       TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(100.00, 100.00, 100.00));
@@ -13133,7 +13133,7 @@ bool gt_SremagsiDies_Func (bool testConds, bool runActions) {
       lr_player.quests.storyQuests[5].ping = PingLastCreated();
       PingSetScale(PingLastCreated(), 0.5);
       SoundPlay(SoundLink("Alert_UniObjectiveUpdate", -1), lr_player.playerGroupSingle, 100.0, 0.0);
-      TextTagCreate(StringExternal("Param/Value/F1D75D0F"), 72, UnitGetPosition(UnitFromId(1597)), 6.0, true, true, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(1597)), 6.0, true, true, lr_player.playerGroupSingle);
       lr_player.quests.storyQuests[5].textTag = TextTagLastCreated();
       TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
       TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(100.00, 100.00, 100.00));
@@ -13791,7 +13791,7 @@ bool gt_SyritalDies_Func (bool testConds, bool runActions) {
       ObjectiveSetName(lr_player.quests.storyQuests[1].objective, StringExternal("Param/Value/05FD217C"));
       SoundPlay(SoundLink("Alert_UniObjectiveUpdate", -1), lr_player.playerGroupSingle, 100.0, 0.0);
       BankValueSetFromInt(lr_player.banks.dragonBank, "SQ1", lr_player.hand, lr_player.quests.storyQuests[1].state);
-      TextTagCreate(StringExternal("Param/Value/3A58ACB6"), 72, UnitGetPosition(UnitFromId(2511)), 6.0, true, true, lr_player.playerGroupSingle);
+      TextTagCreate(StringExternal("Param/Value/0C002467"), 72, UnitGetPosition(UnitFromId(2511)), 6.0, true, true, lr_player.playerGroupSingle);
       lr_player.quests.storyQuests[1].textTag = TextTagLastCreated();
       TextTagSetColor(TextTagLastCreated(), c_textTagColorText, Color(100.00, 100.00, 0.00));
       TextTagSetColor(TextTagLastCreated(), c_textTagColorEdge, Color(100.00, 100.00, 100.00));
@@ -19430,7 +19430,7 @@ void gf_SetupPlayer(playerData_r lr_player) {
   UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
   if ((UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent) == 100.0) && lr_player.state.beatGame) {
     UnitXPGainEnable(lr_player.dragon, null, false);
-    HelpPanelAddTip(lr_player.playerGroupSingle, libNtve_gf_FormatTipTitle(StringExternal("Param/Value/95517AFD"), libNtve_ge_TipType_NormalTip), StringExternal("Param/Value/BC7D2081"), StringExternal("Param/Value/FC8D3D85"), "Dragon Songs\\btn-ability-zerg-consume-red.dds");
+    HelpPanelAddTip(lr_player.playerGroupSingle, libNtve_gf_FormatTipTitle(StringExternal("Param/Value/95517AFD"), libNtve_ge_TipType_NormalTip), StringExternal("Param/Value/BC7D2081"), StringExternal("Param/Value/05532C03"), "Dragon Songs\\btn-ability-zerg-consume-red.dds");
   }
 }
 // ------------------------------------------------------------
