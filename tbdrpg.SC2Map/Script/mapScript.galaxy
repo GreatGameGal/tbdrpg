@@ -11896,8 +11896,6 @@ void gt_DragonDiesinZauberer1_Init () {
 bool gt_DragonDiesinZauberer2_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-
-
   if (testConds) {
     if (!(((UnitGetOwner(EventUnit()) != 16) && PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, UnitGetOwner(EventUnit())) && UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic)))) {
       return false;
@@ -12412,12 +12410,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
       UnitSetPosition(lr_player.dragon, RegionGetCenter(RegionFromId(213)), false);
     }
     lv_spawnPoint += 1;
-  }
-  PlayerGroupLoopEnd();
-
-  for (UnitGroupLoopBegin(gv_dragonInBattleWithZauberer2ndForm); !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
-    lr_player = gv_players[UnitGetOwner(UnitGroupLoopCurrent()) - 1];
-    if ((lr_player.quests.storyQuests[9].state == 2)) {
+    if (lr_player.quests.storyQuests[9].state == 2) {
       lr_player.quests.storyQuests[9].state = 3;
       ObjectiveSetState(lr_player.quests.storyQuests[9].objective, c_objectiveStateCompleted);
       ObjectiveDestroy(lr_player.quests.storyQuests[9].objective);
@@ -12425,15 +12418,16 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
       PingDestroy(lr_player.quests.storyQuests[9].ping);
     }
   }
-  UnitGroupLoopEnd();
+  PlayerGroupLoopEnd();
 
   libNtve_gf_HideGameUI(false, gv_playersInBattleWithZauberer2ndForm);
   TransmissionSend(gv_playersInBattleWithZauberer2ndForm, TransmissionSourceFromModel("HybridProtossPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/8984FD5F"), StringExternal("Param/Value/C033FA05"), 5.0, c_transmissionDurationSet, true);
-  for (UnitGroupLoopBegin(gv_dragonInBattleWithZauberer2ndForm); !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
-    libNtve_gf_PauseUnit(UnitGroupLoopCurrent(), false);
-    CameraLockInput(UnitGetOwner(UnitGroupLoopCurrent()), false);
+  for (PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm); !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
+    lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
+    libNtve_gf_PauseUnit(lr_player.dragon, false);
+    CameraLockInput(lr_player.player, false);
   }
-  UnitGroupLoopEnd();
+  PlayerGroupLoopEnd();
 
   //UnitCreate(1, "gv_TimeWarpBot", 0, 15, gv_TimeWarpBotLocation, 270.0);
   UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle,StringExternal("Param/Value/506A51FE"));
