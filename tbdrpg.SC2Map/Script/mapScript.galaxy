@@ -23,7 +23,7 @@ void lib_talent_InitVariables () {
   if (lib_talent_InitVariables_completed) {
     return;
   }
-  for (init_i = 0; init_i < 4; init_i += 1) {
+  for (init_i = 0; init_i < gv_PlayerCapacity; init_i += 1) {
     lr_player = gv_players[init_i];
     lr_player.talent.mainTalentDialog = c_invalidDialogId;
     lr_player.talent.colorScheme = "";
@@ -428,7 +428,7 @@ void FakeInitGlobals () {
   playerData_r lr_player;
   int init_i;
   int init_j;
-  for (init_i = 0; init_i < 4; init_i += 1) {
+  for (init_i = 0; init_i < gv_PlayerCapacity; init_i += 1) {
     lr_player = gv_players[init_i];
     lr_player.quests.questDialog.state = c_invalidDialogId;
     lr_player.quests.questDialog.textBox = c_invalidDialogControlId;
@@ -9437,7 +9437,7 @@ bool gt_RelamyCaveExit_Func (bool testConds, bool runActions) {
     } else{
     multiplayerMultiplierHolder = UnitGroupCount(UnitGroup(null, c_playerAny, RegionFromId(264), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
   }
-  
+
   UnitSetPropertyFixed(gv_robus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_robus, c_unitPropLifeMax, c_unitPropCurrent))* multiplayerMultiplierHolder); //* UnitGroupCount(UnitGroup(null, c_playerAny, RegionFromId(264), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)));
   UnitSetPropertyFixed(gv_robus, c_unitPropLifePercent, lv_robusLifePercent);
    
@@ -9455,7 +9455,6 @@ void gt_RelamyCaveExit_Init () {
 // Trigger: Set Infestation Spawn Trigger
 //--------------------------------------------------------------------------------------------------
 bool gt_SetInfestationSpawnTrigger_Func (bool testConds, bool runActions) {
-
   if (!runActions) {
     return true;
   }
@@ -9979,7 +9978,7 @@ bool gt_SetUpAttributeDialog_Func (bool testConds, bool runActions) {
     return true;
   }
 
-  for(lv_playerIndex = 0; lv_playerIndex < 4; lv_playerIndex += 1) {
+  for(lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
     lr_player = gv_players[lv_playerIndex];
     DialogCreate(200, 65, c_anchorBottomRight, 425, 200, true);
     lr_player.stats.attributeDialog.state = DialogLastCreated();
@@ -12059,7 +12058,7 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
   int lv_spawnPoint;
 
   if (testConds) {
-    if (!((UnitGetType(EventUnit()) == "Zauberer"))) {
+    if (UnitGetType(EventUnit()) != "Zauberer") {
       return false;
     }
   }
@@ -12425,7 +12424,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
   for (PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm); !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
     libNtve_gf_PauseUnit(lr_player.dragon, false);
-    CameraLockInput(lr_player.player, false);
+    CameraLockInput(lr_player.player, false); 
   }
   PlayerGroupLoopEnd();
 
@@ -16678,7 +16677,7 @@ bool gt_SetUpLocationDialog_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  for (lv_playerIndex = 0; lv_playerIndex < 4; lv_playerIndex += 1) {
+  for (lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
     lr_player = gv_players[lv_playerIndex];
     DialogCreate(200, 100, c_anchorTop, 0, 40, true);
     lr_player.locationDialog.state = DialogLastCreated();
@@ -17394,7 +17393,7 @@ bool gt_PlayerLeaves_Func (bool testConds, bool runActions) {
   }
   PlayerGroupRemove(gv_humanPlayers, lr_player.player);
   UnitRemove(lr_player.dragon);
-  for(lv_i = 1; lv_i < 5; lv_i += 1) {
+  for(lv_i = 1; lv_i <= gv_PlayerCapacity; lv_i += 1) {
     PlayerSetAlliance(lr_player.player, c_allianceIdSpend, lv_i, false);
     PlayerSetAlliance(lv_i, c_allianceIdSpend, lr_player.player, false);
     libNtve_gf_SetAlliance(lr_player.player, lv_i, libNtve_ge_AllianceSetting_Enemy);
@@ -17616,7 +17615,7 @@ bool gt_StashLocationSetup_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  for(lv_i = 0; lv_i < 4; lv_i += 1) {
+  for(lv_i = 0; lv_i < gv_PlayerCapacity; lv_i += 1) {
     gv_players[lv_i].stash.location = PointFromId(4835 + lv_i);
   }
   return true;
@@ -17636,7 +17635,7 @@ bool gt_LoadShards_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  for(lv_playerIndex = 0; lv_playerIndex < 4; lv_playerIndex += 1) {
+  for(lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
     lr_player = gv_players[lv_playerIndex];
     if ((PlayerStatus(lr_player.player) == c_playerStatusActive)) {
       while (lr_player.banks.accessing) {
@@ -18331,7 +18330,7 @@ bool gt_EndingCinematic_Func (bool testConds, bool runActions) {
     DialogSetVisible(lr_player.stats.attributeDialog.state, lr_player.playerGroupSingle, false);
     DialogSetVisible(lr_player.locationDialog.state, lr_player.playerGroupSingle, false);
     //lr_player.state.preventSave = true;
-    for (lv_i = 1; lv_i < 5; lv_i += 1) {
+    for (lv_i = 1; lv_i <= gv_PlayerCapacity; lv_i += 1) {
       PlayerSetAlliance(lv_i, c_allianceIdVision, lr_player.player, false);
       PlayerSetAlliance(lr_player.player, c_allianceIdVision, lv_i, false);
     }
@@ -19434,7 +19433,7 @@ void gf_InitializePlayers () {
   playerData_r lr_player;
 
   // Loops through all players to initialize each one.
-  for (lv_playerIndex = 0; lv_playerIndex < 4; lv_playerIndex += 1) {
+  for (lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
     lr_player = gv_players[lv_playerIndex];
     lr_player.player = lv_playerIndex + 1;
     lr_player.playerGroupSingle = PlayerGroupSingle(lr_player.player);

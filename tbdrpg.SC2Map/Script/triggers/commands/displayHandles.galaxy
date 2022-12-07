@@ -5,7 +5,7 @@ bool gt_GetHandle_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  for(lv_i = 1; lv_i < 5; lv_i += 1) {
+  for(lv_i = 1; lv_i <= gv_PlayerCapacity; lv_i += 1) {
     UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, PlayerName(lv_i) + StringExternal("Param/Value/86DAF636") + StringToText(gv_players[lv_i - 1].hand));
   }
   return true;

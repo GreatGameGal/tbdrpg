@@ -1,5 +1,7 @@
 const int adminCount = 9;
 
+const int gv_PlayerCapacity = 4;
+
 const int gv_MaxLevel = 100;
 const fixed gv_MAXEXPERIENCE = 500000.0;
 // TODO: If we care about security we can make the modifier numbers not a constant but instead derived from each player's handle somehow.
