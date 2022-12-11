@@ -1,7 +1,7 @@
 bool gf_IsAdmin(string lp_handle) {
-  int i;
-  for (i = 0; i < adminCount; i += 1) {
-    if (lp_handle == gv_adminHandles[i]) {
+  int lv_i;
+  for (lv_i = 0; lv_i < adminCount; lv_i += 1) {
+    if (lp_handle == gv_adminHandles[lv_i]) {
       return true;
     }
   }

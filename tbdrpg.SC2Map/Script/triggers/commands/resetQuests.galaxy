@@ -6,7 +6,7 @@ bool gt_ResetQuest_Func (bool testConds, bool runActions) {
     return true;
   }
   ObjectiveDestroyAll(lr_player.playerGroupSingle);
-  for(lv_i = 0; lv_i < 10; lv_i += 1) {
+  for (lv_i = 0; lv_i < 10; lv_i += 1) {
     PingDestroy(lr_player.quests.storyQuests[lv_i].ping);
   }
   gf_SQ0Setup(lr_player);

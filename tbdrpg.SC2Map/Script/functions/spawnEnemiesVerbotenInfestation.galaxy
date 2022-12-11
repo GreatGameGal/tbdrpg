@@ -9,9 +9,9 @@ void gf_SpawnEnemiesVerbotenInfestation (playerData_r lr_player) {
   lr_player.state.infestationSpawned = true;
 
   //Spawns enemies in areas 0 -> 9, spawns twice in each, and changes the enemy type every 2 regions
-  for(lv_locationNum = 0; lv_locationNum < 10; lv_locationNum += 1) {
+  for (lv_locationNum = 0; lv_locationNum < 10; lv_locationNum += 1) {
     lv_unitTypeNum = RandomInt(16, 18);
-    for(lv_i = 0; lv_i < 2; lv_i += 1) {
+    for (lv_i = 0; lv_i < 2; lv_i += 1) {
       UnitCreate(1, gv_enemyUnitTypes[lv_unitTypeNum], 0, 15, RegionRandomPoint(gv_verbotenInfestationsRegions[lv_locationNum]), libNtve_gf_RandomAngle());
       UnitGroupAdd(gv_verbotenInfestationUnits[lv_locationNum], UnitLastCreated());
     }

@@ -13,7 +13,7 @@ bool gt_SuitUp_Func (bool testConds, bool runActions) {
   }
   UnitInventoryCreate(lr_player.dragon, "ModArmor");
   UnitInventoryCreate(lr_player.dragon, "GodlyClaws");
-  for(lv_i = 0; lv_i < 5; lv_i += 1) {
+  for (lv_i = 0; lv_i < 5; lv_i += 1) {
     UnitInventoryCreate(lr_player.dragon, "FluxCapacitor");
   }
   return true;

@@ -10,7 +10,7 @@ void lib_talent_gf_SaveTalentBuild (int lp_buildIndex, string lp_bankName, playe
   lv_talentBank = BankLastCreated();
   lr_player.talent.buildStrings[lp_buildIndex] = "";
 
-  for(lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
+  for (lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
     lv_talentStringIndex = lv_talentIndex * 2 + 1;
     lr_talent = lr_player.talent.talents[lv_talentIndex];
     if (lr_talent.rank < 10) {

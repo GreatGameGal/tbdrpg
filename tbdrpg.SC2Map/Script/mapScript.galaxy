@@ -37,7 +37,7 @@ void lib_talent_InitVariables () {
     for (init_j = 0; init_j < 10; init_j += 1) {
       lr_player.talent.buildStrings[init_j] = "";
     }
-    for(init_j = 0; init_j < lib_talent_gv_TALENTCOUNT; init_j += 1) {
+    for (init_j = 0; init_j < lib_talent_gv_TALENTCOUNT; init_j += 1) {
       lr_player.talent.talents[init_j].button = c_invalidDialogControlId;
       lr_player.talent.talents[init_j].buttonGlow = c_invalidDialogControlId;
       lr_player.talent.talents[init_j].buttonLabelBackground = c_invalidDialogControlId;
@@ -449,7 +449,7 @@ void FakeInitGlobals () {
       lr_player.quests.manaQuests[init_j].textTag = c_textTagNone;
       lr_player.quests.manaQuests[init_j].objective = c_invalidObjectiveId;
     }
-    for(init_j = 0; init_j < 10; init_j += 1) {
+    for (init_j = 0; init_j < 10; init_j += 1) {
       lr_player.quests.storyQuests[init_j].objective = c_invalidObjectiveId;
       lr_player.quests.storyQuests[init_j].ping = c_invalidPingId;
       lr_player.quests.storyQuests[init_j].textTag = c_textTagNone;
@@ -1201,7 +1201,6 @@ void gf_SaveStackCounts (playerData_r lr_player) {
 void gf_RemoveWeapons (unit lp_hero) {
   unit lv_weapon;
 
-
   UnitGroupLoopBegin(UnitInventoryGroup(lp_hero));
   for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
     if ((UnitInventoryContainer(UnitGroupLoopCurrent()) == 1)) {
@@ -1602,7 +1601,7 @@ void gf_LoadStackCounts (playerData_r lr_player) {
   fixed lv_chargesUsed;
 
   for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
-    for(lv_i = 0; lv_i < gv_StackableTypeCount; lv_i += 1) {
+    for (lv_i = 0; lv_i < gv_StackableTypeCount; lv_i += 1) {
       if (UnitGetType(UnitGroupLoopCurrent()) == gv_stackTypes[lv_i] && BankSectionExists(lr_player.banks.dragonBank, gv_stackBankNames[lv_i])) {
         lv_chargesUsed = BankValueGetAsFixed(lr_player.banks.dragonBank, gv_stackBankNames[lv_i], lr_player.hand) - UnitGetChargeUsed(UnitGroupLoopCurrent(), gv_stackNames[lv_i]);
         UnitAddChargeUsed(UnitGroupLoopCurrent(), gv_stackNames[lv_i], lv_chargesUsed);
@@ -1888,8 +1887,8 @@ void gf_InitializeThree () {
   int lv_j;
   for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
-    for(lv_j = 0; lv_j < 2; lv_j += 1) {
-      for(lv_i = 233; lv_i < 237; lv_i += 1) {
+    for (lv_j = 0; lv_j < 2; lv_j += 1) {
+      for (lv_i = 233; lv_i < 237; lv_i += 1) {
         UnitCreate(1, "VisionDummy", c_unitCreateIgnorePlacement, lr_player.player, RegionRandomPoint(RegionFromId(lv_i)), 270.0);
       }
       for (lv_i = 242; lv_i < 251; lv_i += 1) {
@@ -2213,11 +2212,7 @@ void gt_QuestDecline_Init () {
 // Trigger: Talk Dialog Closed
 //--------------------------------------------------------------------------------------------------
 bool gt_TalkDialogClosed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
-  unit lv_tempArmor;
-
-  lr_player = gv_players[EventPlayer() - 1];
-
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (testConds) {
     if (EventDialogControl() != lr_player.quests.talkDialog.accept) {
@@ -2249,7 +2244,7 @@ bool gt_RunStoryQuestSetups_Func (bool testConds, bool runActions) {
   }
   for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
-    for(lv_i = 0; lv_i < 10; lv_i += 1) {
+    for (lv_i = 0; lv_i < 10; lv_i += 1) {
       lv_sqWhat = "SQ" + IntToString(lv_i);
       if (BankSectionExists(lr_player.banks.dragonBank, lv_sqWhat)) {
         lr_player.quests.storyQuests[lv_i].state = BankValueGetAsInt(lr_player.banks.dragonBank, lv_sqWhat, lr_player.hand);
@@ -2578,8 +2573,8 @@ bool gt_SQ4PlayerTalkstoRisdak_Func (bool testConds, bool runActions) {
     TextTagDestroy(lr_player.quests.storyQuests[4].textTag);
     lr_player.quests.talking = false;
     
-    if(!statueSpawned){
-    TriggerExecute(gt_GuardianRespawn, true, false);
+    if (!statueSpawned) {
+      TriggerExecute(gt_GuardianRespawn, true, false);
     }
   }
   else {
@@ -6258,40 +6253,20 @@ void gt_SerynQuest0RewardAccept_Init () {
 // Trigger: Chaos Unit Types
 //--------------------------------------------------------------------------------------------------
 bool gt_ChaosUnitTypes_Func (bool testConds, bool runActions) {
-  int i;
+  int lv_i;
 
   if (!runActions) {
     return true;
   }
-     for(i = 0; i<=18; i += 1){
-    gv_enemyUnitTypes[i] = "Impetus";
+
+  for (lv_i = 0; lv_i <= 18; lv_i += 1) {
+    gv_enemyUnitTypes[lv_i] = "Impetus";
   }
-  //gv_enemyUnitTypes[0] = "Impetus";
-  //gv_enemyUnitTypes[1] = "Impetus";
-  //gv_enemyUnitTypes[2] = "Impetus";
-  //gv_enemyUnitTypes[3] = "Impetus";
-  //gv_enemyUnitTypes[4] = "Impetus";
-  //gv_enemyUnitTypes[5] = "Impetus";
-  //gv_enemyUnitTypes[6] = "Impetus";
-  //gv_enemyUnitTypes[7] = "Impetus";
-  //gv_enemyUnitTypes[8] = "Impetus";
-  //gv_enemyUnitTypes[9] = "Impetus";
-  //gv_enemyUnitTypes[10] = "Impetus";
-  //gv_enemyUnitTypes[11] = "Impetus";
-  //gv_enemyUnitTypes[12] = "Impetus";
-  //gv_enemyUnitTypes[13] = "Impetus";
-  //gv_enemyUnitTypes[14] = "Impetus";
-  //gv_enemyUnitTypes[15] = "Impetus";
-  //gv_enemyUnitTypes[16] = "Impetus";
-  //gv_enemyUnitTypes[17] = "Impetus";
-  //gv_enemyUnitTypes[18] = "Impetus";
   return true;
 }
 //--------------------------------------------------------------------------------------------------
 void gt_ChaosUnitTypes_Init () {
-  int i = 0;
-  gt_ChaosUnitTypes = TriggerCreate("gt_ChaosUnitTypes_Func");
-  
+  gt_ChaosUnitTypes = TriggerCreate("gt_ChaosUnitTypes_Func");  
 }
 //--------------------------------------------------------------------------------------------------
 // Trigger: Syrital's Hatch
@@ -8765,26 +8740,11 @@ bool gt_TownPortal_Func (bool testConds, bool runActions) {
     UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/1F7CF99A"));
     return true;
   }
-  //if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSyrital, lr_player.dragon)) {
-    //  UnitInventoryCreate(lr_player.dragon, "TownPortal");
-     // UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/FD1FB43C"));
-    //return true;
-  //  }
-  //if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, lr_player.dragon)) {
-    //  UnitInventoryCreate(lr_player.dragon, "TownPortal");
-    //  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/746AD6C2"));
-    // return true;
-   // 
  if (lr_player.locationString == "Machina De Plagam's Crater") {
     UnitInventoryCreate(lr_player.dragon, "TownPortal");
     UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/BD25568D"));
     return true;
   }
-  //  if (UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, lr_player.dragon)) {
-   //   UnitInventoryCreate(lr_player.dragon, "TownPortal");
-   //   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/BD25568D"));
-   //   return true;
-   // }
   if (PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, lr_player.player)) {
     UnitInventoryCreate(lr_player.dragon, "TownPortal");
     UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/D47362FB"));
@@ -9179,7 +9139,6 @@ bool gt_UndergroundForestEnter_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(273)), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "Underground Forest";
   lr_player.locationString = "Underground Forest";
   lr_player.locationText = StringToText(lr_player.locationString);
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
@@ -9214,7 +9173,6 @@ bool gt_UndergroundForestExit_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(272)), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "Creton";
   lr_player.locationString = "Creton";
   lr_player.locationText = StringToText(lr_player.locationString);  
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
@@ -9252,7 +9210,6 @@ bool gt_RelamyGorgeEnter_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(232)), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "Relamy Gorge";
   lr_player.locationString = "Relamy Gorge";
   lr_player.locationText = StringToText(lr_player.locationString);
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
@@ -9287,7 +9244,6 @@ bool gt_RelamyGorgeExit_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(270)), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "Relamy Pass";
   lr_player.locationString = "Relamy Pass";
   lr_player.locationText = StringToText(lr_player.locationString);
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
@@ -9326,7 +9282,6 @@ bool gt_RelamyCaveEnter_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), PointFromId(4072), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "???";
   lr_player.locationString = "???";
   lr_player.locationText = StringToText(lr_player.locationString);
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
@@ -9379,25 +9334,20 @@ bool gt_RelamyCaveExit_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), PointFromId(4073), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "Relamy Canyon";
   lr_player.locationString = "Relamy Canyon";
   lr_player.locationText = StringToText(lr_player.locationString);
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
   lv_robusLifePercent = UnitGetPropertyFixed(gv_robus, c_unitPropLifePercent, c_unitPropCurrent);
   
   multiplayerMultiplier = UnitGroupCount(UnitGroup(null, c_playerAny, RegionFromId(264), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
-  if(multiplayerMultiplier == thisIsZero){
+  if (multiplayerMultiplier == thisIsZero) {
     multiplayerMultiplierHolder = 1;
-    } else{
+  } else {
     multiplayerMultiplierHolder = UnitGroupCount(UnitGroup(null, c_playerAny, RegionFromId(264), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive);
   }
 
-  UnitSetPropertyFixed(gv_robus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_robus, c_unitPropLifeMax, c_unitPropCurrent))* multiplayerMultiplierHolder); //* UnitGroupCount(UnitGroup(null, c_playerAny, RegionFromId(264), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)));
+  UnitSetPropertyFixed(gv_robus, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_robus, c_unitPropLifeMax, c_unitPropCurrent))* multiplayerMultiplierHolder);
   UnitSetPropertyFixed(gv_robus, c_unitPropLifePercent, lv_robusLifePercent);
-   
-  
-  //UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(UnitGroupCount(UnitGroup(null, c_playerAny, RegionFromId(264), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) +1));
-  //UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, IntToText(UnitGroupCount(UnitGroup(null, c_playerAny, RegionFromId(264), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive)));
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -9430,7 +9380,6 @@ bool gt_VerbotenInfestationEnter_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(64)), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "Infestation";
   lr_player.locationString = "Infestation";
   lr_player.locationText = StringToText(lr_player.locationString);
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
@@ -9466,7 +9415,6 @@ bool gt_VerbotenInfestationExit_Func (bool testConds, bool runActions) {
   UnitSetPosition(EventUnit(), RegionGetCenter(RegionFromId(62)), false);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
   UnitIssueOrder(EventUnit(), Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-  //lr_player.locationText = "Verboten Forest";
   lr_player.locationString = "Verboten Forest";
   lr_player.locationText = StringToText(lr_player.locationString);
   libNtve_gf_SetDialogItemText(lr_player.locationDialog.textBox, lr_player.locationText, lr_player.playerGroupSingle);
@@ -9731,7 +9679,7 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
     UnitIssueOrder(lv_revenge, Order(AbilityCommand("Nova", 0)), c_orderQueueReplace);
   }
   SoundPlay(SoundLink("DragonDeath", -1), lr_player.playerGroupSingle, 100.0, 0.0);
-  if(lv_TypeOfUnitThatKilledDragon == "MagicalDemonicSheep") {
+  if (lv_TypeOfUnitThatKilledDragon == "MagicalDemonicSheep") {
     TimerStart(lr_player.dyingTimer.time, 5.0, false, c_timeReal);
     TimerWindowCreate(lr_player.dyingTimer.time, StringExternal("Slipping back..."), true, false);
     UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/CCBC876F"));
@@ -9903,7 +9851,7 @@ bool gt_SetUpAttributeDialog_Func (bool testConds, bool runActions) {
     return true;
   }
 
-  for(lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
+  for (lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
     lr_player = gv_players[lv_playerIndex];
     DialogCreate(200, 65, c_anchorBottomRight, 425, 200, true);
     lr_player.stats.attributeDialog.state = DialogLastCreated();
@@ -11273,11 +11221,7 @@ void gt_EnemySkillResponse_Init () {
 // Trigger: Zauberer's Favor
 //--------------------------------------------------------------------------------------------------
 bool gt_ZauberersFavor_Func (bool testConds, bool runActions) {
-  string auto8B028ADB_val;
-
-  int buffCount;
-  int i;
-  int j;
+  int lv_i;
   
   string lv_deadUnit;
   int lv_unitIndex;
@@ -11286,97 +11230,33 @@ bool gt_ZauberersFavor_Func (bool testConds, bool runActions) {
 
   
   if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
+    if (
+      UnitGetOwner(EventUnit()) != 15 ||
+      UnitGetOwner(libNtve_gf_KillingUnit()) == 16 ||
+      !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(libNtve_gf_KillingUnit()))
+    ) {
       return false;
-     
-    }
-    if (!((UnitGetOwner(libNtve_gf_KillingUnit()) != 16))) {
-       
-return false;
-    }
-    if (!PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(libNtve_gf_KillingUnit()))) {
-    
- return false;
     }
   }
 
   if (!runActions) {
     return true;
   }
-  i = 0;
-  j = 0;
-  auto8B028ADB_val = lv_deadUnit;
-    
-    
-  if (auto8B028ADB_val == "SmallSheep") {
-    lv_unitIndex = 0;
- 
+
+  for (lv_i = 0; lv_i <= 20; lv_i += 1) {
+    if (lv_deadUnit == gv_enemyUnitTypes[lv_i]) {
+      lv_unitIndex = lv_i;
+      break;
+    } 
   }
-  else if (auto8B028ADB_val == "Srepti") {
-    lv_unitIndex = 1;
+  if (gv_enemyDeathCounts[lv_unitIndex] <= 255) {
+    gv_enemyDeathCounts[lv_unitIndex] += 1;
   }
-  else if (auto8B028ADB_val == "Vogel") {
-    lv_unitIndex = 2;
-  }
-  else if (auto8B028ADB_val == "CretonWarrior") {
-    lv_unitIndex = 3;
-  }
-  else if (auto8B028ADB_val == "Karramarro") {
-    lv_unitIndex = 4;
-  }
-  else if (auto8B028ADB_val == "CretonWatcher") {
-    lv_unitIndex = 5;
-  }
-  else if (auto8B028ADB_val == "Alakdan") {
-    lv_unitIndex = 6;
-  }
-  else if (auto8B028ADB_val == "Gagamba") {
-    lv_unitIndex = 7;
-  }
-  else if (auto8B028ADB_val == "Odvratan") {
-    lv_unitIndex = 8;
-  }
-  else if (auto8B028ADB_val == "Anguis") {
-    lv_unitIndex = 9;
-  }
-  else if (auto8B028ADB_val == "Pervolo") {
-    lv_unitIndex = 10;
-  }
-  else if (auto8B028ADB_val == "EliteCretonWarrior") {
-    lv_unitIndex = 11;
-  }
-  else if (auto8B028ADB_val == "EliteCretonWatcher") {
-    lv_unitIndex = 12;
-  }
-  else if (auto8B028ADB_val == "CretonWarMachine") {
-    lv_unitIndex = 13;
-  }
-  else if (auto8B028ADB_val == "Impetus") {
-    lv_unitIndex = 19;
-  }
-  else if (auto8B028ADB_val == "Mortuus") {
-    lv_unitIndex = 20;
-  }
-  else {
-  //UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringToText("How did you call this?"));
-  }
-  if(gv_enemyDeathCounts[lv_unitIndex] <= 255){
-     gv_enemyDeathCounts[lv_unitIndex] += 1;}
   UnitGroupLoopBegin(UnitGroup(UnitGetType(EventUnit()), 15, RegionEntireMap(), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0));
   for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
-  
-   for(i = UnitBehaviorCount(UnitGroupLoopCurrent(), "ZauberersFavor"); i <= gv_enemyDeathCounts[lv_unitIndex]; i +=1){
+   for (lv_i = UnitBehaviorCount(UnitGroupLoopCurrent(), "ZauberersFavor"); lv_i <= gv_enemyDeathCounts[lv_unitIndex]; lv_i += 1) {
       UnitBehaviorAddPlayer(UnitGroupLoopCurrent(), "ZauberersFavor", 15, 1);
-      //j += 1;
     }
-  
-     //Instead of removing all stacks and reappyling all stacks +1, see how many stacks each unit is short from what the buff is supposed to be at, and add that many.
-     // UnitBehaviorRemovePlayer(UnitGroupLoopCurrent(), "ZauberersFavor", 15, c_unitBehaviorCountAll);
-     // if(UnitBehaviorCount(UnitGroupLoopCurrent(), "ZauberersFavor") <= gv_enemyDeathCounts[lv_unitIndex]){
-    //}
-    //UnitBehaviorAddPlayer(UnitGroupLoopCurrent(), "ZauberersFavor", 15, 1);
-  
-  //DebugStuff UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringToText(auto8B028ADB_val) +   StringToText(" is in slot ") + IntToText(lv_unitIndex) + StringToText(" which has this many stacks ") +  IntToText(gv_enemyDeathCounts[lv_unitIndex])+ StringToText(" and has called: ") + IntToText(j));
   }
   UnitGroupLoopEnd();
   
@@ -11384,9 +11264,6 @@ return false;
 }
 //--------------------------------------------------------------------------------------------------
 void gt_ZauberersFavor_Init () {
-  int i = 0;
-  int j = 0;
-  int positionInUnitTypeArray = 0;
   gt_ZauberersFavor = TriggerCreate("gt_ZauberersFavor_Func");
   TriggerAddEventUnitDied(gt_ZauberersFavor, null);
 }
@@ -11394,11 +11271,11 @@ void gt_ZauberersFavor_Init () {
 // Trigger: Count Unit Deaths
 //--------------------------------------------------------------------------------------------------
 bool gt_CountUnitDeaths_Func (bool testConds, bool runActions) {
-  string auto5FB0BE3D_val;
-  int i;
+  string lv_unitType;
+  int lv_i;
 
   if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
+    if (UnitGetOwner(EventUnit()) != 15) {
       return false;
     }
   }
@@ -11407,56 +11284,17 @@ bool gt_CountUnitDeaths_Func (bool testConds, bool runActions) {
     return true;
   }
   
-  auto5FB0BE3D_val = UnitGetType(EventUnit());
-  for (i = 0; i<=20; i +=1){
-    if (auto5FB0BE3D_val == gv_enemyUnitTypes[i]) {
-    gv_unitKills[i] += 1;
-    break;
+  lv_unitType = UnitGetType(EventUnit());
+  for (lv_i = 0; lv_i <= 20; lv_i +=1) {
+    if (lv_unitType == gv_enemyUnitTypes[lv_i]) {
+      gv_unitKills[lv_i] += 1;
+      break;
     } 
   }
-   //if (auto5FB0BE3D_val == gv_enemyUnitTypes[i]) {
-   //   gv_unitKills[i] += 1;
-   // }
-  //else if (auto5FB0BE3D_val == gv_enemyUnitTypes[1]) {
-  //  gv_unitKills[1] += 1;
-  //}
-  //else if (auto5FB0BE3D_val == gv_enemyUnitTypes[2]) {
-   //   gv_unitKills[2] += 1;
-   // }
-   // else if (auto5FB0BE3D_val == gv_enemyUnitTypes[3]) {
-   //   gv_unitKills[3] += 1;
-   // }
-   // else if (auto5FB0BE3D_val == gv_enemyUnitTypes[4]) {
-   //   gv_unitKills[4] += 1;
-   // }
-  //else if (auto5FB0BE3D_val == gv_enemyUnitTypes[5]) {
-  //  gv_unitKills[5] += 1;
-  //}
-  //else if (auto5FB0BE3D_val == gv_enemyUnitTypes[6]) {
-  //  gv_unitKills[6] += 1;
-   // }
-   // else if (auto5FB0BE3D_val == gv_enemyUnitTypes[7]) {
-   //   gv_unitKills[7] += 1;
-   // }
-  //else if (auto5FB0BE3D_val == gv_enemyUnitTypes[8]) {
-  //  gv_unitKills[8] += 1;
-   // }
-  //else if (auto5FB0BE3D_val == gv_enemyUnitTypes[9]) {
-  //  gv_unitKills[9] += 1;
-   // }
-   // else if (auto5FB0BE3D_val == gv_enemyUnitTypes[10]) {
-   //   gv_unitKills[10] += 1;
-   // }
-   // else if (auto5FB0BE3D_val == gv_enemyUnitTypes[11]) {
-   //   gv_unitKills[11] += 1;
-   // }
-   // else {
-   // }
   return true;
 }
 //--------------------------------------------------------------------------------------------------
 void gt_CountUnitDeaths_Init () {
-  int i = 0;
   gt_CountUnitDeaths = TriggerCreate("gt_CountUnitDeaths_Func");
   TriggerAddEventUnitDied(gt_CountUnitDeaths, null);
 }
@@ -11879,11 +11717,6 @@ bool gt_SpawnZauberer1stForm_Func (bool testConds, bool runActions) {
   }
   PlayerGroupLoopEnd();
   libNtve_gf_HideGameUI(false, gv_playersInBattleWithZauberer1stForm);
-  // for (PlayerGroupLoopBegin(gv_playersInBattleWithZauberer1stForm); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
-    // lr_player = gv_players[PlayerGroupLoopCurrent() - 1]
-    //lr_player.state.preventSave = true;
-  // }
-  //PlayerGroupLoopEnd();
   TransmissionSend(gv_playersInBattleWithZauberer1stForm, TransmissionSourceFromModel("TassadarPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/5CE524CE"), StringExternal("Param/Value/881CE2C2"), 5.0, c_transmissionDurationSet, true);
   Wait(1.0, c_timeReal);
   for (lv_i = 1; lv_i <= 30; lv_i += 1) {
@@ -11941,7 +11774,7 @@ void gt_SpawnZauberer1stForm_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
-  int i;
+  int lv_i;
 
   int lv_spawnPoint;
 
@@ -11970,7 +11803,7 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
   }
   UnitGroupLoopEnd();
 
-  for(PlayerGroupLoopBegin(gv_playersInBattleWithZauberer1stForm); PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+  for (PlayerGroupLoopBegin(gv_playersInBattleWithZauberer1stForm); PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     gv_zaubererFirstFormAlreadyDead[PlayerGroupLoopCurrent() - 1] = true;
   }
   PlayerGroupLoopEnd();
@@ -11981,7 +11814,6 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
   for (PlayerGroupLoopBegin(gv_playersInBioDome); !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];;
 
-     // lr_player.state.preventSave = true;
     libNtve_gf_ShowHideBossBar(false, lr_player.player);
     libNtve_gf_SetBossBarBoss(lr_player.player, null, false);
     libNtve_gf_PauseUnit(lr_player.dragon, true);
@@ -12011,7 +11843,7 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
   PlayerGroupLoopEnd();
 
   TransmissionSend(gv_playersInBioDome, TransmissionSourceFromModel("TassadarPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/3E75D4E4"), StringExternal("Param/Value/4BAB0F7C"), 5.0, c_transmissionDurationSet, false);
-  for (i = 0; i < 80; i += 1) {
+  for (lv_i = 0; lv_i < 80; lv_i += 1) {
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
@@ -12082,7 +11914,6 @@ bool gt_SpawnZauberer2ndFormNormalWay_Func (bool testConds, bool runActions) {
   }
   PlayerGroupLoopBegin(gv_playersInBioDome);
   for ( ; !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
-    //lr_player.state.preventSave = true;
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
     UnitGroupAdd(gv_dragonInBattleWithZauberer2ndForm, lr_player.dragon);
     PlayerGroupAdd(gv_playersInBattleWithZauberer2ndForm, lr_player.player);
@@ -12147,7 +11978,7 @@ void gt_SpawnZauberer2ndFormNormalWay_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnZauberer2ndFormSpecial_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
-  int i;
+  int lv_i;
 
   int lv_spawnPoint;
 
@@ -12165,7 +11996,6 @@ bool gt_SpawnZauberer2ndFormSpecial_Func (bool testConds, bool runActions) {
   TriggerEnable(gt_TeleporttoCreton, false);
   for (PlayerGroupLoopBegin(gv_playersInBioDome); !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
-    //lr_player.state.preventSave = true;
     CameraPan(lr_player.player, RegionGetCenter(RegionFromId(214)), 5.0, -1, 10, false);
     CameraLockInput(lr_player.player, true);
     lr_player.state.inCinematic = true;
@@ -12194,7 +12024,7 @@ bool gt_SpawnZauberer2ndFormSpecial_Func (bool testConds, bool runActions) {
   libNtve_gf_HideGameUI(false, gv_playersInBattleWithZauberer2ndForm);
   TransmissionSend(gv_playersInBattleWithZauberer2ndForm, TransmissionSourceFromModel("HybridProtossPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/074636AE"), StringExternal("Param/Value/3C0A34BC"), 5.0, c_transmissionDurationSet, true);
   Wait(1.0, c_timeReal);
-  for (i = 1; i <= 30; i += 1) {
+  for (lv_i = 1; lv_i <= 30; lv_i += 1) {
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", RegionRandomPoint(RegionFromId(214)));
@@ -12309,7 +12139,7 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
 
   libNtve_gf_HideGameUI(false, gv_playersInBattleWithZauberer2ndForm);
   TransmissionSend(gv_playersInBattleWithZauberer2ndForm, TransmissionSourceFromModel("HybridProtossPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/8984FD5F"), StringExternal("Param/Value/C033FA05"), 5.0, c_transmissionDurationSet, true);
-  for (PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm); !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
+  for (PlayerGroupLoopBegin(gv_playersInBattleWithZauberer2ndForm); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
     libNtve_gf_PauseUnit(lr_player.dragon, false);
     CameraLockInput(lr_player.player, false); 
@@ -12427,8 +12257,8 @@ bool gt_MachinaDePlagamSethealth_Func (bool testConds, bool runActions) {
     return true;
   }
   healthcap = PlayerGroupCount(PlayerGroupActive());
-  if (healthcap >3){
-      healthcap = 3;
+  if (healthcap > 3) {
+    healthcap = 3;
   }
   gv_machinaDePlagam = UnitFromId(1711);
   UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(healthcap)));
@@ -12734,8 +12564,8 @@ bool gt_MachinaDePlagamRespawn_Func (bool testConds, bool runActions) {
   gv_machinaDePlagamisDead = false;
    
   healthcap = PlayerGroupCount(PlayerGroupActive());
-  if (healthcap >3){
-      healthcap = 3;
+  if (healthcap > 3) {
+    healthcap = 3;
   }
   UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropLifeMax, c_unitPropCurrent) * IntToFixed(healthcap)));
   UnitSetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, (UnitGetPropertyFixed(gv_machinaDePlagam, c_unitPropShieldsMax, c_unitPropCurrent) * IntToFixed(PlayerGroupCount(PlayerGroupActive()))));
@@ -12745,7 +12575,6 @@ bool gt_MachinaDePlagamRespawn_Func (bool testConds, bool runActions) {
 }
 //--------------------------------------------------------------------------------------------------
 void gt_MachinaDePlagamRespawn_Init () {
-  int healthcap = 0;
   gt_MachinaDePlagamRespawn = TriggerCreate("gt_MachinaDePlagamRespawn_Func");
   TriggerEnable(gt_MachinaDePlagamRespawn, false);
   TriggerAddEventTimePeriodic(gt_MachinaDePlagamRespawn, 180.0, c_timeGame);
@@ -12755,7 +12584,6 @@ void gt_MachinaDePlagamRespawn_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamBackup_Func (bool testConds, bool runActions) {
   int lv_randomEnemy;
-  int lv_i;
 
   if (testConds) {
     if (gv_machinaDePlagamisDead) {
@@ -12847,7 +12675,6 @@ bool gt_UnitattacksSremagsi_Func (bool testConds, bool runActions) {
   }
   if (!(RegionContainsPoint(RegionFromName("Sremagsi's Lair 1"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 2"), UnitGetPosition(EventUnitDamageSourceUnit())) || RegionContainsPoint(RegionFromName("Sremagsi's Lair 3"), UnitGetPosition(EventUnitDamageSourceUnit())))) {
     UnitSetPosition(EventUnitDamageSourceUnit(), RegionRandomPoint(RegionFromName("Sremagsi Exploit Fix Region")), false);
-    //CameraPan(UnitGetOwner(EventUnitTarget()), RegionGetCenter(RegionFromId(241)), 2.0, -1, 10.0, false);
   }
   if (UnitGroupHasUnit(gv_unitsthatdidDamagetoSremagsi, EventUnitDamageSourceUnit())) {
     return true;
@@ -13162,7 +12989,7 @@ bool gt_GuardianSpawn_Func (bool testConds, bool runActions) {
   }
   UnitGroupLoopEnd();
   TriggerExecute(gt_CountPlayersGreaterthan25, false, true);
-  for(PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+  for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
     if (libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(17))) {
       VisRevealerCreate(lr_player.player, RegionFromId(17));
@@ -13241,7 +13068,7 @@ bool gt_GuardianSpawn_Func (bool testConds, bool runActions) {
   }
   PlayerGroupLoopEnd();
 
-  for(PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+  for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
     if (libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(17))) {
       libNtve_gf_PauseUnit(lr_player.dragon, false);
@@ -13933,14 +13760,12 @@ void gt_SetupBioDomeWastelandRegions_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnEnemiesBioDomeWasteland_Func (bool testConds, bool runActions) {
   int lv_locationNum;
-  int i;
-  int lv_numunitstospawn;
-
+  int lv_i;
 
   if (!runActions) {
     return true;
   }
-  for(i = 0; i< (7+PlayerGroupCount(gv_playersInBioDome)); i += 1) {
+  for (lv_i = 0; lv_i< (7+PlayerGroupCount(gv_playersInBioDome)); lv_i += 1) {
     lv_locationNum = RandomInt(0, 6);
     UnitCreate(1, gv_enemyUnitTypes[RandomInt(12, 13)], 0, 15, RegionRandomPoint(gv_bioDomeWastelandRegions[lv_locationNum]), libNtve_gf_RandomAngle());
     UnitGroupAdd(gv_bioDomeWastelandUnits[lv_locationNum], UnitLastCreated());
@@ -14162,8 +13987,7 @@ bool gt_RespawnCreton_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  //Wait(10.0, c_timeReal);
-  Wait(15.0, c_timeReal); // It feels like they respawn too quickly with a wait of 10.
+  Wait(15.0, c_timeReal);
   lv_randomRegion = RandomInt(0, 37);
   lv_randomUnit = RandomInt(9, 11);
   UnitRemove(EventUnit());
@@ -15016,8 +14840,8 @@ bool gt_BDZombieUnitSpawn_Func (bool testConds, bool runActions) {
       lv_numKills = 75;
     }
     lv_killsByEleven = (lv_numKills / 11);
-    for(lv_regionId = 176; lv_regionId <= 186; lv_regionId += 1) {
-      for(lv_j=0; lv_j < lv_killsByEleven; lv_j += 1) {
+    for (lv_regionId = 176; lv_regionId <= 186; lv_regionId += 1) {
+      for (lv_j=0; lv_j < lv_killsByEleven; lv_j += 1) {
         libNtve_gf_UnitCreateFacingPoint(1, "Mortuus", 0, 15, RegionRandomPoint(RegionFromId(lv_regionId)), UnitGetPosition(EventUnit()));
         libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
         UnitGroupAdd(gv_bDZombieUnits, UnitLastCreated());
@@ -15195,7 +15019,7 @@ bool gt_BDCretonUnitDeath_Func (bool testConds, bool runActions) {
   }
   TriggerEnable(gt_TeleporttoBioDome, true);
   TriggerEnable(gt_TeleporttoCreton, true);
-  for(lv_i = 1869; lv_i < 1877; lv_i += 1) {
+  for (lv_i = 1869; lv_i < 1877; lv_i += 1) {
     UnitRemove(UnitFromId(lv_i));
   }
   TriggerEnable(TriggerGetCurrent(), false);
@@ -15228,7 +15052,7 @@ bool gt_BDVerbotenUnitSpawn_Func (bool testConds, bool runActions) {
     CameraLockInput(lr_player.player, true);
     libNtve_gf_PauseUnit(lr_player.dragon, true);
     libNtve_gf_HideGameUI(false, lr_player.playerGroupSingle);
-    for(lv_i = 163; lv_i < 169; lv_i += 1) {
+    for (lv_i = 163; lv_i < 169; lv_i += 1) {
       VisRevealerCreate(lr_player.player, RegionFromId(lv_i));
     }
   }
@@ -15474,7 +15298,7 @@ bool gt_BDWastelandUnitSpawn_Func (bool testConds, bool runActions) {
     CameraLockInput(lr_player.player, true);
     libNtve_gf_PauseUnit(lr_player.dragon, true);
     libNtve_gf_HideGameUI(false, lr_player.playerGroupSingle);
-    for(lv_i = 151; lv_i < 158; lv_i += 1) {
+    for (lv_i = 151; lv_i < 158; lv_i += 1) {
       VisRevealerCreate(lr_player.player, RegionFromId(lv_i));
     }
   }
@@ -16756,11 +16580,11 @@ bool gt_Chaos_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  if(gv_mortuusKillCount == 0){
-  gv_mortuusKillCountStacks = 0;
+  if (gv_mortuusKillCount == 0) {
+    gv_mortuusKillCountStacks = 0;
   }
-  if(gv_mortuusKillCount <= 255){
-  gv_mortuusKillCountStacks = gv_mortuusKillCount;
+  if (gv_mortuusKillCount <= 255) {
+    gv_mortuusKillCountStacks = gv_mortuusKillCount;
   }
   if ((UnitGetPropertyFixed(libNtve_gf_KillingUnit(), c_unitPropLevel, c_unitPropCurrent) == 100.0)) {
     if ((UnitGetType(EventUnit()) != "Mortuus")) {
@@ -16776,7 +16600,6 @@ bool gt_Chaos_Func (bool testConds, bool runActions) {
       if ((gv_mortuusKillCount % 256 == 0)) {
         UnitCreate(1, "Nosferatu", 0, 15, UnitGetPosition(EventUnit()), 270.0);
         UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, StringExternal("Param/Value/4A9BE0A1"));
-        //gv_mortuusKillCount = 0;
       }
     }
   }
@@ -16806,7 +16629,7 @@ bool gt_PlayerLeaves_Func (bool testConds, bool runActions) {
   }
   PlayerGroupRemove(gv_humanPlayers, lr_player.player);
   UnitRemove(lr_player.dragon);
-  for(lv_i = 1; lv_i <= gv_PlayerCapacity; lv_i += 1) {
+  for (lv_i = 1; lv_i <= gv_PlayerCapacity; lv_i += 1) {
     PlayerSetAlliance(lr_player.player, c_allianceIdSpend, lv_i, false);
     PlayerSetAlliance(lv_i, c_allianceIdSpend, lr_player.player, false);
     libNtve_gf_SetAlliance(lr_player.player, lv_i, libNtve_ge_AllianceSetting_Enemy);
@@ -17028,7 +16851,7 @@ bool gt_StashLocationSetup_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  for(lv_i = 0; lv_i < gv_PlayerCapacity; lv_i += 1) {
+  for (lv_i = 0; lv_i < gv_PlayerCapacity; lv_i += 1) {
     gv_players[lv_i].stash.location = PointFromId(4835 + lv_i);
   }
   return true;
@@ -17048,7 +16871,7 @@ bool gt_LoadShards_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  for(lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
+  for (lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
     lr_player = gv_players[lv_playerIndex];
     if ((PlayerStatus(lr_player.player) == c_playerStatusActive)) {
       while (lr_player.banks.accessing) {
@@ -17709,7 +17532,6 @@ bool gt_EndingCinematic_Func (bool testConds, bool runActions) {
   libNtve_gf_HideGameUI(false, gv_playerswatchingendingcinematic);
   for (PlayerGroupLoopBegin(gv_playerswatchingendingcinematic); !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
-    //UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, PlayerName(lv_player));
     SoundtrackStop(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, true);
     SoundtrackPlay(lr_player.playerGroupSingle, c_soundtrackCategoryMusic, "EndingTheme", c_soundtrackCueAny, 0, false);
     SoundChannelSetVolume(lr_player.playerGroupSingle, c_soundCategoryMusic, 100.0, 0.0);
@@ -17738,7 +17560,6 @@ bool gt_EndingCinematic_Func (bool testConds, bool runActions) {
     UISetSelectionTypeEnabled(lr_player.playerGroupSingle, c_localSelectionTypeUnknown, false);
     DialogSetVisible(lr_player.stats.attributeDialog.state, lr_player.playerGroupSingle, false);
     DialogSetVisible(lr_player.locationDialog.state, lr_player.playerGroupSingle, false);
-    //lr_player.state.preventSave = true;
     for (lv_i = 1; lv_i <= gv_PlayerCapacity; lv_i += 1) {
       PlayerSetAlliance(lv_i, c_allianceIdVision, lr_player.player, false);
       PlayerSetAlliance(lr_player.player, c_allianceIdVision, lv_i, false);
@@ -17855,7 +17676,6 @@ bool gt_EndingCinematic_Func (bool testConds, bool runActions) {
   }
   PlayerGroupLoopEnd();
 
-  //if(UnitTUnitInRegion(RegionFromName("View Credits")) != "Null"){
   UIShowCinematicText(gv_playerswatchingendingcinematic, StringExternal("And thank you!"), 0.2, 99.0, SoundLink("30SecondSilence", -1));
   Wait(10.0, c_timeGame);
   TriggerExecute(gt_EndingCinematicSaveExitNormal, true, false);
@@ -18253,8 +18073,7 @@ void gt_RebornStats_Init () {
 // Trigger: Region View Creditis Plays Ending
 //--------------------------------------------------------------------------------------------------
 bool gt_MakeEndingPlay_Func (bool testConds, bool runActions) {
-  if (!(testConds)) {
-    //UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Got here :/1"));  
+  if (!testConds) {
     return false;
   }
   if (!runActions) {
@@ -18262,12 +18081,9 @@ bool gt_MakeEndingPlay_Func (bool testConds, bool runActions) {
   }
 
   if (gv_zaubererDead) {
-    //UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) &&
-    // UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Got here2 :/"));  
     TriggerExecute(gt_EndingCinematic, true, false);
     return true;
-  } else{
-    // UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Got here3 :/"));  
+  } else {
     return true;
   }
 }

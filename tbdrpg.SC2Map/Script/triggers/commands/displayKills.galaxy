@@ -9,7 +9,7 @@ bool gt_NumberofUnitDeaths_Func (bool testConds, bool runActions) {
     return true;
   }
    // slot = RegionFromId(241);
-  //for(slot = 0; slot <=11; slot +=1){
+  //for (slot = 0; slot <=11; slot +=1) {
    // UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaAll, (StringExternal("Param/Value/CCBC876F") + StringToText(" slot: ") + IntToText(slot) +StringToText(" is ") + IntToText(gv_unitKills[slot])));
    // }
   //UIDisplayMessage(gv_players[lv_playerIndex].playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/CCBC876F") + IntToText(gv_unitKills[1])));
