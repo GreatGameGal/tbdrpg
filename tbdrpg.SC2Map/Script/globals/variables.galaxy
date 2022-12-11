@@ -112,7 +112,6 @@ unitgroup[38] gv_cretonUnits;
 bool gv_cretonSpawned;
 unitgroup[10] gv_verbotenInfestationUnits;
 region[10] gv_verbotenInfestationsRegions;
-bool[4] gv_verbotenInfestationSpawned;
 region[7] gv_verbotenForestRegions;
 unitgroup[7] gv_verbotenForestUnits;
 unitgroup[5] gv_wastelandUnitGroups;

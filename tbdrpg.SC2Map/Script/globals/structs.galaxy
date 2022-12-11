@@ -249,7 +249,6 @@ struct playerData {
   string hand;
   string locationString;
   text locationText;
-  trigger infestationSpawnTrigger;
   unit dragon;
   unit[6][25] inventory;
 };

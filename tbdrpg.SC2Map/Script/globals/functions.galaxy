@@ -1,5 +1,6 @@
 void gf_EvolveTo (playerData_r lr_player, string lp_unitName);
 int gf_GetEvolution (playerData_r lr_player);
+void gf_SpawnEnemiesVerbotenInfestation (playerData_r lr_player);
 
 void gf_AddExperience (unit lp_hero, fixed lp_experienceAmmount);
 void gf_OpenQuestDialog (playerData_r lr_player, text lp_questText, text lp_questName, text lp_reward, text lp_recommendedLevel);
