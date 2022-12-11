@@ -1,5 +1,4 @@
 bool gt__50ShadesofGray_Func (bool testConds, bool runActions) {
-
   if (!runActions) {
     return true;
   }
