@@ -378,7 +378,7 @@
         <EffectArray Reference="Unit,BabyIceDragon,EnergyStart" Value="10"/>
         <EffectArray Reference="Unit,AdultIceDragon,EnergyMax" Value="10"/>
         <EffectArray Reference="Unit,LegendaryIceDragon,EnergyMax" Value="10"/>
-        <EffectArray Operation="Divide" Reference="Unit,MasterIceDragon,EnergyMax" Value="10"/>
+        <EffectArray Reference="Unit,MasterIceDragon,EnergyMax" Value="10"/>
         <EffectArray Reference="Unit,TeenIceDragon,EnergyMax" Value="10"/>
         <EditorCategories value="UpgradeType:Talents"/>
         <AffectedUnitArray value="BabyDragon"/>
