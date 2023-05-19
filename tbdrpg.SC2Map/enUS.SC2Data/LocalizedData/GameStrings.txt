@@ -481,7 +481,7 @@ Button/Tooltip/16M04N19E01R01=<c val="FFFF00">Rare Armor</c><n/><n/><c val="FFFF
 Button/Tooltip/AbsoluteZero=Freezes an enemy in place.
 Button/Tooltip/AdultDragon=
 Button/Tooltip/AdultIceDragon=
-Button/Tooltip/AdvancedArmors50100=Armor from level 50  to level 100
+Button/Tooltip/AdvancedArmors50100=Armor from level 50 to level 100
 Button/Tooltip/Agility=Each Point:<n/><n/>-Increases movement speed by <c val="00FF00">.5%</c><n/>-Increases dodge percentage by <c val="00FF00">.1%</c>
 Button/Tooltip/Altoss=
 Button/Tooltip/Amp=
@@ -969,7 +969,6 @@ MapInfo/Player06/Name=Friendly
 MapInfo/Player07/Name=Hostile
 Need Full Energy=
 Param/Value/002A804B=<c val="408080">Quest Reward:</c> 3250EXP, Platinum Dragon Scale Armor
-Param/Value/00B4574D=No Valid Potions Available
 Param/Value/00B671DA=You are not worthy
 Param/Value/00C05A10=Petrose
 Param/Value/00C54C9E=Dragons armor will now have a force field of protection around it, giving it @ shields.
@@ -981,15 +980,12 @@ Param/Value/032643A8=Realm Switch
 Param/Value/0368FA7A=You have to kill quite a few Sreptis before the Alpha Srepti will spawn.
 Param/Value/0379B895=Fire Dragon Talents
 Param/Value/045D0308=Finally, with Sremagsi dead you can get past the carcinode, and you can continue on your quest to find the Dragon Stone.
-Param/Value/04941F90=Medium Health Potion Used
 Param/Value/04B4A828=( 
 Param/Value/04CC0597=( 
-Param/Value/0518148A=Small Health Potion Used
 Param/Value/053D639D=Extinction
 Param/Value/05532C03=REBORN UNLOCKED
 Param/Value/059953E4=Everything you have ever killed.<n/>All the life that you have murdered just to get to me.<n/>Will now be resurrected as a Mortuus.<n/>These creatures will destroy you.
 Param/Value/05FD217C=Return to Felix
-Param/Value/062C0495=Small Health Potion Used
 Param/Value/071F67CE=Alpha Srepti
 Param/Value/074636AE=Ascendant Zauberer
 Param/Value/084751AF=Your dragon has been revived for 
@@ -1038,7 +1034,6 @@ Param/Value/16FD1AF9= Srepti
 Param/Value/176FF71B=Defeat Zauberer
 Param/Value/1785397A=Teleport to Relamy
 Param/Value/180EC142=New Tip: Armor
-Param/Value/187F076C=Medium Health Potion Used
 Param/Value/18BD2755=There are many ways to kill a sheep, you can attack it, attack it, attack it, or even use your weapon to attack it.
 Param/Value/19669321=Destroy 2nd Crystal of Venadas
 Param/Value/19C87255=100 )
@@ -1055,14 +1050,12 @@ Param/Value/1C4A2F4D=Increases max life by @.
 Param/Value/1C7BBA70=Rage
 Param/Value/1CB66A10=Reborn
 Param/Value/1CE95B32=( 
-Param/Value/1D045780=Small Health Potion Used
 Param/Value/1DA52D0B= / 100 )
 Param/Value/1DBB83B2=Find Crew 137
 Param/Value/1DCFD196=Dragon's Nest
 Param/Value/1DFF29CC=A wild <c val="FF0000">Elite Creton Warrior</c> has appeared
 Param/Value/1E675D13=Felix
 Param/Value/1F3BFF86=Close
-Param/Value/1F45E83A=Potion Cooldown Active
 Param/Value/1F7CF99A=The Evil emanating from Sremagsi Lair prevents you from opening a portal.
 Param/Value/20CF433A=After you win a PvP match, you will be rewarded with vespene. This is used to win special prizes and rank you among your dragon companions.
 Param/Value/21386B3C=+
@@ -1078,7 +1071,6 @@ Param/Value/223ED8F2=Defeat Zauberer
 Param/Value/2292C61E=<c val="FF0000">The Guardians</c> have returned.
 Param/Value/22DAF5ED=<c val="FF0000">Machina De Plagam</c> has returned.
 Param/Value/23D9D53E=Press ESC to exit intro cinematic
-Param/Value/23E2C494=Medium Health Potion Used
 Param/Value/2422077E=( 
 Param/Value/242D9ECB=Dual Wield (+
 Param/Value/254CD7D6=But that was all about to change.
@@ -1096,7 +1088,6 @@ Param/Value/28BE5039=Eagle Eyes
 Param/Value/298476B7=( 
 Param/Value/29D50265=<c val="FF4D00"> </c><c val="FF6100">D</c><c val="FF7400">i</c><c val="FF8800">s</c><c val="FF9B00">s</c><c val="FFAF00">u</c><c val="FFC300">l</c><c val="FFD600">t</c><c val="FFEA00">o</c>
 Param/Value/2A26AE67=New Tip: Weapon
-Param/Value/2A9B4BEB=Small Health Potion Used
 Param/Value/2AAE008D=Kill 
 Param/Value/2B14BCD9=Just kill it.
 Param/Value/2B4A19AF=OMG Thank you. I am glad that Petrose is keeping an eye on him.
@@ -1121,23 +1112,18 @@ Param/Value/33664132= the world would spiral out of control.
 Param/Value/339C9E22=Kill Sremagsi
 Param/Value/33A50692=<c val="FF4D00"> </c><c val="FF6100">D</c><c val="FF7400">i</c><c val="FF8800">s</c><c val="FF9B00">s</c><c val="FFAF00">u</c><c val="FFC300">l</c><c val="FFD600">t</c><c val="FFEA00">o</c>
 Param/Value/3411017D=Hmmmmm.... I wonder what the fox says.
-Param/Value/35007132=Medium Health Potion Used
 Param/Value/354CA705=Stand on the waypoint to set it as your respawn point.
 Param/Value/35A32236=<c val="408080">Recommended Level:</c> 3+
 Param/Value/3602F42D=NR - Cooldowns Reset
 Param/Value/361F831D=You need to be careful. Things like that Carcinode are popping up all over the place because of Sremagsi. If you defeat Sremagsi all his creep will be defeated along with it.
-Param/Value/36717869=Large Health Potion Used
 Param/Value/36A2C19B=Increases melee damage by @.
 Param/Value/36BF1515=Oh sweet heart you are amazing. Here take this money and buy yourself something lovely.
 Param/Value/377F54EA=Talk to Lanae
 Param/Value/378E78B5=The Basics: Equipment
-Param/Value/37C93D65= 
 Param/Value/38B53DC8=Overgrowth
 Param/Value/38F07793=Purchase a small health potion
 Param/Value/3908211E=Saving
 Param/Value/392CAE58=Spawning Enemy: 
-Param/Value/3A0312A1=Medium Health Potion Used
-Param/Value/3A4222B0=Potion Cooldown Active
 Param/Value/3AF1017C=Recommended Level: 5 
 Param/Value/3B10E385=My boyfriend is super handsome, funny, smart, and talented.
 Param/Value/3B3F826B=1
@@ -1148,7 +1134,6 @@ Param/Value/3C40C931= /
 Param/Value/3C91F57D=<c val="FF8040">Quest Completed!</c><n/>Rewards: <c val="FFFF00">10,000 EXP</c>
 Param/Value/3C95F15D=<c val="000000">0</c><c val="030303">0</c><c val="070707">0</c><c val="0C0C0C">0</c><c val="101010">0</c><c val="141414">0</c><c val="191919">0</c><c val="1D1D1D">0</c><c val="222222">0</c><c val="262626">0</c><c val="2A2A2A"></c><c val="2F2F2F"></c><c val="333333">0</c><c val="383838">0</c><c val="3C3C3C">0</c><c val="404040">0</c><c val="454545">0</c><c val="494949">0</c><c val="4E4E4E">0</c><c val="525252">0</c><c val="565656">0</c><c val="5B5B5B">0</c><c val="5F5F5F"></c><c val="646464"></c><c val="686868">0</c><c val="6C6C6C">0</c><c val="717171">0</c><c val="757575">0</c><c val="7A7A7A">0</c><c val="7E7E7E">0</c><c val="828282">0</c><c val="878787">0</c><c val="8B8B8B">0</c><c val="909090">0</c><c val="949494"></c><c val="989898"></c><c val="9D9D9D">0</c><c val="A1A1A1">0</c><c val="A6A6A6">0</c><c val="AAAAAA">0</c><c val="AEAEAE">0</c><c val="B3B3B3">0</c><c val="B7B7B7">0</c><c val="BCBCBC">0</c><c val="C0C0C0">0</c><c val="C4C4C4">0</c><c val="C9C9C9"></c><c val="CDCDCD"></c><c val="D2D2D2">0</c><c val="D6D6D6">0</c><c val="DADADA">0</c><c val="DFDFDF">0</c><c val="E3E3E3">0</c><c val="E8E8E8">0</c><c val="ECECEC">0</c><c val="F0F0F0">0</c><c val="F5F5F5">0</c><c val="F9F9F9">0</c>
 Param/Value/3D31D0A2=Music Credits
-Param/Value/3D62AC12=Small Health Potion Used
 Param/Value/3D64B2BA=Realm Switch
 Param/Value/3E12AE8D= / 
 Param/Value/3E211E4A=One-Hundred and Thirty Seven
@@ -1175,7 +1160,6 @@ Param/Value/433538AD=?
 Param/Value/435C7371=Reward:
 Param/Value/4366ED00= / 
 Param/Value/43AAA4ED=Sold for: 
-Param/Value/43CA2959=Potion Cooldown Active
 Param/Value/43EFA5FC=<c val="FF8040">Quest Completed!</c><n/>Rewards: <c val="FFFF00">18,000 EXP</c>
 Param/Value/440CAF25=The Alpha Srepti will spawn after 100 sreptis have been killed.
 Param/Value/44A38F2B=Details
@@ -1184,7 +1168,6 @@ Param/Value/44E480EE=Kill Sremagsi
 Param/Value/45B25FC6=Purchesed Occulus of Warning
 Param/Value/45B8D629=New Tip: Vespene Gas
 Param/Value/45BCF748=Special Thanks: Greed
-Param/Value/4647C1FD=Medium Health Potion Used
 Param/Value/47238D0C=You will gain @% more gold from enemy kills.
 Param/Value/486C1EB8=5
 Param/Value/48B1F90D=<c val="408080">Quest Reward:</c> 25 EXP
@@ -1213,23 +1196,20 @@ Param/Value/4C8936F2=<c val="FF0000">Warning: Sremagsi</c><n/>Level 50+
 Param/Value/4CF0811B=Recommended Level:
 Param/Value/4D4A430E=Return to Felix
 Param/Value/4D7B649C=Use the waypoint to teleport to The Wasteland.
-Param/Value/4D82AEB8=Grand Health Potion Used
 Param/Value/4DBA1D44=Stash
 Param/Value/4DDEC3F1=Teleport to Ballan
 Param/Value/4DE1EE78=2
 Param/Value/4DE4DAA9=A Medium
-Param/Value/4E0BE1DE=Grand Health Potion Used
 Param/Value/4E41B165=Increases energy regeneration by @.
 Param/Value/4EB31843=Defeat Zauberer
 Param/Value/4F348A52=2
 Param/Value/4F3939B7=Creton
 Param/Value/4FF47C38=100 )
 Param/Value/506A51FE=<s val="SwarmReticleTerranBonusObjective"><c val="FE312C">A</c><c val="FE2F2A"> </c><c val="FE2E29">D</c><c val="FE2C28">i</c><c val="FE2B26">s</c><c val="FE2925">t</c><c val="FE2824">u</c><c val="FE2622">r</c><c val="FE2521">b</c><c val="FE2320">a</c><c val="FE221E">n</c><c val="FE201D">c</c><c val="FE1F1C">e</c><c val="FE1D1A"> </c><c val="FE1C19">i</c><c val="FE1A18">n</c><c val="FE1916"> </c><c val="FE1715">E</c><c val="FE1614">v</c><c val="FE1512">i</c><c val="FE1311">l</c><c val="FE1110"> </c><c val="FE100E">S</c><c val="FE0F0D">u</c><c val="FE0D0C">m</c><c val="FE0C0A">m</c><c val="FE0A09">o</c><c val="FE0908">n</c><c val="FE0706">s</c><c val="FE0605"> </c><c val="FE0404">H</c><c val="FE0302">i</c><c val="FE0101">m</c></s>
-Param/Value/50714DAC=Small Health Potion Used
 Param/Value/509C3FEA=Accept
 Param/Value/50B63FB2=Only a true hero may wield this weapon.
 Param/Value/513D3FB6=Ballan
-Param/Value/515280CE= Vs 
+Param/Value/PVP_VS= Vs 
 Param/Value/517FDC8E=Kill Illisus
 Param/Value/5188E700=<c val="FF0000">You do not have enough Attribute Points.</c>
 Param/Value/52CCADF4=Petrose
@@ -1247,16 +1227,12 @@ Param/Value/53FC826A=Now that you are level 100 you have unlocked the ability to
 Param/Value/54B2D940=Yeah... About that. The door to the Biodome has been locked for quite some time now. The best thing to do would be to get a key from the Machina De Plagam.
 Param/Value/54C69C21= / 100 )
 Param/Value/54DD5501='s level 
-Param/Value/5525CF51=Large Health Potion Used
 Param/Value/55261293=Accept
-Param/Value/553CAB51=Grand Health Potion Used
 Param/Value/556E72C6=Kill Sremagsi
 Param/Value/55A4A235=For each armor point your dragon has, he will take 1% less damage from all attacks. For example, if a dragon has 20 armor, than an attack that would normally do 80 damage will only do 64 damage.
 Param/Value/565F98A7=Movement Speed +1.0%
 Param/Value/569516A0=If you would like you reset your talents, you can simply type:<n/><n/>-reset talents
 Param/Value/56A8C6FF=Ascendant Zauberer
-Param/Value/56AABACD=Grand Health Potion Used
-Param/Value/56B61472=Large Health Potion Used
 Param/Value/5743AE9F=<c val="FF0000">Syrital</c> has returned.
 Param/Value/57E33316=Quests Reset
 Param/Value/584E83EC=My boyfriend is super handsome, funny, smart, and talented.
@@ -1270,16 +1246,13 @@ Param/Value/5AC0AC57= sold for:
 Param/Value/5AE1DD5C=PvP Points
 Param/Value/5B3E7D77=Special Thanks: Madeleine Francuz
 Param/Value/5B4290DE=Terrific job.
-Param/Value/5B70970A=Medium Health Potion Used
 Param/Value/5BAD673C=<c val="408080">Recommended Level:</c> 5+
 Param/Value/5C1A1A21= / 
 Param/Value/5C36486F= more Creton Warriors.
 Param/Value/5C4BAF8F=Purchesed Stone of Protection
-Param/Value/5C863F6E=Health is Full
 Param/Value/5CE524CE=Zauberer
 Param/Value/5DBA9E25=You must be level 100 in order to rebirth your dragon.
 Param/Value/5DD4D756=You must beat the game in order to rebirth your dragon.
-Param/Value/5DE1E23C=Large Health Potion Used
 Param/Value/5DEC9FB0=<c val="408080">Quest Reward:</c> 2000 EXP, Miner Armor
 Param/Value/5E035CF9=A wild <c val="FF0000">Alpha Srepti</c> has appeared
 Param/Value/5E3A1B4B=The only hope lay with the few remaining dragons.
@@ -1299,44 +1272,39 @@ Param/Value/61D2B86E=Destroy Zauberer's Statue
 Param/Value/627202CB=Return to Risdak
 Param/Value/62B0BB79=The Basics: Healing I
 Param/Value/62B8B3DD=Ascendant Zauberer
-Param/Value/6330997A=Health is Full
 Param/Value/6352165E=For if it were ever to fall into the wrong hands,
-Param/Value/639D49EF=Medium Health Potion Used
 Param/Value/645D301F=Dark Dissulto
 Param/Value/648B2509=<n/>
 Param/Value/649D4370=You gain @ energy for every 10 point of damage you take.
 Param/Value/64C7FA63=Destroy 6th Crystal of Venadas
 Param/Value/64D12ECA=Enter the Infestation
 Param/Value/6525BF43=Get to the Biodome.
-Param/Value/65AC0532=Terrific! You can now locate and find all the waypoints in Celesta and you will never  have to walk a long way again. These waypoints will always be unlocked, unless your dragon is reborn.
-Param/Value/65DC86E2=Health is Full
+Param/Value/65AC0532=Terrific! You can now locate and find all the waypoints in Celesta and you will never have to walk a long way again. These waypoints will always be unlocked, unless your dragon is reborn.
 Param/Value/660FA807=Risdak
 Param/Value/66537BB6=<c val="FF0000">The Gaurdians</c> have been defeated.
 Param/Value/66753AD2=New Tip: Dragon's Nest
-Param/Value/669315A2=Large Health Potion Used
 Param/Value/66E7D47B=Teleport to Creton
 Param/Value/670F1B94=A Portal
 Param/Value/673F3B18=Stash
 Param/Value/67477194=Mister Scruffers! Mister Scruffers! Here boy!<n/>...<n/>Oh thank god. Have you seen my dog Mister Scruffers. He is my doggy companion. Could you please help me find out where he is? Last time I saw him he was to the south of Relamy Hills.
-Param/Value/67A573EC=Grand Health Potion Used
+Param/Value/NO_VALID_POT=No Valid Potions Available
+Param/Value/POT_ON_COOLDOWN=Potion Cooldown Active
+Param/Value/SMALL_POT_HP=Small Health Potion Used
+Param/Value/MEDIUM_POT_HP=Medium Health Potion Used
+Param/Value/LARGE_POT_HP=Large Health Potion Used
+Param/Value/GRAND_POT_HP=Grand Health Potion Used
 Param/Value/67E874D2=<c val="408080">Reward:</c> Medium Healing Orb & 1000 EXP
 Param/Value/684E7509='s dragon is now level 
 Param/Value/68A2CF78=Decline
-Param/Value/68F72793=Potion Cooldown Active
 Param/Value/6979B884=MISS
 Param/Value/699B9328=Kill a Sheep
 Param/Value/69C20D42=The dragon stone was watched after by the Mages of Venadas.
 Param/Value/69F3DB8A=If you donate money to Hero you could be an NPC too.
-Param/Value/6A25F76F=Large Health Potion Used
-Param/Value/6AE3D28C=Small Health Potion Used
-Param/Value/6AFDE531=Medium Health Potion Used
 Param/Value/6BCC1DD7=( 
 Param/Value/6BED864A=My job is to record footage of this battle field and relay it back to the tube.
 Param/Value/6C18F48D=( 
-Param/Value/6C6D61A4=Large Health Potion Used
 Param/Value/6D032057=Thanks again.
 Param/Value/6D44D93A=<c val="FF8040">Quest Completed!</c><n/>Rewards: <c val="FFFF00">1000 EXP</c>
-Param/Value/6D80E3E6=Grand Health Potion Used
 Param/Value/6D95D414=Kill Machina De Plagam
 Param/Value/6DCD7D69=<c val="FF0000">You do not have enough Attribute Points.</c>
 Param/Value/6DD637A1=<c val="FF0000">Sremagsi</c>
@@ -1346,7 +1314,6 @@ Param/Value/7035D573=Pick up your items!<n/>(Feel free to exit at any time)<n/>T
 Param/Value/707ED4E0=<c val="408080">Recommended Level:</c> 5+
 Param/Value/70EAE5E9=<c val="408080">Recommended Level:</c> 1+
 Param/Value/711767EF=CC -
-Param/Value/715A967C=Medium Health Potion Used
 Param/Value/7174AC2B=Increases life armor by @.
 Param/Value/724DC8F1=Be a Doll
 Param/Value/729C207A=Srepti are level 3 enemies that hang around in The Wasteland.
@@ -1371,7 +1338,6 @@ Param/Value/75E8294A=Zauberer
 Param/Value/76349601=CHAOS
 Param/Value/76460735=Return to Risdak
 Param/Value/769AE758=<c val="408080">Recommended Level:</c> 15+
-Param/Value/771E3B32=Large Health Potion Used
 Param/Value/77465159=Detsefni checking in, I hope your hunt to kill Zaub-... Whatever his name is, is going well. You have a long way to go still. Why don't you show me that you can kill 25 Sreptis and I will give you some money to get yourself a shiny new item.
 Param/Value/7789F4B3=The Basics: Killing I
 Param/Value/779D797B=RING DING DING DING DING DING DING RING DING DING DING DING DING DING
@@ -1389,13 +1355,11 @@ Param/Value/7BA0B288=<c val="FF0000">Sremagsi</c> has died
 Param/Value/7BD4D7A8=Defeat The Guardians
 Param/Value/7BE07EBD=<c val="0000FF">Respawn Point Set</c>
 Param/Value/7CC796A6=<c val="FF0000">ERROR: Bank files have been manually edited. 1</c>
-Param/Value/7CD8C421=Grand Health Potion Used
 Param/Value/7CEBCED8=I appreciate you avenging my team.
 Param/Value/7D0AD6CC=Reborn Points: 
 Param/Value/7D0D68C2=Kill 10 srepti
 Param/Value/7D37A0AD=Zauberer
 Param/Value/7DAB2D45=4
-Param/Value/7DCB126A=Small Health Potion Used
 Param/Value/7E6C12C5=Are you having trouble finding it? Alright, here is what you need to do. Go up towards the big glowing circle, but don't get on it; yet. Now head to the right until you see a shinning pool of water. Go into that water and heal yourself. Careful, enemies will heal in healing water too.
 Param/Value/7EC4D069=Felix
 Param/Value/7ED2B133=Return to Risdak
@@ -1434,11 +1398,8 @@ Param/Value/89D4B089=<c val="408080">Recommended Level:</c> 15+
 Param/Value/8A5A42C4=You have not unlocked this container yet.
 Param/Value/8AC4E98E=Purchesed Ring of Quickening
 Param/Value/8B65544B=( 
-Param/Value/8BE2918B=Grand Health Potion Used
 Param/Value/8C107748=Destroy Zauberer's statue
-Param/Value/8C1AE928=Large Health Potion Used
 Param/Value/8C4A7447=Mind of the Dragon
-Param/Value/8CCF9F59=Large Health Potion Used
 Param/Value/8D20327C=<c val="408080">Quest Reward:</c> 25 EXP
 Param/Value/8D9F3763=Kill Syrital
 Param/Value/8DD508CD=4
@@ -1452,9 +1413,7 @@ Param/Value/8FDF552C=Kill
 Param/Value/90233918=You need to kill 
 Param/Value/9027D913=Let me see your eye.
 Param/Value/90310BF6=Return to Lanae
-Param/Value/904ABFCA=Medium Health Potion Used
 Param/Value/904E3199=<c val="FF0000">Relamy Pass</c><n/>Level 5+
-Param/Value/905A669C=Medium Health Potion Used
 Param/Value/9086A585=Spiked Scales
 Param/Value/9168B955=Mister Scruffers is a dog. He is located to the South of Relamy Hills.
 Param/Value/925025D3=<c val="FF0000">You do not have enough Attribute Points.</c>
@@ -1471,7 +1430,6 @@ Param/Value/95602A96=Zauberer
 Param/Value/9572BF6F=Critical hits with melee weapons will now explode dealing @ damage to everything within a radius of 5 per every point that you have in strength.
 Param/Value/9595576E=Elite Creton Warrior
 Param/Value/95AF4D43=Purchesed Jewel of Return
-Param/Value/95D1F36E=Large Health Potion Used
 Param/Value/9649BE76= / 
 Param/Value/96A7A695=( 
 Param/Value/976FC4D2=Reviving
@@ -1487,7 +1445,6 @@ Param/Value/9B2E411E=Close Dialog Box
 Param/Value/9B2FC085=New Tip: Reset Quests
 Param/Value/9B6ADBAE=Spirit of the Dragon
 Param/Value/9B709EAA= life remaining.
-Param/Value/9B7978D5=Large Health Potion Used
 Param/Value/9B7A53D6=Great work! You can now cross the lava and head into Relamy Pass.
 Param/Value/9BDF1BE1=MISS
 Param/Value/9C04FD77=Zauberer
@@ -1504,15 +1461,11 @@ Param/Value/9F56823C=EAT THEIR SOULS!
 Param/Value/9F8C7B1C=Wow you are still in perfect health, awesome. I am still going to have you buy yourself a potion to hold on to for later. Go to the town of Ballan and use this 100G to buy yourself a small potion of healing from the potion shop.
 Param/Value/9FE4C48D=Enter Biodome
 Param/Value/A082B51B=Kill 
-Param/Value/A108E2EB=Small Health Potion Used
 Param/Value/A11FAE9B=<c val="408080">Reward:</c> 100 EXP
-Param/Value/A1267830=Grand Health Potion Used
 Param/Value/A1694ED4=Find him please.
 Param/Value/A20BD716=Kill Syrital
 Param/Value/A26AEC4D=If at any point around the map you find a greenish water, this will heal you every second you stand in it. Be cautious because enemies will also be healed when they are inside of the water.
-Param/Value/A28634A1=Large Health Potion Used
 Param/Value/A2DA0541=<c val="408080">Reward:</c> 3250 EXP, Platinum Dragon Scale Armor
-Param/Value/A3035116=Grand Health Potion Used
 Param/Value/A3560FB6=<n/>
 Param/Value/A3E41EF2=<c val="408080">Reward:</c> 25 EXP
 Param/Value/A3EAD122=New Tip: Reset Stats
@@ -1536,7 +1489,6 @@ Param/Value/A87E682D=Location
 Param/Value/A985662B=Only the devil himself may wield this weapon.
 Param/Value/A9B2BE9C=<c val="408080">Reward:</c> 500 EXP
 Param/Value/A9B50B40=You are already in the Ballan.
-Param/Value/AA4C7E34=Medium Health Potion Used
 Param/Value/AA575F9D=Sticky Shot
 Param/Value/AA5D2DAB=Hurry... I... Love him.
 Param/Value/AAA060AC=Increases spell damage by @.
@@ -1567,7 +1519,6 @@ Param/Value/B3A3FC2B=Awesome People
 Param/Value/B3EC85D5=Welcome to Relamy Hills. This place used to be such a nice place, but ever since the Dragon Stone got stolen the Creton have become hostile. The best thing that we can do is kill 1 of their commanders. They are called Elite Creton Warriors and will be summoned when enough of their allies have fallen in combat. Please kill Creton Warriors until one shows up. Then take them down.
 Param/Value/B416B1B4=<c val="FF0000">C</c><c val="FF0E00">r</c><c val="FF1D00">i</c><c val="FF2C00">t</c><c val="FF3B00">i</c><c val="FF4A00">c</c><c val="FF5900">a</c><c val="FF6800">l</c><c val="FF7700"> </c><c val="FF8600">C</c><c val="FF9500">r</c><c val="FFA400">e</c><c val="FFB300">p</c><c val="FFC200">i</c><c val="FFD100">t</c><c val="FFE000">u</c><c val="FFEF00">s</c>
 Param/Value/B4C73527=<c val="408080">Recommended Level:</c> 1+
-Param/Value/B4D4EA55=Small Health Potion Used
 Param/Value/B4E1E57D=Of course that is my real name... Go stand on that circle behind me my fine fellow.
 Param/Value/B4F7F0B0=What!? No! NO! NO NO NO! Here, take it! Get away from me. GET AWAY! 
 Param/Value/B567CAF8=The Basics: Healing II
@@ -1580,35 +1531,26 @@ Param/Value/B81843D9=</c> Vespene.
 Param/Value/B83D31A3=Critical Crepitus
 Param/Value/B8FA5D90=The Basics: Attacking II
 Param/Value/B9589CEA=He planned on taking it from its shrine.
-Param/Value/B988CA39=Grand Health Potion Used
 Param/Value/BA7E44FE=100 )
-Param/Value/BA82A05D=Medium Health Potion Used
-Param/Value/BA9D3D10=Grand Health Potion Used
 Param/Value/BB36AEC9=<c val="FF0000">C</c><c val="FF7E00">C</c>
 Param/Value/BC7D2081=Now that you are level 100 you have unlocked the ability to rebirth your dragon. You can type -Reborn at any time to do this.<n/><n/>This will start you over again as a level 1 dragon.<n/><n/>Things that reset:<n/><n/>-Stats<n/>-Level<n/>-Talents<n/>-Skills<n/>-Boss abilities<n/><n/>Things that save:<n/><n/>-Minerals<n/>-Vespene<n/>-Items<n/><n/>Things you gain:<n/><n/>-Bragging rights<n/>-New buff (Stacks each time you rebirth your dragon)
 Param/Value/BCB36106=<c val="408080">Quest Reward:</c> Medium Healing Orb & 1000 EXP
-Param/Value/BCD98EBD=No potions in inventory
-Param/Value/BCDAA2DF=Small Health Potion Used
 Param/Value/BD18A03E=Wasteland
-Param/Value/BD25568D=Machina De Plagam's  technology overwhelms your portal spell!
-Param/Value/BDA99B77=Medium Health Potion Used
+Param/Value/BD25568D=Machina De Plagam's technology overwhelms your portal spell!
 Param/Value/BDB7145A=Return to Lanae
 Param/Value/BE01F8B9=Kill 25 Sreptis
-Param/Value/BE16FE16=I wouldn't go in there if I was you. There is something foul in there the likes of which I have never seen. The plants have mutated.... evolved. Something isn't right. My fiance  went in there looking for a place we could hide from the Karramarro and the Creton. I honestly don't think that I could take much more of this. Can you please go in there and find my fiance. Please? I will give you something really interesting that we found when we were out exploring. Please hurry before it is too late.
+Param/Value/BE16FE16=I wouldn't go in there if I was you. There is something foul in there the likes of which I have never seen. The plants have mutated.... evolved. Something isn't right. My fiance went in there looking for a place we could hide from the Karramarro and the Creton. I honestly don't think that I could take much more of this. Can you please go in there and find my fiance. Please? I will give you something really interesting that we found when we were out exploring. Please hurry before it is too late.
 Param/Value/BFCA3806=You have not unlocked this container yet.
 Param/Value/BFFB22B7=Now that you are level 100 you have unlocked the ability to rebirth your dragon. You can type -Reborn at any time to do this.<n/><n/>This will start you over again as a level 1 dragon.<n/><n/>Things that reset:<n/><n/>-Stats<n/>-Level<n/>-Talents<n/>-Skills<n/>-Boss abilities<n/><n/>Things that save:<n/><n/>-Minerals<n/>-Vespene<n/>-Items<n/><n/>Things you gain:<n/><n/>-Bragging rights<n/>-New buff (Stacks each time you rebirth your dragon)
 Param/Value/C001C4C0=Ice Dragon Talents
 Param/Value/C033FA05=This cannot be the end... I will return... I will..... never................... die.....
 Param/Value/C04FAF36=Karramarros
-Param/Value/C0EE73E8=Grand Health Potion Used
 Param/Value/C1748A42=Now that you are level 100 you have unlocked the ability to rebirth your dragon. You can type -Reborn at any time to do this.<n/><n/>This will start you over again as a level 1 dragon.<n/><n/>Things that reset:<n/><n/>-Stats<n/>-Level<n/>-Talents<n/>-Skills<n/>-Boss abilities<n/><n/>Things that save:<n/><n/>-Minerals<n/>-Vespene<n/>-Items<n/><n/>Things you gain:<n/><n/>-Bragging rights<n/>-New buff (Stacks each time you rebirth your dragon)
 Param/Value/C17B2598=<c val="FF8000">Do Not Enter:</c> <c val="FF0000">Lava</c>
 Param/Value/C228B6E1=Maybe I have underestimated you. You have made it far, but you will never survive these abominations.
 Param/Value/C2477670=SD -
-Param/Value/C253BDD1=Grand Health Potion Used
 Param/Value/C30FACB4=1
-Param/Value/C322E4A6=Large Health Potion Used
-Param/Value/C384B428=The land  has finally  returned to peace.
+Param/Value/C384B428=The land has finally returned to peace.
 Param/Value/C3ABD438=<c val="00FFFF">Waiting for Contestant 2</c>
 Param/Value/C3DEB7CE=Thanks. Take this gold I promised. I hope it helps.
 Param/Value/C4709064=The stone had been lost.
@@ -1645,8 +1587,6 @@ Param/Value/CE4C241E=Something dark has happened. An evil presence lurks in the 
 Param/Value/CE6F05F8=<c val="408080">Reward:</c> 50 EXP
 Param/Value/CEBC47B7=Get to the Biodome
 Param/Value/CED2A4D9=<c val="408080">Recommended Level:</c> 7+
-Param/Value/CF16A979=Large Health Potion Used
-Param/Value/CFB458AE=Small Health Potion Used
 Param/Value/D00FC4C3= / 100 )
 Param/Value/D0262864=Korlic has been killed.
 Param/Value/D0C92283= <c val="00FFFF">minerals</c>.
@@ -1658,12 +1598,11 @@ Param/Value/D3D7C9C1=Stash
 Param/Value/D3E7E515=Why hello there good chap. My name is Francis Vladamir Henry III, but my friends call me Base. I see that you are quite a stong fellow. Even so, you can never be too careful. These glowing circles are known as waypoints and they serve two purposes here in Celesta. The first is a respawn point. When a dragon dies his soul isn't sent to the great beyond, no no. Instead a dragon's soul will continue to roam the realm. That is unless there is a medium between this world and the next. That is where these waypoints come in handy. When you step on one your soul will be locked to it, and when you fade your soul will come back from the nether. Go ahead and try it, step on the waypoint to save your place in this world.
 Param/Value/D41137B8=<c val="408080">Reward:</c> 3,500 EXP, 17,500 Gold
 Param/Value/D42CEA13=Kill 
-Param/Value/D47362FB=....."You have no power here, dragon....."  Echos in your mind.
+Param/Value/D47362FB=....."You have no power here, dragon....." Echos in your mind.
 Param/Value/D4FB44DF=I wish you the best of luck on your journey to defeat Zauberer.
 Param/Value/D541CFBE=Special Thanks: Wingcrafter
 Param/Value/D55AF90E= / 100 )
 Param/Value/D567090E=Headshot
-Param/Value/D5C2D65F=Small Health Potion Used
 Param/Value/D5D2F79B=The Basics: Healing I
 Param/Value/D608B6EF=Lead Testers: All Dragon Quest RPG Forum Members and More!
 Param/Value/D60B4BB7=Wow you are still at full health, impressive. I am going to teach you how to heal though. There are several ways of treating wounds. The first way that I am going to teach you is by using an ancient resource known as healing water. At the north end of the wasteland lies a pool of bright glowing water. Once you step foot in this water, your body will start to repair itself faster. Go try it out and report back to me when you are done.
@@ -1689,8 +1628,6 @@ Param/Value/DB969F41=The Basics: Healing I
 Param/Value/DBB6DB82=Destroy 1st Crystal of Venadas
 Param/Value/DBCFC935=6:00
 Param/Value/DBE25CDC=Destroy 4th Crystal of Venadas
-Param/Value/DCC6C75B=Grand Health Potion Used
-Param/Value/DD307554=Small Health Potion Used
 Param/Value/DDDE08EE=<c val="FF0000">YOU NEED TO BE CLOSE TO A SHOP TO SELL AN ITEM.</c>
 Param/Value/DE081D59=<c val="408080">Quest Name:</c> The Basics I<n/><c val="408080">Details:</c> If you want to survive in the world of Celesta you are first going to need to learn how to equip yourself.<n/><c val="408080">Reward:</c> Basic Armor<n/><c val="408080">Recommended Level:</c> 1+
 Param/Value/DE089EDD= / 100 )
@@ -1705,7 +1642,6 @@ Param/Value/DFF0F56F=100 )
 Param/Value/DFF4F8BA=Your dragon's stats have been reset
 Param/Value/E00252DC=<c val="FF0000">ERROR: Bank files have been manually edited.4</c>
 Param/Value/E057B9BE=2
-Param/Value/E0D6114B=Grand Health Potion Used
 Param/Value/E1AF3427= has slayed 
 Param/Value/E1B1A405=Muscle Enhancement
 Param/Value/E1F8BA32=Madawc has been killed.
@@ -1728,7 +1664,6 @@ Param/Value/E57A2F8D=Armor Shop
 Param/Value/E5ACB15C='s level 
 Param/Value/E5B6B20B=4
 Param/Value/E63BD04D=Reborn
-Param/Value/E6512FED=Large Health Potion Used
 Param/Value/E65F377F=5
 Param/Value/E6685081=Potion Shop
 Param/Value/E66C3F8D=<c val="408080">Recommended Level:</c> 3+
@@ -1740,7 +1675,6 @@ Param/Value/E7A7889B=Creton Watcher Deaths:
 Param/Value/E8D04C14=Attribute Points
 Param/Value/E9037991=Inventory
 Param/Value/EA2E6B2A=Evolutions
-Param/Value/EAF583BC=Small Health Potion Used
 Param/Value/EAFC558B=<c val="FF0000">You do not have enough Attribute Points.</c>
 Param/Value/EBA3B130=If you are having trouble with your quest line and would like to reload your quests you can type:<n/><n/>-Reset Quests
 Param/Value/EBE16247=Hi there. I am so glad that you came by. I was taking a nice stroll through Relamy when I realized that this place is now covered with all sorts of aweful creatures. Could you be a doll and kill 30 Karramarros for me?
@@ -1749,12 +1683,10 @@ Param/Value/EBFF7D03=The vines of the monster trap you in here!
 Param/Value/EC586C99= dragon with 
 Param/Value/ECF4A654=Go on.
 Param/Value/ED00BDE2=Nice! Now you can enter the Verboten Forest and kill Sremagsi.
-Param/Value/ED6D1F51=Medium Health Potion Used
 Param/Value/EF0BD040=+
 Param/Value/EF1ACC9A=Alright, now that you are equipped with some armor, we can move onto killing enemies. Zauberer has plenty of enemies around Celesta and you will have to be able to take them down in order to level up and become more powerful. The first thing I want you to do is kill one of these Small Sheep.
 Param/Value/EFCF1DB3=Purchesed Facet of Revenge
 Param/Value/F00A522E= / 100 )
-Param/Value/F02CB623=Small Health Potion Used
 Param/Value/F0714A87=He made it into the Dragon Stone's shrine.
 Param/Value/F078F471=Product Representation Team: EternalToss and Greed
 Param/Value/F09F60C9=With the Dragon Stone gone, you will not have the luxury of having Drache, God of Dragons, favor. Even simple things like lava will surely kill you. You need to find and kill Syrital. By defeating him you will recieve<c val="FF0000"> Fire Skin</c> which will allow you to cross this lava and enter the rest of Relamy. He is a tough opponent, and will take a great ammount of skill to defeat him. Make sure you are prepared.
@@ -1778,7 +1710,7 @@ Param/Value/F5929901=Lanae
 Param/Value/F5DB17C5=Kill an Elite Creton Warrior
 Param/Value/F60085E0=( 
 Param/Value/F63238DB=+
-Param/Value/F6872929=Health is Full
+Param/Value/HEALTH_FULL=Health is Full
 Param/Value/F6C42C62=Fake VT -
 Param/Value/F6D87979=<c val="408080">Reward:</c> 100 EXP
 Param/Value/F73D4991=Now that you are level 100 you have unlocked the ability to rebirth your dragon. You can type -Reborn at any time to do this.<n/><n/>This will start you over again as a level 1 dragon.<n/><n/>Things that reset:<n/><n/>-Stats<n/>-Level<n/>-Talents<n/>-Skills<n/>-Boss abilities<n/><n/>Things that save:<n/><n/>-Minerals<n/>-Vespene<n/>-Items<n/><n/>Things you gain:<n/><n/>-Bragging rights<n/>-New buff (Stacks each time you rebirth your dragon)
@@ -1810,7 +1742,6 @@ Param/Value/FCF9EFDD=Reborn
 Param/Value/FCFF3C65=Reborn
 Param/Value/FD03BABE=What are you waiting for? Get going!
 Param/Value/FD1FB43C=You cannot use a Town Portal while fighting Syrital.
-Param/Value/FD8424B6= Vs 
 Param/Value/FDB7A558=Strength of the Dragon
 Param/Value/FDEBF9A4=Stash
 Param/Value/FE4D7D27=You are a god among dragons. As reward you have recieved <c val="FFFF00">10</c> <c val="FF0000">Reborn Points</c>.
@@ -1819,13 +1750,13 @@ Param/Value/FFDAB444=Kill 10 Creton Warriors<n/>
 Param/Value/lib_1_02BBAD52=point
 Param/Value/lib_1_04F5E258=<s val="StandardTooltip">
 Param/Value/lib_1_09FBC8F4=<s val="StandardTooltipHeader">
-Param/Value/lib_1_0F2A744B= 
 Param/Value/lib_1_180A9D53=/
 Param/Value/lib_1_1ECE9A68=</s>
 Param/Value/lib_1_20CC4B21=<s val="StandardTooltipHeader">
 Param/Value/lib_1_269556FE=</s><n/><n/>
 Param/Value/lib_1_28B4F42A=<img path="Assets\Textures\icon-time-terran.dds" width="16" height="16"/> 
-Param/Value/lib_1_2F05AF2C=  
+Param/Value/SPACE= 
+Param/Value/2SPACE=  
 Param/Value/lib_1_2F659930=$
 Param/Value/lib_1_31AEA4D1=<s val="StandardTooltip"><c val="FF0000">Requires 
 Param/Value/lib_1_35BCD81C=<s val="HelpPanelListBoxItemTitle">points<n/>    left</s>
@@ -1839,7 +1770,6 @@ Param/Value/lib_1_52455AE2=/
 Param/Value/lib_1_583A97DF= in 
 Param/Value/lib_1_61D82CE4= points in 
 Param/Value/lib_1_64005C61=<img path="Assets\Textures\icon-health-protoss.dds" width="16" height="16"/> 
-Param/Value/lib_1_650F531F= 
 Param/Value/lib_1_6BED7575=.</c></s>
 Param/Value/lib_1_6D51BF3D=@
 Param/Value/lib_1_6E372436=<img path="Assets\Textures\icon-gas-protoss.dds" width="16" height="16"/> 
@@ -1848,7 +1778,6 @@ Param/Value/lib_1_75883A25=/
 Param/Value/lib_1_7CB7BFBB=<s val="StandardTooltip"><c val="FF0000">Requires 
 Param/Value/lib_1_8FF0A071=Increases damage by @%.
 Param/Value/lib_1_95225FD9=<s val="StandardTooltip"><c val="FF0000">Requires 
-Param/Value/lib_1_96EE75DB=  
 Param/Value/lib_1_9A874965=<n/><n/>
 Param/Value/lib_1_9C21FB6F=</s><n/><n/>
 Param/Value/lib_1_9F0F1568=<s val="StandardTooltip">
@@ -1859,13 +1788,11 @@ Param/Value/lib_1_ADD45111= points in
 Param/Value/lib_1_B9826448=point
 Param/Value/lib_1_B9887A7A=<s val="StandardTooltip"><c val="FF0000">Requires 
 Param/Value/lib_1_BC8BEA49=/
-Param/Value/lib_1_BDAA03F9=  
 Param/Value/lib_1_C3329CE4=Talent Tree
 Param/Value/lib_1_C566D5F1= in 
 Param/Value/lib_1_CD7122E8=Talent Name
 Param/Value/lib_1_D30A5C78=/
 Param/Value/lib_1_D81739DA=/
-Param/Value/lib_1_DB16B10F=  
 Param/Value/lib_1_DBD8440E=/
 Param/Value/lib_1_DBF60C3F=.</c></s>
 Param/Value/lib_1_E3F15863=points

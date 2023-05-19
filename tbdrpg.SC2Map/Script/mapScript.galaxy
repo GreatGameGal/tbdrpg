@@ -98,29 +98,29 @@ void lib_talent_gf_UpdateAbilityButtonTooltip (playerData_r lr_player, int lp_bu
     else {
       lv_pointsText = StringExternal("Param/Value/lib_1_E5D41D76");
     }
-    lv_tooltipPrerequisite = (StringExternal("Param/Value/lib_1_95225FD9") + IntToText(lr_player.talent.talents[lv_prerequisiteIndex].maxRank) + StringExternal("Param/Value/lib_1_0F2A744B") + lv_pointsText + StringExternal("Param/Value/lib_1_C566D5F1") + lr_player.talent.talents[lv_prerequisiteIndex].name + StringExternal("Param/Value/lib_1_3680DFC1"));
+    lv_tooltipPrerequisite = (StringExternal("Param/Value/lib_1_95225FD9") + IntToText(lr_player.talent.talents[lv_prerequisiteIndex].maxRank) + StringExternal("Param/Value/SPACE") + lv_pointsText + StringExternal("Param/Value/lib_1_C566D5F1") + lr_player.talent.talents[lv_prerequisiteIndex].name + StringExternal("Param/Value/lib_1_3680DFC1"));
   }
   else {
     lv_tooltipPrerequisite = StringToText("");
   }
 
   if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Resource[Vespene]", lr_player.player)) > 0)) {
-    lv_tooltipCostGas = (StringExternal("Param/Value/lib_1_6E372436") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Resource[Vespene]", lr_player.player)) + StringExternal("Param/Value/lib_1_2F05AF2C"));
+    lv_tooltipCostGas = (StringExternal("Param/Value/lib_1_6E372436") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Resource[Vespene]", lr_player.player)) + StringExternal("Param/Value/2SPACE"));
     lv_hasCost = true;
   }
 
   if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Life]", lr_player.player)) > 0)) {
-    lv_tooltipCostLife = (StringExternal("Param/Value/lib_1_64005C61") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Life]", lr_player.player)) + StringExternal("Param/Value/lib_1_96EE75DB"));
+    lv_tooltipCostLife = (StringExternal("Param/Value/lib_1_64005C61") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Life]", lr_player.player)) + StringExternal("Param/Value/2SPACE"));
     lv_hasCost = true;
   }
 
   if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Energy]", lr_player.player)) > 0)) {
-    lv_tooltipCostEnergy = (StringExternal("Param/Value/lib_1_36A22419") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Energy]", lr_player.player)) + StringExternal("Param/Value/lib_1_BDAA03F9"));
+    lv_tooltipCostEnergy = (StringExternal("Param/Value/lib_1_36A22419") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Energy]", lr_player.player)) + StringExternal("Param/Value/2SPACE"));
     lv_hasCost = true;
   }
 
   if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Cooldown.TimeUse", lr_player.player)) > 0)) {
-    lv_tooltipCostCooldown = (StringExternal("Param/Value/lib_1_28B4F42A") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Cooldown.TimeUse", lr_player.player)) + StringExternal("Param/Value/lib_1_DB16B10F"));
+    lv_tooltipCostCooldown = (StringExternal("Param/Value/lib_1_28B4F42A") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Cooldown.TimeUse", lr_player.player)) + StringExternal("Param/Value/2SPACE"));
     lv_hasCost = true;
   }
 
@@ -164,7 +164,7 @@ void lib_talent_gf_UpdatePassiveButtonTooltip (playerData_r lr_player, int lp_bu
     else {
       lv_pointsText = StringExternal("Param/Value/lib_1_E3F15863");
     }
-    lv_tooltipPrerequisite = (StringExternal("Param/Value/lib_1_B9887A7A") + IntToText(5) + StringExternal("Param/Value/lib_1_650F531F") + lv_pointsText + StringExternal("Param/Value/lib_1_583A97DF") + lr_player.talent.talents[lv_prerequisiteIndex].name + StringExternal("Param/Value/lib_1_4A56FEC3"));
+    lv_tooltipPrerequisite = (StringExternal("Param/Value/lib_1_B9887A7A") + IntToText(5) + StringExternal("Param/Value/SPACE") + lv_pointsText + StringExternal("Param/Value/lib_1_583A97DF") + lr_player.talent.talents[lv_prerequisiteIndex].name + StringExternal("Param/Value/lib_1_4A56FEC3"));
   }
 
   else {
@@ -6324,7 +6324,7 @@ bool gt_HeroEntersArena1_Func (bool testConds, bool runActions) {
       UnitIssueOrder(gv_contestant2, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
       UnitIssueOrder(gv_contestant1, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
       UnitIssueOrder(gv_contestant2, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-      UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(UnitGetOwner(gv_contestant1)) + (StringExternal("Param/Value/FD8424B6") + PlayerName(UnitGetOwner(gv_contestant2)))));
+      UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(UnitGetOwner(gv_contestant1)) + (StringExternal("Param/Value/PVP_VS") + PlayerName(UnitGetOwner(gv_contestant2)))));
       Wait(4.0, c_timeReal);
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00020", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant1)), 100.0, 0.0);
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00020", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant2)), 100.0, 0.0);
@@ -6419,7 +6419,7 @@ bool gt_HeroEntersArena2_Func (bool testConds, bool runActions) {
       UnitIssueOrder(gv_contestant2, Order(AbilityCommand("stop", 0)), c_orderQueueReplace);
       UnitIssueOrder(gv_contestant1, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
       UnitIssueOrder(gv_contestant2, Order(AbilityCommand("move", 2)), c_orderQueueReplace);
-      UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(UnitGetOwner(gv_contestant1)) + (StringExternal("Param/Value/515280CE") + PlayerName(UnitGetOwner(gv_contestant2)))));
+      UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, (PlayerName(UnitGetOwner(gv_contestant1)) + (StringExternal("Param/Value/PVP_VS") + PlayerName(UnitGetOwner(gv_contestant2)))));
       Wait(4.0, c_timeReal);
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00020", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant1)), 100.0, 0.0);
       SoundPlay(SoundLink("ModUtilityVoiceModUtilityVoice00020", -1), PlayerGroupSingle(UnitGetOwner(gv_contestant2)), 100.0, 0.0);
@@ -6713,10 +6713,10 @@ void gt_Dropstuffnotunlockedyet_Init () {
   TriggerAddEventUnitInventoryChange(gt_Dropstuffnotunlockedyet, UnitRefFromVariable("gv_players[3].stash.stashUnit"), c_unitInventoryChangeMoves, null);
 }
 //--------------------------------------------------------------------------------------------------
-// Trigger: Potion Hotkey P1
+// Trigger: Potion Hotkey
 //--------------------------------------------------------------------------------------------------
-bool gt_PotionHotkeyP1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[0];
+bool gt_PotionHotkey_Func (bool testConds, bool runActions) {
+  playerData_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -6726,63 +6726,13 @@ bool gt_PotionHotkeyP1_Func (bool testConds, bool runActions) {
   return true;
 }
 //--------------------------------------------------------------------------------------------------
-void gt_PotionHotkeyP1_Init () {
-  gt_PotionHotkeyP1 = TriggerCreate("gt_PotionHotkeyP1_Func");
-  TriggerAddEventButtonPressed(gt_PotionHotkeyP1, 1, "UsePotion");
-}
-//--------------------------------------------------------------------------------------------------
-// Trigger: Potion Hotkey P2
-//--------------------------------------------------------------------------------------------------
-bool gt_PotionHotkeyP2_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[1];
+void gt_PotionHotkey_Init () {
+  gt_PotionHotkey = TriggerCreate("gt_PotionHotkey_Func");
+  TriggerAddEventButtonPressed(gt_PotionHotkey, 1, "UsePotion");
+  TriggerAddEventButtonPressed(gt_PotionHotkey, 2, "UsePotion");
+  TriggerAddEventButtonPressed(gt_PotionHotkey, 3, "UsePotion");
+  TriggerAddEventButtonPressed(gt_PotionHotkey, 4, "UsePotion");
 
-  if (!runActions) {
-    return true;
-  }
-
-  gf_PotionHotkey(lr_player);
-  return true;
-}
-//--------------------------------------------------------------------------------------------------
-void gt_PotionHotkeyP2_Init () {
-  gt_PotionHotkeyP2 = TriggerCreate("gt_PotionHotkeyP2_Func");
-  TriggerAddEventButtonPressed(gt_PotionHotkeyP2, 2, "UsePotion");
-}
-//--------------------------------------------------------------------------------------------------
-// Trigger: Potion Hotkey P3
-//--------------------------------------------------------------------------------------------------
-bool gt_PotionHotkeyP3_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[2];
-
-  if (!runActions) {
-    return true;
-  }
-
-  gf_PotionHotkey(lr_player);
-  return true;
-}
-//--------------------------------------------------------------------------------------------------
-void gt_PotionHotkeyP3_Init () {
-  gt_PotionHotkeyP3 = TriggerCreate("gt_PotionHotkeyP3_Func");
-  TriggerAddEventButtonPressed(gt_PotionHotkeyP3, 3, "UsePotion");
-}
-//--------------------------------------------------------------------------------------------------
-// Trigger: Potion Hotkey P4
-//--------------------------------------------------------------------------------------------------
-bool gt_PotionHotkeyP4_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[3];
-
-  if (!runActions) {
-    return true;
-  }
-
-  gf_PotionHotkey(lr_player);
-  return true;
-}
-//--------------------------------------------------------------------------------------------------
-void gt_PotionHotkeyP4_Init () {
-  gt_PotionHotkeyP4 = TriggerCreate("gt_PotionHotkeyP4_Func");
-  TriggerAddEventButtonPressed(gt_PotionHotkeyP4, 4, "UsePotion");
 }
 //--------------------------------------------------------------------------------------------------
 // Trigger: Grand Orb of Anger Counter
@@ -8212,7 +8162,7 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
     TimerWindowDestroy(lr_player.dyingTimer.window);
   }
   else {
-    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, PlayerName(lr_player.player) + StringExternal("Param/Value/58B61D3F") + IntToText(lr_player.stats.level) + StringExternal("Param/Value/37C93D65") + UnitTypeGetName(UnitGetType(EventUnit())) + StringExternal("Param/Value/79A9A1A7") + UnitTypeGetName(UnitGetType(libNtve_gf_KillingUnit())));
+    UIDisplayMessage(PlayerGroupAll(), c_messageAreaSubtitle, PlayerName(lr_player.player) + StringExternal("Param/Value/58B61D3F") + IntToText(lr_player.stats.level) + StringExternal("Param/Value/SPACE") + UnitTypeGetName(UnitGetType(EventUnit())) + StringExternal("Param/Value/79A9A1A7") + UnitTypeGetName(UnitGetType(libNtve_gf_KillingUnit())));
     if (lr_player.skills.quickeningRing) {
       TimerStart(lr_player.dyingTimer.time, 15.0, false, c_timeReal);
     }
@@ -16975,10 +16925,7 @@ void FakeInitTriggers() {
   gt_Contestant2Dies_Init();
   gt_OpenInventorywhenclickonstash_Init();
   gt_Dropstuffnotunlockedyet_Init();
-  gt_PotionHotkeyP1_Init();
-  gt_PotionHotkeyP2_Init();
-  gt_PotionHotkeyP3_Init();
-  gt_PotionHotkeyP4_Init();
+  gt_PotionHotkey_Init();
   gt_GrandOrbofAngerCounter_Init();
   gt_GrandOrbofAngerEffectP1_Init();
   gt_GrandOrbofAngerEffectP2_Init();
