@@ -1,0 +1,5 @@
+{
+  "sc2galaxy.archivePath": "./tbdrpg.SC2Map/",
+  "sc2galaxy.dataPath": "./SC2GameData/",
+  "sc2galaxy.references.currentWorkspaceOnly": true
+}
