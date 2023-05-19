@@ -366,10 +366,11 @@ void lib_talent_gf_DestroyTalentTree (playerData_r lr_player) {
 bool lib_talent_gt_CloseTalent_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!((EventDialogControl() == lr_player.talent.closeTalentTreeButton))) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.talent.closeTalentTreeButton
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2191,10 +2192,11 @@ void gt_CreateRewardDialog_Init () {
 bool gt_QuestDecline_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.decline) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.decline
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2214,10 +2216,11 @@ void gt_QuestDecline_Init () {
 bool gt_TalkDialogClosed_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.talkDialog.accept) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.talkDialog.accept
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2293,10 +2296,12 @@ void gt_RunStoryQuestSetups_Init () {
 bool gt_SQ0PlayerEntersSQ0Region1_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
@@ -2331,13 +2336,12 @@ bool gt_SQ1PlayerTalkstoFelix_Func (bool testConds, bool runActions) {
   
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(216))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(216)) || 
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2451,13 +2455,12 @@ bool gt_SQ3PlayerTalkstoPetrose_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(224))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(224)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2543,13 +2546,12 @@ bool gt_SQ4PlayerTalkstoRisdak_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(225))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(225)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2668,13 +2670,12 @@ bool gt_SQ5PlayerTalkstoPetrose_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(224))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(224)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2721,10 +2722,11 @@ bool gt_SQ6PlayerEntersTeleporttoBiodome_Func (bool testConds, bool runActions) 
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (lr_player.quests.storyQuests[6].state != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.quests.storyQuests[6].state != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -2755,13 +2757,12 @@ bool gt_SQ7PlayerTalkstoLanae_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(226))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(226)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3349,13 +3350,12 @@ bool gt_ManaQuest0TalktoMana_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3387,31 +3387,18 @@ bool gt_ManaQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
   unit lv_tempArmor;
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 0 ||
+    lr_player.quests.manaQuests[1].progress != 0 ||
+    lr_player.quests.manaQuests[2].progress != 0 ||
+    lr_player.quests.manaQuests[3].progress != 0 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3455,10 +3442,11 @@ void gt_ManaQuest0QuestAccept_Init () {
 bool gt_ManaQuest0EquipArmorP1_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[UnitGetOwner(EventUnitInventoryItem()) - 1];
 
-  if (testConds) {
-    if (lr_player.quests.manaQuests[0].progress != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.quests.manaQuests[0].progress != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3486,31 +3474,18 @@ void gt_ManaQuest0EquipArmorP1_Init () {
 bool gt_ManaQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 2) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 2 ||
+    lr_player.quests.manaQuests[1].progress != 0 ||
+    lr_player.quests.manaQuests[2].progress != 0 ||
+    lr_player.quests.manaQuests[3].progress != 0 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3544,13 +3519,12 @@ bool gt_ManaQuest1TalktoMana_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3581,31 +3555,18 @@ void gt_ManaQuest1TalktoMana_Init () {
 bool gt_ManaQuest1QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 0 ||
+    lr_player.quests.manaQuests[2].progress != 0 ||
+    lr_player.quests.manaQuests[3].progress != 0 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3629,13 +3590,12 @@ void gt_ManaQuest1QuestAccept_Init () {
 bool gt_ManaQuest1KillSheep_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "SmallSheep") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "SmallSheep"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3668,31 +3628,18 @@ void gt_ManaQuest1KillSheep_Init () {
 bool gt_ManaQuest1RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 2) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 2 ||
+    lr_player.quests.manaQuests[2].progress != 0 ||
+    lr_player.quests.manaQuests[3].progress != 0 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3728,13 +3675,12 @@ bool gt_ManaQuest2TalktoMana_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3770,31 +3716,18 @@ void gt_ManaQuest2TalktoMana_Init () {
 bool gt_ManaQuest2QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 0 ||
+    lr_player.quests.manaQuests[3].progress != 0 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3824,13 +3757,12 @@ bool gt_ManaQuest2EnterWastelandWater_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic)) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic) ||
+    lr_player.quests.manaQuests[2].progress != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3853,31 +3785,18 @@ void gt_ManaQuest2EnterWastelandWater_Init () {
 bool gt_ManaQuest2RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 2) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 2 ||
+    lr_player.quests.manaQuests[3].progress != 0 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3913,13 +3832,12 @@ bool gt_ManaQuest3TalktoMana_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3950,31 +3868,18 @@ void gt_ManaQuest3TalktoMana_Init () {
 bool gt_ManaQuest3QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 3 ||
+    lr_player.quests.manaQuests[3].progress != 0 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -3998,13 +3903,12 @@ void gt_ManaQuest3QuestAccept_Init () {
 bool gt_ManaQuest3KillSrepti_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "Srepti") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "Srepti"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4041,31 +3945,18 @@ void gt_ManaQuest3KillSrepti_Init () {
 bool gt_ManaQuest3RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 2) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 3 ||
+    lr_player.quests.manaQuests[3].progress != 2 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4101,13 +3992,12 @@ bool gt_ManaQuest4TalktoMana_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4143,31 +4033,18 @@ void gt_ManaQuest4TalktoMana_Init () {
 bool gt_ManaQuest4QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 3 ||
+    lr_player.quests.manaQuests[3].progress != 3 ||
+    lr_player.quests.manaQuests[4].progress != 0 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4192,31 +4069,18 @@ void gt_ManaQuest4QuestAccept_Init () {
 bool gt_ManaQuest4RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 2) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 3 ||
+    lr_player.quests.manaQuests[3].progress != 3 ||
+    lr_player.quests.manaQuests[4].progress != 2 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4252,10 +4116,11 @@ bool gt_ManaQuest4PurchasePotion_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (lr_player.quests.manaQuests[4].progress != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.quests.manaQuests[4].progress != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4286,13 +4151,12 @@ bool gt_ManaQuest5TalktoMana_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4326,31 +4190,18 @@ void gt_ManaQuest5TalktoMana_Init () {
 bool gt_ManaQuest5QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 3 ||
+    lr_player.quests.manaQuests[3].progress != 3 ||
+    lr_player.quests.manaQuests[4].progress != 3 ||
+    lr_player.quests.manaQuests[5].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4374,13 +4225,12 @@ void gt_ManaQuest5QuestAccept_Init () {
 bool gt_ManaQuest5KillAlphaSrepti_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "AlphaSrepti") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "AlphaSrepti"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4413,31 +4263,18 @@ void gt_ManaQuest5KillAlphaSrepti_Init () {
 bool gt_ManaQuest5RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[1].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[2].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[3].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[4].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.manaQuests[5].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(3917)), 3.0)) ||
+    lr_player.quests.manaQuests[0].progress != 3 ||
+    lr_player.quests.manaQuests[1].progress != 3 ||
+    lr_player.quests.manaQuests[2].progress != 3 ||
+    lr_player.quests.manaQuests[3].progress != 3 ||
+    lr_player.quests.manaQuests[4].progress != 3 ||
+    lr_player.quests.manaQuests[5].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4471,13 +4308,12 @@ bool gt_BaseQuest0TalktoBase_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4508,19 +4344,14 @@ void gt_BaseQuest0TalktoBase_Init () {
 bool gt_BaseQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[0].progress != 0) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[1].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0)) ||
+    lr_player.quests.baseQuests[0].progress != 0 ||
+    lr_player.quests.baseQuests[1].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4550,13 +4381,12 @@ bool gt_BaseQuest0SetRespawnPointatWasteland_Func (bool testConds, bool runActio
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero)) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[0].progress != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) ||
+    lr_player.quests.baseQuests[0].progress != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4578,16 +4408,13 @@ void gt_BaseQuest0SetRespawnPointatWasteland_Init () {
 bool gt_BaseQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0)) ||
+    lr_player.quests.baseQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4623,13 +4450,12 @@ bool gt_BaseQuest1TalktoBase_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4668,19 +4494,14 @@ void gt_BaseQuest1TalktoBase_Init () {
 bool gt_BaseQuest1QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[1].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0)) ||
+    lr_player.quests.baseQuests[0].progress != 3 ||
+    lr_player.quests.baseQuests[1].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4710,13 +4531,12 @@ bool gt_BaseQuest1ActivateBallanWaypoint_Func (bool testConds, bool runActions) 
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero)) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[1].progress != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) ||
+    lr_player.quests.baseQuests[1].progress != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4737,13 +4557,12 @@ void gt_BaseQuest1ActivateBallanWaypoint_Init () {
 bool gt_BaseQuest2UseBallanWaypointtoWasteland_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(125))) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[1].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionFromId(125)) ||
+    lr_player.quests.baseQuests[1].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4768,19 +4587,14 @@ void gt_BaseQuest2UseBallanWaypointtoWasteland_Init () {
 bool gt_BaseQuest1RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[0].progress != 3) {
-      return false;
-    }
-    if (lr_player.quests.baseQuests[1].progress != 3) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4233)), 3.0)) ||
+    lr_player.quests.baseQuests[0].progress != 3 ||
+    lr_player.quests.baseQuests[1].progress != 3
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4813,13 +4627,12 @@ bool gt_DetsefniQuest0TalktoDetsefni_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4922)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4922)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4850,16 +4663,13 @@ void gt_DetsefniQuest0TalktoDetsefni_Init () {
 bool gt_DetsefniQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4922)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.detsefniQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4922)), 3.0)) ||
+    lr_player.quests.detsefniQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4883,13 +4693,12 @@ void gt_DetsefniQuest0QuestAccept_Init () {
 bool gt_DetsefniQuest0Kill25Sreptis_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "Srepti") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "Srepti"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4926,16 +4735,13 @@ void gt_DetsefniQuest0Kill25Sreptis_Init () {
 bool gt_DetsefniQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4922)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.detsefniQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4922)), 3.0)) ||
+    lr_player.quests.detsefniQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -4969,10 +4775,11 @@ bool gt_SergeantListerQuest0TalktoSergeantLister_Func (bool testConds, bool runA
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5006,16 +4813,13 @@ void gt_SergeantListerQuest0TalktoSergeantLister_Init () {
 bool gt_SergeantListeriQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4923)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.sergeantListerQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4923)), 3.0)) ||
+    lr_player.quests.sergeantListerQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5039,13 +4843,12 @@ void gt_SergeantListeriQuest0QuestAccept_Init () {
 bool gt_SergeantListerQuest0Kill10CretonWarriors_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "CretonWarrior") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "CretonWarrior"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5082,16 +4885,13 @@ void gt_SergeantListerQuest0Kill10CretonWarriors_Init () {
 bool gt_SergeantListerQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4923)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.sergeantListerQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4923)), 3.0)) ||
+    lr_player.quests.sergeantListerQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5125,10 +4925,11 @@ bool gt_GreedQuest0TalktoGreed_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (lr_player.quests.talking) {
+  if (
+    testConds &&
+    lr_player.quests.talking
+  ) {
       return false;
-    }
   }
 
   if (!runActions) {
@@ -5160,16 +4961,13 @@ void gt_GreedQuest0TalktoGreed_Init () {
 bool gt_GreedQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4924)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.greedQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4924)), 3.0)) ||
+    lr_player.quests.greedQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5200,13 +4998,12 @@ bool gt_GreedQuest0FindMisterScruffers_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero)) {
-      return false;
-    }
-    if (lr_player.quests.greedQuests[0].progress != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) ||
+    lr_player.quests.greedQuests[0].progress != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5228,16 +5025,13 @@ void gt_GreedQuest0FindMisterScruffers_Init () {
 bool gt_GreedQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4924)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.greedQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4924)), 3.0)) ||
+    lr_player.quests.greedQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5271,10 +5065,11 @@ bool gt_MadeleineQuest0TalktoMadeleine_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5306,16 +5101,13 @@ void gt_MadeleineQuest0TalktoMadeleine_Init () {
 bool gt_MadeleineQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4945)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.madelineQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4945)), 3.0)) ||
+    lr_player.quests.madelineQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5339,13 +5131,12 @@ void gt_MadeleineQuest0QuestAccept_Init () {
 bool gt_MadeleineQuest0Kill30Karramarros_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "Karramarro") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "Karramarro"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5382,16 +5173,13 @@ void gt_MadeleineQuest0Kill30Karramarros_Init () {
 bool gt_MadeleineQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4945)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.madelineQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4945)), 3.0)) ||
+    lr_player.quests.madelineQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5425,13 +5213,12 @@ bool gt_MalinQuest0TalktoMalin_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2516)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2516)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5464,16 +5251,13 @@ void gt_MalinQuest0TalktoMalin_Init () {
 bool gt_MalinQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2516)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.malinQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2516)), 3.0)) ||
+    lr_player.quests.malinQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5501,10 +5285,11 @@ void gt_MalinQuest0QuestAccept_Init () {
 bool gt_MalinQuest0KillRobus_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5538,16 +5323,13 @@ void gt_MalinQuest0KillRobus_Init () {
 bool gt_MalinQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2516)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.malinQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2516)), 3.0)) ||
+    lr_player.quests.malinQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5581,10 +5363,11 @@ bool gt_AmpQuest0TalktoAmp_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5616,16 +5399,13 @@ void gt_AmpQuest0TalktoAmp_Init () {
 bool gt_AmpQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(444)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.ampQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(444)), 3.0)) ||
+    lr_player.quests.ampQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5649,13 +5429,12 @@ void gt_AmpQuest0QuestAccept_Init () {
 bool gt_AmpQuest0KillanEliteCretonWarrior_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "EliteCretonWarrior") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "EliteCretonWarrior"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5688,16 +5467,13 @@ void gt_AmpQuest0KillanEliteCretonWarrior_Init () {
 bool gt_AmpQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(444)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.ampQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(444)), 3.0)) ||
+    lr_player.quests.ampQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5731,10 +5507,11 @@ bool gt_AltossQuest0TalktoAltoss_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5766,16 +5543,13 @@ void gt_AltossQuest0TalktoAltoss_Init () {
 bool gt_AltossQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4946)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.altossQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4946)), 3.0)) ||
+    lr_player.quests.altossQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5799,13 +5573,12 @@ void gt_AltossQuest0QuestAccept_Init () {
 bool gt_AltossQuest0Kill15Odvratans_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (UnitGetType(EventUnit()) != "Odvratan") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != "Odvratan"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5842,16 +5615,13 @@ void gt_AltossQuest0Kill15Odvratans_Init () {
 bool gt_AltossQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4946)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.altossQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4946)), 3.0)) ||
+    lr_player.quests.altossQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5877,16 +5647,18 @@ void gt_AltossQuest0RewardAccept_Init () {
 // Trigger: Illisus Locust Spawn
 //--------------------------------------------------------------------------------------------------
 bool gt_IllisusLocustSpawn_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGroupCount(UnitGroup("Karramarro", 15, RegionFromId(239), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) < 5))) {
-      return false;
-    }
-    if (!(libNtve_gf_UnitInRegion(gv_players[0].dragon, RegionFromId(239)) || libNtve_gf_UnitInRegion(gv_players[1].dragon, RegionFromId(239)) || libNtve_gf_UnitInRegion(gv_players[2].dragon, RegionFromId(239)) || libNtve_gf_UnitInRegion(gv_players[3].dragon, RegionFromId(239)))) {
-      return false;
-    }
-    if (!((UnitGetType(gv_illisus) == "Illisus"))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupCount(UnitGroup("Karramarro", 15, RegionFromId(239), UnitFilter(0, 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) >= 5 ||
+    !(
+      libNtve_gf_UnitInRegion(gv_players[0].dragon, RegionFromId(239)) ||
+      libNtve_gf_UnitInRegion(gv_players[1].dragon, RegionFromId(239)) ||
+      libNtve_gf_UnitInRegion(gv_players[2].dragon, RegionFromId(239)) || 
+      libNtve_gf_UnitInRegion(gv_players[3].dragon, RegionFromId(239))
+    ) ||
+    UnitGetType(gv_illisus) != "Illisus"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5912,13 +5684,12 @@ bool gt_OleumQuest0TalktoOleum_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4381)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4381)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5954,16 +5725,13 @@ void gt_OleumQuest0TalktoOleum_Init () {
 bool gt_OleumQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4381)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.oleumQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4381)), 3.0)) ||
+    lr_player.quests.oleumQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -5993,13 +5761,12 @@ bool gt_OleumQuest0FindCrew137_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero)) {
-      return false;
-    }
-    if (lr_player.quests.oleumQuests[0].progress != 1) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitTypeTestFlag(UnitGetType(EventUnit()), c_unitFlagHero) ||
+    lr_player.quests.oleumQuests[0].progress != 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6024,10 +5791,11 @@ void gt_OleumQuest0FindCrew137_Init () {
 bool gt_OleumQuest0KillIllisus_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6061,16 +5829,13 @@ void gt_OleumQuest0KillIllisus_Init () {
 bool gt_OleumQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4381)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.oleumQuests[0].progress != 3) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(4381)), 3.0)) ||
+    lr_player.quests.oleumQuests[0].progress != 3
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6104,13 +5869,12 @@ bool gt_SerynQuest0TalktoSeryn_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2671)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.talking) {
-      return false;
-    }
+  if (
+    testConds &&
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2671)), 3.0)) ||
+    lr_player.quests.talking
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6143,16 +5907,13 @@ void gt_SerynQuest0TalktoSeryn_Init () {
 bool gt_SerynQuest0QuestAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.questDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2671)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.serynQuests[0].progress != 0) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.questDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2671)), 3.0)) ||
+    lr_player.quests.serynQuests[0].progress != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6180,10 +5941,11 @@ void gt_SerynQuest0QuestAccept_Init () {
 bool gt_SerynQuest0KillSerynsShadow_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6217,16 +5979,13 @@ void gt_SerynQuest0KillSerynsShadow_Init () {
 bool gt_SerynQuest0RewardAccept_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (EventDialogControl() != lr_player.quests.rewardDialog.accept) {
-      return false;
-    }
-    if (!libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2671)), 3.0))) {
-      return false;
-    }
-    if (lr_player.quests.serynQuests[0].progress != 2) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventDialogControl() != lr_player.quests.rewardDialog.accept ||
+    !libNtve_gf_UnitInRegion(lr_player.dragon, RegionCircle(UnitGetPosition(UnitFromId(2671)), 3.0)) ||
+    lr_player.quests.serynQuests[0].progress != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6272,10 +6031,11 @@ void gt_ChaosUnitTypes_Init () {
 // Trigger: Syrital's Hatch
 //--------------------------------------------------------------------------------------------------
 bool gt_SyritalsHatch_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetType(EventUnit()) == "SyritalsTalons"))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "SyritalsTalons"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6303,10 +6063,13 @@ void gt_SyritalsHatch_Init () {
 // Trigger: Guardian's Hatch
 //--------------------------------------------------------------------------------------------------
 bool gt_GuardiansHatch_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetType(EventUnit()) == "TolicsFireOrb") || (UnitGetType(EventUnit()) == "KorlicsFrozenBlade") || (UnitGetType(EventUnit()) == "MadawcsElectricArmor")))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "TolicsFireOrb" &&
+    UnitGetType(EventUnit()) != "KorlicsFrozenBlade" &&
+    UnitGetType(EventUnit()) != "MadawcsElectricArmor"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6334,10 +6097,11 @@ void gt_GuardiansHatch_Init () {
 // Trigger: Sremagsi's Hatch
 //--------------------------------------------------------------------------------------------------
 bool gt_SremagsisHatch_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetType(EventUnit()) == "SremagsisTentacles")))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "SremagsisTentacles"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6365,10 +6129,11 @@ void gt_SremagsisHatch_Init () {
 // Trigger: Machina De Plagam's Hatch
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamsHatch_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetType(EventUnit()) == "PlagamArmor")))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "PlagamArmor"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6396,10 +6161,14 @@ void gt_MachinaDePlagamsHatch_Init () {
 // Trigger: Zauberer's Hatch
 //--------------------------------------------------------------------------------------------------
 bool gt_ZauberersHatch_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetType(EventUnit()) == "FluxCapacitor") || (UnitGetType(EventUnit()) == "OblivionArmor") || (UnitGetType(EventUnit()) == "OblivionClaws") || (UnitGetType(EventUnit()) == "OblivionSpines")))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "FluxCapacitor" &&
+    UnitGetType(EventUnit()) != "OblivionArmor" &&
+    UnitGetType(EventUnit()) != "OblivionClaws" &&
+    UnitGetType(EventUnit()) != "OblivionSpines"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6427,10 +6196,12 @@ void gt_ZauberersHatch_Init () {
 // Trigger: Spawn Arena Text 1
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnArenaText1_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6449,10 +6220,12 @@ void gt_SpawnArenaText1_Init () {
 // Trigger: Spawn Arena Text 2
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnArenaText2_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6471,10 +6244,12 @@ void gt_SpawnArenaText2_Init () {
 // Trigger: Hero Leaves Arena 1
 //--------------------------------------------------------------------------------------------------
 bool gt_HeroLeavesArena1_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((!gv_matchGoingOn && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    gv_matchGoingOn ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6493,10 +6268,12 @@ void gt_HeroLeavesArena1_Init () {
 // Trigger: Hero Leaves Arena 2
 //--------------------------------------------------------------------------------------------------
 bool gt_HeroLeavesArena2_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((!gv_matchGoingOn && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    gv_matchGoingOn ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6515,10 +6292,13 @@ void gt_HeroLeavesArena2_Init () {
 // Trigger: Hero Enters Arena 1
 //--------------------------------------------------------------------------------------------------
 bool gt_HeroEntersArena1_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGroupCount(gv_contestant1Group, c_unitCountAlive) == 0) && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit())) && UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupCount(gv_contestant1Group, c_unitCountAlive) != 0 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit())) ||
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6607,10 +6387,13 @@ void gt_HeroEntersArena1_Init () {
 // Trigger: Hero Enters Arena 2
 //--------------------------------------------------------------------------------------------------
 bool gt_HeroEntersArena2_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGroupCount(gv_contestant2Group, c_unitCountAlive) == 0) && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit())) && UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupCount(gv_contestant2Group, c_unitCountAlive) != 0 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit())) ||
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6700,10 +6483,12 @@ bool gt_Contestant1Dies_Func (bool testConds, bool runActions) {
   fixed lv_winningAmmount;
 
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6743,10 +6528,12 @@ bool gt_Contestant2Dies_Func (bool testConds, bool runActions) {
   fixed lv_winningAmmount;
 
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -6786,10 +6573,11 @@ void gt_Contestant2Dies_Init () {
 bool gt_OpenInventorywhenclickonstash_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[EventPlayer() - 1];
 
-  if (testConds) {
-    if (!UnitAbilityExists(EventUnit(), "StashInventory")) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitAbilityExists(EventUnit(), "StashInventory")
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8246,6 +8034,7 @@ void gt_GrandOrbofAngerEffectP4_Init () {
   gt_GrandOrbofAngerEffectP4 = TriggerCreate("gt_GrandOrbofAngerEffectP4_Func");
   TriggerAddEventTimePeriodic(gt_GrandOrbofAngerEffectP4, 5.0, c_timeGame);
 }
+// TODO: Buying Occulus of Warning looks like it can easily be generalized.
 //--------------------------------------------------------------------------------------------------
 // Trigger: Player 1 Buys Occulus of Warning
 //--------------------------------------------------------------------------------------------------
@@ -8254,10 +8043,11 @@ bool gt_Player1BuysOcculusofWarning_Func (bool testConds, bool runActions) {
 
   lv_player = EventPlayer();
 
-  if (testConds) {
-    if (!((lv_player == 1))) {
+  if (
+    testConds &&
+    lv_player != 1
+  ) {
       return false;
-    }
   }
 
   if (!runActions) {
@@ -8282,10 +8072,11 @@ bool gt_Player2BuysOcculusofWarning_Func (bool testConds, bool runActions) {
 
   lv_player = EventPlayer();
 
-  if (testConds) {
-    if (!((lv_player == 2))) {
-      return false;
-    }
+  if (
+    testConds &&
+    lv_player != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8310,10 +8101,11 @@ bool gt_Player3BuysOcculusofWarning_Func (bool testConds, bool runActions) {
 
   lv_player = EventPlayer();
 
-  if (testConds) {
-    if (!((lv_player == 3))) {
-      return false;
-    }
+  if (
+    testConds &&
+    lv_player != 3
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8338,10 +8130,11 @@ bool gt_Player4BuysOcculusofWarning_Func (bool testConds, bool runActions) {
 
   lv_player = EventPlayer();
 
-  if (testConds) {
-    if (!((lv_player == 4))) {
-      return false;
-    }
+  if (
+    testConds &&
+    lv_player != 4
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8556,10 +8349,11 @@ bool gt_TolicsFireOrbDamageResponse_Func (bool testConds, bool runActions) {
 
   lv_thisTag = c_textTagNone;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == UnitGetOwner(EventUnitDamageSourceUnit())) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == UnitGetOwner(EventUnitDamageSourceUnit())
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8637,10 +8431,13 @@ void gt_SetStackChargeNames_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_SaveStackCountsOnInventoryEdit_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
-  if (testConds) {
-    if (!gv_playersSetUp || UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !gv_playersSetUp ||
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
@@ -8672,10 +8469,11 @@ void gt_SaveStackCountsOnInventoryEdit_Init () {
 bool gt_SaveStackCountsPeriodically_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!gv_playersSetUp) {
+  if (
+    testConds &&
+    !gv_playersSetUp
+  ) {
       return false;
-    }
   }
 
   if (!runActions) {
@@ -8701,10 +8499,11 @@ void gt_SaveStackCountsPeriodically_Init () {
 bool gt_TownPortal_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[UnitGetOwner(UnitInventoryUnit(EventUnitInventoryItem())) - 1];
 
-  if (testConds) {
-    if (!((UnitGetType(EventUnitInventoryItem()) == "TownPortal"))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnitInventoryItem()) != "TownPortal"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8848,10 +8647,11 @@ void gt_Unitgainsitem_Init () {
 // Trigger: Shield Check
 //--------------------------------------------------------------------------------------------------
 bool gt_ShieldCheck_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitInventoryContainer(EventUnitInventoryItem()) == 2))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitInventoryContainer(EventUnitInventoryItem()) != 2
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8871,10 +8671,11 @@ void gt_ShieldCheck_Init () {
 // Trigger: Weapon Check
 //--------------------------------------------------------------------------------------------------
 bool gt_WeaponCheck_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!gv_playersSetUp) {
-      return false;
-    }
+  if (
+    testConds &&
+    !gv_playersSetUp
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8930,10 +8731,12 @@ void gt_SellingSystemRedux_Init () {
 // Trigger: Display Armor Shop Text Tag
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayArmorShopTextTag_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8953,10 +8756,12 @@ void gt_DisplayArmorShopTextTag_Init () {
 // Trigger: Display Weapon Shop and Credits Text Tags
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayWeaponShopTextTag_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -8978,10 +8783,12 @@ void gt_DisplayWeaponShopTextTag_Init () {
 // Trigger: Display Orb Shop Text Tag
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayOrbShopTextTag_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9001,10 +8808,12 @@ void gt_DisplayOrbShopTextTag_Init () {
 // Trigger: Display Shard Shop Text Tag
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayShardShopTextTag_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9020,14 +8829,16 @@ void gt_DisplayShardShopTextTag_Init () {
   gt_DisplayShardShopTextTag = TriggerCreate("gt_DisplayShardShopTextTag_Func");
   TriggerAddEventUnitRangePoint(gt_DisplayShardShopTextTag, null, PointFromId(2778), 12.0, true);
 }
+// TODO: Display Stash Text Tag looks like it could be generalized pretty easily?
 //--------------------------------------------------------------------------------------------------
 // Trigger: Display Stash Text Tag P1
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayStashTextTagP1_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == PlayerGroupPlayer(gv_humanPlayers, 1))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != PlayerGroupPlayer(gv_humanPlayers, 1)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9047,10 +8858,11 @@ void gt_DisplayStashTextTagP1_Init () {
 // Trigger: Display Stash Text Tag P2
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayStashTextTagP2_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == PlayerGroupPlayer(gv_humanPlayers, 2))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != PlayerGroupPlayer(gv_humanPlayers, 2)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9070,10 +8882,11 @@ void gt_DisplayStashTextTagP2_Init () {
 // Trigger: Display Stash Text Tag P3
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayStashTextTagP3_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == PlayerGroupPlayer(gv_humanPlayers, 3))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != PlayerGroupPlayer(gv_humanPlayers, 3)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9093,10 +8906,11 @@ void gt_DisplayStashTextTagP3_Init () {
 // Trigger: Display Stash Text Tag P4
 //--------------------------------------------------------------------------------------------------
 bool gt_DisplayStashTextTagP4_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == PlayerGroupPlayer(gv_humanPlayers, 4))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != PlayerGroupPlayer(gv_humanPlayers, 4)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9118,13 +8932,13 @@ void gt_DisplayStashTextTagP4_Init () {
 bool gt_UndergroundForestEnter_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9155,10 +8969,14 @@ void gt_UndergroundForestEnter_Init () {
 bool gt_UndergroundForestExit_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))))) {
+  if (
+    testConds &&
+    !(
+      UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) &&
+      PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+    )
+  ) {
       return false;
-    }
   }
 
   if (!runActions) {
@@ -9189,13 +9007,13 @@ void gt_UndergroundForestExit_Init () {
 bool gt_RelamyGorgeEnter_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9226,10 +9044,12 @@ void gt_RelamyGorgeEnter_Init () {
 bool gt_RelamyGorgeExit_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9261,13 +9081,13 @@ bool gt_RelamyCaveEnter_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
   bool firstTimeInRelamyCave;
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9316,10 +9136,12 @@ bool gt_RelamyCaveExit_Func (bool testConds, bool runActions) {
   int multiplayerMultiplier;
 
 
-  if (testConds) {
-    if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9361,10 +9183,12 @@ void gt_RelamyCaveExit_Init () {
 bool gt_VerbotenInfestationEnter_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9397,10 +9221,12 @@ void gt_VerbotenInfestationEnter_Init () {
 bool gt_VerbotenInfestationExit_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!((UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) && PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9585,10 +9411,11 @@ bool gt_CheckPlayerisnoteveolved_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
   int lv_dragonEvolution;
 
-  if (testConds) {
-    if (!gv_playersSetUp) {
-      return false;
-    }
+  if (
+    testConds &&
+    !gv_playersSetUp
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9614,10 +9441,11 @@ void gt_CheckPlayerisnoteveolved_Init () {
 // Trigger: Dummy Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_DummyDies_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetType(EventUnit()) == "DragonDummy"))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "DragonDummy"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9644,17 +9472,14 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   lv_TypeOfUnitThatKilledDragon = UnitGetType(libNtve_gf_KillingUnit());
 
-  if (testConds) {
-    if (
-      !gv_playersSetUp || 
-      lr_player.state.dying
-    ) {
-      return false;
-    }
-    // PlayerGroupHasPlayer doesn't like Player 16 existing.
-    if (libNtve_gf_KillingPlayer() != 16 && PlayerGroupHasPlayer(gv_humanPlayers, libNtve_gf_KillingPlayer())) {
-        return false;
-    }
+  if (
+    testConds &&
+    !gv_playersSetUp || 
+    lr_player.state.dying ||
+    libNtve_gf_KillingPlayer() == 16 ||
+    PlayerGroupHasPlayer(gv_humanPlayers, libNtve_gf_KillingPlayer())
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9780,15 +9605,14 @@ bool gt_ReviveDragonPvP_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (
-      !gv_playersSetUp ||
-      UnitGetOwner(libNtve_gf_KillingUnit()) == 16 || 
-      !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(libNtve_gf_KillingUnit())) ||
-      lr_player.state.dying
-    ) {
-      return false;
-    }
+  if (
+    testConds &&
+    !gv_playersSetUp ||
+    UnitGetOwner(libNtve_gf_KillingUnit()) == 16 || 
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(libNtve_gf_KillingUnit())) ||
+    lr_player.state.dying
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9871,13 +9695,13 @@ void gt_SetUpAttributeDialog_Init () {
 // Trigger: Level 0 Check
 //--------------------------------------------------------------------------------------------------
 bool gt_Level0Check_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit())) ) {
-      return false;
-    }
-    if (!((UnitGetPropertyFixed(EventUnit(), c_unitPropXP, c_unitPropCurrent) < 0.0))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit())) ||
+    UnitGetPropertyFixed(EventUnit(), c_unitPropXP, c_unitPropCurrent) >= 0.0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9935,10 +9759,12 @@ bool gt_Agility1_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (lr_player.stats.addingAttribute || lr_player.stats.agility >= gv_MaxAgility) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.stats.addingAttribute ||
+    lr_player.stats.agility >= gv_MaxAgility
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -9986,10 +9812,12 @@ bool gt_Dexterity1_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
-  if (testConds) {
-    if (lr_player.stats.addingAttribute || lr_player.stats.dexterity >= gv_MaxDexterity) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.stats.addingAttribute ||
+    lr_player.stats.dexterity >= gv_MaxDexterity
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10037,10 +9865,12 @@ bool gt_Intelligence1_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
-  if (testConds) {
-    if (lr_player.stats.addingAttribute || lr_player.stats.intelligence >= gv_MaxIntelligence) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.stats.addingAttribute ||
+     lr_player.stats.intelligence >= gv_MaxIntelligence
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10088,10 +9918,12 @@ bool gt_Strength1_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
-  if (testConds) {
-    if (lr_player.stats.addingAttribute || lr_player.stats.strength >= gv_MaxStrength) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.stats.addingAttribute ||
+    lr_player.stats.strength >= gv_MaxStrength
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10140,10 +9972,12 @@ bool gt_Vitality1_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
-  if (testConds) {
-    if (lr_player.stats.addingAttribute || lr_player.stats.vitality >= gv_MaxVitality) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.stats.addingAttribute ||
+    lr_player.stats.vitality >= gv_MaxVitality
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10260,10 +10094,11 @@ void gt_SetisIdleOff_Init () {
 // Trigger: Defend Yourself
 //--------------------------------------------------------------------------------------------------
 bool gt_DefendYourself_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!gv_players[UnitGetOwner(EventUnit()) - 1].state.isIdle) {
-      return false;
-    }
+  if (
+    testConds &&
+    !gv_players[UnitGetOwner(EventUnit()) - 1].state.isIdle
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10328,10 +10163,11 @@ void gt_SyritalTalonsBurning_Init () {
 // Trigger: Robus - Spawn Allies
 //--------------------------------------------------------------------------------------------------
 bool gt_RobusSpawnAllies_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit())) ) {
-      return false;
-    }
+  if (
+    testConds &&
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10467,13 +10303,13 @@ void gt_NosferatuDies_Init () {
 // Trigger: Nosferatu death count
 //--------------------------------------------------------------------------------------------------
 bool gt_Nosferatudeathcount_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
-    if (libNtve_gf_KillingPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, libNtve_gf_KillingPlayer())) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    libNtve_gf_KillingPlayer() == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, libNtve_gf_KillingPlayer())
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10513,13 +10349,12 @@ bool gt_GreedisGood_Func (bool testConds, bool runActions) {
 
   lv_thisTag = c_textTagNone;
 
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
-    if (!((UnitGetOwner(libNtve_gf_KillingUnit()) != 16))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetOwner(libNtve_gf_KillingUnit()) == 16
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10545,10 +10380,11 @@ bool gt_QuickLearner_Func (bool testConds, bool runActions) {
   fixed lv_qLLevel;
 
 
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10573,10 +10409,12 @@ bool gt_Herotakesmeleedamage_Func (bool testConds, bool runActions) {
 
   lv_thisTag = c_textTagNone;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10616,10 +10454,12 @@ bool gt_Herotakesrangeddamage_Func (bool testConds, bool runActions) {
 
   lv_thisTag = c_textTagNone;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10670,10 +10510,12 @@ bool gt_Herotakesspelldamage_Func (bool testConds, bool runActions) {
 
   lv_thisTag = c_textTagNone;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10709,10 +10551,12 @@ void gt_Herotakesspelldamage_Init () {
 // Trigger: Hero takes splash damage
 //--------------------------------------------------------------------------------------------------
 bool gt_Herotakessplashdamage_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10738,13 +10582,12 @@ bool gt_HeroMissranged_Func (bool testConds, bool runActions) {
   lv_thisTag = c_textTagNone;
   lv_surroundingUnits = UnitGroupEmpty();
 
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
-    if (!PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10793,13 +10636,12 @@ bool gt_HeroMissmelee_Func (bool testConds, bool runActions) {
   lv_thisTag = c_textTagNone;
   lv_surroundingUnits = UnitGroupEmpty();
 
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
-    if (!PlayerGroupHasPlayer(PlayerGroupAlliance(c_playerGroupEnemy, UnitGetOwner(EventUnit())), UnitGetOwner(EventUnitDamageSourceUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !PlayerGroupHasPlayer(PlayerGroupAlliance(c_playerGroupEnemy, UnitGetOwner(EventUnit())), UnitGetOwner(EventUnitDamageSourceUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10894,13 +10736,12 @@ bool gt_HeroMissmelee1Shot_Func (bool testConds, bool runActions) {
   lv_thisTag = c_textTagNone;
   lv_surroundingUnits = UnitGroupEmpty();
 
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
-    if (!PlayerGroupHasPlayer(PlayerGroupAlliance(c_playerGroupEnemy, UnitGetOwner(EventUnit())), UnitGetOwner(EventUnitDamageSourceUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !PlayerGroupHasPlayer(PlayerGroupAlliance(c_playerGroupEnemy, UnitGetOwner(EventUnit())), UnitGetOwner(EventUnitDamageSourceUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -10937,13 +10778,12 @@ void gt_HeroMissmelee1Shot_Init () {
 // Trigger: Hero gives ranged damage
 //--------------------------------------------------------------------------------------------------
 bool gt_Herogivesrangeddamage_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) != 0))) {
-      return false;
-    }
-    if (!((UnitGetOwner(EventUnitDamageSourceUnit()) != 16))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 0 ||
+    UnitGetOwner(EventUnitDamageSourceUnit()) == 16
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11067,10 +10907,11 @@ void gt_DarkDissulto_Init () {
 // Trigger: Enemy AI (Attacked)
 //--------------------------------------------------------------------------------------------------
 bool gt_EnemyAIAttacked_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11107,10 +10948,11 @@ void gt_EnemyAIAttacked_Init () {
 // Trigger: Enemy AI (Lava) 1
 //--------------------------------------------------------------------------------------------------
 bool gt_EnemyAILava1_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11129,10 +10971,11 @@ void gt_EnemyAILava1_Init () {
 // Trigger: Enemy AI (Lava) 2
 //--------------------------------------------------------------------------------------------------
 bool gt_EnemyAILava2_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11151,10 +10994,11 @@ void gt_EnemyAILava2_Init () {
 // Trigger: Enemy AI (Lava) 3
 //--------------------------------------------------------------------------------------------------
 bool gt_EnemyAILava3_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11173,10 +11017,11 @@ void gt_EnemyAILava3_Init () {
 // Trigger: Enemy AI (Nest)
 //--------------------------------------------------------------------------------------------------
 bool gt_EnemyAINest_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11229,14 +11074,13 @@ bool gt_ZauberersFavor_Func (bool testConds, bool runActions) {
   lv_deadUnit = UnitGetType(EventUnit());
 
   
-  if (testConds) {
-    if (
-      UnitGetOwner(EventUnit()) != 15 ||
-      UnitGetOwner(libNtve_gf_KillingUnit()) == 16 ||
-      !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(libNtve_gf_KillingUnit()))
-    ) {
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetOwner(libNtve_gf_KillingUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(libNtve_gf_KillingUnit()))
+  ) {
       return false;
-    }
   }
 
   if (!runActions) {
@@ -11274,10 +11118,11 @@ bool gt_CountUnitDeaths_Func (bool testConds, bool runActions) {
   string lv_unitType;
   int lv_i;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) != 15) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11302,10 +11147,13 @@ void gt_CountUnitDeaths_Init () {
 // Trigger: Elite Creton Warrior
 //--------------------------------------------------------------------------------------------------
 bool gt_EliteCretonWarrior_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == 15) && (UnitGetType(EventUnit()) == gv_enemyUnitTypes[3]) && (gv_unitKills[3] == (25 * PlayerGroupCount(gv_humanPlayers)))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != gv_enemyUnitTypes[3] ||
+    gv_unitKills[3] != 25 * PlayerGroupCount(gv_humanPlayers)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11330,10 +11178,13 @@ void gt_EliteCretonWarrior_Init () {
 // Trigger: Elite Creton Watcher
 //--------------------------------------------------------------------------------------------------
 bool gt_EliteCretonWatcher_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == 15) && (UnitGetType(EventUnit()) == gv_enemyUnitTypes[5]) && (gv_unitKills[5] == (25 * PlayerGroupCount(gv_humanPlayers)))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != gv_enemyUnitTypes[5] ||
+    gv_unitKills[5] != 25 * PlayerGroupCount(gv_humanPlayers)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11358,11 +11209,14 @@ void gt_EliteCretonWatcher_Init () {
 // Trigger: Large Sheep
 //--------------------------------------------------------------------------------------------------
 bool gt_LargeSheep_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    
-    if (!(((UnitGetOwner(EventUnit()) == 15) && gv_enemyUnitTypes[0] == "SmallSheep" && (UnitGetType(EventUnit()) == gv_enemyUnitTypes[0]) && (gv_unitKills[0] == (25 * PlayerGroupCount(gv_humanPlayers)))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    gv_enemyUnitTypes[0] != "SmallSheep" ||
+    UnitGetType(EventUnit()) != gv_enemyUnitTypes[0] ||
+    gv_unitKills[0] != 25 * PlayerGroupCount(gv_humanPlayers)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11389,10 +11243,13 @@ void gt_LargeSheep_Init () {
 // Trigger: Alpha Srepti
 //--------------------------------------------------------------------------------------------------
 bool gt_AlphaSrepti_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == 15) && (UnitGetType(EventUnit()) == gv_enemyUnitTypes[1]) && (gv_unitKills[1] == (25 * PlayerGroupCount(gv_humanPlayers)))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    UnitGetType(EventUnit()) != gv_enemyUnitTypes[1] ||
+    gv_unitKills[1] != 25 * PlayerGroupCount(gv_humanPlayers)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11421,10 +11278,11 @@ bool gt_GivenMeleeDamageTextTag_Func (bool testConds, bool runActions) {
 
   lv_thisTag = c_textTagNone;
 
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11450,10 +11308,12 @@ bool gt_RecievedMeleeDamageTextTag_Func (bool testConds, bool runActions) {
 
   lv_thisTag = c_textTagNone;
 
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11515,6 +11375,7 @@ void gt_SetZauberersRegions_Init () {
 // Trigger: Spawn Zauberer's Minions
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnZauberersMinions_Func (bool testConds, bool runActions) {
+  // TODO: FIX THIS
   fixed auto2FFAA3D0_ae;
   fixed auto2FFAA3D0_ai;
   fixed auto227D18B5_ae;
@@ -11524,10 +11385,12 @@ bool gt_SpawnZauberersMinions_Func (bool testConds, bool runActions) {
   int lv_randomSkill;
 
 
-  if (testConds) {
-    if (!(((gv_livingDragonsFightingZauberer1stForm >= 1) || (gv_livingDragonsFightingZauberer2ndForm >= 1)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    gv_livingDragonsFightingZauberer1stForm < 1 ||
+    gv_livingDragonsFightingZauberer2ndForm < 1
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11569,10 +11432,13 @@ void gt_SpawnZauberersMinions_Init () {
 bool gt_DragonDiesinZauberer1_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) != 16) && PlayerGroupHasPlayer(gv_playersInBattleWithZauberer1stForm, UnitGetOwner(EventUnit())) && UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_playersInBattleWithZauberer1stForm, UnitGetOwner(EventUnit())) ||
+    !UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11621,10 +11487,13 @@ void gt_DragonDiesinZauberer1_Init () {
 bool gt_DragonDiesinZauberer2_Func (bool testConds, bool runActions) {
   playerData_r lr_player;
 
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) != 16) && PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, UnitGetOwner(EventUnit())) && UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_playersInBattleWithZauberer2ndForm, UnitGetOwner(EventUnit())) ||
+    !UnitTypeTestAttribute(UnitGetType(EventUnit()), c_unitAttributeHeroic)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11679,10 +11548,11 @@ bool gt_SpawnZauberer1stForm_Func (bool testConds, bool runActions) {
   int lv_numPlayers;
 
 
-  if (testConds) {
-    if (gv_zaubererFirstFormAlreadyDead[(UnitGetOwner(libNtve_gf_KillingUnit()) - 1)]) {
-      return false;
-    }
+  if (
+    testConds &&
+    gv_zaubererFirstFormAlreadyDead[(UnitGetOwner(libNtve_gf_KillingUnit()) - 1)]
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11778,10 +11648,11 @@ bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
 
   int lv_spawnPoint;
 
-  if (testConds) {
-    if (UnitGetType(EventUnit()) != "Zauberer") {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "Zauberer"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11867,10 +11738,12 @@ bool gt_Zauberer1stFormAI_Func (bool testConds, bool runActions) {
   int lv_randomSkill;
   unit lv_target;
 
-  if (testConds) {
-    if (!UnitIsAlive(gv_zauberer1stForm) || libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer1stForm)) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitIsAlive(gv_zauberer1stForm) ||
+    libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer1stForm)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -11983,10 +11856,11 @@ bool gt_SpawnZauberer2ndFormSpecial_Func (bool testConds, bool runActions) {
   int lv_spawnPoint;
 
 
-  if (testConds) {
-    if (!gv_zaubererFirstFormAlreadyDead[(UnitGetOwner(libNtve_gf_KillingUnit()) - 1)]) {
-      return false;
-    }
+  if (
+    testConds &&
+    !gv_zaubererFirstFormAlreadyDead[UnitGetOwner(libNtve_gf_KillingUnit()) - 1]
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12080,10 +11954,11 @@ bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
   int lv_spawnPoint;
 
 
-  if (testConds) {
-    if (!((UnitGetType(EventUnit()) == "Zauberer2"))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetType(EventUnit()) != "Zauberer2"
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12174,13 +12049,13 @@ bool gt_WarpOutFromBossArena_Func (bool testConds, bool runActions) {
   int lv_triggeringPlayerIndex;
 
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)))) ||
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12206,10 +12081,12 @@ bool gt_Zauberer2ndFormAI_Func (bool testConds, bool runActions) {
   unit lv_target;
 
 
-  if (testConds) {
-    if (!UnitIsAlive(gv_zauberer2ndForm) || libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer2ndForm)) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitIsAlive(gv_zauberer2ndForm) ||
+    libNtve_gf_UnitGroupIsDead(gv_dragonInBattleWithZauberer2ndForm)
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12276,10 +12153,12 @@ void gt_MachinaDePlagamSethealth_Init () {
 // Trigger: Create Machina De Plagam Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateMachinaDePlagamWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12300,10 +12179,12 @@ void gt_CreateMachinaDePlagamWarning_Init () {
 // Trigger: Destroy Machina De Plagam Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_DestroyMachinaDePlagamWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12321,10 +12202,12 @@ void gt_DestroyMachinaDePlagamWarning_Init () {
 // Trigger: Hero attacks Machina De Plagam
 //--------------------------------------------------------------------------------------------------
 bool gt_HeroattacksMachinaDePlagam_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, EventUnitTarget()) || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitTarget()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupHasUnit(gv_unitsthatdidDamagetoMachinaDePlagam, EventUnitTarget()) ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitTarget()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12433,10 +12316,11 @@ bool gt_MachinaDePlagamDragonDies_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!lr_player.state.fightWithPlagam) {
-      return false;
-    }
+  if (
+    testConds &&
+    !lr_player.state.fightWithPlagam
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12537,22 +12421,15 @@ void gt_MachinaDePlagamDies_Init () {
 bool gt_MachinaDePlagamRespawn_Func (bool testConds, bool runActions) {
   int healthcap;
 
-  if (testConds) {
-    if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 2, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 3, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 4, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!gv_machinaDePlagamisDead) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupCount(UnitGroup(null, 1, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 2, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 3, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 4, RegionFromId(227), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    !gv_machinaDePlagamisDead
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12585,14 +12462,17 @@ void gt_MachinaDePlagamRespawn_Init () {
 bool gt_MachinaDePlagamBackup_Func (bool testConds, bool runActions) {
   int lv_randomEnemy;
 
-  if (testConds) {
-    if (gv_machinaDePlagamisDead) {
-      return false;
-    }
-
-    if (!gv_players[0].state.fightWithPlagam && !gv_players[1].state.fightWithPlagam && !gv_players[2].state.fightWithPlagam && !gv_players[3].state.fightWithPlagam) {
-      return false;
-    }
+  if (
+    testConds &&
+    gv_machinaDePlagamisDead ||
+    (
+      !gv_players[0].state.fightWithPlagam &&
+      !gv_players[1].state.fightWithPlagam &&
+      !gv_players[2].state.fightWithPlagam &&
+      !gv_players[3].state.fightWithPlagam
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12664,10 +12544,11 @@ void gt_MachinaDePlagamBackup_Init () {
 // Trigger: Unit attacks Sremagsi
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitattacksSremagsi_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12771,10 +12652,11 @@ void gt_SremagsiLairExit_Init () {
 bool gt_SremagsiDragonDies_Func (bool testConds, bool runActions) {
   playerData_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!lr_player.state.fightWithSremagsi) {
-      return false;
-    }
+  if (
+    testConds &&
+    !lr_player.state.fightWithSremagsi
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -12877,46 +12759,23 @@ void gt_SremagsiDies_Init () {
 // Trigger: Sremagsi Respawn
 //--------------------------------------------------------------------------------------------------
 bool gt_SremagsiRespawn_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 2, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 2, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 2, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 3, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 3, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 3, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 4, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 4, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 4, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!gv_sremagsiDead) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupCount(UnitGroup(null, 1, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 1, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 1, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 2, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 2, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 2, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 3, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 3, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 3, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 4, RegionFromId(228), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 4, RegionFromId(229), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 4, RegionFromId(230), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    !gv_sremagsiDead
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13180,10 +13039,12 @@ bool gt_NoDragonsinGaurdian_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!lr_player.state.fightWithGuardians || EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    !lr_player.state.fightWithGuardians ||
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13228,22 +13089,15 @@ void gt_NoDragonsinGaurdian_Init () {
 // Trigger: Guardian Respawn
 //--------------------------------------------------------------------------------------------------
 bool gt_GuardianRespawn_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 2, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 3, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 4, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!gv_guardiansDead) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupCount(UnitGroup(null, 1, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 2, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 3, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 4, RegionFromId(17), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    !gv_guardiansDead
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13266,10 +13120,13 @@ void gt_GuardianRespawn_Init () {
 // Trigger: Unit attacks Syrital
 //--------------------------------------------------------------------------------------------------
 bool gt_UnitattacksSyrital_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGroupHasUnit(gv_unitsThatDidDamageToSyrital, EventUnitDamageSourceUnit()) || UnitGetOwner(EventUnitDamageSourceUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupHasUnit(gv_unitsThatDidDamageToSyrital, EventUnitDamageSourceUnit()) ||
+    UnitGetOwner(EventUnitDamageSourceUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnitDamageSourceUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13301,10 +13158,12 @@ void gt_SetSyritalHealth_Init () {
 // Trigger: Create Syrital Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateSyritalWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13332,10 +13191,11 @@ bool gt_SyritalEnter_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (lr_player.dragon != EventUnit()) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.dragon != EventUnit()
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13376,10 +13236,11 @@ bool gt_SyritalLeave_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (lr_player.dragon != EventUnit()) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.dragon != EventUnit()
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13416,13 +13277,12 @@ bool gt_SyritalDragonDies_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (lr_player.dragon != EventUnit()) {
-      return false;
-    }
-    if (!lr_player.state.fightWithSyrital) {
-      return false;
-    }
+  if (
+    testConds &&
+    lr_player.dragon != EventUnit() ||
+    !lr_player.state.fightWithSyrital
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13512,22 +13372,15 @@ void gt_SyritalDies_Init () {
 // Trigger: Syrital Respawn
 //--------------------------------------------------------------------------------------------------
 bool gt_SyritalRespawn_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGroupCount(UnitGroup(null, 1, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 2, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 3, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!((UnitGroupCount(UnitGroup(null, 4, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) <= 0))) {
-      return false;
-    }
-    if (!gv_syritalDead) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGroupCount(UnitGroup(null, 1, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 2, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 3, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    UnitGroupCount(UnitGroup(null, 4, RegionFromId(5), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 0), c_unitCountAlive) > 0 ||
+    !gv_syritalDead
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13783,10 +13636,20 @@ bool gt_RespawnBioDomeWasteland_Func (bool testConds, bool runActions) {
   int lv_randomRegion;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_bioDomeWastelandUnits[0], EventUnit()) || UnitGroupHasUnit(gv_bioDomeWastelandUnits[1], EventUnit()) || UnitGroupHasUnit(gv_bioDomeWastelandUnits[2], EventUnit()) || UnitGroupHasUnit(gv_bioDomeWastelandUnits[3], EventUnit()) || UnitGroupHasUnit(gv_bioDomeWastelandUnits[4], EventUnit()) || UnitGroupHasUnit(gv_bioDomeWastelandUnits[5], EventUnit()) || UnitGroupHasUnit(gv_bioDomeWastelandUnits[6], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_bioDomeWastelandUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_bioDomeWastelandUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_bioDomeWastelandUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_bioDomeWastelandUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_bioDomeWastelandUnits[4], EventUnit()) ||
+      UnitGroupHasUnit(gv_bioDomeWastelandUnits[5], EventUnit()) ||
+      UnitGroupHasUnit(gv_bioDomeWastelandUnits[6], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13864,10 +13727,23 @@ bool gt_RespawnCretonTrench_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_cretonTrenchUnits[0], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[1], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[2], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[3], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[4], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[5], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[6], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[7], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[8], EventUnit()) || UnitGroupHasUnit(gv_cretonTrenchUnits[9], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_cretonTrenchUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[4], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[5], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[6], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[7], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonTrenchUnits[8], EventUnit()) || 
+      UnitGroupHasUnit(gv_cretonTrenchUnits[9], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13946,10 +13822,17 @@ bool gt_SpawnEnemiesCreton_Func (bool testConds, bool runActions) {
   int lv_numunitstospawn;
 
 
-  if (testConds) {
-    if (!((((UnitGetOwner(EventUnit()) == 1) || (UnitGetOwner(EventUnit()) == 2) || (UnitGetOwner(EventUnit()) == 3) || (UnitGetOwner(EventUnit()) == 4)) && !gv_cretonSpawned))) {
-      return false;
-    }
+  if (
+    testConds &&
+    gv_cretonSpawned ||
+    !(
+      UnitGetOwner(EventUnit()) == 1 ||
+      UnitGetOwner(EventUnit()) == 2 ||
+      UnitGetOwner(EventUnit()) == 3 ||
+      UnitGetOwner(EventUnit()) == 4
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -13978,10 +13861,50 @@ bool gt_RespawnCreton_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_cretonUnits[0], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[1], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[2], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[3], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[4], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[5], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[6], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[7], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[8], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[9], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[10], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[11], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[12], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[13], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[14], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[15], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[16], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[17], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[18], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[19], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[20], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[21], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[22], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[23], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[24], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[25], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[26], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[27], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[28], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[29], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[30], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[31], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[32], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[33], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[34], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[35], EventUnit()) || UnitGroupHasUnit(gv_cretonUnits[37], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_cretonUnits[ 0], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 1], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 2], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 3], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 4], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 5], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 6], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 7], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 8], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[ 9], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[10], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[11], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[12], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[13], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[14], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[15], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[16], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[17], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[18], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[19], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[20], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[21], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[22], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[23], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[24], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[25], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[26], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[27], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[28], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[29], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[30], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[31], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[32], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[33], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[34], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[35], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[37], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14032,10 +13955,23 @@ bool gt_RespawnVerbotenInfestation_Func (bool testConds, bool runActions) {
   int lv_randomUnitAmount;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_verbotenInfestationUnits[0], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[1], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[2], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[3], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[4], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[5], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[6], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[7], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[8], EventUnit()) || UnitGroupHasUnit(gv_verbotenInfestationUnits[9], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[4], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[5], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[6], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[7], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[8], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenInfestationUnits[9], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14084,10 +14020,20 @@ bool gt_RespawnVerbotenForest_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_verbotenForestUnits[0], EventUnit()) || UnitGroupHasUnit(gv_verbotenForestUnits[1], EventUnit()) || UnitGroupHasUnit(gv_verbotenForestUnits[2], EventUnit()) || UnitGroupHasUnit(gv_verbotenForestUnits[3], EventUnit()) || UnitGroupHasUnit(gv_verbotenForestUnits[4], EventUnit()) || UnitGroupHasUnit(gv_verbotenForestUnits[5], EventUnit()) || UnitGroupHasUnit(gv_verbotenForestUnits[6], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_verbotenForestUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenForestUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenForestUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenForestUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenForestUnits[4], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenForestUnits[5], EventUnit()) ||
+      UnitGroupHasUnit(gv_verbotenForestUnits[6], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14132,10 +14078,18 @@ bool gt_RespawnWasteland_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_wastelandUnitGroups[0], EventUnit()) || UnitGroupHasUnit(gv_wastelandUnitGroups[1], EventUnit()) || UnitGroupHasUnit(gv_wastelandUnitGroups[2], EventUnit()) || UnitGroupHasUnit(gv_wastelandUnitGroups[3], EventUnit()) || UnitGroupHasUnit(gv_wastelandUnitGroups[4], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_wastelandUnitGroups[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_wastelandUnitGroups[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_wastelandUnitGroups[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_wastelandUnitGroups[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_wastelandUnitGroups[4], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14179,10 +14133,17 @@ bool gt_RespawnRelamyPass_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_relamyPassUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyPassUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyPassUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyPassUnits[3], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyPassUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyPassUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyPassUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyPassUnits[3], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14233,10 +14194,21 @@ bool gt_RespawnRelamyGorge_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_relamyGorgeUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[3], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[4], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[5], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[6], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[7], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyGorgeUnits[0], EventUnit()) || 
+      UnitGroupHasUnit(gv_relamyGorgeUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[4], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[5], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[6], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[7], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14280,10 +14252,17 @@ bool gt_RespawnRelamyCanyon_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_relamyCanyonUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyCanyonUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyCanyonUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyCanyonUnits[3], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyCanyonUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyCanyonUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyCanyonUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyCanyonUnits[3], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14328,10 +14307,18 @@ bool gt_RespawnRelamyHills_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_relamyHillsUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[3], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[4], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyHillsUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[4], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14382,10 +14369,21 @@ bool gt_RespawnUndergroundForest_Func (bool testConds, bool runActions) {
   int lv_randomUnit;
 
 
-  if (testConds) {
-    if (!(((UnitGroupHasUnit(gv_undergroundForestUnits[0], EventUnit()) || UnitGroupHasUnit(gv_undergroundForestUnits[1], EventUnit()) || UnitGroupHasUnit(gv_undergroundForestUnits[2], EventUnit()) || UnitGroupHasUnit(gv_undergroundForestUnits[3], EventUnit()) || UnitGroupHasUnit(gv_undergroundForestUnits[4], EventUnit()) || UnitGroupHasUnit(gv_undergroundForestUnits[5], EventUnit()) || UnitGroupHasUnit(gv_undergroundForestUnits[6], EventUnit()) || UnitGroupHasUnit(gv_undergroundForestUnits[7], EventUnit())) && (UnitGetOwner(EventUnit()) == 15)))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_undergroundForestUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_undergroundForestUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_undergroundForestUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_undergroundForestUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_undergroundForestUnits[4], EventUnit()) ||
+      UnitGroupHasUnit(gv_undergroundForestUnits[5], EventUnit()) ||
+      UnitGroupHasUnit(gv_undergroundForestUnits[6], EventUnit()) ||
+      UnitGroupHasUnit(gv_undergroundForestUnits[7], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14408,10 +14406,16 @@ void gt_RespawnUndergroundForest_Init () {
 // Trigger: Wasteland Wander Control
 //--------------------------------------------------------------------------------------------------
 bool gt_WastelandWanderControl_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == 15) && (UnitGroupHasUnit(gv_wastelandUnitGroups[0], EventUnit()) || UnitGroupHasUnit(gv_wastelandUnitGroups[1], EventUnit()) || UnitGroupHasUnit(gv_wastelandUnitGroups[2], EventUnit()) )))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_wastelandUnitGroups[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_wastelandUnitGroups[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_wastelandUnitGroups[2], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14444,10 +14448,17 @@ void gt_WastelandWanderControl_Init () {
 // Trigger: Relamy Pass Wander Control
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyPassWanderControl_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!((UnitGetOwner(EventUnit()) == 15) && ((UnitGroupHasUnit(gv_relamyPassUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyPassUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyPassUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyPassUnits[3], EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyPassUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyPassUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyPassUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyPassUnits[3], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14483,10 +14494,17 @@ void gt_RelamyPassWanderControl_Init () {
 // Trigger: Relamy Gorge Wander Control
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyGorgeWanderControl_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == 15) && (UnitGroupHasUnit(gv_relamyGorgeUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyGorgeUnits[3], EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyGorgeUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyGorgeUnits[3], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14520,10 +14538,17 @@ void gt_RelamyGorgeWanderControl_Init () {
 // Trigger: Relamy Canyon Wander Control
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyCanyonWanderControl_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == 15) && (UnitGroupHasUnit(gv_relamyCanyonUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyCanyonUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyCanyonUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyCanyonUnits[3], EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyCanyonUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyCanyonUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyCanyonUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyCanyonUnits[3], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14559,10 +14584,18 @@ void gt_RelamyCanyonWanderControl_Init () {
 // Trigger: Relamy Hills Wander Control
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyHillsWanderControl_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!(((UnitGetOwner(EventUnit()) == 15) && (UnitGroupHasUnit(gv_relamyHillsUnits[0], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[1], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[2], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[3], EventUnit()) || UnitGroupHasUnit(gv_relamyHillsUnits[4], EventUnit()))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) != 15 ||
+    !(
+      UnitGroupHasUnit(gv_relamyHillsUnits[0], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[1], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[2], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[3], EventUnit()) ||
+      UnitGroupHasUnit(gv_relamyHillsUnits[4], EventUnit())
+    )
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14688,10 +14721,12 @@ void gt_PlayerSelectsWaypoint_Init () {
 // Trigger: Player Leaves Waypoint
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerLeavesWaypoint_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -14879,13 +14914,12 @@ void gt_BDZombieUnitSpawn_Init () {
 // Trigger: BD Zombie Unit Death
 //--------------------------------------------------------------------------------------------------
 bool gt_BDZombieUnitDeath_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!UnitGroupHasUnit(gv_bDZombieUnits, EventUnit())) {
-      return false;
-    }
-    if (!((UnitGroupCount(gv_bDZombieUnits, c_unitCountAlive) == 0))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitGroupHasUnit(gv_bDZombieUnits, EventUnit()) ||
+    UnitGroupCount(gv_bDZombieUnits, c_unitCountAlive) != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15005,13 +15039,12 @@ void gt_BDCretonUnitSpawn_Init () {
 bool gt_BDCretonUnitDeath_Func (bool testConds, bool runActions) {
   int lv_i;
 
-  if (testConds) {
-    if (!UnitGroupHasUnit(gv_bDCretonUnits, EventUnit())) {
-      return false;
-    }
-    if (!((UnitGroupCount(gv_bDCretonUnits, c_unitCountAlive) == 0))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitGroupHasUnit(gv_bDCretonUnits, EventUnit()) ||
+    UnitGroupCount(gv_bDCretonUnits, c_unitCountAlive) != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15122,13 +15155,12 @@ void gt_BDVerbotenUnitSpawn_Init () {
 // Trigger: BD Verboten Unit Death 
 //--------------------------------------------------------------------------------------------------
 bool gt_BDVerbotenUnitDeath_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!UnitGroupHasUnit(gv_bDVerbotenUnits, EventUnit())) {
-      return false;
-    }
-    if (!((UnitGroupCount(gv_bDVerbotenUnits, c_unitCountAlive) == 0))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitGroupHasUnit(gv_bDVerbotenUnits, EventUnit()) ||
+    UnitGroupCount(gv_bDVerbotenUnits, c_unitCountAlive) != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15247,13 +15279,12 @@ void gt_BDRelamyUnitSpawn_Init () {
 // Trigger: BD Relamy Unit Death
 //--------------------------------------------------------------------------------------------------
 bool gt_BDRelamyUnitDeath_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!UnitGroupHasUnit(gv_bDRelamyUnits, EventUnit())) {
-      return false;
-    }
-    if (!((UnitGroupCount(gv_bDRelamyUnits, c_unitCountAlive) == 0))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitGroupHasUnit(gv_bDRelamyUnits, EventUnit()) ||
+    UnitGroupCount(gv_bDRelamyUnits, c_unitCountAlive) != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15378,13 +15409,12 @@ void gt_BDWastelandUnitSpawn_Init () {
 // Trigger: BD Wasteland Unit Death
 //--------------------------------------------------------------------------------------------------
 bool gt_BDWastelandUnitDeath_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (!UnitGroupHasUnit(gv_bDWastelandUnits, EventUnit())) {
-      return false;
-    }
-    if (!((UnitGroupCount(gv_bDWastelandUnits, c_unitCountAlive) == 0))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitGroupHasUnit(gv_bDWastelandUnits, EventUnit()) ||
+    UnitGroupCount(gv_bDWastelandUnits, c_unitCountAlive) != 0
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15419,10 +15449,11 @@ bool gt_TeleporttoBioDome_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15471,10 +15502,11 @@ bool gt_TeleporttoCreton_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15511,10 +15543,11 @@ bool gt_SetRPtoWastelands_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15543,10 +15576,11 @@ bool gt_SetRPtoBallan_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15575,10 +15609,11 @@ bool gt_SetRPtoRelamy_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15607,10 +15642,11 @@ bool gt_SetRPtoVerbotenForestWaypoint_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15639,10 +15675,11 @@ bool gt_SetRPtoCreton_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (!UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))) {
-      return false;
-    }
+  if (
+    testConds &&
+    !UnitFilterMatch(EventUnit(), UnitGetOwner(EventUnit()), UnitFilter((1 << c_targetFilterHeroic), 0, (1 << c_targetFilterMissile), (1 << (c_targetFilterDead - 32))))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15663,10 +15700,12 @@ void gt_SetRPtoCreton_Init () {
 // Trigger: Create Dragons Nest Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateDragonsNestWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15686,10 +15725,12 @@ void gt_CreateDragonsNestWarning_Init () {
 // Trigger: Create Relamy Pass Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateRelamyPassWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15709,10 +15750,12 @@ void gt_CreateRelamyPassWarning_Init () {
 // Trigger: Create Relamy Canyon Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateRelamyCanyonWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15732,10 +15775,12 @@ void gt_CreateRelamyCanyonWarning_Init () {
 // Trigger: Create Relamy Hills Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateRelamyHillsWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15755,10 +15800,12 @@ void gt_CreateRelamyHillsWarning_Init () {
 // Trigger: Create Relamy Gorge Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateRelamyGorgeWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15778,10 +15825,12 @@ void gt_CreateRelamyGorgeWarning_Init () {
 // Trigger: Create Lava Pass Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateLavaPassWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15801,10 +15850,12 @@ void gt_CreateLavaPassWarning_Init () {
 // Trigger: Create Verboten Forest Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateVerbotenForestWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15824,10 +15875,12 @@ void gt_CreateVerbotenForestWarning_Init () {
 // Trigger: Create Verboten Infestation Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateVerbotenInfestationWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15847,10 +15900,12 @@ void gt_CreateVerbotenInfestationWarning_Init () {
 // Trigger: Create Road To Ballan Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateRoadToBallanWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15870,10 +15925,12 @@ void gt_CreateRoadToBallanWarning_Init () {
 // Trigger: Create Creton Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateCretonWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15893,10 +15950,12 @@ void gt_CreateCretonWarning_Init () {
 // Trigger: Create Sragmasi Warning
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateSragmasiWarning_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
-      return false;
-    }
+  if (
+    testConds &&
+    UnitGetOwner(EventUnit()) == 16 ||
+    !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15948,10 +16007,11 @@ bool gt_LocationWasteland_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -15988,10 +16048,11 @@ bool gt_LocationDragonsNest_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16022,10 +16083,11 @@ bool gt_LocationSyritalsLair_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16056,10 +16118,11 @@ bool gt_LocationRelamyPass_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16096,10 +16159,11 @@ bool gt_LocationRelamyCanyon_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16137,10 +16201,11 @@ bool gt_LocationRelamyHills_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16176,10 +16241,11 @@ bool gt_LocationVerbotenForest_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16213,10 +16279,11 @@ bool gt_LocationCreton_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16253,10 +16320,11 @@ bool gt_LocationCretonTrench_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16291,10 +16359,11 @@ bool gt_LocationRoadtoBallan_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16331,10 +16400,11 @@ bool gt_LocationBallan_Func (bool testConds, bool runActions) {
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
-  if (testConds) {
-    if (EventUnit() != lr_player.dragon) {
-      return false;
-    }
+  if (
+    testConds &&
+    EventUnit() != lr_player.dragon
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -16482,10 +16552,11 @@ void gt_VerbotenForestHealingWaterLeave_Init () {
 // Trigger: Lava Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_LavaEnter_Func (bool testConds, bool runActions) {
-  if (testConds) {
-    if (libNtve_gf_UnitIsInvulnerable(EventUnit())) {
-      return false;
-    }
+  if (
+    testConds &&
+    libNtve_gf_UnitIsInvulnerable(EventUnit())
+  ) {
+    return false;
   }
 
   if (!runActions) {
@@ -18555,7 +18626,6 @@ void gf_SetupPlayer(playerData_r lr_player) {
     TipAlertPanelClear(lr_player.playerGroupSingle);
     TechTreeRequirementsEnable(lr_player.player, false);
     BankValueGetAsUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.player, PointFromId(1), 0.0);
-    UnitSelect(BankLastRestoredUnit(), lr_player.player, true);
     lr_player.dragon = BankLastRestoredUnit();
     lr_player.stats.level = FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent));
     lr_player.stats.reborn.count = BankValueGetAsInt(lr_player.banks.dragonBank, "Reborn Count", lr_player.hand);
@@ -18617,7 +18687,6 @@ void gf_SetupPlayer(playerData_r lr_player) {
     TechTreeRequirementsEnable(lr_player.player, true);
   } else {
     UnitCreate(1, gv_DragonTypes[lr_player.type].unitNames[0], 0, lr_player.player, PointFromId(1), 270.0);
-    UnitSelect(UnitLastCreated(), lr_player.player, true);
     lr_player.dragon = UnitLastCreated();
     BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
     lr_player.stats.level = FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent));
@@ -18638,6 +18707,7 @@ void gf_SetupPlayer(playerData_r lr_player) {
     UnitInventoryCreate(lr_player.dragon, "BasicClaws");
     UnitInventoryCreate(lr_player.dragon, "BasicSpines");
   }
+  UnitSelect(lr_player.dragon, lr_player.player, true);
   PlayerGroupAdd(gv_humanPlayers, lr_player.player);
   UnitGroupAdd(gv_dragons, lr_player.dragon);
   UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
