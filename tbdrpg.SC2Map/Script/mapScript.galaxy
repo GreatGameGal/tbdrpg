@@ -10022,15 +10022,7 @@ void gt_SetZauberersRegions_Init () {
 // Trigger: Spawn Zauberer's Minions
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnZauberersMinions_Func (bool testConds, bool runActions) {
-  // TODO: FIX THIS
-  fixed auto2FFAA3D0_ae;
-  fixed auto2FFAA3D0_ai;
-  fixed auto227D18B5_ae;
-  fixed auto227D18B5_ai;
-
-  fixed lv_numPlayers;
-  int lv_randomSkill;
-
+  int lv_numPlayers;
 
   if (
     testConds &&
@@ -10043,19 +10035,14 @@ bool gt_SpawnZauberersMinions_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  auto2FFAA3D0_ae = gv_livingDragonsFightingZauberer1stForm;
-  auto2FFAA3D0_ai = 1.0;
-  lv_numPlayers = 1.0;
-  for ( ; ( (auto2FFAA3D0_ai >= 0 && lv_numPlayers <= auto2FFAA3D0_ae) || (auto2FFAA3D0_ai <= 0 && lv_numPlayers >= auto2FFAA3D0_ae) ); lv_numPlayers += auto2FFAA3D0_ai ) {
+
+  for (lv_numPlayers = 1; lv_numPlayers <= gv_livingDragonsFightingZauberer1stForm; lv_numPlayers += 1 ) {
     UnitCreate(1, gv_zauberersMinionsUnitTypes[RandomInt(0, 4)], c_unitCreateIgnorePlacement, 15, RegionRandomPoint(gv_zauberersRegions[RandomInt(0, 8)]), libNtve_gf_RandomAngle());
     UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_dragonInBattleWithZauberer1stForm, c_unitCountAlive)), c_orderQueueReplace);
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
     UnitGroupAdd(gv_zauberersMinions, UnitLastCreated());
   }
-  auto227D18B5_ae = gv_livingDragonsFightingZauberer2ndForm;
-  auto227D18B5_ai = 1.0;
-  lv_numPlayers = 1.0;
-  for ( ; ( (auto227D18B5_ai >= 0 && lv_numPlayers <= auto227D18B5_ae) || (auto227D18B5_ai <= 0 && lv_numPlayers >= auto227D18B5_ae) ); lv_numPlayers += auto227D18B5_ai ) {
+  for (lv_numPlayers = 1; lv_numPlayers <= gv_livingDragonsFightingZauberer2ndForm; lv_numPlayers += 1) {
     UnitCreate(1, gv_zauberersMinionsUnitTypes[RandomInt(0, 4)], c_unitCreateIgnorePlacement, 15, RegionRandomPoint(gv_zauberersRegions[RandomInt(0, 8)]), libNtve_gf_RandomAngle());
     UnitIssueOrder(UnitLastCreated(), OrderTargetingUnit(AbilityCommand("attack", 0), UnitGroupRandomUnit(gv_dragonInBattleWithZauberer2ndForm, c_unitCountAlive)), c_orderQueueReplace);
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
