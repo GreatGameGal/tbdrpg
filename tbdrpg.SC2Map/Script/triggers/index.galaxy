@@ -3,3 +3,5 @@ include "Script/triggers/lib_talent/index"
 
 include "Script/triggers/levelup"
 include "Script/triggers/reborn"
+include "Script/triggers/occulusPingPlayers"
+include "Script/triggers/playerBuysOcculusOfWarning"

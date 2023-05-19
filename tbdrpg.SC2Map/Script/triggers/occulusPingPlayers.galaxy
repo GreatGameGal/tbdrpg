@@ -1,0 +1,18 @@
+bool gt_OcculusPingPlayers_Func (bool testConds, bool runActions) {
+  if (!runActions) {
+    return true;
+  }
+  for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
+    if (gv_players[PlayerGroupLoopCurrent() - 1].skills.warningOcculus) {
+      gf_OcculusPingPlayer(gv_players[PlayerGroupLoopCurrent() - 1]);
+    }
+  }
+  PlayerGroupLoopEnd();
+  return true;
+}
+//--------------------------------------------------------------------------------------------------
+void gt_OcculusPingPlayers_Init () {
+  gt_OcculusPingPlayers = TriggerCreate("gt_OcculusPingPlayers_Func");
+  TriggerEnable(gt_OcculusPingPlayers, false);
+  TriggerAddEventTimePeriodic(gt_OcculusPingPlayers, 5.0, c_timeGame);
+}

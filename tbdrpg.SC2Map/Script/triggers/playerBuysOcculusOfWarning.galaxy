@@ -1,0 +1,26 @@
+bool gt_PlayerBuysOcculusOfWarning_Func (bool testConds, bool runActions) {
+  int lv_player;
+  playerData_r lr_player; 
+  
+  lv_player = EventPlayer();
+
+  if (lv_player > 4) {
+    return false;
+  }
+
+  lr_player = gv_players[lv_player - 1];
+
+  if (!runActions) {
+    return true;
+  }
+  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/45B25FC6"));
+  BankValueSetFromFlag(lr_player.banks.dragonBank, "OOW", lr_player.hand, lr_player.skills.warningOcculus);
+  lr_player.skills.warningOcculus = true;
+  TriggerEnable(gt_OcculusPingPlayers, true);
+  return true;
+}
+//--------------------------------------------------------------------------------------------------
+void gt_PlayerBuysOcculusOfWarning_Init () {
+  gt_PlayerBuysOcculusOfWarning = TriggerCreate("gt_PlayerBuysOcculusOfWarning_Func");
+  TriggerAddEventUnitAbility(gt_PlayerBuysOcculusOfWarning, null, AbilityCommand("ShardShop", 0), c_unitAbilStageComplete, false);
+}

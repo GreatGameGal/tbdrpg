@@ -62,6 +62,7 @@ void gf_InitializePlayers();
 void gf_SetupPlayer(playerData_r lr_player);
 void gf_OcculusPingPlayer(playerData_r lr_player);
 void gf_AllGuardiansDead ();
+void gf_PotionHotkey (playerData_r lr_player);
 
 // Cinematic AI Funcs
 void ai665651A4_wave_enable (int w, int p, bool val);
