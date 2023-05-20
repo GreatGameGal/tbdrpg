@@ -13311,7 +13311,6 @@ bool gt_LoadWaypoints_Func (bool testConds, bool runActions) {
   }
   for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep() ) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
-    // TODO: Maybe do a loop here instead?
     lr_player.waypointUnlocked[0] = BankValueGetAsFlag(lr_player.banks.dragonBank, "WP0", lr_player.hand);
     lr_player.waypointUnlocked[1] = BankValueGetAsFlag(lr_player.banks.dragonBank, "WP1", lr_player.hand);
     lr_player.waypointUnlocked[2] = BankValueGetAsFlag(lr_player.banks.dragonBank, "WP2", lr_player.hand);
