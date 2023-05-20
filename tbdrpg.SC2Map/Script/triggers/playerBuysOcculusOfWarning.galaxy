@@ -14,8 +14,8 @@ bool gt_PlayerBuysOcculusOfWarning_Func (bool testConds, bool runActions) {
     return true;
   }
   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/45B25FC6"));
-  BankValueSetFromFlag(lr_player.banks.dragonBank, "OOW", lr_player.hand, lr_player.skills.warningOcculus);
   lr_player.skills.warningOcculus = true;
+  BankValueSetFromFlag(lr_player.banks.dragonBank, "OOW", lr_player.hand, lr_player.skills.warningOcculus);
   TriggerEnable(gt_OcculusPingPlayers, true);
   return true;
 }
