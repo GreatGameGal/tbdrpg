@@ -13500,8 +13500,6 @@ bool gt_BDZombieUnitSpawn_Func (bool testConds, bool runActions) {
 
   Wait(2.0, c_timeGame);
   TransmissionSend(gv_playersInBioDome, TransmissionSourceFromModel("TassadarPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/75E8294A"), StringExternal("Param/Value/059953E4"), 5.0, c_transmissionDurationSet, true);
-  // TODO: Remove this TODO as it's complete.
-  // TODO: Investigate if this is different in any way from a PlayerGroupLoop, replace if it isn't.
   for (PlayerGroupLoopBegin(gv_playersInBioDome); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
     lv_numKills = libNtve_gf_UnitGetPropertyKills(lr_player.dragon, c_unitPropCurrent);
