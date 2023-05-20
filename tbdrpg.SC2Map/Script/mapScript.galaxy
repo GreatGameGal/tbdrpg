@@ -13969,7 +13969,6 @@ bool gt_BDWastelandUnitSpawn_Func (bool testConds, bool runActions) {
 
   Wait(2.0, c_timeGame);
   TransmissionSend(gv_playersInBioDome, TransmissionSourceFromModel("TassadarPortrait"), libNtve_gf_CinematicPortrait(libNtve_ge_CinematicPortraitPosition_CenterLeft), "Talk", null, StringExternal("Param/Value/7D37A0AD"), StringExternal("Param/Value/600FD038"), 4.0, c_transmissionDurationSet, true);
-  // TODO: Investigate if this is different in any way from a PlayerGroupLoop, replace if it isn't.
   for (PlayerGroupLoopBegin(gv_playersInBioDome); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     libNtve_gf_UnitCreateFacingPoint(1, "DemonicSheep", 0, 15, RegionRandomPoint(RegionFromId(151)), UnitGetPosition(EventUnit()));
     libNtve_gf_CreateModelAtPoint("WarpGateWarpCast", UnitGetPosition(UnitLastCreated()));
