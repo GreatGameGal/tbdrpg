@@ -1,4 +1,4 @@
-int lib_talent_gf_GetTalentButtonIndex (playerData_r lr_player, int lp_dialogItem) {
+int lib_talent_gf_GetTalentButtonIndex (Player_r lr_player, int lp_dialogItem) {
   int lv_i;
 
   for (lv_i = 0; lv_i < lib_talent_gv_TALENTCOUNT; lv_i += 1 ) {

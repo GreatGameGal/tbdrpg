@@ -1,8 +1,8 @@
-void lib_talent_gf_SaveTalentBuild (int lp_buildIndex, string lp_bankName, playerData_r lr_player) {
+void lib_talent_gf_SaveTalentBuild (int lp_buildIndex, string lp_bankName, Player_r lr_player) {
   bank lv_talentBank;
   int lv_talentIndex;
   int lv_talentStringIndex;
-  talentData_r lr_talent;
+  Talent_r lr_talent;
 
   lv_talentStringIndex = 1;
 

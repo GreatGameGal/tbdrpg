@@ -1,7 +1,7 @@
-playerData[4] gv_players;
+Player[4] gv_players;
 
 // string[dragon type][evolution level]
-dragonType[2] gv_DragonTypes;
+DragonType[2] gv_DragonTypes;
 
 bool statueSpawned = true;
 bool firstTimeInRelamyCave = true;

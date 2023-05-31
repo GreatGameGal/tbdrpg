@@ -1,4 +1,4 @@
-void gf_EvolveTo (playerData_r lr_player, string lp_unitName) {
+void gf_EvolveTo (Player_r lr_player, string lp_unitName) {
   lr_player.state.evolving = true;
   TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
   TriggerEnable(gt_SaveStackCountsPeriodically, false);

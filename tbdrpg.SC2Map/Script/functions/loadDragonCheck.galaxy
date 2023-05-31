@@ -1,4 +1,4 @@
-void gf_LoadDragonCheck (playerData_r lr_player) {
+void gf_LoadDragonCheck (Player_r lr_player) {
   int lv__Bank;
   int lv__Manual;
 

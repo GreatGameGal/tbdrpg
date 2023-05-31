@@ -1,5 +1,5 @@
 bool gt_DropAll_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;

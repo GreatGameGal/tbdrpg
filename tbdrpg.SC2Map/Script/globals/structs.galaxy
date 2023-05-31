@@ -1,4 +1,4 @@
-struct dragonType {
+struct DragonType {
   string[5] unitNames;
   string talentBuildName;
   string bankName;
@@ -8,16 +8,18 @@ struct dragonType {
   text talentBuildTitle;
 };
 
-struct arenaData {
+struct Arena {
   int wins;
   int losses;
 };
-struct currencyData {
+
+struct Currency {
   int gold;
   int pvpPoints;
   int shards;
 };
-struct dialogData {
+
+struct Dialog {
   // Standard dialogs
   int state;
   int textBox;
@@ -32,11 +34,13 @@ struct dialogData {
   // Talent Dialog
   int button;
 };
-struct dyingTimerData {
+
+struct DyingTimer {
   timer time;
   int window;
 };
-struct rebornData {
+
+struct Reborns {
   int count;
   int maxHP;
   int maxMP;
@@ -49,10 +53,11 @@ struct rebornData {
   int itemDrop;
   int regen;
   int points;
-  dialogData dialog;
-  dialogData buttonDialog;
+  Dialog dialog;
+  Dialog buttonDialog;
 };
-struct questData {
+
+struct Quest {
   int state;
   int objective;
   int kills;
@@ -60,28 +65,30 @@ struct questData {
   int textTag;
   int ping;
 };
-struct questsData {
+
+struct Quests {
   bool talking;
-  dialogData questDialog;
-  dialogData talkDialog;
-  dialogData rewardDialog;
+  Dialog questDialog;
+  Dialog talkDialog;
+  Dialog rewardDialog;
   
-  questData[10] storyQuests;
-  questData[6] manaQuests;
-  questData[2] baseQuests;
-  questData[1] detsefniQuests;
-  questData[1] sergeantListerQuests;
-  questData[1] greedQuests;
-  questData[1] madelineQuests;
-  questData[1] malinQuests;
-  questData[1] ampQuests;
-  questData[1] altossQuests;
-  questData[1] oleumQuests;
-  questData[1] serynQuests;
+  Quest[10] storyQuests;
+  Quest[6] manaQuests;
+  Quest[2] baseQuests;
+  Quest[1] detsefniQuests;
+  Quest[1] sergeantListerQuests;
+  Quest[1] greedQuests;
+  Quest[1] madelineQuests;
+  Quest[1] malinQuests;
+  Quest[1] ampQuests;
+  Quest[1] altossQuests;
+  Quest[1] oleumQuests;
+  Quest[1] serynQuests;
 
   unit manaQuest0Armour;
 };
-struct skillData {
+
+struct Skills {
   int frostSpike;
   int blizzard;
   int subzero;
@@ -101,7 +108,8 @@ struct skillData {
   bool protectionStone;
   bool quickeningRing;
 };
-struct stateData {
+
+struct States {
   bool beatGame;
   bool dying;
   bool evolving;
@@ -117,7 +125,8 @@ struct stateData {
   bool reapplyingBuffs;
   bool seenIntro;
 };
-struct statsData {
+
+struct Stats {
   int level;
   int agility;
   int dexterity;
@@ -127,11 +136,12 @@ struct statsData {
   int attributePoints;
   bool addingAttribute;
   text attributeText;
-  arenaData arena;
-  rebornData reborn;
-  dialogData attributeDialog;
+  Arena arena;
+  Reborns reborn;
+  Dialog attributeDialog;
 };
-struct talentData {
+
+struct Talent {
   // UI Data
   int button;
   int buttonGlow;
@@ -159,18 +169,19 @@ struct talentData {
   int rank;
   bool prerequisitesComplete;
 };
-struct talentsData {
+
+struct Talents {
   bool locked;
   bool adding;
   
-  talentData[lib_talent_gv_TALENTCOUNT] talents;
+  Talent[lib_talent_gv_TALENTCOUNT] talents;
   // Talent Tree UI data.
   int mainTalentDialog;
   int availablePointsLabel;
   int availablePointsDialog;
   int closeTalentTreeButton;
   int[3] subTalentDialog;
-  dialogData talentDialog;
+  Dialog talentDialog;
 
   // Talent Tree form data.
   text[3] talentTreeNames;
@@ -206,7 +217,8 @@ struct talentsData {
 
 
 };
-struct bankData {
+
+struct Banks {
   bank stashBank;
   bank rebornBank;
   bank currencyBank;
@@ -214,27 +226,30 @@ struct bankData {
   bank dragonBank;
   bool accessing;
 };
-struct verificationData {
+
+struct Verification {
   bool hrc;
   bool hpc;
   bool dragon;
 };
-struct stashData {
+
+struct Stash {
   unit stashUnit;
   point location;
 };
-struct playerData {
-  bankData banks;
-  currencyData currency;
-  dialogData locationDialog;
-  dyingTimerData dyingTimer;
-  questsData quests;
-  skillData skills;
-  stashData stash;
-  stateData state;
-  statsData stats;
-  talentsData talent;
-  verificationData verification;
+
+struct Player {
+  Banks banks;
+  Currency currency;
+  Dialog locationDialog;
+  DyingTimer dyingTimer;
+  Quests quests;
+  Skills skills;
+  Stash stash;
+  States state;
+  Stats stats;
+  Talents talent;
+  Verification verification;
   bool[5] waypointUnlocked;
   int player;
   int type;

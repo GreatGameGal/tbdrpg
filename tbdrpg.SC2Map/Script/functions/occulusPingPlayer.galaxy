@@ -1,4 +1,4 @@
-void gf_OcculusPingPlayer(playerData_r lr_player) {
+void gf_OcculusPingPlayer(Player_r lr_player) {
   UnitGroupLoopBegin(UnitGroupAlliance(lr_player.player, c_unitAllianceEnemy, RegionCircle(UnitGetPosition(lr_player.dragon), 50.0), UnitFilter(0, 0, (1 << c_targetFilterMissile) | (1 << c_targetFilterItem), (1 << (c_targetFilterDead - 32)) | (1 << (c_targetFilterHidden - 32))), 1000));
   for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
     libNtve_gf_CreatePingFacingAngle(lr_player.playerGroupSingle, "PingNumeric0", UnitGetPosition(UnitGroupLoopCurrent()), ColorWithAlpha(100.00, 0.00, 0.00, 0.00), 6.0, 270.0);

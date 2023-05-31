@@ -1,2 +1,2 @@
-typedef structref<playerData> playerData_r;
-typedef structref<talentData> talentData_r;
+typedef structref<Player> Player_r;
+typedef structref<Talent> Talent_r;

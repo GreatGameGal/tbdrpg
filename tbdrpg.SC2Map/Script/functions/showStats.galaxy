@@ -1,4 +1,4 @@
-void gf_ShowStats (playerData_r lr_player) {  
+void gf_ShowStats (Player_r lr_player) {  
   if (lr_player.stats.attributePoints != 0) {
     if (lr_player.stats.agility < gv_MaxAgility) {
       UnitAbilityShow(lr_player.dragon, "Agility1", true);

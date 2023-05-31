@@ -1,4 +1,4 @@
-void gf_PotionHotkey (playerData_r lr_player) {
+void gf_PotionHotkey (Player_r lr_player) {
   fixed lv_missingHealth;
   unit lv_sHP;
   unit lv_mHP;

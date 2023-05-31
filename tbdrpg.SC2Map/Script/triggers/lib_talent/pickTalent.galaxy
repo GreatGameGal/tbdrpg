@@ -4,8 +4,8 @@ bool lib_talent_gt_PickTalent_Func (bool testConds, bool runActions) {
   int lv_unlockedPrereqTalentIndex;
   int lv_unlockedPrereqTalentRequiredPoints;
   int lv_pointsRequired;
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
-  talentData_r lr_talent;
+  Player_r lr_player = gv_players[EventPlayer() - 1];
+  Talent_r lr_talent;
 
 
   lv_talentIndex = lib_talent_gf_GetTalentButtonIndex(lr_player, EventDialogControl());

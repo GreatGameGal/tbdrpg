@@ -1,5 +1,5 @@
 void gf_AllGuardiansDead () {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
   
   UnitGroupLoopBegin(gv_dragonsInBattleWithGuardians);

@@ -1,4 +1,4 @@
-void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, playerData_r lr_player) {
+void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, Player_r lr_player) {
   int lv_tree;
   int lv_row;
   int lv_column;
@@ -9,7 +9,7 @@ void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, playe
   int lv_talentCurrentRank;
   int lv_tierPointsRequired;
   int lv_prerequisiteIndex;
-  talentData_r lr_talent;
+  Talent_r lr_talent;
 
 
   BankLoad("DQRPGTalentLibraryBank", lr_player.player);

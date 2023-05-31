@@ -16,7 +16,7 @@ int lib_talent_gf_FlattenPosition (int lp_tree, int lp_column, int lp_row) {
   return lp_tree * lib_talent_gv_COLUMNS * lib_talent_gv_ROWS + lp_row * lib_talent_gv_COLUMNS + lp_column;
 };
 void lib_talent_InitVariables () {
-  playerData_r lr_player;
+  Player_r lr_player;
   int init_i;
   int init_j;
 
@@ -55,11 +55,11 @@ void lib_talent_InitVariables () {
   lib_talent_InitVariables_completed = true;
 }
 
-bool lib_talent_gf_TalentTreeisOpen (playerData_r lr_player) {
+bool lib_talent_gf_TalentTreeisOpen (Player_r lr_player) {
   return DialogIsVisible(lr_player.talent.mainTalentDialog, lr_player.player);
 }
 
-void lib_talent_gf_UpdateAbilityButtonTooltip (playerData_r lr_player, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, string lp_abilityLink, string lp_buttonLink) {
+void lib_talent_gf_UpdateAbilityButtonTooltip (Player_r lr_player, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, string lp_abilityLink, string lp_buttonLink) {
   text lv_tooltipName;
   text lv_tooltipRequirement;
   text lv_tooltipRequirementSpacer;
@@ -133,7 +133,7 @@ void lib_talent_gf_UpdateAbilityButtonTooltip (playerData_r lr_player, int lp_bu
   lv_tooltipDescription = (StringExternal("Param/Value/lib_1_04F5E258") + lv_tooltipCost + StringExternal(("Button/Tooltip/" + (lp_buttonLink))) + StringExternal("Param/Value/lib_1_3E98BEAA"));
   libNtve_gf_SetDialogItemTooltip(lp_button, (lv_tooltipName + lv_tooltipRequirement + lv_tooltipPrerequisite + lv_tooltipDescription), PlayerGroupAll());
 }
-void lib_talent_gf_UpdatePassiveButtonTooltip (playerData_r lr_player, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, text lp_name, text lp_descriptionRaw, int lp_currentRank, fixed lp_multiplier1, fixed lp_multiplier2) {
+void lib_talent_gf_UpdatePassiveButtonTooltip (Player_r lr_player, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, text lp_name, text lp_descriptionRaw, int lp_currentRank, fixed lp_multiplier1, fixed lp_multiplier2) {
   text lv_tooltipName;
   text lv_tooltipRequirement;
   text lv_tooltipRequirementSpacer;
@@ -181,14 +181,14 @@ void lib_talent_gf_UpdatePassiveButtonTooltip (playerData_r lr_player, int lp_bu
   lv_tooltipDescription = (StringExternal("Param/Value/lib_1_3AE2BD72") + lv_tooltipDescription + StringExternal("Param/Value/lib_1_1ECE9A68"));
   libNtve_gf_SetDialogItemTooltip(lp_button, (lv_tooltipName + lv_tooltipRequirement + lv_tooltipPrerequisite + lv_tooltipDescription), PlayerGroupAll());
 }
-void lib_talent_gf_UnlockTalentTier (playerData_r lr_player, int lp_tree, int lp_tier) {
+void lib_talent_gf_UnlockTalentTier (Player_r lr_player, int lp_tree, int lp_tier) {
   int lv_column;
 
   for (lv_column = 0; lv_column < lib_talent_gv_COLUMNS; lv_column += 1 ) {
     lib_talent_gf_UnlockTalentButton(lr_player, lp_tree, lv_column, lp_tier);
   }
 }
-void lib_talent_gf_CreateTalentTree (playerData_r lr_player, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier) {
+void lib_talent_gf_CreateTalentTree (Player_r lr_player, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier) {
   int lv_mainDialogHeight;
   int lv_mainDialogWidth;
   string lv_mainDialogIMG;
@@ -317,7 +317,7 @@ void lib_talent_gf_CreateTalentTree (playerData_r lr_player, text lp_title, int 
     DialogSetImageVisible(lr_player.talent.subTalentDialog[2], false);
   }
 }
-void lib_talent_gf_ShowHideTalentTree (playerData_r lr_player) {  
+void lib_talent_gf_ShowHideTalentTree (Player_r lr_player) {  
   if (DialogIsVisible(lr_player.talent.mainTalentDialog, lr_player.player)) {
     DialogSetVisible(lr_player.talent.mainTalentDialog, lr_player.playerGroupSingle, false);
     DialogSetVisible(lr_player.talent.subTalentDialog[0], lr_player.playerGroupSingle, false);
@@ -332,13 +332,13 @@ void lib_talent_gf_ShowHideTalentTree (playerData_r lr_player) {
     DialogSetVisible(lr_player.talent.availablePointsDialog, lr_player.playerGroupSingle, true);
   }
 }
-void lib_talent_gf_GrantTalentPoints (int lp_talentPoints, playerData_r lr_player) {
+void lib_talent_gf_GrantTalentPoints (int lp_talentPoints, Player_r lr_player) {
   lr_player.talent.availablePoints += lp_talentPoints;
   libNtve_gf_SetDialogItemText(lr_player.talent.availablePointsLabel, IntToText(lr_player.talent.availablePoints), PlayerGroupAll());
 }
-void lib_talent_gf_DestroyTalentTree (playerData_r lr_player) {
+void lib_talent_gf_DestroyTalentTree (Player_r lr_player) {
   int lv_i;
-  talentData_r lr_workingTalent;
+  Talent_r lr_workingTalent;
 
   lr_player.talent.availablePoints = 0;
   lr_player.talent.spentPoints = 0;
@@ -364,7 +364,7 @@ void lib_talent_gf_DestroyTalentTree (playerData_r lr_player) {
 // Trigger: Close Talent
 //--------------------------------------------------------------------------------------------------
 bool lib_talent_gt_CloseTalent_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -425,7 +425,7 @@ void FakeInitLibs () {
 }
 
 void FakeInitGlobals () {
-  playerData_r lr_player;
+  Player_r lr_player;
   int init_i;
   int init_j;
   for (init_i = 0; init_i < gv_PlayerCapacity; init_i += 1) {
@@ -647,7 +647,7 @@ void gf_AddExperience (unit lp_hero, fixed lp_experienceAmmount) {
     UnitSetPropertyFixed(lp_hero, c_unitPropXP, gv_MAXEXPERIENCE);
   }
 }
-void gf_OpenQuestDialog (playerData_r lr_player, text lp_questText, text lp_questName, text lp_reward, text lp_recommendedLevel) {
+void gf_OpenQuestDialog (Player_r lr_player, text lp_questText, text lp_questName, text lp_reward, text lp_recommendedLevel) {
   lr_player.quests.talking = true;
   libNtve_gf_PauseUnit(lr_player.dragon, true);
   libNtve_gf_MakeUnitInvulnerable(lr_player.dragon, true);
@@ -662,7 +662,7 @@ void gf_OpenQuestDialog (playerData_r lr_player, text lp_questText, text lp_ques
   DialogControlSetVisible(lr_player.quests.questDialog.accept, lr_player.playerGroupSingle, true);
   DialogSetVisible(lr_player.quests.questDialog.state, lr_player.playerGroupSingle, true);
 }
-void gf_CloseQuestDialog (playerData_r lr_player) {
+void gf_CloseQuestDialog (Player_r lr_player) {
   DialogControlSetVisible(lr_player.quests.questDialog.textBox, lr_player.playerGroupSingle, false);
   DialogControlSetVisible(lr_player.quests.questDialog.decline, lr_player.playerGroupSingle, false);
   DialogControlSetVisible(lr_player.quests.questDialog.accept, lr_player.playerGroupSingle, false);
@@ -673,7 +673,7 @@ void gf_CloseQuestDialog (playerData_r lr_player) {
   UnitClearSelection(lr_player.player);
   UnitSelect(lr_player.dragon, lr_player.player, true);
 }
-void gf_OpenTalkDialog (playerData_r lr_player, text lp_nPCName, text lp_dialog) {
+void gf_OpenTalkDialog (Player_r lr_player, text lp_nPCName, text lp_dialog) {
   lr_player.quests.talking = true;
   libNtve_gf_PauseUnit(lr_player.dragon, true);
   libNtve_gf_MakeUnitInvulnerable(lr_player.dragon, true);
@@ -683,7 +683,7 @@ void gf_OpenTalkDialog (playerData_r lr_player, text lp_nPCName, text lp_dialog)
   DialogControlSetVisible(lr_player.quests.talkDialog.accept, lr_player.playerGroupSingle, true);
   DialogSetVisible(lr_player.quests.talkDialog.state, lr_player.playerGroupSingle, true);
 }
-void gf_CloseTalkDialog (playerData_r lr_player) {
+void gf_CloseTalkDialog (Player_r lr_player) {
   DialogControlSetVisible(lr_player.quests.talkDialog.accept, lr_player.playerGroupSingle, false);
   DialogControlSetVisible(lr_player.quests.talkDialog.textBox, lr_player.playerGroupSingle, false);
   DialogSetVisible(lr_player.quests.talkDialog.state, lr_player.playerGroupSingle, false);
@@ -693,7 +693,7 @@ void gf_CloseTalkDialog (playerData_r lr_player) {
   UnitClearSelection(lr_player.player);
   UnitSelect(lr_player.dragon, lr_player.player, true);
 }
-void gf_OpenRewardDialog (playerData_r lr_player, text lp_questName, text lp_dialog) {
+void gf_OpenRewardDialog (Player_r lr_player, text lp_questName, text lp_dialog) {
   lr_player.quests.talking = true;
   libNtve_gf_PauseUnit(lr_player.dragon, true);
   libNtve_gf_MakeUnitInvulnerable(lr_player.dragon, true);
@@ -703,7 +703,7 @@ void gf_OpenRewardDialog (playerData_r lr_player, text lp_questName, text lp_dia
   DialogControlSetVisible(lr_player.quests.rewardDialog.textBox, lr_player.playerGroupSingle, true);
   DialogSetVisible(lr_player.quests.rewardDialog.state, lr_player.playerGroupSingle, true);
 }
-void gf_CloseRewardDialog (playerData_r lr_player) {
+void gf_CloseRewardDialog (Player_r lr_player) {
   DialogControlSetVisible(lr_player.quests.rewardDialog.accept, lr_player.playerGroupSingle, false);
   DialogControlSetVisible(lr_player.quests.rewardDialog.textBox, lr_player.playerGroupSingle, false);
   DialogSetVisible(lr_player.quests.rewardDialog.state, lr_player.playerGroupSingle, false);
@@ -713,7 +713,7 @@ void gf_CloseRewardDialog (playerData_r lr_player) {
   UnitClearSelection(lr_player.player);
   UnitSelect(lr_player.dragon, lr_player.player, true);
 }
-void gf_SQ0Setup (playerData_r lr_player) {
+void gf_SQ0Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ0")) {
     lr_player.quests.storyQuests[0].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ0", lr_player.hand);
   }
@@ -743,7 +743,7 @@ void gf_SQ0Setup (playerData_r lr_player) {
     }
   }
 }
-void gf_SQ1Setup (playerData_r lr_player) {
+void gf_SQ1Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ1")) {
     lr_player.quests.storyQuests[1].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ1", lr_player.hand);
   }
@@ -794,7 +794,7 @@ void gf_SQ1Setup (playerData_r lr_player) {
     }
   }
 }
-void gf_SQ2Setup (playerData_r lr_player) {
+void gf_SQ2Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ2")) {
     lr_player.quests.storyQuests[2].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ2", lr_player.hand);
   }
@@ -824,7 +824,7 @@ void gf_SQ2Setup (playerData_r lr_player) {
   }
 
 }
-void gf_SQ3Setup (playerData_r lr_player) {
+void gf_SQ3Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ3")) {
     lr_player.quests.storyQuests[3].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ3", lr_player.hand);
   }
@@ -861,7 +861,7 @@ void gf_SQ3Setup (playerData_r lr_player) {
     }
   }
 }
-void gf_SQ4Setup (playerData_r lr_player) {
+void gf_SQ4Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ4")) {
     lr_player.quests.storyQuests[4].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ4", lr_player.hand);
   }
@@ -915,7 +915,7 @@ void gf_SQ4Setup (playerData_r lr_player) {
     }
   }
 }
-void gf_SQ5Setup (playerData_r lr_player) {
+void gf_SQ5Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ5")) {
     lr_player.quests.storyQuests[5].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ5", lr_player.hand);
   }
@@ -963,7 +963,7 @@ void gf_SQ5Setup (playerData_r lr_player) {
     }
   }
 }
-void gf_SQ6Setup (playerData_r lr_player) {
+void gf_SQ6Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ6")) {
     lr_player.quests.storyQuests[6].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ6", lr_player.hand);
   }
@@ -983,7 +983,7 @@ void gf_SQ6Setup (playerData_r lr_player) {
     ObjectiveShow(lr_player.quests.storyQuests[6].objective, lr_player.playerGroupSingle, true);
   }
 }
-void gf_SQ7Setup (playerData_r lr_player) {
+void gf_SQ7Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ7")) {
     lr_player.quests.storyQuests[7].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ7", lr_player.hand);
   }
@@ -1051,7 +1051,7 @@ void gf_SQ7Setup (playerData_r lr_player) {
     }
   }
 }
-void gf_SQ8Setup (playerData_r lr_player) {
+void gf_SQ8Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ8")) {
     lr_player.quests.storyQuests[8].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ8", lr_player.hand);
   }
@@ -1146,7 +1146,7 @@ void gf_SQ8Setup (playerData_r lr_player) {
     }
   }
 }
-void gf_SQ9Setup (playerData_r lr_player) {
+void gf_SQ9Setup (Player_r lr_player) {
   if (BankSectionExists(lr_player.banks.dragonBank, "SQ9")) {
     lr_player.quests.storyQuests[9].state = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ9", lr_player.hand);
   }
@@ -1186,7 +1186,7 @@ fixed gf_CalculateHealthMissing (unit lp_unit) {
   lv_healthMissing = (UnitGetPropertyFixed(lp_unit, c_unitPropLifeMax, c_unitPropCurrent) - UnitGetPropertyFixed(lp_unit, c_unitPropLife, c_unitPropCurrent));
   return lv_healthMissing;
 }
-void gf_SaveStackCounts (playerData_r lr_player) {
+void gf_SaveStackCounts (Player_r lr_player) {
   int lv_i;
   ;
   for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
@@ -1218,7 +1218,7 @@ void gf_RemoveWeapons (unit lp_hero) {
   UnitWeaponRemove(lp_hero, UnitWeaponGet(lp_hero, 5));
   UnitWeaponAdd(lp_hero, ((UnitGetType(lv_weapon))), null);
 }
-void gf_SaveSkills (playerData_r lr_player) {
+void gf_SaveSkills (Player_r lr_player) {
   if ((PlayerStatus(lr_player.player) == c_playerStatusActive)) {
     if (UnitAbilityCheck(lr_player.dragon, "Fireball", true)) {
       lr_player.skills.fireball = UnitAbilityGetLevel(lr_player.dragon, "Fireball");
@@ -1276,7 +1276,7 @@ void gf_SaveSkills (playerData_r lr_player) {
     }
   }
 }
-void gf_FillInventory (playerData_r lr_player) {
+void gf_FillInventory (Player_r lr_player) {
   int lv_c;
   int lv_s;
 
@@ -1291,7 +1291,7 @@ void gf_FillInventory (playerData_r lr_player) {
   }
   UnitGroupLoopEnd();
 }
-void gf_PutInventoryinInventory (playerData_r lr_player) {
+void gf_PutInventoryinInventory (Player_r lr_player) {
   int lv_c;
   int lv_s;
 
@@ -1304,7 +1304,7 @@ void gf_PutInventoryinInventory (playerData_r lr_player) {
     }
   }
 }
-void gf_ReapplyBuffs (playerData_r lr_player) {
+void gf_ReapplyBuffs (Player_r lr_player) {
   while (lr_player.state.reapplyingBuffs) {
     Wait(1.0, c_timeGame);
   }
@@ -1359,7 +1359,7 @@ bool gf_RandomChance (fixed lp_percentChance) {
   return RandomFixed(0.0, 100.0) < lp_percentChance;
 }
 
-void gf_NosferatusRelic (playerData_r lr_player, unit lp_hero, fixed lp_attackAmmount) {
+void gf_NosferatusRelic (Player_r lr_player, unit lp_hero, fixed lp_attackAmmount) {
   unitgroup lv_surroundingUnits;
   int lv_tag;
 
@@ -1495,7 +1495,7 @@ void gf_Rage (unit lp_hero, fixed lp_damagingAmount) {
     TextTagSetTime(lv_thisTag, c_textTagTimeDuration, 3.0);
   }
 }
-void gf_WaypointTeleport (playerData_r lr_player, region lp_waypoint) {
+void gf_WaypointTeleport (Player_r lr_player, region lp_waypoint) {
   actor lv_effectActor1;
   actor lv_effectActor2;
 
@@ -1516,7 +1516,7 @@ void gf_WaypointTeleport (playerData_r lr_player, region lp_waypoint) {
   Wait(0.45, c_timeGame);
   libNtve_gf_KillModel(lv_effectActor2);
 }
-void gf_ShowWaypointDialog (playerData_r lr_player) {
+void gf_ShowWaypointDialog (Player_r lr_player) {
   if (lr_player.waypointUnlocked[0]) {
     DialogControlSetEnabled(gv_wastelandDialogButton, lr_player.playerGroupSingle, true);
     DialogControlSetVisible(gv_wastelandDialogButton, lr_player.playerGroupSingle, true);
@@ -1554,7 +1554,7 @@ void gf_ShowWaypointDialog (playerData_r lr_player) {
   }
   DialogSetVisible(gv_waypointDialog, lr_player.playerGroupSingle, true);
 }
-void gf_HideWaypointDialog (playerData_r lr_player) {
+void gf_HideWaypointDialog (Player_r lr_player) {
   DialogControlSetVisible(gv_wastelandDialogButton, lr_player.playerGroupSingle, false);
   DialogControlSetVisible(gv_ballanDialogButton, lr_player.playerGroupSingle, false);
   DialogControlSetVisible(gv_relamyDialogButton, lr_player.playerGroupSingle, false);
@@ -1562,7 +1562,7 @@ void gf_HideWaypointDialog (playerData_r lr_player) {
   DialogControlSetVisible(gv_cretonDialogButton, lr_player.playerGroupSingle, false);
   DialogSetVisible(gv_waypointDialog, lr_player.playerGroupSingle, false);
 }
-void gf_ResetTalentBuildandVariables (playerData_r lr_player) {
+void gf_ResetTalentBuildandVariables (Player_r lr_player) {
   lib_talent_gf_ResetTalentBuild(lr_player, UnitLevel(lr_player.dragon) + UnitLevel(lr_player.dragon) / gv_LevelsPerEvolution);
   UnitBehaviorRemovePlayer(lr_player.dragon, "StrengthoftheDragon", lr_player.player, lr_player.talent.strengthOfTheDragon);
   lr_player.talent.strengthOfTheDragon = 0;
@@ -1597,7 +1597,7 @@ void gf_ResetTalentBuildandVariables (playerData_r lr_player) {
   UnitBehaviorRemovePlayer(lr_player.dragon, "RealmSwitch", lr_player.player, lr_player.talent.realmSwitch);
   lr_player.talent.realmSwitch = 0;
 }
-void gf_LoadStackCounts (playerData_r lr_player) {
+void gf_LoadStackCounts (Player_r lr_player) {
   int lv_i;
   fixed lv_chargesUsed;
 
@@ -1611,7 +1611,7 @@ void gf_LoadStackCounts (playerData_r lr_player) {
   }
   UnitGroupLoopEnd();
 }
-void gf_LoadSkills (playerData_r lr_player) {
+void gf_LoadSkills (Player_r lr_player) {
   int lv_tmpLevel;
   
   if (BankSectionExists(lr_player.banks.dragonBank, "FDFB")) {
@@ -1714,7 +1714,7 @@ void gf_LoadSkills (playerData_r lr_player) {
     }
   }
 }
-void gf_LoadHPC (playerData_r lr_player) {
+void gf_LoadHPC (Player_r lr_player) {
   int lv_hPCBank;
   int lv_hPCManual;
 
@@ -1753,7 +1753,7 @@ void gf_LoadHPC (playerData_r lr_player) {
     }
   }
 }
-void gf_LoadHRC (playerData_r lr_player) {
+void gf_LoadHRC (Player_r lr_player) {
   int lv_hRCBank;
   int lv_hRCManual;
   int lv_checkVariable;
@@ -1822,7 +1822,7 @@ void gf_LoadHRC (playerData_r lr_player) {
     }
   }
 }
-void gf_LoadStash (playerData_r lr_player) {
+void gf_LoadStash (Player_r lr_player) {
   if ((PlayerStatus(lr_player.player) == c_playerStatusActive)) {
     if (BankSectionExists(lr_player.banks.stashBank, "Stash")) {
       TechTreeUpgradeAddLevel(lr_player.player, "Stash1", BankValueGetAsInt(lr_player.banks.stashBank, "One", lr_player.hand));
@@ -1883,7 +1883,7 @@ void gf_InitializeTwo () {
   GameSetSpeedLocked(true);
 }
 void gf_InitializeThree () {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
   int lv_j;
   for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
@@ -1911,7 +1911,7 @@ void gf_InitializeThree () {
   TriggerExecute(gt_CreateRebornDialog, true, true);
   gv_playersSetUp = true;
 }
-void gf_ChangeItemsOwner (playerData_r lr_player) {
+void gf_ChangeItemsOwner (Player_r lr_player) {
   UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon));
   for ( ; !UnitGroupLoopDone(); UnitGroupLoopStep() ) {
     UnitSetOwner(UnitGroupLoopCurrent(), lr_player.player, true);
@@ -1923,7 +1923,7 @@ void gf_ChangeItemsOwner (playerData_r lr_player) {
   }
   UnitGroupLoopEnd();
 }
-void gf_StatCheck (playerData_r lr_player) {
+void gf_StatCheck (Player_r lr_player) {
   int lv_tmpAgility;
   int lv_tmpDexterity;
   int lv_tmpIntelligence;
@@ -1993,7 +1993,7 @@ void gf_StatCheck (playerData_r lr_player) {
   }
 }
 
-void gf_Save (playerData_r lr_player) {
+void gf_Save (Player_r lr_player) {
   if (!lr_player.state.isSavingExiting && !lr_player.state.preventSave && gv_playersSetUp) {
     lr_player.state.isSavingExiting = true;
     gf_SaveStackCounts(lr_player);
@@ -2008,13 +2008,13 @@ void gf_Save (playerData_r lr_player) {
     lr_player.state.isSavingExiting = false;
   }
 }
-void gf_SaveHero (playerData_r lr_player) {
+void gf_SaveHero (Player_r lr_player) {
   if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp && UnitIsAlive(lr_player.dragon) && lr_player.verification.dragon) {
     BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
     BankValueSetFromInt(lr_player.banks.dragonBank, "DSN", lr_player.hand, gv_DSNMod + UnitLevel(lr_player.dragon) + ModI(FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropXP, c_unitPropCurrent)), 1000));
   }
 }
-void gf_SaveStash (playerData_r lr_player) {
+void gf_SaveStash (Player_r lr_player) {
   if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp) {
     BankValueSetFromUnit(lr_player.banks.stashBank, "Stash", lr_player.hand, lr_player.stash.stashUnit);
     BankValueSetFromInt(lr_player.banks.stashBank, "One", lr_player.hand, TechTreeUpgradeCount(lr_player.player, "Stash1", c_techCountCompleteOnly));
@@ -2026,7 +2026,7 @@ void gf_SaveStash (playerData_r lr_player) {
     BankSave(lr_player.banks.stashBank);
   }
 }
-void gf_SaveHPC (playerData_r lr_player) {
+void gf_SaveHPC (Player_r lr_player) {
   int lv_hPC;
 
   if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp && lr_player.verification.hpc) {
@@ -2041,7 +2041,7 @@ void gf_SaveHPC (playerData_r lr_player) {
     BankSave(lr_player.banks.currencyBank);
   }
 }
-void gf_SaveHRC (playerData_r lr_player) {
+void gf_SaveHRC (Player_r lr_player) {
   int lv_hRC;
 
   if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp && lr_player.verification.hrc) {
@@ -2075,7 +2075,7 @@ void gf_SaveHRC (playerData_r lr_player) {
     BankSave(lr_player.banks.rebornBank);
   }
 }
-void gf_ApplyRebornStats (playerData_r lr_player) {
+void gf_ApplyRebornStats (Player_r lr_player) {
   UnitBehaviorRemove(lr_player.dragon, "MaxHPUp", c_unitBehaviorCountAll);
   UnitBehaviorRemove(lr_player.dragon, "MaxMPUp", c_unitBehaviorCountAll);
   UnitBehaviorRemove(lr_player.dragon, "DefenseUp", c_unitBehaviorCountAll);
@@ -2093,7 +2093,7 @@ void gf_ApplyRebornStats (playerData_r lr_player) {
 // Trigger: Create Quest Dialog
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateQuestDialog_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -2132,7 +2132,7 @@ void gt_CreateQuestDialog_Init () {
 // Trigger: Create Talk Dialog
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateTalkDialog_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -2161,7 +2161,7 @@ void gt_CreateTalkDialog_Init () {
 // Trigger: Create Reward Dialog
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateRewardDialog_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -2190,7 +2190,7 @@ void gt_CreateRewardDialog_Init () {
 // Trigger: Quest Decline
 //--------------------------------------------------------------------------------------------------
 bool gt_QuestDecline_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -2214,7 +2214,7 @@ void gt_QuestDecline_Init () {
 // Trigger: Talk Dialog Closed
 //--------------------------------------------------------------------------------------------------
 bool gt_TalkDialogClosed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -2238,7 +2238,7 @@ void gt_TalkDialogClosed_Init () {
 // Trigger: Run Story Quest Setups
 //--------------------------------------------------------------------------------------------------
 bool gt_RunStoryQuestSetups_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   string lv_sqWhat;
   int lv_i;
   
@@ -2294,7 +2294,7 @@ void gt_RunStoryQuestSetups_Init () {
 // Trigger: SQ0 - Player Enters SQ0 Region 1
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ0PlayerEntersSQ0Region1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -2328,7 +2328,7 @@ void gt_SQ0PlayerEntersSQ0Region1_Init () {
 // Trigger: SQ1 - Player Talks to Felix
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ1PlayerTalkstoFelix_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -2417,7 +2417,7 @@ void gt_SQ1PlayerTalkstoFelix_Init () {
 // Trigger: SQ2 - Player Enters SQ2 Region 1
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ2PlayerEntersSQ2Region1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -2447,7 +2447,7 @@ void gt_SQ2PlayerEntersSQ2Region1_Init () {
 // Trigger: SQ3 - Player Talks to Petrose
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ3PlayerTalkstoPetrose_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -2508,7 +2508,7 @@ void gt_SQ3PlayerTalkstoPetrose_Init () {
 // Trigger: SQ3 - Player Enters Verboten Forest
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ3PlayerEntersVerbotenForest_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -2538,7 +2538,7 @@ void gt_SQ3PlayerEntersVerbotenForest_Init () {
 // Trigger: SQ4 - Player Talks to Risdak
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ4PlayerTalkstoRisdak_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -2630,7 +2630,7 @@ void gt_SQ4PlayerTalkstoRisdak_Init () {
 // Trigger: SQ5 - Player Enters Infestation
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ5PlayerEntersInfestation_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -2662,7 +2662,7 @@ void gt_SQ5PlayerEntersInfestation_Init () {
 // Trigger: SQ5 - Player Talks to Petrose
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ5PlayerTalkstoPetrose_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -2714,7 +2714,7 @@ void gt_SQ5PlayerTalkstoPetrose_Init () {
 // Trigger: SQ6 - Player Enters Teleport to Biodome
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ6PlayerEntersTeleporttoBiodome_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -2749,7 +2749,7 @@ void gt_SQ6PlayerEntersTeleporttoBiodome_Init () {
 // Trigger: SQ7 - Player Talks to Lanae
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ7PlayerTalkstoLanae_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -2835,7 +2835,7 @@ void gt_SQ7PlayerTalkstoLanae_Init () {
 // Trigger: SQ8 - Biodome Entered
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ8BiodomeEntered_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -2866,7 +2866,7 @@ void gt_SQ8BiodomeEntered_Init () {
 // Trigger: SQ8 - Crystal 1 Destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ8Crystal1Destroyed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -2900,7 +2900,7 @@ void gt_SQ8Crystal1Destroyed_Init () {
 // Trigger: SQ8 - Crystal 2 Destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ8Crystal2Destroyed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -2933,7 +2933,7 @@ void gt_SQ8Crystal2Destroyed_Init () {
 // Trigger: SQ8 - Crystal 3 Destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ8Crystal3Destroyed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -2966,7 +2966,7 @@ void gt_SQ8Crystal3Destroyed_Init () {
 // Trigger: SQ8 - Crystal 4 Destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ8Crystal4Destroyed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -3000,7 +3000,7 @@ void gt_SQ8Crystal4Destroyed_Init () {
 // Trigger: SQ8 - Crystal 5 Destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ8Crystal5Destroyed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -3033,7 +3033,7 @@ void gt_SQ8Crystal5Destroyed_Init () {
 // Trigger: SQ8 - Crystal 6 Destroyed
 //--------------------------------------------------------------------------------------------------
 bool gt_SQ8Crystal6Destroyed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -3070,7 +3070,7 @@ void gt_SQ8Crystal6Destroyed_Init () {
 // Trigger: Load Side Quests
 //--------------------------------------------------------------------------------------------------
 bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -3342,7 +3342,7 @@ void gt_LoadSideQuests_Init () {
 // Trigger: Mana Quest 0 - Talk to Mana
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest0TalktoMana_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -3384,7 +3384,7 @@ void gt_ManaQuest0TalktoMana_Init () {
 // Trigger: Mana Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
   unit lv_tempArmor;
 
   if (
@@ -3440,7 +3440,7 @@ void gt_ManaQuest0QuestAccept_Init () {
 // Trigger: Mana Quest 0 - Equip Armor P1
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest0EquipArmorP1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[UnitGetOwner(EventUnitInventoryItem()) - 1];
+  Player_r lr_player = gv_players[UnitGetOwner(EventUnitInventoryItem()) - 1];
 
   if (
     testConds &&
@@ -3472,7 +3472,7 @@ void gt_ManaQuest0EquipArmorP1_Init () {
 // Trigger: Mana Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -3511,7 +3511,7 @@ void gt_ManaQuest0RewardAccept_Init () {
 // Trigger: Mana Quest 1 - Talk to Mana
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest1TalktoMana_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -3553,7 +3553,7 @@ void gt_ManaQuest1TalktoMana_Init () {
 // Trigger: Mana Quest 1 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest1QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -3588,7 +3588,7 @@ void gt_ManaQuest1QuestAccept_Init () {
 // Trigger: Mana Quest 1 - Kill Sheep
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest1KillSheep_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -3626,7 +3626,7 @@ void gt_ManaQuest1KillSheep_Init () {
 // Trigger: Mana Quest 1 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest1RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -3667,7 +3667,7 @@ void gt_ManaQuest1RewardAccept_Init () {
 // Trigger: Mana Quest 2 - Talk to Mana
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest2TalktoMana_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -3714,7 +3714,7 @@ void gt_ManaQuest2TalktoMana_Init () {
 // Trigger: Mana Quest 2 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest2QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -3749,7 +3749,7 @@ void gt_ManaQuest2QuestAccept_Init () {
 // Trigger: Mana Quest 2 - Enter Wasteland Water
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest2EnterWastelandWater_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -3783,7 +3783,7 @@ void gt_ManaQuest2EnterWastelandWater_Init () {
 // Trigger: Mana Quest 2 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest2RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -3824,7 +3824,7 @@ void gt_ManaQuest2RewardAccept_Init () {
 // Trigger: Mana Quest 3 - Talk to Mana
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest3TalktoMana_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -3866,7 +3866,7 @@ void gt_ManaQuest3TalktoMana_Init () {
 // Trigger: Mana Quest 3 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest3QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -3901,7 +3901,7 @@ void gt_ManaQuest3QuestAccept_Init () {
 // Trigger: Mana Quest 3 - Kill Srepti
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest3KillSrepti_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -3943,7 +3943,7 @@ void gt_ManaQuest3KillSrepti_Init () {
 // Trigger: Mana Quest 3 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest3RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -3984,7 +3984,7 @@ void gt_ManaQuest3RewardAccept_Init () {
 // Trigger: Mana Quest 4 - Talk to Mana
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest4TalktoMana_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4031,7 +4031,7 @@ void gt_ManaQuest4TalktoMana_Init () {
 // Trigger: Mana Quest 4 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest4QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4067,7 +4067,7 @@ void gt_ManaQuest4QuestAccept_Init () {
 // Trigger: Mana Quest 4 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest4RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4108,7 +4108,7 @@ void gt_ManaQuest4RewardAccept_Init () {
 // Trigger: Mana Quest 4 - Purchase Potion
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest4PurchasePotion_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4143,7 +4143,7 @@ void gt_ManaQuest4PurchasePotion_Init () {
 // Trigger: Mana Quest 5 - Talk to Mana
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest5TalktoMana_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4188,7 +4188,7 @@ void gt_ManaQuest5TalktoMana_Init () {
 // Trigger: Mana Quest 5 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest5QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4223,7 +4223,7 @@ void gt_ManaQuest5QuestAccept_Init () {
 // Trigger: Mana Quest 5 - Kill Alpha Srepti
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest5KillAlphaSrepti_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -4261,7 +4261,7 @@ void gt_ManaQuest5KillAlphaSrepti_Init () {
 // Trigger: Mana Quest 5 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_ManaQuest5RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4300,7 +4300,7 @@ void gt_ManaQuest5RewardAccept_Init () {
 // Trigger: Base Quest 0 - Talk to Base
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest0TalktoBase_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4342,7 +4342,7 @@ void gt_BaseQuest0TalktoBase_Init () {
 // Trigger: Base Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4373,7 +4373,7 @@ void gt_BaseQuest0QuestAccept_Init () {
 // Trigger: Base Quest 0 - Set Respawn Point at Wasteland
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest0SetRespawnPointatWasteland_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4406,7 +4406,7 @@ void gt_BaseQuest0SetRespawnPointatWasteland_Init () {
 // Trigger: Base Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4442,7 +4442,7 @@ void gt_BaseQuest0RewardAccept_Init () {
 // Trigger: Base Quest 1 - Talk to Base
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest1TalktoBase_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4492,7 +4492,7 @@ void gt_BaseQuest1TalktoBase_Init () {
 // Trigger: Base Quest 1 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest1QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4523,7 +4523,7 @@ void gt_BaseQuest1QuestAccept_Init () {
 // Trigger: Base Quest 1 - Activate Ballan Waypoint
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest1ActivateBallanWaypoint_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -4555,7 +4555,7 @@ void gt_BaseQuest1ActivateBallanWaypoint_Init () {
 // Trigger: Base Quest 2 - Use Ballan Waypoint to Wasteland
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest2UseBallanWaypointtoWasteland_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4585,7 +4585,7 @@ void gt_BaseQuest2UseBallanWaypointtoWasteland_Init () {
 // Trigger: Base Quest 1 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_BaseQuest1RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4619,7 +4619,7 @@ void gt_BaseQuest1RewardAccept_Init () {
 // Trigger: Detsefni Quest 0 - Talk to Detsefni
 //--------------------------------------------------------------------------------------------------
 bool gt_DetsefniQuest0TalktoDetsefni_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4661,7 +4661,7 @@ void gt_DetsefniQuest0TalktoDetsefni_Init () {
 // Trigger: Detsefni Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_DetsefniQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4691,7 +4691,7 @@ void gt_DetsefniQuest0QuestAccept_Init () {
 // Trigger: Detsefni Quest 0 - Kill 25 Sreptis
 //--------------------------------------------------------------------------------------------------
 bool gt_DetsefniQuest0Kill25Sreptis_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -4733,7 +4733,7 @@ void gt_DetsefniQuest0Kill25Sreptis_Init () {
 // Trigger: Detsefni Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_DetsefniQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4767,7 +4767,7 @@ void gt_DetsefniQuest0RewardAccept_Init () {
 // Trigger: Sergeant Lister Quest 0 - Talk to Sergeant Lister
 //--------------------------------------------------------------------------------------------------
 bool gt_SergeantListerQuest0TalktoSergeantLister_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4811,7 +4811,7 @@ void gt_SergeantListerQuest0TalktoSergeantLister_Init () {
 // Trigger: Sergeant Listeri Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_SergeantListeriQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4841,7 +4841,7 @@ void gt_SergeantListeriQuest0QuestAccept_Init () {
 // Trigger: Sergeant Lister Quest 0 - Kill 10 Creton Warriors
 //--------------------------------------------------------------------------------------------------
 bool gt_SergeantListerQuest0Kill10CretonWarriors_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -4883,7 +4883,7 @@ void gt_SergeantListerQuest0Kill10CretonWarriors_Init () {
 // Trigger: Sergeant Lister Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_SergeantListerQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4917,7 +4917,7 @@ void gt_SergeantListerQuest0RewardAccept_Init () {
 // Trigger: Greed Quest 0 - Talk to Greed
 //--------------------------------------------------------------------------------------------------
 bool gt_GreedQuest0TalktoGreed_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -4959,7 +4959,7 @@ void gt_GreedQuest0TalktoGreed_Init () {
 // Trigger: Greed  Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_GreedQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -4990,7 +4990,7 @@ void gt_GreedQuest0QuestAccept_Init () {
 // Trigger: Greed Quest 0 - Find Mister Scruffers
 //--------------------------------------------------------------------------------------------------
 bool gt_GreedQuest0FindMisterScruffers_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -5023,7 +5023,7 @@ void gt_GreedQuest0FindMisterScruffers_Init () {
 // Trigger: Greed Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_GreedQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5057,7 +5057,7 @@ void gt_GreedQuest0RewardAccept_Init () {
 // Trigger: Madeleine Quest 0 - Talk to Madeleine
 //--------------------------------------------------------------------------------------------------
 bool gt_MadeleineQuest0TalktoMadeleine_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -5099,7 +5099,7 @@ void gt_MadeleineQuest0TalktoMadeleine_Init () {
 // Trigger: Madeleine Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_MadeleineQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5129,7 +5129,7 @@ void gt_MadeleineQuest0QuestAccept_Init () {
 // Trigger: Madeleine Quest 0 - Kill 30 Karramarros
 //--------------------------------------------------------------------------------------------------
 bool gt_MadeleineQuest0Kill30Karramarros_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -5171,7 +5171,7 @@ void gt_MadeleineQuest0Kill30Karramarros_Init () {
 // Trigger: Madeleine Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_MadeleineQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5205,7 +5205,7 @@ void gt_MadeleineQuest0RewardAccept_Init () {
 // Trigger: Malin Quest 0 - Talk to Malin
 //--------------------------------------------------------------------------------------------------
 bool gt_MalinQuest0TalktoMalin_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -5249,7 +5249,7 @@ void gt_MalinQuest0TalktoMalin_Init () {
 // Trigger: Malin Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_MalinQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5283,7 +5283,7 @@ void gt_MalinQuest0QuestAccept_Init () {
 // Trigger: Malin Quest 0 - Kill Robus
 //--------------------------------------------------------------------------------------------------
 bool gt_MalinQuest0KillRobus_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -5321,7 +5321,7 @@ void gt_MalinQuest0KillRobus_Init () {
 // Trigger: Malin Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_MalinQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5355,7 +5355,7 @@ void gt_MalinQuest0RewardAccept_Init () {
 // Trigger: Amp Quest 0 - Talk to Amp
 //--------------------------------------------------------------------------------------------------
 bool gt_AmpQuest0TalktoAmp_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -5397,7 +5397,7 @@ void gt_AmpQuest0TalktoAmp_Init () {
 // Trigger: Amp Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_AmpQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5427,7 +5427,7 @@ void gt_AmpQuest0QuestAccept_Init () {
 // Trigger: Amp Quest 0 - Kill an Elite Creton Warrior
 //--------------------------------------------------------------------------------------------------
 bool gt_AmpQuest0KillanEliteCretonWarrior_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -5465,7 +5465,7 @@ void gt_AmpQuest0KillanEliteCretonWarrior_Init () {
 // Trigger: Amp Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_AmpQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5499,7 +5499,7 @@ void gt_AmpQuest0RewardAccept_Init () {
 // Trigger: Altoss Quest 0 - Talk to Altoss
 //--------------------------------------------------------------------------------------------------
 bool gt_AltossQuest0TalktoAltoss_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -5541,7 +5541,7 @@ void gt_AltossQuest0TalktoAltoss_Init () {
 // Trigger: Altoss Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_AltossQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5571,7 +5571,7 @@ void gt_AltossQuest0QuestAccept_Init () {
 // Trigger: Altoss Quest 0 - Kill 15 Odvratans
 //--------------------------------------------------------------------------------------------------
 bool gt_AltossQuest0Kill15Odvratans_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -5613,7 +5613,7 @@ void gt_AltossQuest0Kill15Odvratans_Init () {
 // Trigger: Altoss Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_AltossQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5676,7 +5676,7 @@ void gt_IllisusLocustSpawn_Init () {
 // Trigger: Oleum Quest 0 - Talk to Oleum
 //--------------------------------------------------------------------------------------------------
 bool gt_OleumQuest0TalktoOleum_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -5723,7 +5723,7 @@ void gt_OleumQuest0TalktoOleum_Init () {
 // Trigger: Oleum Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_OleumQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5753,7 +5753,7 @@ void gt_OleumQuest0QuestAccept_Init () {
 // Trigger: Oleum Quest 0 - Find Crew 137
 //--------------------------------------------------------------------------------------------------
 bool gt_OleumQuest0FindCrew137_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -5789,7 +5789,7 @@ void gt_OleumQuest0FindCrew137_Init () {
 // Trigger: Oleum Quest 0 - Kill Illisus
 //--------------------------------------------------------------------------------------------------
 bool gt_OleumQuest0KillIllisus_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -5827,7 +5827,7 @@ void gt_OleumQuest0KillIllisus_Init () {
 // Trigger: Oleum Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_OleumQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5861,7 +5861,7 @@ void gt_OleumQuest0RewardAccept_Init () {
 // Trigger: Seryn Quest 0 - Talk to Seryn
 //--------------------------------------------------------------------------------------------------
 bool gt_SerynQuest0TalktoSeryn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
     return false;
@@ -5905,7 +5905,7 @@ void gt_SerynQuest0TalktoSeryn_Init () {
 // Trigger: Seryn Quest 0 - Quest Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_SerynQuest0QuestAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -5939,7 +5939,7 @@ void gt_SerynQuest0QuestAccept_Init () {
 // Trigger: Seryn Quest 0 - Kill Seryn's Shadow
 //--------------------------------------------------------------------------------------------------
 bool gt_SerynQuest0KillSerynsShadow_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -5977,7 +5977,7 @@ void gt_SerynQuest0KillSerynsShadow_Init () {
 // Trigger: Seryn Quest 0 - Reward Accept
 //--------------------------------------------------------------------------------------------------
 bool gt_SerynQuest0RewardAccept_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -6571,7 +6571,7 @@ void gt_Contestant2Dies_Init () {
 // Trigger: Open Inventory when click on stash
 //--------------------------------------------------------------------------------------------------
 bool gt_OpenInventorywhenclickonstash_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (
     testConds &&
@@ -6716,7 +6716,7 @@ void gt_Dropstuffnotunlockedyet_Init () {
 // Trigger: Potion Hotkey
 //--------------------------------------------------------------------------------------------------
 bool gt_PotionHotkey_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -6890,7 +6890,7 @@ void gt_GrandOrbofAngerEffectP4_Init () {
 // Trigger: Player Buys Facet of Revenge
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerBuysFacetofRevenge_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -6909,7 +6909,7 @@ void gt_PlayerBuysFacetofRevenge_Init () {
 // Trigger: Player Buys Crystal of Rebirth
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerBuysCrystalofRebirth_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -6928,7 +6928,7 @@ void gt_PlayerBuysCrystalofRebirth_Init () {
 // Trigger: Player Buys Jewel of Return
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerBuysJewelofReturn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -6947,7 +6947,7 @@ void gt_PlayerBuysJewelofReturn_Init () {
 // Trigger: Player Buys Stone of Protection
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerBuysStoneofProtection_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -6966,7 +6966,7 @@ void gt_PlayerBuysStoneofProtection_Init () {
 // Trigger: Player Buys Ring of Quickening
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerBuysRingofQuickening_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -7077,7 +7077,7 @@ void gt_SetStackChargeNames_Init () {
 // Trigger: Save Stack Counts On Inventory Edit
 //--------------------------------------------------------------------------------------------------
 bool gt_SaveStackCountsOnInventoryEdit_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   if (
     testConds &&
     !gv_playersSetUp ||
@@ -7114,7 +7114,7 @@ void gt_SaveStackCountsOnInventoryEdit_Init () {
 // Trigger: Save Stack Counts Periodically
 //--------------------------------------------------------------------------------------------------
 bool gt_SaveStackCountsPeriodically_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -7144,7 +7144,7 @@ void gt_SaveStackCountsPeriodically_Init () {
 // Trigger: Town Portal
 //--------------------------------------------------------------------------------------------------
 bool gt_TownPortal_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[UnitGetOwner(UnitInventoryUnit(EventUnitInventoryItem())) - 1];
+  Player_r lr_player = gv_players[UnitGetOwner(UnitInventoryUnit(EventUnitInventoryItem())) - 1];
 
   if (
     testConds &&
@@ -7247,7 +7247,7 @@ void gt_Unitdropsitem_Init () {
 // Trigger: Unit gains item
 //--------------------------------------------------------------------------------------------------
 bool gt_Unitgainsitem_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -7577,7 +7577,7 @@ void gt_DisplayStashTextTagP4_Init () {
 // Trigger: Underground Forest Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_UndergroundForestEnter_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -7614,7 +7614,7 @@ void gt_UndergroundForestEnter_Init () {
 // Trigger: Underground Forest Exit
 //--------------------------------------------------------------------------------------------------
 bool gt_UndergroundForestExit_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -7652,7 +7652,7 @@ void gt_UndergroundForestExit_Init () {
 // Trigger: Relamy Gorge Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyGorgeEnter_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -7689,7 +7689,7 @@ void gt_RelamyGorgeEnter_Init () {
 // Trigger: Relamy Gorge Exit
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyGorgeExit_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -7725,7 +7725,7 @@ void gt_RelamyGorgeExit_Init () {
 // Trigger: Relamy Cave Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyCaveEnter_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   bool firstTimeInRelamyCave;
 
   if (
@@ -7776,7 +7776,7 @@ void gt_RelamyCaveEnter_Init () {
 // Trigger: Relamy Cave Exit
 //--------------------------------------------------------------------------------------------------
 bool gt_RelamyCaveExit_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   fixed lv_robusLifePercent;
   int multiplayerMultiplierHolder;
   int thisIsZero = 0;
@@ -7828,7 +7828,7 @@ void gt_RelamyCaveExit_Init () {
 // Trigger: Verboten Infestation Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_VerbotenInfestationEnter_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -7866,7 +7866,7 @@ void gt_VerbotenInfestationEnter_Init () {
 // Trigger: Verboten Infestation Exit
 //--------------------------------------------------------------------------------------------------
 bool gt_VerbotenInfestationExit_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -8055,7 +8055,7 @@ void gt_LearnFrozenarmor_Init () {
 // Trigger: Check Player is not eveolved
 //--------------------------------------------------------------------------------------------------
 bool gt_CheckPlayerisnoteveolved_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_dragonEvolution;
 
   if (
@@ -8114,7 +8114,7 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
   string lv_TypeOfUnitThatKilledDragon;
   point lv_deadpoint;
   int lv_killingPlayer;
-  playerData_r lr_player;
+  Player_r lr_player;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   lv_TypeOfUnitThatKilledDragon = UnitGetType(libNtve_gf_KillingUnit());
@@ -8248,7 +8248,7 @@ void gt_ReviveDragonNormal_Init () {
 // Trigger: Revive Dragon (PvP)
 //--------------------------------------------------------------------------------------------------
 bool gt_ReviveDragonPvP_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
@@ -8316,7 +8316,7 @@ void gt_ReviveDragonPvP_Init () {
 // Trigger: Set Up Attribute Dialog
 //--------------------------------------------------------------------------------------------------
 bool gt_SetUpAttributeDialog_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_playerIndex;
   if (!runActions) {
     return true;
@@ -8373,7 +8373,7 @@ void gt_Level0Check_Init () {
 // Trigger: Evolution Check
 //--------------------------------------------------------------------------------------------------
 bool gt_EvolutionCheck_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_dragonEvolution;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
@@ -8402,7 +8402,7 @@ void gt_EvolutionCheck_Init () {
 // Trigger: Agility+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Agility1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
@@ -8455,7 +8455,7 @@ void gt_Agility1_Init () {
 // Trigger: Dexterity+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Dexterity1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
@@ -8508,7 +8508,7 @@ void gt_Dexterity1_Init () {
 // Trigger: Intelligence+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Intelligence1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
@@ -8561,7 +8561,7 @@ void gt_Intelligence1_Init () {
 // Trigger: Strength+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Strength1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
@@ -8615,7 +8615,7 @@ void gt_Strength1_Init () {
 // Trigger: Vitality+1
 //--------------------------------------------------------------------------------------------------
 bool gt_Vitality1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
   
@@ -8687,7 +8687,7 @@ void gt_UpdateBuffs_Init () {
 // Trigger: Show Talents
 //--------------------------------------------------------------------------------------------------
 bool gt_ShowTalents_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
+  Player_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
   if (!runActions) {
     return true;
@@ -10064,7 +10064,7 @@ void gt_SpawnZauberersMinions_Init () {
 // Trigger: Dragon Dies in Zauberer 1
 //--------------------------------------------------------------------------------------------------
 bool gt_DragonDiesinZauberer1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -10119,7 +10119,7 @@ void gt_DragonDiesinZauberer1_Init () {
 // Trigger: Dragon Dies in Zauberer 2
 //--------------------------------------------------------------------------------------------------
 bool gt_DragonDiesinZauberer2_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (
     testConds &&
@@ -10176,7 +10176,7 @@ void gt_DragonDiesinZauberer2_Init () {
 // Trigger: Spawn Zauberer 1st Form
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnZauberer1stForm_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
   int lv_spawnPoint;
   int lv_numPlayers;
@@ -10277,7 +10277,7 @@ void gt_SpawnZauberer1stForm_Init () {
 // Trigger: Zauberer 1st Form Death
 //--------------------------------------------------------------------------------------------------
 bool gt_Zauberer1stFormDeath_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   int lv_spawnPoint;
@@ -10412,7 +10412,7 @@ void gt_Zauberer1stFormAI_Init () {
 // Trigger: Spawn Zauberer 2nd Form (Normal Way)
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnZauberer2ndFormNormalWay_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_spawnPoint;
 
 
@@ -10484,7 +10484,7 @@ void gt_SpawnZauberer2ndFormNormalWay_Init () {
 // Trigger: Spawn Zauberer 2nd Form (Special)
 //--------------------------------------------------------------------------------------------------
 bool gt_SpawnZauberer2ndFormSpecial_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   int lv_spawnPoint;
@@ -10584,7 +10584,7 @@ void gt_SpawnZauberer2ndFormSpecial_Init () {
 // Trigger: Zauberer 2nd Form Death
 //--------------------------------------------------------------------------------------------------
 bool gt_Zauberer2ndFormDeath_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_spawnPoint;
 
 
@@ -10859,7 +10859,7 @@ void gt_HeroattacksMachinaDePlagam_Init () {
 // Trigger: Machina De Plagam Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamEnter_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -10903,7 +10903,7 @@ void gt_MachinaDePlagamEnter_Init () {
 // Trigger: Machina De Plagam Leave
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamLeave_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -10942,7 +10942,7 @@ void gt_MachinaDePlagamLeave_Init () {
 // Trigger: Machina De Plagam Dragon Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamDragonDies_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -10986,7 +10986,7 @@ void gt_MachinaDePlagamDragonDies_Init () {
 // Trigger: Machina De Plagam Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_MachinaDePlagamDies_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -11225,7 +11225,7 @@ void gt_Sremagsisethealth_Init () {
 // Trigger: Sremagsi Lair Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_SremagsiLairEnter_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) { 
     return false;
@@ -11259,7 +11259,7 @@ void gt_SremagsiLairEnter_Init () {
 // Trigger: Sremagsi Lair Exit
 //--------------------------------------------------------------------------------------------------
 bool gt_SremagsiLairExit_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
+  Player_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
   if (!runActions) {
     return true;
@@ -11284,7 +11284,7 @@ void gt_SremagsiLairExit_Init () {
 // Trigger: Sremagsi Dragon Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_SremagsiDragonDies_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
+  Player_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
   if (
     testConds &&
@@ -11314,7 +11314,7 @@ void gt_SremagsiDragonDies_Init () {
 // Trigger: Sremagsi Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_SremagsiDies_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -11459,7 +11459,7 @@ void gt_CountPlayersGreaterthan25_Init () {
 // Trigger: Guardian Spawn
 //--------------------------------------------------------------------------------------------------
 bool gt_GuardianSpawn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   statueSpawned = false;
@@ -11664,7 +11664,7 @@ void gt_MadawcDies_Init () {
 // Trigger: No Dragons in Gaurdian
 //--------------------------------------------------------------------------------------------------
 bool gt_NoDragonsinGaurdian_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
@@ -11817,7 +11817,7 @@ void gt_CreateSyritalWarning_Init () {
 // Trigger: Syrital Enter
 //--------------------------------------------------------------------------------------------------
 bool gt_SyritalEnter_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -11862,7 +11862,7 @@ void gt_SyritalEnter_Init () {
 // Trigger: Syrital Leave
 //--------------------------------------------------------------------------------------------------
 bool gt_SyritalLeave_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -11903,7 +11903,7 @@ void gt_SyritalLeave_Init () {
 // Trigger: Syrital Dragon Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_SyritalDragonDies_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -11945,7 +11945,7 @@ void gt_SyritalDragonDies_Init () {
 // Trigger: Syrital Dies
 //--------------------------------------------------------------------------------------------------
 bool gt_SyritalDies_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -13304,7 +13304,7 @@ void gt_CreateWaypointDialog_Init () {
 // Trigger: Load Waypoints
 //--------------------------------------------------------------------------------------------------
 bool gt_LoadWaypoints_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -13329,7 +13329,7 @@ void gt_LoadWaypoints_Init () {
 // Trigger: Player Selects Waypoint
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerSelectsWaypoint_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -13381,7 +13381,7 @@ void gt_PlayerLeavesWaypoint_Init () {
 // Trigger: Waypoint Dialog Button Clicked
 //--------------------------------------------------------------------------------------------------
 bool gt_WaypointDialogButtonClicked_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -13473,7 +13473,7 @@ void gt_DragonLeavesWaypoint_Init () {
 // Trigger: BD Zombie Unit Spawn
 //--------------------------------------------------------------------------------------------------
 bool gt_BDZombieUnitSpawn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_regionId;
   int lv_j;
   int lv_numKills;
@@ -13574,7 +13574,7 @@ void gt_BDZombieUnitDeath_Init () {
 // Trigger: BD Creton Unit Spawn
 //--------------------------------------------------------------------------------------------------
 bool gt_BDCretonUnitSpawn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   if (!runActions) {
@@ -13699,7 +13699,7 @@ void gt_BDCretonUnitDeath_Init () {
 // Trigger: BD Verboten Unit Spawn
 //--------------------------------------------------------------------------------------------------
 bool gt_BDVerbotenUnitSpawn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   if (!runActions) {
@@ -13814,7 +13814,7 @@ void gt_BDVerbotenUnitDeath_Init () {
 // Trigger: BD Relamy Unit Spawn
 //--------------------------------------------------------------------------------------------------
 bool gt_BDRelamyUnitSpawn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -13942,7 +13942,7 @@ void gt_BDRelamyUnitDeath_Init () {
 // Trigger: BD Wasteland Unit Spawn
 //--------------------------------------------------------------------------------------------------
 bool gt_BDWastelandUnitSpawn_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   if (!runActions) {
@@ -14071,7 +14071,7 @@ void gt_BDWastelandUnitDeath_Init () {
 // Trigger: Teleport to Bio Dome
 //--------------------------------------------------------------------------------------------------
 bool gt_TeleporttoBioDome_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14124,7 +14124,7 @@ void gt_TeleporttoBioDome_Init () {
 // Trigger: Teleport to Creton
 //--------------------------------------------------------------------------------------------------
 bool gt_TeleporttoCreton_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14165,7 +14165,7 @@ void gt_TeleporttoCreton_Init () {
 // Trigger: Set RP to Wastelands
 //--------------------------------------------------------------------------------------------------
 bool gt_SetRPtoWastelands_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14198,7 +14198,7 @@ void gt_SetRPtoWastelands_Init () {
 // Trigger: Set RP to Ballan
 //--------------------------------------------------------------------------------------------------
 bool gt_SetRPtoBallan_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14231,7 +14231,7 @@ void gt_SetRPtoBallan_Init () {
 // Trigger: Set RP to Relamy
 //--------------------------------------------------------------------------------------------------
 bool gt_SetRPtoRelamy_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14264,7 +14264,7 @@ void gt_SetRPtoRelamy_Init () {
 // Trigger: Set RP to Verboten Forest Waypoint
 //--------------------------------------------------------------------------------------------------
 bool gt_SetRPtoVerbotenForestWaypoint_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14297,7 +14297,7 @@ void gt_SetRPtoVerbotenForestWaypoint_Init () {
 // Trigger: Set RP to Creton
 //--------------------------------------------------------------------------------------------------
 bool gt_SetRPtoCreton_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14605,7 +14605,7 @@ void gt_CreateSragmasiWarning_Init () {
 // Trigger: Set Up Location Dialog
 //--------------------------------------------------------------------------------------------------
 bool gt_SetUpLocationDialog_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_playerIndex;
   if (!runActions) {
     return true;
@@ -14629,7 +14629,7 @@ void gt_SetUpLocationDialog_Init () {
 // Trigger: Location Wasteland
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationWasteland_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14670,7 +14670,7 @@ void gt_LocationWasteland_Init () {
 // Trigger: Location Dragon's Nest
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationDragonsNest_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14705,7 +14705,7 @@ void gt_LocationDragonsNest_Init () {
 // Trigger: Location Syrital's Lair
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationSyritalsLair_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14740,7 +14740,7 @@ void gt_LocationSyritalsLair_Init () {
 // Trigger: Location Relamy Pass
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationRelamyPass_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14781,7 +14781,7 @@ void gt_LocationRelamyPass_Init () {
 // Trigger: Location Relamy Canyon
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationRelamyCanyon_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14823,7 +14823,7 @@ void gt_LocationRelamyCanyon_Init () {
 // Trigger: Location Relamy Hills
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationRelamyHills_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14863,7 +14863,7 @@ void gt_LocationRelamyHills_Init () {
 // Trigger: Location Verboten Forest
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationVerbotenForest_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14901,7 +14901,7 @@ void gt_LocationVerbotenForest_Init () {
 // Trigger: Location Creton
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationCreton_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14942,7 +14942,7 @@ void gt_LocationCreton_Init () {
 // Trigger: Location Creton Trench
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationCretonTrench_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -14981,7 +14981,7 @@ void gt_LocationCretonTrench_Init () {
 // Trigger: Location Road to Ballan
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationRoadtoBallan_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -15022,7 +15022,7 @@ void gt_LocationRoadtoBallan_Init () {
 // Trigger: Location Ballan
 //--------------------------------------------------------------------------------------------------
 bool gt_LocationBallan_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (UnitGetOwner(EventUnit()) == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, UnitGetOwner(EventUnit()))) {
     return false;
@@ -15316,7 +15316,7 @@ void gt_Chaos_Init () {
 // Trigger: Player Leaves
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayerLeaves_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   if (EventPlayer() == 16 || !PlayerGroupHasPlayer(gv_humanPlayers, EventPlayer())) {
@@ -15566,7 +15566,7 @@ void gt_StashLocationSetup_Init () {
 // Trigger: Load Shards
 //--------------------------------------------------------------------------------------------------
 bool gt_LoadShards_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_playerIndex;
 
   if (!runActions) {
@@ -15725,7 +15725,7 @@ void gt_SetupTips_Init () {
 // Trigger: Set Up Talent Tree
 //--------------------------------------------------------------------------------------------------
 bool gt_SetUpTalentTree_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -15931,7 +15931,7 @@ void gt_CheckStats_Init () {
 // Trigger: Intro Cinematic
 //--------------------------------------------------------------------------------------------------
 bool gt_DragonIntroCinematic_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -16036,7 +16036,7 @@ void gt_DragonIntroCinematic_Init () {
 // Trigger: Intro Cinematic - Return to Normal
 //--------------------------------------------------------------------------------------------------
 bool gt_DragonIntroCinematicReturntoNormal_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   
   if (!runActions) {
     return true;
@@ -16088,7 +16088,7 @@ void gt_DragonIntroCinematicReturntoNormal_Init () {
 // Trigger: Play Intro Theme
 //--------------------------------------------------------------------------------------------------
 bool gt_PlayIntroTheme_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -16120,7 +16120,7 @@ void gt_PlayIntroTheme_Init () {
 // Trigger: Ending Cinematic
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematic_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_i;
 
   if (!runActions) {
@@ -16287,7 +16287,7 @@ void gt_EndingCinematic_Init () {
 // Trigger: Ending Cinematic - Save/Exit (Normal)
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitNormal_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
 
   if (!runActions) {
     return true;
@@ -16319,7 +16319,7 @@ void gt_EndingCinematicSaveExitNormal_Init () {
 // Trigger: Ending Cinematic - Save/Exit (Special) P1
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP1_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[0];
+  Player_r lr_player = gv_players[0];
 
   if (!runActions) {
     return true;
@@ -16346,7 +16346,7 @@ void gt_EndingCinematicSaveExitSpecialP1_Init () {
 // Trigger: Ending Cinematic - Save/Exit (Special) P2
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP2_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[1];
+  Player_r lr_player = gv_players[1];
 
   if (!runActions) {
     return true;
@@ -16373,7 +16373,7 @@ void gt_EndingCinematicSaveExitSpecialP2_Init () {
 // Trigger: Ending Cinematic - Save/Exit (Special) P3
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP3_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[2];
+  Player_r lr_player = gv_players[2];
 
   if (!runActions) {
     return true;
@@ -16400,7 +16400,7 @@ void gt_EndingCinematicSaveExitSpecialP3_Init () {
 // Trigger: Ending Cinematic - Save/Exit (Special) P4
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP4_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[3];
+  Player_r lr_player = gv_players[3];
 
   if (!runActions) {
     return true;
@@ -16448,7 +16448,7 @@ void gt_PeriodicallySave_Init () {
 // Trigger: Create Reborn Dialog
 //--------------------------------------------------------------------------------------------------
 bool gt_CreateRebornDialog_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_dialogWidth;
   int lv_dialogHeight;
   int lv_labelWidth;
@@ -16567,7 +16567,7 @@ void gt_CreateRebornDialog_Init () {
 // Trigger: Toggle Reborn Dialog Visibility
 //--------------------------------------------------------------------------------------------------
 bool gt_ToggleRebornDialogVisibility_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -16589,7 +16589,7 @@ void gt_ToggleRebornDialogVisibility_Init () {
 // Trigger: Reborn Stats
 //--------------------------------------------------------------------------------------------------
 bool gt_RebornStats_Func (bool testConds, bool runActions) {
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;
@@ -17122,7 +17122,7 @@ void FakeInitTriggers() {
   gt_MakeEndingPlay_Init();
 }
 //--------------------------------------------------------------------------------------------------
-void gf_SetupPlayer(playerData_r lr_player) {
+void gf_SetupPlayer(Player_r lr_player) {
   // Load banks
   BankLoad("DragonRPGStashBank", lr_player.player);
   lr_player.banks.stashBank = BankLastCreated();
@@ -17229,7 +17229,7 @@ void gf_SetupPlayer(playerData_r lr_player) {
 void gf_InitializePlayers () {
   int lv_playerIndex;
   int lv_otherPlayer;
-  playerData_r lr_player;
+  Player_r lr_player;
 
   // Loops through all players to initialize each one.
   for (lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {

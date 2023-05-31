@@ -1,4 +1,4 @@
-void gf_HideStats (playerData_r lr_player) {
+void gf_HideStats (Player_r lr_player) {
   UnitAbilityShow(lr_player.dragon, "Strength1", false);
   UnitAbilityShow(lr_player.dragon, "Vitality1", false);
   UnitAbilityShow(lr_player.dragon, "Intelligence1", false);

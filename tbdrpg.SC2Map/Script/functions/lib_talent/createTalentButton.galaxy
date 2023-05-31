@@ -1,4 +1,4 @@
-void lib_talent_gf_CreateTalentButton (playerData_r lr_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
+void lib_talent_gf_CreateTalentButton (Player_r lr_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
   string lv_buttonGlowIMG;
   string lv_buttonNormalIMG;
   string lv_buttonHoverIMG;
@@ -9,7 +9,7 @@ void lib_talent_gf_CreateTalentButton (playerData_r lr_player, int lp_tree, int 
   string lv_talentIMGString;
   int lv_requiredPoints;
   int lv_talentIndex;
-  talentData_r lr_talent;
+  Talent_r lr_talent;
   
   lv_talentIMGString = "";
 

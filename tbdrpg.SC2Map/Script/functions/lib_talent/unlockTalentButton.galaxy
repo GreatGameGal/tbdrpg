@@ -1,6 +1,6 @@
-void lib_talent_gf_UnlockTalentButton (playerData_r lr_player, int lp_tree, int lp_column, int lp_row) {
+void lib_talent_gf_UnlockTalentButton (Player_r lr_player, int lp_tree, int lp_column, int lp_row) {
   int lv_talentIndex;
-  talentData_r lr_talent;
+  Talent_r lr_talent;
 
   lv_talentIndex = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row);
   lr_talent = lr_player.talent.talents[lv_talentIndex];

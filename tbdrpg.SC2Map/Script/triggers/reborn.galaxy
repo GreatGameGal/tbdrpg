@@ -1,7 +1,7 @@
 bool gt_Reborn_Func (bool testConds, bool runActions) {
   string tmp_loop;
   int lv_i;
-  playerData_r lr_player = gv_players[EventPlayer() - 1];
+  Player_r lr_player = gv_players[EventPlayer() - 1];
 
   if (!runActions) {
     return true;

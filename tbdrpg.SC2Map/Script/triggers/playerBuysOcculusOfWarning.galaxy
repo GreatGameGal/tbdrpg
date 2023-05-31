@@ -1,6 +1,6 @@
 bool gt_PlayerBuysOcculusOfWarning_Func (bool testConds, bool runActions) {
   int lv_player;
-  playerData_r lr_player; 
+  Player_r lr_player; 
   
   lv_player = EventPlayer();
 

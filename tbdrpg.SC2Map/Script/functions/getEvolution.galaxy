@@ -1,4 +1,4 @@
-int gf_GetEvolution (playerData_r lr_player) {
+int gf_GetEvolution (Player_r lr_player) {
   int lv_i;
   string lv_dragonUnitName = UnitGetType(lr_player.dragon);
 

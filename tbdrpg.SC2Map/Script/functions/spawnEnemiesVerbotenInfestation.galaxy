@@ -1,4 +1,4 @@
-void gf_SpawnEnemiesVerbotenInfestation (playerData_r lr_player) {
+void gf_SpawnEnemiesVerbotenInfestation (Player_r lr_player) {
   int lv_unitTypeNum;
   int lv_locationNum;
   int lv_i;

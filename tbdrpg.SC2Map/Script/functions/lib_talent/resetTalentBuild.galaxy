@@ -1,7 +1,7 @@
-void lib_talent_gf_ResetTalentBuild (playerData_r lr_player, int lp_resetto) {
+void lib_talent_gf_ResetTalentBuild (Player_r lr_player, int lp_resetto) {
   int lv_requiredPoints;
   int lv_i;
-  talentData_r lr_talent;
+  Talent_r lr_talent;
 
 
   lr_player.talent.availablePoints = lp_resetto;

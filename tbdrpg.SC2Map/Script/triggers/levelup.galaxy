@@ -1,5 +1,5 @@
 bool gt_LevelUp_Func (bool testConds, bool runActions) {
-  playerData_r lr_player;
+  Player_r lr_player;
   int lv_dragonEvolution;
 
   lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
