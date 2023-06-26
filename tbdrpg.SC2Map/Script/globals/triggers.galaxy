@@ -427,6 +427,7 @@ trigger gt_ToggleRebornDialogVisibility;
 trigger gt_RebornStats;
 trigger gt_MakeEndingPlay;
 trigger gt_Reborn;
+trigger gt_Behaviors;
 
 // Cinematic AI Talents
 trigger ai665651A4_waves_trigger = null;

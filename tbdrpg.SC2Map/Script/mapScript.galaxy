@@ -16731,6 +16731,7 @@ void FakeInitTriggers() {
   gt_ToggleRebornDialogVisibility_Init();
   gt_RebornStats_Init();
   gt_MakeEndingPlay_Init();
+  gt_Behaviors_Init();
 }
 //--------------------------------------------------------------------------------------------------
 void gf_SetupPlayer(Player_r lr_player) {

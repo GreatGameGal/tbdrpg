@@ -13,6 +13,7 @@ include "Script/triggers/commands/addVespen"
 include "Script/triggers/commands/addWingClaws"
 
 include "Script/triggers/commands/display50Shades"
+include "Script/triggers/commands/displayBehaviors"
 include "Script/triggers/commands/displayHandles"
 include "Script/triggers/commands/displayLocation"
 include "Script/triggers/commands/displayMeleeBuffStacks"

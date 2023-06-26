@@ -1,0 +1,21 @@
+bool gt_Behaviors_Func (bool testConds, bool runActions) {
+  int lv_i;
+  string lv_behavior;
+  Player_r lr_player = gv_players[EventPlayer() - 1];
+
+  if (!runActions) {
+    return true;
+  }
+
+  for(lv_i = 1; lv_i <= UnitBehaviorCountAll(lr_player.dragon); lv_i += 1) {
+    lv_behavior = UnitBehaviorGet(lr_player.dragon, lv_i);
+    UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaDebug, StringToText(lv_behavior + ": " + IntToString(UnitBehaviorCount(lr_player.dragon, lv_behavior))));
+  }
+  
+  return true;
+}
+
+void gt_Behaviors_Init () {
+  gt_Behaviors = TriggerCreate("gt_Behaviors_Func");
+  TriggerAddEventChatMessage(gt_Behaviors, c_playerAny, "-behaviors", true);
+}
