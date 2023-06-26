@@ -141,83 +141,6 @@ struct Stats {
   Dialog attributeDialog;
 };
 
-struct Talent {
-  // UI Data
-  int button;
-  int buttonGlow;
-  int buttonLabel;
-  int buttonLabelBackground;
-  text tooltipDescription;
-  
-  // Form Data
-  fixed[2] multiplier;
-  bool isUsed;
-  text name;
-  int maxRank;
-  int prerequisiteIs;
-  int prerequisiteOf;
-  int prerequisiteRequiredRank;
-  int type;
-  int tree;
-  int column;
-  int row;
-  string upgrade;
-  string abilityLink;
-  string buttonLink;
-
-  // User Data
-  int rank;
-  bool prerequisitesComplete;
-};
-
-struct Talents {
-  bool locked;
-  bool adding;
-  
-  Talent[lib_talent_gv_TALENTCOUNT] talents;
-  // Talent Tree UI data.
-  int mainTalentDialog;
-  int availablePointsLabel;
-  int availablePointsDialog;
-  int closeTalentTreeButton;
-  int[3] subTalentDialog;
-  Dialog talentDialog;
-
-  // Talent Tree form data.
-  text[3] talentTreeNames;
-  int pointsPerTier;
-  string colorScheme;
-
-  // Data on user expended points.
-  int[3] pointsInTree;
-  int spentPoints;
-  int availablePoints;
-
-  // I'll figure out where to put this
-  string[10] buildStrings;
-
-  // Certain talent counts, I guess?
-  int strengthOfTheDragon;
-  int mindOfTheDragon;
-  int powerOverwhelming;
-  int rage;
-  int vampiricTendencies;
-  int zeal;
-  int criticalCrepitus;
-  int darkDissulto;
-  int spikedScales;
-  int retaliation;
-  int headshot;
-  int stickyShot;
-  int dualWield;
-  int greedIsGood;
-  int quickLearner;
-  int absorbMana;
-  int realmSwitch;
-
-
-};
-
 struct Banks {
   bank stashBank;
   bank rebornBank;
@@ -248,7 +171,7 @@ struct Player {
   Stash stash;
   States state;
   Stats stats;
-  Talents talent;
+  TalentTree talent;
   Verification verification;
   bool[5] waypointUnlocked;
   int player;

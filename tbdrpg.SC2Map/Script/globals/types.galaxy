@@ -1,2 +1,1 @@
 typedef structref<Player> Player_r;
-typedef structref<Talent> Talent_r;

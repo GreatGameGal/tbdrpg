@@ -1,5 +1,4 @@
 include "Script/triggers/commands/index"
-include "Script/triggers/lib_talent/index"
 
 include "Script/triggers/levelup"
 include "Script/triggers/reborn"

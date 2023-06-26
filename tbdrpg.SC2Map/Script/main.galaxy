@@ -3,10 +3,14 @@ include "TriggerLibs/AI"
 include "TriggerLibs/Computer"
 
 // Project code.
-include "Script/globals/index"
-include "Script/functions/index"
-include "Script/triggers/index"
-include "Script/mapScript"
+include "Script/constants";
+
+include "Script/lib_talent";
+
+include "Script/globals/index";
+include "Script/functions/index";
+include "Script/triggers/index";
+include "Script/mapScript";
 
 void main () {
   initMapScript();

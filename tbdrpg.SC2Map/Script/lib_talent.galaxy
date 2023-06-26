@@ -1,0 +1,1205 @@
+// Talent Library Original Credit: https://www.sc2mapster.com/projects/talent-library
+// Heavily modified from SC2's compilation of source.
+
+//--------------------------------------------------------------------------------------------------
+// Talent Library Headers
+//--------------------------------------------------------------------------------------------------
+
+const int lib_talent_ge_ColorScheme_Blue = 0;
+const int lib_talent_ge_ColorScheme_Green = 1;
+const int lib_talent_ge_ColorScheme_Red = 2;
+
+const int lib_talent_ge_TalentPrerequisite_None = 0;
+const int lib_talent_ge_TalentPrerequisite_Left = 1;
+const int lib_talent_ge_TalentPrerequisite_Up = 2;
+const int lib_talent_ge_TalentPrerequisite_Right = 3;
+
+const int lib_talent_ge_TalentType_Passive = 0;
+const int lib_talent_ge_TalentType_Ability = 1;
+
+const int lib_talent_ge_SaveLoad_Save = 0;
+const int lib_talent_ge_SaveLoad_Load = 1;
+
+// ---
+
+struct Talent {
+  // UI Data
+  int button;
+  int buttonGlow;
+  int buttonLabel;
+  int buttonLabelBackground;
+  text tooltipDescription;
+  
+  // Form Data
+  fixed[2] multiplier;
+  bool isUsed;
+  text name;
+  int maxRank;
+  int prerequisiteIs;
+  int prerequisiteOf;
+  int prerequisiteRequiredRank;
+  int type;
+  int tree;
+  int column;
+  int row;
+  string upgrade;
+  string behavior;
+  string abilityLink;
+  string buttonLink;
+
+  // User Data
+  int rank;
+  bool prerequisitesComplete;
+};
+
+struct TalentTree {
+  bool locked;
+  bool adding;
+  
+  Talent[lib_talent_gv_TALENTCOUNT] talents;
+  // Talent Tree UI data.
+  int mainTalentDialog;
+  int availablePointsLabel;
+  int availablePointsDialog;
+  int closeTalentTreeButton;
+  int[3] subTalentDialog;
+  Dialog talentDialog;
+
+  // Talent Tree form data.
+  text[3] treeNames;
+  int pointsPerTier;
+  int colorScheme;
+
+  // Data on user expended points.
+  int[3] pointsInTree;
+  int spentPoints;
+  int availablePoints;
+
+  // I'll figure out where to put this
+  string[10] buildStrings;
+
+  // Unit to apply talents to.
+  unit hero;
+
+  // Talent Bank
+  bank talentBank;
+
+  // Player.
+  int player;
+};
+
+// ---
+
+typedef structref<Talent> Talent_r;
+typedef structref<TalentTree> TalentTree_r;
+
+// ---
+
+int lib_talent_gf_FlattenPosition (int lp_tree, int lp_column, int lp_row);
+
+void lib_talent_InitVariables ();
+void lib_talent_InitTriggers ();
+
+int lib_talent_gf_GetTalentButtonIndex (TalentTree_r lr_talents, int lp_dialogItem);
+
+void lib_talent_gf_SaveTalentBuild (TalentTree_r lr_talents, int lp_buildIndex, string lp_bankName);
+void lib_talent_gf_LoadTalentBuild (TalentTree_r lr_talents, int lp_buildIndex, string lp_bankName);
+void lib_talent_gf_ResetTalentBuild (TalentTree_r lr_talents, int lp_resetto);
+
+// THIS FUNCTION CRASHSE THE GAME CURRENTLY, DON'T USE IT!
+void lib_talent_gf_UpdateButtonTooltip (TalentTree_r lr_talents, int lp_talentIndex);
+
+bool lib_talent_gf_TalentTreeisOpen (TalentTree_r lr_talents);
+void lib_talent_gf_UpdateAbilityButtonTooltip (TalentTree_r lr_talents, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, string lp_abilityLink, string lp_buttonLink);
+void lib_talent_gf_UpdatePassiveButtonTooltip (TalentTree_r lr_talents, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, text lp_name, text lp_descriptionRaw, int lp_currentRank, fixed lp_multiplier1, fixed lp_multiplier2);
+void lib_talent_gf_CreateTalentButton (TalentTree_r lr_talents, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, string lp_behavior, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility);
+void lib_talent_gf_UnlockTalentButton (TalentTree_r lr_talents, int lp_tree, int lp_column, int lp_row);
+void lib_talent_gf_UnlockTalentTier (TalentTree_r lr_talents, int lp_tree, int lp_tier);
+void lib_talent_gf_CreateTalentTree (TalentTree_r lr_talents, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier);
+void lib_talent_gf_DestroyTalentTree (TalentTree_r lr_talents);
+void lib_talent_gf_ShowHideTalentTree (TalentTree_r lr_talents);
+void lib_talent_gf_GrantTalentPoints (TalentTree_r lr_talents, int lp_talentPoints);
+
+// ---
+
+bool lib_talent_gt_PickTalent_Func (bool testConds, bool runActions);
+bool lib_talent_gt_CloseTalent_Func (bool testConds, bool runActions);
+bool lib_talent_gt_LoadTalentBank_Func (bool testConds, bool runActions);
+
+trigger lib_talent_gt_PickTalent;
+trigger lib_talent_gt_CloseTalent;
+trigger lib_talent_gt_LoadTalentBank;
+
+// ---
+
+TalentTree[lib_talent_gv_PlayerCapacity] lib_talent_gv_playerTalents;
+
+
+//--------------------------------------------------------------------------------------------------
+// Talent Library Implementation
+//--------------------------------------------------------------------------------------------------
+
+
+int lib_talent_gf_FlattenPosition (int lp_tree, int lp_column, int lp_row) {
+  return lp_tree * lib_talent_gv_COLUMNS * lib_talent_gv_ROWS + lp_row * lib_talent_gv_COLUMNS + lp_column;
+};
+
+
+
+void lib_talent_InitTriggers () {
+  lib_talent_gt_PickTalent = TriggerCreate("lib_talent_gt_PickTalent_Func");
+  TriggerAddEventDialogControl(lib_talent_gt_PickTalent, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+
+  lib_talent_gt_CloseTalent = TriggerCreate("lib_talent_gt_CloseTalent_Func");
+  TriggerAddEventDialogControl(lib_talent_gt_CloseTalent, c_playerAny, c_invalidDialogControlId, c_triggerControlEventTypeClick);
+
+  lib_talent_gt_LoadTalentBank = TriggerCreate("lib_talent_gt_LoadTalentBank_Func");
+  TriggerAddEventMapInit(lib_talent_gt_LoadTalentBank);
+}
+
+
+
+int lib_talent_gf_GetTalentButtonIndex (TalentTree_r lr_talents, int lp_dialogItem) {
+  int lv_i;
+
+  for (lv_i = 0; lv_i < lib_talent_gv_TALENTCOUNT; lv_i += 1 ) {
+    if (lp_dialogItem == lr_talents.talents[lv_i].button) {
+      return lv_i;
+    }
+  }
+  return -1;
+}
+
+
+
+void lib_talent_gf_SaveTalentBuild (TalentTree_r lr_talents, int lp_buildIndex, string lp_bankName) {
+  bank lv_talentBank;
+  int lv_talentIndex;
+  int lv_talentStringIndex;
+  Talent_r lr_talent;
+
+  lv_talentStringIndex = 1;
+
+  if (lr_talents.talentBank == null) {
+    BankLoad(lib_talent_gv_BankName, lr_talents.player);
+    lv_talentBank = BankLastCreated();
+  }
+  lr_talents.buildStrings[lp_buildIndex] = "";
+
+  for (lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
+    lv_talentStringIndex = lv_talentIndex * 2 + 1;
+    lr_talent = lr_talents.talents[lv_talentIndex];
+    if (lr_talent.rank < 10) {
+      lr_talents.buildStrings[lp_buildIndex] = StringReplace(lr_talents.buildStrings[lp_buildIndex], "0", lv_talentStringIndex, lv_talentStringIndex);
+      lr_talents.buildStrings[lp_buildIndex] = StringReplace(lr_talents.buildStrings[lp_buildIndex], IntToString(lr_talent.rank), (lv_talentStringIndex + 1), (lv_talentStringIndex + 1));
+    }
+    else {
+      lr_talents.buildStrings[lp_buildIndex] = StringReplace(lr_talents.buildStrings[lp_buildIndex], IntToString(lr_talent.rank), lv_talentStringIndex, (lv_talentStringIndex + 1));
+    }
+  }
+  BankValueSetFromString(lr_talents.talentBank, lp_bankName, IntToString(lp_buildIndex), lr_talents.buildStrings[lp_buildIndex]);
+  BankValueSetFromInt(lr_talents.talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex), lr_talents.availablePoints);
+  BankSave(lr_talents.talentBank);
+}
+
+void lib_talent_gf_LoadTalentBuild (TalentTree_r lr_talents, int lp_buildIndex, string lp_bankName) {
+  int lv_tree;
+  int lv_row;
+  int lv_column;
+
+  int lv_talentIndex;
+  int lv_talentStringIndex;
+  int lv_talentCurrentRank;
+  int lv_tierPointsRequired;
+  int lv_prerequisiteIndex;
+  playergroup lv_playergroup = PlayerGroupSingle(lr_talents.player);
+  Talent_r lr_talent;
+
+
+  BankLoad(lib_talent_gv_BankName, lr_talents.player);
+  lr_talents.talentBank = BankLastCreated();
+  lr_talents.buildStrings[lp_buildIndex] = "";
+
+  lr_talents.buildStrings[lp_buildIndex] = BankValueGetAsString(lr_talents.talentBank, lp_bankName, IntToString(lp_buildIndex));
+  if (lr_talents.buildStrings[lp_buildIndex] == null) {
+    lib_talent_gf_ResetTalentBuild(lr_talents, UnitLevel(lr_talents.hero) + UnitLevel(lr_talents.hero) / gv_LevelsPerEvolution);
+    return;
+  }
+  if (StringLength(lr_talents.buildStrings[lp_buildIndex]) != lib_talent_gv_TALENTCOUNT * 2) {
+    UIDisplayMessage(PlayerGroupSingle(lr_talents.player), c_messageAreaSubtitle, StringExternal("Param/Value/lib_1_TALENT_LOAD_RESET"));
+    lib_talent_gf_ResetTalentBuild(lr_talents, UnitLevel(lr_talents.hero) + UnitLevel(lr_talents.hero) / gv_LevelsPerEvolution);
+    return;
+  }
+  lib_talent_gf_ResetTalentBuild(lr_talents, 1);
+  lr_talents.availablePoints = BankValueGetAsInt(lr_talents.talentBank, (lp_bankName + "Points"), IntToString(lp_buildIndex));
+  libNtve_gf_SetDialogItemText(lr_talents.availablePointsLabel, IntToText(lr_talents.availablePoints), lv_playergroup);
+  for (lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
+    lr_talent = lr_talents.talents[lv_talentIndex];
+    if (!lr_talent.isUsed) {
+      continue;
+    }
+    lv_tree = lr_talent.tree;
+    lv_row = lr_talent.row;
+    lv_column = lr_talent.column;
+    lv_talentStringIndex = lv_talentIndex * 2 + 1;
+    // Uses the min function to ensure it isn't greater than the max rank.
+    lv_talentCurrentRank = MinI(
+      StringToInt(StringSub(lr_talents.buildStrings[lp_buildIndex], lv_talentStringIndex, lv_talentStringIndex + 1)),
+      lr_talent.maxRank
+    );
+    lr_talent.rank = lv_talentCurrentRank;
+    lr_talents.pointsInTree[lv_tree] += lv_talentCurrentRank;
+    lr_talents.spentPoints += lv_talentCurrentRank;
+
+    if (lv_talentCurrentRank > 0) { 
+      if (lr_talent.upgrade != null) {
+        libNtve_gf_SetUpgradeLevelForPlayer(lr_talents.player, lr_talent.upgrade, lv_talentCurrentRank);
+      }
+      if (lr_talent.behavior != null) {
+        UnitBehaviorAdd(lr_talents.hero, lr_talent.behavior, lr_talents.hero, lv_talentCurrentRank);
+      }
+    } 
+  }
+  
+  // Shut up this function should be so rarely called that this shouldn't be a problem.
+  for (lv_talentIndex = 0; lv_talentIndex < lib_talent_gv_TALENTCOUNT; lv_talentIndex += 1) {
+    lr_talent = lr_talents.talents[lv_talentIndex];
+    if (!lr_talent.isUsed) {
+      continue;
+    }
+    
+    lv_tree = lr_talent.tree;
+    lv_row = lr_talent.row;
+    lv_column = lr_talent.column;
+    lv_tierPointsRequired = lr_talents.pointsPerTier * lv_row;
+    lv_prerequisiteIndex = lr_talent.prerequisiteIs;
+    
+    // Disable the buttons first, enabling them if necessary.
+    DialogControlSetEnabled(lr_talent.button, lv_playergroup, false);
+    DialogControlSetVisible(lr_talent.buttonGlow, lv_playergroup, false);
+    DialogControlSetVisible(lr_talent.buttonLabel, lv_playergroup, false);
+    DialogControlSetVisible(lr_talent.buttonLabelBackground, lv_playergroup, false);
+    
+    if (
+      lr_talent.prerequisiteIs == -1 ||
+      (
+        lr_talents.talents[lv_prerequisiteIndex].rank >= lr_talent.prerequisiteRequiredRank &&
+        lr_talents.pointsInTree[lv_tree] > lv_tierPointsRequired
+      ) ||
+      lr_talent.rank > 0
+    ) {
+      lr_talent.prerequisitesComplete = true;
+      // Internal logic in this function will handle if and how it should be unlocked.
+      lib_talent_gf_UnlockTalentButton(lr_talents, lv_tree, lv_column, lv_row);
+    } else {
+      if (lr_talent.type == lib_talent_ge_TalentType_Ability) {
+        lib_talent_gf_UpdateAbilityButtonTooltip(lr_talents, lr_talent.button, lv_talentIndex, lv_tierPointsRequired, lr_talent.tree, lr_talent.abilityLink, lr_talent.buttonLink);
+      }
+      else if (lr_talent.type == lib_talent_ge_TalentType_Passive) {
+        lib_talent_gf_UpdatePassiveButtonTooltip(lr_talents, lr_talent.button, lv_talentIndex, lv_tierPointsRequired, lr_talent.tree, lr_talent.name, lr_talent.tooltipDescription, lr_talent.rank, lr_talent.multiplier[0], lr_talent.multiplier[1]);
+      }
+    }
+    libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.rank) + StringExternal("Param/Value/lib_1_D81739DA") + IntToText(lr_talent.maxRank)), lv_playergroup);
+    
+  }
+  
+}
+
+void lib_talent_gf_ResetTalentBuild (TalentTree_r lr_talents, int lp_resetto) {
+  int lv_requiredPoints;
+  int lv_i;
+  playergroup lv_playergroup = PlayerGroupSingle(lr_talents.player);
+  Talent_r lr_talent;
+
+
+  lr_talents.availablePoints = lp_resetto;
+  
+  lr_talents.spentPoints = 0;
+  libNtve_gf_SetDialogItemText(lr_talents.availablePointsLabel, IntToText(lr_talents.availablePoints), lv_playergroup);
+  for(lv_i = 0; lv_i < lib_talent_gv_TREES; lv_i += 1) {
+    lr_talents.pointsInTree[0] = 0;
+  }
+  for (lv_i = 0; lv_i < lib_talent_gv_TALENTCOUNT; lv_i += 1 ) {
+    lr_talent = lr_talents.talents[lv_i];
+    if (!lr_talent.isUsed) {
+      continue;
+    }
+    if (lr_talent.upgrade != null) {
+      libNtve_gf_SetUpgradeLevelForPlayer(lr_talents.player, lr_talent.upgrade, 0);
+    }
+    if (lr_talent.behavior != null) {
+      UnitBehaviorRemove(lr_talents.hero, lr_talent.behavior, lr_talent.rank);
+    }
+    lr_talent.rank = 0;
+    libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.rank) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lr_talent.maxRank)), lv_playergroup);
+    lr_talent.prerequisitesComplete = false;
+
+    lv_requiredPoints = lr_talents.pointsPerTier * (lr_talent.row);
+    if (lr_talent.type == lib_talent_ge_TalentType_Ability) {
+      lib_talent_gf_UpdateAbilityButtonTooltip(lr_talents, lr_talent.button, lv_i, lv_requiredPoints, lr_talent.tree, lr_talent.abilityLink, lr_talent.buttonLink);
+    }
+    else if (lr_talent.type == lib_talent_ge_TalentType_Passive) {
+      lib_talent_gf_UpdatePassiveButtonTooltip(lr_talents, lr_talent.button, lv_i, lv_requiredPoints, lr_talent.tree, lr_talent.name, lr_talent.tooltipDescription, lr_talent.rank, lr_talent.multiplier[0], lr_talent.multiplier[1]);
+    }
+    if (lr_talent.prerequisiteIs == -1) {
+      DialogControlSetEnabled(lr_talent.button, lv_playergroup, true);
+      DialogControlSetVisible(lr_talent.buttonGlow, lv_playergroup, true);
+      DialogControlSetVisible(lr_talent.buttonLabelBackground, lv_playergroup, true);
+      DialogControlSetVisible(lr_talent.buttonLabel, lv_playergroup, true);
+    }
+    else {
+      DialogControlSetEnabled(lr_talent.button, lv_playergroup, false);
+      DialogControlSetVisible(lr_talent.buttonGlow, lv_playergroup, false);
+      DialogControlSetVisible(lr_talent.buttonLabelBackground, lv_playergroup, false);
+      DialogControlSetVisible(lr_talent.buttonLabel, lv_playergroup, false);
+    }
+  }
+}
+
+
+
+// TODO: FIX
+// DON'T USE THIS FOR NOW! IT CRASHES THE GAME, WHY? I DON'T KNOW
+void lib_talent_gf_UpdateButtonTooltip (TalentTree_r lr_talents, int lp_talentIndex) {
+  text lv_spacer;
+  text lv_tooltip;
+  text lv_pointsText;
+  text lv_tooltipDescription;
+  
+  text lv_tooltipCost;
+  text lv_tooltipCostMinerals;
+  text lv_tooltipCostGas;
+  text lv_tooltipCostLife;
+  text lv_tooltipCostEnergy;
+  text lv_tooltipCostCooldown;
+  string lv_buttonLink;
+  string lv_abilityLink;
+  int lv_type;
+  int lv_prerequisiteIndex;
+  int lv_tierRequiredPoints;
+  int lv_prerequisiteRequiredPoints;
+  int lv_tree;
+  int lv_rankMultiplier;
+  bool lv_hasCost;
+  
+  
+  lv_prerequisiteIndex = lr_talents.talents[lp_talentIndex].prerequisiteIs;
+  lv_prerequisiteRequiredPoints = lr_talents.talents[lp_talentIndex].prerequisiteRequiredRank;
+  lv_tree = lr_talents.talents[lp_talentIndex].tree;
+  lv_buttonLink = lr_talents.talents[lp_talentIndex].buttonLink;
+  lv_abilityLink = lr_talents.talents[lp_talentIndex].abilityLink;
+  lv_type = lr_talents.talents[lp_talentIndex].type;
+  
+  lv_tooltip = StringExternal("Param/Value/lib_1_09FBC8F4");
+  if (lv_type == lib_talent_ge_TalentType_Passive) {
+    lv_tooltip = lv_tooltip + lr_talents.talents[lp_talentIndex].name;
+  }
+  else if (lv_type == lib_talent_ge_TalentType_Ability) {
+    lv_tooltip = lv_tooltip + StringExternal("Button/Name/" + lv_buttonLink); 
+  }
+  lv_tooltip = lv_tooltip + StringExternal("Param/Value/lib_1_A533532A");
+  
+  lv_spacer = StringExternal("Param/Value/lib_1_3D5D601C");
+  if (!lr_talents.talents[lp_talentIndex].prerequisitesComplete) {
+    lv_tierRequiredPoints = lr_talents.pointsPerTier * lr_talents.talents[lp_talentIndex].row;
+    if (lv_tierRequiredPoints < lr_talents.pointsInTree[lv_tree]) {
+      if (lv_tierRequiredPoints == 1) {
+        lv_pointsText = StringExternal("Param/Value/lib_1_02BBAD52");
+      }
+      else {
+        lv_pointsText = StringExternal("Param/Value/lib_1_E5D41D76");
+      }
+      lv_tooltip = 
+        lv_tooltip +
+        StringExternal("Param/Value/lib_1_31AEA4D1") +
+        IntToText(lv_tierRequiredPoints) +
+        StringExternal("Param/Value/lib_1_0F2A744B") +
+        lv_pointsText +
+        StringExternal("Param/Value/lib_1_C566D5F1") +
+        lr_talents.treeNames[lv_tree] +
+        StringExternal("Param/Value/lib_1_DBF60C3F") +
+        lv_spacer;
+    }
+    if (lv_prerequisiteIndex != -1 && lr_talents.talents[lv_prerequisiteIndex].rank < lv_prerequisiteRequiredPoints) {
+      if (lv_prerequisiteRequiredPoints == 1) {
+        lv_pointsText = StringExternal("Param/Value/lib_1_02BBAD52");
+      }
+      else {
+        lv_pointsText = StringExternal("Param/Value/lib_1_E5D41D76");
+      }
+      lv_tooltip =
+        lv_tooltip + 
+        StringExternal("Param/Value/lib_1_95225FD9") + 
+        IntToText(lv_prerequisiteRequiredPoints) + 
+        StringExternal("Param/Value/lib_1_0F2A744B") + 
+        lv_pointsText + 
+        StringExternal("Param/Value/lib_1_C566D5F1") + 
+        lr_talents.talents[lv_prerequisiteIndex].name + 
+        StringExternal("Param/Value/lib_1_3680DFC1") +
+        lv_spacer;
+    }
+    lv_tooltip = lv_tooltip + lv_spacer;
+  }
+  if (lv_type == lib_talent_ge_TalentType_Passive) {
+    if (lr_talents.talents[lp_talentIndex].rank > 0) {
+      lv_rankMultiplier = lr_talents.talents[lp_talentIndex].rank;
+    }
+    else {
+      lv_rankMultiplier = 1;
+    }
+    lv_tooltipDescription = TextReplaceWord(lr_talents.talents[lp_talentIndex].tooltipDescription, StringExternal("Param/Value/lib_1_6D51BF3D"), FixedToText((lr_talents.talents[lp_talentIndex].multiplier[0] * IntToFixed(lv_rankMultiplier)), 1), c_stringReplaceAll, c_stringNoCase);
+    lv_tooltipDescription = TextReplaceWord(lv_tooltipDescription, StringExternal("Param/Value/lib_1_2F659930"), FixedToText((lr_talents.talents[lp_talentIndex].multiplier[1] * IntToFixed(lv_rankMultiplier)), 1), c_stringReplaceAll, c_stringNoCase);
+    lv_tooltipDescription = (StringExternal("Param/Value/lib_1_3AE2BD72") + lv_tooltipDescription + StringExternal("Param/Value/lib_1_1ECE9A68"));
+  } else if (lv_type == lib_talent_ge_TalentType_Ability) {
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Resource[Vespene]", lr_talents.player)) > 0)) {
+      lv_tooltipCostGas = (StringExternal("Param/Value/lib_1_6E372436") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Resource[Vespene]", lr_talents.player)) + StringExternal("Param/Value/lib_1_2F05AF2C"));
+      lv_hasCost = true;
+    }
+  
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Life]", lr_talents.player)) > 0)) {
+      lv_tooltipCostLife = (StringExternal("Param/Value/lib_1_64005C61") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Life]", lr_talents.player)) + StringExternal("Param/Value/lib_1_96EE75DB"));
+      lv_hasCost = true;
+    }
+  
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Energy]", lr_talents.player)) > 0)) {
+      lv_tooltipCostEnergy = (StringExternal("Param/Value/lib_1_36A22419") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Vital[Energy]", lr_talents.player)) + StringExternal("Param/Value/lib_1_BDAA03F9"));
+      lv_hasCost = true;
+    }
+  
+    if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Cooldown.TimeUse", lr_talents.player)) > 0)) {
+      lv_tooltipCostCooldown = (StringExternal("Param/Value/lib_1_28B4F42A") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lv_abilityLink), "Cost[0].Cooldown.TimeUse", lr_talents.player)) + StringExternal("Param/Value/lib_1_DB16B10F"));
+      lv_hasCost = true;
+    }
+  
+    if (lv_hasCost) {
+      lv_tooltipCost = (StringExternal("Param/Value/lib_1_9F0F1568") + lv_tooltipCostMinerals + lv_tooltipCostGas + lv_tooltipCostLife + lv_tooltipCostEnergy + lv_tooltipCostCooldown + StringExternal("Param/Value/lib_1_9C21FB6F"));
+    }
+    else {
+      lv_tooltipCost = StringToText("");
+    }
+    lv_tooltipDescription = (StringExternal("Param/Value/lib_1_04F5E258") + lv_tooltipCost + StringExternal("Button/Tooltip/" + lv_buttonLink) + StringExternal("Param/Value/lib_1_3E98BEAA"));
+  }
+
+
+  lv_tooltip = lv_tooltip + lv_tooltipDescription;
+  libNtve_gf_SetDialogItemTooltip(lr_talents.talents[lp_talentIndex].button, lv_tooltip, PlayerGroupSingle(lr_talents.player));
+}
+
+
+
+bool lib_talent_gf_TalentTreeisOpen (TalentTree_r lr_talents) {
+  return DialogIsVisible(lr_talents.mainTalentDialog, lr_talents.player);
+}
+
+void lib_talent_gf_UpdateAbilityButtonTooltip (TalentTree_r lr_talents, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, string lp_abilityLink, string lp_buttonLink) {
+  text lv_tooltipName;
+  text lv_tooltipRequirement;
+  text lv_tooltipRequirementSpacer;
+  int lv_prerequisiteIndex;
+  text lv_pointsText;
+  text lv_tooltipPrerequisite;
+  text lv_tooltipDescription;
+  bool lv_hasCost;
+  text lv_tooltipCost;
+  text lv_tooltipCostMinerals;
+  text lv_tooltipCostGas;
+  text lv_tooltipCostLife;
+  text lv_tooltipCostEnergy;
+  text lv_tooltipCostCooldown;
+
+
+  lv_tooltipName = (StringExternal("Param/Value/lib_1_09FBC8F4") + StringExternal(("Button/Name/" + (lp_buttonLink))) + StringExternal("Param/Value/lib_1_A533532A"));
+  if (lp_requiredPoints > 0) {
+    if (!lr_talents.talents[lp_buttonIndex].prerequisitesComplete) {
+      lv_tooltipRequirementSpacer = StringExternal("Param/Value/lib_1_3D5D601C");
+    }
+    else {
+      lv_tooltipRequirementSpacer = StringExternal("Param/Value/lib_1_A045BCC2");
+    }
+    lv_tooltipRequirement = (StringExternal("Param/Value/lib_1_31AEA4D1") + IntToText(lp_requiredPoints) + StringExternal("Param/Value/lib_1_ADD45111") + lr_talents.treeNames[lp_tree] + StringExternal("Param/Value/lib_1_DBF60C3F") + lv_tooltipRequirementSpacer);
+  }
+  else {
+    lv_tooltipRequirement = StringToText("");
+  }
+
+  if (!lr_talents.talents[lp_buttonIndex].prerequisitesComplete) {
+    lv_prerequisiteIndex = lr_talents.talents[lp_buttonIndex].prerequisiteIs;
+    if ((lr_talents.talents[lv_prerequisiteIndex].maxRank == 1)) {
+      lv_pointsText = StringExternal("Param/Value/lib_1_02BBAD52");
+    }
+    else {
+      lv_pointsText = StringExternal("Param/Value/lib_1_E5D41D76");
+    }
+    lv_tooltipPrerequisite = (StringExternal("Param/Value/lib_1_95225FD9") + IntToText(lr_talents.talents[lv_prerequisiteIndex].maxRank) + StringExternal("Param/Value/SPACE") + lv_pointsText + StringExternal("Param/Value/lib_1_C566D5F1") + lr_talents.talents[lv_prerequisiteIndex].name + StringExternal("Param/Value/lib_1_3680DFC1"));
+  }
+  else {
+    lv_tooltipPrerequisite = StringToText("");
+  }
+
+  if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Resource[Vespene]", lr_talents.player)) > 0)) {
+    lv_tooltipCostGas = (StringExternal("Param/Value/lib_1_6E372436") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Resource[Vespene]", lr_talents.player)) + StringExternal("Param/Value/2SPACE"));
+    lv_hasCost = true;
+  }
+
+  if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Life]", lr_talents.player)) > 0)) {
+    lv_tooltipCostLife = (StringExternal("Param/Value/lib_1_64005C61") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Life]", lr_talents.player)) + StringExternal("Param/Value/2SPACE"));
+    lv_hasCost = true;
+  }
+
+  if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Energy]", lr_talents.player)) > 0)) {
+    lv_tooltipCostEnergy = (StringExternal("Param/Value/lib_1_36A22419") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Vital[Energy]", lr_talents.player)) + StringExternal("Param/Value/2SPACE"));
+    lv_hasCost = true;
+  }
+
+  if ((StringToInt(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Cooldown.TimeUse", lr_talents.player)) > 0)) {
+    lv_tooltipCostCooldown = (StringExternal("Param/Value/lib_1_28B4F42A") + StringToText(CatalogFieldValueGet(c_gameCatalogAbil, (lp_abilityLink), "Cost[0].Cooldown.TimeUse", lr_talents.player)) + StringExternal("Param/Value/2SPACE"));
+    lv_hasCost = true;
+  }
+
+  if (lv_hasCost) {
+    lv_tooltipCost = (StringExternal("Param/Value/lib_1_9F0F1568") + lv_tooltipCostMinerals + lv_tooltipCostGas + lv_tooltipCostLife + lv_tooltipCostEnergy + lv_tooltipCostCooldown + StringExternal("Param/Value/lib_1_9C21FB6F"));
+  }
+  else {
+    lv_tooltipCost = StringToText("");
+  }
+  lv_tooltipDescription = (StringExternal("Param/Value/lib_1_04F5E258") + lv_tooltipCost + StringExternal(("Button/Tooltip/" + (lp_buttonLink))) + StringExternal("Param/Value/lib_1_3E98BEAA"));
+  libNtve_gf_SetDialogItemTooltip(lp_button, (lv_tooltipName + lv_tooltipRequirement + lv_tooltipPrerequisite + lv_tooltipDescription), PlayerGroupAll());
+}
+
+void lib_talent_gf_UpdatePassiveButtonTooltip (TalentTree_r lr_talents, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, text lp_name, text lp_descriptionRaw, int lp_currentRank, fixed lp_multiplier1, fixed lp_multiplier2) {
+  text lv_tooltipName;
+  text lv_tooltipRequirement;
+  text lv_tooltipRequirementSpacer;
+  int lv_prerequisiteIndex;
+  text lv_pointsText;
+  text lv_tooltipPrerequisite;
+  text lv_tooltipDescription;
+  int lv_rankMultiplier;
+
+  lv_tooltipName = (StringExternal("Param/Value/lib_1_20CC4B21") + lp_name + StringExternal("Param/Value/lib_1_269556FE"));
+  if (lp_requiredPoints > 0) {
+    if (!lr_talents.talents[lp_buttonIndex].prerequisitesComplete) {
+      lv_tooltipRequirementSpacer = StringExternal("Param/Value/lib_1_A01F23F2");
+    }
+    else {
+      lv_tooltipRequirementSpacer = StringExternal("Param/Value/lib_1_9A874965");
+    }
+    lv_tooltipRequirement = (StringExternal("Param/Value/lib_1_7CB7BFBB") + IntToText(lp_requiredPoints) + StringExternal("Param/Value/lib_1_61D82CE4") + lr_talents.treeNames[lp_tree] + StringExternal("Param/Value/lib_1_6BED7575") + lv_tooltipRequirementSpacer);
+  }
+  else {
+    lv_tooltipRequirement = StringToText("");
+  }
+  lv_prerequisiteIndex = lr_talents.talents[lp_buttonIndex].prerequisiteIs;
+  if (lv_prerequisiteIndex != -1 && !lr_talents.talents[lp_buttonIndex].prerequisitesComplete) {
+    if (lr_talents.talents[lv_prerequisiteIndex].maxRank == 1) {
+      lv_pointsText = StringExternal("Param/Value/lib_1_B9826448");
+    }
+    else {
+      lv_pointsText = StringExternal("Param/Value/lib_1_E3F15863");
+    }
+    lv_tooltipPrerequisite = (StringExternal("Param/Value/lib_1_B9887A7A") + IntToText(5) + StringExternal("Param/Value/SPACE") + lv_pointsText + StringExternal("Param/Value/lib_1_583A97DF") + lr_talents.talents[lv_prerequisiteIndex].name + StringExternal("Param/Value/lib_1_4A56FEC3"));
+  }
+
+  else {
+    lv_tooltipPrerequisite = StringToText("");
+  }
+  if (lp_currentRank > 0) {
+    lv_rankMultiplier = lp_currentRank;
+  }
+  else {
+    lv_rankMultiplier = 1;
+  }
+  lv_tooltipDescription = TextReplaceWord(lp_descriptionRaw, StringExternal("Param/Value/lib_1_6D51BF3D"), FixedToText((lp_multiplier1 * IntToFixed(lv_rankMultiplier)), 1), c_stringReplaceAll, c_stringNoCase);
+  lv_tooltipDescription = TextReplaceWord(lv_tooltipDescription, StringExternal("Param/Value/lib_1_2F659930"), FixedToText((lp_multiplier2 * IntToFixed(lv_rankMultiplier)), 1), c_stringReplaceAll, c_stringNoCase);
+  lv_tooltipDescription = (StringExternal("Param/Value/lib_1_3AE2BD72") + lv_tooltipDescription + StringExternal("Param/Value/lib_1_1ECE9A68"));
+  libNtve_gf_SetDialogItemTooltip(lp_button, (lv_tooltipName + lv_tooltipRequirement + lv_tooltipPrerequisite + lv_tooltipDescription), PlayerGroupAll());
+}
+
+void lib_talent_gf_CreateTalentButton (TalentTree_r lr_talents, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, string lp_behavior, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility) {
+  string lv_buttonGlowIMG;
+  string lv_buttonNormalIMG;
+  string lv_buttonHoverIMG;
+  string lv_buttonLabelIMG;
+  int lv_xOffset;
+  int lv_yOffset;
+  string lv_talentIMG;
+  string lv_talentIMGString;
+  int lv_requiredPoints;
+  int lv_talentIndex;
+  playergroup lv_playergroup = PlayerGroupSingle(lr_talents.player);
+  Talent_r lr_talent;
+  
+  lv_talentIMGString = "";
+
+  lv_talentIndex = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row);
+  lr_talent = lr_talents.talents[lv_talentIndex];
+    
+  lr_talent.isUsed = true;
+  lr_talent.tree = lp_tree;
+  lr_talent.column = lp_column;
+  lr_talent.row = lp_row;
+  lr_talent.upgrade = lp_upgradeLink;
+  lr_talent.behavior = lp_behavior;
+  lr_talent.type = lp_talentType;
+  // TODO: Make this something passed in here.
+  lr_talent.prerequisiteRequiredRank = lib_talent_gv_POINTSPERPREREQUISITE;
+  if (lr_talents.colorScheme == lib_talent_ge_ColorScheme_Blue) {
+    lv_buttonGlowIMG = "Assets\\Textures\\ui_research_button_protoss_researched.dds";
+    lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_protoss.dds";
+    lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_protoss.dds";
+    lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_protoss.dds";
+  }
+  else if (lr_talents.colorScheme == lib_talent_ge_ColorScheme_Green) {
+    lv_buttonGlowIMG = "Assets\\Textures\\ui_ingame_tipsbutton_glow.dds";
+    lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_terran.dds";
+    lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_terran.dds";
+    lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_terran.dds";
+  }
+  else if (lr_talents.colorScheme == lib_talent_ge_ColorScheme_Red) {
+    lv_buttonGlowIMG = "Assets\\Textures\\ui_research_button_zerg_researched.dds";
+    lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_zerg.dds";
+    lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_zerg.dds";
+    lv_buttonLabelIMG = "Assets\\Textures\\ui_tooltip_frame_zerg.dds";
+  }
+  if ((lr_talent.button != c_invalidDialogControlId)) {
+    libNtve_gf_UIErrorMessage(lv_playergroup, StringExternal("Param/Value/lib_1_F0C5D28C"), SoundLink("Alert_TerranBuildError", -1));
+  }
+  lv_xOffset = (-50 * (lib_talent_gv_COLUMNS - 1)) + (100 * lp_column);
+  lv_yOffset = 25 + (100 * lp_row);
+  libNtve_gf_CreateDialogItemButton(lr_talents.subTalentDialog[lp_tree], 75, 75, c_anchorTop, lv_xOffset, lv_yOffset, StringToText(""), StringToText(""), "");
+  lr_talent.button = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemImage(lr_talent.button, lv_buttonNormalIMG, lv_playergroup);
+  libNtve_gf_SetDialogItemImageType(lr_talent.button, c_triggerImageTypeBorder, lv_playergroup);
+  libNtve_gf_SetDialogItemImage2(lr_talent.button, lv_buttonHoverIMG, lv_playergroup);
+  if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_None) {
+    lr_talent.prerequisitesComplete = true;
+    lr_talent.prerequisiteIs = -1;
+  }
+  else if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_Up) {
+    if (lp_row > 0) {
+      lr_talent.prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row - 1);
+      lr_talents.talents[lr_talent.prerequisiteIs].prerequisiteOf = lv_talentIndex;
+    } else {
+      lr_talent.prerequisiteIs = -1;
+    }
+    lr_talent.prerequisitesComplete = false;
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -20, -55);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -20, -43);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 0, -55);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 0, -43);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 20, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 20, -55);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 20, -43);
+  }
+  else if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_Left) {
+    if (lp_column > 0) {
+      lr_talent.prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column - 1, lp_row);
+      lr_talents.talents[lr_talent.prerequisiteIs].prerequisiteOf = lv_talentIndex;
+    } else {
+      lr_talent.prerequisiteIs = -1;
+    }
+    lr_talent.prerequisitesComplete = false;
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 180, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -54, -20);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 270, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -41, -20);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 180, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -54, 0);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 270, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -41, 0);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 180, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -54, 20);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 270, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, -41, 20);
+  }
+  else if (lp_talentPrerequisite == lib_talent_ge_TalentPrerequisite_Right) {
+    if (lp_column > 0) {
+      lr_talent.prerequisiteIs = lib_talent_gf_FlattenPosition(lp_tree, lp_column - 1, lp_row);
+      lr_talents.talents[lr_talent.prerequisiteIs].prerequisiteOf = lv_talentIndex;
+    } else {
+      lr_talent.prerequisiteIs = -1;
+    }
+    lr_talent.prerequisitesComplete = false;
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 54, -20);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 90, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 41, -20);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 54, 0);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 90, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 41, 0);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 20, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_tail90cw.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 54, 20);
+    libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 15, 15, c_anchorCenter, 0, 0, StringToText(""), "Assets\\Textures\\ui_techtree_arrow_head2.dds", c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_SetDialogItemRotation(DialogControlLastCreated(), 90, lv_playergroup);
+    libNtve_gf_SetDialogItemRenderPriority(DialogControlLastCreated(), 499, lv_playergroup);
+    DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 41, 20);
+  }
+  lv_requiredPoints = lr_talents.pointsPerTier * lp_row;
+
+  if (lp_talentType == lib_talent_ge_TalentType_Ability) {
+    lib_talent_gf_UpdateAbilityButtonTooltip(lr_talents, lr_talent.button, lv_talentIndex, lv_requiredPoints, lp_tree, lp_abilityLinkAbility, lp_buttonLinkAbility);
+    lv_talentIMGString = CatalogFieldValueGet(c_gameCatalogButton, (lp_buttonLinkAbility), "Icon", lr_talents.player);
+    lv_talentIMG = lv_talentIMGString;
+    lr_talent.maxRank = 1;
+    lr_talent.name = StringExternal(("Button/Name/" + (lp_buttonLinkAbility)));
+    lr_talent.abilityLink = lp_abilityLinkAbility;
+    lr_talent.buttonLink = lp_buttonLinkAbility;
+  }
+  else if (lp_talentType == lib_talent_ge_TalentType_Passive) {
+    lib_talent_gf_UpdatePassiveButtonTooltip(lr_talents, lr_talent.button, lv_talentIndex, lv_requiredPoints, lp_tree, lp_namePassive, lp_tooltipTextPassive, 0, lp_multiplier1Passive, lp_multiplier2Passive);
+    lv_talentIMG = lp_imagePassive;
+    lr_talent.maxRank = lp_maxRankPassive;
+    lr_talent.name = lp_namePassive;
+    lr_talent.tooltipDescription = lp_tooltipTextPassive;
+    lr_talent.multiplier[0] = lp_multiplier1Passive;
+    lr_talent.multiplier[1] = lp_multiplier2Passive;
+  }
+  libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 67, 67, c_anchorCenter, 0, 0, StringToText(""), lv_talentIMG, c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+  DialogControlSetPositionRelative(DialogControlLastCreated(), lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 0, 0);
+  libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 130, 130, c_anchorCenter, 0, 0, StringToText(""), lv_buttonGlowIMG, c_triggerImageTypeNormal, false, Color(100,100,100), c_triggerBlendModeNormal);
+  lr_talent.buttonGlow = DialogControlLastCreated();
+  DialogControlSetPositionRelative(lr_talent.buttonGlow, lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 0, -2);
+  libNtve_gf_SetDialogItemRenderPriority(lr_talent.buttonGlow, 500, lv_playergroup);
+  libNtve_gf_CreateDialogItemImage(lr_talents.subTalentDialog[lp_tree], 60, 35, c_anchorCenter, 0, 0, StringToText(""), lv_buttonLabelIMG, c_triggerImageTypeBorder, true, Color(100,100,100), c_triggerBlendModeNormal);
+  lr_talent.buttonLabelBackground = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemRenderPriority(lr_talent.buttonLabelBackground, 520, lv_playergroup);
+  DialogControlSetPositionRelative(lr_talent.buttonLabelBackground, lv_playergroup, c_anchorCenter, lr_talent.button, c_anchorCenter, 25, 32);
+  libNtve_gf_CreateDialogItemLabel(lr_talents.subTalentDialog[lp_tree], 55, 20, c_anchorCenter, 0, 0, (StringExternal("Param/Value/lib_1_6FE57CC2") + StringExternal("Param/Value/lib_1_D30A5C78") + IntToText(lr_talent.maxRank)), Color(100,100,100), false, 2.0);
+  lr_talent.buttonLabel = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemRenderPriority(lr_talent.buttonLabel, 521, lv_playergroup);
+  libNtve_gf_SetDialogItemStyle(lr_talent.buttonLabel, "IdleButtonCharge", lv_playergroup);
+  DialogControlSetPositionRelative(lr_talent.buttonLabel, lv_playergroup, c_anchorCenter, lr_talent.buttonLabelBackground, c_anchorCenter, 0, 0);
+  if (lp_row != 0 || lp_talentPrerequisite != lib_talent_ge_TalentPrerequisite_None) {
+    DialogControlSetEnabled(lr_talent.button, lv_playergroup, false);
+    DialogControlSetVisible(lr_talent.buttonGlow, lv_playergroup, false);
+    DialogControlSetVisible(lr_talent.buttonLabelBackground, lv_playergroup, false);
+    DialogControlSetVisible(lr_talent.buttonLabel, lv_playergroup, false);
+  }
+}
+
+void lib_talent_gf_UnlockTalentButton (TalentTree_r lr_talents, int lp_tree, int lp_column, int lp_row) {
+  int lv_talentIndex;
+  Talent_r lr_talent;
+  playergroup lv_playergroup = PlayerGroupSingle(lr_talents.player);
+
+  lv_talentIndex = lib_talent_gf_FlattenPosition(lp_tree, lp_column, lp_row);
+  lr_talent = lr_talents.talents[lv_talentIndex];
+  if (
+    lr_talent.button == c_invalidDialogControlId ||
+    !lr_talent.prerequisitesComplete
+  ) {
+    return;
+  }
+  
+  DialogControlSetVisible(lr_talent.buttonLabelBackground, lv_playergroup, true);
+  DialogControlSetVisible(lr_talent.buttonLabel, lv_playergroup, true);
+  
+  if (lr_talent.type == lib_talent_ge_TalentType_Ability) {
+    lib_talent_gf_UpdateAbilityButtonTooltip(
+      lr_talents,
+      lr_talent.button, 
+      lv_talentIndex, 
+      0, 
+      lp_tree, 
+      lr_talent.abilityLink, 
+      lr_talent.buttonLink
+    );
+  }
+  else if (lr_talent.type == lib_talent_ge_TalentType_Passive) {
+    lib_talent_gf_UpdatePassiveButtonTooltip(
+      lr_talents, 
+      lr_talent.button, 
+      lv_talentIndex, 
+      0, 
+      lp_tree, 
+      lr_talent.name, 
+      lr_talent.tooltipDescription, 
+      lr_talent.rank, 
+      lr_talent.multiplier[0], 
+      lr_talent.multiplier[1]
+    );
+  }
+  
+  if (lr_talent.rank >= lr_talent.maxRank) {
+    return;
+  }
+
+  DialogControlSetEnabled(lr_talent.button, lv_playergroup, true);
+  DialogControlSetVisible(lr_talent.buttonGlow, lv_playergroup, true);
+}
+
+void lib_talent_gf_UnlockTalentTier (TalentTree_r lr_talents, int lp_tree, int lp_tier) {
+  int lv_column;
+
+  for (lv_column = 0; lv_column < lib_talent_gv_COLUMNS; lv_column += 1 ) {
+    lib_talent_gf_UnlockTalentButton(lr_talents, lp_tree, lv_column, lp_tier);
+  }
+}
+
+void lib_talent_gf_CreateTalentTree (TalentTree_r lr_talents, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier) {
+  int lv_mainDialogHeight;
+  int lv_mainDialogWidth;
+  string lv_mainDialogIMG;
+  string lv_titleFrameIMG;
+  string lv_dividerFrameIMG;
+  string lv_buttonNormalIMG;
+  string lv_buttonHoverIMG;
+  string lv_treeNameString;
+  text lv_treeName1;
+  text lv_treeName2;
+  text lv_treeName3;
+
+  lv_treeNameString = "";
+
+  lr_talents.pointsPerTier = lp_pointsPerTier;
+  lr_talents.colorScheme = lp_colorScheme;
+  if (lp_colorScheme == lib_talent_ge_ColorScheme_Blue) {
+    lv_mainDialogIMG = "Assets\\Textures\\ui_glue_dropdownmenuframe_protoss.dds";
+    lv_titleFrameIMG = "Assets\\Textures\\ui_help_frame_tips_new_protoss.dds";
+    lv_dividerFrameIMG = "Assets\\Textures\\ui_tooltip_frame_protoss.dds";
+    lv_buttonNormalIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normalpressed_protoss.dds";
+    lv_buttonHoverIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normaloverpressedover_protoss.dds";
+  }
+  else if (lp_colorScheme == lib_talent_ge_ColorScheme_Green) {
+    lv_mainDialogIMG = "Assets\\Textures\\ui_glue_dropdownmenuframe_terran.dds";
+    lv_titleFrameIMG = "Assets\\Textures\\ui_help_frame_tips_new_terran.dds";
+    lv_dividerFrameIMG = "Assets\\Textures\\ui_tooltip_frame_terran.dds";
+    lv_buttonNormalIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normalpressed.dds";
+    lv_buttonHoverIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normaloverpressedover.dds";
+  }
+  else if (lp_colorScheme == lib_talent_ge_ColorScheme_Red) {
+    lv_mainDialogIMG = "Assets\\Textures\\ui_glue_dropdownmenuframe_zerg.dds";
+    lv_titleFrameIMG = "Assets\\Textures\\ui_help_frame_tips_new_zerg.dds";
+    lv_dividerFrameIMG = "Assets\\Textures\\ui_tooltip_frame_zerg.dds";
+    lv_buttonNormalIMG = "Assets\\Textures\\ui_button_generic_normalpressed_zerg.dds";
+    lv_buttonHoverIMG = "Assets\\Textures\\ui_button_generic_normaloverpressedover_zerg.dds";
+    lv_buttonNormalIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normalpressed_zerg.dds";
+    lv_buttonHoverIMG = "Assets\\Textures\\ui_ingame_resourcesharing_button_x_normaloverpressedover_zerg.dds";
+  }
+  lv_mainDialogHeight = 335 + (100 * (lp_rows - 1));
+  lv_mainDialogWidth = 450 * lib_talent_gv_TREES;
+  DialogCreate(lv_mainDialogWidth, lv_mainDialogHeight, c_anchorCenter, 0, 0, true);
+  lr_talents.mainTalentDialog = DialogLastCreated();
+  DialogSetImageVisible(lr_talents.mainTalentDialog, false);
+  libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 0, 0, c_anchorCenter, 0, 0, StringToText(""), lv_mainDialogIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+  DialogControlSetFullDialog(DialogControlLastCreated(), PlayerGroupAll(), true);
+  libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 325, 100, c_anchorTop, 0, 12, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+  libNtve_gf_CreateDialogItemLabel(lr_talents.mainTalentDialog, 325, 100, c_anchorTop, 0, 15, lp_title, Color(100,100,100), false, 2.0);
+  libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
+  libNtve_gf_CreateDialogItemButton(lr_talents.mainTalentDialog, 35, 35, c_anchorTopRight, 22, 5, StringToText(""), StringToText(""), "");
+  lr_talents.closeTalentTreeButton = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemImage(lr_talents.closeTalentTreeButton, lv_buttonNormalIMG, PlayerGroupAll());
+  libNtve_gf_SetDialogItemImageType(lr_talents.closeTalentTreeButton, c_triggerImageTypeNormal, PlayerGroupAll());
+  libNtve_gf_SetDialogItemImage2(lr_talents.closeTalentTreeButton, lv_buttonHoverIMG, PlayerGroupAll());
+  DialogCreate(110, 110, c_anchorCenter, 0, 0, true);
+  lr_talents.availablePointsDialog = DialogLastCreated();
+  DialogSetPositionRelative(lr_talents.availablePointsDialog, c_anchorBottomRight, lr_talents.mainTalentDialog, c_anchorTopLeft, 70, 60);
+  DialogSetImageVisible(lr_talents.availablePointsDialog, false);
+  libNtve_gf_CreateDialogItemImage(lr_talents.availablePointsDialog, 1, 1, c_anchorCenter, 0, 0, StringToText(""), lv_dividerFrameIMG, c_triggerImageTypeBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+  DialogControlSetFullDialog(DialogControlLastCreated(), PlayerGroupAll(), true);
+  libNtve_gf_CreateDialogItemLabel(lr_talents.availablePointsDialog, 100, 100, c_anchorTop, 0, -12, IntToText(lr_talents.availablePoints), Color(100,100,100), false, 2.0);
+  lr_talents.availablePointsLabel = DialogControlLastCreated();
+  libNtve_gf_SetDialogItemStyle(lr_talents.availablePointsLabel, "HelpMenuDialogTitle", PlayerGroupAll());
+  libNtve_gf_CreateDialogItemLabel(lr_talents.availablePointsDialog, 100, 100, c_anchorTop, 0, 55, StringExternal("Param/Value/lib_1_35BCD81C"), Color(100,100,100), false, 2.0);
+  lv_treeNameString = lp_treeNames;
+  lv_treeNameString = StringReplaceWord(lv_treeNameString, " ", "_", c_stringReplaceAll, c_stringNoCase);
+  lv_treeNameString = StringReplaceWord(lv_treeNameString, ",", " ", c_stringReplaceAll, c_stringNoCase);
+  lv_treeName1 = StringToText(StringReplaceWord(StringWord(lv_treeNameString, 1), "_", " ", c_stringReplaceAll, c_stringNoCase));
+  lv_treeName2 = StringToText(StringReplaceWord(StringWord(lv_treeNameString, 2), "_", " ", c_stringReplaceAll, c_stringNoCase));
+  lv_treeName3 = StringToText(StringReplaceWord(StringWord(lv_treeNameString, 3), "_", " ", c_stringReplaceAll, c_stringNoCase));
+  lr_talents.treeNames[0] = lv_treeName1;
+  lr_talents.treeNames[1] = lv_treeName2;
+  lr_talents.treeNames[2] = lv_treeName3;
+  // TODO: Find a way to do this with Maths in a for loop.
+  if (lib_talent_gv_TREES == 1) {
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 0, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemLabel(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 0, 113, lv_treeName1, Color(100,100,100), false, 2.0);
+    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
+    DialogCreate(450, (50 + (100 * lp_rows)), c_anchorCenter, 0, 0, true);
+    lr_talents.subTalentDialog[0] = DialogLastCreated();
+    DialogSetPositionRelative(lr_talents.subTalentDialog[0], c_anchorTop, lr_talents.mainTalentDialog, c_anchorTop, 0, 200);
+    DialogSetImageVisible(lr_talents.subTalentDialog[0], false);
+  }
+  else if (lib_talent_gv_TREES == 2) {
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, -225, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemLabel(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, -225, 113, lv_treeName1, Color(100,100,100), false, 2.0);
+    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 225, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemLabel(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 225, 113, lv_treeName2, Color(100,100,100), false, 2.0);
+    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 17, (100 * lp_rows), c_anchorTop, 0, 200, StringToText(""), lv_dividerFrameIMG, c_triggerImageTypeBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogCreate(450, (50 + (100 * lp_rows)), c_anchorCenter, 0, 0, true);
+    lr_talents.subTalentDialog[0] = DialogLastCreated();
+    DialogSetPositionRelative(lr_talents.subTalentDialog[0], c_anchorTop, lr_talents.mainTalentDialog, c_anchorTop, -225, 200);
+    DialogSetImageVisible(lr_talents.subTalentDialog[0], false);
+    DialogCreate(450, (50 + (100 * lp_rows)), c_anchorCenter, 0, 0, true);
+    lr_talents.subTalentDialog[1] = DialogLastCreated();
+    DialogSetPositionRelative(lr_talents.subTalentDialog[1], c_anchorTop, lr_talents.mainTalentDialog, c_anchorTop, 225, 200);
+    DialogSetImageVisible(lr_talents.subTalentDialog[1], false);
+  }
+  else if (lib_talent_gv_TREES == 3) {
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, -450, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemLabel(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, -450, 113, lv_treeName1, Color(100,100,100), false, 2.0);
+    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 0, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemLabel(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 0, 113, lv_treeName2, Color(100,100,100), false, 2.0);
+    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 450, 110, StringToText(""), lv_titleFrameIMG, c_triggerImageTypeHorizontalBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemLabel(lr_talents.mainTalentDialog, 275, 90, c_anchorTop, 450, 113, lv_treeName3, Color(100,100,100), false, 2.0);
+    libNtve_gf_SetDialogItemStyle(DialogControlLastCreated(), "HelpMenuDialogTitle", PlayerGroupAll());
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 17, (100 * lp_rows), c_anchorTop, -225, 200, StringToText(""), lv_dividerFrameIMG, c_triggerImageTypeBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    libNtve_gf_CreateDialogItemImage(lr_talents.mainTalentDialog, 17, (100 * lp_rows), c_anchorTop, 225, 200, StringToText(""), lv_dividerFrameIMG, c_triggerImageTypeBorder, false, Color(100,100,100), c_triggerBlendModeNormal);
+    DialogCreate(450, (50 + (100 * lp_rows)), c_anchorCenter, 0, 0, true);
+    lr_talents.subTalentDialog[0] = DialogLastCreated();
+    DialogSetPositionRelative(lr_talents.subTalentDialog[0], c_anchorTop, lr_talents.mainTalentDialog, c_anchorTop, -450, 200);
+    DialogSetImageVisible(lr_talents.subTalentDialog[0], false);
+    DialogCreate(450, (50 + (100 * lp_rows)), c_anchorCenter, 0, 0, true);
+    lr_talents.subTalentDialog[1] = DialogLastCreated();
+    DialogSetPositionRelative(lr_talents.subTalentDialog[1], c_anchorTop, lr_talents.mainTalentDialog, c_anchorTop, 0, 200);
+    DialogSetImageVisible(lr_talents.subTalentDialog[1], false);
+    DialogCreate(450, (50 + (100 * lp_rows)), c_anchorCenter, 0, 0, true);
+    lr_talents.subTalentDialog[2] = DialogLastCreated();
+    DialogSetPositionRelative(lr_talents.subTalentDialog[2], c_anchorTop, lr_talents.mainTalentDialog, c_anchorTop, 450, 200);
+    DialogSetImageVisible(lr_talents.subTalentDialog[2], false);
+  }
+}
+
+void lib_talent_gf_DestroyTalentTree (TalentTree_r lr_talents) {
+  int lv_i;
+  Talent_r lr_workingTalent;
+
+  lr_talents.availablePoints = 0;
+  lr_talents.spentPoints = 0;
+  lr_talents.pointsInTree[0] = 0;
+  lr_talents.pointsInTree[1] = 0;
+  lr_talents.pointsInTree[2] = 0;
+  DialogDestroy(lr_talents.mainTalentDialog);
+  DialogDestroy(lr_talents.subTalentDialog[0]);
+  DialogDestroy(lr_talents.subTalentDialog[1]);
+  DialogDestroy(lr_talents.subTalentDialog[2]);
+  DialogDestroy(lr_talents.availablePointsDialog);
+  for (lv_i = 0; lv_i < lib_talent_gv_TALENTCOUNT; lv_i += 1) {
+    lr_workingTalent = lr_talents.talents[lv_i];
+    lr_workingTalent.button = c_invalidDialogControlId;
+    lr_workingTalent.rank = 0;
+    lr_workingTalent.maxRank = 0;
+    lr_workingTalent.prerequisiteIs = -1;
+    lr_workingTalent.prerequisiteOf = -1;
+    lr_workingTalent.prerequisitesComplete = false;
+  }
+}
+
+void lib_talent_gf_ShowHideTalentTree (TalentTree_r lr_talents) {  
+  playergroup lv_playergroup = PlayerGroupSingle(lr_talents.player);
+
+  if (DialogIsVisible(lr_talents.mainTalentDialog, lr_talents.player)) {
+    DialogSetVisible(lr_talents.mainTalentDialog, lv_playergroup, false);
+    DialogSetVisible(lr_talents.subTalentDialog[0], lv_playergroup, false);
+    DialogSetVisible(lr_talents.subTalentDialog[1], lv_playergroup, false);
+    DialogSetVisible(lr_talents.subTalentDialog[2], lv_playergroup, false);
+    DialogSetVisible(lr_talents.availablePointsDialog, lv_playergroup, false);
+  } else {
+    DialogSetVisible(lr_talents.mainTalentDialog, lv_playergroup, true);
+    DialogSetVisible(lr_talents.subTalentDialog[0], lv_playergroup, true);
+    DialogSetVisible(lr_talents.subTalentDialog[1], lv_playergroup, true);
+    DialogSetVisible(lr_talents.subTalentDialog[2], lv_playergroup, true);
+    DialogSetVisible(lr_talents.availablePointsDialog, lv_playergroup, true);
+  }
+}
+
+void lib_talent_gf_GrantTalentPoints (TalentTree_r lr_talents, int lp_talentPoints) {
+  lr_talents.availablePoints += lp_talentPoints;
+  libNtve_gf_SetDialogItemText(lr_talents.availablePointsLabel, IntToText(lr_talents.availablePoints), PlayerGroupAll());
+}
+
+
+// ---
+
+bool lib_talent_gt_PickTalent_Func (bool testConds, bool runActions) {  
+  int lv_unlockedToTier;
+  int lv_talentIndex;
+  int lv_unlockedPrereqTalentIndex;
+  int lv_unlockedPrereqTalentRequiredPoints;
+  int lv_pointsRequired;
+  int lv_player = EventPlayer();
+  playergroup lv_playergroup = PlayerGroupSingle(lv_player);
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lv_player - 1];
+  Talent_r lr_talent;
+
+
+  lv_talentIndex = lib_talent_gf_GetTalentButtonIndex(lr_talents, EventDialogControl());
+
+  if (testConds) {
+    if (
+      lv_talentIndex == -1 ||
+      lr_talents.availablePoints < 1 ||
+      lr_talents.adding
+    ) {
+      return false;
+    }
+  }
+
+  lr_talent = lr_talents.talents[lv_talentIndex];
+
+  if (!runActions) {
+    return true;
+  }
+
+  lr_talents.adding = true;
+  while (lr_talents.locked) {
+    Wait(1.0, c_timeGame);
+  }
+  lr_talents.locked = true;
+
+  lr_talent.rank += 1;
+  lr_talents.pointsInTree[lr_talent.tree] += 1;
+  lr_talents.availablePoints -= 1;
+  lr_talents.spentPoints += 1;
+  if (lr_talent.upgrade != null) {
+    TechTreeUpgradeAddLevel(lv_player, lr_talent.upgrade, 1);
+  }
+  if (lr_talent.behavior != null) {
+    UnitBehaviorAdd(lr_talents.hero, lr_talent.behavior, lr_talents.hero, 1);
+  }
+  if (lr_talent.rank == lr_talent.maxRank) {
+    libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.maxRank) + StringExternal("Param/Value/lib_1_BC8BEA49") + IntToText(lr_talent.maxRank)), lv_playergroup);
+    DialogControlSetEnabled(lr_talent.button, lv_playergroup, false);
+    DialogControlSetVisible(lr_talent.buttonGlow, lv_playergroup, false);
+  } 
+  else {
+    libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.rank) + StringExternal("Param/Value/lib_1_75883A25") + IntToText(lr_talent.maxRank)), lv_playergroup);
+  }
+  libNtve_gf_SetDialogItemText(lr_talents.availablePointsLabel, IntToText(lr_talents.availablePoints), lv_playergroup);
+  
+  lv_pointsRequired = lr_talents.pointsPerTier * lr_talent.row;
+  
+  lv_unlockedPrereqTalentIndex = lr_talent.prerequisiteOf;
+  if (
+    lv_unlockedPrereqTalentIndex != -1 &&
+    lr_talent.rank >= lr_talents.talents[lv_unlockedPrereqTalentIndex].prerequisiteRequiredRank &&
+    !lr_talents.talents[lv_unlockedPrereqTalentIndex].prerequisitesComplete
+  ) {
+    lv_unlockedPrereqTalentRequiredPoints = lr_talents.pointsPerTier * lr_talents.talents[lv_unlockedPrereqTalentIndex].row;
+    if (lr_talents.pointsInTree[lr_talents.talents[lv_unlockedPrereqTalentIndex].tree] >= lv_unlockedPrereqTalentRequiredPoints) {
+      lr_talents.talents[lv_unlockedPrereqTalentIndex].prerequisitesComplete = true;
+      lv_unlockedPrereqTalentRequiredPoints = 0;
+      SoundPlay(SoundLink("UI_TechConsole_Purchase", -1), PlayerGroupSingle(lv_player), 100.0, 0.0);
+      lib_talent_gf_UnlockTalentButton(
+        lr_talents, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].tree, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].column, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].row
+      );
+    }
+    if (lr_talents.talents[lv_unlockedPrereqTalentIndex].type == lib_talent_ge_TalentType_Ability) {
+      lib_talent_gf_UpdateAbilityButtonTooltip(
+        lr_talents, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].button, 
+        lv_unlockedPrereqTalentIndex, 
+        lv_unlockedPrereqTalentRequiredPoints, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].tree, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].abilityLink, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].buttonLink
+      );
+    }
+    else if (lr_talents.talents[lv_unlockedPrereqTalentIndex].type == lib_talent_ge_TalentType_Passive) {
+      lib_talent_gf_UpdatePassiveButtonTooltip(
+        lr_talents, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].button, 
+        lv_unlockedPrereqTalentIndex, 
+        lv_unlockedPrereqTalentRequiredPoints, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].tree, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].name, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].tooltipDescription, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].rank, 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].multiplier[0], 
+        lr_talents.talents[lv_unlockedPrereqTalentIndex].multiplier[1]
+      );
+    }
+  }
+  if ((lr_talent.rank > lr_talent.maxRank)) {
+    lr_talent.rank = lr_talent.maxRank;
+    lr_talents.pointsInTree[lr_talent.tree] -= 1;
+    lr_talents.availablePoints += 1;
+    lr_talents.spentPoints -= 1;
+  }
+  if ((lr_talent.type == lib_talent_ge_TalentType_Passive)) {
+    lib_talent_gf_UpdatePassiveButtonTooltip(lr_talents, lr_talent.button, lv_talentIndex, 0, lr_talent.tree, lr_talent.name, lr_talent.tooltipDescription, lr_talent.rank, lr_talent.multiplier[0], lr_talent.multiplier[1]);
+  }
+
+  if (lr_talents.pointsInTree[lr_talent.tree] % lr_talents.pointsPerTier == 0) {
+    lv_unlockedToTier = lr_talents.pointsInTree[lr_talent.tree] / lr_talents.pointsPerTier;
+    if (lib_talent_gv_ROWS > lv_unlockedToTier) {
+      lib_talent_gf_UnlockTalentTier(lr_talents, lr_talent.tree, lv_unlockedToTier);
+      SoundPlay(SoundLink("UI_TechConsole_Purchase", -1), PlayerGroupSingle(lv_player), 100.0, 0.0);
+    }
+  }
+
+  lr_talents.locked = false;
+  if ((lr_talent.rank > lr_talent.maxRank)) {
+    libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.maxRank) + StringExternal("Param/Value/lib_1_180A9D53") + IntToText(lr_talent.maxRank)), lv_playergroup);
+    lr_talent.rank = lr_talent.maxRank;
+    lr_talents.pointsInTree[lr_talent.tree] -= 1;
+    lr_talents.availablePoints += 1;
+    lr_talents.spentPoints -= 1;
+  }
+  Wait(0.1, c_timeReal);
+  lr_talents.adding = false;
+  return true;
+}
+
+bool lib_talent_gt_CloseTalent_Func (bool testConds, bool runActions) {
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[EventPlayer() - 1];
+
+  if (
+    testConds &&
+    EventDialogControl() != lr_talents.closeTalentTreeButton
+  ) {
+    return false;
+  }
+
+  if (!runActions) {
+    return true;
+  }
+  lib_talent_gf_ShowHideTalentTree(lr_talents);
+  return true;
+}
+
+bool lib_talent_gt_LoadTalentBank_Func (bool testConds, bool runActions) {
+  // TODO: Implement real bank load. Hero probably gutted this, but I can just reimplement.
+  if (!runActions) {
+    return true;
+  }
+  return true;
+}

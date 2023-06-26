@@ -33,17 +33,8 @@ const int gv_MaxVitality = 500;
 const int gv_StackableTypeCount = 9;
 
 // Library Consts.
-const int lib_talent_ge_ColorScheme_Blue = 0;
-const int lib_talent_ge_ColorScheme_Green = 1;
-const int lib_talent_ge_ColorScheme_Red = 2;
-const int lib_talent_ge_TalentPrerequisite_None = 0;
-const int lib_talent_ge_TalentPrerequisite_Left = 1;
-const int lib_talent_ge_TalentPrerequisite_Up = 2;
-const int lib_talent_ge_TalentPrerequisite_Right = 3;
-const int lib_talent_ge_TalentType_Passive = 0;
-const int lib_talent_ge_TalentType_Ability = 1;
-const int lib_talent_ge_SaveLoad_Save = 0;
-const int lib_talent_ge_SaveLoad_Load = 1;
+const int lib_talent_gv_PlayerCapacity = gv_PlayerCapacity;
+const string lib_talent_gv_BankName = "DQRPGTalentLibraryBank";
 
 const int lib_talent_gv_POINTSPERTIER = 5;
 const int lib_talent_gv_POINTSPERPREREQUISITE = 5;

@@ -1,5 +1,3 @@
-include "Script/functions/lib_talent/index"
-
 include "Script/functions/allGuardiansDead"
 include "Script/functions/customAi"
 include "Script/functions/cinematicAi"

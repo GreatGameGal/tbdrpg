@@ -428,13 +428,6 @@ trigger gt_RebornStats;
 trigger gt_MakeEndingPlay;
 trigger gt_Reborn;
 
-
-// Talent Library
-trigger lib_talent_gt_PickTalent;
-trigger lib_talent_gt_CloseTalent;
-trigger lib_talent_gt_LoadTalentBank;
-
-
 // Cinematic AI Talents
 trigger ai665651A4_waves_trigger = null;
 

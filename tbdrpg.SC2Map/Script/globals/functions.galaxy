@@ -96,24 +96,3 @@ void aiDF9A5388_start (int p);
 
 // Custom AI funcs
 void FakeInitCustomAI ();
-
-// Talent Library
-void lib_talent_InitVariables ();
-int lib_talent_gf_FlattenPosition (int lp_tree, int lp_column, int lp_row);
-int lib_talent_gf_GetTalentButtonIndex (Player_r lr_player, int lp_dialogItem);
-void lib_talent_gf_SaveTalentBuild (int lp_buildIndex, string lp_bankName, Player_r lr_player);
-void lib_talent_gf_LoadTalentBuild (int lp_buildIndex, string lp_bankName, Player_r lr_player);
-// THIS FUNCTION CRASHSE THE GAME CURRENTLY, DON'T USE IT!
-void lib_talent_gf_UpdateButtonTooltip (Player_r lr_player, int lp_talentIndex);
-
-bool lib_talent_gf_TalentTreeisOpen (Player_r lr_player);
-void lib_talent_gf_UpdateAbilityButtonTooltip (Player_r lr_player, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, string lp_abilityLink, string lp_buttonLink);
-void lib_talent_gf_UpdatePassiveButtonTooltip (Player_r lr_player, int lp_button, int lp_buttonIndex, int lp_requiredPoints, int lp_tree, text lp_name, text lp_descriptionRaw, int lp_currentRank, fixed lp_multiplier1, fixed lp_multiplier2);
-void lib_talent_gf_UnlockTalentButton (Player_r lr_player, int lp_tree, int lp_column, int lp_row);
-void lib_talent_gf_UnlockTalentTier (Player_r lr_player, int lp_tree, int lp_tier);
-void lib_talent_gf_CreateTalentTree (Player_r lr_player, text lp_title, int lp_colorScheme, int lp_trees, string lp_treeNames, int lp_columns, int lp_rows, int lp_pointsPerTier);
-void lib_talent_gf_CreateTalentButton (Player_r lr_player, int lp_tree, int lp_column, int lp_row, int lp_talentPrerequisite, string lp_upgradeLink, int lp_talentType, text lp_namePassive, int lp_maxRankPassive, string lp_imagePassive, text lp_tooltipTextPassive, fixed lp_multiplier1Passive, fixed lp_multiplier2Passive, string lp_abilityLinkAbility, string lp_buttonLinkAbility);
-void lib_talent_gf_ShowHideTalentTree (Player_r lr_player);
-void lib_talent_gf_GrantTalentPoints (int lp_talentPoints, Player_r lr_player);
-void lib_talent_gf_DestroyTalentTree (Player_r lr_player);
-void lib_talent_gf_ResetTalentBuild (Player_r lr_player, int lp_resetto);
