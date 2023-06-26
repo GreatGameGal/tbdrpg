@@ -971,7 +971,7 @@ void gf_ReapplyBuffs (Player_r lr_player) {
     lr_talent = lr_talents.talents[lv_i];
     if (lr_talent.behavior != null) {
       UnitBehaviorRemove(lr_player.dragon, lr_talent.behavior, c_unitBehaviorCountAll);
-      UnitBehaviorAdd(lr_player.dragon, "StrengthoftheDragon", lr_player.dragon, lr_talent.rank);
+      UnitBehaviorAdd(lr_player.dragon, lr_talent.behavior, lr_player.dragon, lr_talent.rank);
     }
   }
   gf_ApplyRebornStats(lr_player);
