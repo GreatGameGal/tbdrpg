@@ -328,7 +328,7 @@ void lib_talent_gf_ResetTalentBuild (TalentTree_r lr_talents, int lp_resetto) {
       libNtve_gf_SetUpgradeLevelForPlayer(lr_talents.player, lr_talent.upgrade, 0);
     }
     if (lr_talent.behavior != null) {
-      UnitBehaviorRemove(lr_talents.hero, lr_talent.behavior, lr_talent.rank);
+      UnitBehaviorRemove(lr_talents.hero, lr_talent.behavior, c_unitBehaviorCountAll);
     }
     lr_talent.rank = 0;
     libNtve_gf_SetDialogItemText(lr_talent.buttonLabel, (IntToText(lr_talent.rank) + StringExternal("Param/Value/lib_1_52455AE2") + IntToText(lr_talent.maxRank)), lv_playergroup);
