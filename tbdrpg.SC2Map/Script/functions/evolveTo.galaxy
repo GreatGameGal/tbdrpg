@@ -8,6 +8,7 @@ void gf_EvolveTo (Player_r lr_player, string lp_unitName) {
   UnitCreate(1, lp_unitName, c_unitCreateIgnorePlacement, lr_player.player, UnitGetPosition(lr_player.dragon), UnitGetFacing(lr_player.dragon));
   UnitRemove(lr_player.dragon);
   lr_player.dragon = UnitLastCreated();
+  lr_player.talent.hero = lr_player.dragon;
   UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
   gf_PutInventoryinInventory(lr_player);
   BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
