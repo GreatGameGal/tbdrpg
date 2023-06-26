@@ -1,7 +1,10 @@
 bool gt_Reborn_Func (bool testConds, bool runActions) {
   string tmp_loop;
   int lv_i;
-  Player_r lr_player = gv_players[EventPlayer() - 1];
+  int lv_playerIndex = EventPlayer() - 1;
+  Player_r lr_player = gv_players[lv_playerIndex];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lv_playerIndex];
+
 
   if (!runActions) {
     return true;
@@ -36,6 +39,7 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     UnitRemove(lr_player.dragon);
     UnitCreate(1, gv_DragonTypes[lr_player.type].unitNames[0], 0, lr_player.player, PointFromId(1), 270.0);
     lr_player.dragon = UnitLastCreated();
+    lr_talents.hero = lr_player.dragon;
     UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
     CameraPan(lr_player.player, RegionGetCenter(RegionFromId(3)), 2.0, -1, 10.0, false);
     lr_player.stats.reborn.points += 10;
@@ -45,8 +49,8 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     gf_LoadStackCounts(lr_player);
     UnitSelect(lr_player.dragon, lr_player.player, true);
     BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
-    lib_talent_gf_ResetTalentBuild(lr_player, 1);
-    lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+    lib_talent_gf_ResetTalentBuild(lr_talents, 1);
+    lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
     lr_player.stats.level = 0;
     lr_player.stats.strength = 0;
     lr_player.stats.vitality = 0;
@@ -66,7 +70,6 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     lr_player.skills.fireball = -1;
     lr_player.skills.blizzard = -1;
     gf_SaveSkills(lr_player);
-    gf_ResetTalentBuildandVariables(lr_player);
     libNtve_gf_SetDialogItemText(lr_player.stats.attributeDialog.textBox, lr_player.stats.attributeText, lr_player.playerGroupSingle);
     BankValueSetFromInt(lr_player.banks.dragonBank, "Ag", lr_player.hand, lr_player.stats.agility);
     BankValueSetFromInt(lr_player.banks.dragonBank, "De", lr_player.hand, lr_player.stats.dexterity);

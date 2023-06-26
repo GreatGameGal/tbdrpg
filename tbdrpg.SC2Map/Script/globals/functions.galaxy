@@ -39,7 +39,6 @@ void gf_Rage (unit lp_hero, fixed lp_damagingAmount);
 void gf_WaypointTeleport (Player_r lr_player, region lp_waypoint);
 void gf_ShowWaypointDialog (Player_r lr_player);
 void gf_HideWaypointDialog (Player_r lr_player);
-void gf_ResetTalentBuildandVariables (Player_r lr_player);
 void gf_LoadStackCounts (Player_r lr_player);
 void gf_LoadSkills (Player_r lr_player);
 void gf_LoadHPC (Player_r lr_player);

@@ -1,5 +1,7 @@
 bool gt__999Talents_Func (bool testConds, bool runActions) {
-  Player_r lr_player = gv_players[EventPlayer() - 1];
+  int lv_playerIndex = EventPlayer() - 1;
+  Player_r lr_player = gv_players[lv_playerIndex];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lv_playerIndex];
 
   if (testConds) {
     if (!gf_IsAdmin(lr_player.hand)) {
@@ -10,7 +12,7 @@ bool gt__999Talents_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  lib_talent_gf_GrantTalentPoints(999, lr_player);
+  lib_talent_gf_GrantTalentPoints(lr_talents, 999);
   return true;
 }
 

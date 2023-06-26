@@ -5,7 +5,6 @@ bool gt_VTCount_Func (bool testConds, bool runActions) {
     return true;
   }
   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F4A2B359") + IntToText(UnitBehaviorCount(lr_player.dragon, "VampiricTendencies"))));
-  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, (StringExternal("Param/Value/F6C42C62") + IntToText(lr_player.talent.vampiricTendencies)));
   return true;
 }
 

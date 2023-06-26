@@ -13,7 +13,7 @@ void lib_talent_InitLibraries () {
 }
 // Variable Initialization
 void lib_talent_InitVariables () {
-  Player_r lr_player;
+  TalentTree_r lr_talents;
   int init_i;
   int init_j;
 
@@ -21,32 +21,32 @@ void lib_talent_InitVariables () {
     return;
   }
   for (init_i = 0; init_i < gv_PlayerCapacity; init_i += 1) {
-    lr_player = gv_players[init_i];
-    lr_player.talent.mainTalentDialog = c_invalidDialogId;
-    lr_player.talent.colorScheme = -1;
-    lr_player.talent.pointsPerTier = lib_talent_gv_POINTSPERTIER;
-    lr_player.talent.availablePointsLabel = c_invalidDialogControlId;
-    lr_player.talent.availablePointsDialog = c_invalidDialogId;
-    lr_player.talent.closeTalentTreeButton = c_invalidDialogControlId;
+    lr_talents = lib_talent_gv_playerTalents[init_i];
+    lr_talents.mainTalentDialog = c_invalidDialogId;
+    lr_talents.colorScheme = -1;
+    lr_talents.pointsPerTier = lib_talent_gv_POINTSPERTIER;
+    lr_talents.availablePointsLabel = c_invalidDialogControlId;
+    lr_talents.availablePointsDialog = c_invalidDialogId;
+    lr_talents.closeTalentTreeButton = c_invalidDialogControlId;
     for (init_j = 0; init_j < 3; init_j += 1) {
-      lr_player.talent.subTalentDialog[init_j] = c_invalidDialogId;
+      lr_talents.subTalentDialog[init_j] = c_invalidDialogId;
     }
     for (init_j = 0; init_j < 10; init_j += 1) {
-      lr_player.talent.buildStrings[init_j] = "";
+      lr_talents.buildStrings[init_j] = "";
     }
     for (init_j = 0; init_j < lib_talent_gv_TALENTCOUNT; init_j += 1) {
-      lr_player.talent.talents[init_j].button = c_invalidDialogControlId;
-      lr_player.talent.talents[init_j].buttonGlow = c_invalidDialogControlId;
-      lr_player.talent.talents[init_j].buttonLabelBackground = c_invalidDialogControlId;
-      lr_player.talent.talents[init_j].buttonLabel = c_invalidDialogControlId;
-      lr_player.talent.talents[init_j].maxRank = 1;
-      lr_player.talent.talents[init_j].tree = 0;
-      lr_player.talent.talents[init_j].column = 0;
-      lr_player.talent.talents[init_j].row = 0;
-      lr_player.talent.talents[init_j].prerequisiteIs = -1;
-      lr_player.talent.talents[init_j].prerequisiteOf = -1;
-      lr_player.talent.talents[init_j].prerequisiteRequiredRank = 0;
-      lr_player.talent.talents[init_j].type = lib_talent_ge_TalentType_Passive;
+      lr_talents.talents[init_j].button = c_invalidDialogControlId;
+      lr_talents.talents[init_j].buttonGlow = c_invalidDialogControlId;
+      lr_talents.talents[init_j].buttonLabelBackground = c_invalidDialogControlId;
+      lr_talents.talents[init_j].buttonLabel = c_invalidDialogControlId;
+      lr_talents.talents[init_j].maxRank = 1;
+      lr_talents.talents[init_j].tree = 0;
+      lr_talents.talents[init_j].column = 0;
+      lr_talents.talents[init_j].row = 0;
+      lr_talents.talents[init_j].prerequisiteIs = -1;
+      lr_talents.talents[init_j].prerequisiteOf = -1;
+      lr_talents.talents[init_j].prerequisiteRequiredRank = 0;
+      lr_talents.talents[init_j].type = lib_talent_ge_TalentType_Passive;
     }
   }
   lib_talent_InitVariables_completed = true;
@@ -153,8 +153,6 @@ void FakeInitGlobals () {
     lr_player.locationString = "Dragon's Nest";
     lr_player.dragon = UnitFromId(632);
     lr_player.stats.level = 1;
-    lr_player.talent.talentDialog.state = c_invalidDialogId;
-    lr_player.talent.talentDialog.button = c_invalidDialogControlId;
     lr_player.stash.stashUnit = UnitFromId(631);
     lr_player.stats.reborn.dialog.state = c_invalidDialogId;
     lr_player.stats.reborn.buttonDialog.state = c_invalidDialogId;
@@ -961,43 +959,21 @@ void gf_PutInventoryinInventory (Player_r lr_player) {
   }
 }
 void gf_ReapplyBuffs (Player_r lr_player) {
+  int lv_i;
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
+  Talent_r lr_talent;
+
   while (lr_player.state.reapplyingBuffs) {
     Wait(1.0, c_timeGame);
   }
   lr_player.state.reapplyingBuffs = true;
-  UnitBehaviorRemovePlayer(lr_player.dragon, "AbsorbMana", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "CriticalCrepitus", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "DarkDissulto", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "DualWield", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "GreedIsGood", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "Headshot", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "MindoftheDragon", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "PowerOverwhelming", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "QuickLearner", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "Rage", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "RealmSwitch", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "Retaliation", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "SpikedScales", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "StickyShot", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "StrengthoftheDragon", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "VampiricTendencies", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorRemovePlayer(lr_player.dragon, "Zeal", lr_player.player, c_unitBehaviorCountAll);
-  UnitBehaviorAddPlayer(lr_player.dragon, "StrengthoftheDragon", lr_player.player, lr_player.talent.strengthOfTheDragon);
-  UnitBehaviorAddPlayer(lr_player.dragon, "MindoftheDragon", lr_player.player, lr_player.talent.mindOfTheDragon);
-  UnitBehaviorAddPlayer(lr_player.dragon, "PowerOverwhelming", lr_player.player, lr_player.talent.powerOverwhelming);
-  UnitBehaviorAddPlayer(lr_player.dragon, "Rage", lr_player.player, lr_player.talent.rage);
-  UnitBehaviorAddPlayer(lr_player.dragon, "VampiricTendencies", lr_player.player, lr_player.talent.vampiricTendencies);
-  UnitBehaviorAddPlayer(lr_player.dragon, "Zeal", lr_player.player, lr_player.talent.zeal);
-  UnitBehaviorAddPlayer(lr_player.dragon, "CriticalCrepitus", lr_player.player, lr_player.talent.criticalCrepitus);
-  UnitBehaviorAddPlayer(lr_player.dragon, "SpikedScales", lr_player.player, lr_player.talent.spikedScales);
-  UnitBehaviorAddPlayer(lr_player.dragon, "Retaliation", lr_player.player, lr_player.talent.retaliation);
-  UnitBehaviorAddPlayer(lr_player.dragon, "Headshot", lr_player.player, lr_player.talent.headshot);
-  UnitBehaviorAddPlayer(lr_player.dragon, "StickyShot", lr_player.player, lr_player.talent.stickyShot);
-  UnitBehaviorAddPlayer(lr_player.dragon, "DualWield", lr_player.player, lr_player.talent.dualWield);
-  UnitBehaviorAddPlayer(lr_player.dragon, "GreedIsGood", lr_player.player, lr_player.talent.greedIsGood);
-  UnitBehaviorAddPlayer(lr_player.dragon, "QuickLearner", lr_player.player, lr_player.talent.quickLearner);
-  UnitBehaviorAddPlayer(lr_player.dragon, "AbsorbMana", lr_player.player, lr_player.talent.absorbMana);
-  UnitBehaviorAddPlayer(lr_player.dragon, "RealmSwitch", lr_player.player, lr_player.talent.realmSwitch);
+  for (lv_i = 0; lv_i < lib_talent_gv_TALENTCOUNT; lv_i += 1) {
+    lr_talent = lr_talents.talents[lv_i];
+    if (lr_talent.behavior != null) {
+      UnitBehaviorRemove(lr_player.dragon, lr_talent.behavior, c_unitBehaviorCountAll);
+      UnitBehaviorAdd(lr_player.dragon, "StrengthoftheDragon", lr_player.dragon, lr_talent.rank);
+    }
+  }
   gf_ApplyRebornStats(lr_player);
   lr_player.state.reapplyingBuffs = false;
 }
@@ -1217,9 +1193,6 @@ void gf_HideWaypointDialog (Player_r lr_player) {
   DialogControlSetVisible(gv_verbotenDialogButton, lr_player.playerGroupSingle, false);
   DialogControlSetVisible(gv_cretonDialogButton, lr_player.playerGroupSingle, false);
   DialogSetVisible(gv_waypointDialog, lr_player.playerGroupSingle, false);
-}
-void gf_ResetTalentBuildandVariables (Player_r lr_player) {
-  lib_talent_gf_ResetTalentBuild(lr_player.talent, UnitLevel(lr_player.dragon) + UnitLevel(lr_player.dragon) / gv_LevelsPerEvolution);
 }
 void gf_LoadStackCounts (Player_r lr_player) {
   int lv_i;
@@ -1618,6 +1591,7 @@ void gf_StatCheck (Player_r lr_player) {
 }
 
 void gf_Save (Player_r lr_player) {
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
   if (!lr_player.state.isSavingExiting && !lr_player.state.preventSave && gv_playersSetUp) {
     lr_player.state.isSavingExiting = true;
     gf_SaveStackCounts(lr_player);
@@ -1628,7 +1602,7 @@ void gf_Save (Player_r lr_player) {
     gf_SaveHRC(lr_player);
     BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, lr_player.state.beatGame);
     BankSave(lr_player.banks.dragonBank);
-    lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+    lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
     lr_player.state.isSavingExiting = false;
   }
 }
@@ -8311,12 +8285,14 @@ void gt_UpdateBuffs_Init () {
 // Trigger: Show Talents
 //--------------------------------------------------------------------------------------------------
 bool gt_ShowTalents_Func (bool testConds, bool runActions) {
-  Player_r lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
+  int lv_playerIndex = UnitGetOwner(EventUnit()) - 1;
+  Player_r lr_player = gv_players[lv_playerIndex];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lv_playerIndex];
 
   if (!runActions) {
     return true;
   }
-  lib_talent_gf_ShowHideTalentTree(lr_player);
+  lib_talent_gf_ShowHideTalentTree(lr_talents);
   gf_ReapplyBuffs(lr_player);
   return true;
 }
@@ -14974,10 +14950,12 @@ void gt_PlayerLeaves_Init () {
 // Trigger: Open Talent Menu
 //--------------------------------------------------------------------------------------------------
 bool gt_OpenTalentMenu_Func (bool testConds, bool runActions) {
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[UnitGetOwner(EventUnit()) - 1];
+
   if (!runActions) {
     return true;
   }
-  lib_talent_gf_ShowHideTalentTree(gv_players[EventPlayer() - 1]);
+  lib_talent_gf_ShowHideTalentTree(lr_talents);
   return true;
 }
 //--------------------------------------------------------------------------------------------------
@@ -15350,43 +15328,46 @@ void gt_SetupTips_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_SetUpTalentTree_Func (bool testConds, bool runActions) {
   Player_r lr_player;
+  TalentTree_r lr_talents;
 
   if (!runActions) {
     return true;
   }
   for (PlayerGroupLoopBegin(gv_humanPlayers); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
-    lib_talent_gf_CreateTalentTree(lr_player, gv_DragonTypes[lr_player.type].talentBuildTitle, gv_DragonTypes[lr_player.type].talentBuildColor, 3, "Defensive,General,Offensive", 3, 4, lib_talent_gv_POINTSPERTIER);
+    lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
+    lib_talent_gf_CreateTalentTree(lr_talents, gv_DragonTypes[lr_player.type].talentBuildTitle, gv_DragonTypes[lr_player.type].talentBuildColor, 3, "Defensive,General,Offensive", 3, 4, lib_talent_gv_POINTSPERTIER);
 
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 0, 0, lib_talent_ge_TalentPrerequisite_None, "HeartoftheDragon", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/D7FEAC29"), 10, "Assets\\Textures\\sm_hml_heartbeat_diff.dds", StringExternal("Param/Value/1C4A2F4D"), 10.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 1, 0, lib_talent_ge_TalentPrerequisite_None, "IronScales", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/314749A3"), 10, "Assets\\Textures\\btn-upgrade-zerg-groundcarapace-level1.dds", StringExternal("Param/Value/7174AC2B"), 0.5, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 2, 0, lib_talent_ge_TalentPrerequisite_None, "SpiritoftheDragon", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/9B6ADBAE"), 10, "Assets\\Textures\\btn-tips-crystal.dds", StringExternal("Param/Value/1A784046"), 10.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 0, 1, lib_talent_ge_TalentPrerequisite_Up, "InternalRegeneration", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/7F798500"), 10, "Assets\\Textures\\btn-upgrade-zerg-enduringcorruption.dds", StringExternal("Param/Value/4C774E83"), 0.1, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 1, 1, lib_talent_ge_TalentPrerequisite_Up, "ActiveArmor", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/AB2A4C29"), 10, "Assets\\Textures\\btn-ability-protoss-feedback-color.dds", StringExternal("Param/Value/00C54C9E"), 10.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 2, 1, lib_talent_ge_TalentPrerequisite_Up, "MetabolicProcessing", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/4C468C11"), 10, "Assets\\Textures\\btn-tips-biosample.dds", StringExternal("Param/Value/4E41B165"), 0.1, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 1, 2, lib_talent_ge_TalentPrerequisite_Up, "SpikedScales", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/9086A585"), 10, "Assets\\Textures\\btn-upgrade-zerg-groovedspines.dds", StringExternal("Param/Value/DA98CBA1"), 0.5, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 2, 2, lib_talent_ge_TalentPrerequisite_Up, "AbsorbMana", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/AFB08C57"), 10, "Assets\\Textures\\btn-upgrade-protoss-groundarmorlevel3.dds", StringExternal("Param/Value/80AC0CB7"), 1.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 1, 3, lib_talent_ge_TalentPrerequisite_Up, "Retaliation", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/F954CA1E"), 10, "Assets\\Textures\\btn-ability-protoss-gravitonbeam-color.dds", StringExternal("Param/Value/F53F5A37"), 1.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 0, 2, 3, lib_talent_ge_TalentPrerequisite_Up, "RealmSwitch", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/44A74CF3"), 10, "Dragon Songs\\btn-ability-protoss-blink-improved-color.dds", StringExternal("Param/Value/E2CCFAE5"), 0.5, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 1, 0, 0, lib_talent_ge_TalentPrerequisite_None, "EagleEyes", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/28BE5039"), 10, "Assets\\Textures\\zergdroneeyesemmisive.dds", StringExternal("Param/Value/85A14F42"), 0.2, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 1, 1, 0, lib_talent_ge_TalentPrerequisite_None, "GreedisGood", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/08D78300"), 10, "Dragon Songs\\btn-custom-treasure.dds", StringExternal("Param/Value/47238D0C"), 5.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 1, 2, 0, lib_talent_ge_TalentPrerequisite_None, "MuscleEnhancement", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/E1B1A405"), 10, "Assets\\Textures\\btn-ability-protoss-charge-color.dds", StringExternal("Param/Value/58E4D210"), 0.1, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 1, 0, 1, lib_talent_ge_TalentPrerequisite_Up, "Foresight", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/CD32BD07"), 10, "Assets\\Textures\\btn-tips-counter.dds", StringExternal("Param/Value/A462C35B"), 0.6, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 1, 1, 1, lib_talent_ge_TalentPrerequisite_Up, "QuickLearner", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/C9AA280D"), 10, "Dragon Songs\\btn-ability-zerg-domination-color.dds", StringExternal("Param/Value/21824BCC"), 0.5, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 0, 0, lib_talent_ge_TalentPrerequisite_None, "StrengthoftheDragon", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/FDB7A558"), 10, "Assets\\Textures\\btn-upgrade-zerg-meleeattacks-leve3.dds", StringExternal("Param/Value/36A2C19B"), 1.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 1, 0, lib_talent_ge_TalentPrerequisite_None, "Headshot", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/D567090E"), 10, "Dragon Songs\\btn-ability-zerg-plague-color.dds", StringExternal("Param/Value/3E74CB2C"), 1.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 2, 0, lib_talent_ge_TalentPrerequisite_None, "MindoftheDragon", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/8C4A7447"), 10, "Assets\\Textures\\btn-upgrade-zerg-pathogenglands.dds", StringExternal("Param/Value/AAA060AC"), 1.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 0, 1, lib_talent_ge_TalentPrerequisite_Up, "Zeal", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/1300303A"), 10, "Assets\\Textures\\btn-upgrade-zerg-anabolicsynthesis.dds", StringExternal("Param/Value/73406C8B"), 1.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 1, 1, lib_talent_ge_TalentPrerequisite_Up, "ElevatedAccuracy", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/AAC9DC9E"), 10, "Dragon Songs\\btn-ability-protoss-sightofadun.dds", StringExternal("Param/Value/DE4DF04F"), 5.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 2, 1, lib_talent_ge_TalentPrerequisite_Up, "Rage", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/1C7BBA70"), 10, "Assets\\Textures\\btn-upgrade-zerg-peristalsis.dds", StringExternal("Param/Value/649D4370"), 0.25, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 0, 2, lib_talent_ge_TalentPrerequisite_Up, "VampiricTendencies", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/92BC9977"), 10, "Assets\\Textures\\btn-ability-zerg-corruption-color.dds", StringExternal("Param/Value/FF85D4A6"), 0.1, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 1, 2, lib_talent_ge_TalentPrerequisite_Up, "StickyShot", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/D8F2835B"), 10, "Assets\\Textures\\btn-ability-zerg-generatecreepstop-color.dds", StringExternal("Param/Value/D1B87C73"), 0.5, 5.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 2, 2, lib_talent_ge_TalentPrerequisite_Up, "PowerOverwhelming", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/9961216D"), 10, "Dragon Songs\\btn-ability-terran-psidisruption-color.dds", StringExternal("Param/Value/52E05A55"), 0.1, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 0, 3, lib_talent_ge_TalentPrerequisite_Up, "CriticalCrepitus", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/B83D31A3"), 10, "Assets\\Textures\\btn-ability-zerg-explode-color.dds", StringExternal("Param/Value/9572BF6F"), 5.0, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 1, 3, lib_talent_ge_TalentPrerequisite_Up, "DuelWield", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/FA2CE968"), 10, "Assets\\Textures\\btn-ability-zerg-contaminate-color.dds", StringExternal("Param/Value/E3059D1E"), 0.5, 0.0, null, null);
-    lib_talent_gf_CreateTalentButton(lr_player, 2, 2, 3, lib_talent_ge_TalentPrerequisite_Up, "DarkDissulto", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/645D301F"), 10, "Assets\\Textures\\btn-ability-zerg-generatecreep-color.dds", StringExternal("Param/Value/3E5A2871"), 2.5, 0.0, null, null);
-    lib_talent_gf_GrantTalentPoints(lr_player.stats.level, lr_player);
-    lib_talent_gf_LoadTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 0, 0, lib_talent_ge_TalentPrerequisite_None, "HeartoftheDragon", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/D7FEAC29"), 10, "Assets\\Textures\\sm_hml_heartbeat_diff.dds", StringExternal("Param/Value/1C4A2F4D"), 10.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 1, 0, lib_talent_ge_TalentPrerequisite_None, "IronScales", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/314749A3"), 10, "Assets\\Textures\\btn-upgrade-zerg-groundcarapace-level1.dds", StringExternal("Param/Value/7174AC2B"), 0.5, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 2, 0, lib_talent_ge_TalentPrerequisite_None, "SpiritoftheDragon", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/9B6ADBAE"), 10, "Assets\\Textures\\btn-tips-crystal.dds", StringExternal("Param/Value/1A784046"), 10.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 0, 1, lib_talent_ge_TalentPrerequisite_Up, "InternalRegeneration", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/7F798500"), 10, "Assets\\Textures\\btn-upgrade-zerg-enduringcorruption.dds", StringExternal("Param/Value/4C774E83"), 0.1, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 1, 1, lib_talent_ge_TalentPrerequisite_Up, "ActiveArmor", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/AB2A4C29"), 10, "Assets\\Textures\\btn-ability-protoss-feedback-color.dds", StringExternal("Param/Value/00C54C9E"), 10.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 2, 1, lib_talent_ge_TalentPrerequisite_Up, "MetabolicProcessing", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/4C468C11"), 10, "Assets\\Textures\\btn-tips-biosample.dds", StringExternal("Param/Value/4E41B165"), 0.1, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 1, 2, lib_talent_ge_TalentPrerequisite_Up, "SpikedScales", "SpikedScales", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/9086A585"), 10, "Assets\\Textures\\btn-upgrade-zerg-groovedspines.dds", StringExternal("Param/Value/DA98CBA1"), 0.5, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 2, 2, lib_talent_ge_TalentPrerequisite_Up, "AbsorbMana", "AbsorbMana", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/AFB08C57"), 10, "Assets\\Textures\\btn-upgrade-protoss-groundarmorlevel3.dds", StringExternal("Param/Value/80AC0CB7"), 1.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 1, 3, lib_talent_ge_TalentPrerequisite_Up, "Retaliation", "Retaliation", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/F954CA1E"), 10, "Assets\\Textures\\btn-ability-protoss-gravitonbeam-color.dds", StringExternal("Param/Value/F53F5A37"), 1.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 0, 2, 3, lib_talent_ge_TalentPrerequisite_Up, "RealmSwitch", "RealmSwitch", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/44A74CF3"), 10, "Dragon Songs\\btn-ability-protoss-blink-improved-color.dds", StringExternal("Param/Value/E2CCFAE5"), 0.5, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 1, 0, 0, lib_talent_ge_TalentPrerequisite_None, "EagleEyes", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/28BE5039"), 10, "Assets\\Textures\\zergdroneeyesemmisive.dds", StringExternal("Param/Value/85A14F42"), 0.2, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 1, 1, 0, lib_talent_ge_TalentPrerequisite_None, "GreedisGood", "GreedisGood", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/08D78300"), 10, "Dragon Songs\\btn-custom-treasure.dds", StringExternal("Param/Value/47238D0C"), 5.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 1, 2, 0, lib_talent_ge_TalentPrerequisite_None, "MuscleEnhancement", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/E1B1A405"), 10, "Assets\\Textures\\btn-ability-protoss-charge-color.dds", StringExternal("Param/Value/58E4D210"), 0.1, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 1, 0, 1, lib_talent_ge_TalentPrerequisite_Up, "Foresight", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/CD32BD07"), 10, "Assets\\Textures\\btn-tips-counter.dds", StringExternal("Param/Value/A462C35B"), 0.6, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 1, 1, 1, lib_talent_ge_TalentPrerequisite_Up, "QuickLearner", "QuickLearner", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/C9AA280D"), 10, "Dragon Songs\\btn-ability-zerg-domination-color.dds", StringExternal("Param/Value/21824BCC"), 0.5, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 0, 0, lib_talent_ge_TalentPrerequisite_None, "StrengthoftheDragon", "StrengthoftheDragon", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/FDB7A558"), 10, "Assets\\Textures\\btn-upgrade-zerg-meleeattacks-leve3.dds", StringExternal("Param/Value/36A2C19B"), 1.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 1, 0, lib_talent_ge_TalentPrerequisite_None, "Headshot", "Headshot", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/D567090E"), 10, "Dragon Songs\\btn-ability-zerg-plague-color.dds", StringExternal("Param/Value/3E74CB2C"), 1.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 2, 0, lib_talent_ge_TalentPrerequisite_None, "MindoftheDragon", "MindoftheDragon", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/8C4A7447"), 10, "Assets\\Textures\\btn-upgrade-zerg-pathogenglands.dds", StringExternal("Param/Value/AAA060AC"), 1.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 0, 1, lib_talent_ge_TalentPrerequisite_Up, "Zeal", "Zeal", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/1300303A"), 10, "Assets\\Textures\\btn-upgrade-zerg-anabolicsynthesis.dds", StringExternal("Param/Value/73406C8B"), 1.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 1, 1, lib_talent_ge_TalentPrerequisite_Up, "ElevatedAccuracy", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/AAC9DC9E"), 10, "Dragon Songs\\btn-ability-protoss-sightofadun.dds", StringExternal("Param/Value/DE4DF04F"), 5.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 2, 1, lib_talent_ge_TalentPrerequisite_Up, "Rage", "Rage", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/1C7BBA70"), 10, "Assets\\Textures\\btn-upgrade-zerg-peristalsis.dds", StringExternal("Param/Value/649D4370"), 0.25, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 0, 2, lib_talent_ge_TalentPrerequisite_Up, "VampiricTendencies", "VampiricTendencies", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/92BC9977"), 10, "Assets\\Textures\\btn-ability-zerg-corruption-color.dds", StringExternal("Param/Value/FF85D4A6"), 0.1, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 1, 2, lib_talent_ge_TalentPrerequisite_Up, "StickyShot", "StickyShot", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/D8F2835B"), 10, "Assets\\Textures\\btn-ability-zerg-generatecreepstop-color.dds", StringExternal("Param/Value/D1B87C73"), 0.5, 5.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 2, 2, lib_talent_ge_TalentPrerequisite_Up, "PowerOverwhelming", "PowerOverwhelming", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/9961216D"), 10, "Dragon Songs\\btn-ability-terran-psidisruption-color.dds", StringExternal("Param/Value/52E05A55"), 0.1, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 0, 3, lib_talent_ge_TalentPrerequisite_Up, "CriticalCrepitus", "CriticalCrepitus", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/B83D31A3"), 10, "Assets\\Textures\\btn-ability-zerg-explode-color.dds", StringExternal("Param/Value/9572BF6F"), 5.0, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 1, 3, lib_talent_ge_TalentPrerequisite_Up, "DuelWield", "DuelWield", lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/FA2CE968"), 10, "Assets\\Textures\\btn-ability-zerg-contaminate-color.dds", StringExternal("Param/Value/E3059D1E"), 0.5, 0.0, null, null);
+    lib_talent_gf_CreateTalentButton(lr_talents, 2, 2, 3, lib_talent_ge_TalentPrerequisite_Up, "DarkDissulto", null, lib_talent_ge_TalentType_Passive, StringExternal("Param/Value/645D301F"), 10, "Assets\\Textures\\btn-ability-zerg-generatecreep-color.dds", StringExternal("Param/Value/3E5A2871"), 2.5, 0.0, null, null);
+    // TODO: FIGURE OUT IF THE FOLLOWING COMMENTED LINE IS NEEDED?
+    // lib_talent_gf_GrantTalentPoints(lr_talents, lr_player.stats.level + lr_player.stats.level / gv_LevelsPerEvolution);
+    lib_talent_gf_LoadTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
   }
   PlayerGroupLoopEnd();
   return true;
@@ -15912,6 +15893,7 @@ void gt_EndingCinematic_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitNormal_Func (bool testConds, bool runActions) {
   Player_r lr_player;
+  TalentTree_r lr_talents;
 
   if (!runActions) {
     return true;
@@ -15919,6 +15901,7 @@ bool gt_EndingCinematicSaveExitNormal_Func (bool testConds, bool runActions) {
   UIShowCinematicText(gv_playerswatchingintrocinematic, StringToText(""), 0.05, 0.0, SoundLink("30SecondSilence", -1));
   for (PlayerGroupLoopBegin(gv_playerswatchingendingcinematic); !PlayerGroupLoopDone(); PlayerGroupLoopStep()) {
     lr_player = gv_players[PlayerGroupLoopCurrent() - 1];
+    lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
     lr_player.state.isSavingExiting = true;
     gf_SaveStackCounts(lr_player);
     gf_SaveHero(lr_player);
@@ -15928,7 +15911,7 @@ bool gt_EndingCinematicSaveExitNormal_Func (bool testConds, bool runActions) {
     gf_SaveHRC(lr_player);
     BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, true);
     BankSave(lr_player.banks.dragonBank);
-    lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+    lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
     GameOver(lr_player.player, c_gameOverVictory, false, true);
   }
   PlayerGroupLoopEnd();
@@ -15944,6 +15927,7 @@ void gt_EndingCinematicSaveExitNormal_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP1_Func (bool testConds, bool runActions) {
   Player_r lr_player = gv_players[0];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
 
   if (!runActions) {
     return true;
@@ -15958,7 +15942,7 @@ bool gt_EndingCinematicSaveExitSpecialP1_Func (bool testConds, bool runActions) 
   gf_SaveHRC(lr_player);
   BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, true);
   BankSave(lr_player.banks.dragonBank);
-  lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+  lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
   GameOver(lr_player.player, c_gameOverVictory, false, true);
   return true;
 }
@@ -15971,6 +15955,7 @@ void gt_EndingCinematicSaveExitSpecialP1_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP2_Func (bool testConds, bool runActions) {
   Player_r lr_player = gv_players[1];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
 
   if (!runActions) {
     return true;
@@ -15985,7 +15970,7 @@ bool gt_EndingCinematicSaveExitSpecialP2_Func (bool testConds, bool runActions) 
   gf_SaveHRC(lr_player);
   BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, true);
   BankSave(lr_player.banks.dragonBank);
-  lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+  lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
   GameOver(lr_player.player, c_gameOverVictory, false, true);
   return true;
 }
@@ -15998,6 +15983,7 @@ void gt_EndingCinematicSaveExitSpecialP2_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP3_Func (bool testConds, bool runActions) {
   Player_r lr_player = gv_players[2];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
 
   if (!runActions) {
     return true;
@@ -16012,7 +15998,7 @@ bool gt_EndingCinematicSaveExitSpecialP3_Func (bool testConds, bool runActions) 
   gf_SaveHRC(lr_player);
   BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, true);
   BankSave(lr_player.banks.dragonBank);
-  lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+  lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
   GameOver(lr_player.player, c_gameOverVictory, false, true);
   return true;
 }
@@ -16025,6 +16011,7 @@ void gt_EndingCinematicSaveExitSpecialP3_Init () {
 //--------------------------------------------------------------------------------------------------
 bool gt_EndingCinematicSaveExitSpecialP4_Func (bool testConds, bool runActions) {
   Player_r lr_player = gv_players[3];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
 
   if (!runActions) {
     return true;
@@ -16039,7 +16026,7 @@ bool gt_EndingCinematicSaveExitSpecialP4_Func (bool testConds, bool runActions) 
   gf_SaveHRC(lr_player);
   BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, true);
   BankSave(lr_player.banks.dragonBank);
-  lib_talent_gf_SaveTalentBuild(1, gv_DragonTypes[lr_player.type].talentBuildName, lr_player);
+  lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
   GameOver(lr_player.player, c_gameOverVictory, false, true);
   return true;
 }
@@ -16747,6 +16734,7 @@ void FakeInitTriggers() {
 }
 //--------------------------------------------------------------------------------------------------
 void gf_SetupPlayer(Player_r lr_player) {
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
   // Load banks
   BankLoad("DragonRPGStashBank", lr_player.player);
   lr_player.banks.stashBank = BankLastCreated();
@@ -16841,6 +16829,7 @@ void gf_SetupPlayer(Player_r lr_player) {
     UnitInventoryCreate(lr_player.dragon, "BasicSpines");
   }
   UnitSelect(lr_player.dragon, lr_player.player, true);
+  lr_talents.hero = lr_player.dragon;
   PlayerGroupAdd(gv_humanPlayers, lr_player.player);
   UnitGroupAdd(gv_dragons, lr_player.dragon);
   UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
@@ -16854,11 +16843,14 @@ void gf_InitializePlayers () {
   int lv_playerIndex;
   int lv_otherPlayer;
   Player_r lr_player;
+  TalentTree_r lr_talents;
 
   // Loops through all players to initialize each one.
   for (lv_playerIndex = 0; lv_playerIndex < gv_PlayerCapacity; lv_playerIndex += 1) {
     lr_player = gv_players[lv_playerIndex];
+    lr_talents = lib_talent_gv_playerTalents[lv_playerIndex];
     lr_player.player = lv_playerIndex + 1;
+    lr_talents.player = lr_player.player;
     lr_player.playerGroupSingle = PlayerGroupSingle(lr_player.player);
     if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && (PlayerType(lr_player.player) == c_playerTypeUser)) {
       lr_player.hand = PlayerHandle(lr_player.player);

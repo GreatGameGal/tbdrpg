@@ -171,7 +171,6 @@ struct Player {
   Stash stash;
   States state;
   Stats stats;
-  TalentTree talent;
   Verification verification;
   bool[5] waypointUnlocked;
   int player;

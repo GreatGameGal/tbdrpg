@@ -1,8 +1,9 @@
 bool gt_LevelUp_Func (bool testConds, bool runActions) {
-  Player_r lr_player;
+  int lv_playerIndex = UnitGetOwner(EventUnit()) - 1;
+  Player_r lr_player = gv_players[lv_playerIndex];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lv_playerIndex];
   int lv_dragonEvolution;
 
-  lr_player = gv_players[UnitGetOwner(EventUnit()) - 1];
 
   if (testConds) {
     if (lr_player.state.evolving || !gv_playersSetUp) {
@@ -16,7 +17,7 @@ bool gt_LevelUp_Func (bool testConds, bool runActions) {
 
   lr_player.stats.level = FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent));
 
-  lib_talent_gf_GrantTalentPoints(1, lr_player);
+  lib_talent_gf_GrantTalentPoints(lr_talents, 1);
   ActorCreate(ActorScopeFromUnit(lr_player.dragon), "LevelUpEffect", null, null, null);
   SoundPlayOnUnit(SoundLink("LevelUp", -1), lr_player.playerGroupSingle, lr_player.dragon, 0.0, 100.0, 0.0);
   lr_player.stats.level = FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent));

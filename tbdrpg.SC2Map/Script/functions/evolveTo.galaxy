@@ -1,4 +1,5 @@
 void gf_EvolveTo (Player_r lr_player, string lp_unitName) {
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
   lr_player.state.evolving = true;
   TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
   TriggerEnable(gt_SaveStackCountsPeriodically, false);
@@ -8,7 +9,7 @@ void gf_EvolveTo (Player_r lr_player, string lp_unitName) {
   UnitCreate(1, lp_unitName, c_unitCreateIgnorePlacement, lr_player.player, UnitGetPosition(lr_player.dragon), UnitGetFacing(lr_player.dragon));
   UnitRemove(lr_player.dragon);
   lr_player.dragon = UnitLastCreated();
-  lr_player.talent.hero = lr_player.dragon;
+  lr_talents.hero = lr_player.dragon;
   UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
   gf_PutInventoryinInventory(lr_player);
   BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
@@ -36,7 +37,7 @@ void gf_EvolveTo (Player_r lr_player, string lp_unitName) {
   gf_ShowStats(lr_player);
   UnitSelect(lr_player.dragon, lr_player.player, true);
   gf_ReapplyBuffs(lr_player);
-  lib_talent_gf_GrantTalentPoints(1, lr_player);
+  lib_talent_gf_GrantTalentPoints(lr_talents, 1);
   Wait(5.0, c_timeGame);
   TriggerEnable(gt_SaveStackCountsOnInventoryEdit, true);
   TriggerEnable(gt_SaveStackCountsPeriodically, true);

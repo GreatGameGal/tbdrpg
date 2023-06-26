@@ -1,10 +1,12 @@
 bool gt_ResetTalentBuild_Func (bool testConds, bool runActions) {
-  Player_r lr_player = gv_players[EventPlayer() - 1];
+  int lv_playerIndex = EventPlayer() - 1;
+  Player_r lr_player = gv_players[lv_playerIndex];
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lv_playerIndex];
 
   if (!runActions) {
     return true;
   }
-  gf_ResetTalentBuildandVariables(lr_player);
+  lib_talent_gf_ResetTalentBuild(lr_talents, UnitLevel(lr_player.dragon) + UnitLevel(lr_player.dragon) / gv_LevelsPerEvolution);
   return true;
 }
 
