@@ -12135,6 +12135,7 @@ bool gt_RespawnCreton_Func (bool testConds, bool runActions) {
       UnitGroupHasUnit(gv_cretonUnits[33], EventUnit()) ||
       UnitGroupHasUnit(gv_cretonUnits[34], EventUnit()) ||
       UnitGroupHasUnit(gv_cretonUnits[35], EventUnit()) ||
+      UnitGroupHasUnit(gv_cretonUnits[36], EventUnit()) ||
       UnitGroupHasUnit(gv_cretonUnits[37], EventUnit())
     )
   ) {
