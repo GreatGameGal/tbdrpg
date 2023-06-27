@@ -47,6 +47,7 @@
         <KindSplash value="Splash"/>
         <Amount value="60"/>
         <SearchFlags index="CallForHelp" value="0"/>
+        <PreloadValidatorArray value="Level25"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="03N13S01LaunchMissile2">
         <ValidatorArray index="0" value="Level25"/>
@@ -389,12 +390,11 @@
         <LeechFraction index="Energy" value="1"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="SacredSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level80"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="SacredSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
-        <PeriodicValidator value="Level80"/>
     </CEffectLaunchMissile>
     <CEffectLaunchMissile id="LegendarySpinesLaunchMissile">
         <ValidatorArray index="0" value="Level90"/>
@@ -409,12 +409,11 @@
         <Death value="Remove"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="TitaniumSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level40"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="TitaniumSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
-        <PreloadValidatorArray value="Level40"/>
     </CEffectLaunchMissile>
     <CEffectLaunchMissile id="SilverSpinesLaunchMissile">
         <ValidatorArray index="0" value="Level30"/>
@@ -493,12 +492,11 @@
         <AmmoUnit value="NeedleSpinesWeapon"/>
     </CEffectLaunchMissile>
     <CEffectLaunchMissile id="SteelSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level15"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="SteelSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
-        <PreloadValidatorArray value="Level15"/>
     </CEffectLaunchMissile>
     <CEffectDamage id="SacredSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -1095,12 +1093,11 @@
         <PreloadValidatorArray value="Level45"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="PlatinumSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level45"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="PlatinumSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
-        <PreloadValidatorArray value="Level45"/>
     </CEffectLaunchMissile>
     <CEffectApplyBehavior id="TownPortal">
         <ValidatorArray index="0" removed="1"/>
