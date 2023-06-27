@@ -381,7 +381,7 @@
     <CItem id="PlatinumSpines">
         <Class value="Weapon"/>
         <Level value="45"/>
-        <Requirements value="LearnSJHyperionFighters4"/>
+        <Requirements value="Level45"/>
         <EquipWeaponArray Link="PlatinumSpines"/>
         <Flags index="IncludeInLootItemPool" value="1"/>
     </CItem>
