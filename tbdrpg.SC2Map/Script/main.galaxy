@@ -10,7 +10,7 @@ include "Script/lib_talent";
 include "Script/globals/index";
 include "Script/functions/index";
 include "Script/triggers/index";
-include "Script/mapScript";
+include "Script/messyScript";
 
 void main () {
   initMapScript();
