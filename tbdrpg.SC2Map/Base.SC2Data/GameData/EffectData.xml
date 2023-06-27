@@ -47,6 +47,7 @@
         <KindSplash value="Splash"/>
         <Amount value="60"/>
         <SearchFlags index="CallForHelp" value="0"/>
+        <ValidatorArray value="Level25"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="03N13S01LaunchMissile2">
         <ValidatorArray index="0" value="Level25"/>
@@ -84,6 +85,7 @@
         <SearchFlags index="CallForHelp" value="0"/>
         <Kind value="Ranged"/>
         <PreloadValidatorArray value="Level100"/>
+        <ValidatorArray value="Level100"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="OblivionSpinesLaunchMissile">
         <EditorCategories value="Race:Zerg"/>
@@ -332,6 +334,7 @@
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="BoneSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
+        <PeriodicValidator value="Level05"/>
     </CEffectLaunchMissile>
     <CEffectDamage id="BoneSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -343,6 +346,7 @@
         <Amount value="15"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level05"/>
+        <ValidatorArray value="Level05"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="BronzeSpinesLaunchMissile">
         <ValidatorArray index="0" value="Level25"/>
@@ -350,6 +354,7 @@
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="BronzeSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
+        <PeriodicValidator value="Level25"/>
     </CEffectLaunchMissile>
     <CEffectLaunchMissile id="ForbiddenSpinesLaunchMissile">
         <ValidatorArray index="0" value="Level70"/>
@@ -389,12 +394,11 @@
         <LeechFraction index="Energy" value="1"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="SacredSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level80"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="SacredSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
-        <PeriodicValidator value="Level80"/>
     </CEffectLaunchMissile>
     <CEffectLaunchMissile id="LegendarySpinesLaunchMissile">
         <ValidatorArray index="0" value="Level90"/>
@@ -409,7 +413,7 @@
         <Death value="Remove"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="TitaniumSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level40"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="TitaniumSpines"/>
@@ -422,6 +426,7 @@
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="SilverSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
+        <PreloadValidatorArray value="Level30"/>
     </CEffectLaunchMissile>
     <CEffectLaunchMissile id="IronSpinesLaunchMissile">
         <ValidatorArray index="0" value="Level10"/>
@@ -440,6 +445,7 @@
         <Amount value="35"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level25"/>
+        <ValidatorArray value="Level25"/>
     </CEffectDamage>
     <CEffectDamage id="ForbiddenSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -451,6 +457,7 @@
         <Amount value="80"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level70"/>
+        <ValidatorArray value="Level70"/>
     </CEffectDamage>
     <CEffectDamage id="DiamondSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -462,6 +469,7 @@
         <Amount value="60"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level50"/>
+        <ValidatorArray value="Level50"/>
     </CEffectDamage>
     <CEffectDamage id="DeadlySpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -473,6 +481,7 @@
         <Amount value="70"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level60"/>
+        <ValidatorArray value="Level60"/>
     </CEffectDamage>
     <CEffectDamage id="GodlySpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -484,6 +493,7 @@
         <Amount value="150"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level100"/>
+        <ValidatorArray value="Level100"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="GoldSpinesLaunchMissile">
         <ValidatorArray index="0" value="Level35"/>
@@ -493,7 +503,7 @@
         <AmmoUnit value="NeedleSpinesWeapon"/>
     </CEffectLaunchMissile>
     <CEffectLaunchMissile id="SteelSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level15"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="SteelSpines"/>
@@ -510,6 +520,7 @@
         <Amount value="90"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level80"/>
+        <ValidatorArray value="Level80"/>
     </CEffectDamage>
     <CEffectDamage id="LegendarySpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -520,6 +531,7 @@
         <Amount value="100"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level90"/>
+        <ValidatorArray value="Level90"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="CopperSpinesLaunchMissile">
         <ValidatorArray index="0" value="Level20"/>
@@ -538,6 +550,7 @@
         <Amount value="50"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level40"/>
+        <ValidatorArray value="Level40"/>
     </CEffectDamage>
     <CEffectDamage id="SilverSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -549,6 +562,7 @@
         <Amount value="40"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level30"/>
+        <ValidatorArray value="Level30"/>
     </CEffectDamage>
     <CEffectDamage id="IronSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -560,6 +574,7 @@
         <Amount value="20"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level10"/>
+        <ValidatorArray value="Level10"/>
     </CEffectDamage>
     <CEffectDamage id="FrostSpikeDamageLevel8">
         <EditorCategories value="Race:Terran"/>
@@ -791,6 +806,7 @@
         <Amount value="45"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level35"/>
+        <ValidatorArray value="Level35"/>
     </CEffectDamage>
     <CEffectDamage id="SteelSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -802,6 +818,7 @@
         <Amount value="25"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level15"/>
+        <ValidatorArray value="Level15"/>
     </CEffectDamage>
     <CEffectDamage id="CarrionNeedlesNPC" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -1082,6 +1099,7 @@
         <Amount value="30"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level20"/>
+        <ValidatorArray value="Level20"/>
     </CEffectDamage>
     <CEffectDamage id="PlatinumSpines" parent="DU_WEAP">
         <EditorCategories value="Race:Zerg"/>
@@ -1093,14 +1111,14 @@
         <Amount value="55"/>
         <SearchFlags index="CallForHelp" value="0"/>
         <PreloadValidatorArray value="Level45"/>
+        <ValidatorArray value="Level45"/>
     </CEffectDamage>
     <CEffectLaunchMissile id="PlatinumSpinesLaunchMissile">
-        <ValidatorArray index="0" value="NeedleSpinesLaunchMissileTargetFilters"/>
+        <ValidatorArray index="0" value="Level45"/>
         <EditorCategories value="Race:Zerg"/>
         <Marker Link="Effect/NeedleSpinesLaunchMissile"/>
         <ImpactEffect value="PlatinumSpines"/>
         <AmmoUnit value="NeedleSpinesWeapon"/>
-        <PreloadValidatorArray value="Level45"/>
     </CEffectLaunchMissile>
     <CEffectApplyBehavior id="TownPortal">
         <ValidatorArray index="0" removed="1"/>
