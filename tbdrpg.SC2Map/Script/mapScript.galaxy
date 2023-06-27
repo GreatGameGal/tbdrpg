@@ -16766,6 +16766,21 @@ void gf_SetupPlayer(Player_r lr_player) {
     lr_player.stats.strength = BankValueGetAsInt(lr_player.banks.dragonBank, "Str", lr_player.hand);
     lr_player.stats.vitality = BankValueGetAsInt(lr_player.banks.dragonBank, "Vi", lr_player.hand);
 
+    lr_player.stats.reborn.regen = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn RegenerationUp", lr_player.hand);
+    lr_player.stats.reborn.points = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Points", lr_player.hand);
+    lr_player.stats.reborn.movementSpeed = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn MovementSpeedUp", lr_player.hand);
+    lr_player.stats.reborn.miss = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Miss%Down", lr_player.hand);
+    lr_player.stats.reborn.maxMP = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn MaxMPUp", lr_player.hand);
+    lr_player.stats.reborn.maxHP = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn MaxHPUp", lr_player.hand);
+    lr_player.stats.reborn.itemDrop = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn ItemDrop%Up", lr_player.hand);
+    lr_player.stats.reborn.goldDrop = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn GoldDrop%Up", lr_player.hand);
+    lr_player.stats.reborn.dodge = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Dodge%Up", lr_player.hand);
+    lr_player.stats.reborn.defense = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn DefenseUp", lr_player.hand);
+    lr_player.stats.reborn.count = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Count", lr_player.hand);
+    lr_player.stats.reborn.attackSpeed = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn AttackSpeedUp", lr_player.hand);
+
+    gf_ApplyRebornStats(lr_player);
+
     // TODO: Remove this after a few updates
     if (lr_player.stats.attributePoints == 0) {
       lr_player.stats.attributePoints = FixedToInt(BankValueGetAsFixed(lr_player.banks.dragonBank, "AP", lr_player.hand));
