@@ -7721,7 +7721,7 @@ bool gt_ReviveDragonNormal_Func (bool testConds, bool runActions) {
     testConds &&
     !gv_playersSetUp || 
     lr_player.state.dying ||
-    libNtve_gf_KillingPlayer() == 16 ||
+    // libNtve_gf_KillingPlayer() == 16 ||
     PlayerGroupHasPlayer(gv_humanPlayers, libNtve_gf_KillingPlayer())
   ) {
     return false;
