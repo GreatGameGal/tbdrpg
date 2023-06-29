@@ -1,42 +1,24 @@
+// Potion type should usually be 0 to 3.
+void gf_UsePotion (Player_r lr_player, ConsumableType_r lr_potionType, unit lp_potion) {
+  int lv_iPI = lr_player.player - 1;
+
+  UnitCreateEffectUnit(lr_player.dragon, lr_potionType.effectName, lr_player.dragon);
+  UnitAddChargeUsed(lp_potion, lr_potionType.chargeName, 1.0);
+  TextTagCreate(lr_potionType.useText, 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
+  gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();
+  TextTagSetVelocity(gv_potionHotkeyTextTag[lv_iPI], 0.5, 75.0);
+  TextTagSetColor(gv_potionHotkeyTextTag[lv_iPI], c_textTagColorText, Color(100.00, 0.00, 0.00));
+  TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
+  UnitAddCooldown(lr_player.dragon, gv_potionCooldownName, 10.0);
+}
+
 void gf_PotionHotkey (Player_r lr_player) {
-  fixed lv_missingHealth;
-  unit lv_sHP;
-  unit lv_mHP;
-  unit lv_lHP;
-  unit lv_gHP;
+  fixed lv_missingHealth = gf_CalculateHealthMissing(lr_player.dragon);
+  unit[4] lv_potions;
+  int lv_i;
+  int lv_loopStart = 3;
   int lv_iPI = lr_player.player - 1;
   
-  for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
-    if ((UnitGetType(UnitGroupLoopCurrent()) == "SmallHealthPotion")) {
-      lv_sHP = UnitGroupLoopCurrent();
-      continue;
-    }
-    if ((UnitGetType(UnitGroupLoopCurrent()) == "MediumHealthPotion")) {
-      lv_mHP = UnitGroupLoopCurrent();
-      continue;
-    }
-    if ((UnitGetType(UnitGroupLoopCurrent()) == "LargeHealthPotion")) {
-      lv_lHP = UnitGroupLoopCurrent();
-      continue;
-    }
-    if ((UnitGetType(UnitGroupLoopCurrent()) == "GrandHealthPotion")) {
-      lv_gHP = UnitGroupLoopCurrent();
-      continue;
-    }
-  }
-  UnitGroupLoopEnd();
-  if (lv_sHP == null && lv_mHP == null && lv_lHP == null && lv_gHP == null) {
-    // Player has no potions.
-    TextTagCreate(StringExternal("Param/Value/NO_VALID_POT"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
-    gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();
-    TextTagSetVelocity(gv_potionHotkeyTextTag[lv_iPI], 0.5, 75.0);
-    TextTagSetColor(gv_potionHotkeyTextTag[lv_iPI], c_textTagColorText, Color(100.00, 0.00, 0.00));
-    TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
-    return;
-  }
-
-  lv_missingHealth = gf_CalculateHealthMissing(lr_player.dragon);
-
   if (lv_missingHealth == 0.0) {
     // Player has full health.
     TextTagCreate(StringExternal("Param/Value/HEALTH_FULL"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
@@ -46,6 +28,37 @@ void gf_PotionHotkey (Player_r lr_player) {
     TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
     return;
   }
+
+  for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
+    if ((UnitGetType(UnitGroupLoopCurrent()) == "SmallHealthPotion")) {
+      lv_potions[0] = UnitGroupLoopCurrent();
+      continue;
+    }
+    if ((UnitGetType(UnitGroupLoopCurrent()) == "MediumHealthPotion")) {
+      lv_potions[1] = UnitGroupLoopCurrent();
+      continue;
+    }
+    if ((UnitGetType(UnitGroupLoopCurrent()) == "LargeHealthPotion")) {
+      lv_potions[2] = UnitGroupLoopCurrent();
+      continue;
+    }
+    if ((UnitGetType(UnitGroupLoopCurrent()) == "GrandHealthPotion")) {
+      lv_potions[3] = UnitGroupLoopCurrent();
+      continue;
+    }
+  }
+  UnitGroupLoopEnd();
+
+  if (lv_potions[0] == null && lv_potions[1] == null && lv_potions[2] == null && lv_potions[3] == null) {
+    // Player has no potions.
+    TextTagCreate(StringExternal("Param/Value/NO_VALID_POT"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
+    gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();
+    TextTagSetVelocity(gv_potionHotkeyTextTag[lv_iPI], 0.5, 75.0);
+    TextTagSetColor(gv_potionHotkeyTextTag[lv_iPI], c_textTagColorText, Color(100.00, 0.00, 0.00));
+    TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
+    return;
+  }
+
 
   if (UnitGetCooldown(lr_player.dragon, gv_potionCooldownName) > 0.0) {
     // Potion is on cooldown.
@@ -57,53 +70,56 @@ void gf_PotionHotkey (Player_r lr_player) {
     return;
   }
 
-  if (lv_missingHealth <= 100 && lv_sHP != null && UnitGetChargeUsed(lv_sHP, gv_stackNames[0]) < 4893.0) {
-    UnitCreateEffectUnit(lr_player.dragon, "SmallHealthPotion", lr_player.dragon);
-    UnitAddChargeUsed(lv_sHP, gv_stackNames[0], 1.0);
-    TextTagCreate(StringExternal("Param/Value/SMALL_POT_HP"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
-    gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();
-    TextTagSetVelocity(gv_potionHotkeyTextTag[lv_iPI], 0.5, 75.0);
-    TextTagSetColor(gv_potionHotkeyTextTag[lv_iPI], c_textTagColorText, Color(100.00, 0.00, 0.00));
-    TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
-    UnitAddCooldown(lr_player.dragon, gv_potionCooldownName, 10.0);
+  if (lv_missingHealth <= 100) {
+    lv_loopStart = 0;
+  } else if (lv_missingHealth <= 250) {
+    lv_loopStart = 1;
+  } else if (lv_missingHealth <= 500) {
+    lv_loopStart = 2;
+  }
+
+  if (lv_potions[lv_loopStart] != null && UnitGetChargeUsed(lv_potions[lv_loopStart], gv_ConsumableTypes[lv_loopStart].chargeName) < 4893.0) {
+    gf_UsePotion(lr_player, gv_ConsumableTypes[lv_loopStart], lv_potions[lv_loopStart]);
     return;
   }
 
-  if (lv_missingHealth <= 250.0 && lv_mHP != null && UnitGetChargeUsed(lv_mHP, gv_stackNames[1]) < 4893.0) {
-    UnitCreateEffectUnit(lr_player.dragon, "MediumHealthPotion", lr_player.dragon);
-    UnitAddChargeUsed(lv_mHP, gv_stackNames[1], 1.0);
-    TextTagCreate(StringExternal("Param/Value/MEDIUM_POT_HP"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
-    gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();
-    TextTagSetVelocity(gv_potionHotkeyTextTag[lv_iPI], 0.5, 75.0);
-    TextTagSetColor(gv_potionHotkeyTextTag[lv_iPI], c_textTagColorText, Color(100.00, 0.00, 0.00));
-    TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
-    UnitAddCooldown(lr_player.dragon, gv_potionCooldownName, 10.0);
-    return;
+  // Check to see if there are any more powerful potions that can be used, ascending from start.
+  for (lv_i = lv_loopStart + 1; lv_i < 4; lv_i += 1) {
+    if (lv_potions[lv_i] != null && UnitGetChargeUsed(lv_potions[lv_i], gv_ConsumableTypes[lv_i].chargeName) < 4893.0) {
+      gf_UsePotion(lr_player, gv_ConsumableTypes[lv_i], lv_potions[lv_i]);
+      return;
+    }
   }
 
-  if (lv_missingHealth <= 500.0 && lv_lHP != null && UnitGetChargeUsed(lv_lHP, gv_stackNames[1]) < 4893.0) {
-    UnitCreateEffectUnit(lr_player.dragon, "LargeHealthPotion", lr_player.dragon);
-    UnitAddChargeUsed(lv_lHP, gv_stackNames[2], 1.0);
-    TextTagCreate(StringExternal("Param/Value/LARGE_POT_HP"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
-    gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();
-    TextTagSetVelocity(gv_potionHotkeyTextTag[lv_iPI], 0.5, 75.0);
-    TextTagSetColor(gv_potionHotkeyTextTag[lv_iPI], c_textTagColorText, Color(100.00, 0.00, 0.00));
-    TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
-    UnitAddCooldown(lr_player.dragon, gv_potionCooldownName, 10.0);
-    return;
+  // Check to see if there are any weaker potions that can be used, descending from start.
+  for (lv_i = lv_loopStart - 1; lv_i >= 0; lv_i -= 1) {
+    if (lv_potions[lv_i] != null && UnitGetChargeUsed(lv_potions[lv_i], gv_ConsumableTypes[lv_i].chargeName) < 4893.0) {
+      gf_UsePotion(lr_player, gv_ConsumableTypes[lv_i], lv_potions[lv_i]);
+      return;
+    }
   }
 
-  if (lv_gHP != null && UnitGetChargeUsed(lv_gHP, gv_stackNames[3]) < 4893.0) {
-    UnitCreateEffectUnit(lr_player.dragon, "GrandHealthPotion", lr_player.dragon);
-    UnitAddChargeUsed(lv_gHP, gv_stackNames[3], 1.0);
-    TextTagCreate(StringExternal("Param/Value/GRAND_POT_HP"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
-    gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();
-    TextTagSetVelocity(gv_potionHotkeyTextTag[lv_iPI], 0.5, 75.0);
-    TextTagSetColor(gv_potionHotkeyTextTag[lv_iPI], c_textTagColorText, Color(100.00, 0.00, 0.00));
-    TextTagSetTime(gv_potionHotkeyTextTag[lv_iPI], c_textTagTimeDuration, 2.0);
-    UnitAddCooldown(lr_player.dragon, gv_potionCooldownName, 10.0);
-    return;
-  }
+
+  // if (lv_missingHealth <= 100 && lv_sHP != null && UnitGetChargeUsed(lv_sHP, gv_ConsumableTypes[0].chargeName) < 4893.0) {
+  //   gf_UsePotion(lr_player, gv_ConsumableTypes[0], lv_sHP);
+  //   return;
+  // }
+
+  // if (lv_missingHealth <= 250.0 && lv_mHP != null && UnitGetChargeUsed(lv_mHP, gv_ConsumableTypes[1].chargeName) < 4893.0) {
+  //   gf_UsePotion(lr_player, gv_ConsumableTypes[1], lv_mHP);
+  //   return;
+  // }
+
+  // if (lv_missingHealth <= 500.0 && lv_lHP != null && UnitGetChargeUsed(lv_lHP, gv_ConsumableTypes[2].chargeName) < 4893.0) {
+  //   gf_UsePotion(lr_player, gv_ConsumableTypes[2], lv_lHP);
+  //   return;
+  // }
+
+  // if (lv_gHP != null && UnitGetChargeUsed(lv_gHP, gv_ConsumableTypes[3].chargeName) < 4893.0) {
+  //   gf_UsePotion(lr_player, gv_ConsumableTypes[3], lv_gHP);
+  //   return;
+  // }
+
 
   TextTagCreate(StringExternal("Param/Value/NO_VALID_POT"), 24, UnitGetPosition(lr_player.dragon), 1.0, true, true, lr_player.playerGroupSingle);
   gv_potionHotkeyTextTag[lv_iPI] = TextTagLastCreated();

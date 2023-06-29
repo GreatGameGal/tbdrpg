@@ -174,9 +174,6 @@ void FakeInitGlobals () {
     gv_relamyGorgeUnits[init_i] = UnitGroupEmpty();
     gv_undergroundForestUnits[init_i] = UnitGroupEmpty();
   }
-  for (init_i = 0; init_i < 9; init_i += 1) {
-    gv_stackNames[init_i] = "";
-  }
   for (init_i = 0; init_i < 10; init_i += 1) {
     gv_cretonTrenchUnits[init_i] = UnitGroupEmpty();
     gv_verbotenInfestationUnits[init_i] = UnitGroupEmpty();
@@ -845,9 +842,9 @@ void gf_SaveStackCounts (Player_r lr_player) {
   ;
   for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
     for (lv_i = 0; lv_i < gv_StackableTypeCount; lv_i += 1) {
-      if (UnitGetType(UnitGroupLoopCurrent()) == gv_stackTypes[lv_i]) {
-        lr_player.stackableCount[lv_i] = UnitGetChargeUsed(UnitGroupLoopCurrent(), gv_stackNames[lv_i]);
-        BankValueSetFromFixed(lr_player.banks.dragonBank, gv_stackBankNames[lv_i], lr_player.hand, lr_player.stackableCount[lv_i]);
+      if (UnitGetType(UnitGroupLoopCurrent()) == gv_ConsumableTypes[lv_i].effectName) {
+        lr_player.stackableCount[lv_i] = UnitGetChargeUsed(UnitGroupLoopCurrent(), gv_ConsumableTypes[lv_i].chargeName);
+        BankValueSetFromFixed(lr_player.banks.dragonBank, gv_ConsumableTypes[lv_i].bankName, lr_player.hand, lr_player.stackableCount[lv_i]);
       }
     }
   }
@@ -1200,9 +1197,9 @@ void gf_LoadStackCounts (Player_r lr_player) {
 
   for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
     for (lv_i = 0; lv_i < gv_StackableTypeCount; lv_i += 1) {
-      if (UnitGetType(UnitGroupLoopCurrent()) == gv_stackTypes[lv_i] && BankSectionExists(lr_player.banks.dragonBank, gv_stackBankNames[lv_i])) {
-        lv_chargesUsed = BankValueGetAsFixed(lr_player.banks.dragonBank, gv_stackBankNames[lv_i], lr_player.hand) - UnitGetChargeUsed(UnitGroupLoopCurrent(), gv_stackNames[lv_i]);
-        UnitAddChargeUsed(UnitGroupLoopCurrent(), gv_stackNames[lv_i], lv_chargesUsed);
+      if (UnitGetType(UnitGroupLoopCurrent()) == gv_ConsumableTypes[lv_i].effectName && BankSectionExists(lr_player.banks.dragonBank, gv_ConsumableTypes[lv_i].bankName)) {
+        lv_chargesUsed = BankValueGetAsFixed(lr_player.banks.dragonBank, gv_ConsumableTypes[lv_i].bankName, lr_player.hand) - UnitGetChargeUsed(UnitGroupLoopCurrent(), gv_ConsumableTypes[lv_i].chargeName);
+        UnitAddChargeUsed(UnitGroupLoopCurrent(), gv_ConsumableTypes[lv_i].chargeName, lv_chargesUsed);
       }
     }
   }
@@ -6638,33 +6635,42 @@ bool gt_SetStackChargeNames_Func (bool testConds, bool runActions) {
   if (!runActions) {
     return true;
   }
-  gv_stackNames[0] = "Item/SmallHealthPotion";
-  gv_stackTypes[0] = "SmallHealthPotion";
-  gv_stackBankNames[0] = "SHP";
-  gv_stackNames[1] = "Item/MediumHealthPotion";
-  gv_stackTypes[1] = "MediumHealthPotion";
-  gv_stackBankNames[1] = "MHP";
-  gv_stackNames[2] = "Item/LargeHealthPotion";
-  gv_stackTypes[2] = "LargeHealthPotion";
-  gv_stackBankNames[2] = "LHP";
-  gv_stackNames[3] = "Item/GrandHealthPotion";
-  gv_stackTypes[3] = "GrandHealthPotion";
-  gv_stackBankNames[3] = "GHP";
-  gv_stackNames[4] = "Item/SmallAttackSpeedPotion";
-  gv_stackTypes[4] = "SmallAttackSpeedPotion";
-  gv_stackBankNames[4] = "SASP";
-  gv_stackNames[5] = "Item/MediumAttackSpeedPotion";
-  gv_stackTypes[5] = "MediumAttackSpeedPotion";
-  gv_stackBankNames[5] = "MASP";
-  gv_stackNames[6] = "Item/LargeAttackSpeedPotion";
-  gv_stackTypes[6] = "LargeAttackSpeedPotion";
-  gv_stackBankNames[6] = "LASP";
-  gv_stackNames[7] = "Item/GrandAttackSpeedPotion";
-  gv_stackTypes[7] = "GrandAttackSpeedPotion";
-  gv_stackBankNames[7] = "GASP";
-  gv_stackNames[8] = "Item/TownPortal";
-  gv_stackTypes[8] = "TownPortal";
-  gv_stackBankNames[8] = "TP";
+
+  gv_ConsumableTypes[0].chargeName = "Item/SmallHealthPotion";
+  gv_ConsumableTypes[0].effectName = "SmallHealthPotion";
+  gv_ConsumableTypes[0].bankName = "SHP";
+  gv_ConsumableTypes[0].useText = StringExternal("Param/Value/SMALL_POT_HP");
+  gv_ConsumableTypes[1].chargeName = "Item/MediumHealthPotion";
+  gv_ConsumableTypes[1].effectName = "MediumHealthPotion";
+  gv_ConsumableTypes[1].bankName = "MHP";
+  gv_ConsumableTypes[1].useText = StringExternal("Param/Value/MEDIUM_POT_HP");
+  gv_ConsumableTypes[2].chargeName = "Item/LargeHealthPotion";
+  gv_ConsumableTypes[2].effectName = "LargeHealthPotion";
+  gv_ConsumableTypes[2].bankName = "LHP";
+  gv_ConsumableTypes[2].useText = StringExternal("Param/Value/LARGE_POT_HP");
+  gv_ConsumableTypes[3].chargeName = "Item/GrandHealthPotion";
+  gv_ConsumableTypes[3].effectName = "GrandHealthPotion";
+  gv_ConsumableTypes[3].bankName = "GHP";
+  gv_ConsumableTypes[3].useText = StringExternal("Param/Value/GRAND_POT_HP");
+  gv_ConsumableTypes[4].chargeName = "Item/SmallAttackSpeedPotion";
+  gv_ConsumableTypes[4].effectName = "SmallAttackSpeedPotion";
+  gv_ConsumableTypes[4].bankName = "SASP";
+
+  gv_ConsumableTypes[5].chargeName = "Item/MediumAttackSpeedPotion";
+  gv_ConsumableTypes[5].effectName = "MediumAttackSpeedPotion";
+  gv_ConsumableTypes[5].bankName = "MASP";
+
+  gv_ConsumableTypes[6].chargeName = "Item/LargeAttackSpeedPotion";
+  gv_ConsumableTypes[6].effectName = "LargeAttackSpeedPotion";
+  gv_ConsumableTypes[6].bankName = "LASP";
+
+  gv_ConsumableTypes[7].chargeName = "Item/GrandAttackSpeedPotion";
+  gv_ConsumableTypes[7].effectName = "GrandAttackSpeedPotion";
+  gv_ConsumableTypes[7].bankName = "GASP";
+
+  gv_ConsumableTypes[8].chargeName = "Item/TownPortal";
+  gv_ConsumableTypes[8].effectName = "TownPortal";
+  gv_ConsumableTypes[8].bankName = "TP";
   return true;
 }
 //--------------------------------------------------------------------------------------------------
