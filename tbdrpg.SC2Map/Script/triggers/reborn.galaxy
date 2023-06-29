@@ -10,150 +10,196 @@ bool gt_Reborn_Func (bool testConds, bool runActions) {
     return true;
   }
 
-  if (!lr_player.state.beatGame) {
-    UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/5DD4D756"));
-  }
+  // if (!lr_player.state.beatGame) {
+  //   UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/5DD4D756"));
+  // }
 
-  if ((UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent) != 100.0)) {
+  if (UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent) != 100.0 && !gf_IsAdmin(lr_player.hand)) {
     UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/5DBA9E25"));
+    return false;
   }
 
-  if (gf_IsAdmin(lr_player.hand) || UnitGetPropertyFixed(lr_player.dragon, c_unitPropLevel, c_unitPropCurrent) == 100.0) {
-    TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
-    TriggerEnable(gt_SaveStackCountsPeriodically, false);
-    lr_player.state.evolving = true;
-    lr_player.stats.reborn.count = (lr_player.stats.reborn.count + 1);
-    UnitGroupRemove(gv_unitsThatDidDamageToSyrital, lr_player.dragon);
-    UnitGroupRemove(gv_unitsthatdidDamagetoSremagsi, lr_player.dragon);
-    UnitGroupRemove(gv_unitsthatdidDamagetoMachinaDePlagam, lr_player.dragon);
-    UnitGroupRemove(gv_dragonsInBioDome, lr_player.dragon);
-    UnitGroupRemove(gv_dragonsInBattleWithGuardians, lr_player.dragon);
-    UnitGroupRemove(gv_dragonInBattleWithZauberer2ndForm, lr_player.dragon);
-    UnitGroupRemove(gv_dragonInBattleWithZauberer1stForm, lr_player.dragon);
-    UnitGroupRemove(gv_contestant2Group, lr_player.dragon);
-    UnitGroupRemove(gv_contestant1Group, lr_player.dragon);
-    UnitGroupRemove(gv_contestant1Group, lr_player.dragon);
-    UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/FE4D7D27"));
-    gf_FillInventory(lr_player);
-    gf_SaveStackCounts(lr_player);
-    UnitRemove(lr_player.dragon);
-    UnitCreate(1, gv_DragonTypes[lr_player.type].unitNames[0], 0, lr_player.player, PointFromId(1), 270.0);
-    lr_player.dragon = UnitLastCreated();
-    lr_talents.hero = lr_player.dragon;
-    UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
-    CameraPan(lr_player.player, RegionGetCenter(RegionFromId(3)), 2.0, -1, 10.0, false);
-    lr_player.stats.reborn.points += 10;
-    libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(lr_player.stats.reborn.points)), lr_player.playerGroupSingle);
-    gf_ApplyRebornStats(lr_player);
-    gf_PutInventoryinInventory(lr_player);
-    gf_LoadStackCounts(lr_player);
-    UnitSelect(lr_player.dragon, lr_player.player, true);
-    BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
-    lib_talent_gf_ResetTalentBuild(lr_talents, 1);
-    lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
-    lr_player.stats.level = 0;
-    lr_player.stats.strength = 0;
-    lr_player.stats.vitality = 0;
-    lr_player.stats.dexterity = 0;
-    lr_player.stats.intelligence = 0;
-    lr_player.stats.agility = 0;
-    lr_player.stats.attributePoints = 5;
-    lr_player.stats.attributeText = FixedToText(lr_player.stats.attributePoints, 0);
-    lr_player.skills.fireSkin = false;
-    lr_player.skills.allSeeingEye = false;
-    lr_player.skills.subzero = -1;
-    lr_player.skills.nova = -1;
-    lr_player.skills.inferno = -1;
-    lr_player.skills.frostSpike = -1;
-    lr_player.skills.flameEgg = -1;
-    lr_player.skills.fireClaw = -1;
-    lr_player.skills.fireball = -1;
-    lr_player.skills.blizzard = -1;
-    gf_SaveSkills(lr_player);
-    libNtve_gf_SetDialogItemText(lr_player.stats.attributeDialog.textBox, lr_player.stats.attributeText, lr_player.playerGroupSingle);
-    BankValueSetFromInt(lr_player.banks.dragonBank, "Ag", lr_player.hand, lr_player.stats.agility);
-    BankValueSetFromInt(lr_player.banks.dragonBank, "De", lr_player.hand, lr_player.stats.dexterity);
-    BankValueSetFromInt(lr_player.banks.dragonBank, "Int", lr_player.hand, lr_player.stats.intelligence);
-    BankValueSetFromInt(lr_player.banks.dragonBank, "Str", lr_player.hand, lr_player.stats.strength);
-    BankValueSetFromInt(lr_player.banks.dragonBank, "Vi", lr_player.hand, lr_player.stats.vitality);
-    BankValueSetFromFixed(lr_player.banks.dragonBank, "AP", lr_player.hand, lr_player.stats.attributePoints);
-    BankValueSetFromFlag(lr_player.banks.dragonBank, "FS", lr_player.hand, lr_player.skills.fireSkin);
-    BankValueSetFromFlag(lr_player.banks.dragonBank, "ASE", lr_player.hand, lr_player.skills.allSeeingEye);
-    lr_player.state.beatGame = false;
-    BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, lr_player.state.beatGame);
-    ObjectiveDestroyAll(lr_player.playerGroupSingle);
-    for (lv_i = 0; lv_i < 10; lv_i += 1) {
-      tmp_loop = IntToString(lv_i);
-      // Base (NPC) quests
-      if (lv_i < 2) {
-        BankSectionRemove(lr_player.banks.dragonBank, "SQ-Base" + tmp_loop + "-0");
-        lr_player.quests.baseQuests[lv_i].state = 0;
-        lr_player.quests.baseQuests[lv_i].kills = 0;
-        lr_player.quests.baseQuests[lv_i].progress = 0;
-      }
-
-      // Waypoints
-      if (lv_i < 5) {
-        lr_player.waypointUnlocked[lv_i] = false;
-        BankValueSetFromFlag(lr_player.banks.dragonBank, "WP" + tmp_loop, lr_player.hand, lr_player.waypointUnlocked[lv_i]);
-      }
-
-      if (lv_i < 6) {
-        // Mana Quests
-        BankSectionRemove(lr_player.banks.dragonBank, "SQ-Mana" + tmp_loop + "-0");
-        lr_player.quests.manaQuests[lv_i].state = 0;
-        lr_player.quests.manaQuests[lv_i].kills = 0;
-        lr_player.quests.manaQuests[lv_i].progress = 0;
-      }
-
-      // Main Questline
-      PingDestroy(lr_player.quests.storyQuests[lv_i].ping);
-      lr_player.quests.storyQuests[lv_i].state = 0;
-      BankSectionRemove(lr_player.banks.dragonBank, "SQ" + tmp_loop);
+  TriggerEnable(gt_SaveStackCountsOnInventoryEdit, false);
+  TriggerEnable(gt_SaveStackCountsPeriodically, false);
+  lr_player.state.evolving = true;
+  lr_player.stats.reborn.count = (lr_player.stats.reborn.count + 1);
+  UnitGroupRemove(gv_unitsThatDidDamageToSyrital, lr_player.dragon);
+  UnitGroupRemove(gv_unitsthatdidDamagetoSremagsi, lr_player.dragon);
+  UnitGroupRemove(gv_unitsthatdidDamagetoMachinaDePlagam, lr_player.dragon);
+  UnitGroupRemove(gv_dragonsInBioDome, lr_player.dragon);
+  UnitGroupRemove(gv_dragonsInBattleWithGuardians, lr_player.dragon);
+  UnitGroupRemove(gv_dragonInBattleWithZauberer2ndForm, lr_player.dragon);
+  UnitGroupRemove(gv_dragonInBattleWithZauberer1stForm, lr_player.dragon);
+  UnitGroupRemove(gv_contestant2Group, lr_player.dragon);
+  UnitGroupRemove(gv_contestant1Group, lr_player.dragon);
+  UnitGroupRemove(gv_contestant1Group, lr_player.dragon);
+  UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/FE4D7D27"));
+  gf_FillInventory(lr_player);
+  gf_SaveStackCounts(lr_player);
+  UnitRemove(lr_player.dragon);
+  UnitCreate(1, gv_DragonTypes[lr_player.type].unitNames[0], 0, lr_player.player, PointFromId(1), 270.0);
+  lr_player.dragon = UnitLastCreated();
+  lr_talents.hero = lr_player.dragon;
+  UnitControlGroupAddUnit(lr_player.player, 1, lr_player.dragon);
+  CameraPan(lr_player.player, RegionGetCenter(RegionFromId(3)), 2.0, -1, 10.0, false);
+  lr_player.stats.reborn.points += 10;
+  libNtve_gf_SetDialogItemText(gv_rebornDialogRebornPointLabel, (StringExternal("Param/Value/7D0AD6CC") + IntToText(lr_player.stats.reborn.points)), lr_player.playerGroupSingle);
+  gf_ApplyRebornStats(lr_player);
+  gf_PutInventoryinInventory(lr_player);
+  gf_LoadStackCounts(lr_player);
+  UnitSelect(lr_player.dragon, lr_player.player, true);
+  BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
+  lib_talent_gf_ResetTalentBuild(lr_talents, 1);
+  lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
+  lr_player.stats.level = 0;
+  lr_player.stats.strength = 0;
+  lr_player.stats.vitality = 0;
+  lr_player.stats.dexterity = 0;
+  lr_player.stats.intelligence = 0;
+  lr_player.stats.agility = 0;
+  lr_player.stats.attributePoints = 5;
+  lr_player.stats.attributeText = FixedToText(lr_player.stats.attributePoints, 0);
+  lr_player.skills.fireSkin = false;
+  lr_player.skills.allSeeingEye = false;
+  lr_player.skills.subzero = -1;
+  lr_player.skills.nova = -1;
+  lr_player.skills.inferno = -1;
+  lr_player.skills.frostSpike = -1;
+  lr_player.skills.flameEgg = -1;
+  lr_player.skills.fireClaw = -1;
+  lr_player.skills.fireball = -1;
+  lr_player.skills.blizzard = -1;
+  gf_SaveSkills(lr_player);
+  libNtve_gf_SetDialogItemText(lr_player.stats.attributeDialog.textBox, lr_player.stats.attributeText, lr_player.playerGroupSingle);
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Ag", lr_player.hand, lr_player.stats.agility);
+  BankValueSetFromInt(lr_player.banks.dragonBank, "De", lr_player.hand, lr_player.stats.dexterity);
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Int", lr_player.hand, lr_player.stats.intelligence);
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Str", lr_player.hand, lr_player.stats.strength);
+  BankValueSetFromInt(lr_player.banks.dragonBank, "Vi", lr_player.hand, lr_player.stats.vitality);
+  BankValueSetFromFixed(lr_player.banks.dragonBank, "AP", lr_player.hand, lr_player.stats.attributePoints);
+  BankValueSetFromFlag(lr_player.banks.dragonBank, "FS", lr_player.hand, lr_player.skills.fireSkin);
+  BankValueSetFromFlag(lr_player.banks.dragonBank, "ASE", lr_player.hand, lr_player.skills.allSeeingEye);
+  lr_player.state.beatGame = false;
+  BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, lr_player.state.beatGame);
+  ObjectiveDestroyAll(lr_player.playerGroupSingle);
+  for (lv_i = 0; lv_i < 10; lv_i += 1) {
+    tmp_loop = IntToString(lv_i);
+    // Base (NPC) quests
+    if (lv_i < 2) {
+      BankSectionRemove(lr_player.banks.dragonBank, "SQ-Base" + tmp_loop + "-0");
+      lr_player.quests.baseQuests[lv_i].state = 0;
+      lr_player.quests.baseQuests[lv_i].kills = 0;
+      lr_player.quests.baseQuests[lv_i].progress = 0;
     }
-    gf_SQ0Setup(lr_player);
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Malin0-0");
-    lr_player.quests.malinQuests[0].state = 0;
-    lr_player.quests.malinQuests[0].kills = 0;
-    lr_player.quests.malinQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Oleum0-0");
-    lr_player.quests.oleumQuests[0].state = 0;
-    lr_player.quests.oleumQuests[0].kills = 0;
-    lr_player.quests.oleumQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Seryn0-0");
-    lr_player.quests.serynQuests[0].state = 0;
-    lr_player.quests.serynQuests[0].kills = 0;
-    lr_player.quests.serynQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Altoss0-0");
-    lr_player.quests.altossQuests[0].state = 0;
-    lr_player.quests.altossQuests[0].kills = 0;
-    lr_player.quests.altossQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Madeleine0-0");
-    lr_player.quests.madelineQuests[0].state = 0;
-    lr_player.quests.madelineQuests[0].kills = 0;
-    lr_player.quests.madelineQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-SergeantLister0-0");
-    lr_player.quests.sergeantListerQuests[0].state = 0;
-    lr_player.quests.sergeantListerQuests[0].kills = 0;
-    lr_player.quests.sergeantListerQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Detsefni0-0");
-    lr_player.quests.detsefniQuests[0].state = 0;
-    lr_player.quests.detsefniQuests[0].kills = 0;
-    lr_player.quests.detsefniQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Greed0-0");
-    lr_player.quests.greedQuests[0].state = 0;
-    lr_player.quests.greedQuests[0].kills = 0;
-    lr_player.quests.greedQuests[0].progress = 0;
-    BankSectionRemove(lr_player.banks.dragonBank, "SQ-Amp0-0");
-    lr_player.quests.ampQuests[0].state = 0;
-    lr_player.quests.ampQuests[0].kills = 0;
-    lr_player.quests.ampQuests[0].progress = 0;
 
-    lr_player.respawnPoint = PointFromId(1);
-    lr_player.stats.level = 1;
-    lr_player.state.evolving = false;
-    gf_StatCheck(lr_player);
+    // Waypoints
+    if (lv_i < 5) {
+      lr_player.waypointUnlocked[lv_i] = false;
+      BankValueSetFromFlag(lr_player.banks.dragonBank, "WP" + tmp_loop, lr_player.hand, lr_player.waypointUnlocked[lv_i]);
+    }
+
+    if (lv_i < 6) {
+      // Mana Quests
+      BankSectionRemove(lr_player.banks.dragonBank, "SQ-Mana" + tmp_loop + "-0");
+      lr_player.quests.manaQuests[lv_i].state = 0;
+      lr_player.quests.manaQuests[lv_i].kills = 0;
+      lr_player.quests.manaQuests[lv_i].progress = 0;
+    }
+
+    // Main Questline
+    PingDestroy(lr_player.quests.storyQuests[lv_i].ping);
+    lr_player.quests.storyQuests[lv_i].state = 0;
+    BankSectionRemove(lr_player.banks.dragonBank, "SQ" + tmp_loop);
   }
+  gf_SQ0Setup(lr_player);
+  // TODO: FIX UP HOW QUEST RESETTING IS DONE.
+  // Mana quests happen in loop.
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.manaQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.manaQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  // Base quests happen in loop.
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4233)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.baseQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.baseQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Malin0-0");
+  lr_player.quests.malinQuests[0].state = 0;
+  lr_player.quests.malinQuests[0].kills = 0;
+  lr_player.quests.malinQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(2516)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.malinQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.malinQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Oleum0-0");
+  lr_player.quests.oleumQuests[0].state = 0;
+  lr_player.quests.oleumQuests[0].kills = 0;
+  lr_player.quests.oleumQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4381)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.oleumQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.oleumQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Seryn0-0");
+  lr_player.quests.serynQuests[0].state = 0;
+  lr_player.quests.serynQuests[0].kills = 0;
+  lr_player.quests.serynQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(2671)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.serynQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.serynQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Altoss0-0");
+  lr_player.quests.altossQuests[0].state = 0;
+  lr_player.quests.altossQuests[0].kills = 0;
+  lr_player.quests.altossQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4946)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.altossQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.altossQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Madeleine0-0");
+  lr_player.quests.madelineQuests[0].state = 0;
+  lr_player.quests.madelineQuests[0].kills = 0;
+  lr_player.quests.madelineQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4945)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.madelineQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.madelineQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-SergeantLister0-0");
+  lr_player.quests.sergeantListerQuests[0].state = 0;
+  lr_player.quests.sergeantListerQuests[0].kills = 0;
+  lr_player.quests.sergeantListerQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4923)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.sergeantListerQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.sergeantListerQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Detsefni0-0");
+  lr_player.quests.detsefniQuests[0].state = 0;
+  lr_player.quests.detsefniQuests[0].kills = 0;
+  lr_player.quests.detsefniQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4922)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.detsefniQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.detsefniQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Greed0-0");
+  lr_player.quests.greedQuests[0].state = 0;
+  lr_player.quests.greedQuests[0].kills = 0;
+  lr_player.quests.greedQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(4924)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.greedQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.greedQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  BankSectionRemove(lr_player.banks.dragonBank, "SQ-Amp0-0");
+  lr_player.quests.ampQuests[0].state = 0;
+  lr_player.quests.ampQuests[0].kills = 0;
+  lr_player.quests.ampQuests[0].progress = 0;
+  TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(444)), 4.0, true, false, lr_player.playerGroupSingle);
+  lr_player.quests.ampQuests[0].textTag = TextTagLastCreated();
+  TextTagSetTime(lr_player.quests.ampQuests[0].textTag, c_textTagTimeDuration, 524287.0);
+
+  lr_player.respawnPoint = PointFromId(1);
+  lr_player.stats.level = 1;
+  lr_player.state.evolving = false;
+  gf_StatCheck(lr_player);
   return true;
 }
 

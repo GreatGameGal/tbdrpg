@@ -2757,7 +2757,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
         else {
           lr_player.quests.manaQuests[1].progress = 0;
           TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(3917)), 4.0, true, false, lr_player.playerGroupSingle);
-          lr_player.quests.manaQuests[1].progress = TextTagLastCreated();
+          lr_player.quests.manaQuests[1].textTag = TextTagLastCreated();
           TextTagSetTime(lr_player.quests.manaQuests[1].textTag, c_textTagTimeDuration, 524287.0);
         }
       }
@@ -2772,7 +2772,7 @@ bool gt_LoadSideQuests_Func (bool testConds, bool runActions) {
       lr_player.quests.malinQuests[0].progress = BankValueGetAsInt(lr_player.banks.dragonBank, "SQ-Malin0-0", lr_player.hand);
       if ((lr_player.quests.malinQuests[0].progress == 0)) {
         TextTagCreate(StringExternal("Param/Value/1B093517"), 72, UnitGetPosition(UnitFromId(2516)), 4.0, true, false, lr_player.playerGroupSingle);
-        lr_player.quests.malinQuests[0].progress = TextTagLastCreated();
+        lr_player.quests.malinQuests[0].textTag = TextTagLastCreated();
         TextTagSetTime(lr_player.quests.malinQuests[0].textTag, c_textTagTimeDuration, 524287.0);
       }
     }
