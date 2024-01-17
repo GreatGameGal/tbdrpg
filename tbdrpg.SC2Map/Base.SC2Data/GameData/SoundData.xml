@@ -166,7 +166,7 @@
         <AssetArray File="Sound Effects\Level Up Sound.wav" FacialGroup=""/>
     </CSound>
     <CSound id="WastelandTheme" parent="MUSIC">
-        <AssetArray File="Dragon Songs\Wasteland Theme.ogg" LoopCount="-1" FacialGroup="">
+        <AssetArray File="Dragon Songs\DRPG_Wasteland.ogg" LoopCount="-1" FacialGroup="">
             <SyncPoints value="0"/>
         </AssetArray>
         <Select value="Sequential"/>
