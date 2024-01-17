@@ -134,7 +134,7 @@
         <Select value="Sequential"/>
     </CSound>
     <CSound id="MachinaDePlagamTheme" parent="MUSIC">
-        <AssetArray File="Dragon Songs\Machina De Plagam Theme.ogg" LoopCount="-1" FacialGroup="">
+        <AssetArray File="Dragon Songs\DRPG_-_Machina_De_Plagum.ogg" LoopCount="-1" FacialGroup="">
             <SyncPoints value="0"/>
         </AssetArray>
         <Select value="Sequential"/>
@@ -190,7 +190,7 @@
         <Select value="Sequential"/>
     </CSound>
     <CSound id="VerbotenTheme" parent="MUSIC">
-        <AssetArray File="Dragon Songs\Verboten Forest -  Dr Meowmins.ogg" LoopCount="-1" FacialGroup="">
+        <AssetArray File="Dragon Songs\DRPG_Verboten_Forest.ogg" LoopCount="-1" FacialGroup="">
             <SyncPoints value="0"/>
         </AssetArray>
         <Select value="Sequential"/>

@@ -876,6 +876,7 @@ DocInfo/PatchNote090=3. Prevent spam adding to an attribute from eating attribut
 DocInfo/PatchNote091=1. Fix story quests with multiple players? 2. Fix skills learning themselves that shouldn't be? 3. Change Learn SubZero hotkey to G.
 DocInfo/PatchNote092=1. Fix attributes showing to learn when they shouldn't.
 DocInfo/PatchNote093=2. Really fix stat points being eaten in spam adding this time. 3. Prevented wasting reborn points but adding above the maximum.
+DocInfo/PatchNote094=Add new original songs from the Map's Original Creator.
 DocInfo/PatchNote100=36. Reborn Movement speed, gold drop, and item drop rate now properly saved/loaded
 DocInfo/Screenshot01=Fight countless types of enemies.
 DocInfo/Screenshot02=Duke it out inside The Arena.
@@ -1100,6 +1101,7 @@ Param/Value/2E645223=The Creton, Humans, and Dragons were all in alliance with o
 Param/Value/2ED27256= has died.
 Param/Value/2FDE90B5=To go into the cave, you can command your unit into the cave. You will automatically enter it.
 Param/Value/2FF83803=Feel free to exit at any time.
+Param/Value/2SPACE=  
 Param/Value/301CAD94=<c val="408080">Reward:</c> 1,500 EXP, 10,000 Gold
 Param/Value/302FEAEA=<c val="FF0000">Verboten Forest:<c/><n/>Level 25+<n/><n/><c val="FF0000">The fallen can only be seen with a third eye.</c>
 Param/Value/30903FF0=Darkness Within
@@ -1209,7 +1211,6 @@ Param/Value/506A51FE=<s val="SwarmReticleTerranBonusObjective"><c val="FE312C">A
 Param/Value/509C3FEA=Accept
 Param/Value/50B63FB2=Only a true hero may wield this weapon.
 Param/Value/513D3FB6=Ballan
-Param/Value/PVP_VS= Vs 
 Param/Value/517FDC8E=Kill Illisus
 Param/Value/5188E700=<c val="FF0000">You do not have enough Attribute Points.</c>
 Param/Value/52CCADF4=Petrose
@@ -1287,12 +1288,6 @@ Param/Value/66E7D47B=Teleport to Creton
 Param/Value/670F1B94=A Portal
 Param/Value/673F3B18=Stash
 Param/Value/67477194=Mister Scruffers! Mister Scruffers! Here boy!<n/>...<n/>Oh thank god. Have you seen my dog Mister Scruffers. He is my doggy companion. Could you please help me find out where he is? Last time I saw him he was to the south of Relamy Hills.
-Param/Value/NO_VALID_POT=No Valid Potions Available
-Param/Value/POT_ON_COOLDOWN=Potion Cooldown Active
-Param/Value/SMALL_POT_HP=Small Health Potion Used
-Param/Value/MEDIUM_POT_HP=Medium Health Potion Used
-Param/Value/LARGE_POT_HP=Large Health Potion Used
-Param/Value/GRAND_POT_HP=Grand Health Potion Used
 Param/Value/67E874D2=<c val="408080">Reward:</c> Medium Healing Orb & 1000 EXP
 Param/Value/684E7509='s dragon is now level 
 Param/Value/68A2CF78=Decline
@@ -1710,7 +1705,6 @@ Param/Value/F5929901=Lanae
 Param/Value/F5DB17C5=Kill an Elite Creton Warrior
 Param/Value/F60085E0=( 
 Param/Value/F63238DB=+
-Param/Value/HEALTH_FULL=Health is Full
 Param/Value/F6C42C62=Fake VT -
 Param/Value/F6D87979=<c val="408080">Reward:</c> 100 EXP
 Param/Value/F73D4991=Now that you are level 100 you have unlocked the ability to rebirth your dragon. You can type -Reborn at any time to do this.<n/><n/>This will start you over again as a level 1 dragon.<n/><n/>Things that reset:<n/><n/>-Stats<n/>-Level<n/>-Talents<n/>-Skills<n/>-Boss abilities<n/><n/>Things that save:<n/><n/>-Minerals<n/>-Vespene<n/>-Items<n/><n/>Things you gain:<n/><n/>-Bragging rights<n/>-New buff (Stacks each time you rebirth your dragon)
@@ -1747,6 +1741,15 @@ Param/Value/FDEBF9A4=Stash
 Param/Value/FE4D7D27=You are a god among dragons. As reward you have recieved <c val="FFFF00">10</c> <c val="FF0000">Reborn Points</c>.
 Param/Value/FF85D4A6=You gain @ health for every 10 melee damage you do.
 Param/Value/FFDAB444=Kill 10 Creton Warriors<n/>
+Param/Value/GRAND_POT_HP=Grand Health Potion Used
+Param/Value/HEALTH_FULL=Health is Full
+Param/Value/LARGE_POT_HP=Large Health Potion Used
+Param/Value/MEDIUM_POT_HP=Medium Health Potion Used
+Param/Value/NO_VALID_POT=No Valid Potions Available
+Param/Value/POT_ON_COOLDOWN=Potion Cooldown Active
+Param/Value/PVP_VS= Vs 
+Param/Value/SMALL_POT_HP=Small Health Potion Used
+Param/Value/SPACE= 
 Param/Value/lib_1_02BBAD52=point
 Param/Value/lib_1_04F5E258=<s val="StandardTooltip">
 Param/Value/lib_1_09FBC8F4=<s val="StandardTooltipHeader">
@@ -1755,8 +1758,6 @@ Param/Value/lib_1_1ECE9A68=</s>
 Param/Value/lib_1_20CC4B21=<s val="StandardTooltipHeader">
 Param/Value/lib_1_269556FE=</s><n/><n/>
 Param/Value/lib_1_28B4F42A=<img path="Assets\Textures\icon-time-terran.dds" width="16" height="16"/> 
-Param/Value/SPACE= 
-Param/Value/2SPACE=  
 Param/Value/lib_1_2F659930=$
 Param/Value/lib_1_31AEA4D1=<s val="StandardTooltip"><c val="FF0000">Requires 
 Param/Value/lib_1_35BCD81C=<s val="HelpPanelListBoxItemTitle">points<n/>    left</s>
