@@ -1,0 +1,230 @@
+void gf_LoadDragonCheck (Player_r lr_player) {
+  int lv__Bank;
+  int lv__Manual;
+
+
+  if (!lr_player.verification.dragon) {
+    lv__Manual = gv_DSNMod + UnitLevel(lr_player.dragon) + ModI(FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropXP, c_unitPropCurrent)), 1000);
+    lv__Bank = BankValueGetAsInt(lr_player.banks.dragonBank, "DSN", lr_player.hand);
+    BankWait(lr_player.banks.rebornBank);
+    if (lv__Bank != lv__Manual) {
+      UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/E00252DC") + IntToText(ModI(FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropXP, c_unitPropCurrent)), 1000)));
+      //GameOver(p, c_gameOverDefeat, true, true);
+      UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Please let GreatGameGal or Offline know! Bypassing security check."));
+      lr_player.verification.dragon = true;
+    }
+    else {
+      lr_player.verification.dragon = true;
+    }
+  }
+}
+
+void gf_LoadHPC (Player_r lr_player) {
+  int lv_hPCBank;
+  int lv_hPCManual;
+
+  if ((PlayerStatus(lr_player.player) == c_playerStatusActive)) {
+    if (BankSectionExists(lr_player.banks.currencyBank, "HPC")) {
+      lr_player.currency.shards = (BankValueGetAsInt(lr_player.banks.currencyBank, "Shards", lr_player.hand) / 1);
+      PlayerModifyPropertyInt(lr_player.player, c_playerPropCustom, c_playerPropOperSetTo, lr_player.currency.shards);
+      lr_player.currency.gold = (BankValueGetAsInt(lr_player.banks.currencyBank, "Gold", lr_player.hand) / 1);
+      PlayerModifyPropertyInt(lr_player.player, c_playerPropMinerals, c_playerPropOperSetTo, lr_player.currency.gold);
+      lr_player.currency.pvpPoints = (BankValueGetAsInt(lr_player.banks.currencyBank, "PvP Points", lr_player.hand) / 1);
+      PlayerModifyPropertyInt(lr_player.player, c_playerPropVespene, c_playerPropOperSetTo, lr_player.currency.pvpPoints);
+      lv_hPCManual = (lr_player.currency.shards + (lr_player.currency.gold + (lr_player.currency.pvpPoints + gv_HPCMod)));
+      lv_hPCBank = BankValueGetAsInt(lr_player.banks.currencyBank, "HPC", lr_player.hand);
+      if ((lv_hPCBank != lv_hPCManual)) {
+        if ((lv_hPCBank == -10691)) {
+          UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/10F95778"));
+          lr_player.verification.hpc = true;
+        }
+        else {
+          UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/7CC796A6"));
+          GameOver(lr_player.player, c_gameOverDefeat, true, true);
+        }
+      }
+      else {
+        lr_player.verification.hpc = true;
+      }
+    }
+    else {
+      if (BankSectionExists(lr_player.banks.dragonBank, "Gold") && BankSectionExists(lr_player.banks.dragonBank, "PvP Points") && BankSectionExists(lr_player.banks.dragonBank, "Shards")) {
+        UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/A7264C2D"));
+        GameOver(lr_player.player, c_gameOverDefeat, true, true);
+      }
+      else {
+        lr_player.verification.hpc = true;
+      }
+    }
+  }
+}
+
+void gf_LoadHRC (Player_r lr_player) {
+  int lv_hRCBank;
+  int lv_hRCManual;
+  int lv_checkVariable;
+
+  if ((PlayerStatus(lr_player.player) == c_playerStatusActive)) {
+    if (BankSectionExists(lr_player.banks.rebornBank, "HRC")) {
+      lr_player.stats.reborn.regen = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn RegenerationUp", lr_player.hand);
+      lr_player.stats.reborn.points = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Points", lr_player.hand);
+      lr_player.stats.reborn.movementSpeed = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn MovementSpeedUp", lr_player.hand);
+      lr_player.stats.reborn.miss = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Miss%Down", lr_player.hand);
+      lr_player.stats.reborn.maxMP = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn MaxMPUp", lr_player.hand);
+      lr_player.stats.reborn.maxHP = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn MaxHPUp", lr_player.hand);
+      lr_player.stats.reborn.itemDrop = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn ItemDrop%Up", lr_player.hand);
+      lr_player.stats.reborn.goldDrop = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn GoldDrop%Up", lr_player.hand);
+      lr_player.stats.reborn.dodge = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Dodge%Up", lr_player.hand);
+      lr_player.stats.reborn.defense = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn DefenseUp", lr_player.hand);
+      lr_player.stats.reborn.count = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn Count", lr_player.hand);
+      lr_player.stats.reborn.attackSpeed = BankValueGetAsInt(lr_player.banks.rebornBank, "Reborn AttackSpeedUp", lr_player.hand);
+      lv_hRCManual = 
+        lr_player.stats.reborn.regen +
+        lr_player.stats.reborn.points +
+        lr_player.stats.reborn.movementSpeed +
+        lr_player.stats.reborn.miss +
+        lr_player.stats.reborn.maxMP +
+        lr_player.stats.reborn.maxHP +
+        lr_player.stats.reborn.itemDrop +
+        lr_player.stats.reborn.goldDrop +
+        lr_player.stats.reborn.dodge +
+        lr_player.stats.reborn.defense + 
+        lr_player.stats.reborn.count + 
+        lr_player.stats.reborn.attackSpeed +
+        gv_HRCMod;
+      lv_hRCBank = BankValueGetAsInt(lr_player.banks.rebornBank, "HRC", lr_player.hand);
+      BankWait(lr_player.banks.rebornBank);
+      if ((lv_hRCBank != lv_hRCManual)) {
+        if ((lv_hRCBank == -10691)) {
+          UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/D79EFB21"));
+          lr_player.verification.hrc = true;
+        }
+        else {
+          UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/4C304E5E"));
+          GameOver(lr_player.player, c_gameOverDefeat, true, true);
+        }
+      }
+      else {
+        lv_checkVariable = (lr_player.stats.reborn.regen + (lr_player.stats.reborn.points + ((lr_player.stats.reborn.movementSpeed + (((lr_player.stats.reborn.miss + lr_player.stats.reborn.maxMP) + lr_player.stats.reborn.maxHP) + (((lr_player.stats.reborn.itemDrop + lr_player.stats.reborn.goldDrop) + lr_player.stats.reborn.dodge) + lr_player.stats.reborn.defense))) + lr_player.stats.reborn.attackSpeed)));
+        if (((lr_player.stats.reborn.count * 10) != lv_checkVariable)) {
+          UIDisplayMessage(lr_player.playerGroupSingle, c_messageAreaSubtitle, StringExternal("Param/Value/E49171F1"));
+          lr_player.stats.reborn.regen = 0;
+          lr_player.stats.reborn.movementSpeed = 0;
+          lr_player.stats.reborn.miss = 0;
+          lr_player.stats.reborn.maxMP = 0;
+          lr_player.stats.reborn.maxHP = 0;
+          lr_player.stats.reborn.itemDrop = 0;
+          lr_player.stats.reborn.goldDrop = 0;
+          lr_player.stats.reborn.dodge = 0;
+          lr_player.stats.reborn.defense = 0;
+          lr_player.stats.reborn.attackSpeed = 0;
+          lr_player.stats.reborn.points = (lr_player.stats.reborn.count * 10);
+        }
+        lr_player.verification.hrc = true;
+      }
+    }
+    else {
+      lr_player.verification.hrc = true;
+    }
+  }
+}
+
+void gf_LoadSkills (Player_r lr_player) {  
+  if (BankSectionExists(lr_player.banks.dragonBank, "FDFB")) {
+    lr_player.skills.fireball = BankValueGetAsInt(lr_player.banks.dragonBank, "FDFB", lr_player.hand);
+    if (lr_player.skills.fireball >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsFire", 0);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsFire", 0, lr_player.skills.fireball + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "FDFC")) {
+    lr_player.skills.fireClaw = BankValueGetAsInt(lr_player.banks.dragonBank, "FDFC", lr_player.hand);
+    if (lr_player.skills.fireClaw >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsFire", 1);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsFire", 1, lr_player.skills.fireClaw + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "FDFE")) {
+    lr_player.skills.flameEgg = BankValueGetAsInt(lr_player.banks.dragonBank, "FDFE", lr_player.hand);
+    if (lr_player.skills.flameEgg >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsFire", 2);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsFire", 2, lr_player.skills.flameEgg + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "FDI")) {
+    lr_player.skills.inferno = BankValueGetAsInt(lr_player.banks.dragonBank, "FDI", lr_player.hand);
+    if (lr_player.skills.inferno >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsFire", 3);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsFire", 3, lr_player.skills.inferno + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "FDN")) {
+    lr_player.skills.nova = BankValueGetAsInt(lr_player.banks.dragonBank, "FDN", lr_player.hand);
+    if (lr_player.skills.nova >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsFire", 4);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsFire", 4, lr_player.skills.nova + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "IDFS")) {
+    lr_player.skills.frostSpike = BankValueGetAsInt(lr_player.banks.dragonBank, "IDFS", lr_player.hand);
+    if (lr_player.skills.frostSpike >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsIce", 0);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsIce", 0, lr_player.skills.frostSpike + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "IDB")) {
+    lr_player.skills.blizzard = BankValueGetAsInt(lr_player.banks.dragonBank, "IDB", lr_player.hand);
+    if (lr_player.skills.blizzard >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsIce", 1);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsIce", 1, lr_player.skills.blizzard + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "IDSZ")) {
+    lr_player.skills.subzero = BankValueGetAsInt(lr_player.banks.dragonBank, "IDSZ", lr_player.hand);
+    if (lr_player.skills.subzero >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsIce", 2);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsIce", 2, lr_player.skills.subzero + 1);
+    }
+  }
+  if (BankSectionExists(lr_player.banks.dragonBank, "IDFA")) {
+    lr_player.skills.frozenArmour = BankValueGetAsInt(lr_player.banks.dragonBank, "IDFA", lr_player.hand);
+    if (lr_player.skills.frozenArmour >= 0) {
+      UnitLearnAbilResetLevel(lr_player.dragon, "LearnSkillsIce", 3);
+      UnitLearnAbilAddLevel(lr_player.dragon, "LearnSkillsIce", 3, lr_player.skills.frozenArmour + 1);
+    }
+  }
+}
+
+void gf_LoadStackCounts (Player_r lr_player) {
+  int lv_i;
+  fixed lv_chargesUsed;
+
+  for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
+    for (lv_i = 0; lv_i < gv_StackableTypeCount; lv_i += 1) {
+      if (UnitGetType(UnitGroupLoopCurrent()) == gv_ConsumableTypes[lv_i].effectName && BankSectionExists(lr_player.banks.dragonBank, gv_ConsumableTypes[lv_i].bankName)) {
+        lv_chargesUsed = BankValueGetAsFixed(lr_player.banks.dragonBank, gv_ConsumableTypes[lv_i].bankName, lr_player.hand) - UnitGetChargeUsed(UnitGroupLoopCurrent(), gv_ConsumableTypes[lv_i].chargeName);
+        UnitAddChargeUsed(UnitGroupLoopCurrent(), gv_ConsumableTypes[lv_i].chargeName, lv_chargesUsed);
+      }
+    }
+  }
+  UnitGroupLoopEnd();
+}
+
+void gf_LoadStash (Player_r lr_player) {
+  if ((PlayerStatus(lr_player.player) == c_playerStatusActive)) {
+    if (BankSectionExists(lr_player.banks.stashBank, "Stash")) {
+      TechTreeUpgradeAddLevel(lr_player.player, "Stash1", BankValueGetAsInt(lr_player.banks.stashBank, "One", lr_player.hand));
+      TechTreeUpgradeAddLevel(lr_player.player, "Stash12", BankValueGetAsInt(lr_player.banks.stashBank, "Two", lr_player.hand));
+      TechTreeUpgradeAddLevel(lr_player.player, "Stash13", BankValueGetAsInt(lr_player.banks.stashBank, "Three", lr_player.hand));
+      TechTreeUpgradeAddLevel(lr_player.player, "Stash14", BankValueGetAsInt(lr_player.banks.stashBank, "Four", lr_player.hand));
+      TechTreeUpgradeAddLevel(lr_player.player, "Stash15", BankValueGetAsInt(lr_player.banks.stashBank, "Five", lr_player.hand));
+      TechTreeUpgradeAddLevel(lr_player.player, "Stash16", BankValueGetAsInt(lr_player.banks.stashBank, "Six", lr_player.hand));
+      BankValueGetAsUnit(lr_player.banks.stashBank, "Stash", lr_player.hand, lr_player.player, lr_player.stash.location, 270.0);
+      lr_player.stash.stashUnit = BankLastRestoredUnit();
+    }
+    else {
+      UnitCreate(1, "Stash", c_unitCreateIgnorePlacement, lr_player.player, lr_player.stash.location, 270.0);
+      lr_player.stash.stashUnit = UnitLastCreated();
+    }
+  }
+}

@@ -1,0 +1,165 @@
+void gf_SaveHero (Player_r lr_player) {
+  int lv_dsn;
+  if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp && UnitIsAlive(lr_player.dragon) && lr_player.verification.dragon) {
+    lv_dsn = gv_DSNMod + UnitLevel(lr_player.dragon) + ModI(FixedToInt(UnitGetPropertyFixed(lr_player.dragon, c_unitPropXP, c_unitPropCurrent)), 1000);
+    BankValueSetFromUnit(lr_player.banks.dragonBank, "Dragon", lr_player.hand, lr_player.dragon);
+    BankValueSetFromInt(lr_player.banks.dragonBank, "DSN", lr_player.hand, lv_dsn);
+  }
+}
+
+void gf_SaveHPC (Player_r lr_player) {
+  int lv_hPC;
+  
+  if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp && lr_player.verification.hpc) {
+    lr_player.currency.shards = PlayerGetPropertyInt(lr_player.player, c_playerPropCustom);
+    BankValueSetFromInt(lr_player.banks.currencyBank, "Shards", lr_player.hand, lr_player.currency.shards);
+    lr_player.currency.pvpPoints = PlayerGetPropertyInt(lr_player.player, c_playerPropVespene);
+    BankValueSetFromInt(lr_player.banks.currencyBank, "PvP Points", lr_player.hand, lr_player.currency.pvpPoints);
+    lr_player.currency.gold = PlayerGetPropertyInt(lr_player.player, c_playerPropMinerals);
+    BankValueSetFromInt(lr_player.banks.currencyBank, "Gold", lr_player.hand, lr_player.currency.gold);
+    lv_hPC = (lr_player.currency.shards + (lr_player.currency.gold + (lr_player.currency.pvpPoints + gv_HPCMod)));
+    BankValueSetFromInt(lr_player.banks.currencyBank, "HPC", lr_player.hand, lv_hPC);
+    BankSave(lr_player.banks.currencyBank);
+  }
+}
+
+void gf_SaveHRC (Player_r lr_player) {
+  int lv_hRC;
+  
+  if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp && lr_player.verification.hrc) {
+    lv_hRC = 
+    lr_player.stats.reborn.regen + 
+    lr_player.stats.reborn.points + 
+    lr_player.stats.reborn.movementSpeed + 
+    lr_player.stats.reborn.miss +
+    lr_player.stats.reborn.maxMP + 
+    lr_player.stats.reborn.maxHP +
+    lr_player.stats.reborn.itemDrop +
+    lr_player.stats.reborn.goldDrop +
+    lr_player.stats.reborn.dodge +
+    lr_player.stats.reborn.defense +
+    lr_player.stats.reborn.count +
+    lr_player.stats.reborn.attackSpeed + 
+    gv_HRCMod;
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn Points", lr_player.hand, lr_player.stats.reborn.points);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn MaxHPUp", lr_player.hand, lr_player.stats.reborn.maxHP);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn MaxMPUp", lr_player.hand, lr_player.stats.reborn.maxMP);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn DefenseUp", lr_player.hand, lr_player.stats.reborn.defense);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn MovementSpeedUp", lr_player.hand, lr_player.stats.reborn.movementSpeed);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn AttackSpeedUp", lr_player.hand, lr_player.stats.reborn.attackSpeed);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn Dodge%Up", lr_player.hand, lr_player.stats.reborn.dodge);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn Miss%Down", lr_player.hand, lr_player.stats.reborn.miss);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn GoldDrop%Up", lr_player.hand, lr_player.stats.reborn.goldDrop);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn ItemDrop%Up", lr_player.hand, lr_player.stats.reborn.itemDrop);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn RegenerationUp", lr_player.hand, lr_player.stats.reborn.regen);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "Reborn Count", lr_player.hand, lr_player.stats.reborn.count);
+    BankValueSetFromInt(lr_player.banks.rebornBank, "HRC", lr_player.hand, lv_hRC);
+    BankSave(lr_player.banks.rebornBank);
+  }
+}
+
+void gf_SaveSkills (Player_r lr_player) {
+  if ((PlayerStatus(lr_player.player) != c_playerStatusActive)) {
+    return;
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "Fireball", true)) {
+        lr_player.skills.fireball = UnitAbilityGetLevel(lr_player.dragon, "Fireball");
+        BankValueSetFromInt(lr_player.banks.dragonBank, "FDFB", lr_player.hand, lr_player.skills.fireball);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "FDFB")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "FDFB");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "FireClaws", true)) {
+        lr_player.skills.fireClaw = UnitAbilityGetLevel(lr_player.dragon, "FireClaws");
+        BankValueSetFromInt(lr_player.banks.dragonBank, "FDFC", lr_player.hand, lr_player.skills.fireClaw);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "FDFC")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "FDFC");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "FlameEgg", true)) {
+    lr_player.skills.flameEgg = UnitAbilityGetLevel(lr_player.dragon, "FlameEgg");
+    BankValueSetFromInt(lr_player.banks.dragonBank, "FDFE", lr_player.hand, lr_player.skills.flameEgg);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "FDFE")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "FDFE");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "Inferno", true)) {
+    lr_player.skills.inferno = UnitAbilityGetLevel(lr_player.dragon, "Inferno");
+    BankValueSetFromInt(lr_player.banks.dragonBank, "FDI", lr_player.hand, lr_player.skills.inferno);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "FDI")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "FDI");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "Nova", true)) {
+    lr_player.skills.nova = UnitAbilityGetLevel(lr_player.dragon, "Nova");
+    BankValueSetFromInt(lr_player.banks.dragonBank, "FDN", lr_player.hand, lr_player.skills.nova);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "FDN")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "FDN");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "FrostSpike", true)) {
+    lr_player.skills.frostSpike = UnitAbilityGetLevel(lr_player.dragon, "FrostSpike");
+    BankValueSetFromInt(lr_player.banks.dragonBank, "IDFS", lr_player.hand, lr_player.skills.frostSpike);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "IDFS")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "IDFS");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "Blizzard", true)) {
+    lr_player.skills.blizzard = UnitAbilityGetLevel(lr_player.dragon, "Blizzard");
+    BankValueSetFromInt(lr_player.banks.dragonBank, "IDB", lr_player.hand, lr_player.skills.blizzard);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "IDB")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "IDB");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "SubZero", true)) {
+    lr_player.skills.subzero = UnitAbilityGetLevel(lr_player.dragon, "SubZero");
+    BankValueSetFromInt(lr_player.banks.dragonBank, "IDSZ", lr_player.hand, lr_player.skills.subzero);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "IDSZ")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "IDSZ");
+  }
+  if (UnitAbilityCheck(lr_player.dragon, "FrozenArmor", true)) {
+    lr_player.skills.frozenArmour = UnitAbilityGetLevel(lr_player.dragon, "FrozenArmor");
+    BankValueSetFromInt(lr_player.banks.dragonBank, "IDFA", lr_player.hand, lr_player.skills.frozenArmour);
+  } else if (BankSectionExists(lr_player.banks.dragonBank, "IDFA")) {
+    BankSectionRemove(lr_player.banks.dragonBank, "IDFA");
+  }
+}
+
+void gf_SaveStackCounts (Player_r lr_player) {
+  int lv_i;
+  ;
+  for (UnitGroupLoopBegin(UnitInventoryGroup(lr_player.dragon)); !UnitGroupLoopDone(); UnitGroupLoopStep()) {
+    for (lv_i = 0; lv_i < gv_StackableTypeCount; lv_i += 1) {
+      if (UnitGetType(UnitGroupLoopCurrent()) == gv_ConsumableTypes[lv_i].effectName) {
+        lr_player.stackableCount[lv_i] = UnitGetChargeUsed(UnitGroupLoopCurrent(), gv_ConsumableTypes[lv_i].chargeName);
+        BankValueSetFromFixed(lr_player.banks.dragonBank, gv_ConsumableTypes[lv_i].bankName, lr_player.hand, lr_player.stackableCount[lv_i]);
+      }
+    }
+  }
+  UnitGroupLoopEnd();
+}
+
+void gf_SaveStash (Player_r lr_player) {
+  if ((PlayerStatus(lr_player.player) == c_playerStatusActive) && gv_playersSetUp) {
+    BankValueSetFromUnit(lr_player.banks.stashBank, "Stash", lr_player.hand, lr_player.stash.stashUnit);
+    BankValueSetFromInt(lr_player.banks.stashBank, "One", lr_player.hand, TechTreeUpgradeCount(lr_player.player, "Stash1", c_techCountCompleteOnly));
+    BankValueSetFromInt(lr_player.banks.stashBank, "Two", lr_player.hand, TechTreeUpgradeCount(lr_player.player, "Stash12", c_techCountCompleteOnly));
+    BankValueSetFromInt(lr_player.banks.stashBank, "Three", lr_player.hand, TechTreeUpgradeCount(lr_player.player, "Stash13", c_techCountCompleteOnly));
+    BankValueSetFromInt(lr_player.banks.stashBank, "Four", lr_player.hand, TechTreeUpgradeCount(lr_player.player, "Stash14", c_techCountCompleteOnly));
+    BankValueSetFromInt(lr_player.banks.stashBank, "Five", lr_player.hand, TechTreeUpgradeCount(lr_player.player, "Stash15", c_techCountCompleteOnly));
+    BankValueSetFromInt(lr_player.banks.stashBank, "Six", lr_player.hand, TechTreeUpgradeCount(lr_player.player, "Stash16", c_techCountCompleteOnly));
+    BankSave(lr_player.banks.stashBank);
+  }
+}
+
+
+
+void gf_Save (Player_r lr_player) {
+  TalentTree_r lr_talents = lib_talent_gv_playerTalents[lr_player.player - 1];
+  if (!lr_player.state.isSavingExiting && !lr_player.state.preventSave && gv_playersSetUp) {
+    lr_player.state.isSavingExiting = true;
+    gf_SaveStackCounts(lr_player);
+    gf_SaveHero(lr_player);
+    gf_SaveStash(lr_player);
+    gf_SaveSkills(lr_player);
+    gf_SaveHPC(lr_player);
+    gf_SaveHRC(lr_player);
+    BankValueSetFromFlag(lr_player.banks.dragonBank, "GB", lr_player.hand, lr_player.state.beatGame);
+    BankSave(lr_player.banks.dragonBank);
+    lib_talent_gf_SaveTalentBuild(lr_talents, 1, gv_DragonTypes[lr_player.type].talentBuildName);
+    lr_player.state.isSavingExiting = false;
+  }
+}
